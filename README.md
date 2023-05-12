@@ -99,6 +99,6 @@ JIRA-1234 feat(profile): Added avatar for user
 
 ### Пожелания, предложения, замечания
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- telegramm [@bakhirev](https://t.me/volarenege)
+- telegramm [@bakhirev](https://t.me/bakhirev)
 - сайт [https://assayo.jp/](https://assayo.jp/)
 
