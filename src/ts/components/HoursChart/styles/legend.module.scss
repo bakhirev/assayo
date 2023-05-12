@@ -1,0 +1,94 @@
+@import '../../../../styles/variables';
+
+.legend {
+  display: block;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: 24px 0 0 0;
+
+  --commits-by-hours-size: calc((100vw - 400px) / 25);
+
+  &_item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0 6px 0;
+  }
+
+  &_work,
+  &_weekend,
+  &_count {
+    font-size: var(--font-xs);
+    display: inline-block;
+    width: var(--commits-by-hours-size);
+    height: var(--commits-by-hours-size);
+    line-height: var(--commits-by-hours-size);
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #FFFFFF;
+  }
+
+  &_work {
+    opacity: 0.8;
+    background-color: var(--color-first);
+  }
+
+  &_weekend {
+    opacity: 0.8;
+    background-color: var(--color-second);
+  }
+
+  &_count {
+    color: var(--color-black);
+    border: 1px solid var(--color-grey);
+    background-color: #FFFFFF;
+  }
+
+  &_title {
+    font-weight: 100;
+    font-size: var(--font-xs);
+
+    display: inline-block;
+    width: 100%;
+    padding: 0 0 0 12px;
+    margin: 0 auto;
+
+    text-align: left;
+    line-height: 1.3;
+    text-decoration: none;
+    box-sizing: border-box;
+    vertical-align: bottom;
+    color: var(--color-black);
+
+    &:before {
+      content: "—";
+      display: inline-block;
+      margin: 0 12px 0 0;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .day_time_mm {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .user {
+    --commits-by-hours-size: calc((100vw - 156px) / 25);
+  }
+}
+
+@media (max-width: 900px) {
+  .day_time,
+  .day_name,
+  .hour {
+    font-size: var(--font-xxs);
+  }
+
+  .hour {
+    border-radius: 0;
+    border: none;
+  }
+}

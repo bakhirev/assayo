@@ -1,0 +1,79 @@
+@import '../../../../styles/variables.scss';
+
+.switch {
+  display: block;
+  width: calc(100% - 24px);
+  padding: 4px;
+  margin: 0 0 40px 0;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: none;
+  background-color: #252735;
+}
+
+.switch_item {
+  display: inline-block;
+  width: 50%;
+  max-width: 50%;
+  padding: 8px 20px;
+  margin: 0;
+
+  font-size: var(--font-s);
+  font-weight: 100;
+
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #84858D;
+
+  &.selected {
+    color: #FFFFFF;
+    background-color: #37394B;
+  }
+
+  &_icon {
+    display: none;
+    height: 16px;
+    width: 16px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: top;
+  }
+
+  &_icon > svg {
+    fill: #84858D;
+  }
+}
+
+.switch_item:last-child {
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .switch {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .switch_item {
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding: 6px 0;
+    margin: 0 0 6px 0;
+    text-align: center;
+    border-radius: 4px;
+
+    &_title {
+      display: none;
+    }
+    &_icon {
+      display: inline-block;
+    }
+  }
+}

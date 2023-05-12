@@ -1,0 +1,21 @@
+@import '../../../../styles/variables';
+
+.show_all {
+  position: relative;
+  font-weight: 100;
+  font-size: var(--font-s);
+
+  display: block;
+  overflow: hidden;
+  padding: var(--space-s) var(--space-s);
+  margin: var(--space-s) 0;
+
+  line-height: var(--font-m);
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,0 +1,85 @@
+@import '../../../../styles/variables';
+
+.welcome_console {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.welcome_console_header,
+.welcome_console_body {
+  font-size: var(--font-s);
+  font-weight: 100;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.welcome_console_header {
+  display: block;
+  height: 32px;
+  padding: 0 8px;
+  line-height: 20px;
+  color: #8F8F8F;
+  white-space: nowrap;
+  text-align: left;
+  border: 1px solid #D4D4D4;
+  border-bottom: none;
+  cursor: default;
+  background-color: #F2F2F2;
+  border-radius: 4px 4px 0 0;
+}
+
+.welcome_console_body {
+  height: 250px;
+  padding: 8px 16px 16px;
+  line-height: 1.3;
+  color: #00B200;
+  white-space: normal;
+  background-color: #0C0C0C;
+  border-radius: 0 0 4px 4px;
+}
+
+.welcome_console_header_icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 6px 8px 0 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #B5B5B5;
+  background: linear-gradient(90deg, #D7D8DB 0%, #B5B5B5 100%);
+}
+
+
+.welcome_console_copy {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+
+  font-size: 13px;
+  font-weight: 100;
+  display: block;
+  padding: 6px 12px;
+  line-height: 13px;
+
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+
+  color: #8F8F8F;
+  border: 1px solid #F2F2F2;
+  background-color: #F2F2F2;
+}
+
+.welcome_console_copy:hover {
+  bottom: 15px;
+  right: 15px;
+  background-color: #EDEDED;
+}

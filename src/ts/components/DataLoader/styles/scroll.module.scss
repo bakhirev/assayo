@@ -1,0 +1,18 @@
+@import '../../../../styles/variables';
+
+.infinite_scroll_border_top,
+.infinite_scroll_border_bottom {
+  position: sticky;
+  z-index: 3;
+  background-color: white;
+}
+
+.infinite_scroll_border_top {
+  top: 0;
+  height: var(--space-s);
+}
+
+.infinite_scroll_border_bottom {
+  bottom: -2px;
+  height: var(--space-s);
+}

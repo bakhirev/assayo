@@ -1,0 +1,56 @@
+@import '../../../../styles/variables';
+
+.year_chart_month {
+  --day-size: 16px;
+  --month-size: calc(var(--day-size) * 7 + 7px);
+  display: inline-block;
+  width: var(--month-size);
+  margin: var(--day-size) var(--day-size) 0 0;
+  vertical-align: top;
+
+  &_header {
+    position: relative;
+    display: block;
+    height: 24px;
+
+    &_title,
+    &_money {
+      font-weight: 100;
+      font-size: var(--font-xs);
+      font-family: Arial, Verdana, sans-serif;
+
+      display: block;
+      padding: 0;
+      margin: 0 auto;
+
+      text-align: left;
+      line-height: var(--font-m);
+      text-decoration: none;
+      vertical-align: bottom;
+      color: var(--color-black);
+    }
+
+    &_money {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &_body {
+    position: relative;
+    display: block;
+    width: var(--month-size);
+    max-width: var(--month-size);
+
+    &_day {
+      display: inline-block;
+      width: var(--day-size);
+      height:  var(--day-size);
+      margin: 0 1px 1px 0;
+      vertical-align: top;
+      background-color: var(--color-border);
+      background-blend-mode: screen;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import '../../../styles/variables';
+
+.main_wrapper {
+  display: block;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  &_white {
+    position: relative;
+    display: inline-block;
+    padding: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+    white-space: normal;
+    box-sizing: border-box;
+    vertical-align: top;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: #FFFFFF;
+  }
+
+  &_icons {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &_item {
+    position: relative;
+    display: inline-block;
+    width: calc(50% - 12px);
+    padding: 0;
+    margin: 0;
+    white-space: normal;
+    vertical-align: top;
+    border: 1px solid transparent;
+    background-color: transparent;
+  }
+}
+
+.page_smart_box {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 24px 0;
+  margin-bottom: 24px;
+  width: 100%;
+  white-space: normal;
+  box-sizing: border-box;
+  vertical-align: top;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: #FFFFFF;
+}
+
+.main_wrapper_item + .main_wrapper_item {
+  margin-left: 24px;
+}
+
+@media (max-width: 1200px) {
+  .main_wrapper {
+    &_item {
+      display: block;
+      width: 100%;
+      margin: 0 0 24px 0;
+    }
+    &_white {
+      display: block;
+    }
+  }
+  .main_wrapper_item + .main_wrapper_item {
+    display: block;
+    margin: 0 0 24px 0;
+  }
+}

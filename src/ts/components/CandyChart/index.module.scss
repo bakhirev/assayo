@@ -1,0 +1,75 @@
+@import '../../../styles/variables';
+
+.candy {
+  display: block;
+  width: 100%;
+  margin: 24px 0 0 0;
+  padding: 0;
+}
+
+.candy_item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-auto-rows: 20px;
+  width: 100%;
+  margin: 4px 0;
+  vertical-align: top;
+}
+
+.candy_title,
+.candy_line {
+  display: inline-block;
+  height: 20px;
+  margin: 0;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.candy_line {
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.candy_value {
+  display: inline-block;
+  height: 1px;
+  margin: 10px 0;
+  background-color: #D0D1D2;
+  -webkit-print-color-adjust: exact;
+}
+
+.candy_prefix {
+  position: absolute;
+  top: 0;
+  left: -50px;
+
+  font-size: var(--font-xs);
+  display: block;
+  height: 20px;
+  width: 46px;
+  margin: 0;
+
+  line-height: 20px;
+  text-align: right;
+  color: var(--color-grey);
+}
+
+.candy_dot {
+  display: inline-block;
+  margin: 6px 0 0 -4px;
+  padding: 4px;
+  border-radius: 8px;
+  vertical-align: top;
+  background-color: #D0D1D2;
+  -webkit-print-color-adjust: exact;
+}
+
+.candy_line:hover > .candy_value,
+.candy_line:hover > .candy_dot {
+  background-color: var(--color-second);
+}
+
+.candy_line:hover > .candy_prefix {
+  color: var(--color-second);
+}

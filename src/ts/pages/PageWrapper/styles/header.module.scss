@@ -1,0 +1,29 @@
+@import '../../../../styles/variables';
+
+.header {
+  grid-area: header;
+  display: block;
+  padding: 20px 34px 20px 24px;
+  box-sizing: border-box;
+  text-align: right;
+  background-color: #FFFFFF;
+}
+
+.header_title {
+  float: left;
+  font-size: 24px;
+  font-weight: 100;
+  display: inline-block;
+  margin: 0;
+  color: var(--color-black);
+}
+
+.header_setting {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: top;
+}

@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+
+.user {
+  display: block;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: 24px 0 0 0;
+
+  --commits-by-hours-size: calc((100vw - 400px) / 25);
+}
+
+.title {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+.day {
+  display: block;
+  width: 100%;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.day_time,
+.day_name,
+.hour {
+  font-size: var(--font-xs);
+  display: inline-block;
+  width: var(--commits-by-hours-size);
+  height: var(--commits-by-hours-size);
+  text-align: center;
+  line-height: var(--commits-by-hours-size);
+  vertical-align: top;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day_time,
+.day_name {
+  border-bottom: 1px solid grey;
+  box-sizing: border-box;
+}
+
+.day_name {
+  font-size: var(--font-xs);
+  border-right: 1px solid grey;
+}
+
+.hour {
+  color: white;
+  border-radius: 6px;
+  border: 1px solid #FFFFFF;
+  background-color: var(--color-first);
+}
+
+@media (max-width: 1300px) {
+  .day_time_mm {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .user {
+    --commits-by-hours-size: calc((100vw - 156px) / 25);
+  }
+}
+
+@media (max-width: 900px) {
+  .day_time,
+  .day_name,
+  .hour {
+    font-size: var(--font-xxs);
+  }
+
+  .hour {
+    border-radius: 0;
+    border: none;
+  }
+}

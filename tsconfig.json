@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "alwaysStrict": true,
+    "baseUrl": "src"
+  },
+  "include": [
+    "src",
+    "./declaration.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./node_modules/**/*",
+    "build",
+    "**/build/*",
+    "dist",
+    "**/dist/*",
+    "src/**/*.cjs",
+    "src/setupProxy.js",
+  ]
+}

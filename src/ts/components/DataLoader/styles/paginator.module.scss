@@ -1,0 +1,35 @@
+@import '../../../../styles/variables';
+
+.paginator {
+  display: block;
+  margin: 24px auto 0 auto;
+}
+
+.paginator_text {
+  font-weight: 100;
+  font-size: var(--font-xs);
+  font-family: Arial, Verdana, sans-serif;
+
+  display: inline-block;
+  height: 36px;
+  padding: 0;
+  margin: 0 var(--space-s);
+
+  text-align: left;
+  line-height: 36px;
+  text-decoration: none;
+  vertical-align: bottom;
+  color: var(--color-black);
+}
+
+.paginator_page_number {
+  display: inline-block;
+}
+
+input.paginator_page_number {
+  display: inline-block;
+  width: 36px;
+  padding: 0;
+  margin: 0 var(--space-s);
+  text-align: center;
+}

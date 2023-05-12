@@ -1,0 +1,67 @@
+@import '../../../../styles/variables';
+
+.buttons {
+  &_header,
+  &_footer {
+    display: block;
+    margin: 0 0 24px 0;
+  }
+
+  &_header {
+    text-align: right;
+  }
+
+  &_footer {
+    text-align: center;
+  }
+}
+
+.user {
+  padding: 24px 0;
+
+  &_title {
+    padding-left: 24px;
+  }
+
+  &_footer {
+    padding: 24px 24px 0 24px;
+  }
+}
+
+.salary {
+  position: relative;
+  padding: 24px;
+  border-bottom: 1px solid #E2E9F0;
+
+  &:nth-child(2n + 1) {
+    background-color: #F5F7F9;
+  }
+
+  &_title {
+    margin: 0;
+  }
+
+  &_icons {
+    position: absolute;
+    top: 20px;
+    right: 12px;
+    display: inline-block;
+    white-space: nowrap;
+
+    &_item {
+      display: inline-block;
+      padding: 2px;
+      height: 24px;
+      width: 24px;
+
+      cursor: pointer;
+      box-sizing: border-box;
+      vertical-align: top;
+    }
+  }
+
+  &_footer {
+    padding-top: 16px;
+    text-align: right;
+  }
+}

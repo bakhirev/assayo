@@ -1,0 +1,108 @@
+@import '../../../../styles/variables';
+
+.tempo_task {
+  width: 100%;
+  padding: 8px;
+  margin: 0 auto var(--space-xs) auto;
+
+  white-space: nowrap;
+
+  border-radius: var(--border-radius-s);
+  border: 1px solid var(--color-border);
+
+  &_wrapper {
+    padding: 0 var(--space-l);
+    margin: 0 auto 24px auto;
+  }
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 6px 0;
+    margin: 0 0 6px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &_link,
+  &_value,
+  &_title,
+  &_tag {
+    font-weight: 100;
+    font-size: var(--font-xs);
+
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+
+    text-align: left;
+    line-height: 1.3;
+    text-decoration: none;
+    vertical-align: bottom;
+    color: #73809F;
+  }
+
+  &_link {
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: underline;
+    color: var(--color-first);
+  }
+
+  &_tags {
+    display: inline-block;
+  }
+
+  &_tag {
+    display: inline-block;
+    padding: var(--space-xxxs) var(--space-sm);
+    border-radius: var(--border-radius-l);
+    background-color: var(--color-border);
+    margin-left: 8px;
+  }
+
+  &_commits,
+  &_hours {
+    display: inline-block;
+    width: calc(50% - 4px);
+    padding: var(--space-s) 0;
+    text-align: center;
+    border-radius: var(--border-radius-s);
+    background-color: #F1F5F7;
+  }
+
+  &_commits {
+    width: calc(35% - 4px);
+    margin: 0 8px 0 0;
+  }
+
+  &_hours {
+    width: calc(65% - 4px);
+  }
+
+  &_value,
+  &_title {
+    font-weight: 100;
+    text-align: center;
+    color: var(--color-black);
+  }
+
+  &_value {
+    display: inline-block;
+  }
+
+  &_title {
+    margin: 2px 0 0 0;
+    color: var(--color-44);
+  }
+
+  &_icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+  }
+}

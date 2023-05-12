@@ -1,0 +1,71 @@
+@import '../../../styles/variables';
+
+.day_info {
+  &_wrapper {
+    column-count: 2;
+  }
+
+  &_author,
+  &_task,
+  &_date,
+  &_message {
+    font-weight: 100;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    white-space: normal;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: var(--color-black);
+  }
+
+  &_author {
+    font-size: var(--font-m);
+    display: block;
+    margin: 0 0 var(--space-l) 0;
+    line-height: var(--font-m);
+  }
+
+  &_task {
+    font-size: var(--font-s);
+    display: block;
+    padding: 0 0 0 var(--space-l);
+    margin: 0 0 var(--space-s) 0;
+
+    line-height: var(--font-s);
+    cursor: pointer;
+    text-decoration: underline;
+
+    color: var(--color-first);
+  }
+
+  &_date,
+  &_message {
+    font-size: var(--font-xs);
+    display: inline-block;
+    margin: 0 0 var(--space-xs) 0;
+    line-height: var(--font-s);
+    color: var(--color-42);
+  }
+
+  &_date {
+    margin-right: var(--space-l);
+  }
+
+  &_row {
+    display: block;
+    padding: 0 0 0 32px;
+    white-space: nowrap;
+
+    &:last-child {
+      margin-bottom: var(--space-s);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .day_info_wrapper {
+    column-count: 1;
+  }
+}

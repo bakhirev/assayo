@@ -1,0 +1,42 @@
+@import '../../../../styles/variables';
+
+.tempo_chart {
+  display: block;
+  width: calc(100% - var(--space-l));
+  margin: 0 auto var(--space-s) auto;
+  padding: 0 0 var(--space-s) 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+
+  &_dashboard {
+    position: relative;
+    display: block;
+    height: 40px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &_dot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 3%;
+    vertical-align: bottom;
+    background-color: var(--color-first);
+  }
+
+  &_legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: var(--space-l);
+    padding: var(--space-xxs) 0 0 0;
+  }
+
+  &_time {
+    font-size: var(--font-xxs);
+    display: inline-block;
+    box-sizing: border-box;
+    color: var(--color-grey);
+  }
+}

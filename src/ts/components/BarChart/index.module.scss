@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+
+.vertical_bar {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin: 24px 0 0 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.vertical_bar_item {
+  display: inline-block;
+  width: 10px;
+  vertical-align: bottom;
+  cursor: pointer;
+  background-color: #DBDCDD;
+  -webkit-print-color-adjust: exact;
+}
+
+.vertical_bar_item:hover {
+  background-color: #ED675F;
+}

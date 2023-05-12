@@ -1,0 +1,30 @@
+@import '../../../../styles/variables';
+
+.page_wrapper {
+  display: grid;
+  grid-template-areas: 'sidebar header'
+                        'sidebar main';
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 72px 1fr;
+  min-height: 100vh;
+  background-color: #F5F7F9;
+
+  &_main {
+    grid-area: main;
+    display: block;
+    width: calc(100vw - 258px);
+    min-height: calc(100vh - 72px);
+    padding: 24px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1000px) {
+  .page_wrapper {
+    grid-template-columns: 60px 1fr;
+
+    &_main {
+      width: calc(100vw - 78px);
+    }
+  }
+}

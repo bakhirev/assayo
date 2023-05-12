@@ -1,0 +1,48 @@
+import React, { ChangeEvent } from 'react';
+
+import Wrapper, { IUiKitWrapperProps } from './Wrapper';
+import style from '../styles/index.module.scss';
+
+interface IUiKitSelectProps extends IUiKitWrapperProps {
+  value: any;
+  placeholder?: string;
+  onChange: Function;
+}
+
+function UiKitInputNumber({
+  title,
+  description,
+  help,
+  error,
+  className,
+
+  value,
+  placeholder,
+  onChange,
+}: IUiKitSelectProps) {
+  return (
+    <Wrapper
+      title={title}
+      description={description}
+      help={help}
+      error={error}
+      className={className}
+    >
+      <input
+        type="number"
+        value={value}
+        placeholder={placeholder}
+        className={style.ui_kit_common}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => {
+          if (onChange) onChange(parseInt(event.target.value, 10) || 0);
+        }}
+      />
+    </Wrapper>
+  );
+}
+
+UiKitInputNumber.defaultProps = {
+  placeholder: 'Введите значение',
+};
+
+export default UiKitInputNumber;
