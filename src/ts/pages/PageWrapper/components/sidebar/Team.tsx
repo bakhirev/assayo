@@ -96,6 +96,14 @@ function SideBarTeam({ page }: ISideBarProps) {
         icon="./assets/menu/team_words.svg"
         isSelected={page === 'words'}
       />
+      <SideBarMenuGap/>
+      <SideBarMenuItem
+        id="top"
+        link="/team/top"
+        title="sidebar.team.top"
+        icon="./assets/menu/team_words.svg"
+        isSelected={page === 'top'}
+      />
     </>
   );
 }

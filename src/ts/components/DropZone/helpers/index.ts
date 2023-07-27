@@ -39,6 +39,19 @@ export function getOnDrop(setLoading: Function, onChange: Function) {
     setLoading(false);
     if (!dropItems.length) return;
 
+    if (dropItems[0].type === 'application/json') {
+      Promise.all(
+        dropItems.map((file: any) => file.text()),
+      ).then((text: string[]) => {
+        const telegrammMessages = text
+          .map(file => JSON.parse(file)?.messages)
+          .flat(1);
+        // @ts-ignore
+        onChange('telegramm', telegrammMessages);
+      });
+      return;
+    }
+
     Promise.all(
       dropItems.map((file: any) => file.text()),
     ).then((text: string[]) => {

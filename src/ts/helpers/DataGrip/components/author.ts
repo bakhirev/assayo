@@ -71,6 +71,7 @@ export default class DataGripByAuthor {
   static #updateWordStatistics(commit: ICommit, total = {}) {
     const LIMIT_WORD_LENGTH = 2;
     const disabledWords = { for: 1, fix: 1 };
+
     commit.message.toLowerCase().split(' ').forEach(word => {
       if (word.length <= LIMIT_WORD_LENGTH || disabledWords[word]) return;
       total[word] = total[word]

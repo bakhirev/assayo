@@ -18,6 +18,7 @@ import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Description from 'ts/components/Description';
 
 import { getMaxByLength } from 'ts/pages/Common/helpers/getMax';
 
@@ -122,6 +123,11 @@ const Type = observer((): React.ReactElement => {
           <TypeView />
           <Pagination />
         </DataLoader>
+      </PageWrapper>
+      <PageWrapper>
+        <Description
+          text="*Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений."
+        />
       </PageWrapper>
     </>
   );

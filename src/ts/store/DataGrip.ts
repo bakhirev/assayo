@@ -6,6 +6,7 @@ import achievements from 'ts/helpers/achievement/byCompetition';
 import dataGrip from 'ts/helpers/DataGrip';
 import getFileTreeWithStatistic from 'ts/helpers/DataGrip/helpers/tree';
 import Parser from 'ts/helpers/Parser';
+import ParserTelegramm from 'ts/helpers/ParserTelegramm';
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 
 import settingsStore from './Settings';
@@ -34,16 +35,21 @@ class DataGripStore implements IDataGripStore {
       dataGrip: observable,
       showApplication: observable,
       setCommits: action,
+      setTelegrammMessages: action,
     });
   }
 
-  setCommits(dump?: string[]) {
+  setCommits(dump?: string[], type?: string) {
     dataGrip.clear();
+    const parser = type === 'telegramm'
+      ? ParserTelegramm
+      : Parser;
+
     const {
       commits,
       fileList,
       fileTree,
-    } = Parser(dump || [], (commit: ICommit) => dataGrip.addCommit(commit));
+    } = parser(dump || [], (commit: ICommit) => dataGrip.addCommit(commit));
 
     this.commits = commits;
     this.fileList = fileList;
@@ -59,13 +65,20 @@ class DataGripStore implements IDataGripStore {
       );
     }
     dataGrip.updateByInitialization();
+    achievements.updateByDataGrip(dataGrip.author.statistic);
 
     this.dataGrip = null;
     this.dataGrip = dataGrip;
     console.dir(dataGrip);
   }
 
-  updateChars() {
+  setTelegrammMessages(dump?: any[]) {
+    return this.setCommits(dump, 'telegramm');
+  }
+
+  updateChars() { // todo: remove, never use
+    console.log('s');
+    return;
     dataGrip.updateByFilters();
     if (!dataGrip.author.list.length) return;
     achievements.updateByDataGrip(dataGrip.author.statistic);

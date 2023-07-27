@@ -34,7 +34,6 @@ function Changes({ statistic }: IChangesProps) {
 
   return (
     <>
-      <Title title="Рекомендации и факты"/>
       <RecommendationsWrapper recommendations={recommendations} />
       <Title title="Количество изменённых строк по дням"/>
       <PageWrapper template="box">

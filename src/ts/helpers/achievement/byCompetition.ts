@@ -57,33 +57,41 @@ class AchievementsByCompetition {
     const allDaysInProject = this.#getFirstAndLast(total.allDaysInProject);
     // Старожил - больше всего дней на проекте
     achievements[allDaysInProject.first].push('moreDaysInProject');
-    // Сосунок - меньше всего дней на проекте
+    // А это кто? - меньше всего дней на проекте
     achievements[allDaysInProject.last].push('lessDaysInProject');
+
+    const firstCommit = this.#getFirstAndLast(total.firstCommit);
+    // Адам - первый стабильны сотрудник на проекте
+    achievements[firstCommit.last].push('adam');
+
+    const moreRefactoring = this.#getFirstAndLast(total.moreRefactoring);
+    // Главный редактор - сделал больше всех меток «рефакторинг»
+    achievements[moreRefactoring.first].push('moreRefactoring');
 
     this.authors = achievements;
   }
 
   #getTotalByAuthor(statisticByAuthor: any) {
     const achievements = {};
-    const total: any = {
-      nameLength: [],
-      maxMessage: [],
-      midMessage: [],
-      tasks: [],
-      days: [],
-      lazyDays: [],
-      allDaysInProject: [],
-    };
+    const total: IHashMap<any> = {};
 
     statisticByAuthor.forEach((statistic: any) => {
       achievements[statistic.author] = [];
-      total.nameLength.push([statistic.author, statistic.author.length]);
-      total.maxMessage.push([statistic.author, statistic.messageLength[statistic.messageLength.length - 1]]);
-      total.midMessage.push([statistic.author, statistic.middleMessageLength]);
-      total.tasks.push([statistic.author, statistic.tasks.length]);
-      total.days.push([statistic.author, statistic.days]);
-      total.lazyDays.push([statistic.author, statistic.lazyDays]);
-      total.allDaysInProject.push([statistic.author, statistic.allDaysInProject]);
+      const addData = (property: string, count: number) => {
+        if (!total[property]) total[property] = [];
+        total[property].push([statistic.author, count]);
+      };
+      addData('nameLength', statistic.author.length);
+      addData('maxMessage', statistic.messageLength[statistic.messageLength.length - 1]);
+      addData('midMessage', statistic.middleMessageLength);
+      addData('tasks', statistic.tasks.length);
+      addData('days', statistic.days);
+      addData('moreRefactoring', statistic.types.refactor);
+
+      if (statistic.isStaff) return;
+      addData('allDaysInProject', statistic.allDaysInProject);
+      addData('lazyDays', statistic.lazyDays);
+      addData('firstCommit', statistic.firstCommit.milliseconds);
     });
 
     Object.keys(total).forEach(achievement => {

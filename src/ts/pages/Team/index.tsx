@@ -13,6 +13,7 @@ import Tree from './components/Tree';
 import Type from './components/Type';
 import Week from './components/Week';
 import Year from './components/Year';
+import Top from './components/Top';
 
 function Team() {
   const { type, page } = useParams<any>();
@@ -34,6 +35,7 @@ function Team() {
       {page === 'tree' && <Tree/>}
       {page === 'type' && <Type/>}
       {page === 'sprint' && <Tempo/>}
+      {page === 'top' && <Top/>}
     </>
   );
 }

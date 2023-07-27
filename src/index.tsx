@@ -15,13 +15,42 @@ if (module.hot) {
 }
 
 // @ts-ignore
-console.log(ru + '');
+console.dir(ru + '');
 
-render(
-  <React.StrictMode>
-    <HashRouter>
-      <Authorization/>
-    </HashRouter>
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+function getParametersFromString(text: string) {
+  return Object.fromEntries((text || '')
+    .substring(1, Infinity)
+    .split('&')
+    .map((token: string) => token.split('=')));
+}
+
+function renderReactApplication() {
+  render(
+    <React.StrictMode>
+      <HashRouter>
+        <Authorization/>
+      </HashRouter>
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
+}
+
+function loadApplication() {
+  const parameters = {
+    ...getParametersFromString(location.search),
+    ...getParametersFromString(location.hash),
+  };
+
+  if (!parameters.dump) {
+    return renderReactApplication();
+  }
+
+  const script = document.createElement('script');
+  script.src = parameters.dump;
+  script.async = true;
+  script.onload = renderReactApplication;
+  script.onerror = renderReactApplication;
+  document.body.appendChild(script);
+}
+
+loadApplication();

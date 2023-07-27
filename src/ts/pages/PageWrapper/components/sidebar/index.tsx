@@ -19,7 +19,7 @@ function SideBar() {
         value={type || 'team'}
         options={[
           { id: 'team', title: 'Команда', icon: './assets/switch/team.svg' },
-          { id: 'person', title: 'Люди', icon: './assets/switch/person.svg' },
+          { id: 'person', title: 'Сотрудник', icon: './assets/switch/person.svg' },
         ]}
         onChange={(newType: string) => {
           if (newType === type) return;
