@@ -4,9 +4,8 @@ import ALL_ACHIEVEMENTS from './constants/list';
 import byCompetition from './byCompetition';
 
 export default function getAchievementByAuthor(author: string) {
-  const statistic = dataGrip.author.statistic.find((item: any) => item.author === author);
+  const statistic = dataGrip.author.statisticByName[author];
   if (!statistic) return;
-
   const list = byCompetition.get(author);
 
   // Сова - 70% коммитов после 15:00

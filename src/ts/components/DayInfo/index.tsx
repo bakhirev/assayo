@@ -47,22 +47,35 @@ function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
 }
 
 interface IDayInfoProps {
-  day: IDayInfo,
-  order: string[]
+  day: IDayInfo;
+  order: string[];
+  events?: any;
+  timestamp?: string;
 }
 
-function DayInfo({ day, order }: IDayInfoProps): React.ReactElement {
+function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactElement {
+  const firstCommit = events?.firstCommit?.[timestamp || ''] || [];
+  const lastCommit = events?.lastCommit?.[timestamp || ''] || [];
   let taskNumber = 0;
+  console.dir(firstCommit);
+
   const items = Object.entries(day?.tasksByAuthor)
     .sort((a: any, b: any) => (order.indexOf(a[0]) - order.indexOf(b[0])))
     .map(([author, tasks]: [string, any]) => {
       taskNumber += Object.keys(tasks).length;
+
+      let suffix = '';
+      if (firstCommit.includes(author)) suffix = '(первый рабочий день)';
+      if (lastCommit.includes(author)) suffix = '(последний рабочий день)';
+
       return (
         <div
           key={author}
           className={style.day_info}
         >
-          <h3 className={style.day_info_author}>{author}</h3>
+          <h3 className={style.day_info_author}>
+            {`${author} ${suffix}`}
+          </h3>
           <TaskInfo tasks={tasks}/>
         </div>
       );
@@ -77,5 +90,10 @@ function DayInfo({ day, order }: IDayInfoProps): React.ReactElement {
     </div>
   );
 }
+
+DayInfo.defaultProps = {
+  events: undefined,
+  timestamp: undefined,
+};
 
 export default DayInfo;

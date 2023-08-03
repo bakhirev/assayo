@@ -40,6 +40,9 @@ export default class DataGripByAuthor {
     statistic.hours.push(commit.hours);
     statistic.messageLength.push(commit.message.length);
     statistic.totalMessageLength += commit.message.length || 0;
+    statistic.maxMessageLength = commit.message.length > statistic.maxMessageLength
+      ? commit.message.length
+      : statistic.maxMessageLength;
     statistic.commitsByDayAndHour[commit.day][commit.hours] += 1;
     statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
   }
@@ -60,6 +63,7 @@ export default class DataGripByAuthor {
       commitsByDayAndHour,
       messageLength: [commit.message.length || 0],
       totalMessageLength: commit.message.length || 0,
+      maxMessageLength: commit.message.length || 0,
       wordStatistics: DataGripByAuthor.#updateWordStatistics(commit),
     };
   }
@@ -150,6 +154,7 @@ export default class DataGripByAuthor {
           isStaff,
 
           middleMessageLength,
+          maxMessageLength: dot.maxMessageLength,
           commitsByDayAndHourTotal: DataGripByAuthor.getTotalCommitsByDayAndHour(dot.commitsByDayAndHour),
           wordStatistics,
         };

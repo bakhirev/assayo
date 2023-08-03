@@ -9,6 +9,7 @@ import DataGripByType from './components/type';
 import DataGripByTimestamp from './components/timestamp';
 import DataGripByWeek from './components/week';
 import MinMaxCounter from './components/counter';
+import DataGripByExtension from './components/extension';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -27,6 +28,8 @@ class DataGrip {
 
   recommendations: any = new Recommendations();
 
+  extension: any = new DataGripByExtension();
+
   initializationInfo: any = {};
 
   clear() {
@@ -38,6 +41,7 @@ class DataGrip {
     this.timestamp.clear();
     this.week.clear();
     this.recommendations.clear();
+    this.extension.clear();
   }
 
   addCommit(commit: ICommit) {
@@ -79,6 +83,10 @@ class DataGrip {
       this.addCommit(commit);
     });
     this.#updateTotalInfo();
+  }
+
+  updateByFiles(fileList: any[]) {
+    this.extension.updateTotalInfo(fileList, this.author);
   }
 }
 

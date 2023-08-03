@@ -19,9 +19,7 @@ function Month({
 }: IMonthProps): React.ReactElement | null {
   return (
     <div className={`${style.year_chart_month}`}>
-      <Header
-        month={month}
-      />
+      <Header month={month} />
       <Body
         month={month}
         maxCommits={maxCommits}

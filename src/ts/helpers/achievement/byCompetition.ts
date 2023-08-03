@@ -1,4 +1,5 @@
 import IHashMap from 'ts/interfaces/HashMap';
+import dataGrip from 'ts/helpers/DataGrip';
 
 class AchievementsByCompetition {
   authors: IHashMap<string[]> = {};
@@ -68,6 +69,14 @@ class AchievementsByCompetition {
     // Главный редактор - сделал больше всех меток «рефакторинг»
     achievements[moreRefactoring.first].push('moreRefactoring');
 
+    const tasksInDay = this.#getFirstAndLast(total.tasksInDay);
+    // Спиди-гонщик - рекорд по количеству закрытых задач в день
+    achievements[tasksInDay.first].push('moreTasksInDay');
+
+    const commitsInDay = this.#getFirstAndLast(total.commitsInDay);
+    // Zerg Rush - рекорд по количеству коммитов в день
+    achievements[commitsInDay.first].push('moreCommits');
+
     this.authors = achievements;
   }
 
@@ -87,6 +96,10 @@ class AchievementsByCompetition {
       addData('tasks', statistic.tasks.length);
       addData('days', statistic.days);
       addData('moreRefactoring', statistic.types.refactor);
+
+      const byTimestamp = dataGrip.timestamp.statisticByAuthor[statistic.author];
+      addData('tasksInDay', byTimestamp.tasksByTimestampCounter.max);
+      addData('commitsInDay', byTimestamp.commitsByTimestampCounter.max);
 
       if (statistic.isStaff) return;
       addData('allDaysInProject', statistic.allDaysInProject);

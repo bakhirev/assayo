@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+.splash_screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-black);
+
+  animation: splash_screen .5s linear 5.5s forwards;
+
+  &_container {
+    display: block;
+    width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+
+    animation: splash_screen_container 1s linear 4s forwards;
+  }
+
+  &_description {
+    font-size: 10px;
+    font-weight: 100;
+    display: block;
+    padding: 0;
+    margin: 8px 0 0 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: none;
+    color: #404148;
+  }
+}
+
+@keyframes splash_screen {
+  from {
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: 100%;
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes splash_screen_container {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

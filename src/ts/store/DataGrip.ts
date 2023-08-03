@@ -63,9 +63,11 @@ class DataGripStore implements IDataGripStore {
         dataGrip.firstLastCommit.minData,
         dataGrip.firstLastCommit.maxData,
       );
+
+      dataGrip.updateByInitialization();
+      dataGrip.updateByFiles(fileList);
+      achievements.updateByDataGrip(dataGrip.author.statistic);
     }
-    dataGrip.updateByInitialization();
-    achievements.updateByDataGrip(dataGrip.author.statistic);
 
     this.dataGrip = null;
     this.dataGrip = dataGrip;
@@ -77,7 +79,7 @@ class DataGripStore implements IDataGripStore {
   }
 
   updateChars() { // todo: remove, never use
-    console.log('s');
+    console.log('need update data TODO');
     return;
     dataGrip.updateByFilters();
     if (!dataGrip.author.list.length) return;

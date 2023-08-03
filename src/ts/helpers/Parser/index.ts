@@ -1,11 +1,13 @@
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 import IHashMap from 'ts/interfaces/HashMap';
 import ICommit from 'ts/interfaces/Commit';
+import settingsStore from 'ts/store/Settings';
 
 import getUserInfo from './user_info';
 import { getNewFileName, getFileList } from './files';
-import settingsStore from 'ts/store/Settings';
+import { getNewFileInfo } from './file_info';
 
+const uniq = {};
 export default function Parser(
   report: string[],
   parseCommit: Function,
@@ -62,23 +64,8 @@ export default function Parser(
           delete allFiles[fileName];
         }
       } else {
-        allFiles[fileName] = {
-          name: fileName,
-          lines: added,
-          // @ts-ignore
-          created: prev,
-          authors: {
-            [prev?.author || '']: {
-              added: added,
-              changes: added,
-              removed: 0,
-              commits: 1,
-              tasks: { [prev?.task || '']: 1 },
-              types: { [prev?.type || '']: 1 },
-              scopes: { [prev?.scope || '']: 1 },
-            },
-          },
-        };
+        // @ts-ignore
+        allFiles[fileName] = getNewFileInfo(fileName, added, prev);
       }
       if (removed > added) {
         removed -= added;
@@ -99,7 +86,15 @@ export default function Parser(
         prev.removed += removed;
       }
     } else {
-      if (prev) parseCommit(prev);
+
+      if (prev) {
+        if (uniq[prev.date]) {
+          // console.log(`double ${uniq[prev.date]} === ${i}`);
+        }
+        uniq[prev.date] = i;
+        parseCommit(prev);
+      }
+
       const next = getUserInfo(message);
       if (next.milliseconds > weekEndTime) {
         week += 1;
@@ -114,7 +109,6 @@ export default function Parser(
     }
   }
   if (prev) parseCommit(prev);
-
 
   const { fileList, fileTree } = getFileList(allFiles);
   return {

@@ -26,7 +26,6 @@ interface ITempoViewProps {
 
 function TempoView({ response, order, user }: ITempoViewProps) {
   if (!response) return null;
-  console.log(response.content?.length);
   return (
     <TempoChart
       days={response.content as any[]}
@@ -41,7 +40,6 @@ TempoView.defaultProps = {
 };
 
 function getPartOfData(filters: any, rows: any[]) {
-  console.log(filters);
   return rows.filter((row: any) => (row.week === filters.week)).slice(0, 7);
 }
 
@@ -53,7 +51,7 @@ const Tempo = observer((): React.ReactElement => {
 
   const [week, setWeek] = useState<number>(firstPoint.week);
   const [user, setUser] = useState<string>('');
-  console.log(firstPoint.week);
+
   if (!rows?.length) return (<NothingFound />);
   const partOfData = getPartOfData({ week, user }, rows);
   const firstWeekDay = partOfData[0];

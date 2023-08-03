@@ -128,7 +128,6 @@ class SettingsStore implements ISettingsStore {
       halfYear: 10,
       month: 2,
     }[type] || 1;
-
     dataGripStore.updateChars();
   }
 

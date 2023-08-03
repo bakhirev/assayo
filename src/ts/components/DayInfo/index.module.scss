@@ -45,12 +45,17 @@
     font-size: var(--font-xs);
     display: inline-block;
     margin: 0 0 var(--space-xs) 0;
-    line-height: var(--font-s);
+    line-height: var(--font-m);
+    vertical-align: top;
     color: var(--color-42);
   }
 
   &_date {
     margin-right: var(--space-l);
+  }
+
+  &_message {
+    width: calc(100% - 44px);
   }
 
   &_row {

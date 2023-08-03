@@ -16,6 +16,7 @@ import Filter from './Filter';
 
 import { IEmployees } from '../interfaces/Setting';
 import { getNewEmployeesSettings } from '../helpers/getEmptySettings';
+import MailMap from './MailMap';
 import formStore from '../store/Form';
 import style from '../styles/index.module.scss';
 
@@ -45,38 +46,44 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
   ));
 
   return (
-    <PageWrapper>
-      <PageColumn>
-        <Filter />
-        <Salary />
-        <Common />
-      </PageColumn>
-      <PageColumn>
-        <Title title="Индивидуальные настройки"/>
-        {employees.length > 0 ? (
-          users
-        ) : (
-          <NothingFound
-            message="Индивидуальных настроек нет. Данные по всем сотрудникам вычисляются по общим параметрам."
-          />
-        )}
-        {authors.length && (
-          <div className={style.buttons_footer}>
-            <UiKitButtonMenu
-              options={authors}
-              onClick={(user: any) => {
-                formStore.updateState('employees', [
-                  ...employees,
-                  getNewEmployeesSettings(user?.title, formStore.state, selectedNames?.length),
-                ]);
-              }}
-            >
-              Добавить пользователя
-            </UiKitButtonMenu>
-          </div>
-        )}
-      </PageColumn>
-    </PageWrapper>
+    <>
+      <PageWrapper>
+        <PageColumn>
+          <Filter />
+          <Salary />
+          <Common />
+        </PageColumn>
+        <PageColumn>
+          <Title title="Индивидуальные настройки"/>
+          {employees.length > 0 ? (
+            users
+          ) : (
+            <NothingFound
+              message="Индивидуальных настроек нет. Данные по всем сотрудникам вычисляются по общим параметрам."
+            />
+          )}
+          {authors.length && (
+            <div className={style.buttons_footer}>
+              <UiKitButtonMenu
+                options={authors}
+                onClick={(user: any) => {
+                  formStore.updateState('employees', [
+                    ...employees,
+                    getNewEmployeesSettings(user?.title, formStore.state, selectedNames?.length),
+                  ]);
+                }}
+              >
+                Добавить пользователя
+              </UiKitButtonMenu>
+            </div>
+          )}
+        </PageColumn>
+      </PageWrapper>
+      <PageWrapper>
+        <Title title="Настройки .mailmap"/>
+        <MailMap />
+      </PageWrapper>
+    </>
   );
 });
 

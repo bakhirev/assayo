@@ -1,0 +1,57 @@
+@import '../../../../styles/variables';
+
+.extension {
+  display: inline-block;
+  width: 300px;
+  margin: 0 0 24px 24px;
+  padding: 24px;
+  vertical-align: top;
+  border-radius: var(--border-radius-l);
+  background-color: white;
+
+  &_icon {
+    display: block;
+    width: 64px;
+    margin: 0 auto 24px auto;
+    padding: 24px 0;
+
+    font-size: var(--font-l);
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    border-radius: 32px;
+    background-color: var(--color-grey);
+  }
+
+  &_line {
+    display: block;
+    margin: 0 0 6px 0;
+    padding: 0;
+
+    text-align: left;
+    white-space: nowrap;
+
+    &_title,
+    &_value {
+      font-weight: 100;
+      font-size: var(--font-xs);
+
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+
+      text-align: left;
+      line-height: var(--font-m);
+      text-decoration: none;
+      vertical-align: top;
+      white-space: normal;
+
+      color: var(--color-grey);
+    }
+
+    &_title {
+      width: 100px;
+    }
+  }
+}

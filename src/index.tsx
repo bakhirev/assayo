@@ -25,6 +25,8 @@ function getParametersFromString(text: string) {
 }
 
 function renderReactApplication() {
+  // @ts-ignore
+  console.log(window?.report?.length);
   render(
     <React.StrictMode>
       <HashRouter>
