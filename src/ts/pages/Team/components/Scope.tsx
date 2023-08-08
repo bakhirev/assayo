@@ -37,12 +37,12 @@ function ScopeView({ response }: IScopeViewProps) {
         width={200}
       />
       <Column
-        template={ColumnTypesEnum.SHORT_NUMBER}
+        template={ColumnTypesEnum.NUMBER}
         title="page.team.scope.days"
         properties="days"
       />
       <Column
-        template={ColumnTypesEnum.SHORT_NUMBER}
+        template={ColumnTypesEnum.NUMBER}
         title="page.team.scope.authorsDays"
         properties="authors"
         formatter={(authors: any) => {
@@ -58,7 +58,7 @@ function ScopeView({ response }: IScopeViewProps) {
         formatter={(v: any[]) => (v?.length || 0)}
       />
       <Column
-        template={ColumnTypesEnum.SHORT_NUMBER}
+        template={ColumnTypesEnum.NUMBER}
         title="page.team.scope.commits"
         properties="commits"
       />

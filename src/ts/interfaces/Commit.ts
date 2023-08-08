@@ -1,4 +1,4 @@
-export default interface ICommit {
+export interface ILog {
   // date
   date: string; // "2021-02-09T12:59:17+03:00",
   day: number; // 1,
@@ -20,7 +20,23 @@ export default interface ICommit {
   task: string; // "JIRA-0000,
   type: string; // feat|fix|docs|style|refactor|test|chore
   scope: string; //  table, sale, profile and etc.
+}
 
+export const COMMIT_TYPE = {
+  PR: 'PR',
+  MERGE: 'MERGE',
+  AUTO_MERGE: 'AUTO_MERGE',
+};
+
+export interface ISystemCommit extends ILog {
+  prId: string; // "59"
+  repository: string; // "ASSA/jira-frontend"
+  branch: string; // "feature/JIRA-151-create-MainPage-without-Banners-slider"
+  toBranch: string; // "master"
+  commitType: string; // 'PR' | 'MERGE' | 'AUTO_MERGE';
+}
+
+export default interface ICommit extends ILog {
   // files
   changes: number; // 0,
   added: number; // 0,

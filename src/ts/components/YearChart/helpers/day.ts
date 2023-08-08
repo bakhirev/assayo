@@ -54,6 +54,7 @@ export function getDayText(events: IHashMap<any>, timestamp: string): string {
 function getRefAuthorByTime(list: any[], property: string) {
   return list.reduce((refTimeAuthor: any, item: any) => {
     if (item.isStaff) return refTimeAuthor;
+    if (property === 'lastCommit' && !item.isDismissed) return refTimeAuthor;
     const key = item?.[property]?.timestamp;
     if (!refTimeAuthor[key]) refTimeAuthor[key] = [];
     refTimeAuthor[key].push(item.author);

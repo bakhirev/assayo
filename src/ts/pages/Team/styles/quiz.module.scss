@@ -1,0 +1,9 @@
+@import '../../../../styles/variables';
+
+.quiz {
+  &_achievements {
+    margin: 12px 0 24px 0;
+    column-count: 3;
+    white-space: normal;
+  }
+}

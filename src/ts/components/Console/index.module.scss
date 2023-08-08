@@ -60,24 +60,21 @@
     bottom: 16px;
     right: 16px;
 
-    font-size: 13px;
-    font-weight: 100;
-    display: block;
-    padding: 6px 12px;
-    line-height: 13px;
-
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
-
-    color: #8F8F8F;
-    border: 1px solid #F2F2F2;
-    background-color: #F2F2F2;
-
     &:hover {
       bottom: 15px;
       right: 15px;
-      background-color: #EDEDED;
     }
   }
 }
+
+@media (max-width: 800px) {
+  .console {
+    width: 90%;
+    margin: 0 auto;
+
+    &_body {
+      height: 200px;
+    }
+  }
+}
+

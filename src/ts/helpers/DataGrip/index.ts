@@ -1,4 +1,4 @@
-import ICommit from 'ts/interfaces/Commit';
+import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 import settingsStore from 'ts/store/Settings';
 import Recommendations from 'ts/helpers/Recommendations';
 
@@ -10,6 +10,7 @@ import DataGripByTimestamp from './components/timestamp';
 import DataGripByWeek from './components/week';
 import MinMaxCounter from './components/counter';
 import DataGripByExtension from './components/extension';
+import DataGripByPR from './components/pr';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -30,6 +31,8 @@ class DataGrip {
 
   extension: any = new DataGripByExtension();
 
+  pr: any = new DataGripByPR();
+
   initializationInfo: any = {};
 
   clear() {
@@ -42,16 +45,21 @@ class DataGrip {
     this.week.clear();
     this.recommendations.clear();
     this.extension.clear();
+    this.pr.clear();
   }
 
-  addCommit(commit: ICommit) {
-    if (commit.author === 'GitHub') return;
-    this.firstLastCommit.update(commit.milliseconds, commit);
-    this.author.addCommit(commit);
-    this.scope.addCommit(commit);
-    this.type.addCommit(commit);
-    this.timestamp.addCommit(commit);
-    this.week.addCommit(commit);
+  addCommit(commit: ICommit | ISystemCommit) {
+    if (commit.author === 'GitHub') return; // @ts-ignore
+    if (commit.commitType) {
+      this.pr.addCommit(commit);
+    } else {
+      this.firstLastCommit.update(commit.milliseconds, commit);
+      this.author.addCommit(commit);
+      this.scope.addCommit(commit);
+      this.type.addCommit(commit);
+      this.timestamp.addCommit(commit);
+      this.week.addCommit(commit);
+    }
   }
 
   #updateTotalInfo() {
@@ -62,6 +70,7 @@ class DataGrip {
     this.timestamp.updateTotalInfo(this.author);
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
+    this.pr.updateTotalInfo(this);
   }
 
   updateByInitialization() {

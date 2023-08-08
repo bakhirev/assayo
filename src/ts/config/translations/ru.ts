@@ -13,7 +13,7 @@ localization.parse('ru', `
 § sidebar.team.timestamp: Все коммиты
 § sidebar.team.changes: Все изменения
 § sidebar.team.words: Популярные слова
-§ sidebar.team.top: Рейтинг
+§ sidebar.team.top: Викторина
 § sidebar.person.total: Общая информация
 § sidebar.person.money: Стоимость работы
 § sidebar.person.speed: Скорость

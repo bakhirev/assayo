@@ -3,17 +3,20 @@ import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
 
-import Title from 'ts/components/Title';
+import Achievement from 'ts/components/Achievement/components/Item';
 import PageWrapper from 'ts/components/Page/wrapper';
-import Achievements from 'ts/components/Achievement';
 import Extension from 'ts/components/Extension';
+import Title from 'ts/components/Title';
 import Races from 'ts/components/Races';
 
 import Tv100And1 from 'ts/components/Tv100And1';
 
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
+import Description from 'ts/components/Description';
 import { getDate } from 'ts/helpers/formatter';
+
+import style from '../styles/quiz.module.scss';
 
 const Top = observer((): React.ReactElement => {
   const extensions = dataGripStore.dataGrip.extension.statistic
@@ -43,17 +46,26 @@ const Top = observer((): React.ReactElement => {
     const achievements = getAchievementByAuthor(statistic.author);
     const from = getDate(statistic.firstCommit.date);
     const to = getDate(statistic.lastCommit.date);
+    const achievementsList = [
+      ...achievements[ACHIEVEMENT_TYPE.GOOD],
+      ...achievements[ACHIEVEMENT_TYPE.NORMAL],
+      ...achievements[ACHIEVEMENT_TYPE.BAD],
+    ].map((type: string) => (
+      <Achievement
+        key={type}
+        type={type}
+      />
+    ));
+
     return (
       <div key={statistic.author}>
         <Title title={statistic.author}/>
-        {`Всего коммитов: ${statistic.commits} `}
-        {`Работал ${statistic.allDaysInProject} дней с ${from} по ${to} `}
+        <Description text={`Всего коммитов: ${statistic.commits}`} />
+        <Description text={`Работал с ${from} по ${to} (${statistic.allDaysInProject} дней)`} />
         <PageWrapper>
-          <Achievements list={[
-            ...achievements[ACHIEVEMENT_TYPE.GOOD],
-            ...achievements[ACHIEVEMENT_TYPE.NORMAL],
-            ...achievements[ACHIEVEMENT_TYPE.BAD],
-          ]} />
+          <div className={style.quiz_achievements}>
+            {achievementsList}
+          </div>
         </PageWrapper>
       </div>
     );
@@ -65,12 +77,12 @@ const Top = observer((): React.ReactElement => {
       <Races tracks={tracks} />
       <Title title="Максимальная длинна подписи коммита"/>
       <Tv100And1 rows={maxMessageLength} />
+      {authors}
       <PageWrapper>
         <div style={{ whiteSpace: 'normal' }} >
           {extensions}
         </div>
       </PageWrapper>
-      {authors}
     </>
   );
 });

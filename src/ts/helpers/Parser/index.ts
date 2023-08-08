@@ -1,6 +1,6 @@
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 import IHashMap from 'ts/interfaces/HashMap';
-import ICommit from 'ts/interfaces/Commit';
+import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 import settingsStore from 'ts/store/Settings';
 
 import getUserInfo from './user_info';
@@ -13,7 +13,7 @@ export default function Parser(
   parseCommit: Function,
 ) {
   const allFiles: IHashMap<IDirtyFile> = {};
-  const commits: ICommit[] = [];
+  const commits: Array<ICommit | ISystemCommit> = [];
   let week: number = 0;
   let weekEndTime: number = 0;
 
@@ -80,13 +80,12 @@ export default function Parser(
         added = 0;
         removed = 0;
       }
-      if (prev) {
-        prev.changes += changes;
-        prev.added += added;
+      if (prev) { // @ts-ignore
+        prev.changes += changes; // @ts-ignore
+        prev.added += added; // @ts-ignore
         prev.removed += removed;
       }
     } else {
-
       if (prev) {
         if (uniq[prev.date]) {
           // console.log(`double ${uniq[prev.date]} === ${i}`);
@@ -104,8 +103,8 @@ export default function Parser(
       next.week = week;
 
       prev = next;
-      commits.push(prev);
-      isFileInfo = true;
+      commits.push(prev); // @ts-ignore
+      isFileInfo = !prev.commitType;
     }
   }
   if (prev) parseCommit(prev);
