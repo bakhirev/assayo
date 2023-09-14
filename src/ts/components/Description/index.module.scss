@@ -1,6 +1,8 @@
 @import '../../../styles/variables';
 
 .description {
+  white-space: normal;
+
   &_title,
   &_text,
   &_list {
@@ -16,6 +18,7 @@
     line-height: var(--font-m);
     text-decoration: none;
     vertical-align: bottom;
+    white-space: normal;
     color: #73809F;
   }
 

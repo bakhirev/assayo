@@ -26,7 +26,7 @@ function Body({
         ? column.formatter(value)
         : value;
       const content: any = typeof column.template === 'function'
-        ? column.template(formattedValue)
+        ? column.template(formattedValue, row)
         : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}`;
 
       return (

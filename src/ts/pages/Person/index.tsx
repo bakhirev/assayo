@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Title from 'ts/components/Title';
+import localization from 'ts/helpers/Localization';
 
 import UserSelect from './components/UserSelect';
 import Changes from './components/Changes';
@@ -12,7 +13,7 @@ import PopularWords from './components/PopularWords';
 import Speed from './components/Speed';
 import Total from './components/Total';
 import Week from './components/Week';
-import Year from './components/Year';
+import Month from './components/Month';
 import Tempo from './components/Tempo';
 
 function Person() {
@@ -22,21 +23,20 @@ function Person() {
     <>
       {page !== 'week' && (
         <>
-          <Title title="Фильтры"/>
+          <Title title={localization.get('common.filters')} />
           <UserSelect />
         </>
       )}
-
-      {page === 'changes' && <Changes/>}
-      {page === 'commits' && <Commits/>}
+      {page === 'total' && <Total/>}
       {page === 'hours' && <Hours/>}
       {page === 'money' && <Money/>}
+      {page === 'week' && <Week/>}
+      {page === 'month' && <Month/>}
+      {page === 'commits' && <Commits/>}
+      {page === 'changes' && <Changes/>}
       {page === 'words' && <PopularWords/>}
       {page === 'speed' && <Speed/>}
-      {page === 'total' && <Total/>}
-      {page === 'month' && <Week/>}
-      {page === 'week' && <Tempo/>}
-      {page === 'year' && <Year/>}
+      {page === 'day' && <Tempo/>}
     </>
   );
 }

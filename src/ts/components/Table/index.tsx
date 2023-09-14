@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ISort from 'ts/interfaces/Sort';
 
@@ -26,20 +26,27 @@ function Table({
   updateSort,
   children,
 }: ITableProps): React.ReactElement | null {
+  const [offsetWidth, setOffsetWidth] = useState<number>(0);
+
   if (!rows || !rows.length) return null;
 
   const refTable = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+  const currentWidth = refTable?.current?.offsetWidth;
+
+  useEffect(() => {
+    setOffsetWidth(currentWidth);
+  }, [currentWidth]);
 
   const defaultColumns = getDefaultProps(children) as IColumn[];
-  const defaultWidth = getDefaultColumnWidth(defaultColumns, refTable);
+  const defaultWidth = getDefaultColumnWidth(defaultColumns, offsetWidth);
   const columns = getColumnConfigs(defaultColumns, defaultWidth, sort);
 
   return (
-    <div className={`${style.table_wrapper}`}>
-      <div
-        ref={refTable}
-        className={`${style.table}`}
-      >
+    <div
+      ref={refTable}
+      className={`${style.table_wrapper}`}
+    >
+      <div className={`${style.table}`}>
         <Header
           columns={columns}
           updateSort={updateSort}
@@ -57,7 +64,8 @@ function Table({
 Table.defaultProps = {
   rows: [],
   sort: [],
-  updateSort: () => {},
+  updateSort: () => {
+  },
 };
 
 export default Table;

@@ -12,6 +12,7 @@ import Description from 'ts/components/Description';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
+import GetList from 'ts/components/GetList';
 
 import dataGripStore from 'ts/store/DataGrip';
 
@@ -33,6 +34,7 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
 const Total = observer((): React.ReactElement => {
   const { userId } = useParams<any>();
   const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
+  const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[statistic.author];
   const taskNumber = statistic.tasks.length;
   const achievements = getAchievementByAuthor(statistic.author);
 
@@ -82,6 +84,15 @@ const Total = observer((): React.ReactElement => {
           achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
         />
         <Description text="Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе."/>
+        <br />
+        <br />
+        {commitsWithGet?.length ? (
+          <>
+            <Title title={localization.get('Взятые геты:')}/>
+            <GetList list={commitsWithGet} />
+            <Description text="&laquo;Взять гет&raquo; в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером."/>
+          </>
+        ) : null}
       </PageColumn>
     </PageWrapper>
   );

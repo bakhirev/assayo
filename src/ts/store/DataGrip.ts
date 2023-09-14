@@ -80,7 +80,6 @@ class DataGripStore implements IDataGripStore {
 
   updateChars() { // todo: remove, never use
     console.log('need update data TODO');
-    return;
     dataGrip.updateByFilters();
     if (!dataGrip.author.list.length) return;
     achievements.updateByDataGrip(dataGrip.author.statistic);

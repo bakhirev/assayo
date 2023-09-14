@@ -1,12 +1,12 @@
 import React from 'react';
 
+import { IEmployees, IEmployeesSalary } from 'ts/interfaces/UserSetting';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 import PageBox from 'ts/components/Page/Box';
 import Title from 'ts/components/Title';
 
-import { IEmployees, IEmployeesSalary } from '../interfaces/Setting';
-import { getNewSalarySettings } from '../helpers/getEmptySettings';
+import { getNewEmploymentContract } from '../helpers/getEmptySettings';
 import UserSalary from './UserSalary';
 import formStore from '../store/Form';
 import style from '../styles/index.module.scss';
@@ -60,7 +60,7 @@ function UserSetting({
               ...user,
               salary: [
                 ...user.salary,
-                getNewSalarySettings(formStore.state),
+                getNewEmploymentContract(formStore.state),
               ],
             });
           }}

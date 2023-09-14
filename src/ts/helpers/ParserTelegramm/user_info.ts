@@ -44,6 +44,7 @@ export default function getUserInfo(message: any): ICommit {
     message: text || '',
 
     task: 'беседа',
+    taskNumber: '',
     type: 'не подписан',
     scope: 'неопределенна',
 

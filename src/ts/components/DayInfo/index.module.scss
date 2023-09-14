@@ -6,7 +6,6 @@
   }
 
   &_author,
-  &_task,
   &_date,
   &_message {
     font-weight: 100;
@@ -27,17 +26,10 @@
     line-height: var(--font-m);
   }
 
-  &_task {
-    font-size: var(--font-s);
+  &_link {
     display: block;
     padding: 0 0 0 var(--space-l);
     margin: 0 0 var(--space-s) 0;
-
-    line-height: var(--font-s);
-    cursor: pointer;
-    text-decoration: underline;
-
-    color: var(--color-first);
   }
 
   &_date,

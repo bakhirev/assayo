@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { IEmployeesSalary } from 'ts/interfaces/UserSetting';
 import UiKitInputNumber from 'ts/components/UiKit/components/InputNumber';
 import UiKitColumns from 'ts/components/UiKit/components/Columns';
 import UiKitSwitch from 'ts/components/UiKit/components/Switch';
@@ -8,7 +9,6 @@ import UiKitDate from 'ts/components/UiKit/components/Date';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 import Title from 'ts/components/Title';
 
-import { IEmployeesSalary } from '../interfaces/Setting';
 import style from '../styles/index.module.scss';
 
 interface IUserSalaryProps {

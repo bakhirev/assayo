@@ -39,7 +39,7 @@ function Column({ dayInfo, order, author }: IColumnProps) {
         ) : (
           <NothingFound
             icon="./assets/cards/commits.png"
-            message="В этот день у этого пользователя не было ни одного коммита."
+            message="В этот день у этого сотрудника не было ни одного коммита."
           />
         )}
       </div>

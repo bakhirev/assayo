@@ -1,29 +1,33 @@
 import localization from 'ts/helpers/Localization';
 
 localization.parse('ru', `
+§ common.filters: Фильтры
 § sidebar.team.total: Общая информация
-§ sidebar.team.scope: Оценка проекта
-§ sidebar.team.author: Оценка сотрудников
+§ sidebar.team.scope: Фичи
+§ sidebar.team.author: Сотрудники
 § sidebar.team.type: Типы задач
-§ sidebar.team.sprint: По неделям
-§ sidebar.team.month: По месяцу
+§ sidebar.team.pr: Влитие кода
+§ sidebar.team.day: По дням
+§ sidebar.team.week: По неделям
+§ sidebar.team.month: По месяцам
 § sidebar.team.tree: Анализ файлов
-§ sidebar.team.heatmap: График работы
 § sidebar.team.hours: Расписание
-§ sidebar.team.timestamp: Все коммиты
+§ sidebar.team.commits: Все коммиты
 § sidebar.team.changes: Все изменения
 § sidebar.team.words: Популярные слова
 § sidebar.team.top: Викторина
+§ sidebar.team.settings: Настройки
 § sidebar.person.total: Общая информация
 § sidebar.person.money: Стоимость работы
 § sidebar.person.speed: Скорость
+§ sidebar.person.day: По дням
 § sidebar.person.week: По неделям
 § sidebar.person.month: По месяцам
-§ sidebar.person.frequency: График работы
 § sidebar.person.hours: Расписание
 § sidebar.person.commits: Все коммиты
 § sidebar.person.changes: Все изменения
 § sidebar.person.words: Популярные слова
+§ sidebar.person.settings: Настройки
 § page.team.author.types: Тип работ
 § page.team.author.commits: Коммитов
 § page.team.author.commitsSmall: коммитов

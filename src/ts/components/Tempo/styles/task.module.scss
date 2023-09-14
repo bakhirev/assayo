@@ -53,14 +53,17 @@
 
   &_tags {
     display: inline-block;
+    white-space: normal;
+    text-align: right;
+    margin: 0 0 -6px 0;
   }
 
   &_tag {
     display: inline-block;
     padding: var(--space-xxxs) var(--space-sm);
+    margin: 0  0 var(--space-xs) var(--space-xs);
     border-radius: var(--border-radius-l);
     background-color: var(--color-border);
-    margin-left: 8px;
   }
 
   &_commits,

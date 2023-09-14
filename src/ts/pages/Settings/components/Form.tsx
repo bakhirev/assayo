@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
+import { IEmployees } from 'ts/interfaces/UserSetting';
 import UiKitButtonMenu from 'ts/components/UiKit/components/ButtonMenu';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
@@ -12,9 +13,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import UserSetting from './User';
 import Salary from './Salary';
 import Common from './Common';
-import Filter from './Filter';
 
-import { IEmployees } from '../interfaces/Setting';
 import { getNewEmployeesSettings } from '../helpers/getEmptySettings';
 import MailMap from './MailMap';
 import formStore from '../store/Form';
@@ -49,9 +48,8 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
     <>
       <PageWrapper>
         <PageColumn>
-          <Filter />
-          <Salary />
           <Common />
+          <Salary />
         </PageColumn>
         <PageColumn>
           <Title title="Индивидуальные настройки"/>
@@ -73,7 +71,7 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
                   ]);
                 }}
               >
-                Добавить пользователя
+                Добавить сотрудника
               </UiKitButtonMenu>
             </div>
           )}

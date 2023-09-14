@@ -36,6 +36,13 @@ function SideBarPerson({ page }: ISideBarProps) {
       />
       <SideBarMenuGap/>
       <SideBarMenuItem
+        id="day"
+        link={`/person/day/${formattedUserId}`}
+        title="sidebar.person.day"
+        icon="./assets/menu/team_week.svg"
+        isSelected={page === 'day'}
+      />
+      <SideBarMenuItem
         id="week"
         link={`/person/week/${formattedUserId}`}
         title="sidebar.person.week"
@@ -46,15 +53,8 @@ function SideBarPerson({ page }: ISideBarProps) {
         id="month"
         link={`/person/month/${formattedUserId}`}
         title="sidebar.person.month"
-        icon="./assets/menu/team_week.svg"
-        isSelected={page === 'month'}
-      />
-      <SideBarMenuItem
-        id="year"
-        link={`/person/year/${formattedUserId}`}
-        title="sidebar.person.frequency"
         icon="./assets/menu/team_date_1.svg"
-        isSelected={page === 'year'}
+        isSelected={page === 'month'}
       />
       <SideBarMenuItem
         id="hours"

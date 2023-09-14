@@ -1,10 +1,10 @@
 import IHashMap from 'ts/interfaces/HashMap';
+import { IEmployees, IUserSetting } from 'ts/interfaces/UserSetting';
 
-import { IEmployees, ISetting } from '../interfaces/Setting';
 import getEmptySettings from '../helpers/getEmptySettings';
 
 class Settings {
-  customSettings: ISetting = getEmptySettings();
+  customSettings: IUserSetting = getEmptySettings();
 
   employeesByName: IHashMap<IEmployees> = {};
 
@@ -12,7 +12,7 @@ class Settings {
 
   salaryInDay: number = 180000 / 22;
 
-  update(customSettings?: ISetting) {
+  update(customSettings?: IUserSetting) {
     this.customSettings = customSettings || getEmptySettings();
 
     this.employeesByName = this.customSettings.employees.reduce((acc, user) => {
@@ -21,7 +21,7 @@ class Settings {
     }, {});
 
     const salary = this.customSettings.defaultSalary;
-    this.workDaysInMonth = Math.ceil(4.3 * salary.workDaysInWeek);
+    this.workDaysInMonth = Math.ceil(4.3 * 5); // TODO: salary.workDaysInWeek);
     this.salaryInDay = salary.value / this.workDaysInMonth;
   }
 
@@ -40,7 +40,7 @@ class Settings {
     const user = this.employeesByName[name];
     if (!user) return this.salaryInDay;
     const salary = user.salary[user.salary.length - 1];
-    const workDaysInMonth = Math.ceil(4.3 * salary.workDaysInWeek);
+    const workDaysInMonth = Math.ceil(4.3 * 5); // TODO: * salary.workDaysInWeek);
     return salary.value / workDaysInMonth;
   }
 }

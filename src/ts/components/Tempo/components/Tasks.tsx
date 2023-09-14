@@ -1,9 +1,12 @@
 import React from 'react';
 
-import IHashMap from 'ts/interfaces/HashMap';
 import ICommit from 'ts/interfaces/Commit';
-
+import IHashMap from 'ts/interfaces/HashMap';
+import ExternalLink from 'ts/components/ExternalLink';
+import userSettings from 'ts/store/UserSettings';
 import { get2Number } from 'ts/helpers/formatter';
+import dataGrip from 'ts/helpers/DataGrip';
+
 import style from '../styles/task.module.scss';
 
 function getFormattedTime(time: any) {
@@ -37,15 +40,23 @@ interface ITaskProps {
 }
 
 function Task({ title, commits }: ITaskProps) {
+  const prId = dataGrip.pr.prByTask[title];
   return (
     <div
       key={title}
       className={style.tempo_task}
     >
       <div className={style.tempo_task_header}>
-        <p className={style.tempo_task_link}>
-          {title}
-        </p>
+        <div>
+          <ExternalLink
+            text={title}
+            link={`${userSettings?.settings?.linksPrefix?.task || '/'}${title}`}
+          />
+          <ExternalLink
+            text="PR"
+            link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
+          />
+        </div>
         <div className={style.tempo_task_tags}>
           {getTags(commits)}
         </div>

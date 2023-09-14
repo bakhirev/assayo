@@ -8,26 +8,29 @@
 
   &_item {
     display: block;
-    width: 250px;
-    padding: 12px;
+    width: 300px;
+    padding: 24px;
     margin: 0 12px 12px;
 
     box-sizing: border-box;
     box-shadow: 2px 2px 3px var(--color-grey);
     border: 1px solid var(--color-border);
-    background-color: #FFFFFF;
-    border-radius: 4px;
+    border-left: 8px solid var(--color-border);
+    border-radius: var(--border-radius-s);
+    background-color: white;
+
+    animation: notification_item 3s linear 0.5s forwards;
 
     &_error {
-      background-color: var(--color-12);
+      border-color: var(--color-12);
     }
 
     &_warning {
-      background-color: var(--color-32);
+      border-color: var(--color-32);
     }
 
     &_success {
-      background-color: var(--color-13);
+      border-color: var(--color-13);
     }
 
     &_info {
@@ -36,20 +39,43 @@
 
     &_title,
     &_description {
-      font-size: var(--font-s);
+      font-size: var(--font-m);
+      font-weight: 100;
       padding: 0;
       text-align: left;
       color: var(--color-black);
+      animation: notification_title 3s linear 0.5s forwards;
     }
 
     &_title {
-      font-weight: bold;
       margin: 0;
     }
 
     &_description {
-      font-weight: 100;
       margin: 0 0 4px 0;
     }
+  }
+}
+
+@keyframes notification_item {
+  80% {
+    overflow: hidden;
+    height: auto;
+    padding: 24px;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    padding: 0 24px;
+    opacity: 0;
+  }
+}
+
+@keyframes notification_title {
+  80% {
+    font-size: var(--font-m);
+  }
+  to {
+    font-size: 2px;
   }
 }

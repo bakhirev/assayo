@@ -1,8 +1,10 @@
 import { action, makeObservable } from 'mobx';
 
+import { IUserSetting } from 'ts/interfaces/UserSetting';
 import Form from 'ts/store/Form';
 import settingsApi from 'ts/api/settings';
-import { ISetting } from '../interfaces/Setting';
+import userSettings from 'ts/store/UserSettings';
+import notificationsStore from 'ts/components/Notifications/store';
 
 class FormStore extends Form {
   constructor() {
@@ -12,10 +14,12 @@ class FormStore extends Form {
     });
   }
 
-  save(body: ISetting): Promise<any> {
+  save(body: IUserSetting): Promise<any> {
     const { saveSettings } = settingsApi;
     return this.submit(saveSettings, body, false)
       .then((response: any) => {
+        notificationsStore.show('Настройки сохранены');
+        userSettings.loadUserSettings();
         this.setInitState(this.state);
         return Promise.resolve(response);
       });

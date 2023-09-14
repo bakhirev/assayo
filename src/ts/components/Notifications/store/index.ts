@@ -12,6 +12,8 @@ interface INotificationsStore {
 class NotificationsStore implements INotificationsStore {
   timer: any = null;
 
+  limit: number = 6;
+
   messages: IMessage[] = [];
 
   constructor() {
@@ -22,24 +24,32 @@ class NotificationsStore implements INotificationsStore {
     });
   }
 
+  static getTime() {
+    return (new Date()).getTime();
+  }
+
   show(message?: any) {
     this.messages.push({
-      id: Math.random(),
+      id: NotificationsStore.getTime(),
       title: message?.title || message || 'Изменения сохранены',
       description: message?.description || '',
       type: message?.type || 'success',
     });
+    if (this.messages.length > this.limit) {
+      this.messages.shift();
+    }
     this.startClearTimer();
   }
 
   startClearTimer() {
     if (this.timer) return;
     this.timer = setInterval(() => {
-      this.messages.shift();
+      const time = NotificationsStore.getTime() - 3500;
+      this.messages = this.messages.filter((item: IMessage) => item?.id > time);
       if (this.messages.length) return;
       clearInterval(this.timer);
       this.timer = null;
-    }, 3500);
+    }, 500);
   }
 }
 

@@ -1,6 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
-import settingsStore from 'ts/store/Settings';
 import IHashMap from 'ts/interfaces/HashMap';
+import settingsStore from 'ts/store/Settings';
+import userSettings from 'ts/store/UserSettings';
 
 export default class DataGripByAuthor {
   list: string[] = [];
@@ -26,6 +27,7 @@ export default class DataGripByAuthor {
     } else {
       this.#addCommitByAuthor(commit);
     }
+    this.#setMoneyByMonth(commit);
   }
 
   #updateCommitByAuthor(commit: ICommit) {
@@ -44,12 +46,20 @@ export default class DataGripByAuthor {
       ? commit.message.length
       : statistic.maxMessageLength;
     statistic.commitsByDayAndHour[commit.day][commit.hours] += 1;
+    statistic.commitsByHour[commit.hours] += 1;
     statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
   }
 
   #addCommitByAuthor(commit: ICommit) {
     const commitsByDayAndHour = DataGripByAuthor.getDefaultCommitsByDayAndHour();
-    commitsByDayAndHour[commit.day][commit.hours] += 1;
+    try {
+      commitsByDayAndHour[commit.day][commit.hours] += 1;
+    } catch (e: any) {
+      debugger;
+    }
+    const commitsByHour = new Array(24).fill(0);
+    commitsByHour[commit.hours] += 1;
+
     this.commits[commit.author] = {
       author: commit.author,
       commits: 1,
@@ -61,12 +71,51 @@ export default class DataGripByAuthor {
       scopes: { [commit.scope]: 1 },
       hours: [commit.hours],
       commitsByDayAndHour,
+      commitsByHour,
       messageLength: [commit.message.length || 0],
       totalMessageLength: commit.message.length || 0,
       maxMessageLength: commit.message.length || 0,
       wordStatistics: DataGripByAuthor.#updateWordStatistics(commit),
+      moneyByMonth: {},
     };
   }
+
+  #setMoneyByMonth(commit: ICommit) {
+    const key = `${commit.year}-${commit.month}`;
+    if (this.commits[commit.author].moneyByMonth[key]) {
+      this.#updateMoneyByMonth(commit, key);
+    } else {
+      this.#addMoneyByMonth(commit, key);
+    }
+  }
+
+  #updateMoneyByMonth(commit: ICommit, key: string) {
+    const statistic = this.commits[commit.author].moneyByMonth[key];
+    if (statistic.alreadyAdded[commit.milliseconds]) return;
+    statistic.alreadyAdded[commit.milliseconds] = true;
+
+    const isWorkDay = statistic.contract.workDaysInWeek[commit.day];
+    if (isWorkDay) {
+      statistic.workDay += 1;
+    } else {
+      statistic.weekDay += 1;
+    }
+  }
+
+  #addMoneyByMonth(commit: ICommit, key: string) {
+    const contract = userSettings.getEmploymentContract(commit.author, commit.milliseconds);
+    const isWorkDay = contract.workDaysInWeek[commit.day];
+    this.commits[commit.author].moneyByMonth[key] = {
+      workDay: isWorkDay ? 1 : 0,
+      weekDay: isWorkDay ? 0 : 1,
+      alreadyAdded: {
+        [commit.milliseconds]: true,
+      },
+      contract,
+    };
+  }
+
+
 
   static getDefaultCommitsByDayAndHour() {
     return (new Array(7)).fill(1).map(() => (new Array(24)).fill(0));
@@ -107,7 +156,8 @@ export default class DataGripByAuthor {
         const allDaysInProject = Math.ceil((to - from) / settingsStore.ONE_DAY);
         const lazyDays = Math.floor((allDaysInProject * WORK_AND_HOLIDAYS) - workDays) + 1;
 
-        const middleSalaryInDay = settingsStore.getMiddleSalaryInDay(dot.author);
+        const middleSalaryInMonth = userSettings.getMiddleSalaryInMonth(dot.author, from, to);
+        const middleSalaryInDay = middleSalaryInMonth / 22;
         const moneyWorked = Math.ceil(workDays * middleSalaryInDay);
         const moneyLosses = lazyDays > 0
           ? Math.ceil(lazyDays * middleSalaryInDay)

@@ -17,14 +17,15 @@ export interface ILog {
 
   // task
   message: string; // "JIRA-0000 fix(profile): add new avatar",
-  task: string; // "JIRA-0000,
+  task: string; // "JIRA-0000",
+  taskNumber: string; // "0000",
   type: string; // feat|fix|docs|style|refactor|test|chore
   scope: string; //  table, sale, profile and etc.
 }
 
 export const COMMIT_TYPE = {
-  PR: 'PR',
-  MERGE: 'MERGE',
+  PR_BITBUCKET: 'PR_BITBUCKET',
+  PR_GITHUB: 'PR_GITHUB',
   AUTO_MERGE: 'AUTO_MERGE',
 };
 

@@ -9,7 +9,7 @@ export interface IUiKitWrapperProps {
   example?: string;
   error?: string;
   className?: string;
-  disabled?: boolean,
+  disabled?: boolean;
   children?: ReactNode | string | null;
 }
 

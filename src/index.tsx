@@ -2,8 +2,11 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 
-import ru from './ts/config/translations/ru';
-import Authorization from './ts/pages/Authorization';
+import ru from 'ts/config/translations/ru';
+import Authorization from 'ts/pages/Authorization';
+import userSettings from 'ts/store/UserSettings';
+import Notifications from 'ts/components/Notifications';
+
 import './styles/index.scss';
 
 // eslint-disable-next-line
@@ -31,6 +34,7 @@ function renderReactApplication() {
     <React.StrictMode>
       <HashRouter>
         <Authorization/>
+        <Notifications/>
       </HashRouter>
     </React.StrictMode>,
     document.getElementById('root'),
@@ -55,4 +59,6 @@ function loadApplication() {
   document.body.appendChild(script);
 }
 
-loadApplication();
+userSettings.loadUserSettings().then(() => {
+  loadApplication();
+});

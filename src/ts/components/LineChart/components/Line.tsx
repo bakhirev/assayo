@@ -8,6 +8,7 @@ interface ILineProps {
   suffix?: string;
   color?: { first: string, second: string } | null;
   className?: string;
+  formatter?: Function;
 }
 
 function Line({
@@ -18,12 +19,15 @@ function Line({
   suffix,
   color,
   className,
+  formatter,
 }: ILineProps): React.ReactElement | null {
   if (!width || width <= 0) return null;
 
   const formattedTitle = title || '';
+  const formattedValue = formatter?.(value);
+  const formattedSuffix = suffix ? ` ${suffix}` : '';
   const formattedDescription = value
-    ? `${width}% (${value} ${suffix}) ${description || formattedTitle}`
+    ? `${width}% (${formattedValue}${formattedSuffix}) ${description || formattedTitle}`
     : `${width}% ${description || formattedTitle}`;
 
   return (
@@ -50,6 +54,7 @@ Line.defaultProps = {
   suffix: '',
   color: null,
   className: '',
+  formatter: (v: any) => v,
 };
 
 export default Line;

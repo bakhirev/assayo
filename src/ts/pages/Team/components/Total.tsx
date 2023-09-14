@@ -9,7 +9,7 @@ import CardWithIcon from 'ts/components/CardWithIcon';
 import Description from 'ts/components/Description';
 
 import dataGripStore from 'ts/store/DataGrip';
-import settingsStore from 'ts/store/Settings';
+import userSettings from 'ts/store/UserSettings';
 import { getShortMoney } from 'ts/helpers/formatter';
 
 const Total = observer((): React.ReactElement => {
@@ -20,7 +20,7 @@ const Total = observer((): React.ReactElement => {
     return speed + dataGripStore.dataGrip.author.statisticByName[name].taskInDay;
   }, 0).toFixed(1);
   const moneySpeed = employment.active.reduce((speed: number, name: string) => {
-    return speed + (settingsStore.salary[name] || settingsStore.defaultSalary);
+    return speed + userSettings.getCurrentSalaryInMonth(name);
   }, 0);
 
   return (

@@ -1,16 +1,34 @@
-import { ISetting } from 'ts/pages/Settings/interfaces/Setting';
+import { IUserSetting } from 'ts/interfaces/UserSetting';
 import getEmptySettings from 'ts/pages/Settings/helpers/getEmptySettings';
 
 export default {
-  loadSettings(): Promise<ISetting> {
+  loadSettings(): Promise<IUserSetting> {
+    const defaultSettings = getEmptySettings();
     const response = localStorage.getItem('settings');
-    return response
-      ? Promise.resolve(JSON.parse(response))
-      : Promise.resolve(getEmptySettings());
+    const defaultResponse = () => {
+      localStorage.removeItem('settings');
+      return Promise.resolve(defaultSettings);
+    };
+
+    if (!response || response === JSON.stringify(defaultSettings)) {
+      return defaultResponse();
+    }
+
+    const jsonFromMemory = JSON.parse(response);
+    if (jsonFromMemory.version !== defaultSettings.version) {
+      return defaultResponse();
+    }
+
+    return Promise.resolve(jsonFromMemory);
   },
 
-  saveSettings(body: ISetting): Promise<any> {
-    localStorage.setItem('settings', JSON.stringify(body));
+  saveSettings(body: IUserSetting): Promise<any> {
+    const defaultSettings = getEmptySettings();
+    if (JSON.stringify(defaultSettings) === JSON.stringify(body)) {
+      localStorage.removeItem('settings');
+    } else {
+      localStorage.setItem('settings', JSON.stringify(body));
+    }
     return Promise.resolve();
   },
 };

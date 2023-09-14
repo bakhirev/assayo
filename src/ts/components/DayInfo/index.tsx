@@ -1,7 +1,10 @@
 import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
+import ExternalLink from 'ts/components/ExternalLink';
+import userSettings from 'ts/store/UserSettings';
 import { getShortTime } from 'ts/helpers/formatter';
+import dataGrip from 'ts/helpers/DataGrip';
 
 import style from './index.module.scss';
 
@@ -36,11 +39,23 @@ function CommitInfo({ commits }: { commits: ICommit[] }): React.ReactElement {
 function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
   const items = Object.entries(tasks)
     .map(([task, commits]: [string, any]) => {
+      const prId = dataGrip.pr.prByTask[task];
       return (
-        <div key={task}>
-          <div className={style.day_info_task}>{task}</div>
+        <>
+          <div className={style.day_info_link}>
+            <ExternalLink
+              link={`${userSettings?.settings?.linksPrefix?.task || '/'}${task}`}
+              text={task}
+            />
+            {prId && (
+              <ExternalLink
+                link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
+                text="PR"
+              />
+            )}
+          </div>
           <CommitInfo commits={commits}/>
-        </div>
+        </>
       );
     });
   return (<>{items}</>);
@@ -57,7 +72,6 @@ function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactE
   const firstCommit = events?.firstCommit?.[timestamp || ''] || [];
   const lastCommit = events?.lastCommit?.[timestamp || ''] || [];
   let taskNumber = 0;
-  console.dir(firstCommit);
 
   const items = Object.entries(day?.tasksByAuthor)
     .sort((a: any, b: any) => (order.indexOf(a[0]) - order.indexOf(b[0])))

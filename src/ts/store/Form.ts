@@ -156,7 +156,6 @@ class FormStore implements IFormStore {
     if (this.isLocked) {
       return Promise.resolve();
     }
-    console.log(data);
     return this.validation(data)
       .then(action(() => {
         this.isLoading = true;

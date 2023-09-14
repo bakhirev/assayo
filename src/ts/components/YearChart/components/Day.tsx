@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-import DayInfo from 'ts/components/DayInfo';
-import dataGripStore from 'ts/store/DataGrip';
 import IHashMap from 'ts/interfaces/HashMap';
+import dataGripStore from 'ts/store/DataGrip';
+import DayInfo from 'ts/components/DayInfo';
+import Title from 'ts/components/Title';
+
+import { getDate } from 'ts/helpers/formatter';
 
 import IMonth from '../interfaces/Month';
 import style from '../styles/index.module.scss';
@@ -50,9 +53,10 @@ function Day({
     >
       {showInfo ? (
         <>
-          {'📌'}
+          {'◉'}
           <div className={style.year_chart_month_body_day_arrow} />
           <div className={style.year_chart_month_body_day_info}>
+            <Title title={getDate(dayInfo.timestamp)} />
             <DayInfo // @ts-ignore
               day={dayInfo}
               events={events}

@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import Button from 'ts/components/UiKit/components/Button';
+import notificationsStore from 'ts/components/Notifications/store';
 
 function copyInBuffer(value?: string) {
   if (!value) return;
@@ -39,6 +40,7 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
         className={`${style.console_copy}`}
         onClick={() => {
           copyInBuffer(textForCopy);
+          notificationsStore.show('Текст скопирован');
         }}
 	    >
         Копировать

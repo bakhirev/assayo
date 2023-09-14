@@ -14,6 +14,12 @@ import Tv100And1 from 'ts/components/Tv100And1';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import Description from 'ts/components/Description';
+import Table from 'ts/components/Table';
+import Column from 'ts/components/Table/components/Column';
+import LineChart from 'ts/components/LineChart';
+import getOptions from 'ts/components/LineChart/helpers/getOptions';
+import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
+
 import { getDate } from 'ts/helpers/formatter';
 
 import style from '../styles/quiz.module.scss';
@@ -41,6 +47,7 @@ const Top = observer((): React.ReactElement => {
   const maxMessageLength = [...tracksAuth]
     .sort((a: any, b: any) => b.maxMessageLength - a.maxMessageLength)
     .map((item: any) => ({ title: item.author, value: item.maxMessageLength }));
+  const chartMessageLength = getOptions({ max: maxMessageLength[0].value, suffix: 'сиволов' });
 
   const authors = dataGripStore.dataGrip.author.statistic.map((statistic: any) => {
     const achievements = getAchievementByAuthor(statistic.author);
@@ -75,8 +82,37 @@ const Top = observer((): React.ReactElement => {
     <>
       <Title title="Скорость закрытия задач"/>
       <Races tracks={tracks} />
+
       <Title title="Максимальная длинна подписи коммита"/>
+      <PageWrapper template="table">
+        <Table rows={maxMessageLength}>
+          <Column
+            isFixed
+            template={ColumnTypesEnum.STRING}
+            title="Сотрудник"
+            properties="title"
+            width={260}
+          />
+          <Column
+            template={ColumnTypesEnum.SHORT_NUMBER}
+            properties="value"
+            width={40}
+          />
+          <Column
+            title="Количество символов"
+            properties="value"
+            template={(messageLength: number) => (
+              <LineChart
+                options={chartMessageLength}
+                value={messageLength}
+              />
+            )}
+          />
+        </Table>
+      </PageWrapper>
+
       <Tv100And1 rows={maxMessageLength} />
+
       {authors}
       <PageWrapper>
         <div style={{ whiteSpace: 'normal' }} >

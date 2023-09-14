@@ -7,6 +7,7 @@ interface IOptionsProps {
   other?: string;
   max?: number[] | number;
   limit?: number;
+  formatter?: Function;
 }
 
 export default function getOptions({
@@ -15,13 +16,15 @@ export default function getOptions({
   other,
   max,
   limit,
+  formatter,
 }: IOptionsProps): IOptions {
   return {
     max: max instanceof Array ? Math.max(...max) : (max || 100),
     order: order || [],
-    suffix: suffix || 'коммитов',
-    otherTitle: other || 'Остальные',
+    suffix: suffix ?? 'коммитов',
+    otherTitle: other ?? 'Остальные',
     color: order?.length ? (new ColorGenerator(order)) : null,
     limit: limit || 15,
+    formatter: formatter || ((v: any) => v),
   };
 }

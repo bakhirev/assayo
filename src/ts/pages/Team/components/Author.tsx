@@ -35,7 +35,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
 
   const textWork = localization.get('page.team.author.worked');
   const textLosses = localization.get('page.team.author.losses');
-  const daysWorked = getOptions({ order: [textWork, textLosses] });
+  const daysWorked = getOptions({ order: [textWork, textLosses], suffix: 'дней' });
   const taskChart = getOptions({ max: getMaxByLength(response, 'tasks'), suffix: 'задач' });
   const commitsChart = getOptions({ max: getMax(response, 'commits') });
   const typeChart = getOptions({ order: dataGripStore.dataGrip.type.list });

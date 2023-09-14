@@ -49,7 +49,7 @@ function Commits({ statistic }: ICommitsProps) {
       <br/>
       <br/>
       {}
-      <Title title={`${getDate(selected?.timestamp)} сделано ${selected?.commits || '_'} коммитов`}/>
+      <Title title={`${getDate(selected?.timestamp)} сделано коммитов: ${selected?.commits || '_'}`}/>
       <PageWrapper template="box">
         <DayInfo
           day={selected}

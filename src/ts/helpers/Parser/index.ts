@@ -18,16 +18,12 @@ export default function Parser(
   let weekEndTime: number = 0;
 
   let prev = null;
-  let isFileInfo = false; // [ name, file, empty ];
 
   for (let i = 0, l = report.length; i < l; i += 1) {
     const message = report[i];
-    if (!message) {
-      isFileInfo = false;
-      continue;
-    }
-
-    if (isFileInfo) {
+    if (!message) continue;
+    const index = message.indexOf('\t');
+    if (index > 0 && index < 10) {
       let [addedRaw, removedRaw, fileName] = message.split('\t');
       fileName = getNewFileName(fileName, allFiles);
       let added = parseInt(addedRaw, 10) || 0;
@@ -104,7 +100,6 @@ export default function Parser(
 
       prev = next;
       commits.push(prev); // @ts-ignore
-      isFileInfo = !prev.commitType;
     }
   }
   if (prev) parseCommit(prev);

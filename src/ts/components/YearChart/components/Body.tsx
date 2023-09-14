@@ -10,11 +10,13 @@ import { getEvents } from '../helpers/day';
 interface IBodyProps {
   month: IMonth;
   maxCommits: number;
+  showEvents: boolean;
 }
 
 function Body({
   month,
   maxCommits,
+  showEvents,
 }: IBodyProps): React.ReactElement | null {
   const firstDay = month.date.getDay() - 1;
   const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -22,7 +24,7 @@ function Body({
   const allDays = (new Array(6 * 7)).fill(0);
   let currentDay = 0;
 
-  const events = getEvents(dataGripStore);
+  const events = showEvents ? getEvents(dataGripStore) : {};
   const days = allDays.map((v: any, index: number) => {
     const dayInfo = month.commits[currentDay];
 

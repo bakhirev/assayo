@@ -6,7 +6,7 @@ function IsStaff() {
   return (
     <>
       <p className={style.nothing_found_title}>
-        Нет данных для этого пользователя
+        Нет данных для этого сотрудника
       </p>
       <p className={style.nothing_found_text}>
         Он вносил правки не каждый рабочий день и получил статус Помошник.

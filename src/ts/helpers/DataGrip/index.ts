@@ -10,6 +10,7 @@ import DataGripByTimestamp from './components/timestamp';
 import DataGripByWeek from './components/week';
 import MinMaxCounter from './components/counter';
 import DataGripByExtension from './components/extension';
+import DataGripByGet from './components/get';
 import DataGripByPR from './components/pr';
 
 class DataGrip {
@@ -31,6 +32,8 @@ class DataGrip {
 
   extension: any = new DataGripByExtension();
 
+  get: any = new DataGripByGet();
+
   pr: any = new DataGripByPR();
 
   initializationInfo: any = {};
@@ -45,19 +48,20 @@ class DataGrip {
     this.week.clear();
     this.recommendations.clear();
     this.extension.clear();
+    this.get.clear();
     this.pr.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit) {
-    if (commit.author === 'GitHub') return; // @ts-ignore
-    if (commit.commitType) {
-      this.pr.addCommit(commit);
-    } else {
+    if (commit.author === 'GitHub') return;
+    this.pr.addCommit(commit); // @ts-ignore
+    if (!commit.commitType) {
       this.firstLastCommit.update(commit.milliseconds, commit);
       this.author.addCommit(commit);
       this.scope.addCommit(commit);
       this.type.addCommit(commit);
       this.timestamp.addCommit(commit);
+      this.get.addCommit(commit);
       this.week.addCommit(commit);
     }
   }
@@ -70,7 +74,7 @@ class DataGrip {
     this.timestamp.updateTotalInfo(this.author);
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
-    this.pr.updateTotalInfo(this);
+    this.pr.updateTotalInfo(this.author);
   }
 
   updateByInitialization() {

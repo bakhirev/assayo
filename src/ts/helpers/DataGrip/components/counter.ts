@@ -7,7 +7,8 @@ export default class MinMaxCounter {
 
   maxData: any = undefined;
 
-  update(value: number, data: any) {
+  update(value?: number, data?: any) {
+    if (!value && value !== 0) return;
     if (this.min > value) {
       this.min = value;
       this.minData = data;

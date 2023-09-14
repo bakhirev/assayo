@@ -69,6 +69,25 @@ const Common = observer((): React.ReactElement | null => {
             formStore.updateState('defaultSalary.workDaysInWeek', workDaysInWeek);
           }}
         />
+        <UiKitSwitch
+          title="Рабочие дни"
+          value={defaultSalary.workDaysInWeek.map((v: number, i: number) => v ? (i + 1) : null)}
+          options={[
+            { id: 1, title: 'Пн' },
+            { id: 2, title: 'Вт' },
+            { id: 3, title: 'Ср' },
+            { id: 4, title: 'Чт' },
+            { id: 5, title: 'Пт' },
+            { id: 6, title: 'Сб' },
+            { id: 7, title: 'Вс' },
+          ]}
+          onChange={(workDaysInWeek: number[]) => {
+            const formattedValue = (new Array(7)).fill(0)
+              .map((v: number, i: number) => workDaysInWeek.includes(i + 1));
+            console.log(formattedValue);
+            formStore.updateState('defaultSalary.workDaysInWeek', formattedValue);
+          }}
+        />
       </PageBox>
     </>
   );

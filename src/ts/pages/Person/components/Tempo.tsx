@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 import { getShortDateRange } from 'ts/helpers/formatter';
+import localization from 'ts/helpers/Localization';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import PageWrapper from 'ts/components/Page/wrapper';
@@ -59,7 +60,7 @@ const Tempo = observer((): React.ReactElement => {
   if (!partOfData?.length) return (<NothingFound />);
   return (
     <>
-      <Title title="Фильтры"/>
+      <Title title={localization.get('common.filters')} />
       <PageWrapper>
         <div className={style.tempo_page_filters}>
           <UiKitButton

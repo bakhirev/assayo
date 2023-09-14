@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
+import localization from 'ts/helpers/Localization';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
@@ -125,7 +126,7 @@ const Tree = observer((): React.ReactElement => {
 
   return (
     <>
-      <Title title="Фильтры"/>
+      <Title title={localization.get('common.filters')} />
       <TreeFilters/>
       <Title title="Дерево проекта с учётом выбранных фильтров"/>
       <PageWrapper template="table">

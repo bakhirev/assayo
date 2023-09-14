@@ -38,27 +38,34 @@ function SideBarTeam({ page }: ISideBarProps) {
         icon="./assets/menu/team_type.svg"
         isSelected={page === 'type'}
       />
+      <SideBarMenuItem
+        id="type"
+        link="/team/pr"
+        title="sidebar.team.pr"
+        icon="./assets/menu/pull_request.svg"
+        isSelected={page === 'pr'}
+      />
       <SideBarMenuGap/>
       <SideBarMenuItem
-        id="sprint"
-        link="/team/sprint"
-        title="sidebar.team.sprint"
+        id="day"
+        link="/team/day"
+        title="sidebar.team.day"
         icon="./assets/menu/team_week.svg"
-        isSelected={page === 'sprint'}
+        isSelected={page === 'day'}
+      />
+      <SideBarMenuItem
+        id="week"
+        link="/team/week"
+        title="sidebar.team.week"
+        icon="./assets/menu/team_week.svg"
+        isSelected={page === 'week'}
       />
       <SideBarMenuItem
         id="month"
         link="/team/month"
         title="sidebar.team.month"
-        icon="./assets/menu/team_week.svg"
-        isSelected={page === 'month'}
-      />
-      <SideBarMenuItem
-        id="year"
-        link="/team/year"
-        title="sidebar.team.heatmap"
         icon="./assets/menu/team_date_1.svg"
-        isSelected={page === 'year'}
+        isSelected={page === 'month'}
       />
       <SideBarMenuItem
         id="hours"
@@ -76,11 +83,11 @@ function SideBarTeam({ page }: ISideBarProps) {
         isSelected={page === 'tree'}
       />
       <SideBarMenuItem
-        id="timestamp"
-        link="/team/timestamp"
-        title="sidebar.team.timestamp"
+        id="commits"
+        link="/team/commits"
+        title="sidebar.team.commits"
         icon="./assets/menu/pull-request.svg"
-        isSelected={page === 'timestamp'}
+        isSelected={page === 'commits'}
       />
       <SideBarMenuItem
         id="changes"
@@ -96,14 +103,14 @@ function SideBarTeam({ page }: ISideBarProps) {
         icon="./assets/menu/team_words.svg"
         isSelected={page === 'words'}
       />
-      <SideBarMenuGap/>
-      <SideBarMenuItem
-        id="top"
-        link="/team/top"
-        title="sidebar.team.top"
-        icon="./assets/menu/team_words.svg"
-        isSelected={page === 'top'}
-      />
+      {/*<SideBarMenuGap/>*/}
+      {/*<SideBarMenuItem*/}
+      {/*  id="top"*/}
+      {/*  link="/team/top"*/}
+      {/*  title="sidebar.team.top"*/}
+      {/*  icon="./assets/menu/team_words.svg"*/}
+      {/*  isSelected={page === 'top'}*/}
+      {/*/>*/}
     </>
   );
 }

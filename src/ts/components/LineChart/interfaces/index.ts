@@ -5,6 +5,7 @@ export interface IOptions {
   otherTitle: string;
   color: any;
   limit: number;
+  formatter?: Function;
 }
 
 export interface ISubLine {

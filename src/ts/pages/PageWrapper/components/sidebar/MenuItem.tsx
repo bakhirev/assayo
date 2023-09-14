@@ -21,11 +21,13 @@ function SideBarMenuItem({
   icon,
   isSelected,
 }: ISideBarMenuItemProps) {
+  const formattedTitle = localization.get(title);
   return (
     <Link
       key={id}
       className={`${style.sidebar_item} ${isSelected ? style.selected : ''}`}
       to={link}
+      title={formattedTitle}
       id={`sidebar-menu-${id}`}
       onClick={() => {
         if (settingsForm.isEdited) {
@@ -40,7 +42,7 @@ function SideBarMenuItem({
         alt={title || ''}
       />
       <figcaption className={style.sidebar_item_title}>
-        {localization.get(title)}
+        {formattedTitle}
       </figcaption>
     </Link>
   );

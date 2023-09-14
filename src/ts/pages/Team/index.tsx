@@ -12,8 +12,9 @@ import Total from './components/Total';
 import Tree from './components/Tree';
 import Type from './components/Type';
 import Week from './components/Week';
-import Year from './components/Year';
+import Month from './components/Month';
 import Top from './components/Top';
+import Pr from './components/PR';
 
 function Team() {
   const { type, page } = useParams<any>();
@@ -23,18 +24,19 @@ function Team() {
 
   return (
     <>
-      {page === 'author' && <Author/>}
-      {page === 'changes' && <Changes/>}
-      {page === 'timestamp' && <Commits/>}
-      {page === 'hours' && <Hours/>}
-      {page === 'words' && <PopularWords/>}
-      {page === 'scope' && <Scope/>}
-      {page === 'month' && <Week/>}
-      {page === 'year' && <Year/>}
       {page === 'total' && <Total/>}
-      {page === 'tree' && <Tree/>}
+      {page === 'scope' && <Scope/>}
+      {page === 'author' && <Author/>}
       {page === 'type' && <Type/>}
-      {page === 'sprint' && <Tempo/>}
+      {page === 'pr' && <Pr/>}
+      {page === 'day' && <Tempo/>}
+      {page === 'week' && <Week/>}
+      {page === 'month' && <Month/>}
+      {page === 'hours' && <Hours/>}
+      {page === 'tree' && <Tree/>}
+      {page === 'commits' && <Commits/>}
+      {page === 'changes' && <Changes/>}
+      {page === 'words' && <PopularWords/>}
       {page === 'top' && <Top/>}
     </>
   );
