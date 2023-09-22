@@ -16,6 +16,7 @@
     min-height: calc(100vh - 72px);
     padding: 24px;
     box-sizing: border-box;
+    break-inside: auto;
   }
 }
 
@@ -25,6 +26,17 @@
 
     &_main {
       width: calc(100vw - 78px);
+    }
+  }
+}
+
+@media print {
+  .page_wrapper {
+    grid-template-areas: 'main main' 'main main';
+
+    &_main {
+      width: 100vw;
+      padding: 12px 0;
     }
   }
 }

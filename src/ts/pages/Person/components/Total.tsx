@@ -46,7 +46,7 @@ const Total = observer((): React.ReactElement => {
           <CardWithIcon
             value={statistic.daysWorked}
             icon="./assets/cards/work_days.png"
-            title="page.team.total.daysWorked.title"
+            title="дней работы"
             description="page.team.total.daysWorked.description"
           />
           <CardWithIcon

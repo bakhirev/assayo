@@ -24,6 +24,7 @@ function YearChart({
 
   const authorsByDate = getAuthorByDate(authors);
   const months = getCommitsByMonth(wordDays, authorsByDate);
+  const hideMoney = authors?.length === 1;
 
   const max = {
     tasks: new MinMaxCounter(),
@@ -45,6 +46,7 @@ function YearChart({
       }}
       month={month}
       showEvents={showEvents}
+      hideMoney={hideMoney}
     />
   ));
 

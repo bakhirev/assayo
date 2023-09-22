@@ -2,8 +2,17 @@ import localization  from 'ts/helpers/Localization';
 
 export default class RecommendationsTeamByType {
   getTotalInfo(dataGrip: any) {
+    const fewTypes = dataGrip.type.statistic.filter((statistic: any) => (
+      statistic.tasks > 20
+    )).length < 7;
+
     return [
       this.getBusFactor(dataGrip),
+      (fewTypes ? [
+        localization.get('recommendations.type.fewTypes.title'),
+        localization.get('recommendations.type.fewTypes.description'),
+        'fact',
+      ] : null),
     ].filter(item => item);
   }
 

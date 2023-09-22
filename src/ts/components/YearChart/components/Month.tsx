@@ -41,12 +41,14 @@ interface IMonthProps {
   max: IHashMap<number>;
   month: IMonth;
   showEvents: boolean;
+  hideMoney?: boolean;
 }
 
 function Month({
   max,
   month,
   showEvents,
+  hideMoney,
 }: IMonthProps): React.ReactElement | null {
   const tasksChart = getOptions({ max: max.tasks, suffix: 'задач' });
   const moneyChart = getOptions({
@@ -55,7 +57,6 @@ function Month({
     formatter: getShortMoney,
   });
 
-  console.dir(month);
   return (
     <div className={style.year_chart_month}>
       <Header month={month}/>
@@ -64,11 +65,13 @@ function Month({
         maxCommits={max.commits}
         showEvents={showEvents}
       />
-      <MonthTotal
-        title="$"
-        options={moneyChart}
-        value={month.money}
-      />
+      {!hideMoney && (
+        <MonthTotal
+          title="$"
+          options={moneyChart}
+          value={month.money}
+        />
+      )}
       <MonthTotal
         title="☑"
         options={tasksChart}
@@ -77,5 +80,9 @@ function Month({
     </div>
   );
 }
+
+Month.defaultProps = {
+  hideMoney: false,
+};
 
 export default Month;

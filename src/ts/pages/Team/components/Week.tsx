@@ -7,12 +7,12 @@ import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import { getShortDateRange } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
+import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
-import Title from 'ts/components/Title';
 import Table from 'ts/components/Table';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
@@ -64,7 +64,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
             details={row.types}
           />
         )}
-        width={200}
+        minWidth={200}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
@@ -80,7 +80,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
             details={row.authors}
           />
         )}
-        width={300}
+        minWidth={200}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
@@ -100,7 +100,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
             }}
           />
         )}
-        width={200}
+        minWidth={200}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
@@ -118,6 +118,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
             }}
           />
         )}
+        minWidth={200}
       />
       <Column
         title="Кто не коммитил"
@@ -131,7 +132,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
           const detailsLikeArray = Object.entries(row?.workDays).map(([name, days]: any) => [name, 5 - days]);
           return Object.fromEntries(detailsLikeArray.filter((nameDays: any) => nameDays[1] > 0));
         }}
-        width={250}
+        minWidth={200}
       />
     </Table>
   );
@@ -141,22 +142,27 @@ WeekView.defaultProps = {
   response: undefined,
 };
 
-const Week = observer((): React.ReactElement => {
+const Week = observer(({
+  mode,
+}: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.week.statistic;
-  if (!rows?.length) return (<NothingFound />);
+  if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byWeek;
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Статистика по фичам"/>
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader(rows, pagination, '', sort)}
+          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            content: rows, pagination, sort,
+          })}
         >
           <WeekView />
-          <Pagination />
+          {mode !== 'print' && <Pagination />}
         </DataLoader>
       </PageWrapper>
     </>

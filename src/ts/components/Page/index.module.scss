@@ -6,6 +6,7 @@
   text-align: left;
   box-sizing: border-box;
   white-space: nowrap;
+  break-inside: auto;
 
   &_white {
     position: relative;
@@ -16,6 +17,7 @@
     white-space: normal;
     box-sizing: border-box;
     vertical-align: top;
+    break-inside: auto;
     border-radius: 8px;
     border: 1px solid var(--color-border);
     background-color: #FFFFFF;
@@ -37,6 +39,7 @@
     margin: 0;
     white-space: normal;
     vertical-align: top;
+    break-inside: auto;
     border: 1px solid transparent;
     background-color: transparent;
   }
@@ -60,7 +63,7 @@
   margin-left: 24px;
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .main_wrapper {
     &_item {
       display: block;
@@ -74,5 +77,15 @@
   .main_wrapper_item + .main_wrapper_item {
     display: block;
     margin: 0 0 24px 0;
+  }
+}
+
+@media print {
+  .main_wrapper {
+    &_white {
+      padding: 0;
+      border-radius: 0;
+      border: none;
+    }
   }
 }

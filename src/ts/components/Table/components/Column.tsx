@@ -16,6 +16,7 @@ function Column({
   isResizable,
   isDraggable,
   isShow,
+  minWidth,
   width,
   onClick,
 }: IColumn): JSX.Element {
@@ -35,6 +36,7 @@ function Column({
         isResizable,
         isDraggable,
         isShow,
+        minWidth,
         width,
         onClick,
       }}
@@ -54,6 +56,7 @@ Column.defaultProps = {
   isResizable: false,
   isDraggable: false,
   isShow: true,
+  minWidth: undefined,
   width: undefined,
   onClick: undefined,
 };

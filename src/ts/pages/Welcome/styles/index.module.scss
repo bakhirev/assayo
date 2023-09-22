@@ -39,9 +39,14 @@
       font-weight: bold;
       color: red;
     }
+
     &_link {
       text-decoration: underline;
       color: var(--color-button);
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 

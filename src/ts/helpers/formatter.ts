@@ -88,14 +88,6 @@ export function getShortNumber(value: number) {
   return (value || 0).toFixed(fractionDigits);
 }
 
-export function getDateLength(days: number) {
-  const years = days > 400 ? Math.trunc(days / 365) : 0;
-  days -= years * 365;
-  const months = days > 45 ? Math.trunc(days / 30) : 0;
-  days -= months * 30;
-  return `${years} года ${months} мес. ${days} дней`;
-}
-
 export function getShortName(name: string) {
   return name?.split(/[\s.]+/gm)[1] || name;
 }

@@ -6,6 +6,7 @@ import ru from 'ts/config/translations/ru';
 import Authorization from 'ts/pages/Authorization';
 import userSettings from 'ts/store/UserSettings';
 import Notifications from 'ts/components/Notifications';
+import printStore from 'ts/pages/PageWrapper/store/Print';
 
 import './styles/index.scss';
 
@@ -30,6 +31,9 @@ function getParametersFromString(text: string) {
 function renderReactApplication() {
   // @ts-ignore
   console.log(window?.report?.length);
+  window.onafterprint = () => {
+    printStore.endPrint();
+  };
   render(
     <React.StrictMode>
       <HashRouter>

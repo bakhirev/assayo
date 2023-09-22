@@ -21,7 +21,7 @@ const Header = observer(({
       className={`${style.modal_window_title} ${className || ''}`}
     >
       {children}
-      {children && onClose ? (
+      {onClose ? (
         <img
           id={`${id}-close`}
           className={`${style.modal_window_close} ${className || ''}`}

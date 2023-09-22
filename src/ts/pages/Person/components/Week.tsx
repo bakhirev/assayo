@@ -9,10 +9,9 @@ import dataGripStore from 'ts/store/DataGrip';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
-import LoadMore from 'ts/components/DataLoader/components/LoadMore';
+import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
-import Title from 'ts/components/Title';
 import Table from 'ts/components/Table';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
@@ -21,6 +20,8 @@ import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
+import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
+import ISort from 'ts/interfaces/Sort';
 
 interface IWeekViewProps {
   name: string;
@@ -105,7 +106,9 @@ WeekView.defaultProps = {
   response: undefined,
 };
 
-const Week = observer((): React.ReactElement => {
+const Week = observer(({
+  mode,
+}: ICommonPageProps): React.ReactElement => {
   const { userId } = useParams<any>();
   const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
   const rows = dataGripStore.dataGrip.week.statistic.filter((item: any) => item.authors[statistic.author]);
@@ -114,15 +117,18 @@ const Week = observer((): React.ReactElement => {
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Статистика по неделям"/>
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest) => getFakeLoader(rows, pagination)}
+          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            content: rows, pagination, sort,
+          })}
         >
           <WeekView name={statistic.author} />
-          <LoadMore />
+          {mode !== 'print' && <Pagination />}
         </DataLoader>
       </PageWrapper>
     </>

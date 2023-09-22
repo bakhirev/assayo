@@ -7,6 +7,7 @@ import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import PageWrapper from 'ts/components/Page/wrapper';
+import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
@@ -20,7 +21,7 @@ import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
 import Description from 'ts/components/Description';
 
-import { getMaxByLength } from 'ts/pages/Common/helpers/getMax';
+import { getMax } from 'ts/pages/Common/helpers/getMax';
 
 interface ITypeViewProps {
   response?: IPagination<any>;
@@ -30,8 +31,8 @@ interface ITypeViewProps {
 function TypeView({ response, updateSort }: ITypeViewProps) {
   if (!response) return null;
 
-  const taskChart = getOptions({ max: getMaxByLength(response, 'tasks'), suffix: 'задач' });
-  const daysByAuthorsChart = getOptions({ max: getMaxByLength(response, 'daysByAuthorsTotal'), suffix: 'дней' });
+  const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'задач' });
+  const daysByAuthorsChart = getOptions({ max: getMax(response, 'daysByAuthorsTotal'), suffix: 'дней' });
   const authorChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
@@ -45,7 +46,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
         template={ColumnTypesEnum.STRING}
         title="page.team.type.type"
         properties="type"
-        width={200}
+        width={150}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
@@ -55,6 +56,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
         isSortable
         title="page.team.type.tasks"
         properties="tasks"
+        minWidth={120}
         template={(value: number) => (
           <LineChart
             options={taskChart}
@@ -75,6 +77,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
         isSortable
         title="page.team.type.authorsDays"
         properties="daysByAuthorsTotal"
+        minWidth={120}
         template={(value: number) => (
           <LineChart
             options={daysByAuthorsChart}
@@ -96,7 +99,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
             details={details}
           />
         )}
-        width={600}
+        minWidth={500}
       />
     </Table>
   );
@@ -106,19 +109,25 @@ TypeView.defaultProps = {
   response: undefined,
 };
 
-const Type = observer((): React.ReactElement => {
+const Type = observer(({
+  mode,
+}: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.type.statistic;
-  if (!rows?.length) return (<NothingFound />);
+  if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byType;
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Статистика по фичам"/>
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
+      <Title title="Статистика по типам задач"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader(rows, pagination, '', sort)}
+          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            content: rows, pagination, sort, mode,
+          })}
         >
           <TypeView />
           <Pagination />

@@ -24,6 +24,9 @@ export default function getDefaultProps(children: React.ReactNode) {
     }[template || ''] || 0;
 
     // @ts-ignore
+    const minWidth = child?.props?.minWidth || 40;
+
+    // @ts-ignore
     const isSortable = child?.props?.isSortable // @ts-ignore
       ? child?.props?.isSortable
       : [ColumnTypesEnum.STRING, ColumnTypesEnum.NUMBER, ColumnTypesEnum.SHORT_NUMBER].includes(template);
@@ -33,9 +36,10 @@ export default function getDefaultProps(children: React.ReactNode) {
       className,
       template,
       isSortable,
+      minWidth,
+      defaultWidth,
       width: undefined,
       userWidth: undefined,
-      defaultWidth,
     };
   });
 }

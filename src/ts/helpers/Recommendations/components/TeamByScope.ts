@@ -9,6 +9,16 @@ export default class RecommendationsTeamByScope {
       this.getManyTypes(dataGrip),
       this.getParallelism(dataGrip),
       [money, localization.get('recommendations.scope.money'), 'fact'],
+      [
+        localization.get('recommendations.scope.plan.title'),
+        localization.get('recommendations.scope.plan.description'),
+        'info',
+      ],
+      [
+        localization.get('recommendations.scope.cost.title'),
+        localization.get('recommendations.scope.cost.description'),
+        'info',
+      ],
     ].filter(item => item);
   }
 

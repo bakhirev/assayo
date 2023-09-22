@@ -55,7 +55,7 @@ function TreeView({ response }: ITreeViewProps) {
         isFixed
         template={ColumnTypesEnum.STRING}
         properties="title"
-        width={200}
+        minWidth={200}
         onClick={(row: any) => {
           treeStore.updateFilter('selectedPath', row.path || []);
         }}
@@ -63,7 +63,7 @@ function TreeView({ response }: ITreeViewProps) {
       <Column
         title="Процент перезаписи строк"
         properties="file"
-        width={250}
+        minWidth={250}
         template={(file: any) => (
           <LineChart
             value={file ? 100 : 0}
@@ -78,7 +78,7 @@ function TreeView({ response }: ITreeViewProps) {
       <Column
         title="Кто добавлял"
         properties="file"
-        width={200}
+        minWidth={200}
         template={(file: any) => (
           <LineChart
             value={file?.total?.added ? 100 : 0}
@@ -90,7 +90,7 @@ function TreeView({ response }: ITreeViewProps) {
       <Column
         title="Кто менял"
         properties="file"
-        width={200}
+        minWidth={200}
         template={(file: any) => (
           <LineChart
             value={file?.total?.changes ? 100 : 0}
@@ -102,7 +102,7 @@ function TreeView({ response }: ITreeViewProps) {
       <Column
         title="Кто удалял"
         properties="file"
-        width={200}
+        minWidth={200}
         template={(file: any) => (
           <LineChart
             value={file?.total?.removed ? 100 : 0}
@@ -132,7 +132,9 @@ const Tree = observer((): React.ReactElement => {
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest) => getFakeLoader(fileList, { ...pagination, size: 500 })}
+          loader={(pagination?: IPaginationRequest) => getFakeLoader({
+            content: fileList, pagination: { ...pagination, size: 500 },
+          })}
           watch={treeStore.hash}
         >
           <TreeView />

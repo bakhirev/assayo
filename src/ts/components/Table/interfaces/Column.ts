@@ -38,6 +38,8 @@ export interface IColumn {
   className?: string | Function
   /** Стилья для колонки */
   style?: Function,
+  /** Минимальная ширина столбца если он адаптивен */
+  minWidth?: number,
   /** Ширина столбца заданная в верстке */
   defaultWidth?: number,
   /** Ширина столбца установленная пользователем */

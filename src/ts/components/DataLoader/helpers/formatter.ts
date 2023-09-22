@@ -31,12 +31,21 @@ function getSortedContent(content: any[], sortRules: ISort[]) {
   });
 }
 
-export default function getFakeLoader(
+interface IFakeLoader {
   content?: any,
   pagination?: IPaginationRequest,
   query?: string,
+  mode?: string,
   sort?: ISort[],
-) {
+}
+
+export default function getFakeLoader({
+  content,
+  pagination,
+  query,
+  mode,
+  sort,
+}: IFakeLoader) {
   const formattedContent = content || [];
   const filteredContent = query
     ? formattedContent.filter((item:any) => item.name.toLowerCase().includes(query?.toLowerCase()))
@@ -46,7 +55,7 @@ export default function getFakeLoader(
     ? getSortedContent(filteredContent, sort || [])
     : filteredContent;
 
-  if (!pagination) {
+  if (!pagination || mode === 'print') {
     return Promise.resolve({
       size: sortedContent?.length || 0,
       number: 0,

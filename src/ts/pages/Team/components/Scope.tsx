@@ -5,6 +5,7 @@ import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import { getMoney } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
+import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
@@ -65,7 +66,7 @@ function ScopeView({ response }: IScopeViewProps) {
       <Column
         title="page.team.scope.types"
         properties="types" // TODO: нужно по числу изменений, а не коммитов
-        width={200}
+        minWidth={200}
         template={(details: any) => (
           <LineChart
             options={typeChart}
@@ -76,7 +77,7 @@ function ScopeView({ response }: IScopeViewProps) {
       <Column
         title="page.team.scope.authors"
         properties="authors"
-        width={200}
+        minWidth={200}
         formatter={(authors: any) => {
           return Object.fromEntries(
             Object.keys(authors).map(name => [name, authors[name]?.commits || 0]),
@@ -103,19 +104,25 @@ ScopeView.defaultProps = {
   response: undefined,
 };
 
-const Scope = observer((): React.ReactElement => {
+const Scope = observer(({
+  mode,
+}: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.scope.statistic;
-  if (rows?.length < 2) return (<NothingFound />);
+  if (rows?.length < 2) return mode !== 'print' ? (<NothingFound />) : null;
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byScope;
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
       <Title title="Статистика по фичам"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest) => getFakeLoader(rows, pagination)}
+          loader={(pagination?: IPaginationRequest) => getFakeLoader({
+            content: rows, pagination, mode,
+          })}
         >
           <ScopeView />
           <Pagination />

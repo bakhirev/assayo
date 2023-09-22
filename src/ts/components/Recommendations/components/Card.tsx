@@ -22,7 +22,7 @@ function Card({
   }
 
   const className = {
-    info: style.card_fact,
+    info: style.card_info,
     fact: style.card_fact,
     warning: style.card_warning,
     error: style.card_error,

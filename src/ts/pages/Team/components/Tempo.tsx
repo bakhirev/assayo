@@ -10,7 +10,6 @@ import UiKitButton from 'ts/components/UiKit/components/Button';
 import UiKitSelect from 'ts/components/UiKit/components/Select';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
-import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import TempoChart from 'ts/components/Tempo';
@@ -118,14 +117,13 @@ const Tempo = observer((): React.ReactElement => {
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={() => getFakeLoader(partOfData)}
+          loader={() => getFakeLoader({ content: partOfData })}
           watch={`${week}${user}`}
         >
           <TempoView
             order={order}
             user={user}
           />
-          <Pagination />
         </DataLoader>
       </PageWrapper>
     </>

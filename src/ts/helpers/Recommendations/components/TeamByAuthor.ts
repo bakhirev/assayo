@@ -77,6 +77,26 @@ export default class RecommendationsTeamByAuthor {
 `, 'fact']
         : null),
       // ['Планирование', 'Задачи распределены довольно равномерно', 'info'],
+      [
+        localization.get('recommendations.author.manager.title'),
+        localization.get('recommendations.author.manager.description'),
+        'info',
+      ],
+      [
+        localization.get('recommendations.author.shorTalk.title'),
+        localization.get('recommendations.author.shorTalk.description'),
+        'info',
+      ],
+      [
+        localization.get('recommendations.author.ipr.title'),
+        localization.get('recommendations.author.ipr.description'),
+        'info',
+      ],
+      [
+        localization.get('recommendations.author.oneToOne.title'),
+        localization.get('recommendations.author.oneToOne.description'),
+        'info',
+      ],
     ].filter(item => item);
   }
 

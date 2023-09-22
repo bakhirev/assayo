@@ -1,4 +1,4 @@
-import { getDateLength, getDateByTimestamp } from 'ts/helpers/formatter';
+import { getDateByTimestamp } from 'ts/helpers/formatter';
 
 export default class RecommendationsTeamByTimestamp {
   getTotalInfo(dataGrip: any) {
@@ -7,7 +7,6 @@ export default class RecommendationsTeamByTimestamp {
     const byTimestamp = dataGrip.timestamp.statistic;
     const workInWeek = byTimestamp.workByDay[5] + byTimestamp.workByDay[6];
     const totalDays = byTimestamp.allCommitsByTimestamp.length;
-    const totalFormattedDays = getDateLength(byTimestamp.allCommitsByTimestamp.length);
     // TODO: all days не верный, я вывожу рабочие дни, а не выходные.
 
     return [
@@ -18,7 +17,7 @@ export default class RecommendationsTeamByTimestamp {
 - сотрудники быстрее выгорают;
 `, 'error'] : null,
       this.getWorkOnWeek(byTimestamp.allCommitsByTimestamp.length, workInWeek),
-      [totalFormattedDays, `(или ${totalDays} дней) от первого до последнего коммита (включая выходные и праздники)`, 'fact'],
+      [`${totalDays} дней работы`, 'от первого до последнего коммита', 'fact'],
       this.getFirstDay(byTimestamp),
       this.getLastDay(byTimestamp),
     ].filter(item => item);

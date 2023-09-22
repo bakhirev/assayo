@@ -92,7 +92,7 @@ const Tempo = observer((): React.ReactElement => {
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={() => getFakeLoader(partOfData)}
+          loader={() => getFakeLoader({ content: partOfData })}
           watch={week}
         >
           <TempoView

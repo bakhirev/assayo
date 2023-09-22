@@ -98,6 +98,13 @@
   background-size: 100% auto;
 }
 
+.card_info {
+  --color-temp-border: #97C2A9;
+  --color-temp-icon: url('/assets/recommendations/info.svg');
+  --color-temp-bg: #E3F8EC;
+  --color-temp-title: #58866B;
+}
+
 .card_fact {
   --color-temp-border: var(--color-11);
   --color-temp-icon: url('/assets/recommendations/info.svg');

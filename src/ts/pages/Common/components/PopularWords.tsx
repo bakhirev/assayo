@@ -8,11 +8,13 @@ import Title from 'ts/components/Title';
 
 interface IPopularWordsProps {
   statistic: any[];
+  mode?: string;
 }
 
-function PopularWords({ statistic }: IPopularWordsProps) {
+function PopularWords({ statistic, mode }: IPopularWordsProps) {
+  const limit = mode === 'print' ? 20 : 40;
   const dots = statistic
-    .slice(0, 40)
+    .slice(0, limit)
     .map((titleValue: any) => ({
       title: titleValue[0],
       value: titleValue[1],
@@ -27,7 +29,9 @@ function PopularWords({ statistic }: IPopularWordsProps) {
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
       <Title title="Статистика по словам"/>
       <PageWrapper template="table">
         <CandyChart

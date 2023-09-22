@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 
 import SideBar from './components/sidebar';
 import Header from './components/header';
+import Print from './components/Print';
 import style from './styles/index.module.scss';
 
 interface IPageWrapper {
@@ -19,6 +20,7 @@ function PageWrapper({
       <div className={style.page_wrapper_main}>
         {children}
       </div>
+      <Print />
     </div>
   );
 }

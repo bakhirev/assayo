@@ -7,6 +7,7 @@ import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import { getMoney, getShortNumber } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
+import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import DataLoader from 'ts/components/DataLoader';
@@ -55,7 +56,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
       <Column
         isSortable="daysWorked"
         title="page.team.author.workedLosses"
-        width={400}
+        minWidth={300}
         template={(details: any) => (
           <LineChart
             options={daysWorked}
@@ -75,6 +76,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
         isSortable
         properties="tasks"
         title="page.team.author.tasks"
+        minWidth={200}
         template={(value: number) => (
           <LineChart
             options={taskChart}
@@ -103,6 +105,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
         isSortable
         title="page.team.author.commits"
         properties="commits"
+        minWidth={100}
         template={(value: number) => (
           <LineChart
             options={commitsChart}
@@ -147,19 +150,25 @@ AuthorView.defaultProps = {
   response: undefined,
 };
 
-const Author = observer((): React.ReactElement => {
+const Author = observer(({
+  mode,
+}: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.author.statistic;
-  if (!rows?.length) return (<NothingFound />);
+  if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byAuthor;
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Статистика по фичам"/>
+      {mode !== 'print' && (
+        <RecommendationsWrapper recommendations={recommendations} />
+      )}
+      <Title title="Статистика по сотрудникам"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader(rows, pagination, '', sort)}
+          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            content: rows, pagination, sort, mode,
+          })}
         >
           <AuthorView />
           <Pagination />

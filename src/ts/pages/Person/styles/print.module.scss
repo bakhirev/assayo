@@ -1,0 +1,24 @@
+@import '../../../../styles/variables';
+
+.place_for_photo {
+  font-weight: 100;
+  font-size: var(--font-xs);
+
+  display: block;
+  width: 60%;
+  min-height: 232px;
+  margin: 44px auto;
+  padding: 0;
+
+  line-height: 232px;
+  vertical-align: top;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: #FFFFFF;
+  color: var(--color-grey);
+}
+

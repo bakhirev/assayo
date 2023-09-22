@@ -15,6 +15,7 @@ import Week from './components/Week';
 import Month from './components/Month';
 import Top from './components/Top';
 import Pr from './components/PR';
+import Print from './components/Print';
 
 function Team() {
   const { type, page } = useParams<any>();
@@ -38,6 +39,7 @@ function Team() {
       {page === 'changes' && <Changes/>}
       {page === 'words' && <PopularWords/>}
       {page === 'top' && <Top/>}
+      {page === 'print' && <Print/>}
     </>
   );
 }

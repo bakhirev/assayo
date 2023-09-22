@@ -24,7 +24,7 @@ function Column({ dayInfo, order, author }: IColumnProps) {
       <div
         key={name}
       >
-        <Author name={name} />
+        {author ? null : (<Author name={name} />)}
         <Chart tasks={tasks as IHashMap<ICommit[]>} />
         <Tasks tasks={tasks as IHashMap<ICommit[]>} />
       </div>

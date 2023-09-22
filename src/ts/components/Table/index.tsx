@@ -5,7 +5,7 @@ import ISort from 'ts/interfaces/Sort';
 import { IColumn } from './interfaces/Column';
 import Header from './components/Header';
 import Body from './components/Body';
-import getDefaultColumnWidth from './helpers/getDefaultColumnWidth';
+import getAdaptiveColumnWidth from './helpers/getAdaptiveColumnWidth';
 import getColumnConfigs from './helpers/getColumnConfigs';
 import getDefaultProps from './helpers/getDefaultProps';
 
@@ -38,8 +38,8 @@ function Table({
   }, [currentWidth]);
 
   const defaultColumns = getDefaultProps(children) as IColumn[];
-  const defaultWidth = getDefaultColumnWidth(defaultColumns, offsetWidth);
-  const columns = getColumnConfigs(defaultColumns, defaultWidth, sort);
+  const adaptiveWidth = getAdaptiveColumnWidth(defaultColumns, offsetWidth);
+  const columns = getColumnConfigs(defaultColumns, adaptiveWidth, sort);
 
   return (
     <div

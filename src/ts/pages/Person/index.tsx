@@ -15,13 +15,14 @@ import Total from './components/Total';
 import Week from './components/Week';
 import Month from './components/Month';
 import Tempo from './components/Tempo';
+import Print from './components/Print';
 
 function Person() {
   const { type, page } = useParams<any>();
   if (type !== 'person') return null;
   return (
     <>
-      {page !== 'week' && (
+      {!['week', 'print'].includes(page || '') && (
         <>
           <Title title={localization.get('common.filters')} />
           <UserSelect />
@@ -37,6 +38,7 @@ function Person() {
       {page === 'words' && <PopularWords/>}
       {page === 'speed' && <Speed/>}
       {page === 'day' && <Tempo/>}
+      {page === 'print' && <Print/>}
     </>
   );
 }

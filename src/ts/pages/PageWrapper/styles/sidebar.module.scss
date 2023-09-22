@@ -84,3 +84,9 @@
     margin: 0;
   }
 }
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+}
