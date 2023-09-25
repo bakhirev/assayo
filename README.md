@@ -36,7 +36,7 @@ git shortlog -s -n -e
 Alex B <alex@mail.uk>
 Alex B <alex@mail.uk> <alex@gov.tk>
 Alex B <alex@mail.uk> <bakhirev@ya.kz>
-Alex B <alex@mail.uk> <super_man@yahoo.com>
+Alex B <alex@mail.uk> <man64@yahoo.com>
 ``` 
 Подробнее про формат этого файла можно прочитать [тут](https://git-scm.com/docs/gitmailmap).
 
@@ -111,10 +111,9 @@ https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
 - поднимите его в локальной сети;
 - для просмотра отчётов используйте веб-интерфейс указывая ему адресс, где лежат данные, в URL-параметре ```dump```:
 ```
-url_assayo/?dump=//you_url/some/log.txt
-
-url_assayo - URL адресс контейнера assayo;
-you_url - URL адресс вашего контейнера с логами git;
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - URL адресс контейнера assayo, он слушает 80 порт;
+you_url    - URL адресс вашего контейнера с логами git;
 ```
 
 #### Обновление Docker-образа
@@ -123,6 +122,7 @@ you_url - URL адресс вашего контейнера с логами git
 - собрать билд ```npm run build```
 - собрать образ ```docker build -t assayo .```
 - визуально проверить образ ```docker run --name assayo -p 80:80 -d assayo```;
+- поставить тег ```docker tag IMAGE_ID bakhirev/assayo:latest```;
 - запушить образ в Docker Hub
 
 ### Релизы, примерно, раз в полгода. Что дальше:

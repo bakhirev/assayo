@@ -36,7 +36,7 @@ function Welcome() {
   const command = 'git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e \'s/\\\\/\\\\\\\\/g\' | sed -e \'s/`/"/g\' | sed -e \'s/^/report.push(\\`/g\' | sed \'s/$/\\`\\);/g\' | sed \'s/\\$/_/g\' > log.txt\n';
   return (
     <>
-      {false && (<WarningInfo />)}
+      {true && (<WarningInfo />)}
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>
@@ -50,14 +50,14 @@ function Welcome() {
             Git создаст файл log.txt.
             Он содержит данные для построения отчёта.
             Или git shortlog -s -n -e если отчёт вам не нужен.
-            Добавьте файл
+            Создайте файл
             <Link
               className={`${style.welcome_link}`}
               target="_blank"
               to="https://git-scm.com/docs/gitmailmap">
               .mailmap
             </Link>
-            {' в проект, чтобы обьединить статистику по сотрудникам.'}
+            {' в корне проекта, чтобы обьединить статистику по сотрудникам.'}
           </p>
           <h2 className={style.welcome_last_title}>
             Перетащите файл log.txt на эту страницу
