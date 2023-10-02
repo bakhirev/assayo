@@ -42,16 +42,20 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 
 ### Как выгрузить данные из git?
 
+#### Для онлайн просмотра
 В корневой директории вашего проекта выполнить:
 ```
-git --no-pager log --numstat --oneline --all --reverse
- --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s"
- | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g'
- | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g'
- | sed 's/\$/_/g' > log.txt
+git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
+```
+#### Для офлайн просмотра
+
+```
+git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git создаст файл `log.txt`.
-Он содержит данные для построения отчёта.
+Он содержит данные для построения отчёта. 
+
+Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
 
 ### Как посмотреть отчёт онлайн? 
 
@@ -64,6 +68,8 @@ Git создаст файл `log.txt`.
 - Перетащить файл `log.txt` в папку `/build`
 - Запустить `/build/index.html`
 - Или перетащить папку `/build` к себе в репозиторий (туда, где лежит `log.txt`). Можно сменить название. Например с `/build` на `/report`
+
+В этом случае важно, чтобы файл `log.txt` был сгенерирован командой для офлайн просмотра.
 
 ### Как пересобрать билд отчёта?
 - Скачать этот репозиторий

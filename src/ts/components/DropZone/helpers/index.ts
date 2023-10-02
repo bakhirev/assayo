@@ -10,17 +10,20 @@ function evalCsvFile(text: string, onChange: Function) {
 
 function evalJsFile(text: string, onChange: Function) {
   // @ts-ignore
-  let temp = window.report;
-  // @ts-ignore
+  let temp = window.report; // @ts-ignore
   window.report = [];
-
-  try {
-    eval(text);
-  } catch (e) {
-    // error(`Файл отчёта содержит запрещенный символ.\nОткройте его в редакторе и проверьте.\n${e.stack}`)
-    // @ts-ignore
-    window.report = temp;
-    return;
+  const firstText = text.slice(0, 12);
+  if (firstText === 'report.push(') {
+    try {
+      eval(text);
+    } catch (e) {
+      // error(`Файл отчёта содержит запрещенный символ.\nОткройте его в редакторе и проверьте.\n${e.stack}`)
+      // @ts-ignore
+      window.report = temp;
+      return;
+    }
+  } else { // @ts-ignore
+    window.report = text.split('\n');
   }
 
   // @ts-ignore
