@@ -3,7 +3,7 @@ import ACHIEVEMENT_TYPE from './type';
 export default {
   // готово
   commitsAfter1500: ['Сова', '70% коммитов после 15:00', ACHIEVEMENT_TYPE.NORMAL],
-  commitsBefore1500: ['Раняя пташка', '70% коммитов до обеда', ACHIEVEMENT_TYPE.NORMAL],
+  commitsBefore1500: ['Ранняя пташка', '70% коммитов до обеда', ACHIEVEMENT_TYPE.NORMAL],
   workEveryTime: ['Раб божий', 'есть коммит на каждый час суток', ACHIEVEMENT_TYPE.BAD],
   workNotWork: ['Стрельба холостыми', 'коммиты есть, а закрытых задач нет', ACHIEVEMENT_TYPE.BAD],
   userNotWork: ['Залётный', 'это не его основной проект', ACHIEVEMENT_TYPE.NORMAL],
@@ -29,7 +29,7 @@ export default {
   lessDaysInProject: ['А это кто?', 'меньше всего дней на проекте', ACHIEVEMENT_TYPE.NORMAL],
   more90DaysInProject: ['Добро пожаловать', 'не уволили на испытательном', ACHIEVEMENT_TYPE.GOOD],
   lessDaysForTask: ['Скорострел', 'одна задача занимает меньше дня', ACHIEVEMENT_TYPE.GOOD],
-  adam: ['Адам', 'первый стабильны сотрудник на проекте', ACHIEVEMENT_TYPE.NORMAL],
+  adam: ['Адам', 'первый стабильный сотрудник на проекте', ACHIEVEMENT_TYPE.NORMAL],
   more666DaysInProject: ['Чёрт', 'отработал 666 дней на проекте', ACHIEVEMENT_TYPE.GOOD],
   more777DaysInProject: ['Азино 3 топора', 'отработал 777 дней на проекте', ACHIEVEMENT_TYPE.GOOD],
 
