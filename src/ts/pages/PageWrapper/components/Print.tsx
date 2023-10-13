@@ -21,7 +21,7 @@ const Print = observer(() => {
       </Header>
       <Body>
         <img
-          src="./assets/cards/commits.png"
+          src="./assets/cards/print.png"
           className={style.page_wrapper_print_icon}
         />
         <UiKitButton

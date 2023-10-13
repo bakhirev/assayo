@@ -39,32 +39,34 @@ const Total = observer((): React.ReactElement => {
   return (
     <PageWrapper>
       <PageColumn>
-        <Title title={localization.get('Достижения')}/>
+        <Title title="page.person.achievement.title"/>
         <AchievementBlock
-          title="Позитивные"
+          title="page.person.achievement.positive"
           achievements={achievements[ACHIEVEMENT_TYPE.GOOD]}
         />
       </PageColumn>
       <PageColumn>
         <Title title={localization.get('_')}/>
         <AchievementBlock
-          title="Нейтральные"
+          title="page.person.achievement.normal"
           achievements={achievements[ACHIEVEMENT_TYPE.NORMAL]}
         />
         <AchievementBlock
-          title="Негативные"
+          title="page.person.achievement.negative"
           achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
         />
         <br />
         <br />
         {commitsWithGet?.length ? (
           <>
-            <Title title={localization.get('Взятые геты:')}/>
+            <Title title="page.person.gets.title"/>
             <GetList
               mode="print"
               list={commitsWithGet}
             />
-            <Description text="&laquo;Взять гет&raquo; в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером."/>
+            <Description
+              text={localization.get('page.person.gets.description')}
+            />
           </>
         ) : null}
       </PageColumn>

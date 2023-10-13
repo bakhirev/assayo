@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import { getShortMoney } from 'ts/helpers/formatter';
-import localization from 'ts/helpers/Localization';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
 import NothingFound from 'ts/components/NothingFound';
@@ -31,36 +30,36 @@ const Money = observer((): React.ReactElement => {
   return (
     <PageWrapper>
       <PageColumn>
-        <Title title={localization.get('За всё время')}/>
+        <Title title="page.person.money.title.total"/>
           <div>
             <CardWithIcon
               value={getShortMoney(statistic.moneyAll)}
               icon="./assets/cards/money_total.png"
-              title="получил"
-              description="Предполагаемая сумма зп с проекта (см. настройки)"
+              title="page.person.money.moneyAll.title"
+              description="page.person.money.moneyAll.description"
             />
             <CardWithIcon
               value={getShortMoney(statistic.moneyWorked)}
               icon="./assets/cards/money_work.png"
-              title="отработал"
-              description="Фактически отработанные дни умноженные на среднюю зп"
+              title="page.person.money.moneyWorked.title"
+              description="page.person.money.moneyWorked.description"
             />
             <CardWithIcon
               value={getShortMoney(statistic.moneyLosses)}
               icon="./assets/cards/money_lazy.png"
-              title="возможная переплата"
-              description="Дни без коммитов умноженные на среднюю зп"
+              title="page.person.money.moneyLosses.title"
+              description="page.person.money.moneyLosses.description"
             />
             <CardWithIcon
               value={getShortMoney(byTimestamp.weekendPayment)}
               icon="./assets/cards/money_holidays.png"
-              title={localization.get('page.team.total.weekendPayment.title')}
-              description={localization.get('page.team.total.weekendPayment.description')}
+              title="page.team.total.weekendPayment.title"
+              description="page.team.total.weekendPayment.description"
             />
           </div>
       </PageColumn>
       <PageColumn>
-        <Title title={localization.get('Средняя стоимость')}/>
+        <Title title="page.person.money.title.middle"/>
         {taskNumber === 0 ? (
           <NothingFound />
         ) : (
@@ -71,8 +70,8 @@ const Money = observer((): React.ReactElement => {
                 ? getShortMoney(statistic.moneyWorked / taskNumber, 0)
                 : null}
               icon="./assets/cards/money_task.png"
-              title="задача"
-              description="Количество закрытых задач к стоимости дня"
+              title="page.person.money.tasks.title"
+              description="page.person.money.tasks.description"
             />
             <CardWithIcon
               long
@@ -80,8 +79,8 @@ const Money = observer((): React.ReactElement => {
                 ? getShortMoney(statistic.moneyWorked / statistic.commits, 0)
                 : null}
               icon="./assets/cards/money_work.png"
-              title="коммит"
-              description="Количество коммитов к стоимости рабочего дня"
+              title="page.person.money.commits.title"
+              description="page.person.money.commits.description"
             />
           </div>
         )}

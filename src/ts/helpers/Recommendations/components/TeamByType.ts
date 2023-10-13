@@ -13,6 +13,16 @@ export default class RecommendationsTeamByType {
         localization.get('recommendations.type.fewTypes.description'),
         'fact',
       ] : null),
+      [
+        localization.get('recommendations.type.diff.title'),
+        localization.get('recommendations.type.diff.description'),
+        'info',
+      ],
+      [
+        localization.get('recommendations.type.buddy.title'),
+        localization.get('recommendations.type.buddy.description'),
+        'info',
+      ],
     ].filter(item => item);
   }
 

@@ -103,6 +103,19 @@ localization.parse('ru', `
 § page.team.week.files: Изменения файлов
 § page.team.week.days: Дни с коммитами и без
 § page.team.week.lossesDetails: Кто не коммитил
+§ page.person.total.title: Основные характеристики
+§ page.person.total.daysWorked.title: дней работы
+§ page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты
+§ page.person.total.tasks.title: задач
+§ page.person.total.tasks.description: Если коммиты правильно подписаны
+§ page.person.character.title: Персонаж
+§ page.person.achievement.title: Достижения
+§ page.person.achievement.positive: Позитивные
+§ page.person.achievement.normal: Нейтральные
+§ page.person.achievement.negative: Негативные
+§ page.person.achievement.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
+§ page.person.gets.title: Взятые геты:
+§ page.person.gets.description: &laquo;Взять гет&raquo; в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером.
 § page.person.business.days.title: дней работы
 § page.person.business.days.description: Учтены только дни, в которые делались коммиты
 § page.person.business.tasks.title: задач
@@ -124,18 +137,20 @@ git может показать малое количество изменени
 будет отмечен, как скачок «удаленных» и «добавленных» строк.
 § page.person.changes.description: Список коммитов и количество изменений в них за этот день:
 § page.person.commits.title: Список коммитов:
+§ page.person.money.title.total: За всё время
+§ page.person.money.title.middle: Средняя стоимость
 § page.person.money.moneyAll.title: получил
 § page.person.money.moneyAll.description: Предполагаемая сумма зп с проекта (см. настройки)
 § page.person.money.moneyWorked.title: отработал
 § page.person.money.moneyWorked.description: Фактически отработанные дни умноженные на среднюю зп
-§ page.person.money.moneyLosses.title: не делал коммиты
-§ page.person.money.moneyLosses.description: Дни когда мог работать, но не работал умноженные на среднюю зп
+§ page.person.money.moneyLosses.title: возможная переплата
+§ page.person.money.moneyLosses.description: Дни без коммитов умноженные на среднюю зп
 § page.person.money.tasks.title: задача
 § page.person.money.tasks.description: Количество закрытых задач к стоимости дня
 § page.person.money.commits.title: коммит
 § page.person.money.commits.description: Количество коммитов к стоимости рабочего дня
-§ page.person.money.total: За всё время
-§ page.person.money.middle: Средняя стоимость
+§ page.person.speed.task: Одна задача в среднем это
+§ page.person.speed.max: Максимальная скорость в день
 § page.person.speed.days.title: дней
 § page.person.speed.days.description: Имеются ввиду рабочие дни, если коммиты правильно подписаны
 § page.person.speed.commits.title: коммитов
@@ -146,13 +161,11 @@ git может показать малое количество изменени
 § page.person.speed.tasks.description: Задача может быть не доделана, но работа по ней должна быть
 § page.person.speed.maxCommits.title: коммитов
 § page.person.speed.maxCommits.description: Задача может быть не доделана, но работа по ней должна быть
-§ page.person.speed.task: Одна задача в среднем это
-§ page.person.speed.max: Максимальная скорость в день
+§ page.person.hours.title: Распределение коммитов в течении каждого дня недели
 § page.person.week.date: Дата
 § page.person.week.tasks: Количество задач
-§ page.person.week.workDays: Рабочие дни
+§ page.person.week.workDays: Дни с коммитами
 § page.person.week.taskInDay: Задач в день
-§ page.person.week.commits: коммитов
 § page.person.week.days: дней
 § page.person.week.workDay: будни
 § page.person.week.weekends: выходные
@@ -453,6 +466,19 @@ Bus factor = 1
 - формируется доверительное отношение, сотрудники становятся более лояльны к компании;
 - повышается мотивация и вовлеченность сотрудников;
 
+§ recommendations.author.club.title
+Ходите в бар
+
+§ recommendations.author.club.description
+один раз в месяц или два.
+
+Это поможет выстроить неформальную коммуникацию в коллективе и сплотить команду, даже если общение будет сжатым.
+
+# Почему это важно:
+- можно получить быструю обратную связь о процессах, которые вы можете не замечать;
+- формируется доверительное отношение, сотрудники становятся более лояльны к компании;
+- повышается вовлеченность сотрудников;
+
 § recommendations.hour.onlyWork.title
 Выходных тут нет
 
@@ -569,6 +595,39 @@ Bus factor = 1
 
 # Возможно, это не так
 По типам файлов мы можем предположить тип программы (сайт, серверное приложение, DevOps скрипты и т.д.). Для frontend приложения наша гипотеза будет более верной, чем для DevOps-скриптов, которые могут быть лишь микро-модулем инициализации.
+
+§ recommendations.type.diff.title
+Разбейте лидирующий тип на подтипы
+
+§ recommendations.type.diff.description
+для детализации ошибок.
+
+Как правило, тип задач с меткой «исправление ошибок» является лидирующим. Это делает статистику слабо-детализированной.
+
+*Если у вас произошла такая ситуация*, вы можете разбить этот тип на подтипы (например, по месту обнаружения).
+
+Рассмотрим несколько вариантов подтипов:
+- fix_dev (ошибка выявленная в процессе разработки);
+- fix_test (ошибка выявленная в процессе тестирования);
+- fix (ошибка выявленная в проде);
+
+§ recommendations.type.buddy.title
+Копите мелкие задачи
+
+§ recommendations.type.buddy.description
+для новых сотрудников.
+
+# Если задача:
+- не важная;
+- не большая;
+- не требует сильного погружения в контекст;
+- больше про рефакторинг, чем про новый код;
+
+# Положите её в backlog с меткой «для новичков».
+
+Когда придёт новый сотрудник, вы сможете моментально достать ему пачку небольших и разнообразных по типу задач, для ознакомления с проектом.
+
+Также, если у вас будет застой в работе, вы сможете доставать по одной такой мелкой задаче из backlog-а.
 `);
 
 export default {};

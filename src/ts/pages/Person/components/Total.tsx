@@ -11,6 +11,7 @@ import Achievements from 'ts/components/Achievement';
 import Description from 'ts/components/Description';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
+import Character from 'ts/components/Character';
 import Title from 'ts/components/Title';
 import GetList from 'ts/components/GetList';
 
@@ -25,7 +26,7 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
   if (!achievements.length) return null;
   return (
     <>
-      <Description text={`# ${title}`}/>
+      <Description text={`# ${localization.get(title)}`}/>
       <Achievements list={achievements} />
     </>
   );
@@ -41,19 +42,19 @@ const Total = observer((): React.ReactElement => {
   return (
     <PageWrapper>
       <PageColumn>
-        <Title title={localization.get('Основные характеристики')}/>
+        <Title title="page.person.total.title"/>
         <div>
           <CardWithIcon
             value={statistic.daysWorked}
             icon="./assets/cards/work_days.png"
-            title="дней работы"
-            description="page.team.total.daysWorked.description"
+            title="page.person.total.daysWorked.title"
+            description="page.person.total.daysWorked.description"
           />
           <CardWithIcon
             value={taskNumber ? taskNumber : null}
             icon="./assets/cards/tasks.png"
-            title="задач"
-            description="Если коммиты правильно подписаны"
+            title="page.person.total.tasks.title"
+            description="page.person.total.tasks.description"
           />
           <CardWithIcon
             value={statistic.daysLosses}
@@ -68,29 +69,35 @@ const Total = observer((): React.ReactElement => {
             description="page.team.total.commits.description"
           />
         </div>
+        <Title title="page.person.character.title"/>
+        <Character user={statistic} />
       </PageColumn>
       <PageColumn>
-        <Title title={localization.get('Достижения')}/>
+        <Title title="page.person.achievement.title"/>
         <AchievementBlock
-          title="Позитивные"
+          title="page.person.achievement.positive"
           achievements={achievements[ACHIEVEMENT_TYPE.GOOD]}
         />
         <AchievementBlock
-          title="Нейтральные"
+          title="page.person.achievement.normal"
           achievements={achievements[ACHIEVEMENT_TYPE.NORMAL]}
         />
         <AchievementBlock
-          title="Негативные"
+          title="page.person.achievement.negative"
           achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
         />
-        <Description text="Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе."/>
+        <Description
+          text={localization.get('page.person.achievement.description')}
+        />
         <br />
         <br />
         {commitsWithGet?.length ? (
           <>
-            <Title title={localization.get('Взятые геты:')}/>
+            <Title title="page.person.gets.title"/>
             <GetList list={commitsWithGet} />
-            <Description text="&laquo;Взять гет&raquo; в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером."/>
+            <Description
+              text={localization.get('page.person.gets.description')}
+            />
           </>
         ) : null}
       </PageColumn>

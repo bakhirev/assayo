@@ -1,0 +1,46 @@
+@import '../../../../styles/variables';
+
+.character {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 500px;
+  pointer-events: none;
+
+  &_layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+  }
+
+  &_halo {
+    --temp-halo: 70px;
+
+    position: absolute;
+    top: 7%;
+    left: 45%;
+
+    display: block;
+    width: var(--temp-halo);
+    height: var(--temp-halo);
+
+    box-shadow: -5px 0 15px red;
+    border-radius: var(--temp-halo);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation: 9s linear 1s infinite both running slidein;
+    animation-name: character_halo;
+  }
+}
+
+@keyframes character_halo {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

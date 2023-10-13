@@ -97,6 +97,11 @@ export default class RecommendationsTeamByAuthor {
         localization.get('recommendations.author.oneToOne.description'),
         'info',
       ],
+      [
+        localization.get('recommendations.author.club.title'),
+        localization.get('recommendations.author.club.description'),
+        'info',
+      ],
     ].filter(item => item);
   }
 

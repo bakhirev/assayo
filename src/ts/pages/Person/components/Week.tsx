@@ -32,7 +32,10 @@ function WeekView({ response, name }: IWeekViewProps) {
   if (!response) return null;
 
   const typeChart = getOptions({ max: getMax(response, 'authors', name), order: dataGripStore.dataGrip.type.list });
-  const workDaysChart = getOptions({ max: 7, order: ['будни', 'выходные'], suffix: 'дней' });
+  const workDaysChart = getOptions({ max: 7, order: [
+    'page.person.week.workDay',
+    'page.person.week.weekends',
+  ], suffix: 'page.person.week.days' });
   const taskInDayChart = getOptions({ max: getMax(response, 'taskInDay', name) });
 
   return (
@@ -40,7 +43,7 @@ function WeekView({ response, name }: IWeekViewProps) {
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
-        title="Дата"
+        title="page.person.week.date"
         properties="timestamp"
         formatter={getShortDateRange}
         width={200}
@@ -51,7 +54,7 @@ function WeekView({ response, name }: IWeekViewProps) {
         formatter={(authors: IHashMap<number>) => authors[name] || 0}
       />
       <Column
-        title="Количество задач"
+        title="page.person.week.tasks"
         template={(row: any) => (
           <LineChart
             options={typeChart}
@@ -67,12 +70,15 @@ function WeekView({ response, name }: IWeekViewProps) {
         formatter={(workDays: IHashMap<number>) => workDays[name] || 0}
       />
       <Column
-        title="Дни с коммитами"
+        title="page.person.week.workDays"
         template={([work, week]: any) => (
           <LineChart
             options={workDaysChart}
             value={work + week}
-            details={{ 'будни': work, 'выходные': week }}
+            details={{
+              'page.person.week.workDay': work,
+              'page.person.week.weekends': week,
+            }}
           />
         )}
         formatter={(row: any) => ( // TODO: не верно, тут сумма, а сб или вс не факт. Он мог прогулять пн, но работать в вс
@@ -88,7 +94,7 @@ function WeekView({ response, name }: IWeekViewProps) {
         formatter={(taskInDay: IHashMap<number>) => getShortNumber(taskInDay[name] || 0)}
       />
       <Column
-        title="Задач в день"
+        title="page.person.week.taskInDay"
         properties="taskInDay"
         template={(taskInDay: any) => (
           <LineChart

@@ -21,7 +21,7 @@ const Total = observer((): React.ReactElement => {
         <CardWithIcon
           value=""
           icon="./assets/cards/work_days.png"
-          title="Фотограция"
+          title="Фотография"
         />
         <div className={style.place_for_photo}>
           место для фотографии
@@ -33,14 +33,14 @@ const Total = observer((): React.ReactElement => {
           <CardWithIcon
             value={statistic.daysWorked}
             icon="./assets/cards/work_days.png"
-            title="дней работы"
-            description="page.team.total.daysWorked.description"
+            title="page.person.total.daysWorked.title"
+            description="page.person.total.daysWorked.description"
           />
           <CardWithIcon
             value={taskNumber ? taskNumber : null}
             icon="./assets/cards/tasks.png"
-            title="задач"
-            description="Если коммиты правильно подписаны"
+            title="page.person.total.tasks.title"
+            description="page.person.total.tasks.description"
           />
           <CardWithIcon
             value={statistic.daysLosses}

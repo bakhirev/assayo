@@ -1,5 +1,7 @@
 import React from 'react';
 
+import localization from 'ts/helpers/Localization';
+
 import style from './index.module.scss';
 
 interface ITitleProps {
@@ -15,7 +17,7 @@ function Title({
 }: ITitleProps) {
   return (
     <h3 className={`${style.title} ${addPadding ? style.title_padding : ''} ${className || ''}`}>
-      {title || ''}
+      {localization.get(title || '')}
     </h3>
   );
 }

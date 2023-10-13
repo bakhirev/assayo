@@ -1,5 +1,7 @@
 import React from 'react';
 
+import localization from 'ts/helpers/Localization';
+
 interface ILineProps {
   value?: number;
   width?: number;
@@ -23,12 +25,15 @@ function Line({
 }: ILineProps): React.ReactElement | null {
   if (!width || width <= 0) return null;
 
-  const formattedTitle = title || '';
+  const formattedTitle = localization.get(title || '');
+  const localizationDescription = localization.get(description || '');
+  const fullDescription = localizationDescription || formattedTitle;
+
   const formattedValue = formatter?.(value);
-  const formattedSuffix = suffix ? ` ${suffix}` : '';
+  const formattedSuffix = suffix ? ` ${localization.get(suffix || '')}` : '';
   const formattedDescription = value
-    ? `${width}% (${formattedValue}${formattedSuffix}) ${description || formattedTitle}`
-    : `${width}% ${description || formattedTitle}`;
+    ? `${width}% (${formattedValue}${formattedSuffix}) ${fullDescription}`
+    : `${width}% ${fullDescription}`;
 
   return (
     <div

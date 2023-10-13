@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import { getShortNumber } from 'ts/helpers/formatter';
-import localization from 'ts/helpers/Localization';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
 import NothingFound from 'ts/components/NothingFound';
@@ -31,7 +30,7 @@ const Speed = observer((): React.ReactElement => {
   return (
     <PageWrapper>
       <PageColumn>
-        <Title title={localization.get('Одна задача в среднем это')}/>
+        <Title title="page.person.speed.task"/>
         {taskNumber === 0 ? (
           <NothingFound />
         ) : (
@@ -41,42 +40,42 @@ const Speed = observer((): React.ReactElement => {
                 ? getShortNumber(statistic.daysForTask)
                 : null}
               icon="./assets/cards/month.png"
-              title="дней"
-              description="Имеются ввиду рабочие дни,<br>если коммиты правильно подписаны"
+              title="page.person.speed.days.title"
+              description="page.person.speed.days.description"
             />
             <CardWithIcon
               value={taskNumber
                 ? (statistic.commits / taskNumber).toFixed(1)
                 : null}
               icon="./assets/cards/commits.png"
-              title="коммитов"
-              description="Отрезаны 10% максимальных и минимальных значений"
+              title="page.person.speed.commits.title"
+              description="page.person.speed.commits.description"
             />
             <CardWithIcon
               value={taskNumber ? statistic.changesForTask : null}
               icon="./assets/cards/lines.png"
-              title="строк кода"
-              description="Отрезаны 10% максимальных и минимальных значений"
+              title="page.person.speed.line.title"
+              description="page.person.speed.line.description"
             />
           </div>
         )}
       </PageColumn>
       <PageColumn>
-        <Title title={localization.get('Максимальная скорость в день')}/>
+        <Title title="page.person.speed.max"/>
         <div>
           <CardWithIcon
             long
             value={byTimestamp.tasksByTimestampCounter.max}
             icon="./assets/cards/tasks.png"
-            title="задач"
-            description="Задача может быть не доделана, но работа по ней должна быть"
+            title="page.person.speed.tasks.title"
+            description="page.person.speed.tasks.description"
           />
           <CardWithIcon
             long
             value={byTimestamp.commitsByTimestampCounter.max}
             icon="./assets/cards/commits.png"
-            title="коммитов"
-            description="Задача может быть не доделана, но работа по ней должна быть"
+            title="page.person.speed.maxCommits.title"
+            description="page.person.speed.maxCommits.description"
           />
         </div>
       </PageColumn>

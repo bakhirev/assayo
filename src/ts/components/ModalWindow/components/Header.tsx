@@ -24,6 +24,7 @@ const Header = observer(({
       {onClose ? (
         <img
           id={`${id}-close`}
+          src="./assets/close.svg"
           className={`${style.modal_window_close} ${className || ''}`}
           onClick={(event: any) => {
             event.stopPropagation();
