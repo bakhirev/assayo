@@ -2,6 +2,17 @@ import localization from 'ts/helpers/Localization';
 
 localization.parse('ru', `
 § common.filters: Фильтры
+§ common.notifications.save: Изменения сохранены
+§ common.notifications.setting: Настройки сохранены
+§ sidebar.switch.team: Команда
+§ sidebar.switch.person: Сотрудник
+§ sidebar.buttons.settings: Настройки
+§ sidebar.buttons.print: Печать
+§ sidebar.filters.all: всё время
+§ sidebar.filters.year: год
+§ sidebar.filters.halfYear: пол года
+§ sidebar.filters.month: месяц
+§ sidebar.filters.week: неделя
 § sidebar.team.total: Общая информация
 § sidebar.team.scope: Фичи
 § sidebar.team.author: Сотрудники
@@ -42,6 +53,7 @@ localization.parse('ru', `
 § page.team.author.commits: Коммитов
 § page.team.author.commitsSmall: коммитов
 § page.team.author.tasks: Задач
+§ page.team.author.tasksSmall: задач
 § page.team.author.workedLosses: Дни с коммитами и без
 § page.team.author.worked: работа
 § page.team.author.losses: дни без коммитов
@@ -124,6 +136,8 @@ localization.parse('ru', `
 § page.team.week.hasNotCommits: небыло коммитов
 § page.team.week.days: дней
 § page.team.week.tasks: задач
+§ page.person.print.photo.title: Фотография
+§ page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики
 § page.person.total.daysWorked.title: дней работы
 § page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты

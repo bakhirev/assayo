@@ -1,6 +1,7 @@
 import { makeObservable, observable, action } from 'mobx';
 
 import IMessage from '../interfaces/Message';
+import localization from "../../../helpers/Localization";
 
 interface INotificationsStore {
   timer: any;
@@ -31,7 +32,7 @@ class NotificationsStore implements INotificationsStore {
   show(message?: any) {
     this.messages.push({
       id: NotificationsStore.getTime(),
-      title: message?.title || message || 'Изменения сохранены',
+      title: localization.get(message?.title || message || 'common.notifications.save'),
       description: message?.description || '',
       type: message?.type || 'success',
     });

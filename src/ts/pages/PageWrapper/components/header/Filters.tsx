@@ -19,23 +19,23 @@ function Logo() {
       />
       <div className={style.header_filters_fast}>
         <Button
-          title="всё время"
+          title="sidebar.filters.all"
           type="all"
         />
         <Button
-          title="год"
+          title="sidebar.filters.year"
           type="year"
         />
         <Button
-          title="пол года"
+          title="sidebar.filters.halfYear"
           type="halfYear"
         />
         <Button
-          title="месяц"
+          title="sidebar.filters.month"
           type="month"
         />
         <Button
-          title="неделя"
+          title="sidebar.filters.week"
           type="week"
         />
       </div>

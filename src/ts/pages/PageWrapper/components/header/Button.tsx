@@ -1,6 +1,7 @@
 import React from 'react';
 
 import settingsStore from 'ts/store/Settings';
+import localization from 'ts/helpers/Localization';
 
 import style from '../../styles/filters.module.scss';
 
@@ -20,7 +21,7 @@ function Button({
         settingsStore.setFilterByDateType(type);
       }}
     >
-      {title || ''}
+      {localization.get(title)}
     </button>
   );
 }

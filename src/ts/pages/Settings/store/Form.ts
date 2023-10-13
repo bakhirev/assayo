@@ -18,7 +18,7 @@ class FormStore extends Form {
     const { saveSettings } = settingsApi;
     return this.submit(saveSettings, body, false)
       .then((response: any) => {
-        notificationsStore.show('Настройки сохранены');
+        notificationsStore.show('common.notifications.setting');
         userSettings.loadUserSettings();
         this.setInitState(this.state);
         return Promise.resolve(response);

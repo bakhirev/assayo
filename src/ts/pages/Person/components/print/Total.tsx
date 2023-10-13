@@ -8,6 +8,8 @@ import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
 
 import dataGripStore from 'ts/store/DataGrip';
+import localization from 'ts/helpers/Localization';
+
 import style from '../../styles/print.module.scss';
 
 const Total = observer((): React.ReactElement => {
@@ -21,10 +23,10 @@ const Total = observer((): React.ReactElement => {
         <CardWithIcon
           value=""
           icon="./assets/cards/work_days.png"
-          title="Фотография"
+          title="page.person.print.photo.title"
         />
         <div className={style.place_for_photo}>
-          место для фотографии
+          {localization.get('page.person.print.photo.description')}
         </div>
       </PageColumn>
       <PageColumn>

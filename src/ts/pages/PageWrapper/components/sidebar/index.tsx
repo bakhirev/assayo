@@ -18,8 +18,16 @@ function SideBar() {
       <Switch
         value={type || 'team'}
         options={[
-          { id: 'team', title: 'Команда', icon: './assets/switch/team.svg' },
-          { id: 'person', title: 'Сотрудник', icon: './assets/switch/person.svg' },
+          {
+            id: 'team',
+            title: 'sidebar.switch.team',
+            icon: './assets/switch/team.svg',
+          },
+          {
+            id: 'person',
+            title: 'sidebar.switch.person',
+            icon: './assets/switch/person.svg',
+          },
         ]}
         onChange={(newType: string) => {
           if (newType === type) return;

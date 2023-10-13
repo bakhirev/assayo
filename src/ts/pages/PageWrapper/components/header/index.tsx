@@ -9,6 +9,7 @@ import style from '../../styles/header.module.scss';
 import Title from './Title';
 import Filters from './Filters';
 import printStore from '../../store/Print';
+import localization from "../../../../helpers/Localization";
 
 const Header = observer((): React.ReactElement | null => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Header = observer((): React.ReactElement | null => {
         <>
           <Filters/>
           <img
-            title="Печать"
+            title={localization.get('sidebar.buttons.print')}
             className={style.header_print}
             src="./assets/menu/print.svg"
             onClick={() => {
@@ -31,7 +32,7 @@ const Header = observer((): React.ReactElement | null => {
             }}
           />
           <img
-            title="Настройки"
+            title={localization.get('sidebar.buttons.settings')}
             className={style.header_setting}
             src="./assets/menu/setting.svg"
             onClick={() => {
