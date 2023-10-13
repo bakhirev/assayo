@@ -1,0 +1,9 @@
+# dependencies
+/node_modules
+/.vscode
+/.pnp
+/.idea
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,50 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "createDefaultProgram": true
+  },
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "noSortAlphabetically": true,
+        "ignoreCase": true,
+        "callbacksLast": true,
+        "shorthandLast": false,
+        "reservedFirst": [
+          "key"
+        ]
+      }
+    ],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "always"
+      }
+    ],
+    "react/jsx-pascal-case": [
+      "error"
+    ]
+  },
+  "ignorePatterns": [
+    "ext/**",
+    "node_modules/**",
+    "src/**/*.cjs",
+    "src/setupProxy.js"
+  ]
+}
