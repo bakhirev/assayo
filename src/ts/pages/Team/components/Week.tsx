@@ -30,11 +30,18 @@ interface IWeekViewProps {
 function WeekView({ response, updateSort }: IWeekViewProps) {
   if (!response) return null;
 
-  const tasksChart = getOptions({ max: getMax(response, 'tasks'), order: dataGripStore.dataGrip.type.list });
-  const authorsChart = getOptions({ max: getMax(response, 'authorsLength'), order: dataGripStore.dataGrip.author.list, suffix: 'задач' });
-  const changesChart = getOptions({ max: getMax(response, 'changesLength'), order: ['добавили', 'изменили', 'удалили'], suffix: 'строк' });
-  const workDaysTotalChart = getOptions({ order: ['были коммиты', 'небыло коммитов'], suffix: 'дней' });
-  const workDaysChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'дней' });
+  const tasksChart = getOptions({ max: getMax(response, 'tasks'), order: dataGripStore.dataGrip.type.list, suffix: 'page.team.week.tasks' });
+  const authorsChart = getOptions({ max: getMax(response, 'authorsLength'), order: dataGripStore.dataGrip.author.list, suffix: 'page.team.week.tasks' });
+  const changesChart = getOptions({ max: getMax(response, 'changesLength'), order: [
+    'page.team.week.add',
+    'page.team.week.change',
+    'page.team.week.remove',
+  ], suffix: 'строк' });
+  const workDaysTotalChart = getOptions({ order: [
+    'page.team.week.hasCommits',
+    'page.team.week.hasNotCommits',
+  ], suffix: 'page.team.week.days' });
+  const workDaysChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'page.team.week.days' });
 
   return (
     <Table
@@ -45,7 +52,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
-        title="Дата"
+        title="page.team.week.date"
         properties="timestamp"
         formatter={getShortDateRange}
         width={260}
@@ -56,7 +63,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       />
       <Column
         isSortable="tasks"
-        title="Количество задач"
+        title="page.team.week.numberTasks"
         template={(row: any) => (
           <LineChart
             options={tasksChart}
@@ -72,7 +79,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       />
       <Column
         isSortable="authorsLength"
-        title="Количество человек"
+        title="page.team.week.people"
         template={(row: any) => (
           <LineChart
             options={authorsChart}
@@ -88,15 +95,15 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       />
       <Column
         isSortable="changesLength"
-        title="Изменения строк"
+        title="page.team.week.line"
         template={(row: any) => (
           <LineChart
             options={changesChart}
             value={row.changesLength}
             details={{
-              'добавили': row?.changes?.added,
-              'изменили': row?.changes?.changes,
-              'удалили': row?.changes?.removed,
+              'page.team.week.add': row?.changes?.added,
+              'page.team.week.change': row?.changes?.changes,
+              'page.team.week.remove': row?.changes?.removed,
             }}
           />
         )}
@@ -108,20 +115,20 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       />
       <Column
         isSortable="workDaysTotal"
-        title="Дни с коммитами и без"
+        title="page.team.week.days"
         template={(row: any) => (
           <LineChart
             options={workDaysTotalChart}
             details={{ // TODO: ошибка суммы, т.к. 5 дневка не у всех. Нужно по автору перебирать.
-              'были коммиты': row?.workDaysTotal,
-              'небыло коммитов': row?.authorsLength * 5 - row?.workDaysTotal,
+              'page.team.week.hasCommits': row?.workDaysTotal,
+              'page.team.week.hasNotCommits': row?.authorsLength * 5 - row?.workDaysTotal,
             }}
           />
         )}
         minWidth={200}
       />
       <Column
-        title="Кто не коммитил"
+        title="page.team.week.lossesDetails"
         template={(details: IHashMap<number>) => (
           <LineChart
             options={workDaysChart}

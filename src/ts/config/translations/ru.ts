@@ -111,20 +111,19 @@ localization.parse('ru', `
 § page.team.tree.line: строк
 § page.team.tree.lineAdd: добавили
 § page.team.tree.lineRemove: изменили
-§ page.team.week.commits: коммитов
-§ page.team.week.tasks: задач
-§ page.team.week.add: добавили
-§ page.team.week.change: изменили
-§ page.team.week.remove: удалили
-§ page.team.week.worked: работа
-§ page.team.week.losses: дни без коммитов
-§ page.team.week.days: дней
 § page.team.week.date: Дата
 § page.team.week.numberTasks: Количество задач
 § page.team.week.people: Количество человек
-§ page.team.week.files: Изменения файлов
+§ page.team.week.line: Изменение строк
 § page.team.week.days: Дни с коммитами и без
 § page.team.week.lossesDetails: Кто не коммитил
+§ page.team.week.add: добавили
+§ page.team.week.change: изменили
+§ page.team.week.remove: удалили
+§ page.team.week.hasCommits: были коммиты
+§ page.team.week.hasNotCommits: небыло коммитов
+§ page.team.week.days: дней
+§ page.team.week.tasks: задач
 § page.person.total.title: Основные характеристики
 § page.person.total.daysWorked.title: дней работы
 § page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты
