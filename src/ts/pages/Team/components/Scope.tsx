@@ -116,7 +116,7 @@ const Scope = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <Title title="Статистика по фичам"/>
+      <Title title="page.team.scope.title"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"

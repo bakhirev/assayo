@@ -22,6 +22,7 @@ import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
 import Description from 'ts/components/Description';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
+import localization from 'ts/helpers/Localization';
 
 interface ITypeViewProps {
   response?: IPagination<any>;
@@ -31,8 +32,8 @@ interface ITypeViewProps {
 function TypeView({ response, updateSort }: ITypeViewProps) {
   if (!response) return null;
 
-  const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'задач' });
-  const daysByAuthorsChart = getOptions({ max: getMax(response, 'daysByAuthorsTotal'), suffix: 'дней' });
+  const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'page.team.type.tasksSmall' });
+  const daysByAuthorsChart = getOptions({ max: getMax(response, 'daysByAuthorsTotal'), suffix: 'page.team.type.daysSmall' });
   const authorChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
@@ -121,7 +122,7 @@ const Type = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <Title title="Статистика по типам задач"/>
+      <Title title="page.team.type.title"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
@@ -135,7 +136,7 @@ const Type = observer(({
       </PageWrapper>
       <PageWrapper>
         <Description
-          text="*Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений."
+          text={localization.get('page.team.type.description')}
         />
       </PageWrapper>
     </>

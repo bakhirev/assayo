@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Console from 'ts/components/Console';
+import localization from 'ts/helpers/Localization';
+
 import style from './styles/index.module.scss';
 
 function WarningInfo() {
@@ -33,34 +35,32 @@ function WarningInfo() {
 }
 
 function Welcome() {
+  const canShowWarning = true;
   const command = 'git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt\n';
   return (
     <>
-      {true && (<WarningInfo />)}
+      {canShowWarning && (<WarningInfo />)}
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>
-            Выполните команду в корне вашего проекта
+            {localization.get('page.welcome.step1')}
           </h2>
           <Console
             className={style.welcome_console}
             textForCopy={command}
           />
           <p className={style.welcome_description}>
-            Git создаст файл log.txt.
-            Он содержит данные для построения отчёта.
-            Или git shortlog -s -n -e если отчёт вам не нужен.
-            Создайте файл
+            {localization.get('page.welcome.description1')}
             <Link
               className={`${style.welcome_link}`}
               target="_blank"
               to="https://git-scm.com/docs/gitmailmap">
               .mailmap
             </Link>
-            {' в корне проекта, чтобы обьединить статистику по сотрудникам.'}
+            {localization.get('page.welcome.description2')}
           </p>
           <h2 className={style.welcome_last_title}>
-            Перетащите файл log.txt на эту страницу
+            {localization.get('page.welcome.step2')}
           </h2>
         </div>
       </section>

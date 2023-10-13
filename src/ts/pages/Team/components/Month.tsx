@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import localization from 'ts/helpers/Localization';
 import dataGripStore from 'ts/store/DataGrip';
 
 import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
@@ -24,7 +23,7 @@ const Month = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations}/>
       )}
-      <Title title={localization.get('Календарь работы по проекту')}/>
+      <Title title="page.team.month.title"/>
       <PageWrapper template="table">
         <YearChart
           maxCommits={max}

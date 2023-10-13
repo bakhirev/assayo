@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import localization from 'ts/helpers/Localization';
 import style from '../styles/index.module.scss';
 
 export interface IUiKitWrapperProps {
@@ -25,22 +26,22 @@ function UiKitWrapper({
   return (
     <div
       className={`${style.wrapper} ${className || ''}`}
-      title={help}
+      title={localization.get(help)}
     >
       {title && (
         <h6 className={style.title}>
-          {title}
+          {localization.get(title)}
         </h6>
       )}
       {description && (
         <p className={style.description}>
-          {description}
+          {localization.get(description)}
         </p>
       )}
       {children}
       {help && (
         <p className={style.help}>
-          {example}
+          {localization.get(example)}
         </p>
       )}
       {error && (

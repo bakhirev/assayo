@@ -26,7 +26,7 @@ const Total = observer((): React.ReactElement => {
   return (
     <PageWrapper>
       <PageColumn>
-        <Title title={localization.get('page.team.total.titleA')}/>
+        <Title title="page.team.total.titleA"/>
         <div>
           <CardWithIcon
             value={statistic.daysWorked}
@@ -61,17 +61,17 @@ const Total = observer((): React.ReactElement => {
           />
         </div>
         <Description
-          text="*Человеко-дни* — это работа одного сотрудника в течение одного рабочего дня. Например, за один календарный день, команда из трех сотрудников выдает объем работы в три человеко-дня."
+          text={localization.get('page.team.total.description1')}
         />
         <Description
-          text="*Днями прогулов* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют."
+          text={localization.get('page.team.total.description2')}
         />
         <Description
-          text="Карточка *работает и уволилось* показывает фактический состав сотрудников, которые постоянно участвуют в работе. Кроме этого, есть «помощники» — это сотрудники, как правило другой специализации, которые могут иногда делать коммиты в проект."
+          text={localization.get('page.team.total.description3')}
         />
       </PageColumn>
       <PageColumn>
-        <Title title={localization.get('page.team.total.titleB')}/>
+        <Title title="page.team.total.titleB"/>
         <div>
           <CardWithIcon
             value={getShortMoney(statistic.moneyAll)}
@@ -106,10 +106,10 @@ const Total = observer((): React.ReactElement => {
           />
         </div>
         <Description
-          text="*Переплатой* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют. Именно поэтому переплата + фактическая стоимость != общей. В общей стоимости заложена оплата выходных, государственных праздников и отпусков."
+          text={localization.get('page.team.total.description4')}
         />
         <Description
-          text="*Работой на выходных* считается по коэфициенту х2 от оплаты обычного дня. Выше отображена именно переплата (х1), т.к. сам факт переработки в данном контексте не интересен. Мы не смотрим скорость сжигания бюджета. Мы смотрим переплату при увеличении скорости работы."
+          text={localization.get('page.team.total.description5')}
         />
       </PageColumn>
     </PageWrapper>

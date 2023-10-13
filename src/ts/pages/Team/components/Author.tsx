@@ -162,7 +162,7 @@ const Author = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <Title title="Статистика по сотрудникам"/>
+      <Title title="page.team.author.title"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
@@ -177,12 +177,12 @@ const Author = observer(({
       <PageWrapper>
         <PageColumn>
           <Description
-            text="*Часть статитики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помошник» не считается*, т.к. это эпизодическая роль в проекте. Предпологаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы."
+            text={localization.get('page.team.author.description1')}
           />
         </PageColumn>
         <PageColumn>
           <Description
-            text="*Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники)."
+            text={localization.get('page.team.author.description2')}
           />
         </PageColumn>
       </PageWrapper>

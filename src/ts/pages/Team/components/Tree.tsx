@@ -37,7 +37,10 @@ function TreeView({ response }: ITreeViewProps) {
   };
 
   const fileChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'строк' });
-  const rewriteChart = getOptions({ order: ['добавили', 'изменили'], suffix: 'строк' });
+  const rewriteChart = getOptions({ order: [
+    'page.team.tree.lineAdd',
+    'page.team.tree.lineRemove',
+  ], suffix: 'page.team.tree.line' });
 
   return (
     <Table
@@ -69,14 +72,14 @@ function TreeView({ response }: ITreeViewProps) {
             value={file ? 100 : 0}
             options={rewriteChart}
             details={{
-              'добавили': file?.lines || 0,
-              'изменили': (file?.total?.changes || 0) + (file?.total?.removed || 0),
+              'page.team.tree.lineAdd': file?.lines || 0,
+              'page.team.tree.lineRemove': (file?.total?.changes || 0) + (file?.total?.removed || 0),
             }}
           />
         )}
       />
       <Column
-        title="Кто добавлял"
+        title="page.team.tree.add"
         properties="file"
         minWidth={200}
         template={(file: any) => (
@@ -88,7 +91,7 @@ function TreeView({ response }: ITreeViewProps) {
         )}
       />
       <Column
-        title="Кто менял"
+        title="page.team.tree.change"
         properties="file"
         minWidth={200}
         template={(file: any) => (
@@ -100,7 +103,7 @@ function TreeView({ response }: ITreeViewProps) {
         )}
       />
       <Column
-        title="Кто удалял"
+        title="page.team.tree.remove"
         properties="file"
         minWidth={200}
         template={(file: any) => (
@@ -128,7 +131,7 @@ const Tree = observer((): React.ReactElement => {
     <>
       <Title title={localization.get('common.filters')} />
       <TreeFilters/>
-      <Title title="Дерево проекта с учётом выбранных фильтров"/>
+      <Title title="page.team.tree.title"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"

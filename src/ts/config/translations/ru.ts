@@ -28,6 +28,16 @@ localization.parse('ru', `
 § sidebar.person.changes: Все изменения
 § sidebar.person.words: Популярные слова
 § sidebar.person.settings: Настройки
+§ page.welcome.step1: Выполните команду в корне вашего проекта
+§ page.welcome.step2: Перетащите файл log.txt на эту страницу
+§ page.welcome.description1: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл
+§ page.welcome.description2: в корне проекта, чтобы обьединить статистику по сотрудникам.
+§ page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы обьединить статистику по сотрудникам.
+§ page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
+§ page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].
+§ page.team.author.title: Статистика по сотрудникам
+§ page.team.author.description1: *Часть статитики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помошник» не считается*, т.к. это эпизодическая роль в проекте. Предпологаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
+§ page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
 § page.team.author.types: Тип работ
 § page.team.author.commits: Коммитов
 § page.team.author.commitsSmall: коммитов
@@ -41,6 +51,9 @@ localization.parse('ru', `
 § page.team.author.moneyAll: Получил
 § page.team.author.moneyWorked: Отработал
 § page.team.author.moneyLosses: Переплата
+§ page.team.hours.title: Распределение коммитов в течении каждого дня недели
+§ page.team.month.title: Календарь работы по проекту
+§ page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней
 § page.team.scope.authorsDays: Человеко-дней
@@ -50,13 +63,18 @@ localization.parse('ru', `
 § page.team.scope.types: Тип работ
 § page.team.scope.authors: Персональный вклад
 § page.team.scope.cost: Стоимость
+§ page.team.type.title: Статистика по типам задач
+§ page.team.type.description: *Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений.
 § page.team.type.type: Тип работы
 § page.team.type.tasks: Задач
+§ page.team.type.tasksSmall: задач
 § page.team.type.days: Дней
+§ page.team.type.daysSmall: дней
 § page.team.type.authorsDays: Человеко-дней
 § page.team.type.commits: Коммитов
-§ page.team.type.commitsSmall: коммитов
 § page.team.type.authors: Персональный вклад
+§ page.team.total.titleA: Объём работ
+§ page.team.total.titleB: Стоимость
 § page.team.total.daysWorked.title: человеко-дней
 § page.team.total.daysWorked.description: Учтены только дни, в которые делались коммиты
 § page.team.total.commits.title: коммитов
@@ -77,12 +95,16 @@ localization.parse('ru', `
 § page.team.total.workSpeed.description: Средняя скорость работы команды при текущем составе сотрудников
 § page.team.total.moneySpeed.title: в месяц
 § page.team.total.moneySpeed.description: Прогнозируемая сумма выплаты на зп при текущем составе сотрудников без учета налогов и сопутствующих затрат
-§ page.team.total.titleA: Объём работ
-§ page.team.total.titleB: Стоимость
-§ page.team.tree.filters1: Пользователь
-§ page.team.tree.filters2: и более 
-§ page.team.tree.filters3: коммитов в файле или папке
-§ page.team.tree.percent: Процент перезаписи
+§ page.team.total.description1: *Человеко-дни* — это работа одного сотрудника в течение одного рабочего дня. Например, за один календарный день, команда из трех сотрудников выдает объем работы в три человеко-дня.
+§ page.team.total.description2: *Днями прогулов* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют.
+§ page.team.total.description3: Карточка *работает и уволилось* показывает фактический состав сотрудников, которые постоянно участвуют в работе. Кроме этого, есть «помощники» — это сотрудники, как правило другой специализации, которые могут иногда делать коммиты в проект.
+§ page.team.total.description4: *Переплатой* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют. Именно поэтому переплата + фактическая стоимость != общей. В общей стоимости заложена оплата выходных, государственных праздников и отпусков.
+§ page.team.total.description5: *Работой на выходных* считается по коэфициенту х2 от оплаты обычного дня. Выше отображена именно переплата (х1), т.к. сам факт переработки в данном контексте не интересен. Мы не смотрим скорость сжигания бюджета. Мы смотрим переплату при увеличении скорости работы.
+§ page.team.tree.title: Дерево проекта с учётом выбранных фильтров
+§ page.team.tree.filters.author: Сотрудник
+§ page.team.tree.filters.commits: Количество коммитов
+§ page.team.tree.filters.help: Минимальное количество коммитов, которое сделал сотрудник в файле
+§ page.team.tree.filters.all: Все сотрудники
 § page.team.tree.add: Кто добавлял
 § page.team.tree.change: Кто менял
 § page.team.tree.remove: Кто удалял

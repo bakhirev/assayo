@@ -16,7 +16,7 @@ const Hours = observer((): React.ReactElement => {
   return (
     <>
       <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Распределение коммитов в течении каждого дня недели"/>
+      <Title title="page.team.hours.title"/>
       <PageWrapper template="table">
         <HoursChart statistic={statistic} />
       </PageWrapper>

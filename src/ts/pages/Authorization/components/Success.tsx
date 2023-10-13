@@ -8,7 +8,6 @@ import SplashScreen from 'ts/components/SplashScreen';
 import Confirm from 'ts/components/ModalWindow/Confirm';
 
 import PageWrapper from '../../PageWrapper';
-// import Main from '../../Main/index';
 import Team from '../../Team/index';
 import Person from '../../Person/index';
 import Welcome from '../../Welcome/index';
