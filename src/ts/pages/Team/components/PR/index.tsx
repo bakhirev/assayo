@@ -15,6 +15,7 @@ import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
+import localization from 'ts/helpers/Localization';
 
 import Total from './Total';
 import Authors from './Authors';
@@ -32,7 +33,7 @@ const PR = observer(({
 
   return (
     <>
-      <Title title="Время потраченное на одну задачу"/>
+      <Title title="page.team.pr.oneTaskDays"/>
       <PageWrapper template="table">
         <Total/>
       </PageWrapper>
@@ -40,22 +41,22 @@ const PR = observer(({
       <PageWrapper>
         <PageColumn>
           <Description
-            text="*Время разработки* это разница времени от первого до последнего коммита по задаче. Не важно были перерывы в несколько дней между коммитами или нет. Сам факт какого-либо коммита увеличивает время."
+            text={localization.get('page.team.pr.description1')}
           />
           <Description
-            text="*Время ожидания* это время между последним коммитом и влитием кода. Оно показывает фактический простой в ожидании чего-либо."
+            text={localization.get('page.team.pr.description2')}
           />
         </PageColumn>
         <PageColumn>
           <Description
-            text="*Зачем отображать время разработки* без разбивки на кодинг и код-ревью? Затем, чтобы показать бизнесу фактическое время поставки кода. Ожидание тестирования, замечания на ревью, проблемы DevOps и прочие несовершенства процесса, как раз уже заложены в этот срок."
+            text={localization.get('page.team.pr.description3')}
           />
         </PageColumn>
       </PageWrapper>
       <br/>
       <br/>
 
-      <Title title="Статистика по сотрудникам"/>
+      <Title title="page.team.pr.statByAuthors"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
@@ -69,7 +70,7 @@ const PR = observer(({
       </PageWrapper>
 
       <PageBreak/>
-      <Title title="Длительное ожидание влития"/>
+      <Title title="page.team.pr.longDelay"/>
       <PageWrapper template="table">
         <DataLoader
           to="response"

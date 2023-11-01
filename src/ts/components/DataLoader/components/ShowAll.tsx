@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { IPagination } from 'ts/interfaces/Pagination';
 import Loading from 'ts/components/Loading';
+import localization from 'ts/helpers/Localization';
 
 import { IDataLoaderStore, DataLoaderState } from '../store';
 import ErrorDescription from '../ErrorDescription';
@@ -48,7 +49,7 @@ function ShowAll({
         className={`${style.show_all} ${className || ''}`}
         onClick={() => { if (store) store.showAll(); }}
       >
-        Показать все
+        {localization.get('uiKit.dataLoader.all')}
       </div>
   );
 }

@@ -20,9 +20,12 @@ export function getNewFileInfo(
   addedLines: number,
   commit?: ICommit | null,
 ) {
+  const nameParts = name?.split('/')?.pop()?.split('.') || [];
   return {
     name,
-    extension: name?.split('.')?.pop(),
+    extension: nameParts.pop(),
+    firstName: nameParts.shift(),
+    suffixes: nameParts,
     lines: addedLines,
     created: commit,
     authors: {

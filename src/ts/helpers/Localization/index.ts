@@ -3,7 +3,16 @@ class Localization {
 
   translations: any = {};
 
-  get(key = '') {
+  insertArguments(message: string, args?: any) {
+    if (!args) return message;
+    const list = Array.isArray(args) ? args : [args];
+    list.forEach((text: any, index: number) => {
+      message = message.replace(`$${index}`, text || '_');
+    });
+    return message;
+  }
+
+  get(key = '', args?: any) {
     const dictionary = this.translations[this.language];
     if (!dictionary) return key || '';
 
@@ -16,7 +25,8 @@ class Localization {
       message = message[keys[i]];
       if (!message) return key || '';
     }
-    return message;
+
+    return this.insertArguments(message, args);
   }
 
   parse(langId: string, text: string) {

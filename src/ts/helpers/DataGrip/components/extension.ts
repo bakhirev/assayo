@@ -22,14 +22,29 @@ export default class DataGripByExtension {
 
   updateTotalInfo(fileList: any[], byAuthor: any) {
     const byExtension = {};
+    console.dir(fileList);
 
     fileList.forEach((file: any) => {
       if (!file.extension
         || IGNORE_LIST.includes(file.name)) return;
       if (!byExtension[file.extension]) {
         byExtension[file.extension] = {
-          extension: file.extension, authors: {}, more: {}, total: { added: 0, changes: 0, removed: 0, total: 0 },
+          extension: file.extension,
+          authors: {},
+          files: { [file.firstName]: 1 },
+          more: {},
+          total: {
+            added: 0,
+            changes: 0,
+            removed: 0,
+            total: 0,
+          },
         };
+      } else {
+        const numberNames = byExtension[file.extension].files[file.firstName];
+        byExtension[file.extension].files[file.firstName] = numberNames
+          ? (numberNames + 1)
+          : 1;
       }
 
       for (let author in file.authors) {

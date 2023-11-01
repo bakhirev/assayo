@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 
+import localization from 'ts/helpers/Localization';
+
 import CommitFormat from './components/CommitFormat';
 import style from './index.module.scss';
 
@@ -17,6 +19,7 @@ function NothingFound({
   children,
   className,
 }: INothingFoundProps) {
+  const formattedMessage = localization.get(message || '');
   return (
     <div className={`${style.nothing_found_wrapper} ${className}`}>
       <div className={style.nothing_found}>
@@ -26,7 +29,7 @@ function NothingFound({
         />
         {!children && message && (
           <p className={style.nothing_found_title}>
-            {message}
+            {formattedMessage}
           </p>
         )}
         {!children && !message && (<CommitFormat />)}

@@ -43,7 +43,7 @@ function AllPR({
       {mode === 'print' ? (
         <Column
           isSortable
-          title="Задача"
+          title="page.team.pr.task"
           properties="task"
           width={120}
         />
@@ -64,7 +64,7 @@ function AllPR({
               </>
             );
           }}
-          title="Задача"
+          title="page.team.pr.task"
           properties="task"
           width={120}
         />
@@ -72,7 +72,7 @@ function AllPR({
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
-        title="Первый коммит"
+        title="page.team.pr.firstCommitTime"
         properties="beginTaskTime"
         formatter={getDate}
         width={130}
@@ -80,7 +80,7 @@ function AllPR({
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
-        title="Последний"
+        title="page.team.pr.lastCommitTime"
         properties="endTaskTime"
         formatter={getDate}
         width={130}
@@ -92,7 +92,7 @@ function AllPR({
       />
       <Column
         isSortable
-        title="Дней в работе"
+        title="page.team.pr.workDays"
         properties="workDays"
         minWidth={100}
         template={(value: any) => (
@@ -109,7 +109,7 @@ function AllPR({
       />
       <Column
         isSortable
-        title="Коммиты"
+        title="page.team.pr.commits"
         properties="commitsByAuthors"
         minWidth={100}
         template={(details: any) => (
@@ -126,7 +126,7 @@ function AllPR({
       />
       <Column
         isSortable
-        title="Дней ожидания влития"
+        title="page.team.pr.delayDays"
         properties="delayDays"
         minWidth={200}
         template={(value: any) => (
@@ -139,7 +139,7 @@ function AllPR({
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
-        title="Дата влития"
+        title="page.team.pr.date"
         properties="milliseconds"
         formatter={getDate}
         width={130}
@@ -147,7 +147,7 @@ function AllPR({
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
-        title="Влил"
+        title="page.team.pr.mergeAuthor"
         properties="author"
         width={250}
       />

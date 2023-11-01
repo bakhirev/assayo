@@ -5,6 +5,7 @@ import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
 import CandyChart from 'ts/components/CandyChart';
 import Title from 'ts/components/Title';
+import localization from 'ts/helpers/Localization';
 
 interface IPopularWordsProps {
   statistic: any[];
@@ -24,7 +25,10 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
 
   // dots[0].color = COLOR.FIRST;
   const recommendations = [
-    [dots[0].title, `самое популярное слово. Встречается ${dots[0].value} раза.`, 'fact'],
+    [dots[0].title,
+      localization.get('page.common.words.description', dots[0].value),
+      'fact',
+    ],
   ];
 
   return (
@@ -32,7 +36,7 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <Title title="Статистика по словам"/>
+      <Title title="page.common.words.title"/>
       <PageWrapper template="table">
         <CandyChart
           dots={dots}

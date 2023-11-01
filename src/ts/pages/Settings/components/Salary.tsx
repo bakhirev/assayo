@@ -7,6 +7,8 @@ import UiKitSwitch from 'ts/components/UiKit/components/Switch';
 import PageBox from 'ts/components/Page/Box';
 import Title from 'ts/components/Title';
 
+import localization from 'ts/helpers/Localization';
+
 import formStore from '../store/Form';
 
 const Common = observer((): React.ReactElement | null => {
@@ -15,14 +17,14 @@ const Common = observer((): React.ReactElement | null => {
 
   return (
     <>
-      <Title title="Общие данные по зарплате"/>
+      <Title title="page.settings.common.title"/>
       <PageBox>
         <UiKitSwitch
-          title="Тип работы над проектом"
+          title="page.settings.common.type.title"
           value={defaultSalary.type}
           options={[
-            { id: 'full', title: 'Полная занятость' },
-            { id: 'part', title: 'Проектная работа' },
+            { id: 'full', title: localization.get('page.settings.common.type.full') },
+            { id: 'part', title: localization.get('page.settings.common.type.part') },
           ]}
           onChange={(type: any) => {
             formStore.updateState('defaultSalary.type', type?.id);
@@ -30,14 +32,14 @@ const Common = observer((): React.ReactElement | null => {
         />
         <UiKitColumns>
           <UiKitInputNumber
-            title="Зарплата в месяц"
+            title="page.settings.common.salary"
             value={defaultSalary.value}
             onChange={(value: number) => {
               formStore.updateState('defaultSalary.value', value);
             }}
           />
           <UiKitSwitch
-            title="Валюта"
+            title="page.settings.common.currency"
             value={defaultSalary.currency}
             options={['RUB', 'USD', 'EUR']}
             onChange={(currency: string) => {
@@ -47,14 +49,14 @@ const Common = observer((): React.ReactElement | null => {
         </UiKitColumns>
         <UiKitColumns>
           <UiKitInputNumber
-            title="Количество рабочих дней в году"
+            title="page.settings.common.workDaysInYear"
             value={defaultSalary.workDaysInYear}
             onChange={(workDaysInYear: number) => {
               formStore.updateState('defaultSalary.workDaysInYear', workDaysInYear);
             }}
           />
           <UiKitInputNumber
-            title="Количество дней отпуска в год"
+            title="page.settings.common.vacationDaysInYear"
             value={defaultSalary.vacationDaysInYear}
             onChange={(vacationDaysInYear: number) => {
               formStore.updateState('defaultSalary.vacationDaysInYear', vacationDaysInYear);
@@ -62,7 +64,7 @@ const Common = observer((): React.ReactElement | null => {
           />
         </UiKitColumns>
         <UiKitSwitch
-          title="Количество рабочих дней в неделю"
+          title="page.settings.common.workDaysInWeek"
           value={defaultSalary.workDaysInWeek}
           options={[1, 2, 3, 4, 5, 6, 7]}
           onChange={(workDaysInWeek: number) => {
@@ -70,7 +72,7 @@ const Common = observer((): React.ReactElement | null => {
           }}
         />
         <UiKitSwitch
-          title="Рабочие дни"
+          title="page.settings.common.workDaysInWeek"
           value={defaultSalary.workDaysInWeek.map((v: number, i: number) => v ? (i + 1) : null)}
           options={[
             { id: 1, title: 'Пн' },

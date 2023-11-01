@@ -4,12 +4,13 @@ import { observer } from 'mobx-react-lite';
 
 import Buttons from 'ts/pages/Settings/components/Buttons';
 import settingsForm from 'ts/pages/Settings/store/Form';
-import style from '../../styles/header.module.scss';
+import localization from 'ts/helpers/Localization';
+
 
 import Title from './Title';
 import Filters from './Filters';
 import printStore from '../../store/Print';
-import localization from "../../../../helpers/Localization";
+import style from '../../styles/header.module.scss';
 
 const Header = observer((): React.ReactElement | null => {
   const navigate = useNavigate();

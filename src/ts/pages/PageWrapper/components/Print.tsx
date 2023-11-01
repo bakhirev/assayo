@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body } from 'ts/components/ModalWindow';
+import localization from 'ts/helpers/Localization';
 
 import style from '../styles/print.module.scss';
 import printStore from '../store/Print';
@@ -16,7 +17,7 @@ const Print = observer(() => {
     }}>
       <Header>
         <div style={{ textAlign: 'center' }}>
-          Что распечатываем?
+          {localization.get('page.print.title')}
         </div>
       </Header>
       <Body>
@@ -30,7 +31,7 @@ const Print = observer(() => {
             printStore.printPage();
           }}
         >
-          Текущую страницу
+          {localization.get('page.print.page')}
         </UiKitButton>
         <UiKitButton
           className={style.page_wrapper_print_button}
@@ -38,7 +39,7 @@ const Print = observer(() => {
             printStore.printSection();
           }}
         >
-          Текущий раздел
+          {localization.get('page.print.type')}
         </UiKitButton>
         {false && (
           <UiKitButton
@@ -47,7 +48,7 @@ const Print = observer(() => {
               printStore.printAllPages();
             }}
           >
-            Всю статистику
+            {localization.get('page.print.all')}
           </UiKitButton>
         )}
         <UiKitButton
@@ -57,7 +58,7 @@ const Print = observer(() => {
             printStore.close();
           }}
         >
-          Отмена
+          {localization.get('page.print.cancel')}
         </UiKitButton>
       </Body>
     </Modal>

@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import localization from 'ts/helpers/Localization';
 
 import formStore from '../store/Form';
 import style from '../styles/index.module.scss';
@@ -17,14 +18,14 @@ const Buttons = observer((): React.ReactElement | null => {
           formStore.setInitState(formStore.initState);
         }}
       >
-        Отмена
+        {localization.get('page.settings.form.cancel')}
       </UiKitButton>
       <UiKitButton
         onClick={() => {
           formStore.save(formStore.state);
         }}
       >
-        Сохранить
+        {localization.get('page.settings.form.save')}
       </UiKitButton>
     </div>
   );

@@ -1,6 +1,29 @@
 import localization from 'ts/helpers/Localization';
 
 localization.parse('ru', `
+§ uiKit.console: Копировать
+§ uiKit.dataLoader.page: Страница
+§ uiKit.dataLoader.size: Отображается по
+§ uiKit.dataLoader.from: из
+§ uiKit.dataLoader.all: Показать все
+§ uiKit.hoursChart.work: стандартное рабочее время (будни, с 07:00 до 20:00)
+§ uiKit.hoursChart.weekend: выходные дни или время до/после рабочего дня
+§ uiKit.hoursChart.days: суммарное количество коммитов за все время в конкретный день и час
+§ uiKit.page.remove: Удалить
+§ uiKit.races.go: Поехали
+§ uiKit.nothingFound.common.title: Нет или недостаточно данных для отображения
+§ uiKit.nothingFound.common.description: Система обработает больше данных, если коммиты будут подписаны в формате [Git commit message convention|https://www.conventionalcommits.org/en/v1.0.0/]. Шаблон:
+§ uiKit.nothingFound.common.console: Номер_задачи тип(фича): пояснение
+§ uiKit.nothingFound.common.example: Например:
+§ uiKit.nothingFound.staff.title: Нет данных для этого сотрудника
+§ uiKit.nothingFound.staff.description1:
+Он вносил правки не каждый рабочий день и получил статус  «Помошник».
+Работой сотрудников с таким статусом по данному проекту можно пренебречь, т.к. его влад на общем фоне незначителен.
+
+§ uiKit.nothingFound.staff.description2:
+Поэтому система не рассчитывает для него ряд показателей.
+Если это ошибка и данного сотрудника нужно рассчитать как обычного, перейдите в раздел «Настройки» и измените его тип.
+
 § common.filters: Фильтры
 § common.notifications.save: Изменения сохранены
 § common.notifications.setting: Настройки сохранены
@@ -42,10 +65,46 @@ localization.parse('ru', `
 § page.welcome.step1: Выполните команду в корне вашего проекта
 § page.welcome.step2: Перетащите файл log.txt на эту страницу
 § page.welcome.description1: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл
-§ page.welcome.description2: в корне проекта, чтобы обьединить статистику по сотрудникам.
+§ page.welcome.description2: [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы обьединить статистику по сотрудникам.
 § page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы обьединить статистику по сотрудникам.
 § page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
 § page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].
+§ page.common.words.title: Статистика по словам
+§ page.common.words.description: самое популярное слово. Встречается $1 раза.
+§ page.common.commits.title: Количество коммитов по дням
+§ page.common.commits.description: ($1) самый продуктивный день по числу коммитов.
+§ page.common.commits.title2: $1 сделано коммитов: $2
+§ page.common.filter.allUsers: Не имеет значения
+§ page.settings.document.title: Настройки отображения
+§ page.settings.document.name: Заголовок страницы
+§ page.settings.document.language: Язык интерфейса
+§ page.settings.links.title: Префиксы ссылок
+§ page.settings.links.task: Для номеров задач
+§ page.settings.links.pr: Для PR
+§ page.settings.user.title: Индивидуальные настройки
+§ page.settings.user.notFound: Индивидуальных настроек нет. Данные по всем сотрудникам вычисляются по общим параметрам.
+§ page.settings.user.subTitle: Дополнение к трудовому договору №$1
+§ page.settings.user.from: Дата начала действия
+§ page.settings.mailmap: Настройки .mailmap
+§ page.settings.common.title: Общие данные по зарплате
+§ page.settings.common.type.title: Тип работы над проектом
+§ page.settings.common.type.full: Полная занятость
+§ page.settings.common.type.part: Проектная работа
+§ page.settings.common.salary: Зарплата в месяц
+§ page.settings.common.currency: Валюта
+§ page.settings.common.workDaysInYear: Количество рабочих дней в году
+§ page.settings.common.vacationDaysInYear: Количество дней отпуска в год
+§ page.settings.common.workDaysInWeek: Рабочие дни
+§ page.settings.form.save: Сохранить
+§ page.settings.form.cancel: Отмена
+§ page.settings.form.remove: Удалить
+§ page.settings.form.addEmployee: Добавить сотрудника
+§ page.settings.form.addContract: Добавить трудовой договор
+§ page.print.title: Что распечатываем?
+§ page.print.page: Текущую страницу
+§ page.print.type: Текущий раздел
+§ page.print.all: Всю статистику
+§ page.print.cancel: Отмена
 § page.team.author.title: Статистика по сотрудникам
 § page.team.author.description1: *Часть статитики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помошник» не считается*, т.к. это эпизодическая роль в проекте. Предпологаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
@@ -136,6 +195,26 @@ localization.parse('ru', `
 § page.team.week.hasNotCommits: небыло коммитов
 § page.team.week.days: дней
 § page.team.week.tasks: задач
+§ page.team.pr.task: Задача
+§ page.team.pr.tasks: задач
+§ page.team.pr.firstCommitTime: Первый коммит
+§ page.team.pr.lastCommitTime: Последний
+§ page.team.pr.workDays: Дней разработки
+§ page.team.pr.delayDays: Дней ожидания влития
+§ page.team.pr.commits: Коммиты
+§ page.team.pr.date: Дата влития
+§ page.team.pr.mergeAuthor: Влил
+§ page.team.pr.author: Сотрудник
+§ page.team.pr.middleTimeRelease: Среднее время поставки (дни)
+§ page.team.pr.work: разработка
+§ page.team.pr.delay: ожидание
+§ page.team.pr.days: дней
+§ page.team.pr.oneTaskDays: Время потраченное на одну задачу
+§ page.team.pr.description1: *Время разработки* это разница времени от первого до последнего коммита по задаче. Не важно были перерывы в несколько дней между коммитами или нет. Сам факт какого-либо коммита увеличивает время.
+§ page.team.pr.description2: *Время ожидания* это время между последним коммитом и влитием кода. Оно показывает фактический простой в ожидании чего-либо.
+§ page.team.pr.description3: *Зачем отображать время разработки* без разбивки на кодинг и код-ревью? Затем, чтобы показать бизнесу фактическое время поставки кода. Ожидание тестирования, замечания на ревью, проблемы DevOps и прочие несовершенства процесса, как раз уже заложены в этот срок.
+§ page.team.pr.statByAuthors: Статистика по сотрудникам
+§ page.team.pr.longDelay: Длительное ожидание влития
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

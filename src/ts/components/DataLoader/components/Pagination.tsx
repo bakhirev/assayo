@@ -4,6 +4,7 @@ import type { IPagination, IPaginationRequest } from 'ts/interfaces/Pagination';
 import UiKitInputString from 'ts/components/UiKit/components/InputString';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import Loading from 'ts/components/Loading';
+import localization from 'ts/helpers/Localization';
 
 import { DataLoaderState, IDataLoaderStore } from '../store';
 import ErrorDescription from '../ErrorDescription';
@@ -59,7 +60,7 @@ function SimplePagination({
   return (
     <nav className={style.paginator}>
       <p className={style.paginator_text}>
-        Страница
+        {localization.get('uiKit.dataLoader.page')}
       </p>
       <UiKitButton
         type="second"
@@ -94,7 +95,7 @@ function SimplePagination({
         »
       </UiKitButton>
       <p className={style.paginator_text}>
-        из
+        {localization.get('uiKit.dataLoader.from')}
       </p>
       <UiKitButton
         type="second"
@@ -105,7 +106,7 @@ function SimplePagination({
         {totalPages}
       </UiKitButton>
       <p className={style.paginator_text}>
-        Отображается по
+        {localization.get('uiKit.dataLoader.size')}
       </p>
       <UiKitInputString
         value={pageSize}
@@ -131,7 +132,7 @@ function SimplePagination({
             if (store) store.showAll();
           }}
         >
-          Показать все
+          {localization.get('uiKit.dataLoader.all')}
         </UiKitButton>
       )}
     </nav>

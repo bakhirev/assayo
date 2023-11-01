@@ -8,6 +8,7 @@ import UiKitButton from 'ts/components/UiKit/components/Button';
 import UiKitDate from 'ts/components/UiKit/components/Date';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 import Title from 'ts/components/Title';
+import localization from 'ts/helpers/Localization';
 
 import style from '../styles/index.module.scss';
 
@@ -28,7 +29,7 @@ function UserSalary({
   return (
     <div className={style.salary}>
       <Title
-        title={`Дополнение к трудовому договору №${index}`}
+        title={localization.get('page.settings.user.subTitle', index)}
         className={isOpen ? '' : style.salary_title}
       />
       <div className={style.salary_icons}>
@@ -42,14 +43,14 @@ function UserSalary({
         <>
           <UiKitColumns>
             <UiKitDate
-              title="Дата начала действия"
+              title="page.settings.user.from"
               value={salary?.from}
               onChange={(from: string) => {
                 onChange({ ...salary, from });
               }}
             />
             <UiKitSwitch
-              title="Количество рабочих дней в неделю"
+              title="page.settings.common.workDaysInWeek"
               value={salary.workDaysInWeek}
               options={[1, 2, 3, 4, 5, 6, 7]}
               onChange={(workDaysInWeek: number) => {
@@ -59,14 +60,14 @@ function UserSalary({
           </UiKitColumns>
           <UiKitColumns>
             <UiKitInputNumber
-              title="Зарплата в месяц"
+              title="page.settings.common.salary"
               value={salary?.value}
               onChange={(value: number) => {
                 onChange({ ...salary, value });
               }}
             />
             <UiKitSwitch
-              title="Валюта"
+              title="page.settings.common.currency"
               value={salary?.currency}
               options={['RUB', 'USD', 'EUR']}
               onChange={(currency: string) => {
@@ -76,14 +77,14 @@ function UserSalary({
           </UiKitColumns>
           <UiKitColumns>
             <UiKitInputNumber
-              title="Количество рабочих дней в году"
+              title="page.settings.common.workDaysInYear"
               value={salary?.workDaysInYear}
               onChange={(workDaysInYear: number) => {
                 onChange({ ...salary, workDaysInYear });
               }}
             />
             <UiKitInputNumber
-              title="Количество дней отпуска в год"
+              title="page.settings.common.vacationDaysInYear"
               value={salary?.vacationDaysInYear}
               onChange={(vacationDaysInYear: number) => {
                 onChange({ ...salary, vacationDaysInYear });
@@ -95,7 +96,7 @@ function UserSalary({
               type="second"
               onClick={() => confirm.open().then(() => onRemove())}
             >
-              Удалить
+              {localization.get('page.settings.form.remove')}
             </UiKitButton>
           </div>
         </>

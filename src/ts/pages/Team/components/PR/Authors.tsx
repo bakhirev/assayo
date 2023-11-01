@@ -30,8 +30,11 @@ function Authors({ response, updateSort }: IAuthorsProps) {
   const timeChart = getOptions({ order, limit: 3 });
   const weightedAverageChart = getOptions({
     max: getMax(response, 'weightedAverage'),
-    order: ['разработка', 'ожидание'],
-    suffix: 'дней',
+    order: [
+      'page.team.pr.work',
+      'page.team.pr.delay',
+    ],
+    suffix: 'page.team.pr.days',
   });
 
   return (
@@ -43,12 +46,12 @@ function Authors({ response, updateSort }: IAuthorsProps) {
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
-        title="Сотрудник"
+        title="page.team.pr.author"
         properties="author"
         width={250}
       />
       <Column
-        title="Время разработки"
+        title="page.team.pr.workDays"
         properties="workDays"
         template={(details: any) => (
           <LineChart
@@ -58,7 +61,7 @@ function Authors({ response, updateSort }: IAuthorsProps) {
         )}
       />
       <Column
-        title="Время ожидания влития"
+        title="page.team.pr.delayDays"
         properties="delayDays"
         template={(details: any) => (
           <LineChart
@@ -72,7 +75,7 @@ function Authors({ response, updateSort }: IAuthorsProps) {
         template={ColumnTypesEnum.SHORT_NUMBER}
       />
       <Column
-        title="Среднее время поставки (дни)"
+        title="page.team.pr.middleTimeRelease"
         properties="weightedAverageDetails"
         width={300}
         template={(item: any, row: any) => (
@@ -80,8 +83,8 @@ function Authors({ response, updateSort }: IAuthorsProps) {
             options={weightedAverageChart}
             value={row.weightedAverage}
             details={{
-              'разработка': item.workDays,
-              'ожидание': item.delayDays,
+              'page.team.pr.work': item.workDays,
+              'page.team.pr.delay': item.delayDays,
             }}
           />
         )}

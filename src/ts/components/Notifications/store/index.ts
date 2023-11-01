@@ -1,7 +1,7 @@
 import { makeObservable, observable, action } from 'mobx';
 
+import localization from 'ts/helpers/Localization';
 import IMessage from '../interfaces/Message';
-import localization from "../../../helpers/Localization";
 
 interface INotificationsStore {
   timer: any;

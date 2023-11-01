@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import cssStyle from './index.module.scss';
 
@@ -7,12 +8,30 @@ interface ICommonProps {
   style: any;
 }
 
+function getTextWithLink(text: string) {
+  const parts = (text || '')
+    .split(/(\[[^\]]+\])/gim)
+    .map((value: string) => {
+      if (value?.[0] !== '[') return value;
+      const [ title, link ] = value.replace(/\[|\]/gim, '').split('|');
+      return (
+        <Link
+          key={value}
+          target="_blank"
+          to={link}>
+          {title}
+        </Link>
+      );
+    });
+  return (<>{parts}</>) ;
+}
+
 function getTextWithStyle(text: string) {
   const parts = (text || '')
     .split('*')
-    .map((value: string, index: number) => (index % 2 
-      ? (<b key={value}>{value}</b>)
-      : (<span key={value}>{value}</span>)
+    .map((value: string, index: number) => (index % 2
+      ? (<b key={value}>{getTextWithLink(value)}</b>)
+      : (<span key={value}>{getTextWithLink(value)}</span>)
     ));
   return (<>{parts}</>) ;
 }

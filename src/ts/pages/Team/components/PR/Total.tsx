@@ -13,7 +13,7 @@ function Total() {
   const allPR = dataGripStore.dataGrip.pr.statistic;
 
   const workChart = DataGripByPR.getPRByGroups(allPR, 'workDays');
-  const workChartOptions = getOptions({ order: workChart.order, limit: 3, suffix: 'задачь' });
+  const workChartOptions = getOptions({ order: workChart.order, limit: 3, suffix: 'page.team.pr.tasks' });
 
   const delayChart = DataGripByPR.getPRByGroups(allPR, 'delayDays');
   const delayChartOptions = getOptions({ order: delayChart.order, limit: 3, suffix: 'PR' });
@@ -23,8 +23,8 @@ function Total() {
   const weightedAverage =  workDaysWeightedAverage + delayDaysWeightedAverage;
 
   const weightedAverageChart = getOptions({ // @ts-ignore
-    order: ['разработка', 'ожидание'],
-    suffix: 'дней',
+    order: ['page.team.pr.word', 'page.team.pr.delay'],
+    suffix: 'page.team.pr.days',
   });
 
   const rows = [
@@ -42,7 +42,7 @@ function Total() {
   return (
     <Table rows={rows}>
       <Column
-        title="Время разработки"
+        title="page.team.pr.workDays"
         properties="workDays"
         template={(details: any) => (
           <LineChart
@@ -52,7 +52,7 @@ function Total() {
         )}
       />
       <Column
-        title="Время ожидания влития"
+        title="page.team.pr.delayDays"
         properties="delayDays"
         template={(details: any) => (
           <LineChart
@@ -66,15 +66,15 @@ function Total() {
         template={ColumnTypesEnum.SHORT_NUMBER}
       />
       <Column
-        title="Среднее время поставки (дни)"
+        title="page.team.pr.middleTimeRelease"
         properties="weightedAverageDetails"
         width={300}
         template={(item: any) => (
           <LineChart
             options={weightedAverageChart}
             details={{
-              'разработка': item.workDays,
-              'ожидание': item.delayDays,
+              'page.team.pr.work': item.workDays,
+              'page.team.pr.delay': item.delayDays,
             }}
           />
         )}

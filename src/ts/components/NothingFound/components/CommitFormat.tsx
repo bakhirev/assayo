@@ -1,12 +1,14 @@
 import React from 'react';
 
+import localization from 'ts/helpers/Localization';
+
 import style from '../index.module.scss';
 
 function CommitFormat() {
   return (
     <>
       <p className={style.nothing_found_title}>
-        Нет или недостаточно данных для отображения
+        {localization.get('uiKit.nothingFound.common.title')}
       </p>
       <p className={style.nothing_found_text}>
         Система обработает больше данных, если коммиты будут подписаны в формате &quot;
@@ -21,10 +23,10 @@ function CommitFormat() {
         &quot;. Шаблон:
       </p>
       <p className={style.nothing_found_console}>
-        Номер_задачи тип(фича): пояснение
+        {localization.get('uiKit.nothingFound.common.console')}
       </p>
       <p className={style.nothing_found_text}>
-        Например:
+        {localization.get('uiKit.nothingFound.common.example')}
       </p>
       <p className={style.nothing_found_console}>
         JIRA-0001 feat(profile): add user avatar<br/>

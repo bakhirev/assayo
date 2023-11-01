@@ -6,6 +6,7 @@ import UiKitSelect from 'ts/components/UiKit/components/Select';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 
 import style from '../styles/user.module.scss';
+import localization from "../../../helpers/Localization";
 
 interface IUserSelectProps {
   required?: boolean;
@@ -17,7 +18,7 @@ const UserSelect = observer(({ required, userId, onChange }: IUserSelectProps): 
   const authors = dataGripStore.dataGrip.author.list;
   const options = authors.map((title: string, id: number) => ({ id, title }));
   if (!required) {
-    options.unshift({ id: '', title: 'Не имеет значения' });
+    options.unshift({ id: '', title: localization.get('page.common.filter.allUsers') });
   }
 
   return (

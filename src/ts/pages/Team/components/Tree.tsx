@@ -64,7 +64,6 @@ function TreeView({ response }: ITreeViewProps) {
         }}
       />
       <Column
-        title="Процент перезаписи строк"
         properties="file"
         minWidth={250}
         template={(file: any) => (

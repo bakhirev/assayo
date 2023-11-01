@@ -2,6 +2,9 @@ import React, { ReactNode } from 'react';
 
 import Button from 'ts/components/UiKit/components/Button';
 import notificationsStore from 'ts/components/Notifications/store';
+import localization from 'ts/helpers/Localization';
+
+import style from './index.module.scss';
 
 function copyInBuffer(value?: string) {
   if (!value) return;
@@ -15,8 +18,6 @@ function copyInBuffer(value?: string) {
   document.execCommand('copy');
   document.body.removeChild(copyTextarea);
 }
-
-import style from './index.module.scss';
 
 interface IConsoleProps {
   textForCopy?: string;
@@ -43,7 +44,7 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
           notificationsStore.show('Текст скопирован');
         }}
 	    >
-        Копировать
+        {localization.get('uiKit.console')}
       </Button>
     </div>
   );

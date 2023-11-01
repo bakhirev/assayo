@@ -9,6 +9,7 @@ import PageWrapper from 'ts/components/Page/wrapper';
 import BarChart from 'ts/components/BarChart';
 import DayInfo from 'ts/components/DayInfo';
 import Title from 'ts/components/Title';
+import localization from 'ts/helpers/Localization';
 
 interface ICommitsProps {
   statistic: any;
@@ -30,13 +31,17 @@ function Commits({ statistic }: ICommitsProps) {
 
   const [fullDay, shortDay] = getDateByTimestamp(maxData.timestamp);
   const recommendations = [
-    [fullDay, `(${shortDay}) самый продуктивный день по числу коммитов.`, 'fact'],
+    [
+      fullDay,
+      localization.get('page.common.commits.description', shortDay),
+      'fact',
+    ],
   ];
 
   return (
     <>
       <RecommendationsWrapper recommendations={recommendations} />
-      <Title title="Количество коммитов по дням"/>
+      <Title title="page.common.commits.title"/>
       <PageWrapper template="box">
         <BarChart
           dots={dots}
@@ -49,7 +54,10 @@ function Commits({ statistic }: ICommitsProps) {
       <br/>
       <br/>
       {}
-      <Title title={`${getDate(selected?.timestamp)} сделано коммитов: ${selected?.commits || '_'}`}/>
+      <Title title={localization.get('page.common.commits.title2', [
+        getDate(selected?.timestamp),
+        selected?.commits,
+      ])} />
       <PageWrapper template="box">
         <DayInfo
           day={selected}

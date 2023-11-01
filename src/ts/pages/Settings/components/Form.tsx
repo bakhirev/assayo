@@ -9,10 +9,12 @@ import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 
 import dataGripStore from 'ts/store/DataGrip';
+import localization from 'ts/helpers/Localization';
 
 import UserSetting from './User';
 import Salary from './Salary';
 import Common from './Common';
+import Prefixes from './Prefixes';
 
 import { getNewEmployeesSettings } from '../helpers/getEmptySettings';
 import MailMap from './MailMap';
@@ -49,16 +51,15 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
       <PageWrapper>
         <PageColumn>
           <Common />
+          <Prefixes />
           <Salary />
         </PageColumn>
         <PageColumn>
-          <Title title="Индивидуальные настройки"/>
+          <Title title="page.settings.user.title"/>
           {employees.length > 0 ? (
             users
           ) : (
-            <NothingFound
-              message="Индивидуальных настроек нет. Данные по всем сотрудникам вычисляются по общим параметрам."
-            />
+            <NothingFound message="page.settings.user.notFound" />
           )}
           {authors.length && (
             <div className={style.buttons_footer}>
@@ -71,14 +72,14 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
                   ]);
                 }}
               >
-                Добавить сотрудника
+                {localization.get('page.settings.form.addEmployee')}
               </UiKitButtonMenu>
             </div>
           )}
         </PageColumn>
       </PageWrapper>
       <PageWrapper>
-        <Title title="Настройки .mailmap"/>
+        <Title title="page.settings.mailmap"/>
         <MailMap />
       </PageWrapper>
     </>

@@ -8,6 +8,7 @@ import getFileTreeWithStatistic from 'ts/helpers/DataGrip/helpers/tree';
 import Parser from 'ts/helpers/Parser';
 import ParserTelegramm from 'ts/helpers/ParserTelegramm';
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
+import getTitle from 'ts/helpers/Title';
 
 import settingsStore from './Settings';
 
@@ -71,7 +72,9 @@ class DataGripStore implements IDataGripStore {
 
     this.dataGrip = null;
     this.dataGrip = dataGrip;
-    console.dir(dataGrip);
+
+    console.dir(this.dataGrip);
+    document.title = getTitle(this.dataGrip, this.commits);
   }
 
   setTelegrammMessages(dump?: any[]) {

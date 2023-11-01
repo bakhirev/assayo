@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import localization from 'ts/helpers/Localization';
+
 import style from './index.module.scss';
 
 interface IPageColumnProps {
@@ -22,7 +24,7 @@ function PageBox({
             type="second"
             onClick={() => onRemove()}
           >
-            Удалить
+            {localization.get('uiKit.page.remove')}
           </UiKitButton>
         )}
       </div>

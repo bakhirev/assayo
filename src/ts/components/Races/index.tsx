@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import localization from 'ts/helpers/Localization';
 
 import Track from './Track';
 import style from './index.module.scss';
@@ -46,7 +47,7 @@ function Races({
             setShowAnimation(true);
           }}
         >
-          Поехали
+          {localization.get('uiKit.races.go')}
         </UiKitButton>
       )}
       {lines}

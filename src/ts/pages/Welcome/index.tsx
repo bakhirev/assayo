@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Console from 'ts/components/Console';
 import localization from 'ts/helpers/Localization';
+import Description from 'ts/components/Description';
 
 import style from './styles/index.module.scss';
 
