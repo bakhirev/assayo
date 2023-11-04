@@ -107,7 +107,7 @@ JIRA-1234 feat(profile): Added avatar for user
 
 #### Публичный сервер
 
-Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.jp/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
+Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.jp/). Просто укажите адрес, где лежат данные, в URL-параметре ```dump```:
 ```
 https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
 ```
@@ -115,16 +115,16 @@ https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
 #### Приватный сервер
 - скачайте [docker образ](https://hub.docker.com/r/bakhirev/assayo);
 - поднимите его в локальной сети;
-- для просмотра отчётов используйте веб-интерфейс указывая ему адресс, где лежат данные, в URL-параметре ```dump```:
+- для просмотра отчётов используйте веб-интерфейс указывая ему адрес, где лежат данные, в URL-параметре ```dump```:
 ```
 http://assayo_url/?dump=//you_url/some/log.txt
-assayo_url - URL адресс контейнера assayo, он слушает 80 порт;
-you_url    - URL адресс вашего контейнера с логами git;
+assayo_url - URL адрес контейнера assayo, он слушает 80 порт;
+you_url    - URL адрес вашего контейнера с логами git;
 ```
 
 #### Обновление Docker-образа
 
-- удилить метрику, аллерты, старые билды;
+- удалить метрику, аллерты, старые билды;
 - собрать билд ```npm run build```
 - собрать образ ```docker build -t assayo .```
 - визуально проверить образ ```docker run --name assayo -p 80:80 -d assayo```;
@@ -141,6 +141,6 @@ you_url    - URL адресс вашего контейнера с логами 
 
 ### Пожелания, предложения, замечания
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- telegramm [@bakhirev](https://t.me/bakhirev)
+- telegram [@bakhirev](https://t.me/bakhirev)
 - сайт [https://assayo.jp/](https://assayo.jp/)
 
