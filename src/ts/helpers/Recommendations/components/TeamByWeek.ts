@@ -1,3 +1,5 @@
+import RECOMMENDATION_TYPES from '../contstants';
+
 export default class RecommendationsTeamByWeek {
   getTotalInfo(dataGrip: any) {
     if (dataGrip.author.list.length < 2) return [];
@@ -12,23 +14,45 @@ export default class RecommendationsTeamByWeek {
 
   getLazyDays(dataGrip: any, lastWeek: any) {
     const lazyDays = lastWeek.map((statistic: any) => statistic.lazyDaysTotal / statistic.authorsLength);
+
     if (lazyDays[0] < lazyDays[1] && lazyDays[1] < lazyDays[2]) {
-      return ['Стало меньше прогулов', 'за последние три недели этот показатель упал', 'fact'];
+      return {
+        title: 'recommendations.week.lazyDays.down.title',
+        description: 'recommendations.week.lazyDays.down.description',
+        type: RECOMMENDATION_TYPES.FACT,
+      };
     }
+
     if (lazyDays[0] > lazyDays[1] && lazyDays[1] > lazyDays[2]) {
-      return ['Стало больше прогулов', 'нет задач или нужен более жесткий контроль', 'error'];
+      return {
+        title: 'recommendations.week.lazyDays.up.title',
+        description: 'recommendations.week.lazyDays.up.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+      };
     }
+
     return null;
   }
 
   getTasks(dataGrip: any, lastWeek: any) { // TODO: спорно, это видно по количеству изменений
     const lazyDays = lastWeek.map((statistic: any) => statistic.tasks / statistic.authorsLength);
+
     if (lazyDays[0] < lazyDays[1] && lazyDays[1] < lazyDays[2]) {
-      return ['Растёт производительность', 'или задачи стали слишком мелкие. Нужно проверить. Если гранулярность та же - закрепить результат.', 'fact'];
+      return {
+        title: 'recommendations.week.task.up.title',
+        description: 'recommendations.week.task.up.description',
+        type: RECOMMENDATION_TYPES.FACT,
+      };
     }
+
     if (lazyDays[0] > lazyDays[1] && lazyDays[1] > lazyDays[2]) {
-      return ['Падает производительность', 'или задачи хуже разбивают. Нужно проверить. Если гранулярность та же - взять на контроль.', 'error'];
+      return {
+        title: 'recommendations.week.task.down.title',
+        description: 'recommendations.week.task.down.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+      };
     }
+
     return null;
   }
 
@@ -39,9 +63,15 @@ export default class RecommendationsTeamByWeek {
     );
     // TODO: неверный расчет
     // нужен человек, который встречается в трех массивах лидеров прогула
-    return lazyMaintainer[0] === lazyMaintainer[1] === lazyMaintainer[2]
-      ? [lazyMaintainer[0], 'стабильный лидер по прогулам. Уволить?', 'error']
-      : null;
+    if (lazyMaintainer[0] === lazyMaintainer[1] === lazyMaintainer[2]) {
+      return {
+        title: lazyMaintainer[0],
+        description: 'recommendations.week.task.lazyMaintainer.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+      };
+    }
+
+    return null;
   }
 }
 

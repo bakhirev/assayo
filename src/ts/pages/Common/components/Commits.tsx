@@ -54,10 +54,11 @@ function Commits({ statistic }: ICommitsProps) {
       <br/>
       <br/>
       {}
-      <Title title={localization.get('page.common.commits.title2', [
+      <Title title={localization.get(
+        'page.common.commits.title2',
         getDate(selected?.timestamp),
         selected?.commits,
-      ])} />
+      )} />
       <PageWrapper template="box">
         <DayInfo
           day={selected}

@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+
+.data_view {
+  &_icon {
+    position: absolute;
+    top: -48px;
+    right: 24px;
+
+    display: inline-block;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    padding: 0;
+
+    cursor: pointer;
+  }
+}

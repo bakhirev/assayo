@@ -6,7 +6,6 @@ import achievements from 'ts/helpers/achievement/byCompetition';
 import dataGrip from 'ts/helpers/DataGrip';
 import getFileTreeWithStatistic from 'ts/helpers/DataGrip/helpers/tree';
 import Parser from 'ts/helpers/Parser';
-import ParserTelegramm from 'ts/helpers/ParserTelegramm';
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import getTitle from 'ts/helpers/Title';
 
@@ -36,15 +35,12 @@ class DataGripStore implements IDataGripStore {
       dataGrip: observable,
       showApplication: observable,
       setCommits: action,
-      setTelegrammMessages: action,
     });
   }
 
-  setCommits(dump?: string[], type?: string) {
+  setCommits(dump?: string[]) {
     dataGrip.clear();
-    const parser = type === 'telegramm'
-      ? ParserTelegramm
-      : Parser;
+    const parser = Parser;
 
     const {
       commits,
@@ -75,10 +71,6 @@ class DataGripStore implements IDataGripStore {
 
     console.dir(this.dataGrip);
     document.title = getTitle(this.dataGrip, this.commits);
-  }
-
-  setTelegrammMessages(dump?: any[]) {
-    return this.setCommits(dump, 'telegramm');
   }
 
   updateChars() { // todo: remove, never use

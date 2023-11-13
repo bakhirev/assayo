@@ -17,7 +17,7 @@ const Print = observer(() => {
     }}>
       <Header>
         <div style={{ textAlign: 'center' }}>
-          {localization.get('page.print.title')}
+          {localization.get('page.print.modal.title')}
         </div>
       </Header>
       <Body>
@@ -31,7 +31,7 @@ const Print = observer(() => {
             printStore.printPage();
           }}
         >
-          {localization.get('page.print.page')}
+          {localization.get('page.print.modal.page')}
         </UiKitButton>
         <UiKitButton
           className={style.page_wrapper_print_button}
@@ -39,7 +39,7 @@ const Print = observer(() => {
             printStore.printSection();
           }}
         >
-          {localization.get('page.print.type')}
+          {localization.get('page.print.modal.type')}
         </UiKitButton>
         {false && (
           <UiKitButton
@@ -48,7 +48,7 @@ const Print = observer(() => {
               printStore.printAllPages();
             }}
           >
-            {localization.get('page.print.all')}
+            {localization.get('page.print.modal.all')}
           </UiKitButton>
         )}
         <UiKitButton
@@ -58,7 +58,7 @@ const Print = observer(() => {
             printStore.close();
           }}
         >
-          {localization.get('page.print.cancel')}
+          {localization.get('page.print.modal.cancel')}
         </UiKitButton>
       </Body>
     </Modal>

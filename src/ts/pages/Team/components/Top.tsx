@@ -14,7 +14,7 @@ import Tv100And1 from 'ts/components/Tv100And1';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import Description from 'ts/components/Description';
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
@@ -85,7 +85,7 @@ const Top = observer((): React.ReactElement => {
 
       <Title title="Максимальная длинна подписи коммита"/>
       <PageWrapper template="table">
-        <Table rows={maxMessageLength}>
+        <DataView rows={maxMessageLength}>
           <Column
             isFixed
             template={ColumnTypesEnum.STRING}
@@ -108,7 +108,7 @@ const Top = observer((): React.ReactElement => {
               />
             )}
           />
-        </Table>
+        </DataView>
       </PageWrapper>
 
       <Tv100And1 rows={maxMessageLength} />

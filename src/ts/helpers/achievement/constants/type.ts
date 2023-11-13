@@ -1,5 +1,5 @@
 export default {
-  GOOD: 0,
-  NORMAL: 1,
-  BAD: 2,
+  GOOD: 1,
+  NORMAL: 2,
+  BAD: 3,
 };

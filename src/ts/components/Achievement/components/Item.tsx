@@ -1,22 +1,26 @@
 import React from 'react';
 
 import ALL_ACHIEVEMENTS from 'ts/helpers/achievement/constants/list';
+import localization from 'ts/helpers/Localization';
 
 import style from '../styles/index.module.scss';
 
 interface IAchievementProps {
-  type: string;
+  code: string;
 }
 
-function Achievement({ type }: IAchievementProps) {
-  if (!ALL_ACHIEVEMENTS[type]) return null;
+function Achievement({ code }: IAchievementProps) {
+  if (!ALL_ACHIEVEMENTS[code]) return null;
 
-  const [title, description, statusIndex] = ALL_ACHIEVEMENTS[type];
+  const title = localization.get(`achievements.${code}.title`);
+  const description = localization.get(`achievements.${code}.description`);
+
+  const statusIndex = ALL_ACHIEVEMENTS[code];
   const className = [
     style.achievement_good,
     style.achievement_middle,
     style.achievement_bad,
-  ][statusIndex];
+  ][statusIndex - 1];
 
   return (
     <div className={style.achievement}>
@@ -24,7 +28,7 @@ function Achievement({ type }: IAchievementProps) {
         <div className={`${style.achievement_icon} ${className || ''}`}>
           <img
             className={style.achievement_icon_svg}
-            src={`./assets/achievements/${type}.svg`}
+            src={`./assets/achievements/${code}.svg`}
           />
         </div>
       </div>

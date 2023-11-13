@@ -8,10 +8,10 @@ interface IAchievementsProps {
 }
 
 function Achievements({ list }: IAchievementsProps) {
-  const items = list?.map((type: string) => (
+  const items = list?.map((code: string) => (
     <Achievement
-      key={type}
-      type={type}
+      key={code}
+      code={code}
     />
   ));
 

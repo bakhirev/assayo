@@ -1,5 +1,5 @@
 import { getMoney } from 'ts/helpers/formatter';
-import localization  from 'ts/helpers/Localization';
+import RECOMMENDATION_TYPES from '../contstants';
 
 export default class RecommendationsTeamByScope {
   getTotalInfo(dataGrip: any) {
@@ -8,17 +8,21 @@ export default class RecommendationsTeamByScope {
       this.getBusFactor(dataGrip),
       this.getManyTypes(dataGrip),
       this.getParallelism(dataGrip),
-      [money, localization.get('recommendations.scope.money'), 'fact'],
-      [
-        localization.get('recommendations.scope.plan.title'),
-        localization.get('recommendations.scope.plan.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.scope.cost.title'),
-        localization.get('recommendations.scope.cost.description'),
-        'info',
-      ],
+      {
+        title: money,
+        description: 'recommendations.scope.money',
+        type: RECOMMENDATION_TYPES.FACT,
+      },
+      {
+        title: 'recommendations.scope.plan.title',
+        description: 'recommendations.scope.plan.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.scope.cost.title',
+        description: 'recommendations.scope.cost.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
     ].filter(item => item);
   }
 
@@ -38,23 +42,23 @@ export default class RecommendationsTeamByScope {
     const total = data.reduce((sum, value) => sum + value, 0);
     const parallelism = total / data.length;
 
-    if (parallelism < 1.3) return [
-      localization.get('recommendations.scope.parallelism.not.title'),
-      localization.get('recommendations.scope.parallelism.not.description'),
-      'fact',
-    ];
+    if (parallelism < 1.3) return {
+      title: 'recommendations.scope.parallelism.not.title',
+      description: 'recommendations.scope.parallelism.not.description',
+      type: RECOMMENDATION_TYPES.FACT,
+    };
 
-    if (parallelism < 2) return [
-      localization.get('recommendations.scope.parallelism.has.title'),
-      localization.get('recommendations.scope.parallelism.has.description'),
-      'fact',
-    ];
+    if (parallelism < 2) return {
+      title: 'recommendations.scope.parallelism.has.title',
+      description: 'recommendations.scope.parallelism.has.description',
+      type: RECOMMENDATION_TYPES.FACT,
+    };
 
-    return [
-      localization.get('recommendations.scope.parallelism.every.title'),
-      localization.get('recommendations.scope.parallelism.every.description'),
-      'fact',
-    ];
+    return {
+      title: 'recommendations.scope.parallelism.every.title',
+      description: 'recommendations.scope.parallelism.every.description',
+      type: RECOMMENDATION_TYPES.FACT,
+    };
   }
 
   getBusFactor(dataGrip: any) {
@@ -68,17 +72,18 @@ export default class RecommendationsTeamByScope {
 
     if (!oneMaintainer.length) return null;
     const everyHasOne = oneMaintainer.length > dataGrip.scope.statistic.length * 0.6;
-    if (everyHasOne) return [
-      localization.get('recommendations.scope.bus.everyHasOne.title'),
-      localization.get('recommendations.scope.bus.everyHasOne.description'),
-      'warning',
-    ];
 
-    return [
-      oneMaintainer,
-      localization.get('recommendations.scope.bus.oneMaintainer'),
-      'error',
-    ];
+    if (everyHasOne) return {
+      title: 'recommendations.scope.bus.everyHasOne.title',
+      description: 'recommendations.scope.bus.everyHasOne.description',
+      type: RECOMMENDATION_TYPES.WARNING,
+    };
+
+    return {
+      title: oneMaintainer,
+      description: 'recommendations.scope.bus.oneMaintainer',
+      type: RECOMMENDATION_TYPES.ALERT,
+    };
   }
 
   getManyTypes(dataGrip: any) {
@@ -90,22 +95,23 @@ export default class RecommendationsTeamByScope {
     }).map((statistic: any) => statistic.scope);
 
     const everyHasOne = oneType.length > dataGrip.scope.statistic.length * 0.6;
-    if (everyHasOne) return [
-      localization.get('recommendations.scope.types.process.title'),
-      [
-        localization.get('recommendations.scope.types.process.description'),
-        localization.get('recommendations.scope.types.common'),
-      ].join('\n'),
-      'warning',
-    ];
 
-    return [
-      oneType,
-      [
-        localization.get('recommendations.scope.types.one'),
-        localization.get('recommendations.scope.types.common'),
-      ].join('\n'),
-      'warning',
-    ];
+    if (everyHasOne) return {
+      title: 'recommendations.scope.types.process.title',
+      description: [
+        'recommendations.scope.types.process.description',
+        'recommendations.scope.types.common',
+      ],
+      type: RECOMMENDATION_TYPES.WARNING,
+    };
+
+    return {
+      title: oneType,
+      description: [
+        'recommendations.scope.types.one',
+        'recommendations.scope.types.common',
+      ],
+      type: RECOMMENDATION_TYPES.WARNING,
+    };
   }
 }

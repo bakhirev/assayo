@@ -13,7 +13,7 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -37,7 +37,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
   const authorChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
-    <Table
+    <DataView
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -102,7 +102,7 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
         )}
         minWidth={500}
       />
-    </Table>
+    </DataView>
   );
 }
 

@@ -1,6 +1,98 @@
 import localization from 'ts/helpers/Localization';
 
 localization.parse('ru', `
+§ achievements.commitsAfter1500.title: Сова
+§ achievements.commitsAfter1500.description: 70% коммитов после 15:00
+§ achievements.commitsBefore1500.title: Ранняя пташка
+§ achievements.commitsBefore1500.description: 70% коммитов до обеда
+§ achievements.workEveryTime.title: Раб божий
+§ achievements.workEveryTime.description: есть коммит на каждый час суток
+§ achievements.workNotWork.title: Стрельба холостыми
+§ achievements.workNotWork.description: коммиты есть, а закрытых задач нет
+§ achievements.userNotWork.title: Залётный
+§ achievements.userNotWork.description: это не его основной проект
+§ achievements.userIsDied.title: Мёртвая душа
+§ achievements.userIsDied.description: работал, но уволился
+§ achievements.lessTasks.title: Зашел и вышел
+§ achievements.lessTasks.description: меньше всего закрытых задач
+§ achievements.moreTasks.title: Батя грит малаца
+§ achievements.moreTasks.description: больше всего закрытых задач
+§ achievements.everyMessageLong.title: Мастер красноречия
+§ achievements.everyMessageLong.description: стабильно самые длинные подписи коммитов
+§ achievements.everyMessageShort.title: Болтун находка для шпиона
+§ achievements.everyMessageShort.description: стабильно, самые короткие подписи коммитов
+§ achievements.shortestName.title: Размер не главное
+§ achievements.shortestName.description: самое короткое имя
+§ achievements.longestName.title: Азим Азиз Иль Ам Кадир Имран II
+§ achievements.longestName.description: самое длинное имя
+§ achievements.moreCommits.title: Мастер бекапов
+§ achievements.moreCommits.description: больше всего коммитов
+§ achievements.lessCommits.title: Редко но метко
+§ achievements.lessCommits.description: меньше всего коммитов
+§ achievements.oneCommitOneTask.title: Точно в цель
+§ achievements.oneCommitOneTask.description: в среднем один коммит на задачу
+§ achievements.moreLazyDays.title: Мысленно я с вами
+§ achievements.moreLazyDays.description: больше всего дней без коммитов
+§ achievements.lessLazyDays.title: Папа Карло
+§ achievements.lessLazyDays.description: меньше всего дней без коммитов
+§ achievements.zeroLazyDays.title: Ни единого разрыва
+§ achievements.zeroLazyDays.description: ни одного дня без коммитов
+§ achievements.moreWorkDays.title: Ценный работник
+§ achievements.moreWorkDays.description: больше всего рабочих дней
+§ achievements.moreScopes.title: Стартапер
+§ achievements.moreScopes.description: сделал больше всего фичей
+§ achievements.lessScopes.title: Щегол
+§ achievements.lessScopes.description: сделал меньше всего фичей
+§ achievements.moreDaysForTask.title: Улитка на склоне
+§ achievements.moreDaysForTask.description: работа по задачам идёт медленнее чем у остальных
+§ achievements.more2DaysForTask.title: Cо слоу
+§ achievements.more2DaysForTask.description: больше двух дней на задачу
+§ achievements.moreDaysInProject.title: Старожил
+§ achievements.moreDaysInProject.description: больше всего дней на проекте
+§ achievements.lessDaysInProject.title: А это кто?
+§ achievements.lessDaysInProject.description: меньше всего дней на проекте
+§ achievements.more90DaysInProject.title: Добро пожаловать
+§ achievements.more90DaysInProject.description: не уволили на испытательном
+§ achievements.lessDaysForTask.title: Скорострел
+§ achievements.lessDaysForTask.description: одна задача занимает меньше дня
+§ achievements.adam.title: Адам
+§ achievements.adam.description: первый стабильный сотрудник на проекте
+§ achievements.more666DaysInProject.title: Чёрт
+§ achievements.more666DaysInProject.description: отработал 666 дней на проекте
+§ achievements.more777DaysInProject.title: Азино 3 топора
+§ achievements.more777DaysInProject.description: отработал 777 дней на проекте
+§ achievements.moreRefactoring.title: Выпускающий редактор
+§ achievements.moreRefactoring.description: сделал больше всех меток «рефакторинг»
+§ achievements.longestMessage.title: А разговоров то было...
+§ achievements.longestMessage.description: самая длинная подпись коммита за все время
+§ achievements.moreTasksInDay.title: Спиди-гонщик
+§ achievements.moreTasksInDay.description: рекорд по количеству закрытых задач в день
+§ achievements.hasCommitFrom0to7.title: Ночной дозор
+§ achievements.hasCommitFrom0to7.description: есть коммит на каждый час ночи
+§ achievements.noCommitOnDay.title: Технический перерыв
+§ achievements.noCommitOnDay.description: есть определенный час и день в рабочее время в который никогда не комитит
+§ achievements.hasCommitEveryTime.title: Умер на работе
+§ achievements.hasCommitEveryTime.description: есть коммит на час каждого дня (включая выходные)
+§ achievements.commitsAfter1800.title: Делу время
+§ achievements.commitsAfter1800.description: нет ни одного коммита после 18:00
+§ achievements.more1488DaysInProject.title: им. Максима Марцинкевича
+§ achievements.more1488DaysInProject.description: отработал 1488 дней на проекте
+§ achievements.taskNumber300.title: Знаком с трактористом
+§ achievements.taskNumber300.description: первый взял в работу задачу с номером 300
+§ achievements.moreFix.title: Bug hunter
+§ achievements.moreFix.description: больше всего закрытых багов
+§ achievements.lessWorkDays.title: Дальше без меня
+§ achievements.lessWorkDays.description: меньше всего рабочих дней
+§ achievements.moreCreateCode.title: Созидатель
+§ achievements.moreCreateCode.description: склонен больше остальных добавлять код
+§ achievements.moreRemoveCode.title: Разрушитель
+§ achievements.moreRemoveCode.description: склонен больше остальных удалять код
+§ achievements.moreChangeCode.title: Реформатор
+§ achievements.moreChangeCode.description: склонен больше остальных изменять код
+§ achievements.moreStyle.title: Полиция моды
+§ achievements.moreStyle.description: склонен больше остальных изменять CSS
+§ achievements.moreOnHoliday.title: Нет жизни
+§ achievements.moreOnHoliday.description: относительно много коммитов в нерабочее время
 § uiKit.console: Копировать
 § uiKit.dataLoader.page: Страница
 § uiKit.dataLoader.size: Отображается по
@@ -63,7 +155,8 @@ localization.parse('ru', `
 § sidebar.person.words: Популярные слова
 § sidebar.person.settings: Настройки
 § page.welcome.step1: Выполните команду в корне вашего проекта
-§ page.welcome.step2: Перетащите файл log.txt на эту страницу
+§ page.welcome.step3: Перетащите
+§ page.welcome.step4: файл log.txt на эту страницу
 § page.welcome.description1: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл
 § page.welcome.description2: [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы обьединить статистику по сотрудникам.
 § page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы обьединить статистику по сотрудникам.
@@ -100,11 +193,14 @@ localization.parse('ru', `
 § page.settings.form.remove: Удалить
 § page.settings.form.addEmployee: Добавить сотрудника
 § page.settings.form.addContract: Добавить трудовой договор
-§ page.print.title: Что распечатываем?
-§ page.print.page: Текущую страницу
-§ page.print.type: Текущий раздел
-§ page.print.all: Всю статистику
-§ page.print.cancel: Отмена
+§ page.print.modal.title: Что распечатываем?
+§ page.print.modal.page: Текущую страницу
+§ page.print.modal.type: Текущий раздел
+§ page.print.modal.all: Всю статистику
+§ page.print.modal.cancel: Отмена
+§ page.print.tableOfContents: Оглавление
+§ page.print.title: Отчёт по git-репозиторию «$1»
+§ page.print.description: Данные для отчёта были получены из истории коммитов.
 § page.team.author.title: Статистика по сотрудникам
 § page.team.author.description1: *Часть статитики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помошник» не считается*, т.к. это эпизодическая роль в проекте. Предпологаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
@@ -229,7 +325,7 @@ localization.parse('ru', `
 § page.person.achievement.negative: Негативные
 § page.person.achievement.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
 § page.person.gets.title: Взятые геты:
-§ page.person.gets.description: &laquo;Взять гет&raquo; в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером.
+§ page.person.gets.description: «Взять гет» в данном случае означает первым оставить коммит к&nbsp;задаче с&nbsp;&laquo;красивым&raquo; номером.
 § page.person.business.days.title: дней работы
 § page.person.business.days.description: Учтены только дни, в которые делались коммиты
 § page.person.business.tasks.title: задач
@@ -286,6 +382,53 @@ git может показать малое количество изменени
 
 § recommendations.title
 Рекомендации и факты
+
+§ recommendations.timestamp.firstCommit.description
+сделал первый коммит
+
+День недели: $1
+
+§ recommendations.timestamp.lastCommit.description
+сделал последний коммит
+
+День недели: $1
+
+§ recommendations.timestamp.common.title: $1 дней
+§ recommendations.timestamp.allDays.description: от первого до последнего коммита (включая выходные и праздники).
+§ recommendations.timestamp.lossesDays.description: без коммитов, даже с учётом выходных, отпуска и государственных праздников.
+§ recommendations.timestamp.weekendDays.description
+работы на выходных
+
+# Почему это плохо:
+- заказчик платит двойную цену за работу в выходной день;
+- сотрудники быстрее выгорают;
+
+§ recommendations.timestamp.regularWeekendWord.title: Регулярные переработки
+§ recommendations.timestamp.sometimeWeekendWord.title: Бывают переработки
+§ recommendations.timestamp.weekendWord.description
+Вероятно, стоит сменить менеджера проекта, аналитика и архитектора.
+
+# Почему это плохо:
+- заказчик платит двойную цену за работу в выходной день;
+- качество продуката, как правило, получается низкое;
+- часть сотрудников увольняется;
+- из-за спешки появляются новые ошибки;
+
+# Скорее всего:
+- неверно оценили сроки в самом начале;
+- тех. задание отсутствует;
+- слабая аналитика;
+- слабая архитектура (архитектора не нанимали, а команда состоит из мидл разработчиков);
+- сначала начали писать код, потом проектировать;
+- нет нормальных процессов, чтобы понять ошибки;
+
+§ recommendations.timestamp.neverWeekendWord.title: Обычно без переработок
+§ recommendations.timestamp.neverWeekendWord.description
+Но иногда бывают.
+
+# Почему это плохо:
+- заказчик платит двойную цену за работу в выходной день;
+- сотрудники быстрее выгорают;
 
 § recommendations.scope.parallelism.not.title
 Нет паралельных работ
@@ -467,6 +610,40 @@ Bus factor = 1
 - для каждого коммита определятся тип задачи;
 - если больше 70% задач одного типа, значит человек делает одно и тоже;
 
+§ recommendations.author.workToday.title: Работает $1
+§ recommendations.author.workToday.description
+над проектом в данный момент.
+
+# Состав: 
+- $1;
+
+# Почему именно они:
+- рабочих дней более 50%;
+- работали в течении последних 30 дней;
+
+§ recommendations.author.dismissed.title: Уволилось $1
+§ recommendations.author.dismissed.description
+или работало короткий промежуток времени.
+
+# Состав:
+- $1;
+
+# Почему именно они:
+- работали в нормальном ритме (видимо, это их основной репозиторий);
+- за последний месяц не было ни одного коммита;
+- отпуск обычно 14 дней (их отсутствие не похоже на отпуск);
+
+§ recommendations.author.staff.title: Помогают $1
+§ recommendations.author.staff.description
+Люди другой специализации, которые что-либо коммитили.
+
+# Состав: 
+- $1;
+
+# Почему именно они:
+- это не open-source проект;
+- рабочих дней менее 15% от общего числа;
+- изменяют примерно одни и те же файлы;
 
 § recommendations.author.projectType.openSource.title
 Открытый проект
@@ -593,53 +770,24 @@ Bus factor = 1
 - формируется доверительное отношение, сотрудники становятся более лояльны к компании;
 - повышается вовлеченность сотрудников;
 
-§ recommendations.hour.onlyWork.title
-Выходных тут нет
-
-§ recommendations.hour.onlyWork.description
-Вероятно, стоит уволить менеджера проекта.
-
-§ recommendations.hour.weekends.title
-Работа на выходных
-
-§ recommendations.hour.weekends.description
-Вероятно, стоит проверить менеджера проекта.
-
-
-§ recommendations.hour.easy.title
-Бывают проблемы
-
-§ recommendations.hour.easy.description
-Вероятно, бывают завалы и приходится работать на выходных.
-
-§ recommendations.week.lazyDays.down.title
-Стало меньше прогулов
-§ recommendations.week.lazyDays.down.description
-за последние три недели этот показатель упал
-
-§ recommendations.week.lazyDays.up.title
-Стало больше прогулов
-§ recommendations.week.lazyDays.up.description
-нет задач или нужен более жесткий контроль
-      
-§ recommendations.week.notWork.title
-Стабильно не дорабатывает
-§ recommendations.week.notWork.description
-т.к. каждую неделю пишет код не 100% времени
-
-§ recommendations.week.upWork.title
-Стабильно перерабатывает
-§ recommendations.week.upWork.description
-т.к. каждую неделю пишет код в выходные дни
-
-
-§ recommendations.week.task.up.title
-Растёт производительность
-§ recommendations.week.task.up.description
-или задачи стали слишком мелкие. Нужно проверить. Если гранулярность та же - закрепить результат.
-
-§ recommendations.week.task.down.title
-Падает производительность
+§ recommendations.hour.onlyWork.title: Выходных тут нет
+§ recommendations.hour.onlyWork.description: Вероятно, стоит уволить менеджера проекта.
+§ recommendations.hour.weekends.title: Работа на выходных
+§ recommendations.hour.weekends.description: Вероятно, стоит проверить менеджера проекта.
+§ recommendations.hour.easy.title: Бывают проблемы
+§ recommendations.hour.easy.description: Вероятно, бывают завалы и приходится работать на выходных.
+§ recommendations.week.lazyDays.down.title: Стало меньше прогулов
+§ recommendations.week.lazyDays.down.description: за последние три недели этот показатель упал
+§ recommendations.week.lazyDays.up.title: Стало больше прогулов
+§ recommendations.week.lazyDays.up.description: нет задач или нужен более жесткий контроль
+§ recommendations.week.notWork.title: Стабильно не дорабатывает
+§ recommendations.week.notWork.description: т.к. каждую неделю пишет код не 100% времени
+§ recommendations.week.upWork.title: Стабильно перерабатывает
+§ recommendations.week.upWork.description: т.к. каждую неделю пишет код в выходные дни
+§ recommendations.week.task.up.title: Растёт производительность
+§ recommendations.week.task.up.description: или задачи стали слишком мелкие. Нужно проверить. Если гранулярность та же - закрепить результат.
+§ recommendations.week.task.lazyMaintainer.description: стабильный лидер по прогулам. Уволить?
+§ recommendations.week.task.down.title: Падает производительность
 § recommendations.week.task.down.description
 или задачи хуже разбивают. Нужно проверить. Если гранулярность та же - взять на контроль.
 
@@ -650,18 +798,12 @@ Bus factor = 1
 - задачи могли быть сложнее, чем казались;
 - задачи могли иметь большой объём работы (нужно проверить количество изменений, падают они или нет за этот же период)
 
-
-§ recommendations.type.everyHasOne.title
-Не подписывают тип задачи
-
-§ recommendations.type.everyHasOne.description
-большинство типов задач делает один человек.
-
-§ recommendations.type.oneMaintainer.title
-Узкая специализация
-
+§ recommendations.type.everyHasOne.title: Не подписывают тип задачи
+§ recommendations.type.everyHasOne.description: большинство типов задач делает один человек.
+§ recommendations.type.oneMaintainer.title: Узкая специализация
 § recommendations.type.oneMaintainer.description
 большинство задач одного типа делают одни и те же люди.
+
 # Типы задач:
 
 § recommendations.type.common

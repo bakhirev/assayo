@@ -1,4 +1,4 @@
-import localization  from 'ts/helpers/Localization';
+import RECOMMENDATION_TYPES from '../contstants';
 
 export default class RecommendationsTeamByType {
   getTotalInfo(dataGrip: any) {
@@ -8,21 +8,21 @@ export default class RecommendationsTeamByType {
 
     return [
       this.getBusFactor(dataGrip),
-      (fewTypes ? [
-        localization.get('recommendations.type.fewTypes.title'),
-        localization.get('recommendations.type.fewTypes.description'),
-        'fact',
-      ] : null),
-      [
-        localization.get('recommendations.type.diff.title'),
-        localization.get('recommendations.type.diff.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.type.buddy.title'),
-        localization.get('recommendations.type.buddy.description'),
-        'info',
-      ],
+      (fewTypes ? {
+        title: 'recommendations.type.fewTypes.title',
+        description: 'recommendations.type.fewTypes.description',
+        type: RECOMMENDATION_TYPES.FACT,
+      } : null),
+      {
+        title: 'recommendations.type.diff.title',
+        description: 'recommendations.type.diff.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.type.buddy.title',
+        description: 'recommendations.type.buddy.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
     ].filter(item => item);
   }
 
@@ -37,24 +37,26 @@ export default class RecommendationsTeamByType {
     if (!oneMaintainer.length) return null;
     const everyHasOne = oneMaintainer.length > dataGrip.type.statistic.length * 0.6;
 
-    if (everyHasOne) return [
-      localization.get('recommendations.type.everyHasOne.title'),
-      [
-        localization.get('recommendations.type.everyHasOne.description'),
-        localization.get('recommendations.type.common'),
-      ].join('\n'),
-      'warning',
-    ];
+    if (everyHasOne) return {
+      title: 'recommendations.type.everyHasOne.title',
+      description: [
+        'recommendations.type.everyHasOne.description',
+        'recommendations.type.common',
+      ],
+      type: RECOMMENDATION_TYPES.WARNING,
+    };
 
-    return [
-      localization.get('recommendations.type.oneMaintainer.title'),
-      [
-        localization.get('recommendations.type.oneMaintainer.description'),
-        `- ${oneMaintainer.join(';\n- ')}`,
-        localization.get('recommendations.type.common'),
-      ].join('\n'),
-      'error',
-    ];
+    return {
+      title: 'recommendations.type.oneMaintainer.title',
+      description: [
+        'recommendations.type.oneMaintainer.description',
+        'recommendations.type.common',
+      ],
+      type: RECOMMENDATION_TYPES.ALERT,
+      arguments: {
+        description: [`- ${oneMaintainer.join(';\n- ')}`],
+      },
+    };
   }
 }
 

@@ -6,18 +6,19 @@ class Localization {
   insertArguments(message: string, args?: any) {
     if (!args) return message;
     const list = Array.isArray(args) ? args : [args];
+    console.log(list);
     list.forEach((text: any, index: number) => {
-      message = message.replace(`$${index}`, text || '_');
+      message = message.replace(`$${index + 1}`, text || '_');
     });
     return message;
   }
 
-  get(key = '', args?: any) {
+  get(key = '', ...args: any) {
     const dictionary = this.translations[this.language];
     if (!dictionary) return key || '';
 
     let message = dictionary[key];
-    if (message) return message;
+    if (message) return this.insertArguments(message, args);
 
     const keys = key.split('.');
     message = dictionary;
@@ -81,5 +82,7 @@ class Localization {
 }
 
 const localization = new Localization();
+// @ts-ignore
+window.localization = localization;
 
 export default localization;

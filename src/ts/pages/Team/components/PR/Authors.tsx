@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IPagination } from 'ts/interfaces/Pagination';
 
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -38,7 +38,7 @@ function Authors({ response, updateSort }: IAuthorsProps) {
   });
 
   return (
-    <Table
+    <DataView
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -89,7 +89,7 @@ function Authors({ response, updateSort }: IAuthorsProps) {
           />
         )}
       />
-    </Table>
+    </DataView>
   );
 }
 

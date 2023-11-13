@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { IColumn } from '../interfaces/Column';
-import style from '../styles/index.module.scss';
 import DefaultCell from './cells/CellDefault';
+
+import style from '../styles/index.module.scss';
 
 interface IBodyProps {
   rows: any[];
@@ -22,9 +23,11 @@ function Body({
       const value = column.properties
         ? row[column.properties]
         : row;
+
       const formattedValue = column.formatter
         ? column.formatter(value)
         : value;
+
       const content: any = typeof column.template === 'function'
         ? column.template(formattedValue, row)
         : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}`;

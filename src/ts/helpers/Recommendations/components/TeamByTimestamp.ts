@@ -1,4 +1,5 @@
 import { getDateByTimestamp } from 'ts/helpers/formatter';
+import RECOMMENDATION_TYPES from '../contstants';
 
 export default class RecommendationsTeamByTimestamp {
   getTotalInfo(dataGrip: any) {
@@ -10,14 +11,26 @@ export default class RecommendationsTeamByTimestamp {
     // TODO: all days не верный, я вывожу рабочие дни, а не выходные.
 
     return [
-      workInWeek ? [`${workInWeek} дней`, `работы на выходных
+      (workInWeek ? {
+        title: 'recommendations.timestamp.common.title',
+        description: 'recommendations.timestamp.weekendDays.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+        arguments: {
+          title: [workInWeek],
+        },
+      } : null),
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- сотрудники быстрее выгорают;
-`, 'error'] : null,
       this.getWorkOnWeek(byTimestamp.allCommitsByTimestamp.length, workInWeek),
-      [`${totalDays} дней работы`, 'от первого до последнего коммита', 'fact'],
+
+      {
+        title: 'recommendations.timestamp.common.title',
+        description: 'recommendations.timestamp.allDays.description',
+        type: RECOMMENDATION_TYPES.FACT,
+        arguments: {
+          title: [totalDays],
+        },
+      },
+
       this.getFirstDay(byTimestamp),
       this.getLastDay(byTimestamp),
     ].filter(item => item);
@@ -25,49 +38,60 @@ export default class RecommendationsTeamByTimestamp {
 
   getWorkOnWeek(allWorkDays: number, workOnWeek: number) {
     const percent = (workOnWeek * 100) / allWorkDays;
-    const description = `Вероятно, стоит сменить менеджера проекта, аналитика и архитектора.
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- качество продуката, как правило, получается низкое;
-- часть сотрудников увольняется;
-- из-за спешки появляются новые ошибки;
-
-# Скорее всего:
-- неверно оценили сроки в самом начале;
-- тех. задание отсутствует;
-- слабая аналитика;
-- слабая архитектура (архитектора не нанимали, а команда состоит из мидл разработчиков);
-- сначала начали писать код, потом проектировать;
-- нет нормальных процессов, чтобы понять ошибки;
-`;
     if (percent > 13) {
-      return ['Регулярные переработки', description, 'error'];
+      return {
+        title: 'recommendations.timestamp.regularWeekendWord.title',
+        description: 'recommendations.timestamp.weekendWord.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+      };
     }
-    if (percent > 7) {
-      return ['Бывают переработки', description, 'error'];
-    }
-    if (percent > 2) {
-      return ['Обычно без переработок', `Но иногда бывают.
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- сотрудники быстрее выгорают;
-`, 'fact'];
+    if (percent > 7) {
+      return {
+        title: 'recommendations.timestamp.sometimeWeekendWord.title',
+        description: 'recommendations.timestamp.weekendWord.description',
+        type: RECOMMENDATION_TYPES.ALERT,
+      };
     }
+
+    if (percent > 2) {
+      return {
+        title: 'recommendations.timestamp.neverWeekendWord.title',
+        description: 'recommendations.timestamp.neverWeekendWord.description',
+        type: RECOMMENDATION_TYPES.FACT,
+      };
+    }
+
     return null;
   }
 
   getFirstDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[0];
     const [ date, day ] = getDateByTimestamp(commit.timestamp);
-    return [date, `был первый коммит\n\nДень недели: ${day}`, 'fact'];
+
+    return {
+      title: date,
+      description: 'recommendations.timestamp.firstCommit.description',
+      type: RECOMMENDATION_TYPES.FACT,
+      arguments: {
+        description: [day],
+      },
+    };
   }
 
   getLastDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[(byTimestamp.allCommitsByTimestamp.length - 1)];
     const [ date, day ] = getDateByTimestamp(commit.timestamp);
-    return [date, `был последний коммит\n\nДень недели: ${day}`, 'fact'];
+
+    return {
+      title: date,
+      description: 'recommendations.timestamp.lastCommit.description',
+      type: RECOMMENDATION_TYPES.FACT,
+      arguments: {
+        description: [day],
+      },
+    };
   }
 }
 

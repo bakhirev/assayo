@@ -26,7 +26,6 @@ const Success = observer((): React.ReactElement => {
       onChange={(type: string, data: any[]) => {
         setShowSplashScreen(false);
         if (type === 'dump') dataGripStore.setCommits(data);
-        if (type === 'telegramm') dataGripStore.setTelegrammMessages(data);
         setTimeout(() => {
           setShowSplashScreen(true);
         });

@@ -1,4 +1,4 @@
-import localization  from 'ts/helpers/Localization';
+import RECOMMENDATION_TYPES from '../contstants';
 
 export default class RecommendationsTeamByAuthor {
   getTotalInfo(dataGrip: any) {
@@ -40,82 +40,97 @@ export default class RecommendationsTeamByAuthor {
 
     return [
       projectType,
-      (lotOfLazy.length ? [lotOfLazy, localization.get('recommendations.author.lotOfLazy'), 'error'] : null),
-      (manyLazy.length ? [manyLazy, localization.get('recommendations.author.manyLazy'), 'warning'] : null),
-      (oneTypeMans.length ? [oneTypeMans, localization.get('recommendations.author.oneTypeMans'), 'warning'] : null),
-      (worker.length
-        ? [`Работает ${worker.length}`, `над проектом в данный момент.
 
-# Состав: 
-- ${worker.join(';\n- ')};
+      (lotOfLazy.length ? {
+        title: lotOfLazy,
+        description: 'recommendations.author.lotOfLazy',
+        type: RECOMMENDATION_TYPES.ALERT,
+      } : null),
 
-# Почему именно они:
-- рабочих дней более 50%;
-- работали в течении последних 30 дней;
-`, 'fact'] : null),
-      (dismissed.length
-        ? [`Уволилось ${dismissed.length}`, `или работало короткий промежуток времени.
+      (manyLazy.length ? {
+        title: manyLazy,
+        description: 'recommendations.author.manyLazy',
+        type: RECOMMENDATION_TYPES.WARNING,
+      } : null),
 
-# Состав:
-- ${dismissed.join(';\n- ')};
+      (oneTypeMans.length ? {
+        title: oneTypeMans,
+        description: 'recommendations.author.oneTypeMans',
+        type: RECOMMENDATION_TYPES.WARNING,
+      } : null),
 
-# Почему именно они:
-- работали в нормальном ритме (видимо, это их основной репозиторий);
-- за последний месяц не было ни одного коммита;
-- отпуск обычно 14 дней (их отсутствие не похоже на отпуск);
-`, 'fact'] : null),
-      (staff.length
-        ? [`Помогают ${staff.length}`, `Люди другой специализации, которые что-либо коммитили.
+      (worker.length ? {
+        title: 'recommendations.author.workToday.title',
+        description: 'recommendations.author.workToday.description',
+        type: RECOMMENDATION_TYPES.FACT,
+        arguments: {
+          title: worker.length,
+          description: worker.join(';\n- '),
+        },
+      } : null),
 
-# Состав: 
-- ${staff.join(';\n- ')};
+      (dismissed.length ? {
+        title: 'recommendations.author.dismissed.title',
+        description: 'recommendations.author.dismissed.description',
+        type: RECOMMENDATION_TYPES.FACT,
+        arguments: {
+          title: dismissed.length,
+          description: dismissed.join(';\n- '),
+        },
+      } : null),
 
-# Почему именно они:
-- это не open-source проект;
-- рабочих дней менее 15% от общего числа;
-- изменяют примерно одни и те же файлы;
-`, 'fact']
-        : null),
+      (staff.length ? {
+        title: 'recommendations.author.staff.title',
+        description: 'recommendations.author.staff.description',
+        type: RECOMMENDATION_TYPES.FACT,
+        arguments: {
+          title: staff.length,
+          description: staff.join(';\n- '),
+        },
+      } : null),
+
       // ['Планирование', 'Задачи распределены довольно равномерно', 'info'],
-      [
-        localization.get('recommendations.author.manager.title'),
-        localization.get('recommendations.author.manager.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.author.shorTalk.title'),
-        localization.get('recommendations.author.shorTalk.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.author.ipr.title'),
-        localization.get('recommendations.author.ipr.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.author.oneToOne.title'),
-        localization.get('recommendations.author.oneToOne.description'),
-        'info',
-      ],
-      [
-        localization.get('recommendations.author.club.title'),
-        localization.get('recommendations.author.club.description'),
-        'info',
-      ],
+      {
+        title: 'recommendations.author.manager.title',
+        description: 'recommendations.author.manager.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.author.shorTalk.title',
+        description: 'recommendations.author.shorTalk.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.author.ipr.title',
+        description: 'recommendations.author.ipr.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.author.oneToOne.title',
+        description: 'recommendations.author.oneToOne.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
+      {
+        title: 'recommendations.author.club.title',
+        description: 'recommendations.author.club.description',
+        type: RECOMMENDATION_TYPES.INFO,
+      },
     ].filter(item => item);
   }
 
   getProjectType(workLazyTotal: number) {
-    if (workLazyTotal < 1) return [
-      localization.get('recommendations.author.projectType.openSource.title'),
-      localization.get('recommendations.author.projectType.openSource.description'),
-      'fact',
-    ];
-    if (workLazyTotal < 5) return [
-      localization.get('recommendations.author.projectType.easy.title'),
-      localization.get('recommendations.author.projectType.easy.description'),
-      'error',
-    ];
+    if (workLazyTotal < 1) return {
+      title: 'recommendations.author.projectType.openSource.title',
+      description: 'recommendations.author.projectType.openSource.description',
+      type: RECOMMENDATION_TYPES.FACT,
+    };
+
+    if (workLazyTotal < 5) return {
+      title: 'recommendations.author.projectType.easy.title',
+      description: 'recommendations.author.projectType.easy.description',
+      type: RECOMMENDATION_TYPES.ALERT,
+    };
+
     return null;
   }
 }

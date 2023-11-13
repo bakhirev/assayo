@@ -16,7 +16,7 @@ import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import localization from 'ts/helpers/Localization';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -42,7 +42,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
   const typeChart = getOptions({ order: dataGripStore.dataGrip.type.list });
 
   return (
-    <Table
+    <DataView
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -142,7 +142,7 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
         properties="moneyLosses"
         formatter={getMoney}
       />
-    </Table>
+    </DataView>
   );
 }
 

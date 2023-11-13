@@ -32,6 +32,7 @@ export default class DataGripByExtension {
           extension: file.extension,
           authors: {},
           files: { [file.firstName]: 1 },
+          count: 1,
           more: {},
           total: {
             added: 0,
@@ -45,6 +46,7 @@ export default class DataGripByExtension {
         byExtension[file.extension].files[file.firstName] = numberNames
           ? (numberNames + 1)
           : 1;
+        byExtension[file.extension].count += 1;
       }
 
       for (let author in file.authors) {
@@ -69,7 +71,7 @@ export default class DataGripByExtension {
     this.#addMorePercent(byExtension);
 
     this.statistic = Object.entries(byExtension)
-      .sort((a: any, b: any) => b[1].total.total - a[1].total.total)
+      .sort((a: any, b: any) => b[1].count - a[1].count)
       .map((item: any) => item[1]);
     this.statisticByName = byExtension;
   }

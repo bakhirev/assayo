@@ -4,7 +4,7 @@ import { IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 import userSettings from 'ts/store/UserSettings';
 
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import ExternalLink from 'ts/components/ExternalLink';
@@ -35,7 +35,7 @@ function AllPR({
   });
 
   return (
-    <Table
+    <DataView
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -151,7 +151,7 @@ function AllPR({
         properties="author"
         width={250}
       />
-    </Table>
+    </DataView>
   );
 }
 

@@ -2,54 +2,54 @@ import ACHIEVEMENT_TYPE from './type';
 
 export default {
   // готово
-  commitsAfter1500: ['Сова', '70% коммитов после 15:00', ACHIEVEMENT_TYPE.NORMAL],
-  commitsBefore1500: ['Ранняя пташка', '70% коммитов до обеда', ACHIEVEMENT_TYPE.NORMAL],
-  workEveryTime: ['Раб божий', 'есть коммит на каждый час суток', ACHIEVEMENT_TYPE.BAD],
-  workNotWork: ['Стрельба холостыми', 'коммиты есть, а закрытых задач нет', ACHIEVEMENT_TYPE.BAD],
-  userNotWork: ['Залётный', 'это не его основной проект', ACHIEVEMENT_TYPE.NORMAL],
-  userIsDied: ['Мёртвая душа', 'работал, но уволился', ACHIEVEMENT_TYPE.NORMAL],
-  lessTasks: ['Зашел и вышел', 'меньше всего закрытых задач', ACHIEVEMENT_TYPE.BAD],
-  moreTasks: ['Батя грит малаца', 'больше всего закрытых задач', ACHIEVEMENT_TYPE.GOOD],
-  everyMessageLong: ['Мастер красноречия', 'стабильно самые длинные подписи коммитов', ACHIEVEMENT_TYPE.NORMAL],
-  everyMessageShort: ['Болтун находка для шпиона', 'стабильно, самые короткие подписи коммитов', ACHIEVEMENT_TYPE.BAD],
-  shortestName: ['Размер не главное', 'самое короткое имя', ACHIEVEMENT_TYPE.NORMAL], // нет картинки
-  longestName: ['Азим Азиз Иль Ам Кадир Имран II', 'самое длинное имя', ACHIEVEMENT_TYPE.NORMAL],
-  moreCommits: ['Мастер бекапов', 'больше всего коммитов', ACHIEVEMENT_TYPE.NORMAL],
-  lessCommits: ['Редко но метко', 'меньше всего коммитов', ACHIEVEMENT_TYPE.BAD],
-  oneCommitOneTask: ['Точно в цель', 'в среднем один коммит на задачу', ACHIEVEMENT_TYPE.NORMAL],
-  moreLazyDays: ['Мысленно я с вами', 'больше всего дней без коммитов', ACHIEVEMENT_TYPE.BAD],
-  lessLazyDays: ['Папа Карло', 'меньше всего дней без коммитов', ACHIEVEMENT_TYPE.GOOD],
-  zeroLazyDays: ['Ни единого разрыва', 'ни одного дня без коммитов', ACHIEVEMENT_TYPE.GOOD],
-  moreWorkDays: ['Ценный работник', 'больше всего рабочих дней', ACHIEVEMENT_TYPE.GOOD],
-  moreScopes: ['Стартапер', 'сделал больше всего фичей', ACHIEVEMENT_TYPE.GOOD], // нет картинки
-  lessScopes: ['Щегол', 'сделал меньше всего фичей', ACHIEVEMENT_TYPE.BAD],
-  moreDaysForTask: ['Улитка на склоне', 'работа по задачам идёт медленнее чем у остальных', ACHIEVEMENT_TYPE.BAD],
-  more2DaysForTask: ['Cо слоу', 'больше двух дней на задачу', ACHIEVEMENT_TYPE.BAD],
-  moreDaysInProject: ['Старожил', 'больше всего дней на проекте', ACHIEVEMENT_TYPE.GOOD],
-  lessDaysInProject: ['А это кто?', 'меньше всего дней на проекте', ACHIEVEMENT_TYPE.NORMAL],
-  more90DaysInProject: ['Добро пожаловать', 'не уволили на испытательном', ACHIEVEMENT_TYPE.GOOD],
-  lessDaysForTask: ['Скорострел', 'одна задача занимает меньше дня', ACHIEVEMENT_TYPE.GOOD],
-  adam: ['Адам', 'первый стабильный сотрудник на проекте', ACHIEVEMENT_TYPE.NORMAL],
-  more666DaysInProject: ['Чёрт', 'отработал 666 дней на проекте', ACHIEVEMENT_TYPE.GOOD],
-  more777DaysInProject: ['Азино 3 топора', 'отработал 777 дней на проекте', ACHIEVEMENT_TYPE.GOOD],
+  commitsAfter1500: ACHIEVEMENT_TYPE.NORMAL, // Сова
+  commitsBefore1500: ACHIEVEMENT_TYPE.NORMAL, // Ранняя пташка
+  workEveryTime: ACHIEVEMENT_TYPE.BAD, // Раб божий
+  workNotWork: ACHIEVEMENT_TYPE.BAD, // Стрельба холостыми
+  userNotWork: ACHIEVEMENT_TYPE.NORMAL, // Залётный
+  userIsDied: ACHIEVEMENT_TYPE.NORMAL, // Мёртвая душа
+  lessTasks: ACHIEVEMENT_TYPE.BAD, // Зашел и вышел
+  moreTasks: ACHIEVEMENT_TYPE.GOOD, // Батя грит малаца
+  everyMessageLong: ACHIEVEMENT_TYPE.NORMAL, // Мастер красноречия
+  everyMessageShort: ACHIEVEMENT_TYPE.BAD, // Болтун находка для шпиона
+  shortestName: ACHIEVEMENT_TYPE.NORMAL, // Размер не главное // нет картинки
+  longestName: ACHIEVEMENT_TYPE.NORMAL, // Азим Азиз Иль Ам Кадир Имран II
+  moreCommits: ACHIEVEMENT_TYPE.NORMAL, // Мастер бекапов
+  lessCommits: ACHIEVEMENT_TYPE.BAD, // Редко но метко
+  oneCommitOneTask: ACHIEVEMENT_TYPE.NORMAL, // Точно в цель
+  moreLazyDays: ACHIEVEMENT_TYPE.BAD, // Мысленно я с вами
+  lessLazyDays: ACHIEVEMENT_TYPE.GOOD, // Папа Карло
+  zeroLazyDays: ACHIEVEMENT_TYPE.GOOD, // Ни единого разрыва
+  moreWorkDays: ACHIEVEMENT_TYPE.GOOD, // Ценный работник
+  moreScopes: ACHIEVEMENT_TYPE.GOOD, // Стартапер // нет картинки
+  lessScopes: ACHIEVEMENT_TYPE.BAD, // Щегол
+  moreDaysForTask: ACHIEVEMENT_TYPE.BAD, // Улитка на склоне
+  more2DaysForTask: ACHIEVEMENT_TYPE.BAD, // Cо слоу
+  moreDaysInProject: ACHIEVEMENT_TYPE.GOOD, // Старожил
+  lessDaysInProject: ACHIEVEMENT_TYPE.NORMAL, // А это кто?
+  more90DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Добро пожаловать
+  lessDaysForTask: ACHIEVEMENT_TYPE.GOOD, // Скорострел
+  adam: ACHIEVEMENT_TYPE.NORMAL, // Адам
+  more666DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Чёрт
+  more777DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Азино 3 топора
 
-  moreRefactoring: ['Выпускающий редактор', 'сделал больше всех меток «рефакторинг»', ACHIEVEMENT_TYPE.GOOD],
+  moreRefactoring: ACHIEVEMENT_TYPE.GOOD, // Выпускающий редактор
   // нет картинки
-  longestMessage: ['А разговоров то было...', 'самая длинная подпись коммита за все время', ACHIEVEMENT_TYPE.NORMAL],
-  moreTasksInDay: ['Спиди-гонщик', 'рекорд по количеству закрытых задач в день', ACHIEVEMENT_TYPE.GOOD],
-  hasCommitFrom0to7: ['Ночной дозор', 'есть коммит на каждый час ночи', ACHIEVEMENT_TYPE.BAD],
-  noCommitOnDay: ['Технический перерыв', 'есть определенный час и день в рабочее время в который никогда не комитит', ACHIEVEMENT_TYPE.NORMAL],
-  hasCommitEveryTime: ['Умер на работе', 'есть коммит на час каждого дня (включая выходные)', ACHIEVEMENT_TYPE.BAD],
-  commitsAfter1800: ['Делу время', 'нет ни одного коммита после 18:00', ACHIEVEMENT_TYPE.GOOD],
-  more1488DaysInProject: ['им. Максима Марцинкевича', 'отработал 1488 дней на проекте', ACHIEVEMENT_TYPE.GOOD],
-  taskNumber300: ['Знаком с трактористом', 'первый взял в работу задачу с номером 300', ACHIEVEMENT_TYPE.NORMAL],
+  longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...
+  moreTasksInDay: ACHIEVEMENT_TYPE.GOOD, // Спиди-гонщик
+  hasCommitFrom0to7: ACHIEVEMENT_TYPE.BAD, // Ночной дозор
+  noCommitOnDay: ACHIEVEMENT_TYPE.NORMAL, // Технический перерыв
+  hasCommitEveryTime: ACHIEVEMENT_TYPE.BAD, // Умер на работе
+  commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время
+  more1488DaysInProject: ACHIEVEMENT_TYPE.GOOD, // им. Максима Марцинкевича
+  taskNumber300: ACHIEVEMENT_TYPE.NORMAL, // Знаком с трактористом
 
   // нет кода
-  // moreFix: ['Bug hunter', 'больше всего закрытых багов', ACHIEVEMENT_TYPE.GOOD],
-  lessWorkDays: ['Дальше без меня', 'меньше всего рабочих дней', ACHIEVEMENT_TYPE.BAD],
-  moreCreateCode: ['Созидатель', 'склонен больше остальных добавлять код', ACHIEVEMENT_TYPE.NORMAL],
-  moreRemoveCode: ['Разрушитель', 'склонен больше остальных удалять код', ACHIEVEMENT_TYPE.NORMAL],
-  moreChangeCode: ['Реформатор', 'склонен больше остальных изменять код', ACHIEVEMENT_TYPE.NORMAL], // есть картинка
-  moreStyle: ['Полиция моды', 'склонен больше остальных изменять CSS', ACHIEVEMENT_TYPE.GOOD],
-  moreOnHoliday: ['Нет жизни', 'относительно много коммитов в нерабочее время', ACHIEVEMENT_TYPE.BAD],
+  // moreFix: ACHIEVEMENT_TYPE.GOOD, // Bug hunter
+  lessWorkDays: ACHIEVEMENT_TYPE.BAD, // Дальше без меня
+  moreCreateCode: ACHIEVEMENT_TYPE.NORMAL, // Созидатель
+  moreRemoveCode: ACHIEVEMENT_TYPE.NORMAL, // Разрушитель
+  moreChangeCode: ACHIEVEMENT_TYPE.NORMAL, // Реформатор // есть картинка
+  moreStyle: ACHIEVEMENT_TYPE.GOOD, // Полиция моды
+  moreOnHoliday: ACHIEVEMENT_TYPE.BAD, // Нет жизни
 };

@@ -3,6 +3,7 @@ import { HashRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 
 import ru from 'ts/config/translations/ru';
+import en from 'ts/config/translations/en';
 import Authorization from 'ts/pages/Authorization';
 import userSettings from 'ts/store/UserSettings';
 import Notifications from 'ts/components/Notifications';
@@ -19,7 +20,7 @@ if (module.hot) {
 }
 
 // @ts-ignore
-console.dir(ru + '');
+console.dir(ru + en + '');
 
 function getParametersFromString(text: string) {
   return Object.fromEntries((text || '')

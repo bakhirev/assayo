@@ -13,7 +13,7 @@ import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -44,7 +44,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
   const workDaysChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'page.team.week.days' });
 
   return (
-    <Table
+    <DataView
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -141,7 +141,7 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
         }}
         minWidth={200}
       />
-    </Table>
+    </DataView>
   );
 }
 

@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Console from 'ts/components/Console';
+import {
+  getStringFromFileList,
+  getStringsForParser,
+} from 'ts/components/DropZone/helpers';
 import localization from 'ts/helpers/Localization';
-import Description from 'ts/components/Description';
+import dataGripStore from 'ts/store/DataGrip';
 
 import style from './styles/index.module.scss';
 
@@ -61,7 +65,24 @@ function Welcome() {
             {localization.get('page.welcome.description2')}
           </p>
           <h2 className={style.welcome_last_title}>
-            {localization.get('page.welcome.step2')}
+            {localization.get('page.welcome.step2') === 'page.welcome.step2'
+              ? ''
+              : localization.get('page.welcome.step2')}
+            <label className={style.welcome_title_link}>
+              {localization.get('page.welcome.step3')}
+              <input
+                multiple
+                type="file"
+                style={{ display: 'none' }}
+                onChange={async (event: any) => {
+                  const files = Array.from(event.target.files);
+                  const text = await getStringFromFileList(files);
+                  const report = getStringsForParser(text);
+                  dataGripStore.setCommits(report);
+                }}
+              />
+            </label>
+            {localization.get('page.welcome.step4')}
           </h2>
         </div>
       </section>

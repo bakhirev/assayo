@@ -50,22 +50,6 @@
     }
   }
 
-  &_first_title,
-  &_last_title {
-    font-size: 42px;
-    font-weight: 100;
-    margin: 46px auto;
-    padding: 0;
-  }
-
-  &_first_title {
-    margin-top: 0;
-  }
-
-  &_last_title {
-    margin-bottom: 0;
-  }
-
   &_link,
   &_description {
     font-size: var(--font-xs);
@@ -86,6 +70,28 @@
     display: inline;
     margin: 16px 4px 0 4px;
     text-decoration: underline;
+  }
+
+  &_first_title,
+  &_last_title {
+    font-size: 42px;
+    font-weight: 100;
+    margin: 46px auto;
+    padding: 0;
+  }
+
+  &_first_title {
+    margin-top: 0;
+  }
+
+  &_last_title {
+    margin-bottom: 0;
+  }
+
+  &_title_link {
+    margin: 0 12px;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 

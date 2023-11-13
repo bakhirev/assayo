@@ -1,14 +1,14 @@
-function evalCsvFile(text: string, onChange: Function) {
-  const byTaskId = {};
-  text.split('\n').forEach(row => {
-    const [taskId, type, scopeOrTitle, title] = row.split('|');
-    const scope = title ? scopeOrTitle : '';
-    byTaskId[taskId] = { type, scope };
-  });
-  onChange('meta', { byTaskId });
-}
+// function evalCsvFile(text: string, onChange: Function) {
+//   const byTaskId = {};
+//   text.split('\n').forEach(row => {
+//     const [taskId, type, scopeOrTitle, title] = row.split('|');
+//     const scope = title ? scopeOrTitle : '';
+//     byTaskId[taskId] = { type, scope };
+//   });
+//   onChange('meta', { byTaskId });
+// }
 
-function evalJsFile(text: string, onChange: Function) {
+export function getStringsForParser(text: string) {
   // @ts-ignore
   let temp = window.report; // @ts-ignore
   window.report = [];
@@ -27,48 +27,37 @@ function evalJsFile(text: string, onChange: Function) {
   }
 
   // @ts-ignore
-  onChange('dump', window.report);
+  return window.report;
+}
+
+export async function getStringFromFileList(files: any) {
+  const text: string[] = await Promise.all(
+    files.map((file: any) => file.text()),
+  );
+
+  return text
+    .filter(file => file)
+    .map((item: string) => ({ key: item.substring(13, 32), text: item }))
+    .sort((a: any, b: any) => (a.key || '').localeCompare(b.key || ''))
+    .map(item => item.text)
+    .join('\n');
 }
 
 export function getOnDrop(setLoading: Function, onChange: Function) {
-  return function dropFile(event: DragEvent) {
+  return async function dropFile(event: DragEvent) {
     event.preventDefault();
     event.stopPropagation();
 
-    const dropItems = [...(event?.dataTransfer?.items || [])]
+    const files = [...(event?.dataTransfer?.items || [])]
       .map((file: any) => file.kind === 'file' ? file?.getAsFile() : null)
       .filter(file => file);
 
     setLoading(false);
-    if (!dropItems.length) return;
+    if (!files.length) return;
 
-    if (dropItems[0].type === 'application/json') {
-      Promise.all(
-        dropItems.map((file: any) => file.text()),
-      ).then((text: string[]) => {
-        const telegrammMessages = text
-          .map(file => JSON.parse(file)?.messages)
-          .flat(1);
-        // @ts-ignore
-        onChange('telegramm', telegrammMessages);
-      });
-      return;
-    }
-
-    Promise.all(
-      dropItems.map((file: any) => file.text()),
-    ).then((text: string[]) => {
-      const sortedText = text
-        .filter(file => file)
-        .map((item: string) => ({ key: item.substring(13, 32), text: item }))
-        .sort((a: any, b: any) => (a.key || '').localeCompare(b.key || ''))
-        .map(item => item.text)
-        .join('\n');
-
-      evalJsFile(sortedText, onChange);
-      return; // file.type
-      if (text[0] === 'text/csv') evalCsvFile(text[0], onChange);
-    });
+    const text = await getStringFromFileList(files);
+    const report = getStringsForParser(text);
+    onChange('dump', report);
   };
 }
 

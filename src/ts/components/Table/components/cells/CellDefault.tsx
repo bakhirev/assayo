@@ -19,6 +19,7 @@ function DefaultCell({
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', row)
     : column.className;
+
   const onClick = column.onClick
     ? (() => { if (column.onClick) column.onClick(row); })
     : undefined;

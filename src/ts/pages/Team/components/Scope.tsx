@@ -12,7 +12,8 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
-import Table from 'ts/components/Table';
+// import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -29,7 +30,7 @@ function ScopeView({ response }: IScopeViewProps) {
   const authorChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
-    <Table rows={response.content}>
+    <DataView rows={response.content}>
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
@@ -96,7 +97,7 @@ function ScopeView({ response }: IScopeViewProps) {
         properties="cost"
         formatter={getMoney}
       />
-    </Table>
+    </DataView>
   );
 }
 
