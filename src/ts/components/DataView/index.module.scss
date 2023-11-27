@@ -1,16 +1,26 @@
 @import '../../../styles/variables';
 
 .data_view {
-  &_icon {
+  &_buttons {
     position: absolute;
     top: -48px;
     right: 24px;
 
+    text-align: right;
+  }
+
+  &_icon {
     display: inline-block;
     width: var(--space-xxl);
     height: var(--space-xxl);
     padding: 0;
-
+    margin-left: var(--space-l);
     cursor: pointer;
+  }
+}
+
+@media print {
+  .data_view_buttons {
+    display: none;
   }
 }

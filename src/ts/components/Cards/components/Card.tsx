@@ -10,12 +10,14 @@ interface ICardProps {
   item: any;
   lines: IColumn[];
   className?: string;
+  customStyle?: any;
 }
 
 function Card({
   item,
   lines,
   className,
+  customStyle,
 }: ICardProps) {
   const parts = lines.map((line: IColumn, columnIndex: number) => {
     const value = line.properties
@@ -54,7 +56,10 @@ function Card({
   });
 
   return (
-    <div className={`${style.card} ${className}`}>
+    <div
+      className={`${style.card} ${className}`}
+      style={customStyle || {}}
+    >
       {parts}
     </div>
   );

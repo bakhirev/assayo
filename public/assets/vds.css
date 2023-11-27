@@ -1,0 +1,16 @@
+body {
+  --vds-color--main: #00AFD0;
+}
+
+.title,
+.header_title,
+.card_with_icon_value,
+.card_with_icon_title,
+.welcome_first_title,
+.welcome_last_title {
+  /*color: var(--vds-color--main);*/
+}
+
+.sidebar {
+  background-color: transparent;
+}

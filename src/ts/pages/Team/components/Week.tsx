@@ -8,7 +8,7 @@ import { getShortDateRange } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
-import PageWrapper from 'ts/components/Page/wrapper';
+import Title from 'ts/components/Title';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
@@ -25,9 +25,10 @@ import { getMax } from 'ts/pages/Common/helpers/getMax';
 interface IWeekViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  mode?: string;
 }
 
-function WeekView({ response, updateSort }: IWeekViewProps) {
+function WeekView({ response, updateSort, mode }: IWeekViewProps) {
   if (!response) return null;
 
   const tasksChart = getOptions({ max: getMax(response, 'tasks'), order: dataGripStore.dataGrip.type.list, suffix: 'page.team.week.tasks' });
@@ -48,6 +49,8 @@ function WeekView({ response, updateSort }: IWeekViewProps) {
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
     >
       <Column
         isFixed
@@ -161,17 +164,18 @@ const Week = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: rows, pagination, sort,
-          })}
-        >
-          <WeekView />
-          {mode !== 'print' && <Pagination />}
-        </DataLoader>
-      </PageWrapper>
+      {mode === 'print' && (
+        <Title title="page.team.week.title"/>
+      )}
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows, pagination, sort,
+        })}
+      >
+        <WeekView mode={mode} />
+        {mode !== 'print' && <Pagination />}
+      </DataLoader>
     </>
   );
 });

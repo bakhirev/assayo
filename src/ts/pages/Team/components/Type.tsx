@@ -27,9 +27,10 @@ import localization from 'ts/helpers/Localization';
 interface ITypeViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  mode?: string;
 }
 
-function TypeView({ response, updateSort }: ITypeViewProps) {
+function TypeView({ response, updateSort, mode }: ITypeViewProps) {
   if (!response) return null;
 
   const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'page.team.type.tasksSmall' });
@@ -41,6 +42,8 @@ function TypeView({ response, updateSort }: ITypeViewProps) {
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
     >
       <Column
         isFixed
@@ -123,17 +126,15 @@ const Type = observer(({
         <RecommendationsWrapper recommendations={recommendations} />
       )}
       <Title title="page.team.type.title"/>
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: rows, pagination, sort, mode,
-          })}
-        >
-          <TypeView />
-          <Pagination />
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows, pagination, sort, mode,
+        })}
+      >
+        <TypeView mode={mode} />
+        <Pagination />
+      </DataLoader>
       <PageWrapper>
         <Description
           text={localization.get('page.team.type.description')}

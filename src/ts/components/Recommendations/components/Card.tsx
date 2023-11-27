@@ -9,11 +9,11 @@ import style from '../styles/card.module.scss';
 function getClassName(recommendation?: any) {
   const type = recommendation?.type;
   return {
-    [RECOMMENDATION_TYPES.INFO]: style.card_info,
-    [RECOMMENDATION_TYPES.FACT]: style.card_fact,
-    [RECOMMENDATION_TYPES.WARNING]: style.card_warning,
-    [RECOMMENDATION_TYPES.ALERT]: style.card_error,
-  }[type || RECOMMENDATION_TYPES.INFO] ?? style.card_fact;
+    [RECOMMENDATION_TYPES.INFO]: style.recommendations_card_info,
+    [RECOMMENDATION_TYPES.FACT]: style.recommendations_card_fact,
+    [RECOMMENDATION_TYPES.WARNING]: style.recommendations_card_warning,
+    [RECOMMENDATION_TYPES.ALERT]: style.recommendations_card_error,
+  }[type || RECOMMENDATION_TYPES.INFO] ?? style.recommendations_card_fact;
 }
 
 function getDescriptionText(recommendation?: any) {
@@ -52,17 +52,17 @@ function Card({
   const mainText = parts.join('\n');
 
   return (
-    <div className={`${style.card} ${className}`}>
-      <div className={style.card_wrapper}>
-        <h5 className={style.card_title}>
-          <span className={style.card_icon}></span>
+    <div className={`${style.recommendations_card} ${className}`}>
+      <div className={style.recommendations_card_wrapper}>
+        <h5 className={style.recommendations_card_title}>
+          <span className={style.recommendations_card_icon}></span>
           {localization.get(formattedTitle, titleArgs)}
         </h5>
         <Description
           style={{ color: '#12131B' }}
           text={previewText || ''}
         />
-        <div className={style.card_shortcut}>
+        <div className={style.recommendations_card_shortcut}>
           <Description
             style={{ color: '#12131B' }}
             text={mainText || ''}

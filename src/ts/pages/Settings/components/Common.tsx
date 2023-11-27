@@ -6,6 +6,7 @@ import Select from 'ts/components/UiKit/components/Select';
 import PageBox from 'ts/components/Page/Box';
 import Title from 'ts/components/Title';
 import localization from 'ts/helpers/Localization';
+import { applicationHasCustom } from 'ts/helpers/RPC';
 
 const Common = observer((): React.ReactElement | null => {
   const [title, setTitle] = useState<string>(document.title);
@@ -22,6 +23,7 @@ const Common = observer((): React.ReactElement | null => {
           onChange={(value: string) => {
             setTitle(value);
             document.title = value || 'Git статистика';
+            applicationHasCustom.title = true;
           }}
         />
         <Select

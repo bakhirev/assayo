@@ -2,7 +2,10 @@
 
 .paginator {
   display: block;
-  margin: 24px auto 0 auto;
+  margin: 0 auto 24px auto;
+  white-space: normal;
+  box-sizing: border-box;
+  vertical-align: top;
 }
 
 .paginator_text {

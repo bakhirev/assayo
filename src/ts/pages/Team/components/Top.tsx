@@ -11,7 +11,7 @@ import Races from 'ts/components/Races';
 
 import Tv100And1 from 'ts/components/Tv100And1';
 
-import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
+// import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import Description from 'ts/components/Description';
 import DataView from 'ts/components/DataView';
@@ -51,16 +51,17 @@ const Top = observer((): React.ReactElement => {
 
   const authors = dataGripStore.dataGrip.author.statistic.map((statistic: any) => {
     const achievements = getAchievementByAuthor(statistic.author);
+    console.dir(achievements);
     const from = getDate(statistic.firstCommit.date);
     const to = getDate(statistic.lastCommit.date);
     const achievementsList = [
-      ...achievements[ACHIEVEMENT_TYPE.GOOD],
-      ...achievements[ACHIEVEMENT_TYPE.NORMAL],
-      ...achievements[ACHIEVEMENT_TYPE.BAD],
-    ].map((type: string) => (
+      // ...achievements[ACHIEVEMENT_TYPE.GOOD],
+      // ...achievements[ACHIEVEMENT_TYPE.NORMAL],
+      // ...achievements[ACHIEVEMENT_TYPE.BAD],
+    ].map((code: string) => (
       <Achievement
-        key={type}
-        type={type}
+        key={code}
+        code={code}
       />
     ));
 

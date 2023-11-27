@@ -16,9 +16,13 @@ function Title({
   className,
 }: ITitleProps) {
   return (
-    <h3 className={`${style.title} ${addPadding ? style.title_padding : ''} ${className || ''}`}>
-      {localization.get(title || '')}
-    </h3>
+    <>
+      <a // @ts-ignore
+        name={title}></a>
+      <h3 className={`${style.title} ${addPadding ? style.title_padding : ''} ${className || ''}`}>
+        {localization.get(title || '')}
+      </h3>
+    </>
   );
 }
 

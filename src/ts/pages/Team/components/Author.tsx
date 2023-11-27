@@ -29,9 +29,10 @@ import Description from 'ts/components/Description';
 interface IAuthorViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  mode?: string;
 }
 
-function AuthorView({ response, updateSort }: IAuthorViewProps) {
+function AuthorView({ response, updateSort, mode }: IAuthorViewProps) {
   if (!response) return null;
 
   const textWork = localization.get('page.team.author.worked');
@@ -46,6 +47,8 @@ function AuthorView({ response, updateSort }: IAuthorViewProps) {
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
     >
       <Column
         isFixed
@@ -163,17 +166,15 @@ const Author = observer(({
         <RecommendationsWrapper recommendations={recommendations} />
       )}
       <Title title="page.team.author.title"/>
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: rows, pagination, sort, mode,
-          })}
-        >
-          <AuthorView />
-          <Pagination />
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows, pagination, sort, mode,
+        })}
+      >
+        <AuthorView mode={mode} />
+        <Pagination />
+      </DataLoader>
       <PageWrapper>
         <PageColumn>
           <Description

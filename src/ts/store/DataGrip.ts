@@ -8,6 +8,7 @@ import getFileTreeWithStatistic from 'ts/helpers/DataGrip/helpers/tree';
 import Parser from 'ts/helpers/Parser';
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import getTitle from 'ts/helpers/Title';
+import { applicationHasCustom } from 'ts/helpers/RPC';
 
 import settingsStore from './Settings';
 
@@ -70,7 +71,10 @@ class DataGripStore implements IDataGripStore {
     this.dataGrip = dataGrip;
 
     console.dir(this.dataGrip);
-    document.title = getTitle(this.dataGrip, this.commits);
+    console.dir(getTitle(this.dataGrip, this.commits));
+    if (!applicationHasCustom.title) {
+      document.title = getTitle(this.dataGrip, this.commits);
+    }
   }
 
   updateChars() { // todo: remove, never use

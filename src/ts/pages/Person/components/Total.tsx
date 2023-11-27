@@ -23,7 +23,7 @@ interface IAchievementBlockProps {
 }
 
 function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
-  if (!achievements.length) return null;
+  if (!achievements?.length) return null;
   return (
     <>
       <Description text={`# ${localization.get(title)}`}/>

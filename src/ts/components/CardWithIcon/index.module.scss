@@ -101,3 +101,29 @@
     }
   }
 }
+
+@media print {
+  .card_with_icon,
+  .card_with_icon_long {
+    min-height: 220px;
+    padding: 16px 0;
+
+    &_icon {
+      height: 60px;
+    }
+
+    &_value {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    &_title {
+      font-size: var(--font-s);
+      margin: 0 0 8px 0;
+    }
+
+    &_description {
+      display: block;
+    }
+  }
+}

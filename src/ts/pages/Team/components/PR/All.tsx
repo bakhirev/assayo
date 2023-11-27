@@ -39,6 +39,8 @@ function AllPR({
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 2 : undefined}
     >
       {mode === 'print' ? (
         <Column

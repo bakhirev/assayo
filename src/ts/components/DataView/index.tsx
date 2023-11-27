@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import ISort from 'ts/interfaces/Sort';
 import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
+import { downloadCsv } from 'ts/helpers/File';
 
 import style from './index.module.scss';
+import PageWrapper from '../Page/wrapper';
 
 interface IDataViewProps {
   rows: any[];
   type?: string;
   sort?: ISort[];
+  columnCount?: number,
   className?: string,
   disabledRow?: (row: any) => boolean;
+  converterToCsv?: Function,
   updateSort?: Function,
   children: React.ReactNode | React.ReactNode[];
 }
@@ -20,11 +25,13 @@ function DataView({
   rows = [],
   sort = [],
   type,
+  columnCount,
   className,
   disabledRow,
   updateSort,
   children,
 }: IDataViewProps): React.ReactElement | null {
+  const urlParams = useParams<any>();
   const [localType, setType] = useState<string>(type || 'table');
 
   if (!rows || !rows.length) return null;
@@ -41,29 +48,45 @@ function DataView({
 
   return (
     <>
-      <img
-        title={title}
-        src={icon}
-        className={style.data_view_icon}
-        onClick={() => {
-          setType(localType === 'table' ? 'cards' : 'table');
-        }}
-      />
+      <div style={{ position: 'relative' }}>
+        <div className={style.data_view_buttons}>
+          <img
+            title={'Скачать CSV'}
+            src="./assets/icons/Download.svg"
+            className={style.data_view_icon}
+            onClick={() => {
+              const fileName = `${urlParams.type || ''} ${urlParams.page || ''}`;
+              downloadCsv(rows, children, fileName);
+            }}
+          />
+          <img
+            title={title}
+            src={icon}
+            className={style.data_view_icon}
+            onClick={() => {
+              setType(localType === 'table' ? 'cards' : 'table');
+            }}
+          />
+        </div>
+      </div>
 
       {localType === 'table' && (
-        <Table
-          rows={rows}
-          sort={sort}
-          disabledRow={disabledRow}
-          updateSort={updateSort}
-        >
-          {children}
-        </Table>
+        <PageWrapper template="table">
+          <Table
+            rows={rows}
+            sort={sort}
+            disabledRow={disabledRow}
+            updateSort={updateSort}
+          >
+            {children}
+          </Table>
+        </PageWrapper>
       )}
 
       {localType === 'cards' && (
         <Cards
           items={rows}
+          columnCount={columnCount}
           className={className}
         >
           {children}
@@ -77,6 +100,7 @@ DataView.defaultProps = {
   rows: [],
   sort: [],
   type: 'table',
+  columnCount: undefined,
   updateSort: () => {
   },
 };

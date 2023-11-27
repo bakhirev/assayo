@@ -59,7 +59,7 @@ export default function getAchievementByAuthor(author: string) {
   if (getList?.some((commit: ICommit) => commit.taskNumber === '300')) list.push('taskNumber300');
 
   return list.reduce((acc: any, type: string) => {
-    const index = ALL_ACHIEVEMENTS[type][2];
+    const index = ALL_ACHIEVEMENTS[type] - 1;
     acc[index].push(type);
     return acc;
   }, [[], [], []]);

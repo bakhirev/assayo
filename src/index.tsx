@@ -2,12 +2,14 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 
-import ru from 'ts/config/translations/ru';
-import en from 'ts/config/translations/en';
+import localization from 'ts/helpers/Localization';
+import ru from 'ts/translations/ru/index';
+import en from 'ts/translations/en/index';
 import Authorization from 'ts/pages/Authorization';
 import userSettings from 'ts/store/UserSettings';
 import Notifications from 'ts/components/Notifications';
 import printStore from 'ts/pages/PageWrapper/store/Print';
+import applyUrlCommands from 'ts/helpers/RPC';
 
 import './styles/index.scss';
 
@@ -19,15 +21,8 @@ if (module.hot) {
   module.hot.accept();
 }
 
-// @ts-ignore
-console.dir(ru + en + '');
-
-function getParametersFromString(text: string) {
-  return Object.fromEntries((text || '')
-    .substring(1, Infinity)
-    .split('&')
-    .map((token: string) => token.split('=')));
-}
+localization.parse('ru', ru);
+localization.parse('en', en);
 
 function renderReactApplication() {
   // @ts-ignore
@@ -46,24 +41,6 @@ function renderReactApplication() {
   );
 }
 
-function loadApplication() {
-  const parameters = {
-    ...getParametersFromString(location.search),
-    ...getParametersFromString(location.hash),
-  };
-
-  if (!parameters.dump) {
-    return renderReactApplication();
-  }
-
-  const script = document.createElement('script');
-  script.src = parameters.dump;
-  script.async = true;
-  script.onload = renderReactApplication;
-  script.onerror = renderReactApplication;
-  document.body.appendChild(script);
-}
-
 userSettings.loadUserSettings().then(() => {
-  loadApplication();
+  applyUrlCommands(renderReactApplication);
 });

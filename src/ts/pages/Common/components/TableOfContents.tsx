@@ -11,20 +11,21 @@ interface ITableOfContents {
 
 function TableOfContents({ titles }: ITableOfContents) {
   const items = (titles || []).map((title) => (
-    <li
+    <a
       key={title}
       className={style.table_of_contents_item}
+      href={`#${title}`}
     >
       {localization.get(title || '')}
-    </li>
+    </a>
   ));
 
   return (
     <>
       <Title title="page.print.tableOfContents" />
-      <ul className={style.table_of_contents}>
+      <nav className={style.table_of_contents}>
         {items}
-      </ul>
+      </nav>
     </>
   );
 }

@@ -34,9 +34,7 @@ const PR = observer(({
   return (
     <>
       <Title title="page.team.pr.oneTaskDays"/>
-      <PageWrapper template="table">
-        <Total/>
-      </PageWrapper>
+      <Total/>
 
       <PageWrapper>
         <PageColumn>
@@ -57,17 +55,15 @@ const PR = observer(({
       <br/>
 
       <Title title="page.team.pr.statByAuthors"/>
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: authorsStat, pagination, sort, mode,
-          })}
-        >
-          <Authors/>
-          <Pagination/>
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: authorsStat, pagination, sort, mode,
+        })}
+      >
+        <Authors mode={mode}/>
+        <Pagination/>
+      </DataLoader>
 
       <PageBreak/>
       <Title title="page.team.pr.longDelay"/>

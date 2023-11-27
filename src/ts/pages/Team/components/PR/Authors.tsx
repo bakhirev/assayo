@@ -22,9 +22,10 @@ const order = Object.values(TITLES);
 interface IAuthorsProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  mode?: string;
 }
 
-function Authors({ response, updateSort }: IAuthorsProps) {
+function Authors({ response, updateSort, mode }: IAuthorsProps) {
   if (!response) return null;
 
   const timeChart = getOptions({ order, limit: 3 });
@@ -42,6 +43,8 @@ function Authors({ response, updateSort }: IAuthorsProps) {
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
     >
       <Column
         isSortable

@@ -6,7 +6,6 @@ import { getMoney } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
-import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
@@ -22,15 +21,24 @@ import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
 
 interface IScopeViewProps {
   response?: IPagination<any>;
+  updateSort?: Function;
+  mode?: string;
 }
 
-function ScopeView({ response }: IScopeViewProps) {
+function ScopeView({ response, updateSort, mode }: IScopeViewProps) {
   if (!response) return null;
+
   const typeChart = getOptions({ order: dataGripStore.dataGrip.type.list });
   const authorChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
-    <DataView rows={response.content}>
+    <DataView
+      rows={response.content}
+      sort={response.sort}
+      updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
+    >
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
@@ -118,17 +126,15 @@ const Scope = observer(({
         <RecommendationsWrapper recommendations={recommendations} />
       )}
       <Title title="page.team.scope.title"/>
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest) => getFakeLoader({
-            content: rows, pagination, mode,
-          })}
-        >
-          <ScopeView />
-          <Pagination />
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest) => getFakeLoader({
+          content: rows, pagination, mode,
+        })}
+      >
+        <ScopeView mode={mode} />
+        <Pagination />
+      </DataLoader>
     </>
   );
 });

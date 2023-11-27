@@ -1,13 +1,17 @@
 @import '../../../../styles/variables';
 
 .table_of_contents {
+  display: block;
   margin-bottom: var(--space-xxl);
 
   &_item {
     position: relative;
+    display: block;
     padding: 0 0 0 22px;
     margin: var(--space-m) 0;
     list-style-type: none;
+    text-decoration: none;
+    color: var(--color-black);
 
     &:before {
       position: absolute;

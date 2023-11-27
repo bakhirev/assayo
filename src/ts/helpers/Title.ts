@@ -56,6 +56,5 @@ export default function getTitle(dataGrip: any, commits: any) {
   const formattedTask = task.split('-').shift().toUpperCase() || '';
   const formattedAuthor = author.split(' ').shift() || '';
 
-  const title = `${type} ${formattedTask} (${year}, ${formattedAuthor})`;
-  return `${title}. Git статистика`;
+  return `${type} ${formattedTask} (${year}, ${formattedAuthor})`;
 }

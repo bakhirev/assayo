@@ -19,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "set PORT=3006 && react-scripts start",
+    "dev": "set PORT=3006 && react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -58,6 +58,8 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "react-app-rewire-typings-for-css-module": "^4.0.3",
+    "react-app-rewired": "^2.2.1",
     "react-testing-library": "^8.0.1",
     "stylelint": "^14.16.1",
     "stylelint-group-selectors": "^1.0.9",

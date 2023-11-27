@@ -6,7 +6,6 @@ class Localization {
   insertArguments(message: string, args?: any) {
     if (!args) return message;
     const list = Array.isArray(args) ? args : [args];
-    console.log(list);
     list.forEach((text: any, index: number) => {
       message = message.replace(`$${index + 1}`, text || '_');
     });
