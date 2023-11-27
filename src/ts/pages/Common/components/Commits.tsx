@@ -9,7 +9,9 @@ import PageWrapper from 'ts/components/Page/wrapper';
 import BarChart from 'ts/components/BarChart';
 import DayInfo from 'ts/components/DayInfo';
 import Title from 'ts/components/Title';
+import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 import localization from 'ts/helpers/Localization';
+
 
 interface ICommitsProps {
   statistic: any;
@@ -31,11 +33,14 @@ function Commits({ statistic }: ICommitsProps) {
 
   const [fullDay, shortDay] = getDateByTimestamp(maxData.timestamp);
   const recommendations = [
-    [
-      fullDay,
-      localization.get('page.common.commits.description', shortDay),
-      'fact',
-    ],
+    {
+      title: fullDay,
+      description: 'page.common.commits.description',
+      type: RECOMMENDATION_TYPES.FACT,
+      arguments: {
+        description: [shortDay],
+      },
+    },
   ];
 
   return (
@@ -53,7 +58,6 @@ function Commits({ statistic }: ICommitsProps) {
       </PageWrapper>
       <br/>
       <br/>
-      {}
       <Title title={localization.get(
         'page.common.commits.title2',
         getDate(selected?.timestamp),

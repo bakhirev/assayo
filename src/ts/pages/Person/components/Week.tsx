@@ -7,12 +7,11 @@ import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import { getShortDateRange, getShortNumber } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
-import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
-import Table from 'ts/components/Table';
+import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -26,9 +25,11 @@ import ISort from 'ts/interfaces/Sort';
 interface IWeekViewProps {
   name: string;
   response?: IPagination<any>;
+  updateSort?: Function;
+  mode?: string;
 }
 
-function WeekView({ response, name }: IWeekViewProps) {
+function WeekView({ response, updateSort, name, mode }: IWeekViewProps) {
   if (!response) return null;
 
   const typeChart = getOptions({ max: getMax(response, 'authors', name), order: dataGripStore.dataGrip.type.list });
@@ -39,7 +40,13 @@ function WeekView({ response, name }: IWeekViewProps) {
   const taskInDayChart = getOptions({ max: getMax(response, 'taskInDay', name) });
 
   return (
-    <Table rows={response.content}>
+    <DataView
+      rows={response.content}
+      sort={response.sort}
+      updateSort={updateSort}
+      type={mode === 'print' ? 'cards' : undefined}
+      columnCount={mode === 'print' ? 3 : undefined}
+    >
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
@@ -104,7 +111,7 @@ function WeekView({ response, name }: IWeekViewProps) {
         )}
         width={200}
       />
-    </Table>
+    </DataView>
   );
 }
 
@@ -126,17 +133,18 @@ const Week = observer(({
       {mode !== 'print' && (
         <RecommendationsWrapper recommendations={recommendations} />
       )}
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: rows, pagination, sort,
-          })}
-        >
-          <WeekView name={statistic.author} />
-          {mode !== 'print' && <Pagination />}
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows, pagination, sort,
+        })}
+      >
+        <WeekView
+          name={statistic.author}
+          mode={mode}
+        />
+        {mode !== 'print' && <Pagination />}
+      </DataLoader>
     </>
   );
 });

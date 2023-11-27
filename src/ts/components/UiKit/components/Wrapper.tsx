@@ -25,27 +25,27 @@ function UiKitWrapper({
 }: IUiKitWrapperProps) {
   return (
     <div
-      className={`${style.wrapper} ${className || ''}`}
+      className={`${style.ui_kit_wrapper} ${className || ''}`}
       title={localization.get(help)}
     >
       {title && (
-        <h6 className={style.title}>
+        <h6 className={style.ui_kit_title}>
           {localization.get(title)}
         </h6>
       )}
       {description && (
-        <p className={style.description}>
+        <p className={style.ui_kit_description}>
           {localization.get(description)}
         </p>
       )}
       {children}
       {help && (
-        <p className={style.help}>
+        <p className={style.ui_kit_help}>
           {localization.get(example)}
         </p>
       )}
       {error && (
-        <p className={style.error}>
+        <p className={style.ui_kit_error}>
           {error}
         </p>
       )}

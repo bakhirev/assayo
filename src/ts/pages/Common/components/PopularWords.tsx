@@ -5,7 +5,7 @@ import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
 import CandyChart from 'ts/components/CandyChart';
 import Title from 'ts/components/Title';
-import localization from 'ts/helpers/Localization';
+import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 
 interface IPopularWordsProps {
   statistic: any[];
@@ -23,12 +23,15 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
 
   if (!dots?.length) return (<NothingFound />);
 
-  // dots[0].color = COLOR.FIRST;
   const recommendations = [
-    [dots[0].title,
-      localization.get('page.common.words.description', dots[0].value),
-      'fact',
-    ],
+    {
+      title: dots[0].title,
+      description: 'page.common.words.description',
+      type: RECOMMENDATION_TYPES.FACT,
+      arguments: {
+        description: [dots[0].value],
+      },
+    },
   ];
 
   return (

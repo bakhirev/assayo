@@ -61,7 +61,7 @@ const Tempo = observer((): React.ReactElement => {
     <>
       <Title title="common.filters" />
       <PageWrapper>
-        <div className={style.tempo_page_filters}>
+        <div className={style.tempo_filters}>
           <UiKitButton
             type="second"
             disabled={week === 1}
@@ -71,7 +71,7 @@ const Tempo = observer((): React.ReactElement => {
           >
             «
           </UiKitButton>
-          <div className={`${uiKitStyle.ui_kit_common} ${style.date_range}`}>
+          <div className={`${uiKitStyle.ui_kit_common} ${style.tempo_filters_date_range}`}>
             {getShortDateRange({
               from: firstWeekDay.timestamp,
               to: lastWeekDay.timestamp,
@@ -96,7 +96,7 @@ const Tempo = observer((): React.ReactElement => {
             «
           </UiKitButton>
           <UiKitSelect
-            className={style.user}
+            className={style.tempo_filters_user}
             value={user}
             options={[ '', ...dataGripStore.dataGrip.author.list]}
             onChange={(id: number, name: string) => {

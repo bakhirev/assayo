@@ -5,9 +5,9 @@ import style from '../styles/index.module.scss';
 
 export function getCustomClassName(type?: string, disabled?: boolean) {
   let customClassName = {
-    slim: style.button_slim,
-    second: style.button_second,
-    primary: style.button_primary,
+    slim: style.ui_kit_button_slim,
+    second: style.ui_kit_button_second,
+    primary: style.ui_kit_button_primary,
   }[type || 'primary'] || '';
 
   if (disabled) {
@@ -34,7 +34,7 @@ function UiKitButton({
   return (
     <button
       title={title}
-      className={`${style.button} ${customClassName || ''} ${className || ''}`}
+      className={`${style.ui_kit_button} ${customClassName || ''} ${className || ''}`}
       onClick={() => {
         if (onClick) onClick();
       }}

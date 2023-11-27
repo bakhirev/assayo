@@ -67,21 +67,19 @@ const PR = observer(({
 
       <PageBreak/>
       <Title title="page.team.pr.longDelay"/>
-      <PageWrapper template="table">
-        <DataLoader
-          to="response"
-          loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-            content: rows,
-            pagination: mode === 'print'
-              ? { size: 20 }
-              : pagination,
-            sort,
-          })}
-        >
-          <All mode={mode} />
-          {mode !== 'print' && <Pagination/>}
-        </DataLoader>
-      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows,
+          pagination: mode === 'print'
+            ? { size: 20 }
+            : pagination,
+          sort,
+        })}
+      >
+        <All mode={mode} />
+        {mode !== 'print' && <Pagination/>}
+      </DataLoader>
     </>
   );
 });

@@ -13,7 +13,6 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import TempoChart from 'ts/components/Tempo';
-import Title from 'ts/components/Title';
 
 import uiKitStyle from 'ts/components/UiKit/styles/index.module.scss';
 import style from 'ts/pages/Team/styles/filters.module.scss';
@@ -59,9 +58,8 @@ const Tempo = observer((): React.ReactElement => {
   if (!partOfData?.length) return (<NothingFound />);
   return (
     <>
-      <Title title="common.filters" />
       <PageWrapper>
-        <div className={style.tempo_page_filters}>
+        <div className={style.tempo_filters}>
           <UiKitButton
             type="second"
             disabled={week === 1}
@@ -71,7 +69,7 @@ const Tempo = observer((): React.ReactElement => {
           >
             «
           </UiKitButton>
-          <div className={`${uiKitStyle.ui_kit_common} ${style.date_range}`}>
+          <div className={`${uiKitStyle.ui_kit_common} ${style.tempo_filters_date_range}`}>
             {getShortDateRange({
               from: firstWeekDay.timestamp,
               to: lastWeekDay.timestamp,

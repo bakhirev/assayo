@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import dataGripStore from 'ts/store/DataGrip';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
+import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 
 import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
 import NothingFound from 'ts/components/NothingFound';
@@ -29,7 +30,14 @@ function Changes({ statistic }: IChangesProps) {
 
   const [fullDay, shortDay] = getDateByTimestamp(maxData.timestamp);
   const recommendations = [
-    [fullDay, ` (${shortDay}) было влито больше всего изменений.`, 'fact'],
+    {
+      title: fullDay, // TODO: вынести локализацию
+      description: ` (${shortDay}) было влито больше всего изменений.`,
+      type: RECOMMENDATION_TYPES.FACT,
+      arguments: {
+        description: [shortDay],
+      },
+    },
   ];
 
   return (

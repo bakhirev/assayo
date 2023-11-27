@@ -22,15 +22,15 @@
   background-color: #FFFFFF;
 }
 
-.wrapper + .wrapper {
+.ui_kit_wrapper + .ui_kit_wrapper {
   vertical-align: top;
   margin-top: var(--space-l);
 }
 
-.title,
-.description,
-.help,
-.error,
+.ui_kit_title,
+.ui_kit_description,
+.ui_kit_help,
+.ui_kit_error,
 .button {
   font-weight: 100;
   font-size: var(--font-xs);
@@ -46,26 +46,27 @@
   color: var(--color-grey);
 }
 
-.title {
+.ui_kit_title {
   font-weight: bold;
   color: var(--color-black);
 }
 
-.title,
-.description {
+.ui_kit_title,
+.ui_kit_description {
   margin-bottom: 6px;
 }
 
-.help,
-.error {
+.ui_kit_help,
+.ui_kit_error {
   margin-top: 6px;
 }
 
-.error {
+.ui_kit_error {
   color: var(--color-12);
 }
 
-.button {
+
+.ui_kit_button {
   --button-color-bg: var(--color-button);
   --button-color-text: #FFFFFF;
   --button-color-border: var(--color-button);
@@ -82,7 +83,7 @@
   }
 }
 
-.button {
+.ui_kit_button {
   font-weight: bold;
   font-size: var(--font-xs);
   display: inline-block;
@@ -121,7 +122,7 @@
   }
 }
 
-.button + .button {
+.ui_kit_button + .ui_kit_button {
   margin-right: 24px;
 }
 

@@ -1,25 +1,25 @@
 @import '../../../../styles/variables';
 
-.filter {
+.tree_filters {
   display: inline-block;
   margin: 0 24px 24px 0;
   vertical-align: top;
 }
 
-.tempo_page_filters {
+.tempo_filters {
   margin: 0 0 24px 0;
-}
 
-.date_range {
-  width: 260px;
-  max-width: 260px;
-  margin: 0 var(--space-xs);
-  text-align: center;
-}
+  &_date_range {
+    width: 260px;
+    max-width: 260px;
+    margin: 0 var(--space-xs);
+    text-align: center;
+  }
 
-.user {
-  display: inline-block;
-  width: 260px;
-  max-width: 260px;
-  margin: 0 6px;
+  &_user {
+    display: inline-block;
+    width: 260px;
+    max-width: 260px;
+    margin: 0 6px;
+  }
 }

@@ -15,12 +15,12 @@ const TreeFilters = observer((): React.ReactElement => {
   options.unshift({ id: 0, title: localization.get('page.team.tree.filters.all') });
 
   return (
-    <>
+    <div>
       <UiKitSelect
         title="page.team.tree.filters.author"
         value={treeStore.authorId}
         options={options}
-        className={style.filter}
+        className={style.tree_filters}
         onChange={(authorId: number) => {
           treeStore.updateFilter('authorId', authorId);
         }}
@@ -29,12 +29,12 @@ const TreeFilters = observer((): React.ReactElement => {
         title="page.team.tree.filters.commits"
         help="page.team.tree.filters.help"
         value={treeStore.minCommits}
-        className={style.filter}
+        className={style.tree_filters}
         onChange={(minCommits: number) => {
           treeStore.updateFilter('minCommits', minCommits);
         }}
       />
-    </>
+    </div>
   );
 });
 

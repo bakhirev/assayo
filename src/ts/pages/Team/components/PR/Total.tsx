@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DataView from 'ts/components/DataView';
+import Table from 'ts/components/Table';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
@@ -40,7 +40,7 @@ function Total() {
   ];
 
   return (
-    <DataView rows={rows}>
+    <Table rows={rows}>
       <Column
         title="page.team.pr.workDays"
         properties="workDays"
@@ -79,7 +79,7 @@ function Total() {
           />
         )}
       />
-    </DataView>
+    </Table>
   );
 }
 
