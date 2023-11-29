@@ -1,46 +1,46 @@
 export default `
-§ page.welcome.step1: Выполните команду в корне вашего проекта
-§ page.welcome.step3: Перетащите
-§ page.welcome.step4: файл log.txt на эту страницу
-§ page.welcome.description1: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл
-§ page.welcome.description2: [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы объединить статистику по сотрудникам.
-§ page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы объединить статистику по сотрудникам.
-§ page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
-§ page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].
-§ page.common.words.title: Статистика по словам
-§ page.common.words.description: самое популярное слово. Встречается $1 раза.
-§ page.common.commits.title: Количество коммитов по дням
-§ page.common.commits.description: ($1) самый продуктивный день по числу коммитов.
-§ page.common.commits.title2: $1 сделано коммитов: $2
-§ page.common.filter.allUsers: Не имеет значения
-§ page.print.modal.title: Что распечатываем?
-§ page.print.modal.page: Текущую страницу
-§ page.print.modal.type: Текущий раздел
-§ page.print.modal.all: Всю статистику
-§ page.print.modal.cancel: Отмена
-§ page.print.tableOfContents: Оглавление
-§ page.print.title: Отчёт по git-репозиторию «$1»
-§ page.print.description: Данные для отчёта были получены из истории коммитов.
-§ page.team.author.title: Статистика по сотрудникам
-§ page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
-§ page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
-§ page.team.author.types: Тип работ
-§ page.team.author.commits: Коммитов
-§ page.team.author.commitsSmall: коммитов
-§ page.team.author.tasks: Задач
-§ page.team.author.tasksSmall: задач
-§ page.team.author.workedLosses: Дни с коммитами и без
-§ page.team.author.worked: работа
-§ page.team.author.losses: дни без коммитов
-§ page.team.author.days: дней
-§ page.team.author.daysForTask: Дней на задачу
-§ page.team.author.scopes: Фич
-§ page.team.author.moneyAll: Получил
-§ page.team.author.moneyWorked: Отработал
-§ page.team.author.moneyLosses: Переплата
-§ page.team.hours.title: Распределение коммитов в течении каждого дня недели
-§ page.team.month.title: Календарь работы по проекту
-§ page.team.scope.title: Статистика по фичам
+§ page.welcome.step1: Execute the command in your project's root directory
+§ page.welcome.step3: Drag and drop
+§ page.welcome.step4: the log.txt file onto this page
+§ page.welcome.description1: Git will create the log.txt file. It contains data for generating a report. Alternatively, use git shortlog -s -n -e if you don't need a report. Create the file
+§ page.welcome.description2: [.mailmap|https://git-scm.com/docs/gitmailmap] in the project's root to consolidate statistics by employees.
+§ page.welcome.description: Git will create the log.txt file. It contains data for generating a report. Alternatively, use git shortlog -s -n -e if you don't need a report. Create the [.mailmap|https://git-scm.com/docs/gitmailmap] file in the project's root to consolidate statistics by employees.
+§ page.welcome.warning1: The service *DOES NOT STORE* or *TRANSMIT* your data. All calculations are performed locally in your browser on your machine.
+§ page.welcome.warning2: The service *DOES NOT COLLECT* project statistics. You can disconnect from the internet, monitor traffic, and even build a local version from [source code|https://github.com/bakhirev/assayo].
+§ page.common.words.title: Word Statistics
+§ page.common.words.description: the most common word. Appears $1 times.
+§ page.common.commits.title: Number of Commits per Day
+§ page.common.commits.description: ($1) the most productive day in terms of commit count.
+§ page.common.commits.title2: $1 commits made: $2
+§ page.common.filter.allUsers: Doesn't matter
+§ page.print.modal.title: What to Print?
+§ page.print.modal.page: Current Page
+§ page.print.modal.type: Current Section
+§ page.print.modal.all: All Statistics
+§ page.print.modal.cancel: Cancel
+§ page.print.tableOfContents: Table of Contents
+§ page.print.title: Report for Git Repository «$1»
+§ page.print.description: Data for the report was obtained from the commit history.
+§ page.team.author.title: Employee Statistics
+§ page.team.author.description1: *Some statistics* (work speed, expenses, etc.) *for employees with the "Assistant" type are not counted*, as it is an episodic role in the project. We assume they do not affect the project, and their edits can be neglected in the overall workload.
+§ page.team.author.description2: *The default sorting* is by the number of tasks and groups (current, fired, assisting employees).
+§ page.team.author.types: Work Type
+§ page.team.author.commits: Commits
+§ page.team.author.commitsSmall: commits
+§ page.team.author.tasks: Tasks
+§ page.team.author.tasksSmall: tasks
+§ page.team.author.workedLosses: Days with and without commits
+§ page.team.author.worked: worked
+§ page.team.author.losses: days without commits
+§ page.team.author.days: days
+§ page.team.author.daysForTask: Days per Task
+§ page.team.author.scopes: Features
+§ page.team.author.moneyAll: Received
+§ page.team.author.moneyWorked: Worked
+§ page.team.author.moneyLosses: Overpayment
+§ page.team.hours.title: Distribution of Commits Throughout Each Day of the Week
+§ page.team.month.title: Project Work Calendar
+§ page.team.scope.title: Feature Statistics
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней
 § page.team.scope.authorsDays: Человеко-дней
