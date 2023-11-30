@@ -19,10 +19,10 @@ const Common = observer((): React.ReactElement | null => {
         <InputString
           title="page.settings.document.name"
           value={title}
-          placeholder="Git статистика"
+          placeholder="Git Statistics"
           onChange={(value: string) => {
             setTitle(value);
-            document.title = value || 'Git статистика';
+            document.title = value || 'Git Statistics';
             applicationHasCustom.title = true;
           }}
         />

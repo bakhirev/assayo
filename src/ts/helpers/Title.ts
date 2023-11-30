@@ -45,7 +45,7 @@ function getFormattedType(dataGrip: any): string {
 
 export default function getTitle(dataGrip: any, commits: any) {
   if (!commits.length) {
-    return 'Git статистика';
+    return 'Git Statistics';
   }
 
   const type = getFormattedType(dataGrip) || '';

@@ -1,5 +1,5 @@
 class Localization {
-  language:string = 'ru';
+  language:string = 'en';
 
   translations: any = {};
 
