@@ -17,7 +17,7 @@ export default `
 § sidebar.team.week: By week
 § sidebar.team.month: By month
 § sidebar.team.tree: Files
-§ sidebar.team.hours: Schedule
+§ sidebar.team.hours: Work schedule
 § sidebar.team.commits: All commits
 § sidebar.team.changes: All changes
 § sidebar.team.words: Popular words
@@ -29,7 +29,7 @@ export default `
 § sidebar.person.day: By day
 § sidebar.person.week: By week
 § sidebar.person.month: By month
-§ sidebar.person.hours: Schedule
+§ sidebar.person.hours: Work schedule
 § sidebar.person.commits: All commits
 § sidebar.person.changes: All changes
 § sidebar.person.words: Popular words

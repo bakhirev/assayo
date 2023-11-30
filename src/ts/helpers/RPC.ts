@@ -1,4 +1,5 @@
 import IHashMap from 'ts/interfaces/HashMap';
+import localization from 'ts/helpers/Localization';
 
 function getParametersFromString(text: string): IHashMap<string> {
   return Object.fromEntries((text || '')
@@ -48,6 +49,11 @@ export default function applyUrlCommands(callback: Function) {
   if (title) {
     document.title = decodeURIComponent(title);
     applicationHasCustom.title = true;
+  }
+
+  const language = parameters.lang || parameters.language;
+  if (language) {
+    localization.language = language;
   }
 
   const jsUrl = parameters.dump || parameters.log;

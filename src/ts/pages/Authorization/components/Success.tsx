@@ -12,6 +12,7 @@ import Team from '../../Team/index';
 import Person from '../../Person/index';
 import Welcome from '../../Welcome/index';
 import Settings from '../../Settings/index';
+import DebugPage from '../../Debug/index';
 
 const Success = observer((): React.ReactElement => {
   const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
@@ -43,6 +44,14 @@ const Success = observer((): React.ReactElement => {
             element={(
               <PageWrapper>
                 <Settings />
+              </PageWrapper>
+            )}
+          />
+          <Route
+            path="/debug"
+            element={(
+              <PageWrapper>
+                <DebugPage />
               </PageWrapper>
             )}
           />

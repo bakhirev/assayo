@@ -18,10 +18,10 @@ export default `
 § page.print.modal.type: Current section
 § page.print.modal.all: All statistics
 § page.print.modal.cancel: Cancel
-§ page.print.tableOfContents: Table of Contents
-§ page.print.title: Git Repository Report «$1»
+§ page.print.tableOfContents: Table of contents
+§ page.print.title: Git repository report «$1»
 § page.print.description: The data for the report was obtained from the commit history.
-§ page.team.author.title: Employee Statistics
+§ page.team.author.title: Employee statistics
 § page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
 § page.team.author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
 § page.team.author.types: Types of work
@@ -39,28 +39,28 @@ export default `
 § page.team.author.moneyWorked: Worked for
 § page.team.author.moneyLosses: Overpayment
 § page.team.hours.title: Distribution of commits during each day of the week
-§ page.team.month.title: Project Work Calendar
-§ page.team.scope.title: Feature Statistics
+§ page.team.month.title: Project work calendar
+§ page.team.scope.title: Feature statistics
 § page.team.scope.scope: Feature
 § page.team.scope.days: Working Days
 § page.team.scope.authorsDays: Person-Days
 § page.team.scope.tasks: Tasks
 § page.team.scope.commits: Commits
 § page.team.scope.commitsSmall: commits
-§ page.team.scope.types: Types of Work
-§ page.team.scope.authors: Personal Contribution
+§ page.team.scope.types: Types of work
+§ page.team.scope.authors: Personal contribution
 § page.team.scope.cost: Cost
-§ page.team.type.title: Task Type Statistics
+§ page.team.type.title: Task type statistics
 § page.team.type.description: *Personal contribution* is counted by the number of commits, not the volume of changed lines or files. Therefore, the "File Analysis" section should also be consulted to assess the scale of changes.
-§ page.team.type.type: Type of Work
+§ page.team.type.type: Type of work
 § page.team.type.tasks: Tasks
 § page.team.type.tasksSmall: tasks
 § page.team.type.days: Days
 § page.team.type.daysSmall: days
-§ page.team.type.authorsDays: Person-Days
+§ page.team.type.authorsDays: Person-days
 § page.team.type.commits: Commits
-§ page.team.type.authors: Personal Contribution
-§ page.team.total.titleA: Volume of Work
+§ page.team.type.authors: Personal contribution
+§ page.team.total.titleA: Volume of work
 § page.team.total.titleB: Cost
 § page.team.total.daysWorked.title: person-days
 § page.team.total.daysWorked.description: Only days with commits are counted
@@ -89,19 +89,19 @@ export default `
 § page.team.total.description5: *Weekend work* is calculated at a rate of x2 the payment of a regular day. The displayed amount is specifically the overpayment (x1), as the fact of overtime in this context is not of interest. We focus on overpayment when increasing work speed.
 § page.team.tree.title: Project Tree Considering Selected Filters
 § page.team.tree.filters.author: Employee
-§ page.team.tree.filters.commits: Number of Commits
+§ page.team.tree.filters.commits: Number of commits
 § page.team.tree.filters.help: The minimum number of commits an employee has made in a file
-§ page.team.tree.filters.all: All Employees
+§ page.team.tree.filters.all: All employees
 § page.team.tree.add: Who added
 § page.team.tree.change: Who changed
 § page.team.tree.remove: Who removed
 § page.team.tree.line: lines
 § page.team.tree.lineAdd: added
 § page.team.tree.lineRemove: changed
-§ page.team.week.title: Weekly Statistics
+§ page.team.week.title: Weekly statistics
 § page.team.week.date: Date
-§ page.team.week.numberTasks: Number of Tasks
-§ page.team.week.people: Number of People
+§ page.team.week.numberTasks: Number of tasks
+§ page.team.week.people: Number of people
 § page.team.week.line: Line Changes
 § page.team.week.days: Days with and without commits
 § page.team.week.lossesDetails: Who did not commit
@@ -114,27 +114,27 @@ export default `
 § page.team.week.tasks: tasks
 § page.team.pr.task: Task
 § page.team.pr.tasks: tasks
-§ page.team.pr.firstCommitTime: First Commit
+§ page.team.pr.firstCommitTime: First commit
 § page.team.pr.lastCommitTime: Last
-§ page.team.pr.workDays: Development Days
-§ page.team.pr.delayDays: Days Waiting for Merge
+§ page.team.pr.workDays: Development days
+§ page.team.pr.delayDays: Days waiting for merge
 § page.team.pr.commits: Commits
 § page.team.pr.date: Merge Date
 § page.team.pr.mergeAuthor: Merged by
 § page.team.pr.author: Employee
-§ page.team.pr.middleTimeRelease: Average Delivery Time (days)
+§ page.team.pr.middleTimeRelease: Average delivery time (days)
 § page.team.pr.work: development
 § page.team.pr.delay: waiting
 § page.team.pr.days: days
-§ page.team.pr.oneTaskDays: Time Spent on One Task
+§ page.team.pr.oneTaskDays: Time spent on one task
 § page.team.pr.description1: *Development time* is the time difference from the first to the last commit on a task. It does not matter if there were breaks of several days between commits or not. Any commit increases the time.
 § page.team.pr.description2: *Waiting time* is the time between the last commit and the code merge. It shows the actual downtime while waiting for something.
 § page.team.pr.description3: *Why display development time* without splitting into coding and code review? To show the business the actual delivery time of the code. Waiting for testing, review comments, DevOps problems, and other process imperfections are already included in this term.
-§ page.team.pr.statByAuthors: Statistics by Employees
-§ page.team.pr.longDelay: Prolonged Waiting for Merge
+§ page.team.pr.statByAuthors: Statistics by employees
+§ page.team.pr.longDelay: Prolonged Waiting for merge
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
-§ page.person.total.title: Main Characteristics
+§ page.person.total.title: Main characteristics
 § page.person.total.daysWorked.title: days of work
 § page.person.total.daysWorked.description: Only days with commits are counted
 § page.person.total.tasks.title: tasks
@@ -194,9 +194,9 @@ will be marked as a jump in "deleted" and "added" lines.
 § page.person.speed.maxCommits.description: A task may not be completed, but work should be done on it
 § page.person.hours.title: Distribution of commits during each day of the week
 § page.person.week.date: Date
-§ page.person.week.tasks: Number of Tasks
-§ page.person.week.workDays: Days with Commits
-§ page.person.week.taskInDay: Tasks per Day
+§ page.person.week.tasks: Number of tasks
+§ page.person.week.workDays: Days with commits
+§ page.person.week.taskInDay: Tasks per day
 § page.person.week.days: days
 § page.person.week.workDay: weekdays
 § page.person.week.weekends: weekends
