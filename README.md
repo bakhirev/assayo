@@ -1,4 +1,4 @@
-> The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in Russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
+> The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
 
 > - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
