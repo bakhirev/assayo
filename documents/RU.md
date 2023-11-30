@@ -1,93 +1,91 @@
-> The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in Russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
-
 > - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=en)
+# [Assayo](https://assayo.jp/?ref=github&lang=ru)
 
-Visualization and analysis of your git repository data ([demo](https://assayo.jp/demo/?ref=github&lang=en&dump=./test.txt)).
+Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.jp/demo/?dump=./test.txt)).
 
-##### Employee can evaluate new workplace
-- work pace;
-- number of extra hours worked;
-- areas of responsibility;
-- volume of features and bugs;
-- working style of colleagues;
+##### Сотрудник может оценить новое место работы
+- темп работы;
+- количество переработок;
+- зоны ответственности;
+- объем фичей и багов;
+- стиль работы коллег;
 
-##### Manager can evaluate employees
-- identify slackers;
-- estimate the amount of code;
-- learn the work speed;
-- notice behavioral anomalies;
-- see the dynamics of work by week;
+##### Руководитель может оценить сотрудников
+- выявить бездельников;
+- прикинуть объём кода;
+- узнать скорость работы;
+- заметить аномалии поведения;
+- посмотреть динамику работы по неделям;
 
-##### Investor can evaluate product
-- product cost;
-- cost of features;
-- development time;
-- forecast of rework time;
-- forecast cost;
+##### Инвестор может оценить продукт
+- стоимость продукта;
+- стоимость фичей;
+- время на разработку;
+- прогноз времени доработок;
+- прогноз стоимости;
 
-### How to quickly view the number of commits?
+### Как быстро посмотреть количество коммитов?
 
-In the root directory of your project, run:
+В корневой директории вашего проекта выполнить:
 ```
 git shortlog -s -n -e
 ```
-### How to concat authors?
-In the root directory of your project, you need to create a `.mailmap` file.
-Example of the contents of the file:
+### Как объединить авторов?
+В корневой директории вашего проекта нужно создать файл `.mailmap`.
+Пример содержания файла:
 ```
 Alex B <alex@mail.uk>
 Alex B <alex@mail.uk> <alex@gov.tk>
 Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ``` 
-Read more about the format of this file you can [here](https://git-scm.com/docs/gitmailmap).
+Подробнее про формат этого файла можно прочитать [тут](https://git-scm.com/docs/gitmailmap).
 
-### How to export data from git?
+### Как выгрузить данные из git?
 
-#### For online viewing
-In the root directory of your project run:
+#### Для онлайн просмотра
+В корневой директории вашего проекта выполнить:
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
 ```
-#### For offline viewing
+#### Для офлайн просмотра
 
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
-Git will create a file `log.txt`.
-This file contains data for show a report.
+Git создаст файл `log.txt`.
+Он содержит данные для построения отчёта. 
 
-The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
+Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
 
-### How to view the report online?
+### Как посмотреть отчёт онлайн? 
 
-- Go to the [website](https://assayo.jp/)
-- Click the “[Demo](https://assayo.jp/demo)” button.
-- Drag the `log.txt` file into the browser window.
+- Перейти на [сайт](https://assayo.jp/)
+- Нажать кнопку «[Демо](https://assayo.jp/demo)»
+- Перетащить файл `log.txt` в окно браузера
 
-### How to view the report offline?
-- Download this repository.
-- Drag the `log.txt` file to the `/build` folder.
-- Run `/build/index.html`
-- Or drag the `/build` folder to your repository (where the `log.txt` is located). You can change the name. For example, from `/build` to `/report`.
+### Как посмотреть отчёт офлайн?
+- Скачать этот репозиторий
+- Перетащить файл `log.txt` в папку `/build`
+- Запустить `/build/index.html`
+- Или перетащить папку `/build` к себе в репозиторий (туда, где лежит `log.txt`). Можно сменить название. Например с `/build` на `/report`
 
 В этом случае важно, чтобы файл `log.txt` был сгенерирован командой для офлайн просмотра.
 
-### How to rebuild the report build?
-- Download this repository
-- Run `npm install`
-- Run `npm run build`
-- The new build will be in the `/build` folder
+### Как пересобрать билд отчёта?
+- Скачать этот репозиторий
+- Выполнить `npm install`
+- Выполнить `npm run build`
+- Свежая сборка будет в папке `/build`
 
-### How to view a report on a group of microservices?
-- Generate for each microservice `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.)
-- See “How to view an online report?”. At the last step, drag all the files at once into the browser window.
-- See “How to see a report offline?”. At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) to the report folder (`/build`).
+### Как посмотреть отчёт по группе микросервисов?
+- Сгенерировать для каждого микросервиса `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.)
+- См. «Как посмотреть отчёт онлайн?». На последнем шаге перетащить сразу все файлы в окно браузера.
+- См. «Как посмотреть отчёт офлайн?». На втором шаге перетащить все файлы микросервисов (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.) в папку отчета (`/build`).
 
-### How to brand the interface?
+### Как брендировать интерфейс?
 Вы можете написать свою тему для интерфейса. Можно менять:
 - **Заголовок**. Вы можете указать его в URL-параметре ```title```. Например: ```?title=You Company```
 - **Визуальную тему**. Для этого нужно подготовить CSS файл с новыми стилями и указать его адрес в URL-параметре ```theme```. Например: ```?theme=//company.com/some.css```. Вы можете использовать имена классов в качестве селекторов. Большинство из них не меняется в при выходе новой версий.
