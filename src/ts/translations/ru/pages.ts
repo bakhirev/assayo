@@ -2,8 +2,6 @@ export default `
 § page.welcome.step1: Выполните команду в корне вашего проекта
 § page.welcome.step3: Перетащите
 § page.welcome.step4: файл log.txt на эту страницу
-§ page.welcome.description1: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл
-§ page.welcome.description2: [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы объединить статистику по сотрудникам.
 § page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы объединить статистику по сотрудникам.
 § page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
 § page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].

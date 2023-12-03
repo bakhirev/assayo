@@ -1,5 +1,6 @@
 export default `
-§ uiKit.console: Копировать
+§ uiKit.console.button: Копировать
+§ uiKit.console.notification: Текст скопирован
 § uiKit.dataLoader.page: Страница
 § uiKit.dataLoader.size: Отображается по
 § uiKit.dataLoader.from: из
@@ -22,6 +23,7 @@ export default `
 Поэтому система не рассчитывает для него ряд показателей.
 Если это ошибка и данного сотрудника нужно рассчитать как обычного, перейдите в раздел «Настройки» и измените его тип.
 
+§ common.title: Git статистика
 § common.filters: Фильтры
 § common.notifications.save: Изменения сохранены
 § common.notifications.setting: Настройки сохранены

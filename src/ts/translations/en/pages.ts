@@ -1,11 +1,9 @@
 export default `
 § page.welcome.step1: Execute the command in the root of your project.
-§ page.welcome.step3: Drag and Drop.
+§ page.welcome.step3: Drag and drop
 § page.welcome.step4: the log.txt file onto this page.
-§ page.welcome.description1: Git will create a log.txt file. It contains data for report generation. Or use git shortlog -s -n -e if you don't need a report. Create a file.
-§ page.welcome.description2: [Create a .mailmap file|https://git-scm.com/docs/gitmailmap] in the root of the project to consolidate employee statistics.
-§ page.welcome.description: Git will create a log.txt file. It contains data for report generation. Or use git shortlog -s -n -e if you don't need a report. Create a [.mailmap file|https://git-scm.com/docs/gitmailmap] in the root of the project to consolidate employee statistics.
-§ page.welcome.warning1: The service *DOES NOT STORE* and *DOES NOT TRANSFER* your data. All calculations are performed locally in your browser on your machine.
+§ page.welcome.description: Git will create a log.txt file. It contains data for report generation. Or use git shortlog -s -n -e if you don't need a report. Create a [.mailmap|https://git-scm.com/docs/gitmailmap] file in the root of the project to consolidate employee statistics.
+§ page.welcome.warning1: The service *DOES NOT SAVE* and *DOES NOT TRANSFER* your data. All calculations are performed locally in your browser on your machine.
 § page.welcome.warning2: The service *DOES NOT COLLECT STATISTICS* on projects. You can disconnect the internet, check traffic, and even build a local version from the [source|https://github.com/bakhirev/assayo].
 § page.common.words.title: Word Statistics.
 § page.common.words.description: the most popular word. Occurs $1 times.

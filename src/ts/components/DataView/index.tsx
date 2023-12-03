@@ -5,6 +5,7 @@ import ISort from 'ts/interfaces/Sort';
 import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
 import { downloadCsv } from 'ts/helpers/File';
+import viewSettings from 'ts/store/ViewSettings';
 
 import style from './index.module.scss';
 import PageWrapper from '../Page/wrapper';
@@ -32,7 +33,10 @@ function DataView({
   children,
 }: IDataViewProps): React.ReactElement | null {
   const urlParams = useParams<any>();
-  const [localType, setType] = useState<string>(type || 'table');
+  const defaultType = viewSettings.getItem(urlParams, 'table');
+  console.log(defaultType);
+  const [localType, setType] = useState<string>(type || defaultType);
+  console.log(localType);
 
   if (!rows || !rows.length) return null;
 
@@ -64,7 +68,9 @@ function DataView({
             src={icon}
             className={style.data_view_icon}
             onClick={() => {
-              setType(localType === 'table' ? 'cards' : 'table');
+              const newType = localType === 'table' ? 'cards' : 'table';
+              setType(newType);
+              viewSettings.setItem(urlParams, newType, 'table');
             }}
           />
         </div>
@@ -99,7 +105,7 @@ function DataView({
 DataView.defaultProps = {
   rows: [],
   sort: [],
-  type: 'table',
+  type: undefined,
   columnCount: undefined,
   updateSort: () => {
   },

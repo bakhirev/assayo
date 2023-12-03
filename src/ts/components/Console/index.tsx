@@ -41,10 +41,10 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
         className={`${style.console_copy}`}
         onClick={() => {
           copyInBuffer(textForCopy);
-          notificationsStore.show('Текст скопирован');
+          notificationsStore.show(localization.get('uiKit.console.notification'));
         }}
 	    >
-        {localization.get('uiKit.console')}
+        {localization.get('uiKit.console.button')}
       </Button>
     </div>
   );

@@ -1,5 +1,6 @@
 export default `
-§ uiKit.console: Copy
+§ uiKit.console.button: Copy
+§ uiKit.console.notification: Text was copied
 § uiKit.dataLoader.page: Page
 § uiKit.dataLoader.size: Displayed
 § uiKit.dataLoader.from: out of
@@ -22,6 +23,7 @@ The work of employees with such status on this project can be neglected as their
 Therefore, the system does not calculate a number of indicators for him.
 If this is an error and this employee needs to be calculated as usual, go to the “Settings” section and change his type.
 
+§ common.title: Git statistics
 § common.filters: Filters
 § common.notifications.save: The changes have been saved
 § common.notifications.setting: The settings have been saved

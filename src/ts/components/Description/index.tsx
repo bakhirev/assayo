@@ -6,9 +6,10 @@ import cssStyle from './index.module.scss';
 interface ICommonProps {
   text: string;
   style: any;
+  className?: string;
 }
 
-function getTextWithLink(text: string) {
+function getTextWithLink(text: string, className?: string) {
   const parts = (text || '')
     .split(/(\[[^\]]+\])/gim)
     .map((value: string) => {
@@ -18,7 +19,10 @@ function getTextWithLink(text: string) {
         <Link
           key={value}
           target="_blank"
-          to={link}>
+          rel="noreferrer"
+          className={className || ''}
+          to={link}
+        >
           {title}
         </Link>
       );
@@ -26,43 +30,43 @@ function getTextWithLink(text: string) {
   return (<>{parts}</>) ;
 }
 
-function getTextWithStyle(text: string) {
+function getTextWithStyle(text: string, className?: string) {
   const parts = (text || '')
     .split('*')
     .map((value: string, index: number) => (index % 2
-      ? (<b key={value}>{getTextWithLink(value)}</b>)
-      : (<span key={value}>{getTextWithLink(value)}</span>)
+      ? (<b key={value}>{getTextWithLink(value, className)}</b>)
+      : (<span key={value}>{getTextWithLink(value, className)}</span>)
     ));
   return (<>{parts}</>) ;
 }
 
-function List({ text, style }: ICommonProps) {
+function List({ text, style, className }: ICommonProps) {
   return (
     <p
-      className={cssStyle.description_list}
       style={style || {}}
+      className={`${cssStyle.description_list} ${className || ''}`}
     >
-      {getTextWithStyle(text)}
+      {getTextWithStyle(text, className)}
     </p>
   );
 }
 
-function Title({ text, style }: ICommonProps) {
+function Title({ text, style, className }: ICommonProps) {
   return (
     <h6
-      className={cssStyle.description_title}
       style={style || {}}
+      className={`${cssStyle.description_title} ${className || ''}`}
     >
-      {getTextWithStyle(text)}
+      {getTextWithStyle(text, className)}
     </h6>
   );
 }
 
-function SimpleText({ text, style }: ICommonProps) {
+function SimpleText({ text, style, className }: ICommonProps) {
   return (
     <p
-      className={cssStyle.description_text}
       style={style || {}}
+      className={`${cssStyle.description_text} ${className || ''}`}
     >
       {getTextWithStyle(text)}
     </p>
@@ -72,9 +76,10 @@ function SimpleText({ text, style }: ICommonProps) {
 interface IDescriptionProps {
   text?: string | string[];
   style?: any;
+  className?: string;
 }
 
-function Description({ text, style }: IDescriptionProps) {
+function Description({ text, style, className }: IDescriptionProps) {
   const paragraphs = !Array.isArray(text)
     ? (text || '').trim().split(/\n+/gm)
     : text;
@@ -82,29 +87,35 @@ function Description({ text, style }: IDescriptionProps) {
   const items = paragraphs.map((paragraph) => {
     const prefix = paragraph.substring(0, 2);
     const mainText = paragraph.substring(2);
+
     if (prefix === '- ') {
       return (
         <List
           key={mainText}
           text={mainText}
           style={style}
+          className={className}
         />
       );
     }
+
     if (prefix === '# ') {
       return (
         <Title
           key={mainText}
           text={mainText}
           style={style}
+          className={className}
         />
       );
     }
+
     return (
       <SimpleText
         key={mainText}
         text={paragraph}
         style={style}
+        className={className}
       />
     );
   });

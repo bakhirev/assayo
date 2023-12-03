@@ -1,3 +1,5 @@
+import localization from './Localization';
+
 function getFormattedType(dataGrip: any): string {
   const popularType = dataGrip.extension.statistic?.[0] || {};
   const extension = popularType?.extension || '';
@@ -45,7 +47,7 @@ function getFormattedType(dataGrip: any): string {
 
 export default function getTitle(dataGrip: any, commits: any) {
   if (!commits.length) {
-    return 'Git Statistics';
+    return localization.get('common.title');
   }
 
   const type = getFormattedType(dataGrip) || '';

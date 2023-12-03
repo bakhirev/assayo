@@ -31,6 +31,19 @@
     margin-bottom: 4px;
   }
 
+  &_link {
+    text-decoration: underline;
+    color: var(--color-button);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: var(--color-button);
+    }
+  }
+
   &_list {
     position: relative;
     padding: 0 0 0 22px;

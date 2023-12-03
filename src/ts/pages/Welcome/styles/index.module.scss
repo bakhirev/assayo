@@ -23,34 +23,23 @@
   }
 
   &_warning {
-    font-weight: 100;
-    font-size: var(--font-s);
     width: 100%;
     margin: 0 auto;
     padding: 6px;
     box-sizing: border-box;
-
-    line-height: 1.5;
-    text-align: center;
     border-bottom: 3px solid red;
     background-color: #FCDADA;
 
-    &_bold {
-      font-weight: bold;
-      color: red;
+    &_text {
+      text-align: center;
+      color: #B50404;
     }
 
     &_link {
-      text-decoration: underline;
       color: var(--color-button);
-
-      &:hover {
-        text-decoration: none;
-      }
     }
   }
 
-  &_link,
   &_description {
     font-size: var(--font-xs);
 
@@ -64,12 +53,6 @@
     text-align: center;
     text-decoration: none;
     color: #878FA1;
-  }
-
-  &_link {
-    display: inline;
-    margin: 16px 4px 0 4px;
-    text-decoration: underline;
   }
 
   &_first_title,
