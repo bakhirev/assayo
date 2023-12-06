@@ -1,0 +1,72 @@
+@import 'src/styles/variables.scss';
+
+.footer {
+  position: fixed;
+  bottom: var(--space-s);
+  left: var(--space-s);
+  right: var(--space-s);
+  text-align: center;
+  pointer-events: none;
+
+  &_wrapper {
+    display: inline-block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: auto;
+    box-shadow: 0 0  var(--space-l) #F5F7F9, 0 0  var(--space-l) #F5F7F9;
+    border-radius: var(--border-radius-m);
+    background-color: var(--color-black);
+  }
+
+  &_gap {
+    display: block;
+    height: 80px;
+  }
+
+  &_button {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    white-space: normal;
+    vertical-align: top;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &_text {
+      font-size: var(--font-s);
+      font-weight: 100;
+      display: block;
+      width: 100%;
+      padding: 0 0 var(--space-m);
+      margin: 0 auto;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+
+      color: #84858D;
+    }
+
+    &_icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin: var(--space-s) auto var(--space-xxs);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    &_wrapper {
+      width: 100%;
+    }
+  }
+}

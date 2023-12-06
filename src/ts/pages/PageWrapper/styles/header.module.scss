@@ -27,8 +27,18 @@
     user-select: none;
     vertical-align: top;
   }
+
   &_print {
     margin-right: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    &_print,
+    &_setting {
+      display: none;
+    }
   }
 }
 

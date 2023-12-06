@@ -1,0 +1,44 @@
+@import '../../../../styles/variables';
+
+.light_header {
+  grid-area: header;
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  background-color: #FFFFFF;
+
+  &_title {
+    font-size: 24px;
+    font-weight: 100;
+
+    display: inline-block;
+    width: calc(100% - 96px);
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: top;
+    white-space: normal;
+    color: var(--color-black);
+  }
+
+  &_button {
+    display: inline-block;
+    width: 48px;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    background-image: url('../../../../assets/menu/arrow_right.svg');
+
+    &:first-child {
+      background-image: url('../../../../assets/menu/arrow_left.svg');
+    }
+  }
+}
+

@@ -30,6 +30,16 @@
   }
 }
 
+@media (max-width: 700px) {
+  .page_wrapper {
+    grid-template-areas: 'header header' 'main main';
+
+    &_main {
+      width: calc(100vw - 20px);
+    }
+  }
+}
+
 @media print {
   .page_wrapper {
     grid-template-areas: 'main main' 'main main';

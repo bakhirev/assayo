@@ -21,8 +21,8 @@ if (module.hot) {
   module.hot.accept();
 }
 
-localization.parse('ru', ru);
 localization.parse('en', en);
+localization.parse('ru', ru);
 
 function renderReactApplication() {
   // @ts-ignore
