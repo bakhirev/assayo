@@ -5,6 +5,7 @@ import style from '../styles/index.module.scss';
 
 export function getCustomClassName(type?: string, disabled?: boolean) {
   let customClassName = {
+    link: style.ui_kit_button_link,
     slim: style.ui_kit_button_slim,
     second: style.ui_kit_button_second,
     primary: style.ui_kit_button_primary,
@@ -17,8 +18,8 @@ export function getCustomClassName(type?: string, disabled?: boolean) {
 }
 
 interface IUiKitButtonProps extends IUiKitWrapperProps {
-  type?: string,
-  onClick: Function,
+  type?: 'primary' | 'second' | 'link' | 'slim',
+  onClick?: Function,
 }
 
 function UiKitButton({

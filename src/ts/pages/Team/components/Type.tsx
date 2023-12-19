@@ -18,7 +18,7 @@ import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import Description from 'ts/components/Description';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
@@ -123,7 +123,7 @@ const Type = observer(({
   return (
     <>
       {mode !== 'print' && (
-        <RecommendationsWrapper recommendations={recommendations} />
+        <Recommendations recommendations={recommendations} />
       )}
       <Title title="page.team.type.title"/>
       <DataLoader

@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
 
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import HoursChart from 'ts/components/HoursChart';
 import Title from 'ts/components/Title';
 
@@ -15,7 +15,7 @@ const Hours = observer((): React.ReactElement => {
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
+      <Recommendations recommendations={recommendations} />
       <Title title="page.team.hours.title"/>
       <PageWrapper template="table">
         <HoursChart statistic={statistic} />

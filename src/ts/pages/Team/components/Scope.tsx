@@ -17,7 +17,7 @@ import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 
 interface IScopeViewProps {
   response?: IPagination<any>;
@@ -123,7 +123,7 @@ const Scope = observer(({
   return (
     <>
       {mode !== 'print' && (
-        <RecommendationsWrapper recommendations={recommendations} />
+        <Recommendations recommendations={recommendations} />
       )}
       <Title title="page.team.scope.title"/>
       <DataLoader

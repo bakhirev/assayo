@@ -1,11 +1,9 @@
 import React from 'react';
 
 import Description from 'ts/components/Description';
-import UiKitButton from 'ts/components/UiKit/components/Button';
 import localization from 'ts/helpers/Localization';
 import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 
-import { getFormattedTitle, getDescriptionText } from '../helpers';
 import style from '../styles/card.module.scss';
 
 function getClassName(recommendation?: any) {
@@ -18,40 +16,59 @@ function getClassName(recommendation?: any) {
   }[type || RECOMMENDATION_TYPES.INFO] ?? style.recommendations_card_fact;
 }
 
+function getDescriptionText(recommendation?: any) {
+  const descriptionArgs = recommendation?.arguments?.description;
+  const { description } = recommendation;
+  const list = Array.isArray(description)
+    ? description
+    : [description];
+
+  return list.map((textId: string) => (
+    localization.get(textId, descriptionArgs)
+  )).join('\n');
+}
+
 interface IRecommendationsProps {
   recommendation: any;
-  onClick: Function;
 }
 
 function Card({
   recommendation,
-  onClick,
 }: IRecommendationsProps) {
   if (!recommendation) return null;
 
+  const { title } = recommendation;
+  let formattedTitle = title || '';
+  if (Array.isArray(title)) {
+    formattedTitle = title.length > 1
+      ? `${title[0]} +${title.length - 1}`
+      : title[0];
+  }
+
   const className = getClassName(recommendation);
-  const title = getFormattedTitle(recommendation);
   const titleArgs = recommendation?.arguments?.title;
   const parts = getDescriptionText(recommendation).split('\n');
   const previewText = parts.shift();
+  const mainText = parts.join('\n');
 
   return (
     <div className={`${style.recommendations_card} ${className}`}>
-      <h5 className={style.recommendations_card_title}>
-        <span className={style.recommendations_card_icon}></span>
-        {localization.get(title, titleArgs)}
-      </h5>
-      <Description
-        style={{ color: '#12131B' }}
-        text={previewText || ''}
-      />
-      <UiKitButton
-        type="link"
-        className={style.recommendations_card_button}
-        onClick={onClick}
-      >
-        Подробнее
-      </UiKitButton>
+      <div className={style.recommendations_card_wrapper}>
+        <h5 className={style.recommendations_card_title}>
+          <span className={style.recommendations_card_icon}></span>
+          {localization.get(formattedTitle, titleArgs)}
+        </h5>
+        <Description
+          style={{ color: '#12131B' }}
+          text={previewText || ''}
+        />
+        <div className={style.recommendations_card_shortcut}>
+          <Description
+            style={{ color: '#12131B' }}
+            text={mainText || ''}
+          />
+        </div>
+      </div>
     </div>
   );
 }

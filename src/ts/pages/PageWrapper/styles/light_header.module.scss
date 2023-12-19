@@ -1,13 +1,24 @@
 @import '../../../../styles/variables';
 
 .light_header {
-  grid-area: header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
+  height: 72px;
   padding: 0;
   justify-content: space-between;
   align-items: center;
   white-space: nowrap;
+  box-shadow: -6px var(--space-xs)  var(--space-s) #EEEEEE;
   background-color: #FFFFFF;
+
+  &_gap {
+    grid-area: header;
+    height: 72px;
+  }
 
   &_title {
     font-size: 24px;

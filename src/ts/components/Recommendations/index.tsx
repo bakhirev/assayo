@@ -1,6 +1,10 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React from 'react';
+
+import Title from 'ts/components/Title';
+import localization from 'ts/helpers/Localization';
 
 import Card from './components/Card';
+import recommendationStore from './store/index';
 import style from './styles/index.module.scss';
 
 interface IRecommendationsProps {
@@ -10,49 +14,30 @@ interface IRecommendationsProps {
 function Recommendations({
   recommendations,
 }: IRecommendationsProps) {
-  const [maxCardsOnDisplay, setMaxCardsOnDisplay] = useState<number>(5);
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  useLayoutEffect(() => {
-    const width = ref?.current?.offsetWidth;
-    const placeForCard = (width - 30) / (220 + 24);
-    setMaxCardsOnDisplay(placeForCard);
-  }, []);
-
-  const className = isOpen
-    ? style.recommendations_full
-    : style.recommendations_short;
-
-  const children = (recommendations || [])
+  const cards = (recommendations || [])
     .filter(item => item)
     .map((recommendation) => (
       <Card
         key={recommendation[1]}
         recommendation={recommendation}
+        onClick={() => {
+          recommendationStore.open(recommendation);
+        }}
       />
     ));
-  const visibleChildren = children.slice(0, isOpen ? Infinity : maxCardsOnDisplay);
 
-  if (!children.length) return null;
+  if (!cards.length) return null;
+
+  const title = localization.get('recommendations.title');
 
   return (
-    <div
-      ref={ref}
-      className={className}
-    >
-      {isOpen ? children : visibleChildren}
-      {!isOpen && children.length > maxCardsOnDisplay && (
-        <div
-          className={style.more}
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          »
-        </div>
-      )}
-    </div>
+    <>
+      <Title title={title}/>
+      <div className={style.recommendations_container}>
+        {cards}
+      </div>
+    </>
   );
 }
 

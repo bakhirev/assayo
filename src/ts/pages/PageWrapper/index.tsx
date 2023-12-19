@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
 
+import Recommendations from 'ts/components/Recommendations/components/ModalDescription';
+import isMobile from 'ts/helpers/isMobile';
+
 import SideBar from './components/sidebar';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -15,7 +18,6 @@ interface IPageWrapper {
 function PageWrapper({
   children,
 }: IPageWrapper) {
-  const isMobile = false;
   return (
     <div className={style.page_wrapper}>
       {!isMobile && <SideBar />}
@@ -27,6 +29,7 @@ function PageWrapper({
         {children}
       </div>
       <Print />
+      <Recommendations />
       {isMobile && <Footer />}
     </div>
   );

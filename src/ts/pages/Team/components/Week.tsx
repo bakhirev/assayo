@@ -18,7 +18,7 @@ import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 
@@ -162,7 +162,7 @@ const Week = observer(({
   return (
     <>
       {mode !== 'print' && (
-        <RecommendationsWrapper recommendations={recommendations} />
+        <Recommendations recommendations={recommendations} />
       )}
       {mode === 'print' && (
         <Title title="page.team.week.title"/>

@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
 
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import YearChart from 'ts/components/YearChart';
 import Title from 'ts/components/Title';
 
@@ -21,7 +21,7 @@ const Month = observer(({
   return (
     <>
       {mode !== 'print' && (
-        <RecommendationsWrapper recommendations={recommendations}/>
+        <Recommendations recommendations={recommendations}/>
       )}
       <Title title="page.team.month.title"/>
       <PageWrapper template="table">

@@ -81,6 +81,14 @@
     --button-color-hover: var(--color-border);
     --button-color-active: var(--color-border);
   }
+
+  &_link {
+    --button-color-bg: transparent;
+    --button-color-text: var(--color-button);
+    --button-color-border: transparent;
+    --button-color-hover: transparent;
+    --button-color-active: transparent;
+  }
 }
 
 .ui_kit_button {
@@ -119,6 +127,18 @@
 
   &_slim {
     font-weight: 100;
+  }
+
+  &_link {
+    font-weight: 100;
+    height: auto;
+    min-height: auto;
+    padding: 0;
+    line-height: 1.3;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

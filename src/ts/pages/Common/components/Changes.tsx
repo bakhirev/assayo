@@ -4,7 +4,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
 import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
 import BarChart from 'ts/components/BarChart';
@@ -42,7 +42,7 @@ function Changes({ statistic }: IChangesProps) {
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
+      <Recommendations recommendations={recommendations} />
       <Title title="Количество изменённых строк по дням"/>
       <PageWrapper template="box">
         <BarChart

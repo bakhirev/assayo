@@ -1,27 +1,22 @@
-@import '../../../../styles/variables';
+@import 'styles/variables';
 
-.recommendations_short,
-.recommendations_full {
+.recommendations_container {
   position: relative;
   display: block;
-  margin: 0 0 12px 0;
-}
+  margin: 0;
+  padding: 0;
 
-.more {
-  display: inline-block;
-  width: 30px;
-  margin: 0 0 8px 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
 
-  text-align: center;
-  vertical-align: top;
-  box-sizing: border-box;
-  white-space: normal;
+  &::-webkit-scrollbar {
+    height: 8px;
+    background-color: transparent;
+  }
 
-  cursor: pointer;
-  border-radius: var(--border-radius-m);
-  line-height: 100px;
-
-  border: 1px solid var(--color-border);
-  color: var(--color-black);
-  background-color: white;
+  &::-webkit-scrollbar-thumb {
+    background: #AAAAAA;
+  }
 }

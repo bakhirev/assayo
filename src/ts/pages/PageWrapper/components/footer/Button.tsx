@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import style from '../../styles/footer.module.scss';
 
@@ -13,9 +14,19 @@ function Button({
   title,
   icon,
 }: IButtonProps) {
-  console.dir(id);
+  const navigate = useNavigate();
   return (
-    <figure className={style.footer_button}>
+    <figure
+      className={style.footer_button}
+      onClick={() => {
+        const link = {
+          team: '/team/total',
+          person: '/person/total/0',
+          settings: '/team/settings',
+        }[id];
+        if (link) navigate(link);
+      }}
+    >
       <div
         className={style.footer_button_icon}
         style={{ backgroundImage: `url(${icon})` }}

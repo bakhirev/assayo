@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
 import CandyChart from 'ts/components/CandyChart';
@@ -37,7 +37,7 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
   return (
     <>
       {mode !== 'print' && (
-        <RecommendationsWrapper recommendations={recommendations} />
+        <Recommendations recommendations={recommendations} />
       )}
       <Title title="page.common.words.title"/>
       <PageWrapper template="table">

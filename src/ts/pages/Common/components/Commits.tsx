@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import dataGripStore from 'ts/store/DataGrip';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
 
-import RecommendationsWrapper from 'ts/components/Recommendations/wrapper';
+import Recommendations from 'ts/components/Recommendations';
 import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
 import BarChart from 'ts/components/BarChart';
@@ -45,7 +45,7 @@ function Commits({ statistic }: ICommitsProps) {
 
   return (
     <>
-      <RecommendationsWrapper recommendations={recommendations} />
+      <Recommendations recommendations={recommendations} />
       <Title title="page.common.commits.title"/>
       <PageWrapper template="box">
         <BarChart

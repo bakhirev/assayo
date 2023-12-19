@@ -1,166 +1,98 @@
 @import '../../../../styles/variables';
 
-.recommendations {
-  &_short,
-  &_full {
-    position: relative;
-    display: block;
-    max-height: 108px;
-    margin: 0 0 16px 0;
-  }
-  &_full {
-    max-height: none;
-  }
+.recommendations_card {
+  position: relative;
+  display: inline-block;
+  min-height: 100px;
+  max-height: 100px;
+  width: 220px;
+  margin: 0 24px var(--space-l) 0;
+  padding: var(--space-m) var(--space-l);
 
-  &_more,
-  &_card {
-    display: inline-block;
-    min-height: 100px;
-    max-height: 100px;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  white-space: normal;
+
+  border: 1px solid var(--color-border);
+  border-left-width: var(--space-s);
+  border-radius: var(--border-radius-m);
+
+  &_title {
+    font-weight: bold;
+    font-size: var(--font-xs);
+
+    display: block;
+    width: 90%;
+    padding: 0;
+    margin: 0 0 var(--space-xs);
 
     text-align: left;
-    vertical-align: top;
-    box-sizing: border-box;
-    white-space: normal;
-
-    border-radius: var(--border-radius-m);
-    background-color: white;
+    text-decoration: none;
+    vertical-align: bottom;
   }
 
-  &_more {
+  &_icon {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 30px;
-    margin: 0 0 8px 0;
-    text-align: center;
-    line-height: 100px;
-    cursor: pointer;
-    border: 1px solid var(--color-border);
-    color: #AAAAAA;
+    top: var(--space-s);
+    right: var(--space-s);
+
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
   }
 
-  &_card {
-    position: relative;
-    width: 220px;
-    margin: 0 12px 16px 0;
-    border-left: none;
-
-    &_wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-
-      display: block;
-      min-height: 100px;
-      max-height: 100px;
-      padding: 16px;
-
-      box-sizing: border-box;
-      overflow: hidden;
-
-      border-radius: var(--border-radius-m);
-      border: 1px solid var(--color-border);
-      border-left: 8px solid var(--color-border);
-      background-color: white;
-    }
-
-    &_icon {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% auto;
-    }
-
-    &_info {
-      --color-temp-border: #97C2A9;
-      --color-temp-icon: url('/assets/recommendations/info.svg');
-      --color-temp-bg: #E3F8EC;
-      --color-temp-title: #58866B;
-    }
-
-    &_fact {
-      --color-temp-border: var(--color-11);
-      --color-temp-icon: url('/assets/recommendations/info.svg');
-      --color-temp-bg: #EFF7FF;
-      --color-temp-title: var(--color-first);
-    }
-
-    &_warning {
-      --color-temp-border: var(--color-21);
-      --color-temp-icon: url('/assets/recommendations/warning.svg');
-      --color-temp-bg: #FFF5F2;
-      --color-temp-title: #E8B06D;
-    }
-
-    &_error {
-      --color-temp-border: var(--color-12);
-      --color-temp-icon: url('/assets/recommendations/alert.svg');
-      --color-temp-bg: #FFEFEE;
-      --color-temp-title: #DD8B87;
-    }
-
-    &_title {
-      font-weight: bold;
-      font-size: var(--font-xs);
-
-      display: block;
-      padding: 2px 0 0 24px;
-      margin: 0 auto 4px auto;
-
-      text-align: left;
-      text-decoration: none;
-      vertical-align: bottom;
-      color: var(--color-temp-title);
-    }
-
-    &_wrapper {
-      background-color: var(--color-temp-bg);
-      border-left-color: var(--color-temp-border);
-    }
+  &_button {
+    position: absolute;
+    bottom: var(--space-xs);
+    right: var(--space-s);
   }
+
+  &_info {
+    --color-temp-border: #97C2A9;
+    --color-temp-icon: url('/assets/recommendations/info.svg');
+    --color-temp-bg: #E3F8EC;
+    --color-temp-title: #58866B;
+  }
+
+  &_fact {
+    --color-temp-border: var(--color-11);
+    --color-temp-icon: url('/assets/recommendations/info.svg');
+    --color-temp-bg: #EFF7FF;
+    --color-temp-title: var(--color-first);
+  }
+
+  &_warning {
+    --color-temp-border: var(--color-21);
+    --color-temp-icon: url('/assets/recommendations/warning.svg');
+    --color-temp-bg: #FFF5F2;
+    --color-temp-title: #E8B06D;
+  }
+
+  &_error {
+    --color-temp-border: var(--color-12);
+    --color-temp-icon: url('/assets/recommendations/alert.svg');
+    --color-temp-bg: #FFEFEE;
+    --color-temp-title: #DD8B87;
+  }
+
+  &_title {
+    color: var(--color-temp-title);
+  }
+
+  &_icon {
+    background-image: var(--color-temp-icon);
+  }
+
+  &_button {
+    color: var(--color-temp-title);
+  }
+
+  background-color: var(--color-temp-bg);
+  border-left-color: var(--color-temp-border);
 }
 
-.recommendations_card:hover > .recommendations_card_wrapper {
-  z-index: 2;
-  width: 170%;
-  max-height: 450px;
-  box-shadow: 2px 2px 3px #999999;
-  overflow-y: scroll;
-}
-
-.recommendations_card_wrapper::-webkit-scrollbar {
-  width: 8px;
-  background-color: transparent;
-}
-
-.recommendations_card_wrapper::-webkit-scrollbar-thumb {
-  background: #AAAAAA;
-}
-
-.recommendations_title {
-  color: var(--color-temp-border);
-}
-
-.recommendations_card_icon {
-  background-image: var(--color-temp-icon);
-}
-
-.recommendations_card_shortcut {
-  display: none;
-  padding: 6px 0 0 0;
-  margin: 6px 0 0 0;
-  border-top: 1px solid var(--color-temp-border);
-}
-
-.recommendations_card:hover .recommendations_card_shortcut {
-  display: block;
-}

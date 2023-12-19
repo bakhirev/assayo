@@ -2,7 +2,6 @@ import React from 'react';
 
 import localization from 'ts/helpers/Localization';
 import Description from 'ts/components/Description';
-
 function getFlatRecommendations(translations: any, list: any[] = []) {
   if (!translations) return list;
 
