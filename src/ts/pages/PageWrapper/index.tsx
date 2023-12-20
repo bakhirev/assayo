@@ -21,13 +21,11 @@ function PageWrapper({
   return (
     <div className={style.page_wrapper}>
       {!isMobile && <SideBar />}
-      {isMobile
-        ? <LightHeader />
-        : <Header />
-      }
+      {!isMobile && <Header />}
       <div className={style.page_wrapper_main}>
         {children}
       </div>
+      {isMobile && <LightHeader />}
       <Print />
       <Recommendations />
       {isMobile && <Footer />}

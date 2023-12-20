@@ -45,7 +45,7 @@ function UiKitButtonMenu({
     <>
       <button
         title={title}
-        className={`${style.button} ${customClassName || ''} ${className || ''}`}
+        className={`${style.ui_kit_button} ${customClassName || ''} ${className || ''}`}
         style={{ position: 'relative' }}
         onClick={() => {
           setOpen(!isOpen);

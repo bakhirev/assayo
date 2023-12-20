@@ -60,7 +60,7 @@ const RecommendationDescription = observer(() => {
             recommendationStore.close();
           }}
         >
-          {localization.get('page.print.modal.cancel')}
+          {localization.get('recommendations.modal.cancel')}
         </UiKitButton>
       </Footer>
     </Modal>

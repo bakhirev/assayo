@@ -1,4 +1,5 @@
 export default `
+§ recommendations.modal.cancel: Закрыть
 § recommendations.title
 Рекомендации и факты
 

@@ -1,4 +1,5 @@
 export default `
+§ recommendations.modal.cancel: Ok
 § recommendations.title
 Recommendations and Facts
 

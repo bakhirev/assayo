@@ -70,7 +70,7 @@ const Total = observer((): React.ReactElement => {
           />
         </div>
         <Title title="page.person.character.title"/>
-        <Character user={statistic} />
+        {false && <Character user={statistic} />}
       </PageColumn>
       <PageColumn>
         <Title title="page.person.achievement.title"/>
