@@ -69,7 +69,7 @@ const Total = observer((): React.ReactElement => {
             description="page.team.total.commits.description"
           />
         </div>
-        <Title title="page.person.character.title"/>
+        {false && <Title title="page.person.character.title"/>}
         {false && <Character user={statistic} />}
       </PageColumn>
       <PageColumn>

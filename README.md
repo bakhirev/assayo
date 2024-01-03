@@ -8,20 +8,20 @@
 Visualization and analysis of your git repository data ([demo](https://assayo.jp/demo/?ref=github&lang=en&dump=./test.txt)).
 
 ##### Employee can evaluate new workplace
-- work pace;
+- work speed;
 - number of extra hours worked;
-- areas of responsibility;
+- areas of competence;
 - volume of features and bugs;
 - working style of colleagues;
 
-##### Manager can evaluate employees
+##### Teamlead can evaluate employees
 - identify slackers;
 - estimate the amount of code;
 - learn the work speed;
 - notice behavioral anomalies;
 - see the dynamics of work by week;
 
-##### Investor can evaluate product
+##### Founder can evaluate product
 - product cost;
 - cost of features;
 - development time;
@@ -92,10 +92,6 @@ You can create your own interface theme. Options:
 - **Visual theme**. To do this, you need to prepare a CSS file with new styles and specify its URL in the ```theme``` parameter. Example: ```?theme=//company.com/some.css```. You can use class names as selectors. Most of them do not change in new versions.
 - **Language**. You can set language in the URL parameter ```lang```. Example: ```?lang=es```
 
-### How to add or edit a translation?
-
-You can add a new translation or correct an existing one in the ```ts/translations/``` folder and create a Pull Request.
-
 ### How to sign commits?
 
 Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Example:
@@ -152,6 +148,11 @@ By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work
 - file analysis;
 - different roles for statistics (hiding finances);
 - development of the backend, integration with other systems;
+
+### How to add or edit a translation?
+
+You can add a new translation or correct an existing one in the ```ts/translations/``` folder.
+[Instruction](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
 
 ### Feedback, suggestions, comments
 - telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)

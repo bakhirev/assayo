@@ -131,7 +131,7 @@ const Week = observer(({
   return (
     <>
       {mode !== 'print' && (
-        <Recommendations recommendations={recommendations} />
+        <Recommendations recommendations={recommendations}/>
       )}
       <DataLoader
         to="response"
@@ -143,7 +143,7 @@ const Week = observer(({
           name={statistic.author}
           mode={mode}
         />
-        {mode !== 'print' && <Pagination />}
+        {mode !== 'print' && <Pagination/>}
       </DataLoader>
     </>
   );

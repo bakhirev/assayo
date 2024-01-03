@@ -22,7 +22,7 @@ function Person() {
   if (type !== 'person') return null;
   return (
     <>
-      {!['week', 'print'].includes(page || '') && (
+      {!['print'].includes(page || '') && (
         <>
           <Title title={localization.get('common.filters')} />
           <UserSelect />

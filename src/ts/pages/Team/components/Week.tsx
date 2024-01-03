@@ -164,8 +164,14 @@ const Week = observer(({
       {mode !== 'print' && (
         <Recommendations recommendations={recommendations} />
       )}
-      {mode === 'print' && (
+      {mode === 'print' ? (
         <Title title="page.team.week.title"/>
+      ) : (
+        <>
+          <br/>
+          <br/>
+          <br/>
+        </>
       )}
       <DataLoader
         to="response"
