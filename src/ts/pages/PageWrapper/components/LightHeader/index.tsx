@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
 import { TEAM, PERSON } from '../../helpers/menu';
-
 import style from '../../styles/light_header.module.scss';
 
 function getPagesAndIndex(type?: string, page?: string) {
