@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
@@ -7,14 +6,15 @@ import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
 
-import dataGripStore from 'ts/store/DataGrip';
 import localization from 'ts/helpers/Localization';
 
+import IPersonCommonProps from '../../interfaces/CommonProps';
 import style from '../../styles/print.module.scss';
 
-const Total = observer((): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
+const Total = observer(({
+  user,
+}: IPersonCommonProps): React.ReactElement => {
+  const statistic = user;
   const taskNumber = statistic.tasks.length;
 
   return (

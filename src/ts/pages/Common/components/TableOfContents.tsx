@@ -22,7 +22,10 @@ function TableOfContents({ titles }: ITableOfContents) {
 
   return (
     <>
-      <Title title="page.print.tableOfContents" />
+      <Title
+        className={style.table_of_contents_title}
+        title="page.print.tableOfContents"
+      />
       <nav className={style.table_of_contents}>
         {items}
       </nav>

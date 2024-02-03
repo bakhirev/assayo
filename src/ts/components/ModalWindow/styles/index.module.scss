@@ -46,6 +46,15 @@
     max-height: 60vh;
     padding: 0 24px;
     overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: #DDDDDD;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #AAAAAA;
+    }
   }
 
   &_footer {
@@ -63,5 +72,10 @@
     height: 24px;
 
     cursor: pointer;
+    transition: transform 1s ease-in-out;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
   }
 }

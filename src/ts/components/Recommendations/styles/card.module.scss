@@ -6,17 +6,26 @@
   min-height: 100px;
   max-height: 100px;
   width: 220px;
-  margin: 0 24px var(--space-l) 0;
+  margin: 0 var(--space-xxl) var(--space-l) 0;
   padding: var(--space-m) var(--space-l);
 
   text-align: left;
   vertical-align: top;
   box-sizing: border-box;
   white-space: normal;
+  page-break-inside: avoid;
+  break-inside: avoid;
 
   border: 1px solid var(--color-border);
   border-left-width: var(--space-s);
   border-radius: var(--border-radius-m);
+
+  &_for_print {
+    display: block;
+    max-height: none;
+    width: 100%;
+    margin: 0 0 var(--space-l) 0;
+  }
 
   &_title {
     font-weight: bold;

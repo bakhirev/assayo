@@ -4,14 +4,28 @@
   display: block;
   margin-bottom: var(--space-xxl);
 
+  &_title {
+    margin-bottom: 0;
+  }
+
   &_item {
+    font-size: var(--font-s);
     position: relative;
     display: block;
     padding: 0 0 0 22px;
     margin: var(--space-m) 0;
     list-style-type: none;
-    text-decoration: none;
-    color: var(--color-black);
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--color-button);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: var(--color-button);
+    }
 
     &:before {
       position: absolute;

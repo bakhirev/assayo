@@ -10,6 +10,7 @@ import Confirm from 'ts/components/ModalWindow/Confirm';
 import PageWrapper from '../../PageWrapper';
 import Team from '../../Team/index';
 import Person from '../../Person/index';
+import PrintAll from '../../PrintAll/index';
 import Welcome from '../../Welcome/index';
 import Settings from '../../Settings/index';
 import DebugPage from '../../Debug/index';
@@ -52,6 +53,14 @@ const Success = observer((): React.ReactElement => {
             element={(
               <PageWrapper>
                 <DebugPage />
+              </PageWrapper>
+            )}
+          />
+          <Route
+            path="/print"
+            element={(
+              <PageWrapper>
+                <PrintAll />
               </PageWrapper>
             )}
           />

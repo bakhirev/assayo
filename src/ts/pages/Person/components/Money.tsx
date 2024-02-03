@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import { getShortMoney } from 'ts/helpers/formatter';
@@ -10,12 +9,12 @@ import IsStaff from 'ts/components/NothingFound/components/IsStaff';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
-
 import dataGripStore from 'ts/store/DataGrip';
 
-const Money = observer((): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
+import IPersonCommonProps from '../interfaces/CommonProps';
+
+const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
+  const statistic = user;
   const byTimestamp = dataGripStore.dataGrip.timestamp.statisticByAuthor[statistic.author];
   const taskNumber = statistic.tasks.length;
 

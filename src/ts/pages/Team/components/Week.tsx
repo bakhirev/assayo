@@ -161,9 +161,10 @@ const Week = observer(({
 
   return (
     <>
-      {mode !== 'print' && (
-        <Recommendations recommendations={recommendations} />
-      )}
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
       {mode === 'print' ? (
         <Title title="page.team.week.title"/>
       ) : (
@@ -178,6 +179,7 @@ const Week = observer(({
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
           content: rows, pagination, sort,
         })}
+        watch={mode}
       >
         <WeekView mode={mode} />
         {mode !== 'print' && <Pagination />}

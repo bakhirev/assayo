@@ -122,15 +122,17 @@ const Type = observer(({
 
   return (
     <>
-      {mode !== 'print' && (
-        <Recommendations recommendations={recommendations} />
-      )}
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
       <Title title="page.team.type.title"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
           content: rows, pagination, sort, mode,
         })}
+        watch={mode}
       >
         <TypeView mode={mode} />
         <Pagination />

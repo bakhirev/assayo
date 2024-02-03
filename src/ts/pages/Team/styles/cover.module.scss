@@ -1,0 +1,25 @@
+@import 'src/styles/variables';
+
+.cover {
+  display: block;
+
+  &_title,
+  &_sub_title {
+    display: block;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-black);
+  }
+
+  &_title {
+    font-weight: 100;
+    margin: 350px 0 32px;
+  }
+
+  &_sub_title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 230px;
+  }
+}

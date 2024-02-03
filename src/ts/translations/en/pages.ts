@@ -17,7 +17,8 @@ export default `
 § page.print.modal.all: All statistics
 § page.print.modal.cancel: Cancel
 § page.print.tableOfContents: Table of contents
-§ page.print.title: Git repository report «$1»
+§ page.print.title: Git repository report
+§ page.print.sub_title: «$1»
 § page.print.description: The data for the report was obtained from the commit history.
 § page.team.author.title: Employee statistics
 § page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.

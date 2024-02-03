@@ -17,7 +17,8 @@ export default `
 § page.print.modal.all: Всю статистику
 § page.print.modal.cancel: Отмена
 § page.print.tableOfContents: Оглавление
-§ page.print.title: Отчёт по git-репозиторию «$1»
+§ page.print.title: Отчёт по git-репозиторию
+§ page.print.sub_title: «$1»
 § page.print.description: Данные для отчёта были получены из истории коммитов.
 § page.team.author.title: Статистика по сотрудникам
 § page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.

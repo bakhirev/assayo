@@ -12,9 +12,12 @@ class PrintStore implements IPrintStore {
 
   prevUrl: string = '';
 
+  processing: boolean = false;
+
   constructor() {
     makeObservable(this, {
       isOpen: observable,
+      processing: observable,
 
       open: action,
       close: action,
@@ -52,17 +55,20 @@ class PrintStore implements IPrintStore {
   }
 
   printAllPages() {
+    this.navigate('/print');
     this.triggerPrint();
   }
 
   triggerPrint() {
     this.isOpen = false;
+    this.processing = true;
     setTimeout(() => {
       window.print();
     }, 500);
   }
 
   endPrint() {
+    this.processing = false;
     if (this.prevUrl) this.navigate(this.prevUrl);
     this.navigate = null;
     this.prevUrl = '';

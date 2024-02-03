@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
@@ -14,6 +13,7 @@ import Title from 'ts/components/Title';
 import GetList from 'ts/components/GetList';
 
 import dataGripStore from 'ts/store/DataGrip';
+import IPersonCommonProps from '../../interfaces/CommonProps';
 
 interface IAchievementBlockProps {
   title: string;
@@ -30,9 +30,10 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
   );
 }
 
-const Total = observer((): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
+const Total = observer(({
+  user,
+}: IPersonCommonProps): React.ReactElement => {
+  const statistic = user;
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[statistic.author];
   const achievements = getAchievementByAuthor(statistic.author);
 

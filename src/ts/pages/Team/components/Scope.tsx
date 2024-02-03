@@ -122,15 +122,17 @@ const Scope = observer(({
 
   return (
     <>
-      {mode !== 'print' && (
-        <Recommendations recommendations={recommendations} />
-      )}
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
       <Title title="page.team.scope.title"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
           content: rows, pagination, mode,
         })}
+        watch={mode}
       >
         <ScopeView mode={mode} />
         <Pagination />

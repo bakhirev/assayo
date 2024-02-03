@@ -41,16 +41,14 @@ const Print = observer(() => {
         >
           {localization.get('page.print.modal.type')}
         </UiKitButton>
-        {false && (
-          <UiKitButton
-            className={style.page_wrapper_print_button}
-            onClick={() => {
-              printStore.printAllPages();
-            }}
-          >
-            {localization.get('page.print.modal.all')}
-          </UiKitButton>
-        )}
+        <UiKitButton
+          className={style.page_wrapper_print_button}
+          onClick={() => {
+            printStore.printAllPages();
+          }}
+        >
+          {localization.get('page.print.modal.all')}
+        </UiKitButton>
         <UiKitButton
           type="second"
           className={style.page_wrapper_print_button}

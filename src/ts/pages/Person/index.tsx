@@ -1,8 +1,10 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
 import Title from 'ts/components/Title';
 import localization from 'ts/helpers/Localization';
+import dataGripStore from 'ts/store/DataGrip';
 
 import UserSelect from './components/UserSelect';
 import Changes from './components/Changes';
@@ -17,9 +19,17 @@ import Month from './components/Month';
 import Tempo from './components/Tempo';
 import Print from './components/Print';
 
-function Person() {
-  const { type, page } = useParams<any>();
-  if (type !== 'person') return null;
+interface IPersonProps {
+  userId?: string | number;
+}
+
+const Person = observer(({
+  userId,
+}: IPersonProps) => {
+  const { type, page, userId: userIdFromUrl } = useParams<any>();
+  const user = dataGripStore.dataGrip.author.statistic[userId || userIdFromUrl || 0];
+  if (type !== 'person' || !user) return null;
+
   return (
     <>
       {!['print'].includes(page || '') && (
@@ -28,19 +38,19 @@ function Person() {
           <UserSelect />
         </>
       )}
-      {page === 'total' && <Total/>}
-      {page === 'hours' && <Hours/>}
-      {page === 'money' && <Money/>}
-      {page === 'week' && <Week/>}
-      {page === 'month' && <Month/>}
-      {page === 'commits' && <Commits/>}
-      {page === 'changes' && <Changes/>}
-      {page === 'words' && <PopularWords/>}
-      {page === 'speed' && <Speed/>}
-      {page === 'day' && <Tempo/>}
-      {page === 'print' && <Print/>}
+      {page === 'total' && <Total user={user}/>}
+      {page === 'hours' && <Hours user={user}/>}
+      {page === 'money' && <Money user={user}/>}
+      {page === 'week' && <Week user={user}/>}
+      {page === 'month' && <Month user={user}/>}
+      {page === 'commits' && <Commits user={user}/>}
+      {page === 'changes' && <Changes user={user}/>}
+      {page === 'words' && <PopularWords user={user}/>}
+      {page === 'speed' && <Speed user={user}/>}
+      {page === 'day' && <Tempo user={user}/>}
+      {page === 'print' && <Print user={user}/>}
     </>
   );
-}
+});
 
 export default Person;

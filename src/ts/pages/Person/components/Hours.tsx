@@ -1,22 +1,17 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-
-import dataGripStore from 'ts/store/DataGrip';
 
 import HoursChart from 'ts/components/HoursChart';
 import Title from 'ts/components/Title';
 import PageWrapper from 'ts/components/Page/wrapper';
+import IPersonCommonProps from '../interfaces/CommonProps';
 
-const Hours = observer((): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
-
+const Hours = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   return (
     <>
       <Title title="page.person.hours.title"/>
       <PageWrapper template="table">
-        <HoursChart statistic={statistic} />
+        <HoursChart statistic={user} />
       </PageWrapper>
     </>
   );

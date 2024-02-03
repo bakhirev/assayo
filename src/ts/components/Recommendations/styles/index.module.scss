@@ -11,6 +11,12 @@
   overflow-x: scroll;
   overflow-y: hidden;
 
+  &_for_print {
+    column-count: 2;
+    white-space: normal;
+    overflow: auto;
+  }
+
   &::-webkit-scrollbar {
     height: 8px;
     background-color: transparent;
@@ -18,5 +24,12 @@
 
   &::-webkit-scrollbar-thumb {
     background: #AAAAAA;
+  }
+}
+
+@media print {
+  .recommendations_container {
+    white-space: normal;
+    overflow: auto;
   }
 }

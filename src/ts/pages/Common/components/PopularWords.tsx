@@ -36,9 +36,10 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
 
   return (
     <>
-      {mode !== 'print' && (
-        <Recommendations recommendations={recommendations} />
-      )}
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
       <Title title="page.common.words.title"/>
       <PageWrapper template="table">
         <CandyChart

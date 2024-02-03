@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import { IPagination } from 'ts/interfaces/Pagination';
@@ -16,6 +15,8 @@ import TempoChart from 'ts/components/Tempo';
 
 import uiKitStyle from 'ts/components/UiKit/styles/index.module.scss';
 import style from 'ts/pages/Team/styles/filters.module.scss';
+
+import IPersonCommonProps from '../interfaces/CommonProps';
 
 interface ITempoViewProps {
   user?: string;
@@ -40,9 +41,8 @@ function getPartOfData(filters: any, rows: any[]) {
   return rows.filter((row: any) => (row.week === filters.week)).slice(0, 7);
 }
 
-const Tempo = observer((): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const author = dataGripStore.dataGrip.author.statistic[userId || 0];
+const Tempo = observer(({ user }: IPersonCommonProps): React.ReactElement => {
+  const author = user;
 
   const rows = dataGripStore.dataGrip.timestamp.statisticByAuthor[author.author]?.allCommitsByTimestamp || [];
   const firstIndex = rows.length - 1;

@@ -34,9 +34,7 @@ function DataView({
 }: IDataViewProps): React.ReactElement | null {
   const urlParams = useParams<any>();
   const defaultType = viewSettings.getItem(urlParams, 'table');
-  console.log(defaultType);
   const [localType, setType] = useState<string>(type || defaultType);
-  console.log(localType);
 
   if (!rows || !rows.length) return null;
 

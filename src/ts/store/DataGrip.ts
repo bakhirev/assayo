@@ -71,7 +71,6 @@ class DataGripStore implements IDataGripStore {
     this.dataGrip = dataGrip;
 
     console.dir(this.dataGrip);
-    console.dir(getTitle(this.dataGrip, this.commits));
     if (!applicationHasCustom.title) {
       document.title = getTitle(this.dataGrip, this.commits);
     }

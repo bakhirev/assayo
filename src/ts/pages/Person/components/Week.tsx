@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import IHashMap from 'ts/interfaces/HashMap';
@@ -119,20 +118,24 @@ WeekView.defaultProps = {
   response: undefined,
 };
 
+interface IWeekProps extends ICommonPageProps {
+  user: any;
+}
 const Week = observer(({
+  user,
   mode,
-}: ICommonPageProps): React.ReactElement => {
-  const { userId } = useParams<any>();
-  const statistic = dataGripStore.dataGrip.author.statistic[userId || 0];
+}: IWeekProps): React.ReactElement => {
+  const statistic = user;
   const rows = dataGripStore.dataGrip.week.statistic.filter((item: any) => item.authors[statistic.author]);
   if (!rows?.length) return (<NothingFound />);
   const recommendations = dataGripStore.dataGrip.recommendations.person?.byWeek[statistic.author];
 
   return (
     <>
-      {mode !== 'print' && (
-        <Recommendations recommendations={recommendations}/>
-      )}
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
