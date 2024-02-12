@@ -4,6 +4,7 @@ import Description from 'ts/components/Description';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import localization from 'ts/helpers/Localization';
 import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import isMobile from 'ts/helpers/isMobile';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
 import style from '../styles/card.module.scss';
@@ -36,7 +37,10 @@ function Card({
   const previewText = parts.shift();
 
   return (
-    <div className={`${style.recommendations_card} ${className}`}>
+    <div
+      className={`${style.recommendations_card} ${className}`} // @ts-ignore
+      onClick={isMobile ? onClick : undefined}
+    >
       <h5 className={style.recommendations_card_title}>
         <span className={style.recommendations_card_icon}></span>
         {localization.get(title, titleArgs)}
@@ -45,13 +49,15 @@ function Card({
         style={{ color: '#12131B' }}
         text={previewText || ''}
       />
-      <UiKitButton
-        type="link"
-        className={style.recommendations_card_button}
-        onClick={onClick}
-      >
-        Подробнее
-      </UiKitButton>
+      {!isMobile && (
+        <UiKitButton
+          type="link"
+          className={style.recommendations_card_button}
+          onClick={onClick}
+        >
+          Подробнее
+        </UiKitButton>
+      )}
     </div>
   );
 }

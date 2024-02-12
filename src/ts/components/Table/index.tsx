@@ -44,7 +44,7 @@ function Table({
   return (
     <div
       ref={refTable}
-      className={`${style.table_wrapper}`}
+      className={`${style.table_wrapper} scroll_x`}
     >
       <div className={`${style.table}`}>
         <Header

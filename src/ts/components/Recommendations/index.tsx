@@ -38,8 +38,8 @@ function Recommendations({
 
   const title = localization.get('recommendations.title');
   const className = mode === 'print'
-    ? `${style.recommendations_container} ${style.recommendations_container_for_print}`
-    : style.recommendations_container;
+    ? `${style.recommendations_container} scroll_x ${style.recommendations_container_for_print}`
+    : `${style.recommendations_container} scroll_x`;
 
   return (
     <>

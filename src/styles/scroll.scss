@@ -1,0 +1,28 @@
+.scroll_y,
+.scroll_x {
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    background-color: #DDDDDD;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #AAAAAA;
+  }
+}
+
+.scroll_x {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+}
+
+.scroll_y {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+}

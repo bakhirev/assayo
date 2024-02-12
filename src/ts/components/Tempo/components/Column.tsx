@@ -33,7 +33,7 @@ function Column({ dayInfo, order, author }: IColumnProps) {
   return (
     <div className={style.tempo_column}>
       <Header dayInfo={dayInfo} />
-      <div className={style.tempo_column_wrapper}>
+      <div className={`${style.tempo_column_wrapper} scroll_y`}>
         {authors.length ? (
           authors
         ) : (

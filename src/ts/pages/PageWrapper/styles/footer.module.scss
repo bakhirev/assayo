@@ -6,7 +6,12 @@
   left: var(--space-s);
   right: var(--space-s);
   text-align: center;
+  transition: bottom 1s ease-in-out;
   pointer-events: none;
+
+  &_hidden {
+    bottom: -130px;
+  }
 
   &_wrapper {
     display: inline-block;
@@ -34,6 +39,19 @@
     vertical-align: top;
     cursor: pointer;
     box-sizing: border-box;
+    border-radius: var(--border-radius-m);
+    --temp-color: var(--color-grey);
+
+    &:hover,
+    &_selected {
+      background-color: #35353F;
+      --temp-color: white;
+    }
+
+    &:active {
+      background-color: #45454F;
+      --temp-color: white;
+    }
 
     &_text {
       font-size: var(--font-s);
@@ -49,7 +67,7 @@
       text-align: center;
       border: none;
 
-      color: #84858D;
+      color: var(--temp-color);
     }
 
     &_icon {

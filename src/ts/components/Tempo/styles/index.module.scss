@@ -7,16 +7,6 @@
 
   &_wrapper {
     display: block;
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      height: 8px;
-      background-color: #DDDDDD;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #AAAAAA;
-    }
   }
 
   &_column {
@@ -37,16 +27,6 @@
       height: 80vh;
       min-height: 80vh;
       max-height: 80vh;
-      overflow-y: auto;
-
-      &::-webkit-scrollbar {
-        width: 8px;
-        background-color: #DDDDDD;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: #AAAAAA;
-      }
     }
   }
 

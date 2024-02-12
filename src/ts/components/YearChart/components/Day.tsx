@@ -55,7 +55,7 @@ function Day({
         <>
           {'◉'}
           <div className={style.year_chart_month_body_day_arrow} />
-          <div className={style.year_chart_month_body_day_info}>
+          <div className={`${style.year_chart_month_body_day_info} scroll_y`}>
             <Title title={getDate(dayInfo.timestamp)} />
             <DayInfo // @ts-ignore
               day={dayInfo}

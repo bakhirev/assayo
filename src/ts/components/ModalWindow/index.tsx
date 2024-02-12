@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+
+import isMobile from 'ts/helpers/isMobile';
 
 import Header from './components/Header';
 import Body from './components/Body';
@@ -19,11 +21,23 @@ function Modal({
   onClose,
   children,
 }: IModalProps) {
+  useEffect(() => {
+    const overflowY = document.body.style.overflowY;
+    document.body.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = overflowY;
+    };
+  }, []);
+
   const childrenWithProps = React.Children.map(children, (child) => (React.isValidElement(child)
     ? React.cloneElement(
       child, // @ts-ignore
       { onClose },
     ) : child));
+
+  const customClass = isMobile
+    ? style.modal_window_fullscreen
+    : style.modal_window;
 
   return ReactDOM.createPortal((
     <div
@@ -37,7 +51,7 @@ function Modal({
     >
       <div
         id={id}
-        className={`${style.modal_window || ''} ${className || ''}`}
+        className={`${customClass} ${className || ''}`}
         onClick={(event: any) => {
           event.stopPropagation();
         }}

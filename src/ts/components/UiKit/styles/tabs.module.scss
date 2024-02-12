@@ -1,0 +1,42 @@
+@import 'src/styles/variables';
+
+.ui_kit_tabs {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  padding: 0 0 var(--space-xxxs);
+  margin: 0;
+
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-radius: 0;
+  border: none;
+
+  &_item {
+    display: inline-block;
+    padding: var(--space-xl) var(--space-l);
+    margin: 0;
+    height: 100%;
+
+    font-size: var(--font-m);
+    font-weight: 100;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    border-radius: 0;
+
+    border: none;
+    border-bottom: 3px solid #E2E9F0;
+    background-color: #FFFFFF;
+    color: var(--color-black);
+
+    &_selected {
+      font-weight: bold;
+      color: var(--color-button);
+      border-bottom: 3px solid var(--color-button);
+    }
+  }
+}

@@ -6,6 +6,7 @@ import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
 import { downloadCsv } from 'ts/helpers/File';
 import viewSettings from 'ts/store/ViewSettings';
+import isMobile from 'ts/helpers/isMobile';
 
 import style from './index.module.scss';
 import PageWrapper from '../Page/wrapper';
@@ -33,7 +34,7 @@ function DataView({
   children,
 }: IDataViewProps): React.ReactElement | null {
   const urlParams = useParams<any>();
-  const defaultType = viewSettings.getItem(urlParams, 'table');
+  const defaultType = viewSettings.getItem(urlParams, isMobile ? 'cards' : 'table');
   const [localType, setType] = useState<string>(type || defaultType);
 
   if (!rows || !rows.length) return null;
@@ -52,25 +53,29 @@ function DataView({
     <>
       <div style={{ position: 'relative' }}>
         <div className={style.data_view_buttons}>
-          <img
-            title={'Скачать CSV'}
-            src="./assets/icons/Download.svg"
-            className={style.data_view_icon}
-            onClick={() => {
-              const fileName = `${urlParams.type || ''} ${urlParams.page || ''}`;
-              downloadCsv(rows, children, fileName);
-            }}
-          />
-          <img
-            title={title}
-            src={icon}
-            className={style.data_view_icon}
-            onClick={() => {
-              const newType = localType === 'table' ? 'cards' : 'table';
-              setType(newType);
-              viewSettings.setItem(urlParams, newType, 'table');
-            }}
-          />
+          {false && (
+            <img
+              title={'Скачать CSV'}
+              src="./assets/icons/Download.svg"
+              className={style.data_view_icon}
+              onClick={() => {
+                const fileName = `${urlParams.type || ''} ${urlParams.page || ''}`;
+                downloadCsv(rows, children, fileName);
+              }}
+            />
+          )}
+          {!isMobile && (
+            <img
+              title={title}
+              src={icon}
+              className={style.data_view_icon}
+              onClick={() => {
+                const newType = localType === 'table' ? 'cards' : 'table';
+                setType(newType);
+                viewSettings.setItem(urlParams, newType, 'table');
+              }}
+            />
+          )}
         </div>
       </div>
 

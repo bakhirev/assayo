@@ -8,7 +8,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Print from './components/Print';
 import style from './styles/index.module.scss';
-import LightHeader from './components/LightHeader';
+import LightHeader from './components/TabHeader';
 
 interface IPageWrapper {
   children: ReactNode;

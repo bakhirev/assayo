@@ -97,7 +97,9 @@
     }
 
     &_icon {
-      display: none;
+      height: auto;
+      max-width: 80%;
+      max-height: 90px;
     }
   }
 }

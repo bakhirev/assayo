@@ -84,7 +84,6 @@
         display: block;
         width: 350px;
         max-height: 350px;
-        overflow-y: scroll;
         overflow-x: hidden;
         padding: var(--space-s);
 
@@ -94,15 +93,6 @@
         box-shadow: 2px 2px 5px var(--color-border);
         border: 1px solid var(--color-border);
         background-color: white;
-
-        &::-webkit-scrollbar {
-          width: 8px;
-          background-color: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background: #AAAAAA;
-        }
       }
     }
   }

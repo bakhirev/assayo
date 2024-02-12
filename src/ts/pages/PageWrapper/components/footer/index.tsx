@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
 
@@ -29,11 +30,33 @@ const MENU = [
 ];
 
 function Footer() {
-  // const { type, page } = useParams<any>();
+  const { type, page } = useParams<any>();
+  const [show, setShow] = useState<boolean>(true);
+
+  useEffect(() => {
+    let prevScrollValue = window.scrollY;
+    let timer: any = null;
+    function updateScroll() {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        setShow(prevScrollValue > window.scrollY || window.scrollY < 150);
+        prevScrollValue = window.scrollY;
+      }, 100);
+    }
+    document.addEventListener('scroll', updateScroll);
+    return () => {
+      document.removeEventListener('scroll', updateScroll);
+    };
+  }, []);
+
+  const selected = MENU.find((config: any) => page === config.id)
+    || MENU.find((config: any) => type === config.id);
+
   const buttons = MENU.map((config: any) => (
     <Button
       key={config.id}
       id={config.id}
+      isSelected={selected?.id === config.id}
       title={localization.get(config.title)}
       icon={config.icon}
     />
@@ -42,7 +65,7 @@ function Footer() {
   return (
     <>
       <div className={style.footer_gap}></div>
-      <div className={style.footer}>
+      <div className={`${style.footer} ${show ? '' : style.footer_hidden}`}>
         <nav className={style.footer_wrapper}>
           {buttons}
         </nav>

@@ -37,7 +37,7 @@ function Tempo({
     <div
       ref={ref}
       style={customStyle}
-      className={style.tempo_wrapper}
+      className={`${style.tempo_wrapper} scroll_x`}
     >
       <div className={style.tempo}>
         {columns}

@@ -16,7 +16,7 @@ const Body = observer(({
 }: IBodyProps) => (
   <div
     id={`${id || ''}-body`}
-    className={`${style.modal_window_body} ${className || ''}`}
+    className={`${style.modal_window_body} scroll_y ${className || ''}`}
   >
     {children}
   </div>

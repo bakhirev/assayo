@@ -2,16 +2,6 @@
 
 .table_wrapper {
   display: block;
-  overflow-x: auto;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-    background-color: #DDDDDD;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #AAAAAA;
-  }
 }
 
 .table {
