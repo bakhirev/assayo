@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import localization from 'ts/helpers/Localization';
 import settingsForm from 'ts/pages/Settings/store/Form';
 
 import style from '../../styles/sidebar.module.scss';
@@ -21,7 +21,8 @@ function SideBarMenuItem({
   icon,
   isSelected,
 }: ISideBarMenuItemProps) {
-  const formattedTitle = localization.get(title);
+  const { t } = useTranslation();
+  const formattedTitle = t(title || '');
   return (
     <Link
       key={id}

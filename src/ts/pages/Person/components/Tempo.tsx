@@ -61,7 +61,7 @@ const Tempo = observer(({ user }: IPersonCommonProps): React.ReactElement => {
       <PageWrapper>
         <div className={style.tempo_filters}>
           <UiKitButton
-            type="second"
+            mode="second"
             disabled={week === 1}
             onClick={() => {
               setWeek(week - 1);
@@ -76,7 +76,7 @@ const Tempo = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             })}
           </div>
           <UiKitButton
-            type="second"
+            mode="second"
             disabled={week === firstPoint.week}
             onClick={() => {
               setWeek(week + 1);

@@ -1,4 +1,7 @@
 import React from 'react';
+import { utils, writeFile } from 'xlsx';
+
+import localization from 'ts/helpers/Localization';
 import { ColumnTypesEnum, IColumn } from '../components/Table/interfaces/Column';
 // import localization from './Localization';
 
@@ -30,7 +33,7 @@ function getColumnsFromChildren(children: React.ReactNode) {
 }
 
 function getTitles(columns: IColumn[]) {
-  return columns.map((column: IColumn) => (column.title || '').split('.').pop());
+  return columns.map((column: IColumn) => localization.get(column.title || ''));
 }
 
 function getFormatter(columns: IColumn[]) {
@@ -79,4 +82,24 @@ export function downloadCsv(
   const file = new Blob([csvFile], { type });
   const fileName = `${document.title} - ${name || ''}.csv`;
   return downloadFile(file, fileName);
+}
+
+export function downloadExcel(
+  list: Array<any>,
+  children: React.ReactNode,
+  name?: string,
+) {
+  const columns = getColumnsFromChildren(children);
+  const formatter = getFormatter(columns);
+  const table = [
+    getTitles(columns),
+    ...list.map(formatter),
+  ];
+
+  const ws = utils.aoa_to_sheet(table);
+  ws['!cols'] = columns.map(() => ({ width: 20 }));
+
+  const wb = utils.book_new();
+  utils.book_append_sheet(wb, ws, 'Sheet1');
+  writeFile(wb, `${name}.xlsx`);
 }

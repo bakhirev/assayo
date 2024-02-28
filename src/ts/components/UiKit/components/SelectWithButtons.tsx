@@ -22,7 +22,7 @@ function UiKitSelectWithButtons({
   return (
     <>
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={index <= 0}
         onClick={() => {
           onChange(options[index - 1]?.id);
@@ -37,7 +37,7 @@ function UiKitSelectWithButtons({
         onChange={onChange}
       />
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={index >= (options.length - 1)}
         onClick={() => {
           onChange(options[index + 1]?.id);

@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import isMobile from 'ts/helpers/isMobile';
 
 import { Modal, Header, Footer } from './index';
 import confirm from './store/Confirm';
@@ -16,6 +17,7 @@ const Confirm = observer(() => {
       </Header>
       <Footer>
         <UiKitButton
+          mode={isMobile ? ['primary', 'full_size'] : ['primary']}
           onClick={() => {
             confirm.cancel();
           }}
@@ -23,7 +25,7 @@ const Confirm = observer(() => {
           {confirm.no}
         </UiKitButton>
         <UiKitButton
-          type="second"
+          mode={isMobile ? ['second', 'full_size'] : ['second']}
           onClick={() => {
             confirm.success();
           }}

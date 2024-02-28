@@ -1,14 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import localization from 'ts/helpers/Localization';
 import style from '../../styles/header.module.scss';
 
 function Logo() {
+  const { t } = useTranslation();
   const { type, page } = useParams<any>();
   const title = type && page
-    ? localization.get(`sidebar.${type}.${page}`)
-    : localization.get('sidebar.team.total');
+    ? t(`sidebar.${type}.${page}`)
+    : t('sidebar.team.total');
 
   return (
     <h2 className={style.header_title}>

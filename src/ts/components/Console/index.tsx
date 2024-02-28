@@ -37,7 +37,7 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
         {children || textForCopy}
       </div>
       <Button
-        type="second"
+        mode="second"
         className={`${style.console_copy}`}
         onClick={() => {
           copyInBuffer(textForCopy);

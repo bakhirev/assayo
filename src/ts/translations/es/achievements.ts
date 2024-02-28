@@ -75,8 +75,6 @@ export default `
 § achievements.commitsAfter1800.description: нет ни одного коммита после 18:00
 § achievements.more1488DaysInProject.title: им. Максима Марцинкевича
 § achievements.more1488DaysInProject.description: отработал 1488 дней на проекте
-§ achievements.taskNumber300.title: Знаком с трактористом
-§ achievements.taskNumber300.description: первый взял в работу задачу с номером 300
 § achievements.moreFix.title: Bug hunter
 § achievements.moreFix.description: больше всего закрытых багов
 § achievements.lessWorkDays.title: Дальше без меня

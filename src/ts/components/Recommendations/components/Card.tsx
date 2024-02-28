@@ -51,7 +51,7 @@ function Card({
       />
       {!isMobile && (
         <UiKitButton
-          type="link"
+          mode="link"
           className={style.recommendations_card_button}
           onClick={onClick}
         >

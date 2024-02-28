@@ -75,8 +75,6 @@ export default `
 § achievements.commitsAfter1800.description: no commits after 6:00 PM
 § achievements.more1488DaysInProject.title: Named after Maxim Martsinkevich
 § achievements.more1488DaysInProject.description: worked 1488 days on the project
-§ achievements.taskNumber300.title: Knows the Tractor Driver
-§ achievements.taskNumber300.description: first to take on task number 300
 § achievements.moreFix.title: Bug hunter
 § achievements.moreFix.description: most closed bugs
 § achievements.lessWorkDays.title: Count me out

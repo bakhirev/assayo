@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import settingsStore from 'ts/store/Settings';
-import localization from 'ts/helpers/Localization';
 
 import style from '../../styles/filters.module.scss';
 
@@ -14,6 +14,7 @@ function Button({
   title,
   type,
 }: IButtonProps) {
+  const { t } = useTranslation();
   return (
     <button
       className={style.header_filters_fast_button}
@@ -21,7 +22,7 @@ function Button({
         settingsStore.setFilterByDateType(type);
       }}
     >
-      {localization.get(title)}
+      {t(title)}
     </button>
   );
 }

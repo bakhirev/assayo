@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import ALL_ACHIEVEMENTS from 'ts/helpers/achievement/constants/list';
-import localization from 'ts/helpers/Localization';
 
 import style from '../styles/index.module.scss';
 
@@ -10,10 +10,11 @@ interface IAchievementProps {
 }
 
 function Achievement({ code }: IAchievementProps) {
+  const { t } = useTranslation();
   if (!ALL_ACHIEVEMENTS[code]) return null;
 
-  const title = localization.get(`achievements.${code}.title`);
-  const description = localization.get(`achievements.${code}.description`);
+  const title = t(`achievements.${code}.title`);
+  const description = t(`achievements.${code}.description`);
 
   const statusIndex = ALL_ACHIEVEMENTS[code];
   const className = [

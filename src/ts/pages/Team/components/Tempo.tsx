@@ -63,7 +63,7 @@ const Tempo = observer((): React.ReactElement => {
       <PageWrapper>
         <div className={style.tempo_filters}>
           <UiKitButton
-            type="second"
+            mode="second"
             disabled={week === 1}
             onClick={() => {
               setWeek(week - 1);
@@ -78,7 +78,7 @@ const Tempo = observer((): React.ReactElement => {
             })}
           </div>
           <UiKitButton
-            type="second"
+            mode="second"
             disabled={week === firstPoint.week}
             onClick={() => {
               setWeek(week + 1);
@@ -88,7 +88,7 @@ const Tempo = observer((): React.ReactElement => {
           </UiKitButton>
 
           <UiKitButton
-            type="second"
+            mode="second"
             onClick={() => {
               setUser(order[order.indexOf(user) - 1]);
             }}
@@ -104,7 +104,7 @@ const Tempo = observer((): React.ReactElement => {
             }}
           />
           <UiKitButton
-            type="second"
+            mode="second"
             onClick={() => {
               setUser(order[order.indexOf(user) + 1]);
             }}

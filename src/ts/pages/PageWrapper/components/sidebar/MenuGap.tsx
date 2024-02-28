@@ -1,6 +1,5 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import style from '../../styles/sidebar.module.scss';
 
@@ -11,9 +10,10 @@ interface ISideBarMenuGapProps {
 function SideBarMenuGap({
   title,
 }: ISideBarMenuGapProps) {
+  const { t } = useTranslation();
   return (
     <div className={style.sidebar_title}>
-      {localization.get(title)}
+      {t(title || '')}
     </div>
   );
 }

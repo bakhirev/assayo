@@ -1,0 +1,71 @@
+@import 'src/styles/variables';
+
+.slider {
+  &_exit_left,
+  &_exit_right,
+  &_entrance_left,
+  &_entrance_right {
+    position: relative;
+    top: 0;
+  }
+
+  &_exit_left {
+    animation: slider_exit_left linear 0.2s forwards;
+  }
+
+  &_exit_right {
+    animation: slider_exit_right linear 0.2s forwards;
+  }
+
+  &_entrance_left {
+    animation: slider_entrance_left linear 0.2s forwards;
+  }
+
+  &_entrance_right {
+    animation: slider_entrance_right linear 0.2s forwards;
+  }
+}
+
+@keyframes slider_exit_left {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+  to {
+    right: 110%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes slider_exit_right {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    left: 110%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes slider_entrance_left {
+  from {
+    right: 110%;
+    opacity: 0.5;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slider_entrance_right {
+  from {
+    left: 110%;
+    opacity: 0.5;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}

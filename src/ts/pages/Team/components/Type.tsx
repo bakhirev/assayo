@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ISort from 'ts/interfaces/Sort';
@@ -22,7 +23,6 @@ import Recommendations from 'ts/components/Recommendations';
 import Description from 'ts/components/Description';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
-import localization from 'ts/helpers/Localization';
 
 interface ITypeViewProps {
   response?: IPagination<any>;
@@ -116,8 +116,11 @@ TypeView.defaultProps = {
 const Type = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
+  const { t } = useTranslation();
   const rows = dataGripStore.dataGrip.type.statistic;
-  if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
+  if (!rows?.length) {
+    return mode !== 'print' ? (<NothingFound />) : null;
+  }
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byType;
 
   return (
@@ -139,7 +142,7 @@ const Type = observer(({
       </DataLoader>
       <PageWrapper>
         <Description
-          text={localization.get('page.team.type.description')}
+          text={t('page.team.type.description')}
         />
       </PageWrapper>
     </>

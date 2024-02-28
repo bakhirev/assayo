@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import 'src/styles/variables';
 
 .splash_screen {
   position: fixed;
@@ -23,19 +23,6 @@
     text-align: center;
 
     animation: splash_screen_container 1s linear 4s forwards;
-  }
-
-  &_description {
-    font-size: 10px;
-    font-weight: 100;
-    display: block;
-    padding: 0;
-    margin: 8px 0 0 0;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-transform: none;
-    color: #404148;
   }
 }
 

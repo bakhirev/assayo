@@ -2,10 +2,16 @@
 
 > - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
+> - [中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)
+> - [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
+> - [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md)
+> - [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md)
+> - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
+> - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=en)
+# [Assayo](https://assayo.online/?ref=github&lang=en)
 
-Visualization and analysis of your git repository data ([demo](https://assayo.jp/demo/?ref=github&lang=en&dump=./test.txt)).
+Visualization and analysis of your git repository data ([demo](https://assayo.online/demo/?ref=github&lang=en&dump=./test.txt)).
 
 ##### Employee can evaluate new workplace
 - work speed;
@@ -63,8 +69,8 @@ This file contains data for show a report.
 The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
 
 ### How to view the report online?
-- go to the [website](https://assayo.jp/);
-- click the “[Demo](https://assayo.jp/demo)” button;
+- go to the [website](https://assayo.online/);
+- click the “[Demo](https://assayo.online/demo)” button;
 - drag the `log.txt` file into the browser window;
 
 ### How to view the report offline?
@@ -116,9 +122,9 @@ Every time you restart the computer, the script will update statistics on all th
 ### DevOps (CI/CD)
 
 #### Public server
-You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://assayo.jp/?ref=github&lang=en) to visualize it.
+You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://assayo.online/?ref=github&lang=en) to visualize it.
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Private server
@@ -157,5 +163,5 @@ You can add a new translation or correct an existing one in the ```ts/translatio
 ### Feedback, suggestions, comments
 - telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- website [https://assayo.jp/](https://assayo.jp/)
+- website [https://assayo.online/](https://assayo.online/)
 

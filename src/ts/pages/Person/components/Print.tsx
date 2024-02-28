@@ -1,11 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import Description from 'ts/components/Description';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
 import TableOfContents from 'ts/pages/Common/components/TableOfContents';
 
-import localization from 'ts/helpers/Localization';
 import style from 'ts/pages/Team/styles/cover.module.scss';
 
 import Hours from './Hours';
@@ -22,11 +22,12 @@ import IPersonCommonProps from '../interfaces/CommonProps';
 const Print = observer(({
   user,
 }: IPersonCommonProps): React.ReactElement => {
+  const { t } = useTranslation();
   return (
     <>
       <div className={style.cover}>
         <h1 className={style.cover_title}>
-          {localization.get('page.print.title')}
+          {t('page.print.title')}
         </h1>
         <h2 className={style.cover_sub_title}>
           {user.author}
@@ -40,7 +41,7 @@ const Print = observer(({
           'page.person.hours.title',
           'page.common.words.title',
         ]}/>
-        <Description text={localization.get('page.print.description')}/>
+        <Description text={t('page.print.description')}/>
       </div>
       <PageBreak/>
       <Total user={user}/>

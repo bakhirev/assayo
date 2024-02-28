@@ -1,6 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import localization  from 'ts/helpers/Localization';
 import style from './index.module.scss';
 
 interface ICardWithIconProps {
@@ -22,6 +22,7 @@ function CardWithIcon({
   icon,
   long = false,
 }: ICardWithIconProps): React.ReactElement | null {
+  const { t } = useTranslation();
   if (!value && value !== 0) return null;
 
   return (
@@ -42,10 +43,10 @@ function CardWithIcon({
         {suffix || ''}
       </p>
       <h4 className={style.card_with_icon_title}>
-        {localization.get(title)}
+        {t(title || '')}
       </h4>
       <figcaption className={style.card_with_icon_description}>
-        {localization.get(description)}
+        {t(description || '')}
       </figcaption>
     </figure>
   );

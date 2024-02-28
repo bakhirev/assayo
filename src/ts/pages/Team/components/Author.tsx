@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import ISort from 'ts/interfaces/Sort';
 import IHashMap from 'ts/interfaces/HashMap';
@@ -13,7 +14,6 @@ import PageColumn from 'ts/components/Page/column';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
-import localization from 'ts/helpers/Localization';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import DataView from 'ts/components/DataView';
@@ -33,10 +33,11 @@ interface IAuthorViewProps {
 }
 
 function AuthorView({ response, updateSort, mode }: IAuthorViewProps) {
+  const { t } = useTranslation();
   if (!response) return null;
 
-  const textWork = localization.get('page.team.author.worked');
-  const textLosses = localization.get('page.team.author.losses');
+  const textWork = t('page.team.author.worked');
+  const textLosses = t('page.team.author.losses');
   const daysWorked = getOptions({ order: [textWork, textLosses], suffix: 'page.team.author.days' });
   const taskChart = getOptions({ max: getMaxByLength(response, 'tasks'), suffix: 'page.team.author.tasksSmall' });
   const commitsChart = getOptions({ max: getMax(response, 'commits') });
@@ -156,8 +157,12 @@ AuthorView.defaultProps = {
 const Author = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
+  const { t } = useTranslation();
   const rows = dataGripStore.dataGrip.author.statistic;
-  if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
+
+  if (!rows?.length) {
+    return mode !== 'print' ? (<NothingFound />) : null;
+  }
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byAuthor;
 
   return (
@@ -180,12 +185,12 @@ const Author = observer(({
       <PageWrapper>
         <PageColumn>
           <Description
-            text={localization.get('page.team.author.description1')}
+            text={t('page.team.author.description1')}
           />
         </PageColumn>
         <PageColumn>
           <Description
-            text={localization.get('page.team.author.description2')}
+            text={t('page.team.author.description2')}
           />
         </PageColumn>
       </PageWrapper>

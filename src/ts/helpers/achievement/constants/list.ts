@@ -42,7 +42,6 @@ export default {
   hasCommitEveryTime: ACHIEVEMENT_TYPE.BAD, // Умер на работе
   commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время
   more1488DaysInProject: ACHIEVEMENT_TYPE.GOOD, // им. Максима Марцинкевича
-  taskNumber300: ACHIEVEMENT_TYPE.NORMAL, // Знаком с трактористом
 
   // нет кода
   // moreFix: ACHIEVEMENT_TYPE.GOOD, // Bug hunter

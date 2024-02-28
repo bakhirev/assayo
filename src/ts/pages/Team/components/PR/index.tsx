@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import ISort from 'ts/interfaces/Sort';
 import { IPaginationRequest } from 'ts/interfaces/Pagination';
@@ -15,7 +16,6 @@ import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
-import localization from 'ts/helpers/Localization';
 
 import Total from './Total';
 import Authors from './Authors';
@@ -24,6 +24,7 @@ import All from './All';
 const PR = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
+  const { t } = useTranslation();
   const allPR = dataGripStore.dataGrip.pr.statistic;
   const rows = allPR.filter((item: any) => item.delayDays > 3);
   if (rows?.length < 2) return mode !== 'print' ? (<NothingFound />) : null;
@@ -39,15 +40,15 @@ const PR = observer(({
       <PageWrapper>
         <PageColumn>
           <Description
-            text={localization.get('page.team.pr.description1')}
+            text={t('page.team.pr.description1')}
           />
           <Description
-            text={localization.get('page.team.pr.description2')}
+            text={t('page.team.pr.description2')}
           />
         </PageColumn>
         <PageColumn>
           <Description
-            text={localization.get('page.team.pr.description3')}
+            text={t('page.team.pr.description3')}
           />
         </PageColumn>
       </PageWrapper>

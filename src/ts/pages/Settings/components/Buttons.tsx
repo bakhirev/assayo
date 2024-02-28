@@ -13,7 +13,7 @@ const Buttons = observer((): React.ReactElement | null => {
   return (
     <div className={style.buttons_header}>
       <UiKitButton
-        type="second"
+        mode="second"
         onClick={() => {
           formStore.setInitState(formStore.initState);
         }}

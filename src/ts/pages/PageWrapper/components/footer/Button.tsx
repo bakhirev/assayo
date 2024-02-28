@@ -1,33 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import style from '../../styles/footer.module.scss';
 
 interface IButtonProps {
-  id: string;
-  title: string;
   icon: string;
+  title: string;
   isSelected?: boolean;
+  onClick: Function
 }
 
 function Button({
-  id,
   title,
   icon,
   isSelected,
+  onClick,
 }: IButtonProps) {
-  const navigate = useNavigate();
   return (
     <figure
-      className={`${style.footer_button} ${isSelected ? style.footer_button_selected : ''}`}
-      onClick={() => {
-        const link = {
-          team: '/team/total',
-          person: '/person/total/0',
-          settings: '/settings',
-        }[id];
-        if (link) navigate(link);
-      }}
+      className={`${style.footer_button} ${isSelected ? style.footer_button_selected : ''}`} // @ts-ignore
+      onClick={onClick}
     >
       <div
         className={style.footer_button_icon}

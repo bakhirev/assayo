@@ -1,14 +1,15 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body } from 'ts/components/ModalWindow';
-import localization from 'ts/helpers/Localization';
 
 import style from '../styles/print.module.scss';
 import printStore from '../store/Print';
 
 const Print = observer(() => {
+  const { t } = useTranslation();
   if (!printStore.isOpen) return null;
 
   return (
@@ -17,7 +18,7 @@ const Print = observer(() => {
     }}>
       <Header>
         <div style={{ textAlign: 'center' }}>
-          {localization.get('page.print.modal.title')}
+          {t('page.print.modal.title')}
         </div>
       </Header>
       <Body>
@@ -26,37 +27,36 @@ const Print = observer(() => {
           className={style.page_wrapper_print_icon}
         />
         <UiKitButton
-          className={style.page_wrapper_print_button}
+          mode={['primary', 'full_size']}
           onClick={() => {
             printStore.printPage();
           }}
         >
-          {localization.get('page.print.modal.page')}
+          {t('page.print.modal.page')}
         </UiKitButton>
         <UiKitButton
-          className={style.page_wrapper_print_button}
+          mode={['primary', 'full_size']}
           onClick={() => {
             printStore.printSection();
           }}
         >
-          {localization.get('page.print.modal.type')}
+          {t('page.print.modal.type')}
         </UiKitButton>
         <UiKitButton
-          className={style.page_wrapper_print_button}
+          mode={['primary', 'full_size']}
           onClick={() => {
             printStore.printAllPages();
           }}
         >
-          {localization.get('page.print.modal.all')}
+          {t('page.print.modal.all')}
         </UiKitButton>
         <UiKitButton
-          type="second"
-          className={style.page_wrapper_print_button}
+          mode={['second', 'full_size']}
           onClick={() => {
             printStore.close();
           }}
         >
-          {localization.get('page.print.modal.cancel')}
+          {t('page.print.modal.cancel')}
         </UiKitButton>
       </Body>
     </Modal>

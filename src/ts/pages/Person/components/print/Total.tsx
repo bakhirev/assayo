@@ -1,12 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
-
-import localization from 'ts/helpers/Localization';
 
 import IPersonCommonProps from '../../interfaces/CommonProps';
 import style from '../../styles/print.module.scss';
@@ -14,6 +13,7 @@ import style from '../../styles/print.module.scss';
 const Total = observer(({
   user,
 }: IPersonCommonProps): React.ReactElement => {
+  const { t } = useTranslation();
   const statistic = user;
   const taskNumber = statistic.tasks.length;
 
@@ -26,7 +26,7 @@ const Total = observer(({
           title="page.person.print.photo.title"
         />
         <div className={style.place_for_photo}>
-          {localization.get('page.person.print.photo.description')}
+          {t('page.person.print.photo.description')}
         </div>
       </PageColumn>
       <PageColumn>

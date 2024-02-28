@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import 'src/styles/variables';
 
 .paginator {
   display: block;
@@ -14,12 +14,12 @@
   font-family: Arial, Verdana, sans-serif;
 
   display: inline-block;
-  height: 36px;
+  height: 42px;
   padding: 0;
   margin: 0 var(--space-s);
 
   text-align: left;
-  line-height: 36px;
+  line-height: 42px;
   text-decoration: none;
   vertical-align: bottom;
   color: var(--color-black);
@@ -31,7 +31,7 @@
 
 input.paginator_page_number {
   display: inline-block;
-  width: 36px;
+  width: 42px;
   padding: 0;
   margin: 0 var(--space-s);
   text-align: center;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
-import localization from 'ts/helpers/Localization';
 
 import Track from './Track';
 import style from './index.module.scss';
@@ -23,6 +23,7 @@ interface IRacesProps {
 function Races({
   tracks,
 }: IRacesProps): React.ReactElement | null {
+  const { t } = useTranslation();
   const [showAnimation, setShowAnimation] = useState<boolean>(false);
 
   if (!tracks.length) return null;
@@ -47,7 +48,7 @@ function Races({
             setShowAnimation(true);
           }}
         >
-          {localization.get('uiKit.races.go')}
+          {t('uiKit.races.go')}
         </UiKitButton>
       )}
       {lines}

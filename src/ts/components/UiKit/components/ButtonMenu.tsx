@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 import { IUiKitWrapperProps } from './Wrapper';
-import { getCustomClassName } from './Button';
+import { getCustomClassName, Mode } from './Button';
 
-import style from '../styles/index.module.scss';
+import style from '../styles/button.module.scss';
 
 interface IUiKitButtonMenuProps extends IUiKitWrapperProps {
-  type?: string,
+  mode?: Mode | Mode[],
   options?: any[],
   onClick: Function,
 }
 
 function UiKitButtonMenu({
   title,
-  type,
+  mode,
   disabled,
   className,
 
@@ -24,7 +24,7 @@ function UiKitButtonMenu({
   if (!options?.length) return null;
 
   const [isOpen, setOpen] = useState<boolean>(false);
-  const customClassName = getCustomClassName(type, disabled);
+  const customClassName = getCustomClassName(mode, disabled);
   const buttons = options?.map((option: any) => {
     const buttonTitle = option?.title ?? option?.id ??  option ?? '';
     return (

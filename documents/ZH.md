@@ -1,0 +1,164 @@
+> [主要文件是俄文。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) 这是一个翻译。 它可能包含错误。 如果您是母语人士，您可以帮助改进此翻译。 谢谢！
+
+> - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
+> - [English](https://github.com/bakhirev/assayo)
+> - [中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)
+> - [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
+> - [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md)
+> - [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md)
+> - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
+> - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
+
+# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+
+对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.jp/demo/?dump=./test.txt&lang=ru)).
+
+##### 工作人员可以评估新工作场所
+- 工作节奏；
+- 加班数量；
+- 责任范围；
+- 新功能和错误量；
+- 同事工作方式。；
+
+##### 管理者可以评估员工
+- 发现闲置工作者；
+- 估算代码量；
+- 了解工作速度；
+- 注意行为异常；
+- 查看工作周期动态。;
+
+##### 投资者可以评估产品
+- 产品的成本;
+- 新功能的成本;
+- 开发时间;
+- 修改时间预测;
+- 成本预测;
+
+### 如何 quickly 查阅 commit 的 次数？
+
+在项目的根目录中执行以下命令：
+```
+git shortlog -s -n -e
+```
+### 如何 combine 作者？
+在项目的 根目录 创建一个文件 `.mailmap`.
+文件内容示例:
+```
+Alex B <alex@mail.uk>
+Alex B <alex@mail.uk> <alex@gov.tk>
+Alex B <alex@mail.uk> <bakhirev@ya.kz>
+Alex B <alex@mail.uk> <man64@yahoo.com>
+``` 
+关于这个文件格式的 详情 可以 参考 [这里](https://git-scm.com/docs/gitmailmap).
+
+### 如何从 git 导出数据？
+
+#### 供网上浏览
+在项目的根目录执行：
+```
+git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
+```
+#### 在没有互联网的情况下观看
+
+```
+git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+```
+Git会创建一个文件 `log.txt`.
+这个文件包含了构建报告的数据。 
+
+字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`
+
+### 如何在线查看报告？
+
+- 切换到 [网站](https://assayo.jp/)
+- 按下按钮 “[示范](https://assayo.jp/demo?lang=ru)”
+- 拖放文件 `log.txt` 在浏览器窗口中
+
+### 如何在没有网络环境下查看报告？
+- 下载这个存储库
+- 拖放文件 `log.txt` 到文件夹 `/build`
+- 要运行 `/build/index.html`
+- 或是拖放文件夹 `/build` 到我的仓库 (它所在的地方 `log.txt`). 可以改变名称。比如，从名称 `/build` 到名称 `/report`
+
+重要的事情是，必须让log.txt这个文件是通过命令创建出来的，这样它就可以在没有网的时候查看了。
+
+### 如何重打包报告文件？
+- 下载这个储存库
+- 要执行 `npm install`
+- 要执行 `npm run build`
+- 最新的构建将在文件夹 `/build`
+
+### 如何查看微服务组的报告？
+- 为每个微服务生成文件 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等)
+- 参见“如何在有网络环境下查看报告”。在最后一步，将所有文件同时拖入浏览器窗口。
+- 参见“如何在没有网络环境下查看报告”。第二步将所有微服务文件拖动到 (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等) 到报表文件夹 (`/build`).
+
+### 如何将界面重新配色为公司专有颜色？
+您可以为界面创建自己的主题。可以修改：
+- **标题**. 你可以在网址参数中指定它 ```title```. 例如: ```?title=You Company```
+- **CSS样式**. 为了做到这一点，你需要准备一个CSS文件并在网址参数中指明其地址 ```theme```. 例如: ```?theme=//company.com/some.css```. 你可以使用类名作为选择器。大多数情况下，他们在新版本发布时不会发生变化。
+- **语言**. 你可以把它放在网址的参数中。 ```lang```. 例如: ```?lang=es```
+
+### 如何签署提交？
+
+遵循实践 [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例如:
+```
+JIRA-1234 feat(profile): Added avatar for user 
+```
+- 任务号 `(JIRA-1234)`
+- 工作类别 `(feat, fix, style, refactor, test, doc 等等)`
+- 工作领域 `(profile - 地盘组, 网页 或新功能, 一句话)`
+- 职位描述 `(Added avatar for user)`
+
+### 如何自动化数据采集？
+
+#### 没有后端
+- 克隆您的仓库;;
+- 复制文件夹 `build` 从当前仓库;
+- 打开 `build/index.html` 在浏览器中添加书签;
+- 添加一个快捷方式 `build/assets/ci-cd.sh` 自动启动文件夹 (Windows);
+
+每次重启计算机，该脚本将更新统计数据，这些数据自动添加到主分支中。
+
+### DevOps (CI/CD)
+
+#### 公共服务器
+
+您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://assayo.jp/). 指定数据所在的地址作为URL参数 ```dump```:
+```
+https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+```
+
+#### 专用服务器
+- 下载 [docker镜像](https://hub.docker.com/r/bakhirev/assayo);
+- 在本地网络中运行它;
+- 使用web界面查看报告，并指定数据所在地址作为URL参数 ```dump```:
+```
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - assayo容器的URL地址，它监听80端口;
+you_url    - git日志的容器的URL地址;
+```
+
+默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
+#### Docker 图像更新
+
+- 运行命令 ```npm run build```
+- 运行命令 ```docker build -t assayo .```
+- 检查结果 ```docker run --name assayo -p 80:80 -d assayo```;
+- 运行命令 ```docker tag IMAGE_ID bakhirev/assayo:latest```;
+- 提交容器映像到 Docker Hub
+
+### 释出版本大约每半年一次。接下来发生什么情况：
+
+看 [主要文件](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
+
+### 如何添加或编辑翻译？
+
+您可以在“翻译”部分添加新翻译或更正当前翻译。 ```ts/translations/```.
+[指示手册](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+
+### 愿望，建议，意见
+- telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
+- [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+- 网站 [https://assayo.jp/](https://assayo.jp/)
+

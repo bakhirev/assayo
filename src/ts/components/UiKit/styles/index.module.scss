@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import 'src/styles/variables';
 
 .ui_kit_common {
   font-size: var(--font-s);
@@ -6,11 +6,11 @@
 
   display: inline-block;
   width: 100%;
-  height: 36px;
+  height: 42px;
   padding: 0 var(--space-l);
   margin: 0;
 
-  line-height: 36px;
+  line-height: 42px;
   text-align: left;
   box-sizing: border-box;
   vertical-align: top;
@@ -65,87 +65,6 @@
   color: var(--color-12);
 }
 
-
-.ui_kit_button {
-  --button-color-bg: var(--color-button);
-  --button-color-text: #FFFFFF;
-  --button-color-border: var(--color-button);
-  --button-color-hover: var(--color-button-2);
-  --button-color-active: var(--color-button-3);
-
-  &_slim,
-  &_second {
-    --button-color-bg: #FFFFFF;
-    --button-color-text: var(--color-black);
-    --button-color-border: var(--color-border);
-    --button-color-hover: var(--color-border);
-    --button-color-active: var(--color-border);
-  }
-
-  &_link {
-    --button-color-bg: transparent;
-    --button-color-text: var(--color-button);
-    --button-color-border: transparent;
-    --button-color-hover: transparent;
-    --button-color-active: transparent;
-  }
-}
-
-.ui_kit_button {
-  font-weight: bold;
-  font-size: var(--font-xs);
-  display: inline-block;
-  height: 36px;
-  min-width: 36px;
-  padding: 0 var(--space-s);
-  margin: 0;
-
-  cursor: pointer;
-  line-height: 36px;
-  text-align: center;
-  box-sizing: border-box;
-  white-space: nowrap;
-  vertical-align: top;
-  border: 1px solid var(--button-color-border);
-  border-radius: var(--border-radius-s);
-
-  color: var(--button-color-text);
-  background-color: var(--button-color-bg);
-
-  &:hover {
-    background-color: var(--button-color-hover);
-  }
-
-  &:active {
-    background-color: var(--button-color-active);
-  }
-
-  &.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  &_slim {
-    font-weight: 100;
-  }
-
-  &_link {
-    font-weight: 100;
-    height: auto;
-    min-height: auto;
-    padding: 0;
-    line-height: 1.3;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-.ui_kit_button + .ui_kit_button {
-  margin-right: 24px;
-}
-
 .ui_kit_select {
   padding: 0 var(--space-xs) 0 var(--space-l);
 }
@@ -165,36 +84,4 @@
   border-radius: 8px;
   background-color: #FFFFFF;
   box-shadow: 0 0 5px #C0C0C0;
-}
-
-.ui_kit_button_menu {
-  --button-color-bg: #FFFFFF;
-  --button-color-text: var(--color-black);
-  --button-color-border: var(--color-border);
-  --button-color-hover: var(--color-border);
-
-  font-weight: bold;
-  font-size: var(--font-xs);
-  display: block;
-  height: 36px;
-  width: 100%;
-  padding: 0 var(--space-s);
-  margin: 0;
-
-  cursor: pointer;
-  line-height: 36px;
-  text-align: left;
-  box-sizing: border-box;
-  white-space: nowrap;
-  vertical-align: top;
-  border: none;
-  border-bottom: 1px solid var(--button-color-border);
-  border-radius: 0;
-
-  color: var(--button-color-text);
-  background-color: var(--button-color-bg);
-
-  &:hover {
-    background-color: var(--button-color-hover);
-  }
 }

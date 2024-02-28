@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import 'src/styles/variables';
 
 .page_wrapper_print {
   &_icon {
@@ -6,21 +6,4 @@
     width: 70%;
     margin: 24px auto;
   }
-
-  &_button {
-    display: block;
-    width: 99%;
-    margin: 12px auto;
-
-    &:first-child {
-      margin-top: 24px;
-    }
-    &:last-child {
-      margin-bottom: 24px;
-    }
-  }
-}
-
-.page_wrapper_print_button + .page_wrapper_print_button {
-  margin-right: auto;
 }

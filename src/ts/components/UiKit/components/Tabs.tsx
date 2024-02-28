@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import localization from 'ts/helpers/Localization';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/tabs.module.scss';
@@ -11,12 +11,12 @@ interface IUiKitTabsProps extends IUiKitWrapperProps {
   onChange: Function;
 }
 
-function UiKitTabs({
+const UiKitTabs = React.forwardRef(({
   value,
   options,
   onChange,
-}: IUiKitTabsProps) {
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+}: IUiKitTabsProps, ref: any): JSX.Element => {
+  const { t } = useTranslation();
   const hasValue = value || value === 0 || value === false;
 
   const items = (options || [])
@@ -24,8 +24,10 @@ function UiKitTabs({
       const formattedOption = typeof option !== 'object'
         ? ({ id: option, title: option })
         : option;
+
       const isSelected = hasValue && value === formattedOption?.id;
-      const title = localization.get(formattedOption?.title)
+
+      const title = t(formattedOption?.title)
         ?? formattedOption?.id
         ?? '';
 
@@ -57,6 +59,8 @@ function UiKitTabs({
       {items}
     </div>
   );
-}
+});
+
+UiKitTabs.displayName = 'UiKitTabs';
 
 export default UiKitTabs;

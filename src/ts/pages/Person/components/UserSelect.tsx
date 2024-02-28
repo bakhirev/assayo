@@ -19,7 +19,7 @@ const UserSelect = observer((): React.ReactElement => {
   return (
     <div className={style.user_select}>
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={formattedUserId <= 0}
         onClick={() => {
           navigate(`/${type}/${page}/${formattedUserId - 1}`);
@@ -36,7 +36,7 @@ const UserSelect = observer((): React.ReactElement => {
         }}
       />
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={formattedUserId >= (authors.length - 1)}
         onClick={() => {
           navigate(`/${type}/${page}/${formattedUserId + 1}`);

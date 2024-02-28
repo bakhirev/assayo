@@ -1,6 +1,5 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import style from '../../styles/switch.module.scss';
 
@@ -15,8 +14,9 @@ function Switch({
   options,
   onChange,
 }: ISwitchProps) {
+  const { t } = useTranslation();
   const buttons = options.map((item: any) => {
-    const title = localization.get(item?.title);
+    const title = t(item?.title || '');
     return (
       <div
         key={title}

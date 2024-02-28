@@ -1,162 +1,171 @@
+> [Documentación básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) en ruso. Es una traducción. Puede contener errores. Si usted es un hablante nativo, puede ayudar a mejorar esta traducción. ¡Gracias!
+ 
 > - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
+> - [中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)
+> - [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
+> - [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md)
+> - [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md)
+> - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
+> - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=ru)
 
-Visualización y análisis de los datos de su repositorio git ([demostración](https://assayo.jp/demo/?dump=./test.txt).
+Visualización y análisis de los datos de su repositorio git. ([демо](https://assayo.online/demo/?dump=./test.txt)).
 
-##### Сотрудник может оценить новое место работы
-- темп работы;
-- количество переработок;
-- зоны ответственности;
-- объем фичей и багов;
-- стиль работы коллег;
+##### El empleado puede evaluar el nuevo lugar de trabajo
+- El ritmo de trabajo;
+- El número de horas extras;
+- Las áreas de responsabilidad;
+- El volumen de características y errores;
+- El estilo de trabajo de los colegas;
 
-##### Руководитель может оценить сотрудников
-- выявить бездельников;
-- прикинуть объём кода;
-- узнать скорость работы;
-- заметить аномалии поведения;
-- посмотреть динамику работы по неделям;
+##### El jefe puede evaluar a los empleados
+- Identificar a los ociosos;
+- Calcular el volumen de código;
+- Conocer la velocidad de trabajo;
+- Se han notado anomalías de comportamiento;
+- Ver el ritmo de trabajo por semanas;
 
-##### Инвестор может оценить продукт
-- стоимость продукта;
-- стоимость фичей;
-- время на разработку;
-- прогноз времени доработок;
-- прогноз стоимости;
+##### El inversor puede evaluar el producto
+- El costo del producto;
+- El coste de las peculiaridades;
+- El tiempo de desarrollo;
+- La predicción del tiempo de mejoras;
+- La predicción del costo;
 
-### Как быстро посмотреть количество коммитов?
+### Cómo puedo rápidamente ver el número de commits?
 
-В корневой директории вашего проекта выполнить:
+En la carpeta raíz de su proyecto, ejecute:
 ```
 git shortlog -s -n -e
 ```
-### Как объединить авторов?
-В корневой директории вашего проекта нужно создать файл `.mailmap`.
-Пример содержания файла:
+### Cómo combinar a los autores?
+En la carpeta raíz de su proyecto debe crear un archivo `.mailmap`.
+Un ejemplo del contenido del archivo:
 ```
 Alex B <alex@mail.uk>
 Alex B <alex@mail.uk> <alex@gov.tk>
 Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ``` 
-Подробнее про формат этого файла можно прочитать [тут](https://git-scm.com/docs/gitmailmap).
+Más información sobre el formato de este archivo se puede leer en [aquí](https://git-scm.com/docs/gitmailmap).
 
-### Как выгрузить данные из git?
+### Cómo descargar los datos desde git?
 
-#### Для онлайн просмотра
-В корневой директории вашего проекта выполнить:
+#### Para la visualización en línea
+En el directorio raíz de su proyecto ejecutar:
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
 ```
-#### Для офлайн просмотра
+#### Para ver sin conexión
 
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
-Git создаст файл `log.txt`.
-Он содержит данные для построения отчёта. 
+Git creará un archivo `log.txt`.
+contiene los datos para construir el informe. 
 
-Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
+La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`
 
-### Как посмотреть отчёт онлайн? 
+### ¿Cómo ver el informe en línea? 
 
-- Перейти на [сайт](https://assayo.jp/)
-- Нажать кнопку «[Демо](https://assayo.jp/demo)»
-- Перетащить файл `log.txt` в окно браузера
+- Ir a [sitio web](https://assayo.online/)
+- Pulse el botón [Demo](https://assayo.online/demo)»
+- Arrastrar y soltar archivo `log.txt` en la ventana del navegador
 
-### Как посмотреть отчёт офлайн?
-- Скачать этот репозиторий
-- Перетащить файл `log.txt` в папку `/build`
-- Запустить `/build/index.html`
-- Или перетащить папку `/build` к себе в репозиторий (туда, где лежит `log.txt`). Можно сменить название. Например с `/build` на `/report`
+### ¿Cómo ver el informe sin conexión?
+- Descargar este repositorio
+- Arrastrar y soltar archivo `log.txt` en la carpeta `/build`
+- Lanzar `/build/index.html`
+- O arrastrar una carpeta `/build` a su repositorio (donde se encuentra ' log.txt`). Puede cambiar el nombre. Por ejemplo `/build` contra `/report`
 
-В этом случае важно, чтобы файл `log.txt` был сгенерирован командой для офлайн просмотра.
+En este caso, es importante que el archivo ' log.txt ' fue generado por el equipo para ver sin conexión.
 
-### Как пересобрать билд отчёта?
-- Скачать этот репозиторий
-- Выполнить `npm install`
-- Выполнить `npm run build`
-- Свежая сборка будет в папке `/build`
+### Como recompilar el build de un informe?
+- Descargar este repositorio
+- Ejecutar `npm install`
+- Ejecutar `npm run build`
+- La nueva compilación estará en el directorio `/build`
 
-### Как посмотреть отчёт по группе микросервисов?
-- Сгенерировать для каждого микросервиса файл `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.)
-- См. «Как посмотреть отчёт онлайн?». На последнем шаге перетащить сразу все файлы в окно браузера.
-- См. «Как посмотреть отчёт офлайн?». На втором шаге перетащить все файлы микросервисов (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.) в папку отчета (`/build`).
+### Como mirar el reporte de un grupo de microservicios?
+- Generar para cada microservicio el archivo `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
+- Ver “Cómo ver el informe en línea?”. En el último paso, arrastrar todos los archivos al navegador.
+- Ver “Cómo ver informe fuera de línea?”. En el segundo paso, arrastrar los archivos de todos los microservicios al navegador (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) la carpeta informe (`/build`).
 
-### Как брендировать интерфейс?
-Вы можете написать свою тему для интерфейса. Можно менять:
-- **Заголовок**. Вы можете указать его в URL-параметре ```title```. Например: ```?title=You Company```
-- **Визуальную тему**. Для этого нужно подготовить CSS файл с новыми стилями и указать его адрес в URL-параметре ```theme```. Например: ```?theme=//company.com/some.css```. Вы можете использовать имена классов в качестве селекторов. Большинство из них не меняется в при выходе новой версий.
-- **Язык**. Вы можете указать его в URL-параметре ```lang```. Например: ```?lang=es```
+### ¿Cómo puedo personalizar la interfaz de usuario?
+Puedes crear tu propio tema para la interfaz. Puedes cambiar:
+- **El título**. Puedes especificarlo en el parámetro de la URL ```title```. Por ejemplo: ```?title=You Company```
+- **El tema visual**. Para esto, debes preparar un archivo CSS con los nuevos estilos y especificar su dirección en el parámetro de URL ```theme```. Por ejemplo: ```?theme=//company.com/some.css```. Puedes usar los nombres de clases como selectores. La mayoría de ellos no cambia con el lanzamiento de nuevas versiones.
+- **La lengua**. Puedes especificarla en el parámetro de la URL ```lang```. Por ejemplo: ```?lang=es```
 
-### Как подписывать коммиты?
+### ¿Cómo firmar los commits?
 
-Следуйте практике [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Например:
+Siga la práctica [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Por ejemplo:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
 ```
-- номер задачи в таск трекере `(JIRA-1234)`
-- тип работы `(feat, fix, style, refactor, test, doc и т.д.)`
-- фича `(profile - раздел сайта, страница или новый функционал, одним словом)`
-- какую проблему решали `(Added avatar for user)`
+- El número de la tarea en el gestor de tareas es `(JIRA-1234)`
+- tipo de trabajo `(feat, fix, style, refactor, test, doc etc.)`
+- ficha `(profile - La sección del sitio, la página o la nueva funcionalidad, en una palabra)`
+- ¿qué problema resolvieron? `(Added avatar for user)`
 
-### Как автоматизировать сбор данных?
+### ¿Cómo automatizar el recolección de datos?
 
-#### Без бекенда
-- создайте клон нужного вам репозитория;
-- скопируйте в корень папку `build`;
-- откройте `build/index.html` в браузере и добавьте в закладки;
-- добавьте ярлык на `build/assets/ci-cd.sh` в папку автозагрузки (Windows);
+#### Sin backend
+- clone del repositorio que desea;
+- copiar a la carpeta raíz `build`;
+- abridlo `build/index.html` añadir a favoritos;
+- agregue un icono de `build/assets/ci-cd.sh` a su carpeta de inicio automático
+ (Windows);
 
-Каждый раз, при перезагрузке компьютера, скрипт будет обновлять статистику по всем данным, которые автоматически влились в основную ветку.
+Cada vez que reinicie su computadora, el script actualizará la estadística de todos los datos que se hayan incorporado automáticamente a la rama principal.
 
 ### DevOps (CI/CD)
 
-#### Публичный сервер
+#### Servidor público
 
-Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.jp/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
+Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://assayo.online/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
-#### Приватный сервер
-- скачайте [docker образ](https://hub.docker.com/r/bakhirev/assayo);
-- поднимите его в локальной сети;
-- для просмотра отчётов используйте веб-интерфейс указывая ему адресс, где лежат данные, в URL-параметре ```dump```:
+#### Servidor privado
+- descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);
+- recogerlo en la red local;
+- Para ver los informes, use la interfaz web indicándole la dirección de los datos en el parámetro URL ```dump```:
 ```
 http://assayo_url/?dump=//you_url/some/log.txt
-assayo_url - URL адресс контейнера assayo, он слушает 80 порт;
-you_url    - URL адресс вашего контейнера с логами git;
+assayo_url - URL dirección del contenedor assayo, Él está escuchando el puerto 80;
+you_url    - URL la dirección de su contenedor con registros git;
 ```
 
-По умолчанию образ запустится по адресу ```http://127.0.0.1:80/```. Если не получилось проверьте свободен ли у вас 80 порт.
-#### Обновление Docker-образа
+Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.0.1:80/```. Si no funciona, compruebe si tiene el puerto 80 disponible
+#### Actualización de la imagen Docker
 
-- удилить метрику, аллерты, старые билды;
-- собрать билд ```npm run build```
-- собрать образ ```docker build -t assayo .```
-- визуально проверить образ ```docker run --name assayo -p 80:80 -d assayo```;
-- поставить тег ```docker tag IMAGE_ID bakhirev/assayo:latest```;
-- запушить образ в Docker Hub
+- eliminar métricas, alertas, compilaciones antiguas;
+- construir ```npm run build```
+- montar la imagen ```docker build -t assayo .```
+- comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;
+- poner la etiqueta ```docker tag IMAGE_ID bakhirev/assayo:latest```;
+- poner la imagen en Docker Hub
 
-### Релизы, примерно, раз в полгода. Что дальше:
+### Los lanzamientos son aproximadamente una vez cada seis meses. Lo siguiente será:
 
-- больше советов и достижений;
-- итоги года / месяца, печать отчётов;
-- локализация и интернационализация;
-- анализ файлов;
-- разные роли для статистики (скрытие финансов);
-- разработка бекенда, интеграции с другими системами;
+- más consejos y logros;
+- resultados del año / mes, impresión de informes;
+- localización e internacionalización;
+- análisis de archivos;
+- diferentes roles para estadísticas (ocultación de finanzas);
+- desarrollo de la parte de atrás, integraciones con otros sistemas;
 
-### Как добавить или отредактировать перевод?
+### ¿Cómo añadir o editar una traducción?
 
-Вы можете добавить новый перевод или поправить текущий в разделе ```ts/translations/```.
-[Инструкция](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```.
+[Instrucciones](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
 
-### Пожелания, предложения, замечания
-- telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
+### Deseos, sugerencias, comentarios
+- telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- сайт [https://assayo.jp/](https://assayo.jp/)
+- sitio web [https://assayo.online/](https://assayo.online/)
 

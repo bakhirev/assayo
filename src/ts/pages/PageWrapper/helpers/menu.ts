@@ -1,3 +1,16 @@
+export const TYPES = [
+  {
+    id: 'team',
+    title: 'sidebar.switch.team',
+    icon: './assets/switch/team.svg',
+  },
+  {
+    id: 'person',
+    title: 'sidebar.switch.person',
+    icon: './assets/switch/person.svg',
+  },
+];
+
 export const TEAM = [
   {
     id: 'total',
@@ -61,6 +74,13 @@ export const TEAM = [
     title: 'sidebar.team.tree',
     icon: './assets/menu/team_files.svg',
   },
+  {
+    id: 'tasks',
+    link: '/team/tasks',
+    title: 'sidebar.team.tasks',
+    icon: './assets/menu/team_date_1.svg',
+  },
+  {},
   {
     id: 'commits',
     link: '/team/commits',

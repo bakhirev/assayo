@@ -1,9 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
-import localization from 'ts/helpers/Localization';
 
 import Achievements from 'ts/components/Achievement';
 import Description from 'ts/components/Description';
@@ -33,6 +33,7 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
 const Total = observer(({
   user,
 }: IPersonCommonProps): React.ReactElement => {
+  const { t } = useTranslation();
   const statistic = user;
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[statistic.author];
   const achievements = getAchievementByAuthor(statistic.author);
@@ -47,7 +48,7 @@ const Total = observer(({
         />
       </PageColumn>
       <PageColumn>
-        <Title title={localization.get('_')}/>
+        <Title title={t('_')}/>
         <AchievementBlock
           title="page.person.achievement.normal"
           achievements={achievements[ACHIEVEMENT_TYPE.NORMAL]}
@@ -66,7 +67,7 @@ const Total = observer(({
               list={commitsWithGet}
             />
             <Description
-              text={localization.get('page.person.gets.description')}
+              text={t('page.person.gets.description')}
             />
           </>
         ) : null}

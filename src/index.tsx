@@ -5,6 +5,8 @@ import { render } from 'react-dom';
 import localization from 'ts/helpers/Localization';
 import ru from 'ts/translations/ru/index';
 import en from 'ts/translations/en/index';
+import './ts/helpers/i18n';
+
 import Authorization from 'ts/pages/Authorization';
 import userSettings from 'ts/store/UserSettings';
 import Notifications from 'ts/components/Notifications';
@@ -30,6 +32,7 @@ function renderReactApplication() {
   window.onafterprint = () => {
     printStore.endPrint();
   };
+
   render(
     <React.StrictMode>
       <HashRouter>

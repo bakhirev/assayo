@@ -1,9 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
-import localization from 'ts/helpers/Localization';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
@@ -122,13 +122,14 @@ TreeView.defaultProps = {
 };
 
 const Tree = observer((): React.ReactElement => {
+  const { t } = useTranslation();
   const fileTree = dataGripStore.fileTree;
   const subTree = getSubTreeByPath(fileTree, treeStore.selectedPath);
   const fileList = getArrayFromTree(subTree);
 
   return (
     <>
-      <Title title={localization.get('common.filters')} />
+      <Title title={t('common.filters')} />
       <TreeFilters/>
       <Title title="page.team.tree.title"/>
       <PageWrapper template="table">

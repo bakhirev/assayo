@@ -1,20 +1,20 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import style from '../index.module.scss';
 
 function IsStaff() {
+  const { t } = useTranslation();
   return (
     <>
       <p className={style.nothing_found_title}>
-        {localization.get('uiKit.nothingFound.staff.title')}
+        {t('uiKit.nothingFound.staff.title')}
       </p>
       <p className={style.nothing_found_text}>
-        {localization.get('uiKit.nothingFound.staff.description1')}
+        {t('uiKit.nothingFound.staff.description1')}
       </p>
       <p className={style.nothing_found_text}>
-        {localization.get('uiKit.nothingFound.staff.description2')}
+        {t('uiKit.nothingFound.staff.description2')}
       </p>
     </>
   );

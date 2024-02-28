@@ -13,6 +13,7 @@ export default function Parser(
   parseCommit: Function,
 ) {
   const allFiles: IHashMap<IDirtyFile> = {};
+  const removedFiles: IHashMap<IDirtyFile> = {};
   const commits: Array<ICommit | ISystemCommit> = [];
   let week: number = 0;
   let weekEndTime: number = 0;
@@ -30,6 +31,11 @@ export default function Parser(
       let removed = parseInt(removedRaw, 10) || 0;
       const diff = added - removed;
       let changes = added > removed ? removed : added;
+
+      if (!allFiles[fileName] && removedFiles[fileName]) {
+        allFiles[fileName] = removedFiles[fileName];
+        delete removedFiles[fileName];
+      }
 
       if (allFiles[fileName]) {
         const fileInfo: IDirtyFile = allFiles[fileName];
@@ -57,6 +63,7 @@ export default function Parser(
         authorInfo.types[prev?.type || ''] = (authorInfo.tasks[prev?.type || ''] || 0) + 1;
         authorInfo.scopes[prev?.scope || ''] = (authorInfo.tasks[prev?.scope || ''] || 0) + 1;
         if (allFiles[fileName].lines === 0) {
+          removedFiles[fileName] = allFiles[fileName];
           delete allFiles[fileName];
         }
       } else {
@@ -109,5 +116,6 @@ export default function Parser(
     commits,
     fileList,
     fileTree,
+    removed: getFileList(removedFiles),
   };
 }

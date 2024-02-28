@@ -1,4 +1,3 @@
-import ICommit from 'ts/interfaces/Commit';
 import dataGrip from 'ts/helpers/DataGrip';
 
 import ALL_ACHIEVEMENTS from './constants/list';
@@ -6,7 +5,6 @@ import byCompetition from './byCompetition';
 
 export default function getAchievementByAuthor(author: string) {
   const statistic = dataGrip.author.statisticByName[author];
-  const getList = dataGrip.get.getsByAuthor[author];
   if (!statistic) return;
   const list = byCompetition.get(author);
   const commitByHours = statistic.commitsByHour;
@@ -55,8 +53,6 @@ export default function getAchievementByAuthor(author: string) {
   if (statistic.commits > 0 && statistic.tasks === 0) list.push('workNotWork');
   // сказал как отрезал - в среднем 1 коммит на таск
   if (statistic.tasks / statistic.commits) list.push('oneCommitOneTask');
-
-  if (getList?.some((commit: ICommit) => commit.taskNumber === '300')) list.push('taskNumber300');
 
   return list.reduce((acc: any, type: string) => {
     const index = ALL_ACHIEVEMENTS[type] - 1;

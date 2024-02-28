@@ -1,9 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
-import localization from 'ts/helpers/Localization';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
 import Achievements from 'ts/components/Achievement';
@@ -23,16 +23,18 @@ interface IAchievementBlockProps {
 }
 
 function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
+  const { t } = useTranslation();
   if (!achievements?.length) return null;
   return (
     <>
-      <Description text={`# ${localization.get(title)}`}/>
+      <Description text={`# ${t(title)}`}/>
       <Achievements list={achievements} />
     </>
   );
 }
 
 const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
+  const { t } = useTranslation();
   const statistic = user;
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[user.author];
   const taskNumber = statistic.tasks.length;
@@ -86,7 +88,7 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
           achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
         />
         <Description
-          text={localization.get('page.person.achievement.description')}
+          text={t('page.person.achievement.description')}
         />
         <br />
         <br />
@@ -95,7 +97,7 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             <Title title="page.person.gets.title"/>
             <GetList list={commitsWithGet} />
             <Description
-              text={localization.get('page.person.gets.description')}
+              text={t('page.person.gets.description')}
             />
           </>
         ) : null}

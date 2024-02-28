@@ -1,10 +1,10 @@
-@import 'src/styles/variables.scss';
+@import 'src/styles/variables';
 
 .footer {
   position: fixed;
-  bottom: var(--space-s);
-  left: var(--space-s);
-  right: var(--space-s);
+  bottom: var(--space-xxl);
+  left: var(--space-xxl);
+  right: var(--space-xxl);
   text-align: center;
   transition: bottom 1s ease-in-out;
   pointer-events: none;

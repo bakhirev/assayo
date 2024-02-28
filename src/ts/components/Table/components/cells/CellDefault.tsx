@@ -24,9 +24,14 @@ function DefaultCell({
     ? (() => { if (column.onClick) column.onClick(row); })
     : undefined;
 
+  const cellTitle = typeof children === 'string' && children.length > 20
+    ? children
+    : null;
+
   return (
     <div
-      key={column.title}
+      key={column.title} // @ts-ignore
+      title={cellTitle}
       className={`${style.table_cell} ${className || ''} ${columnClassName || ''}`}
       style={{
         width: column.width,

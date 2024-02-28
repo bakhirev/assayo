@@ -1,6 +1,5 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import style from './index.module.scss';
 
@@ -15,12 +14,13 @@ function Title({
   addPadding,
   className,
 }: ITitleProps) {
+  const { t } = useTranslation();
   return (
     <>
       <a // @ts-ignore
         name={title}></a>
       <h3 className={`${style.title} ${addPadding ? style.title_padding : ''} ${className || ''}`}>
-        {localization.get(title || '')}
+        {t(title || '')}
       </h3>
     </>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import Title from 'ts/components/Title';
-import localization from 'ts/helpers/Localization';
 import CardWithIcon from 'ts/components/CardWithIcon';
 import Description from 'ts/components/Description';
 
@@ -13,6 +13,7 @@ import userSettings from 'ts/store/UserSettings';
 import { getShortMoney } from 'ts/helpers/formatter';
 
 const Total = observer((): React.ReactElement => {
+  const { t } = useTranslation();
   const statistic = dataGripStore.dataGrip.team.statistic;
   const employment = dataGripStore.dataGrip.author.employment;
   const timestamp = dataGripStore.dataGrip.timestamp.statistic;
@@ -61,13 +62,13 @@ const Total = observer((): React.ReactElement => {
           />
         </div>
         <Description
-          text={localization.get('page.team.total.description1')}
+          text={t('page.team.total.description1')}
         />
         <Description
-          text={localization.get('page.team.total.description2')}
+          text={t('page.team.total.description2')}
         />
         <Description
-          text={localization.get('page.team.total.description3')}
+          text={t('page.team.total.description3')}
         />
       </PageColumn>
       <PageColumn>
@@ -106,10 +107,10 @@ const Total = observer((): React.ReactElement => {
           />
         </div>
         <Description
-          text={localization.get('page.team.total.description4')}
+          text={t('page.team.total.description4')}
         />
         <Description
-          text={localization.get('page.team.total.description5')}
+          text={t('page.team.total.description5')}
         />
       </PageColumn>
     </PageWrapper>

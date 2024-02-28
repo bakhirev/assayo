@@ -1,10 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { IPagination, IPaginationRequest } from 'ts/interfaces/Pagination';
 import UiKitInputString from 'ts/components/UiKit/components/InputString';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import Loading from 'ts/components/Loading';
-import localization from 'ts/helpers/Localization';
 
 import { DataLoaderState, IDataLoaderStore } from '../store';
 import ErrorDescription from '../ErrorDescription';
@@ -23,6 +23,7 @@ function SimplePagination({
   pagination,
   store,
 }: ISimplePaginationProps) {
+  const { t } = useTranslation();
   if (!response) return null;
 
   const pageSizeCurrent = pagination?.size || 10;
@@ -60,10 +61,10 @@ function SimplePagination({
   return (
     <nav className={style.paginator}>
       <p className={style.paginator_text}>
-        {localization.get('uiKit.dataLoader.page')}
+        {t('uiKit.dataLoader.page')}
       </p>
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={!pageNumber}
         onClick={() => {
           if (store) store.goToPage(pageNumber - 1, pageSize || pageSizeCurrent);
@@ -86,7 +87,7 @@ function SimplePagination({
         }}
       />
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={pageNumber === (totalPages - 1)}
         onClick={() => {
           if (store) store.goToPage(pageNumber + 1, pageSize || pageSizeCurrent);
@@ -95,10 +96,10 @@ function SimplePagination({
         »
       </UiKitButton>
       <p className={style.paginator_text}>
-        {localization.get('uiKit.dataLoader.from')}
+        {t('uiKit.dataLoader.from')}
       </p>
       <UiKitButton
-        type="second"
+        mode="second"
         onClick={() => {
           if (store) store.goToPage(totalPages - 1, pageSize || pageSizeCurrent);
         }}
@@ -106,7 +107,7 @@ function SimplePagination({
         {totalPages}
       </UiKitButton>
       <p className={style.paginator_text}>
-        {localization.get('uiKit.dataLoader.size')}
+        {t('uiKit.dataLoader.size')}
       </p>
       <UiKitInputString
         value={pageSize}
@@ -127,12 +128,12 @@ function SimplePagination({
       </p>
       {canShowMore && (
         <UiKitButton
-          type="slim"
+          mode="slim"
           onClick={() => {
             if (store) store.showAll();
           }}
         >
-          {localization.get('uiKit.dataLoader.all')}
+          {t('uiKit.dataLoader.all')}
         </UiKitButton>
       )}
     </nav>

@@ -1,0 +1,131 @@
+@import 'src/styles/variables';
+
+.ui_kit_button {
+  --button-color-bg: var(--color-button);
+  --button-color-text: #FFFFFF;
+  --button-color-border: var(--color-button);
+  --button-color-hover: var(--color-button-2);
+  --button-color-active: var(--color-button-3);
+
+  &_slim,
+  &_second {
+    --button-color-bg: #FFFFFF;
+    --button-color-text: var(--color-black);
+    --button-color-border: var(--color-border);
+    --button-color-hover: var(--color-border);
+    --button-color-active: var(--color-border);
+  }
+
+  &_link {
+    --button-color-bg: transparent;
+    --button-color-text: var(--color-button);
+    --button-color-border: transparent;
+    --button-color-hover: transparent;
+    --button-color-active: transparent;
+  }
+}
+
+.ui_kit_button {
+  font-weight: bold;
+  font-size: var(--font-xs);
+  display: inline-block;
+  height: 42px;
+  min-width: 42px;
+  padding: 0 var(--space-l);
+  margin: 0;
+
+  cursor: pointer;
+  line-height: 42px;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  vertical-align: top;
+  border: 1px solid var(--button-color-border);
+  border-radius: var(--border-radius-s);
+
+  color: var(--button-color-text);
+  background-color: var(--button-color-bg);
+
+  &:hover {
+    background-color: var(--button-color-hover);
+  }
+
+  &:active {
+    background-color: var(--button-color-active);
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &_slim {
+    font-weight: 100;
+  }
+
+  &_link {
+    font-weight: 100;
+    height: auto;
+    min-height: auto;
+    padding: 0;
+    line-height: 1.3;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &_full_size {
+    display: block;
+    width: 99%;
+    margin: 12px auto;
+
+    &:first-child {
+      margin-top: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.ui_kit_button + .ui_kit_button {
+  margin-right: 24px;
+}
+
+.ui_kit_button_full_size + .ui_kit_button_full_size {
+  margin-right: auto;
+}
+
+.ui_kit_button_menu {
+  --button-color-bg: #FFFFFF;
+  --button-color-text: var(--color-black);
+  --button-color-border: var(--color-border);
+  --button-color-hover: var(--color-border);
+
+  font-weight: bold;
+  font-size: var(--font-xs);
+  display: block;
+  height: 42px;
+  width: 100%;
+  padding: 0 var(--space-s);
+  margin: 0;
+
+  cursor: pointer;
+  line-height: 42px;
+  text-align: left;
+  box-sizing: border-box;
+  white-space: nowrap;
+  vertical-align: top;
+  border: none;
+  border-bottom: 1px solid var(--button-color-border);
+  border-radius: 0;
+
+  color: var(--button-color-text);
+  background-color: var(--button-color-bg);
+
+  &:hover {
+    background-color: var(--button-color-hover);
+  }
+}

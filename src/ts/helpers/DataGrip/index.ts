@@ -12,6 +12,7 @@ import MinMaxCounter from './components/counter';
 import DataGripByExtension from './components/extension';
 import DataGripByGet from './components/get';
 import DataGripByPR from './components/pr';
+import DataGripByTasks from './components/tasks';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -36,6 +37,8 @@ class DataGrip {
 
   pr: any = new DataGripByPR();
 
+  tasks: any = new DataGripByTasks();
+
   initializationInfo: any = {};
 
   clear() {
@@ -50,6 +53,7 @@ class DataGrip {
     this.extension.clear();
     this.get.clear();
     this.pr.clear();
+    this.tasks.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit) {
@@ -63,6 +67,7 @@ class DataGrip {
       this.timestamp.addCommit(commit);
       this.get.addCommit(commit);
       this.week.addCommit(commit);
+      this.tasks.addCommit(commit);
     }
   }
 
@@ -75,6 +80,7 @@ class DataGrip {
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
     this.pr.updateTotalInfo(this.author);
+    this.tasks.updateTotalInfo(this.pr);
   }
 
   updateByInitialization() {

@@ -24,7 +24,7 @@ const UserSelect = observer(({ required, userId, onChange }: IUserSelectProps): 
   return (
     <div className={style.user_select}>
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={userId <= 0}
         onClick={() => {
           onChange(userId - 1);
@@ -41,7 +41,7 @@ const UserSelect = observer(({ required, userId, onChange }: IUserSelectProps): 
         }}
       />
       <UiKitButton
-        type="second"
+        mode="second"
         disabled={userId >= (authors.length - 1)}
         onClick={() => {
           onChange(userId + 1);

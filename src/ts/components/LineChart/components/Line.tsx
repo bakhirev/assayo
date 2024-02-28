@@ -1,6 +1,5 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 interface ILineProps {
   value?: number;
@@ -23,14 +22,15 @@ function Line({
   className,
   formatter,
 }: ILineProps): React.ReactElement | null {
+  const { t } = useTranslation();
   if (!width || width <= 0) return null;
 
-  const formattedTitle = localization.get(title || '');
-  const localizationDescription = localization.get(description || '');
+  const formattedTitle = t(title || '');
+  const localizationDescription = t(description || '');
   const fullDescription = localizationDescription || formattedTitle;
 
   const formattedValue = formatter?.(value);
-  const formattedSuffix = suffix ? ` ${localization.get(suffix || '')}` : '';
+  const formattedSuffix = suffix ? ` ${t(suffix || '')}` : '';
   const formattedDescription = value
     ? `${width}% (${formattedValue}${formattedSuffix}) ${fullDescription}`
     : `${width}% ${fullDescription}`;

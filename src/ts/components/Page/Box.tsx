@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
-import localization from 'ts/helpers/Localization';
 
 import style from './index.module.scss';
 
@@ -16,15 +16,16 @@ function PageBox({
   onRemove,
   children,
 }: IPageColumnProps) {
+  const { t } = useTranslation();
   return (
     <div className={`${style.main_wrapper_white} ${className || ''}`}>
       <div className={style.main_wrapper_icons}>
         {onRemove && (
           <UiKitButton
-            type="second"
+            mode="second"
             onClick={() => onRemove()}
           >
-            {localization.get('uiKit.page.remove')}
+            {t('uiKit.page.remove')}
           </UiKitButton>
         )}
       </div>

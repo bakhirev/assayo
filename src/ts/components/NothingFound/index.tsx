@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import CommitFormat from './components/CommitFormat';
 import style from './index.module.scss';
@@ -19,7 +18,8 @@ function NothingFound({
   children,
   className,
 }: INothingFoundProps) {
-  const formattedMessage = localization.get(message || '');
+  const { t } = useTranslation();
+  const formattedMessage = t(message || '');
   return (
     <div className={`${style.nothing_found_wrapper} ${className}`}>
       <div className={style.nothing_found}>

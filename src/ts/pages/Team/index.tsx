@@ -1,7 +1,7 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
+import SectionSlider from 'ts/pages/PageWrapper/components/SectionSlider';
 import printStore from 'ts/pages/PageWrapper/store/Print';
 
 import Author from './components/Author';
@@ -16,37 +16,35 @@ import Tree from './components/Tree';
 import Type from './components/Type';
 import Week from './components/Week';
 import Month from './components/Month';
+import Tasks from './components/Tasks';
 import Top from './components/Top';
 import Pr from './components/PR';
 import Print from './components/Print';
 
-const Team = observer((): React.ReactElement | null => {
-  const { type, page } = useParams<any>();
-
-  if (type && type !== 'team') return null;
-  if (!type) return (<Total/>);
-
+function getViewById(page?: string) {
   const mode = printStore.processing ? 'print' : undefined;
+  if (page === 'total') return <Total/>;
+  if (page === 'scope') return <Scope mode={mode}/>;
+  if (page === 'author') return <Author mode={mode}/>;
+  if (page === 'type') return <Type mode={mode}/>;
+  if (page === 'pr') return <Pr mode={mode}/>;
+  if (page === 'day') return <Tempo/>;
+  if (page === 'week') return <Week mode={mode}/>;
+  if (page === 'month') return <Month mode={mode}/>;
+  if (page === 'hours') return <Hours mode={mode}/>;
+  if (page === 'tree') return <Tree/>;
+  if (page === 'commits') return <Commits/>;
+  if (page === 'changes') return <Changes/>;
+  if (page === 'words') return <PopularWords mode={mode}/>;
+  if (page === 'top') return <Top/>;
+  if (page === 'print') return <Print/>;
+  if (page === 'tasks') return <Tasks/>;
+  return <Total/>;
+}
 
-  return (
-    <>
-      {page === 'total' && <Total/>}
-      {page === 'scope' && <Scope mode={mode}/>}
-      {page === 'author' && <Author mode={mode}/>}
-      {page === 'type' && <Type mode={mode}/>}
-      {page === 'pr' && <Pr mode={mode}/>}
-      {page === 'day' && <Tempo/>}
-      {page === 'week' && <Week mode={mode}/>}
-      {page === 'month' && <Month mode={mode}/>}
-      {page === 'hours' && <Hours mode={mode}/>}
-      {page === 'tree' && <Tree/>}
-      {page === 'commits' && <Commits/>}
-      {page === 'changes' && <Changes/>}
-      {page === 'words' && <PopularWords mode={mode}/>}
-      {page === 'top' && <Top/>}
-      {page === 'print' && <Print/>}
-    </>
-  );
-});
+export default function Team() {
+  const { type } = useParams<any>();
+  if (type && type !== 'team') return null;
 
-export default Team;
+  return <SectionSlider getViewById={getViewById} />;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import localization from 'ts/helpers/Localization';
+import { useTranslation } from 'react-i18next';
 
 import { IColumn } from '../interfaces/Column';
 import headerStyle from '../styles/header.module.scss';
@@ -17,10 +16,12 @@ function Header({
   className,
   updateSort,
 }: ITitleProps) {
+  const { t } = useTranslation();
   const cells = columns.map((column: IColumn, columnIndex: number) => {
     const columnClassName = typeof column.className === 'function'
       ? column.className('header', columnIndex)
       : column.className;
+    const formattedTitle = t(column.title || '');
 
     return (
       <div
@@ -29,6 +30,7 @@ function Header({
         style={{ width: column.width }}
       >
         <span
+          title={formattedTitle}
           onClick={() => {
             if (!column.isSortable || !updateSort) return;
             updateSort([{
@@ -37,7 +39,7 @@ function Header({
             }]);
           }}
         >
-          {localization.get(column.title)}
+          {formattedTitle}
         </span>
         {column.title && column.sortDirection === -1 && (
           <div className={headerStyle.sort_down} />

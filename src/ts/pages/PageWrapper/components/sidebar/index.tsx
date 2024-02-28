@@ -3,32 +3,22 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Logo from './Logo';
 import Switch from './Switch';
-import SideBarPerson from './Person';
-import SideBarTeam from './Team';
+import SideBarButtons from './Buttons';
 
 import style from '../../styles/sidebar.module.scss';
+import { TYPES } from '../../helpers/menu';
 
 function SideBar() {
-  const { type, page } = useParams<any>();
+  const { type } = useParams<any>();
   const navigate = useNavigate();
+  const formattedType = type || 'team';
 
   return (
     <aside className={style.sidebar}>
       <Logo/>
       <Switch
-        value={type || 'team'}
-        options={[
-          {
-            id: 'team',
-            title: 'sidebar.switch.team',
-            icon: './assets/switch/team.svg',
-          },
-          {
-            id: 'person',
-            title: 'sidebar.switch.person',
-            icon: './assets/switch/person.svg',
-          },
-        ]}
+        value={formattedType}
+        options={TYPES}
         onChange={(newType: string) => {
           if (newType === type) return;
           if (newType === 'person') {
@@ -38,12 +28,7 @@ function SideBar() {
           }
         }}
       />
-      {type !== 'person' && (
-        <SideBarTeam page={page} />
-      )}
-      {type === 'person' && (
-        <SideBarPerson page={page} />
-      )}
+      <SideBarButtons type={formattedType} />
     </aside>
   );
 }

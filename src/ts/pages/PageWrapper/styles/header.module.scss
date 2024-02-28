@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import 'src/styles/variables';
 
 .header {
   grid-area: header;
@@ -30,6 +30,16 @@
 
   &_print {
     margin-right: 24px;
+  }
+
+  &_with_tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0;
+    background-color: #FFFFFF;
   }
 }
 

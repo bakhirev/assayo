@@ -93,7 +93,7 @@ function UserSalary({
           </UiKitColumns>
           <div className={style.salary_footer}>
             <UiKitButton
-              type="second"
+              mode="second"
               onClick={() => confirm.open().then(() => onRemove())}
             >
               {localization.get('page.settings.form.remove')}

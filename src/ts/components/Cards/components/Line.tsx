@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { IColumn } from 'ts/components/Table/interfaces/Column';
-import localization from 'ts/helpers/Localization';
 
 import style from '../styles/index.module.scss';
 
@@ -18,6 +18,7 @@ function Line({
   value,
   className,
 }: ILineProps): JSX.Element {
+  const { t } = useTranslation();
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', item)
     : column.className;
@@ -28,7 +29,7 @@ function Line({
       className={`${style.card_line} ${className || ''} ${columnClassName || ''}`}
     >
       <div className={style.card_line_title}>
-        {localization.get(column.title)}
+        {t(column.title || '')}
       </div>
       <div className={style.card_line_value}>
         {value}

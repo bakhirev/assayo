@@ -131,6 +131,16 @@ export default `
 § page.team.pr.description3: *Зачем отображать время разработки* без разбивки на кодинг и код-ревью? Затем, чтобы показать бизнесу фактическое время поставки кода. Ожидание тестирования, замечания на ревью, проблемы DevOps и прочие несовершенства процесса, как раз уже заложены в этот срок.
 § page.team.pr.statByAuthors: Статистика по сотрудникам
 § page.team.pr.longDelay: Длительное ожидание влития
+§ page.team.tasks.task: Задача
+§ page.team.tasks.author: Автор первого коммита
+§ page.team.tasks.from: Первый коммит
+§ page.team.tasks.to: Последний коммит
+§ page.team.tasks.daysInWork: Дней в работе
+§ page.team.tasks.commits: Количество коммитов
+§ page.team.tasks.pr: Дата влития
+§ page.team.tasks.prAuthor: Влил
+§ page.team.tasks.prDelayDays: Дней ожидания влития
+§ page.team.tasks.comments: Комментарии
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

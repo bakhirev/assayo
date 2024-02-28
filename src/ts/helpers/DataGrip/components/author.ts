@@ -40,10 +40,10 @@ export default class DataGripByAuthor {
     statistic.types[commit.type] = statistic.types[commit.type] ? (statistic.types[commit.type] + 1) : 1;
     statistic.scopes[commit.scope] = statistic.scopes[commit.scope] ? (statistic.scopes[commit.scope] + 1) : 1;
     statistic.hours.push(commit.hours);
-    statistic.messageLength.push(commit.message.length);
-    statistic.totalMessageLength += commit.message.length || 0;
-    statistic.maxMessageLength = commit.message.length > statistic.maxMessageLength
-      ? commit.message.length
+    statistic.messageLength.push(commit.text.length);
+    statistic.totalMessageLength += commit.text.length || 0;
+    statistic.maxMessageLength = commit.text.length > statistic.maxMessageLength
+      ? commit.text.length
       : statistic.maxMessageLength;
     statistic.commitsByDayAndHour[commit.day][commit.hours] += 1;
     statistic.commitsByHour[commit.hours] += 1;
@@ -72,9 +72,9 @@ export default class DataGripByAuthor {
       hours: [commit.hours],
       commitsByDayAndHour,
       commitsByHour,
-      messageLength: [commit.message.length || 0],
-      totalMessageLength: commit.message.length || 0,
-      maxMessageLength: commit.message.length || 0,
+      messageLength: [commit.text.length || 0],
+      totalMessageLength: commit.text.length || 0,
+      maxMessageLength: commit.text.length || 0,
       wordStatistics: DataGripByAuthor.#updateWordStatistics(commit),
       moneyByMonth: {},
     };
@@ -125,12 +125,13 @@ export default class DataGripByAuthor {
     const LIMIT_WORD_LENGTH = 2;
     const disabledWords = { for: 1, fix: 1 };
 
-    commit.message.toLowerCase().split(' ').forEach(word => {
+    commit.text.toLowerCase().split(' ').forEach(word => {
       if (word.length <= LIMIT_WORD_LENGTH || disabledWords[word]) return;
       total[word] = total[word]
         ? (total[word] + 1)
         : 1;
     });
+
     return total;
   }
 

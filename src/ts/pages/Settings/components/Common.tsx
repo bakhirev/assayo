@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import InputString from 'ts/components/UiKit/components/InputString';
 import Select from 'ts/components/UiKit/components/Select';
@@ -9,8 +10,14 @@ import localization from 'ts/helpers/Localization';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 
 const Common = observer((): React.ReactElement | null => {
+  const { i18n } = useTranslation();
   const [title, setTitle] = useState<string>(document.title);
   const [language, setLanguage] = useState<string>(localization.language);
+
+  useEffect(() => {
+    console.log(language);
+    i18n.changeLanguage(language);
+  }, [language]);
 
   return (
     <>

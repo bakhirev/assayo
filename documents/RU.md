@@ -1,9 +1,15 @@
 > - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
+> - [中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)
+> - [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
+> - [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md)
+> - [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md)
+> - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
+> - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=ru)
 
-Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.jp/demo/?dump=./test.txt)).
+Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;
@@ -62,8 +68,8 @@ Git создаст файл `log.txt`.
 
 ### Как посмотреть отчёт онлайн? 
 
-- Перейти на [сайт](https://assayo.jp/)
-- Нажать кнопку «[Демо](https://assayo.jp/demo)»
+- Перейти на [сайт](https://assayo.online/)
+- Нажать кнопку «[Демо](https://assayo.online/demo)»
 - Перетащить файл `log.txt` в окно браузера
 
 ### Как посмотреть отчёт офлайн?
@@ -116,9 +122,9 @@ JIRA-1234 feat(profile): Added avatar for user
 
 #### Публичный сервер
 
-Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.jp/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
+Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.online/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Приватный сервер
@@ -158,5 +164,5 @@ you_url    - URL адресс вашего контейнера с логами 
 ### Пожелания, предложения, замечания
 - telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- сайт [https://assayo.jp/](https://assayo.jp/)
+- сайт [https://assayo.online/](https://assayo.online/)
 

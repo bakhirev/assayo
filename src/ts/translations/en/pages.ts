@@ -131,6 +131,16 @@ export default `
 § page.team.pr.description3: *Why display development time* without splitting into coding and code review? To show the business the actual delivery time of the code. Waiting for testing, review comments, DevOps problems, and other process imperfections are already included in this term.
 § page.team.pr.statByAuthors: Statistics by employees
 § page.team.pr.longDelay: Prolonged Waiting for merge
+§ page.team.tasks.task: Task
+§ page.team.tasks.author: First commit author
+§ page.team.tasks.from: First commit
+§ page.team.tasks.to: Last commit
+§ page.team.tasks.daysInWork: Days in work
+§ page.team.tasks.commits: Commits number
+§ page.team.tasks.pr: Merge date
+§ page.team.tasks.prAuthor: Merged by user
+§ page.team.tasks.prDelayDays: Delay before merge in days
+§ page.team.tasks.comments: Comments
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
 § page.person.total.title: Main characteristics

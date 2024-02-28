@@ -1,11 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import Description from 'ts/components/Description';
 import TableOfContents from 'ts/pages/Common/components/TableOfContents';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
-
-import localization from 'ts/helpers/Localization';
 
 import Author from './Author';
 import Hours from './Hours';
@@ -20,11 +19,12 @@ import Pr from './PR';
 import style from '../styles/cover.module.scss';
 
 const Print = observer((): React.ReactElement => {
+  const { t } = useTranslation();
   return (
     <>
       <div className={style.cover}>
         <h1 className={style.cover_title}>
-          {localization.get('page.print.title')}
+          {t('page.print.title')}
         </h1>
         <h2 className={style.cover_sub_title}>
           {document.title}
@@ -41,7 +41,7 @@ const Print = observer((): React.ReactElement => {
           'page.team.hours.title',
           'page.common.words.title',
         ]}/>
-        <Description text={localization.get('page.print.description')}/>
+        <Description text={t('page.print.description')}/>
       </div>
       <Total/>
       <PageBreak/>

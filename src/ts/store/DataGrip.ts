@@ -26,6 +26,10 @@ class DataGripStore implements IDataGripStore {
 
   fileTree: IFileTree = {} as IFileTree;
 
+  removedFileList: IDirtyFile[] = [];
+
+  removedFileTree: IFileTree = {} as IFileTree;
+
   dataGrip: any = null;
 
   showApplication: boolean = false;
@@ -47,11 +51,14 @@ class DataGripStore implements IDataGripStore {
       commits,
       fileList,
       fileTree,
+      removed,
     } = parser(dump || [], (commit: ICommit) => dataGrip.addCommit(commit));
 
     this.commits = commits;
     this.fileList = fileList;
     this.fileTree = getFileTreeWithStatistic(fileTree);
+    this.removedFileList = removed.fileList;
+    this.removedFileTree = getFileTreeWithStatistic(removed.fileTree);
 
     this.showApplication = !!this.commits.length;// && !!dataGrip.author.list.length;
     if (this.showApplication) {

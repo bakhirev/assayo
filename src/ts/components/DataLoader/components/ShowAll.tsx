@@ -1,8 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { IPagination } from 'ts/interfaces/Pagination';
 import Loading from 'ts/components/Loading';
-import localization from 'ts/helpers/Localization';
 
 import { IDataLoaderStore, DataLoaderState } from '../store';
 import ErrorDescription from '../ErrorDescription';
@@ -22,6 +22,7 @@ function ShowAll({
   store,
   className,
 }: IShowAllProps) {
+  const { t } = useTranslation();
   if (!response) return null;
   const {
     number: pageNumber,
@@ -49,7 +50,7 @@ function ShowAll({
         className={`${style.show_all} ${className || ''}`}
         onClick={() => { if (store) store.showAll(); }}
       >
-        {localization.get('uiKit.dataLoader.all')}
+        {t('uiKit.dataLoader.all')}
       </div>
   );
 }

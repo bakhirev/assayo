@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import ISort from 'ts/interfaces/Sort';
 import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
-import { downloadCsv } from 'ts/helpers/File';
+import { downloadExcel } from 'ts/helpers/File';
 import viewSettings from 'ts/store/ViewSettings';
 import isMobile from 'ts/helpers/isMobile';
 
@@ -33,6 +34,7 @@ function DataView({
   updateSort,
   children,
 }: IDataViewProps): React.ReactElement | null {
+  const { t } = useTranslation();
   const urlParams = useParams<any>();
   const defaultType = viewSettings.getItem(urlParams, isMobile ? 'cards' : 'table');
   const [localType, setType] = useState<string>(type || defaultType);
@@ -53,14 +55,14 @@ function DataView({
     <>
       <div style={{ position: 'relative' }}>
         <div className={style.data_view_buttons}>
-          {false && (
+          {!isMobile && (
             <img
-              title={'Скачать CSV'}
+              title={'Скачать XLSX'}
               src="./assets/icons/Download.svg"
               className={style.data_view_icon}
               onClick={() => {
-                const fileName = `${urlParams.type || ''} ${urlParams.page || ''}`;
-                downloadCsv(rows, children, fileName);
+                const fileName = t(`sidebar.${urlParams.type}.${urlParams.page}`);
+                downloadExcel(rows, children, fileName);
               }}
             />
           )}

@@ -55,7 +55,7 @@ function UserSetting({
       {items}
       <div className={style.user_footer}>
         <UiKitButton
-          type="slim"
+          mode="slim"
           onClick={() => {
             onChange({
               ...user,

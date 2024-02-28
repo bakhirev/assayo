@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Title from 'ts/components/Title';
-import localization from 'ts/helpers/Localization';
 
 import style from '../styles/table-of-contents.module.scss';
 
@@ -10,13 +10,15 @@ interface ITableOfContents {
 }
 
 function TableOfContents({ titles }: ITableOfContents) {
+  const { t } = useTranslation();
+
   const items = (titles || []).map((title) => (
     <a
       key={title}
       className={style.table_of_contents_item}
       href={`#${title}`}
     >
-      {localization.get(title || '')}
+      {t(title || '')}
     </a>
   ));
 

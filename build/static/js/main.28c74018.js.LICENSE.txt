@@ -1,5 +1,7 @@
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
+/*! sheetjs (C) 2013-present SheetJS -- http://sheetjs.com */
+
 /**
  * @license React
  * react-dom.production.min.js

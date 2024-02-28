@@ -1,64 +1,100 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import localization from 'ts/helpers/Localization';
+import dataGripStore from 'ts/store/DataGrip';
+import confirm from 'ts/components/ModalWindow/store/Confirm';
 
 import Button from './Button';
 import style from '../../styles/footer.module.scss';
 
-const MENU = [
-  {
-    id: 'team',
-    title: 'sidebar.switch.team',
-    icon: './assets/switch/team.svg',
-  },
-  {
-    id: 'person',
-    title: 'sidebar.switch.person',
-    icon: './assets/switch/person.svg',
-  },
-  {
-    id: 'print',
-    title: 'sidebar.buttons.print',
-    icon: './assets/menu/print.svg',
-  },
-  {
-    id: 'settings',
-    title: 'sidebar.buttons.settings',
-    icon: './assets/menu/setting.svg',
-  },
-];
+function getMenu(navigate: Function): any[] {
+  return [
+    {
+      id: 'team',
+      title: 'sidebar.switch.team',
+      icon: './assets/switch/team.svg',
+      onClick() {
+        navigate('/team/total');
+      },
+    },
+    {
+      id: 'person',
+      title: 'sidebar.switch.person',
+      icon: './assets/switch/person.svg',
+      onClick() {
+        navigate('/person/total/0');
+      },
+    },
+    {
+      id: 'print',
+      title: 'sidebar.buttons.print',
+      icon: './assets/menu/print.svg',
+      onClick() {
+        navigator.share({
+          title: localization.get('common.title'),
+          text: '',
+          url: window.location.href,
+        });
+      },
+    },
+    {
+      id: 'settings',
+      title: 'sidebar.buttons.settings',
+      icon: './assets/menu/setting.svg',
+      onClick() {
+        confirm.open({
+          title: 'Вы уверены что хотите выйти?',
+        }).then(() => {
+          dataGripStore.setCommits([]);
+          navigate('/');
+        });
+      },
+    },
+  ].filter(v => v);
+}
+
+function onScrollEvent(value: boolean, setValue: Function) {
+  let prevScrollValue = window.scrollY;
+  let prevValue = value;
+
+  function updateScroll() {
+    const canShow = prevScrollValue > window.scrollY || window.scrollY < 150;
+    prevScrollValue = window.scrollY;
+
+    if (canShow === prevValue) return;
+    prevValue = canShow;
+    setValue(canShow);
+  }
+
+  document.addEventListener('scroll', updateScroll);
+  return () => {
+    document.removeEventListener('scroll', updateScroll);
+  };
+}
 
 function Footer() {
+  const navigate = useNavigate();
   const { type, page } = useParams<any>();
   const [show, setShow] = useState<boolean>(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    let prevScrollValue = window.scrollY;
-    let timer: any = null;
-    function updateScroll() {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        setShow(prevScrollValue > window.scrollY || window.scrollY < 150);
-        prevScrollValue = window.scrollY;
-      }, 100);
-    }
-    document.addEventListener('scroll', updateScroll);
-    return () => {
-      document.removeEventListener('scroll', updateScroll);
-    };
+    return onScrollEvent(show, setShow);
   }, []);
 
-  const selected = MENU.find((config: any) => page === config.id)
-    || MENU.find((config: any) => type === config.id);
+  const menu = getMenu(navigate);
+  const selected = menu.find((config: any) => page === config.id)
+    || menu.find((config: any) => type === config.id);
 
-  const buttons = MENU.map((config: any) => (
+  const buttons = menu.map((config: any) => (
     <Button
       key={config.id}
-      id={config.id}
-      isSelected={selected?.id === config.id}
-      title={localization.get(config.title)}
       icon={config.icon}
+      title={t(config.title)}
+      isSelected={selected?.id === config.id}
+      onClick={config.onClick}
     />
   ));
 

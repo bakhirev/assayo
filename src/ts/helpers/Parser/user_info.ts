@@ -32,6 +32,7 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
     email,
     message,
 
+    text: '',
     type: 'не подписан',
     scope: 'неопределенна',
   };
@@ -75,6 +76,10 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
     };
   }
 
+  const textIndex = (message || '').indexOf(':');
+  const text = textIndex > 1
+    ? message.substring(textIndex + 2).trim()
+    : message;
   const task = getTask(message);
   const taskNumber = getTaskNumber(task);
   const [type, scope] = getTypeAndScope(message, task);
@@ -82,6 +87,7 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
     ...commonInfo,
     task,
     taskNumber,
+    text,
     type: type || 'не подписан',
     scope: scope || 'неопределенна',
 

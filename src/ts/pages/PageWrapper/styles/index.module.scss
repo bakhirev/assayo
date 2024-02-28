@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import 'src/styles/variables';
 
 .page_wrapper {
   display: grid;
@@ -9,7 +9,20 @@
   min-height: 100vh;
   background-color: #F5F7F9;
 
-  &_main {
+  &_header {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+
+    display: block;
+    height: 100px;
+    width: 100%;
+    background-color: var(--color-black);
+  }
+
+  &_main,
+  &_main_mobile {
     grid-area: main;
     display: block;
     width: calc(100vw - 258px);
@@ -17,6 +30,10 @@
     padding: 24px;
     box-sizing: border-box;
     break-inside: auto;
+  }
+
+  &_main_mobile {
+    width: calc(100vw - 240px);
   }
 }
 
@@ -27,6 +44,10 @@
     &_main {
       width: calc(100vw - 78px);
     }
+
+    &_main_mobile {
+      width: calc(100vw - 60px);
+    }
   }
 }
 
@@ -35,7 +56,11 @@
     grid-template-areas: 'header header' 'main main';
 
     &_main {
-      width: calc(100vw - 20px);
+      width: calc(100vw - 18px);
+    }
+
+    &_main_mobile {
+      width: 100vw;
     }
   }
 }

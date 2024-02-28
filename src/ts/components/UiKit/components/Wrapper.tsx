@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import localization from 'ts/helpers/Localization';
 import style from '../styles/index.module.scss';
 
 export interface IUiKitWrapperProps {
@@ -23,25 +23,26 @@ function UiKitWrapper({
   className,
   children,
 }: IUiKitWrapperProps) {
+  const { t } = useTranslation();
   return (
     <div
       className={`${style.ui_kit_wrapper} ${className || ''}`}
-      title={localization.get(help)}
+      title={t(help || '')}
     >
       {title && (
         <h6 className={style.ui_kit_title}>
-          {localization.get(title)}
+          {t(title)}
         </h6>
       )}
       {description && (
         <p className={style.ui_kit_description}>
-          {localization.get(description)}
+          {t(description)}
         </p>
       )}
       {children}
       {help && (
         <p className={style.ui_kit_help}>
-          {localization.get(example)}
+          {t(example || '')}
         </p>
       )}
       {error && (
