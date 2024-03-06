@@ -81,10 +81,10 @@ Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für 
 Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstellt wird.
 
 ### Wie kann ich die berichtsdatei neu erstellen?
-- Laden Sie dieses Repository herunter
+- Laden sie dieses repository herunter
 - Erfüllen `npm install`
 - Erfüllen `npm run build`
-- Der neue Build wird im Ordner sein `/build`
+- Der neue build wird im ordner sein `/build`
 
 ### Wie kann ich den bericht zur microservices-gruppe anzeigen?
 - Datei für jeden microservice generieren `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` usw.)
@@ -94,7 +94,7 @@ Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstel
 ### Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?
 Sie können ihr skin für die schnittstelle schreiben. Kann geändert werden:
 - **Überschrift**. Sie können es im URL-parameter angeben ```title```. Zum beispiel: ```?title=you company```
-- **CSS Stile**. Um dies zu tun, müssen sie die CSS-datei vorbereiten und ihre adresse im URL-parameter angeben ```theme```. Zum beispiel: ```?theme=//company.com/some.css```. Sie können klassennamen als selektoren verwenden. Die meisten von ihnen ändern sich nicht, wenn eine neue version veröffentlicht wird.
+- **CSS stile**. Um dies zu tun, müssen sie die CSS-datei vorbereiten und ihre adresse im URL-parameter angeben ```theme```. Zum beispiel: ```?theme=//company.com/some.css```. Sie können klassennamen als selektoren verwenden. Die meisten von ihnen ändern sich nicht, wenn eine neue version veröffentlicht wird.
 - **Sprache**. Sie können es im URL-parameter angeben ```lang```. Zum Beispiel: ```?lang=es```
 
 ### Wie signiere ich commits?
@@ -148,7 +148,7 @@ Standardmäßig wird das abbild an der folgenden adresse ausgeführt ```http://1
 
 ### Veröffentlichungen, ungefähr alle sechs monate. Was weiter:
 
-Schau [hauptdokumentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
+Schau [haupt dokumentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 
 ### Wie kann ich eine übersetzung hinzufügen oder bearbeiten?
 
@@ -156,7 +156,7 @@ Sie können eine neue übersetzung hinzufügen oder die aktuelle im abschnitt ko
 [Anleitung](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
 
 ### Wünsche, Anregungen, Kommentare
-- telegramm [@bakhirev](https://t.me/bakhirev) (vorrangiger Kommunikationsweg)
+- telegramm [@bakhirev](https://t.me/bakhirev) (vorrangiger kommunikationsweg)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- сайт [https://assayo.jp/](https://assayo.jp/)
+- web site [https://assayo.jp/](https://assayo.jp/)
 
