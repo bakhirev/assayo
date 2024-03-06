@@ -32,13 +32,13 @@ Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.jp/demo/?d
 - vorhersage der zeit für überarbeitungen;
 - preiskostenprognose;
 
-### Wie kann ich die Anzahl der Commits schnell sehen?
+### Wie kann ich die anzahl der commits schnell sehen?
 
 In der wurzelverzeichnis ihres projektes muss der befehl ausgeführt werden:
 ```
 git shortlog -s -n -e
 ```
-### Wie kann ich Autoren zusammenbringen?
+### Wie kann ich autoren zusammenbringen?
 Sie müssen eine datei im stammverzeichnis ihres projekts erstellen `.mailmap`.
 Beispiel für den Inhalt einer Datei:
 ```
@@ -49,14 +49,14 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 ``` 
 Sie können mehr über das format dieser datei lesen[hier](https://git-scm.com/docs/gitmailmap).
 
-### Wie kann ich Daten aus git?
+### Wie kann ich daten aus git?
 
 #### Für die onlineansicht
 In der wurzelverzeichnis ihres projektes ausführen:
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
 ```
-#### Zum Surfen ohne Internet
+#### Zum surfen ohne internet
 
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
@@ -72,7 +72,7 @@ Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für 
 - den knopf drücken “[Demonstration](https://assayo.jp/demo?lang=ru)”
 - datei ziehen `log.txt` in das Browserfenster
 
-### Wie kann ich einen Bericht ohne Internet anzeigen?
+### Wie kann ich einen bericht ohne internet anzeigen?
 - laden sie dieses repository herunter
 - datei ziehen `log.txt` in den ordner`/build`
 - starten `/build/index.html`
@@ -80,7 +80,7 @@ Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für 
 
 Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstellt wird.
 
-### Wie kann ich die Berichtsdatei neu erstellen?
+### Wie kann ich die berichtsdatei neu erstellen?
 - Laden Sie dieses Repository herunter
 - Erfüllen `npm install`
 - Erfüllen `npm run build`
@@ -108,7 +108,7 @@ JIRA-1234 feat(profile): added avatar for user
 - arbeitsbereich `(profile - ein abschnitt der website, eine seite oder eine neue funktionalität, mit einem wort)`
 - beschreibung der arbeit `(added avatar for user)`
 
-### Wie kann ich die Datenerfassung automatisieren?
+### Wie kann ich die datenerfassung automatisieren?
 
 #### Kein bekend
 - erstellen sie einen klon ihres repositorys;
