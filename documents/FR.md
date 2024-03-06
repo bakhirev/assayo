@@ -71,7 +71,7 @@ La différence entre le format en ligne et le format hors ligne réside dans l�
 ### Comment voir le rapport en ligne? 
 
 - Aller à [сайт](https://assayo.online/)
-- Appuyer sur le bouton «[Démo](https://assayo.online/demo)»
+- Appuyer sur le bouton “[Démo](https://assayo.online/demo)”
 - Faites glisser le fichier `log.txt` dans la fenêtre du navigateur
 
 ### Comment voir le rapport hors ligne?
@@ -90,8 +90,8 @@ Dans cette cas, il est important que le fichier log.txt ait été généré par 
 
 ### Comment voir le compte rendu pour un groupe de microservices?
 - générer un fichier pour chaque microservice `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
-- Voir «Comment voir le rapport en ligne?». Au dernier pas, glisser tous les fichiers dans la fenêtre du navigateur.
-- Voir «Comment regarder le rapport hors-ligne?». Au deuxième pas, coller tous les fichier de microservices (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) dans le dossier du rapport (`/build`).
+- Voir “Comment voir le rapport en ligne?”. Au dernier pas, glisser tous les fichiers dans la fenêtre du navigateur.
+- Voir “Comment regarder le rapport hors-ligne?”. Au deuxième pas, coller tous les fichier de microservices (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) dans le dossier du rapport (`/build`).
 
 ### Comment apposer une marque sur l’interface?
 Vous pouvez écrire votre propre thème pour l’interface. Vous pouvez changer :

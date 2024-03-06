@@ -1,37 +1,40 @@
 export default `
-§ sidebar.switch.team: Команда
-§ sidebar.switch.person: Сотрудник
-§ sidebar.buttons.settings: Настройки
-§ sidebar.buttons.print: Печать
-§ sidebar.filters.all: всё время
-§ sidebar.filters.year: год
-§ sidebar.filters.halfYear: пол года
-§ sidebar.filters.month: месяц
-§ sidebar.filters.week: неделя
-§ sidebar.team.total: Общая информация
-§ sidebar.team.scope: Фичи
-§ sidebar.team.author: Сотрудники
-§ sidebar.team.type: Типы задач
-§ sidebar.team.pr: Влитие кода
-§ sidebar.team.day: По дням
-§ sidebar.team.week: По неделям
-§ sidebar.team.month: По месяцам
-§ sidebar.team.tree: Анализ файлов
-§ sidebar.team.hours: Расписание
-§ sidebar.team.commits: Все коммиты
-§ sidebar.team.changes: Все изменения
-§ sidebar.team.words: Популярные слова
-§ sidebar.team.top: Викторина
-§ sidebar.team.settings: Настройки
-§ sidebar.person.total: Общая информация
-§ sidebar.person.money: Стоимость работы
-§ sidebar.person.speed: Скорость
-§ sidebar.person.day: По дням
-§ sidebar.person.week: По неделям
-§ sidebar.person.month: По месяцам
-§ sidebar.person.hours: Расписание
-§ sidebar.person.commits: Все коммиты
-§ sidebar.person.changes: Все изменения
-§ sidebar.person.words: Популярные слова
-§ sidebar.person.settings: Настройки
+§ sidebar.switch.team: Equipo
+§ sidebar.switch.person: Empleado
+§ sidebar.buttons.settings: Ajustes
+§ sidebar.buttons.print: Impresión
+§ sidebar.filters.all: a todas horas
+§ sidebar.filters.year: año
+§ sidebar.filters.halfYear: medio año
+§ sidebar.filters.month: mes
+§ sidebar.filters.week: semana
+§ sidebar.team.total: Información general
+§ sidebar.team.scope: módulos
+§ sidebar.team.author: Personal
+§ sidebar.team.type: Tipos de tareas
+§ sidebar.team.pr: Inyección de código
+§ sidebar.team.day: Por días
+§ sidebar.team.week: Por semana
+§ sidebar.team.month: Por mes
+§ sidebar.team.tree: Análisis de archivos
+§ sidebar.team.files: Ficheros
+§ sidebar.team.removedFiles: Archivos eliminados
+§ sidebar.team.tasks: Lista de tareas
+§ sidebar.team.hours: Horario
+§ sidebar.team.commits: All commits
+§ sidebar.team.changes: Todos los cambios
+§ sidebar.team.words: Palabras populares
+§ sidebar.team.top: Concurso
+§ sidebar.team.settings: Ajustes
+§ sidebar.person.total: Información general
+§ sidebar.person.money: Costo del trabajo
+§ sidebar.person.speed: Velocidad
+§ sidebar.person.day: Por días
+§ sidebar.person.week: Por semana
+§ sidebar.person.month: Por mes
+§ sidebar.person.hours: Horario
+§ sidebar.person.commits: All commits
+§ sidebar.person.changes: Todos los cambios
+§ sidebar.person.words: Palabras populares
+§ sidebar.person.settings: Ajustes
 `;

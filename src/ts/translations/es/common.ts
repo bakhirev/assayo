@@ -9,7 +9,6 @@ export default `
 § uiKit.hoursChart.weekend: días o horario antes/después del día laboral
 § uiKit.hoursChart.days: número total de commits en un día y una hora específica
 § uiKit.page.remove: Eliminar
-§ uiKit.races.go: ¡Adelante!
 § uiKit.nothingFound.common.title: No hay o no hay suficientes datos para mostrar
 § uiKit.nothingFound.common.description: El sistema procesará más datos si los commits se firman con el formato de [Git commit message convention|https://www.conventionalcommits.org/en/v1.0.0/]. Patrón:
 § uiKit.nothingFound.common.console: Número_de_tarea tipo(característica): descripción
