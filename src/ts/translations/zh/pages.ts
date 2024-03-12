@@ -1,212 +1,212 @@
 export default `
-§ page.welcome.step1: Execute the command in the root of your project.
-§ page.welcome.step3: Drag and drop
-§ page.welcome.step4: the log.txt file onto this page.
-§ page.welcome.description: Git will create a log.txt file. It contains data for report generation. Or use git shortlog -s -n -e if you don't need a report. Create a [.mailmap|https://git-scm.com/docs/gitmailmap] file in the root of the project to consolidate employee statistics.
-§ page.welcome.warning1: The service *DOES NOT SAVE* and *DOES NOT TRANSFER* your data. All calculations are performed locally in your browser on your machine.
-§ page.welcome.warning2: The service *DOES NOT COLLECT STATISTICS* on projects. You can disconnect the internet, check traffic, and even build a local version from the [source|https://github.com/bakhirev/assayo].
-§ page.common.words.title: Word Statistics.
-§ page.common.words.description: the most popular word. Occurs $1 times.
-§ page.common.commits.title: Number of commits by days.
-§ page.common.commits.description: ($1) the most productive day in terms of the number of commits.
-§ page.common.commits.title2: $1 commits made: $2
-§ page.common.filter.allUsers: Does not matter
-§ page.print.modal.title: What are we printing?
-§ page.print.modal.page: Current page
-§ page.print.modal.type: Current section
-§ page.print.modal.all: All statistics
-§ page.print.modal.cancel: Cancel
-§ page.print.tableOfContents: Table of contents
-§ page.print.title: Git repository report
+§ page.welcome.step1: 在项目的根目录运行命令
+§ page.welcome.step3: 拖放
+§ page.welcome.step4: log.txt 文件到本页
+§ page.welcome.description: Git 创建文件 log.txt. 它包含用于构建报表的数据。 运行命令  git shortlog -s -n -e 如果你不需要报告。 创建文件 [.mailmap|https://git-scm.com/docs/gitmailmap] 在项目的根源，结合员工统计.
+§ page.welcome.warning1: 该服务不会存储或传输您的数据。 所有计算都在您的计算机上执行.
+§ page.welcome.warning2: 该服务不收集项目的统计数据。 你可以看 [源代码|https://github.com/bakhirev/assayo].
+§ page.common.words.title: 词汇统计
+§ page.common.words.description: 最流行的词。 发生$1次.
+§ page.common.commits.title: Количество Commits по дням
+§ page.common.commits.description: ($1) 拥有最多 Commits 数的工作日.
+§ page.common.commits.title2: $1 完成了 Commits: $2
+§ page.common.filter.allUsers: 没关系
+§ page.print.modal.title: 我们打印出来的是什么?
+§ page.print.modal.page: 当前页面
+§ page.print.modal.type: 当前部分
+§ page.print.modal.all: 所有统计数字
+§ page.print.modal.cancel: 取消
+§ page.print.tableOfContents: 目录
+§ page.print.title: Git仓库报告
 § page.print.sub_title: «$1»
-§ page.print.description: The data for the report was obtained from the commit history.
-§ page.team.author.title: Employee statistics
-§ page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
-§ page.team.author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
-§ page.team.author.types: Types of work
+§ page.print.description: 报告的数据是从历史记录中获得的 Commits.
+§ page.team.author.title: 雇员统计数字
+§ page.team.author.description1: 部分统计数字 (工作的速度，花费的钱等。.) 不考虑具有"助理"类型的员工，因为这不是项目中的永久角色。 他们的工作微不足道，可以忽略。.
+§ page.team.author.description2: 默认排序是按任务和组数排序 (现任、被解雇、帮助雇员).
+§ page.team.author.types: 工作类别
 § page.team.author.commits: Commits
 § page.team.author.commitsSmall: commits
-§ page.team.author.tasks: Tasks
-§ page.team.author.tasksSmall: tasks
-§ page.team.author.workedLosses: Days with and without commits
-§ page.team.author.worked: work
-§ page.team.author.losses: days without commits
-§ page.team.author.days: days
-§ page.team.author.daysForTask: Days per task
-§ page.team.author.scopes: Features
-§ page.team.author.moneyAll: Received
-§ page.team.author.moneyWorked: Worked for
-§ page.team.author.moneyLosses: Overpayment
-§ page.team.hours.title: Distribution of commits during each day of the week
-§ page.team.month.title: Project work calendar
-§ page.team.scope.title: Feature statistics
-§ page.team.scope.scope: Feature
-§ page.team.scope.days: Working Days
-§ page.team.scope.authorsDays: Person-Days
-§ page.team.scope.tasks: Tasks
+§ page.team.author.tasks: 任务
+§ page.team.author.tasksSmall: 任务
+§ page.team.author.workedLosses: 有和没有commits的日子
+§ page.team.author.worked: 工作
+§ page.team.author.losses: 没有commits的日子
+§ page.team.author.days: 天数
+§ page.team.author.daysForTask: 每项任务的天数
+§ page.team.author.scopes: 修改
+§ page.team.author.moneyAll: 我拿到钱了
+§ page.team.author.moneyWorked: 工作了
+§ page.team.author.moneyLosses: 多付
+§ page.team.hours.title: 每周每一天的工作分配
+§ page.team.month.title: 项目工作日历
+§ page.team.scope.title: 按模块划分的统计数字
+§ page.team.scope.scope: 修改
+§ page.team.scope.days: 工作天
+§ page.team.scope.authorsDays: 人日
+§ page.team.scope.tasks: 任务
 § page.team.scope.commits: Commits
 § page.team.scope.commitsSmall: commits
-§ page.team.scope.types: Types of work
-§ page.team.scope.authors: Personal contribution
-§ page.team.scope.cost: Cost
-§ page.team.type.title: Task type statistics
-§ page.team.type.description: *Personal contribution* is counted by the number of commits, not the volume of changed lines or files. Therefore, the "File Analysis" section should also be consulted to assess the scale of changes.
-§ page.team.type.type: Type of work
-§ page.team.type.tasks: Tasks
-§ page.team.type.tasksSmall: tasks
-§ page.team.type.days: Days
-§ page.team.type.daysSmall: days
-§ page.team.type.authorsDays: Person-days
+§ page.team.scope.types: 工作类别
+§ page.team.scope.authors: 个人贡献
+§ page.team.scope.cost: 成本
+§ page.team.type.title: 按任务类型划分的统计信息
+§ page.team.type.description: *个人贡献* 它是按数字计算的 Commits, 而不是修改的字符串或文件的体积。 因此，您还应该查看"文件分析"部分以评估更改的规模。
+§ page.team.type.type: 工作类别
+§ page.team.type.tasks: 任务
+§ page.team.type.tasksSmall: 任务
+§ page.team.type.days: 天数
+§ page.team.type.daysSmall: 天数
+§ page.team.type.authorsDays: 人日
 § page.team.type.commits: Commits
-§ page.team.type.authors: Personal contribution
-§ page.team.total.titleA: Volume of work
-§ page.team.total.titleB: Cost
-§ page.team.total.daysWorked.title: person-days
-§ page.team.total.daysWorked.description: Only days with commits are counted
+§ page.team.type.authors: 个人贡献
+§ page.team.total.titleA: 工作范围
+§ page.team.total.titleB: 成本
+§ page.team.total.daysWorked.title: 人日
+§ page.team.total.daysWorked.description: 只考虑制作它们的日子 Commits
 § page.team.total.commits.title: commits
-§ page.team.total.commits.description: Deleted branches are not counted
-§ page.team.total.daysLosses.title: days without commits
-§ page.team.total.daysLosses.description: All days minus: holidays, weekends, vacation, days with commits
-§ page.team.total.employment.title: working / dismissed
-§ page.team.total.employment.description: If an employee does not make any commits within a month, they are considered dismissed
-§ page.team.total.moneyAll.title: total
-§ page.team.total.moneyAll.description: Total salary expenses
-§ page.team.total.moneyWorked.title: actual
-§ page.team.total.moneyWorked.description: Actual days worked multiplied by average salary
-§ page.team.total.moneyLosses.title: possible overpayment
-§ page.team.total.moneyLosses.description: Paid working days when there were no commits
-§ page.team.total.weekendPayment.title: weekend work
-§ page.team.total.weekendPayment.description: Total overpayment for weekend work
-§ page.team.total.workSpeed.title: tasks per day
-§ page.team.total.workSpeed.description: Average work speed of the team with the current composition of employees
-§ page.team.total.moneySpeed.title: per month
-§ page.team.total.moneySpeed.description: Forecasted salary payment amount with the current team composition, excluding taxes and related expenses
-§ page.team.total.description1: *Person-days* — the work of one employee during a single working day. For example, in one calendar day, a team of three employees produces a work volume of three person-days.
-§ page.team.total.description2: *Absentee days* are counted only as working days when commits could have been made. Weekends, public holidays, and vacations are not included in the calculation.
-§ page.team.total.description3: The *working and dismissed* card shows the actual composition of employees who are continuously involved in work. Additionally, there are "assistants" — typically employees of a different specialization who may occasionally make commits to the project.
-§ page.team.total.description4: *Overpayment* includes only working days when commits could have been made. Weekends, public holidays, and vacations are not included in the calculation. This is why overpayment + actual cost != total. The total cost includes payment for weekends, public holidays, and vacations.
-§ page.team.total.description5: *Weekend work* is calculated at a rate of x2 the payment of a regular day. The displayed amount is specifically the overpayment (x1), as the fact of overtime in this context is not of interest. We focus on overpayment when increasing work speed.
-§ page.team.tree.title: Project Tree Considering Selected Filters
-§ page.team.tree.filters.author: Employee
-§ page.team.tree.filters.commits: Number of commits
-§ page.team.tree.filters.help: The minimum number of commits an employee has made in a file
-§ page.team.tree.filters.all: All employees
-§ page.team.tree.add: Who added
-§ page.team.tree.change: Who changed
-§ page.team.tree.remove: Who removed
-§ page.team.tree.line: lines
-§ page.team.tree.lineAdd: added
-§ page.team.tree.lineRemove: changed
-§ page.team.week.title: Weekly statistics
-§ page.team.week.date: Date
-§ page.team.week.numberTasks: Number of tasks
-§ page.team.week.people: Number of people
-§ page.team.week.line: Line Changes
-§ page.team.week.days: Days with and without commits
-§ page.team.week.lossesDetails: Who did not commit
-§ page.team.week.add: added
-§ page.team.week.change: changed
-§ page.team.week.remove: removed
-§ page.team.week.hasCommits: had commits
-§ page.team.week.hasNotCommits: had no commits
-§ page.team.week.days: days
-§ page.team.week.tasks: tasks
-§ page.team.pr.task: Task
-§ page.team.pr.tasks: tasks
-§ page.team.pr.firstCommitTime: First commit
-§ page.team.pr.lastCommitTime: Last
-§ page.team.pr.workDays: Development days
-§ page.team.pr.delayDays: Days waiting for merge
+§ page.team.total.commits.description: 删除的分支不算数
+§ page.team.total.daysLosses.title: 没有的日子 commits
+§ page.team.total.daysLosses.description: 所有的日子都是负数: 假期、周末、假期、休息日 Commits
+§ page.team.total.employment.title: 工作/退出
+§ page.team.total.employment.description: 如果员工在一个月内没有完成任何工作 Commits, 他被认为被解雇了
+§ page.team.total.moneyAll.title: 普通
+§ page.team.total.moneyAll.description: 工资费用总额
+§ page.team.total.moneyWorked.title: 实际
+§ page.team.total.moneyWorked.description: 实际工作天数乘以平均工资
+§ page.team.total.moneyLosses.title: 可能多付
+§ page.team.total.moneyLosses.description: 带薪工作日, 何时 Commits 没有
+§ page.team.total.weekendPayment.title: 周末工作
+§ page.team.total.weekendPayment.description: 周末工作多付总额
+§ page.team.total.workSpeed.title: 每天的任务
+§ page.team.total.workSpeed.description: 团队与当前员工的平均工作速度
+§ page.team.total.moneySpeed.title: 每月
+§ page.team.total.moneySpeed.description: 现职工作人员的预计薪金支付额，不包括税项和有关费用
+§ page.team.total.description1: *人日* — 这是一个员工一个工作日的工作。 例如，在一个日历日，一个由三名员工组成的团队在三个工作日内发出大量的工作量.
+§ page.team.total.description2: *旷工的日子* 只有工作日计算在 Commits 可以做到. 周末、公众假期及假期不包括在计算内.
+§ page.team.total.description3: 卡片 *工作和退出* 显示经常参与工作的员工的实际组成。 此外，还有"助手—-这些是员工，通常是不同的专业，有时可以这样做 Commits 到项目.
+§ page.team.total.description4: *多付* 只有工作日计算在 Commits 可以做到. 周末、公众假期和假期不包括在计算中. 这就是为什么多付+实际成本！=一般. 总费用包括周末、公众假期和假期的付款。
+§ page.team.total.description5: *周末工作* 它是由系数x2计算从支付一个正常的一天。 上面显示的是多付（x1），因为在这种情况下，处理的事实并不有趣。 我们不是在看预算燃烧的速度。 我们正在考虑在提高工作速度时多付的款项.
+§ page.team.tree.title: 项目树，考虑到选定的过滤器
+§ page.team.tree.filters.author: 雇员
+§ page.team.tree.filters.commits: 数量 Commits
+§ page.team.tree.filters.help: 最低数量 Commits, 雇员在档案中所做的
+§ page.team.tree.filters.all: 所有员工
+§ page.team.tree.add: 谁加的
+§ page.team.tree.change: 谁改变了它
+§ page.team.tree.remove: 谁删除了它
+§ page.team.tree.line: 线条
+§ page.team.tree.lineAdd: 补充道
+§ page.team.tree.lineRemove: 改变了
+§ page.team.week.title: 按周划分的统计数字
+§ page.team.week.date: 日期
+§ page.team.week.numberTasks: 任务数量
+§ page.team.week.people: 人数
+§ page.team.week.line: 换线
+§ page.team.week.days: 日起 Commits 而没有
+§ page.team.week.lossesDetails: 谁不 Commits
+§ page.team.week.add: 补充道
+§ page.team.week.change: 改变了
+§ page.team.week.remove: 已删除
+§ page.team.week.hasCommits: 是 Commits
+§ page.team.week.hasNotCommits: 不是这样的 Commits
+§ page.team.week.days: 天数
+§ page.team.week.tasks: 任务
+§ page.team.pr.task: 任务
+§ page.team.pr.tasks: 任务
+§ page.team.pr.firstCommitTime: 第一个 Commits
+§ page.team.pr.lastCommitTime: 最后一次
+§ page.team.pr.workDays: 发展的日子
+§ page.team.pr.delayDays: 等待输液的日子
 § page.team.pr.commits: Commits
-§ page.team.pr.date: Merge Date
-§ page.team.pr.mergeAuthor: Merged by
-§ page.team.pr.author: Employee
-§ page.team.pr.middleTimeRelease: Average delivery time (days)
-§ page.team.pr.work: development
-§ page.team.pr.delay: waiting
-§ page.team.pr.days: days
-§ page.team.pr.oneTaskDays: Time spent on one task
-§ page.team.pr.description1: *Development time* is the time difference from the first to the last commit on a task. It does not matter if there were breaks of several days between commits or not. Any commit increases the time.
-§ page.team.pr.description2: *Waiting time* is the time between the last commit and the code merge. It shows the actual downtime while waiting for something.
-§ page.team.pr.description3: *Why display development time* without splitting into coding and code review? To show the business the actual delivery time of the code. Waiting for testing, review comments, DevOps problems, and other process imperfections are already included in this term.
-§ page.team.pr.statByAuthors: Statistics by employees
-§ page.team.pr.longDelay: Prolonged Waiting for merge
-§ page.team.tasks.task: Task
-§ page.team.tasks.author: First commit author
-§ page.team.tasks.from: First commit
-§ page.team.tasks.to: Last commit
-§ page.team.tasks.daysInWork: Days in work
-§ page.team.tasks.commits: Commits number
-§ page.team.tasks.pr: Merge date
-§ page.team.tasks.prAuthor: Merged by user
-§ page.team.tasks.prDelayDays: Delay before merge in days
-§ page.team.tasks.comments: Comments
-§ page.person.print.photo.title: Photo
-§ page.person.print.photo.description: space for a photo
-§ page.person.total.title: Main characteristics
-§ page.person.total.daysWorked.title: days of work
-§ page.person.total.daysWorked.description: Only days with commits are counted
-§ page.person.total.tasks.title: tasks
-§ page.person.total.tasks.description: If commits are properly signed
-§ page.person.character.title: Character
-§ page.person.achievement.title: Achievements
-§ page.person.achievement.positive: Positive
-§ page.person.achievement.normal: Neutral
-§ page.person.achievement.negative: Negative
-§ page.person.achievement.description: The more negative achievements an employee accumulates, the higher the likelihood that the situation is unusual. It may be necessary to change their work mode, tasks, or reporting. A discussion with them to understand what problems are hindering their work is advisable.
-§ page.person.gets.title: Gets taken:
-§ page.person.gets.description: "Taking a get" in this context means being the first to leave a commit on a task with a "nice" number.
-§ page.person.business.days.title: days of work
-§ page.person.business.days.description: Only days with commits are counted
-§ page.person.business.tasks.title: tasks
-§ page.person.business.tasks.description: If commits are properly signed
-§ page.person.business.losses.title: days without commits
-§ page.person.business.losses.description: All days minus: holidays, weekends, vacation, days with commits
-§ page.person.business.commits.title: commits
-§ page.person.business.commits.description: Deleted branches are not counted
-§ page.person.business.time.description: Time from the first to the last commit (including non-working days)
-§ page.person.business.time.title: Days on the project:
-§ page.person.business.time.dismissed: (dismissed)
-§ page.person.business.time.staff: (not in the team)
-§ page.person.business.achievements: Achievements
-§ page.person.changes.title: Achievements
+§ page.team.pr.date: 注射日期
+§ page.team.pr.mergeAuthor: 填写
+§ page.team.pr.author: 雇员
+§ page.team.pr.middleTimeRelease: 平均派递时间 (天数)
+§ page.team.pr.work: 发展
+§ page.team.pr.delay: 期望
+§ page.team.pr.days: 天数
+§ page.team.pr.oneTaskDays: 花在一项任务上的时间
+§ page.team.pr.description1: *花在一项任务上的时间* 这是从第一个到最后一个的时间差 Commits 按任务划分. 如果之间有几天的休息时间也没关系 Commits 还是不是. 任何一个事实 Commits 增加时间.
+§ page.team.pr.description2: *轮候时间* 这是最后一次之间的时间 Commits 通过输入代码. 它显示了实际的空闲等待的东西.
+§ page.team.pr.description3: *为什么显示开发时间* 无需拆分为编码和代码审查? 然后，向业务显示代码的实际交付时间。 测试的期望，对审查的评论，DevOps问题和流程的其他不完善之处已经在这一时期制定.
+§ page.team.pr.statByAuthors: 雇员统计数字
+§ page.team.pr.longDelay: 长时间等待输液
+§ page.team.tasks.task: 任务
+§ page.team.tasks.author: 第一篇的作者 Commits
+§ page.team.tasks.from: 第一个 Commits
+§ page.team.tasks.to: 最后一次 Commits
+§ page.team.tasks.daysInWork: 工作中的日子
+§ page.team.tasks.commits: 数量 Commits
+§ page.team.tasks.pr: 注射日期
+§ page.team.tasks.prAuthor: 灌
+§ page.team.tasks.prDelayDays: 等待输液的日子
+§ page.team.tasks.comments: 评论
+§ page.person.print.photo.title: 照片
+§ page.person.print.photo.description: 拍照的地方
+§ page.person.total.title: 主要特点
+§ page.person.total.daysWorked.title: 工作天
+§ page.person.total.daysWorked.description: 只考虑制作它们的日子 Commits
+§ page.person.total.tasks.title: 任务
+§ page.person.total.tasks.description: 如果 Commits 正确签名
+§ page.person.character.title: 性格
+§ page.person.achievement.title: 进展情况
+§ page.person.achievement.positive: 积极
+§ page.person.achievement.normal: 中立
+§ page.person.achievement.negative: 负面
+§ page.person.achievement.description: 员工取得的负面成绩越多，情况就越有可能非标准。 可能值得改变其操作模式，任务或报告。 你应该和他谈谈，看看有什么问题妨碍了他的工作.
+§ page.person.gets.title: 被带走的木屐:
+§ page.person.gets.description: «被带走的木屐» 在这种情况下，它意味着第一个离开 Commits 到"美丽"数字的问题.
+§ page.person.business.days.title: 工作天
+§ page.person.business.days.description: 只考虑制作它们的日子 Commits
+§ page.person.business.tasks.title: 任务
+§ page.person.business.tasks.description: 如果 Commits 正确签名
+§ page.person.business.losses.title: 没有的日子 Commits
+§ page.person.business.losses.description: 所有日子减去：假期，周末，假期，休息日 Commits
+§ page.person.business.commits.title: Commits
+§ page.person.business.commits.description: 删除的分支不算数
+§ page.person.business.time.description: 从第一到最后的时间 Commits (包括非工作日)
+§ page.person.business.time.title: 项目日:
+§ page.person.business.time.dismissed: (被解雇)
+§ page.person.business.time.staff: (不在团队中)
+§ page.person.business.achievements: 进展情况
+§ page.person.changes.title: 进展情况
 § page.person.changes.description: 
-With some types of formatting, git marks lines as "deleted" and "added",
-although in reality, they were "changed". Therefore, if you conducted a major refactoring,
-git might show a small number of changes in the statistics, but the actual result
-will be marked as a jump in "deleted" and "added" lines.
-§ page.person.changes.description: List of commits and the number of changes in them for that day:
-§ page.person.commits.title: List of commits:
-§ page.person.money.title.total: Total over time
-§ page.person.money.title.middle: Average cost
-§ page.person.money.moneyAll.title: received
-§ page.person.money.moneyAll.description: Assumed total salary from the project (see settings)
-§ page.person.money.moneyWorked.title: worked for
-§ page.person.money.moneyWorked.description: Actual days worked multiplied by average salary
-§ page.person.money.moneyLosses.title: possible overpayment
-§ page.person.money.moneyLosses.description: Days without commits multiplied by average salary
-§ page.person.money.tasks.title: task
-§ page.person.money.tasks.description: Number of closed tasks to the cost of the day
-§ page.person.money.commits.title: commit
-§ page.person.money.commits.description: Number of commits to the cost of the workday
-§ page.person.speed.task: One task on average is
-§ page.person.speed.max: Maximum speed per day
-§ page.person.speed.days.title: days
-§ page.person.speed.days.description: Refers to workdays, if commits are properly signed
-§ page.person.speed.commits.title: commits
-§ page.person.speed.commits.description: Top and bottom 10% of values are trimmed
-§ page.person.speed.line.title: lines of code
-§ page.person.speed.line.description: Top and bottom 10% of values are trimmed
-§ page.person.speed.tasks.title: tasks
-§ page.person.speed.tasks.description: A task may not be completed, but work should be done on it
-§ page.person.speed.maxCommits.title: commits
-§ page.person.speed.maxCommits.description: A task may not be completed, but work should be done on it
-§ page.person.hours.title: Distribution of commits during each day of the week
-§ page.person.week.date: Date
-§ page.person.week.tasks: Number of tasks
-§ page.person.week.workDays: Days with commits
-§ page.person.week.taskInDay: Tasks per day
-§ page.person.week.days: days
-§ page.person.week.workDay: weekdays
-§ page.person.week.weekends: weekends
+使用某些类型的格式，git将字符串标记为"已删除"和"已添加",
+虽然事实上他们已经被"改变"。 因此，如果你已经做了很多重构,
+git可以显示统计信息的少量变化，以及实际结果
+将在"已删除"和"已添加"行中标记为跳转.
+§ page.person.changes.description: 名单 Commits 以及那一天他们的变化数量:
+§ page.person.commits.title: 名单 Commits:
+§ page.person.money.title.total: 一直如此
+§ page.person.money.title.middle: 平均成本
+§ page.person.money.moneyAll.title: 收到
+§ page.person.money.moneyAll.description: 工程项目的采购订单估计金额 (请参阅设置)
+§ page.person.money.moneyWorked.title: 工作了
+§ page.person.money.moneyWorked.description: 实际工作天数乘以平均po
+§ page.person.money.moneyLosses.title: 可能多付
+§ page.person.money.moneyLosses.description: 没有的日子 Commits 乘以平均po
+§ page.person.money.tasks.title: 任务
+§ page.person.money.tasks.description: 关闭任务的数量到一天的成本
+§ page.person.money.commits.title: Commits
+§ page.person.money.commits.description: 数量 Commits 到一个工作日的成本
+§ page.person.speed.task: 平均一项任务是
+§ page.person.speed.max: 每日最高速度
+§ page.person.speed.days.title: 天数
+§ page.person.speed.days.description: 这意味着如果 Commits 正确签名
+§ page.person.speed.commits.title: Commits
+§ page.person.speed.commits.description: 最大值和最小值的10％已被切断
+§ page.person.speed.line.title: 代码行
+§ page.person.speed.line.description: 最大值和最小值的10％已被切断
+§ page.person.speed.tasks.title: 任务
+§ page.person.speed.tasks.description: 任务可能没有完成，但它的工作应该是
+§ page.person.speed.maxCommits.title: Commits
+§ page.person.speed.maxCommits.description: 任务可能没有完成，但它的工作应该是
+§ page.person.hours.title: 分布情况 Commits 在一周的每一天
+§ page.person.week.date: 日期
+§ page.person.week.tasks: 任务数量
+§ page.person.week.workDays: 日起 Commits
+§ page.person.week.taskInDay: 每天的任务
+§ page.person.week.days: 天数
+§ page.person.week.workDay: 平日
+§ page.person.week.weekends: 周末
 `;

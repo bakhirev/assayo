@@ -29,7 +29,7 @@ function getTranslationWrapper(translation: string) {
 
 i18next.use(initReactI18next).init({
   lng: 'ru', // if you're using a language detector, do not define the lng option
-  debug: true,
+  debug: false,
   resources: {
     ru: getTranslationWrapper(ru),
     en: getTranslationWrapper(en),

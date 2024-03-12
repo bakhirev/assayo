@@ -11,6 +11,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
+import UiKitTags from 'ts/components/UiKit/components/Tags';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
@@ -29,10 +30,11 @@ import Description from 'ts/components/Description';
 interface IAuthorViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function AuthorView({ response, updateSort, mode }: IAuthorViewProps) {
+function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewProps) {
   const { t } = useTranslation();
   if (!response) return null;
 
@@ -45,6 +47,7 @@ function AuthorView({ response, updateSort, mode }: IAuthorViewProps) {
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -56,6 +59,15 @@ function AuthorView({ response, updateSort, mode }: IAuthorViewProps) {
         template={ColumnTypesEnum.STRING}
         properties="author"
         width={200}
+      />
+      <Column
+        template={(row: any) => {
+          let value = 'работает';
+          if (row.isDismissed) value = 'уволен';
+          if (row.isStaff) value = 'помощник';
+          return <UiKitTags value={value} />;
+        }}
+        width={100}
       />
       <Column
         isSortable="daysWorked"
@@ -179,7 +191,10 @@ const Author = observer(({
         })}
         watch={mode}
       >
-        <AuthorView mode={mode} />
+        <AuthorView
+          mode={mode}
+          rowsForExcel={rows}
+        />
         <Pagination />
       </DataLoader>
       <PageWrapper>

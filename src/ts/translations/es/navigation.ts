@@ -16,7 +16,8 @@ export default `
 § sidebar.team.day: Por días
 § sidebar.team.week: Por semana
 § sidebar.team.month: Por mes
-§ sidebar.team.tree: Análisis de archivos
+§ sidebar.team.tree: Archivos
+§ sidebar.team.removedTree: Archivos eliminados
 § sidebar.team.files: Ficheros
 § sidebar.team.removedFiles: Archivos eliminados
 § sidebar.team.tasks: Lista de tareas

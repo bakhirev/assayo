@@ -39,12 +39,13 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
 
   const isSystemPR = message.indexOf('Pull request #') === 0;
   const isSystemMerge = message.indexOf('Merge pull request #') === 0;
-  const isAutoMerge = message.indexOf('Merge branch ') === 0
-    || message.indexOf('Merge remote-tracking branch') === 0
-    || message.indexOf('Merge commit ') === 0
-    || message.indexOf('Automatic merge from') === 0;
+  const isMerge = message.indexOf('Merge branch ') === 0
+    || message.indexOf('Merge commit ') === 0;
+  const isAutoMerge = message.indexOf('Automatic merge from') === 0
+    || message.indexOf('Merge remote-tracking branch') === 0;
   const isSystemCommit = isSystemPR
     || isSystemMerge
+    || isMerge
     || isAutoMerge;
 
   if (isSystemCommit) {
@@ -61,6 +62,11 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
       const messageParts = message.substring(14, Infinity).split(':');
       prId = messageParts.shift();
       task = getTask(messageParts.join(':'));
+    } else if (isAutoMerge) {
+      [, branch, toBranch ] = message
+        .replace(/(Automatic\smerge\sfrom\s)|(\s->\s)/gim, ',')
+        .replace(/(Merge\sremote-tracking\sbranch\s')|('\sinto\s)/gim, ',')
+        .split(',');
     }
     taskNumber = getTaskNumber(task);
 

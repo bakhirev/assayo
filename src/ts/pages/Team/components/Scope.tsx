@@ -11,7 +11,6 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
-// import Table from 'ts/components/Table';
 import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
@@ -22,10 +21,11 @@ import Recommendations from 'ts/components/Recommendations';
 interface IScopeViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function ScopeView({ response, updateSort, mode }: IScopeViewProps) {
+function ScopeView({ response, updateSort, rowsForExcel, mode }: IScopeViewProps) {
   if (!response) return null;
 
   const typeChart = getOptions({ order: dataGripStore.dataGrip.type.list });
@@ -33,6 +33,7 @@ function ScopeView({ response, updateSort, mode }: IScopeViewProps) {
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -134,7 +135,10 @@ const Scope = observer(({
         })}
         watch={mode}
       >
-        <ScopeView mode={mode} />
+        <ScopeView
+          mode={mode}
+          rowsForExcel={rows}
+        />
         <Pagination />
       </DataLoader>
     </>

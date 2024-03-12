@@ -14,7 +14,6 @@ function UiKitTags({
   const values = Array.isArray(value) ? value : [value];
   const formattedValues = values.filter((v) => v);
 
-  console.dir(formattedValues);
   const items = formattedValues
     .map((tagValue: any) => (
       <UiKitTag

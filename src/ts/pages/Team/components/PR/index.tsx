@@ -62,7 +62,10 @@ const PR = observer(({
           content: authorsStat, pagination, sort, mode,
         })}
       >
-        <Authors mode={mode}/>
+        <Authors
+          mode={mode}
+          rowsForExcel={authorsStat}
+        />
         <Pagination/>
       </DataLoader>
 
@@ -78,7 +81,10 @@ const PR = observer(({
           sort,
         })}
       >
-        <All mode={mode} />
+        <All
+          mode={mode}
+          rowsForExcel={rows}
+        />
         {mode !== 'print' && <Pagination/>}
       </DataLoader>
     </>

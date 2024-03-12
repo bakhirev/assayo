@@ -27,10 +27,11 @@ import { getMax } from 'ts/pages/Common/helpers/getMax';
 interface ITypeViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function TypeView({ response, updateSort, mode }: ITypeViewProps) {
+function TypeView({ response, updateSort, rowsForExcel, mode }: ITypeViewProps) {
   if (!response) return null;
 
   const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'page.team.type.tasksSmall' });
@@ -39,6 +40,7 @@ function TypeView({ response, updateSort, mode }: ITypeViewProps) {
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -137,7 +139,10 @@ const Type = observer(({
         })}
         watch={mode}
       >
-        <TypeView mode={mode} />
+        <TypeView
+          mode={mode}
+          rowsForExcel={rows}
+        />
         <Pagination />
       </DataLoader>
       <PageWrapper>

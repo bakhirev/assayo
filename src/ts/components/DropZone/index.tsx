@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-// import DropZoneIcon from '../../../assets/dropzone.svg';
 import { getOnDrop, getShowDropZone } from './helpers';
 import style from './index.module.scss';
 

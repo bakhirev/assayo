@@ -26,16 +26,18 @@ import userSettings from 'ts/store/UserSettings';
 interface ITasksViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function TasksView({ response, updateSort, mode }: ITasksViewProps) {
+function TasksView({ response, updateSort, rowsForExcel, mode }: ITasksViewProps) {
   if (!response) return null;
 
   const commitsChart = getOptions({ max: getMax(response, 'commits'), suffix: 'page.team.type.tasksSmall' });
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -158,7 +160,10 @@ const Tasks = observer(({
       <br/>
       <br/>
       <br/>
-      <TasksView mode={mode} />
+      <TasksView
+        mode={mode}
+        rowsForExcel={rows}
+      />
       <Pagination />
     </DataLoader>
   );

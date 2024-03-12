@@ -6,6 +6,8 @@ export interface IDirtyFile {
   lines: number; // 38, line in file for this moment
   created: ICommit,
   path: string[],
+  extension: string,
+  firstName: string,
   authors: {
     [author: string]: {
       added: number; // 38,

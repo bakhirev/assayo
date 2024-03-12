@@ -1,4 +1,6 @@
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
+import { IDirtyFile } from 'ts/interfaces/FileInfo';
+
 import settingsStore from 'ts/store/Settings';
 import Recommendations from 'ts/helpers/Recommendations';
 
@@ -13,6 +15,7 @@ import DataGripByExtension from './components/extension';
 import DataGripByGet from './components/get';
 import DataGripByPR from './components/pr';
 import DataGripByTasks from './components/tasks';
+import DataGripByRelease from './components/release';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -39,6 +42,8 @@ class DataGrip {
 
   tasks: any = new DataGripByTasks();
 
+  release: any = new DataGripByRelease();
+
   initializationInfo: any = {};
 
   clear() {
@@ -54,11 +59,13 @@ class DataGrip {
     this.get.clear();
     this.pr.clear();
     this.tasks.clear();
+    this.release.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit) {
     if (commit.author === 'GitHub') return;
     this.pr.addCommit(commit); // @ts-ignore
+    this.release.addCommit(commit); // @ts-ignore
     if (!commit.commitType) {
       this.firstLastCommit.update(commit.milliseconds, commit);
       this.author.addCommit(commit);
@@ -81,6 +88,7 @@ class DataGrip {
     this.recommendations.updateTotalInfo(this);
     this.pr.updateTotalInfo(this.author);
     this.tasks.updateTotalInfo(this.pr);
+    this.release.updateTotalInfo();
   }
 
   updateByInitialization() {
@@ -104,8 +112,8 @@ class DataGrip {
     this.#updateTotalInfo();
   }
 
-  updateByFiles(fileList: any[]) {
-    this.extension.updateTotalInfo(fileList, this.author);
+  updateByFiles(fileList: IDirtyFile[], removedFileList: IDirtyFile[]) {
+    this.extension.updateTotalInfo(fileList, removedFileList);
   }
 }
 

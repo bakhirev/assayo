@@ -8,10 +8,7 @@ import { getNewFileName, getFileList } from './files';
 import { getNewFileInfo } from './file_info';
 
 const uniq = {};
-export default function Parser(
-  report: string[],
-  parseCommit: Function,
-) {
+export default function Parser(report: string[]) {
   const allFiles: IHashMap<IDirtyFile> = {};
   const removedFiles: IHashMap<IDirtyFile> = {};
   const commits: Array<ICommit | ISystemCommit> = [];
@@ -94,7 +91,6 @@ export default function Parser(
           // console.log(`double ${uniq[prev.date]} === ${i}`);
         }
         uniq[prev.date] = i;
-        parseCommit(prev);
       }
 
       const next = getUserInfo(message);
@@ -109,7 +105,6 @@ export default function Parser(
       commits.push(prev); // @ts-ignore
     }
   }
-  if (prev) parseCommit(prev);
 
   const { fileList, fileTree } = getFileList(allFiles);
   return {

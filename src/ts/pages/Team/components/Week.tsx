@@ -25,10 +25,11 @@ import { getMax } from 'ts/pages/Common/helpers/getMax';
 interface IWeekViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function WeekView({ response, updateSort, mode }: IWeekViewProps) {
+function WeekView({ response, updateSort, rowsForExcel, mode }: IWeekViewProps) {
   if (!response) return null;
 
   const tasksChart = getOptions({ max: getMax(response, 'tasks'), order: dataGripStore.dataGrip.type.list, suffix: 'page.team.week.tasks' });
@@ -46,6 +47,7 @@ function WeekView({ response, updateSort, mode }: IWeekViewProps) {
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
@@ -181,7 +183,10 @@ const Week = observer(({
         })}
         watch={mode}
       >
-        <WeekView mode={mode} />
+        <WeekView
+          mode={mode}
+          rowsForExcel={rows}
+        />
         {mode !== 'print' && <Pagination />}
       </DataLoader>
     </>

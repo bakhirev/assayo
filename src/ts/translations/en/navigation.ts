@@ -16,8 +16,11 @@ export default `
 § sidebar.team.day: By day
 § sidebar.team.week: By week
 § sidebar.team.month: By month
-§ sidebar.team.tree: Files
+§ sidebar.team.files: Files
+§ sidebar.team.removedFiles: Removed files
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: Tasks
+§ sidebar.team.release: Releases
 § sidebar.team.hours: Work schedule
 § sidebar.team.commits: All commits
 § sidebar.team.changes: All changes

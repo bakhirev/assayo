@@ -141,6 +141,16 @@ export default `
 § page.team.tasks.prAuthor: Merged by user
 § page.team.tasks.prDelayDays: Delay before merge in days
 § page.team.tasks.comments: Comments
+§ page.team.extension.name: Extension
+§ page.team.extension.path: Path
+§ page.team.extension.current.count: Number
+§ page.team.extension.removed.count: Number of removed
+§ page.team.extension.files: files
+§ page.team.release.title: Release
+§ page.team.release.from: Create date
+§ page.team.release.to: Last merge date
+§ page.team.release.delay: Preparation days
+§ page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
 § page.person.total.title: Main characteristics

@@ -3,6 +3,7 @@ import { utils, writeFile } from 'xlsx';
 
 import localization from 'ts/helpers/Localization';
 import { ColumnTypesEnum, IColumn } from '../components/Table/interfaces/Column';
+import { getDate, getDateForExcel } from './formatter';
 // import localization from './Localization';
 
 export function downloadFile(file: Blob, fileName: string) {
@@ -43,6 +44,10 @@ function getFormatter(columns: IColumn[]) {
         ? item[column.properties]
         : item;
 
+      if (column.formatter === getDate) {
+        return getDateForExcel(value);
+      }
+
       if (column.formatter) {
         value = column.formatter(value);
       }
@@ -53,7 +58,9 @@ function getFormatter(columns: IColumn[]) {
 
       const type = typeof value;
       if (type === 'object') {
-        return JSON.stringify(value);
+        return Object.entries(value)
+          .map((row: any) => row.join(': '))
+          .join(', ');
       }
 
       if (type === 'string') {

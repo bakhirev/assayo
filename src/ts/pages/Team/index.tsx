@@ -13,6 +13,7 @@ import Scope from './components/Scope';
 import Tempo from './components/Tempo';
 import Total from './components/Total';
 import Tree from './components/Tree';
+import Extension from './components/Extension2';
 import Type from './components/Type';
 import Week from './components/Week';
 import Month from './components/Month';
@@ -20,6 +21,7 @@ import Tasks from './components/Tasks';
 import Top from './components/Top';
 import Pr from './components/PR';
 import Print from './components/Print';
+import Release from './components/Release';
 
 function getViewById(page?: string) {
   const mode = printStore.processing ? 'print' : undefined;
@@ -32,7 +34,10 @@ function getViewById(page?: string) {
   if (page === 'week') return <Week mode={mode}/>;
   if (page === 'month') return <Month mode={mode}/>;
   if (page === 'hours') return <Hours mode={mode}/>;
-  if (page === 'tree') return <Tree/>;
+  if (page === 'files') return <Tree/>;
+  if (page === 'removedFiles') return <Tree type="removed" />;
+  if (page === 'extension') return <Extension mode={mode}/>;
+  if (page === 'release') return <Release mode={mode}/>;
   if (page === 'commits') return <Commits/>;
   if (page === 'changes') return <Changes/>;
   if (page === 'words') return <PopularWords mode={mode}/>;

@@ -13,6 +13,7 @@ import style from './index.module.scss';
 import PageWrapper from '../Page/wrapper';
 
 interface IDataViewProps {
+  rowsForExcel?: any[];
   rows: any[];
   type?: string;
   sort?: ISort[];
@@ -25,6 +26,7 @@ interface IDataViewProps {
 }
 
 function DataView({
+  rowsForExcel = [],
   rows = [],
   sort = [],
   type,
@@ -62,7 +64,7 @@ function DataView({
               className={style.data_view_icon}
               onClick={() => {
                 const fileName = t(`sidebar.${urlParams.type}.${urlParams.page}`);
-                downloadExcel(rows, children, fileName);
+                downloadExcel(rowsForExcel || rows, children, fileName);
               }}
             />
           )}

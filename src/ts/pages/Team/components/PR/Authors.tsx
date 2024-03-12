@@ -22,10 +22,11 @@ const order = Object.values(TITLES);
 interface IAuthorsProps {
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
   mode?: string;
 }
 
-function Authors({ response, updateSort, mode }: IAuthorsProps) {
+function Authors({ response, updateSort, rowsForExcel, mode }: IAuthorsProps) {
   if (!response) return null;
 
   const timeChart = getOptions({ order, limit: 3 });
@@ -40,6 +41,7 @@ function Authors({ response, updateSort, mode }: IAuthorsProps) {
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}

@@ -1,202 +1,210 @@
 export default `
-§ page.welcome.step1: Выполните команду в корне вашего проекта
-§ page.welcome.step3: Перетащите
-§ page.welcome.step4: файл log.txt на эту страницу
-§ page.welcome.description: Git создаст файл log.txt. Он содержит данные для построения отчёта. Или git shortlog -s -n -e если отчёт вам не нужен. Создайте файл [.mailmap|https://git-scm.com/docs/gitmailmap] в корне проекта, чтобы объединить статистику по сотрудникам.
-§ page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
-§ page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].
-§ page.common.words.title: Статистика по словам
-§ page.common.words.description: самое популярное слово. Встречается $1 раза.
-§ page.common.commits.title: Количество коммитов по дням
-§ page.common.commits.description: ($1) самый продуктивный день по числу коммитов.
-§ page.common.commits.title2: $1 сделано коммитов: $2
-§ page.common.filter.allUsers: Не имеет значения
-§ page.print.modal.title: Что распечатываем?
-§ page.print.modal.page: Текущую страницу
-§ page.print.modal.type: Текущий раздел
-§ page.print.modal.all: Всю статистику
-§ page.print.modal.cancel: Отмена
-§ page.print.tableOfContents: Оглавление
-§ page.print.title: Отчёт по git-репозиторию
+§ page.welcome.step1: Ejecute el comando en la raíz de su proyecto
+§ page.welcome.step3: Arrastrais
+§ page.welcome.step4: fichero log.txt a esta página
+§ page.welcome.description: Git creará un archivo log.txt. Contiene los datos para construir el informe. Ejecute el comando git shortlog -s -n -e еsi el informe no es necesario. Crear un archivo [.mailmap|https://git-scm.com/docs/gitmailmap] en la raíz del proyecto para combinar las estadísticas de los empleados.
+§ page.welcome.warning1: El Servicio no ALMACENA ni TRANSMITE sus datos. Todos los cálculos se realizan en su computadora.
+§ page.welcome.warning2: El Servicio no RECOPILA ESTADÍSTICAS sobre proyectos. Puedes ver [código fuente|https://github.com/bakhirev/assayo].
+§ page.common.words.title: Estadísticas en palabras
+§ page.common.words.description: la palabra más popular. Se encuentra $1 veces.
+§ page.common.commits.title: Número de commits por día
+§ page.common.commits.description: ($1) el día más productivo por número de commits.
+§ page.common.commits.title2: $1 commits hechas: $2
+§ page.common.filter.allUsers: No tiene importancia
+§ page.print.modal.title: Lo que imprimimos?
+§ page.print.modal.page: Página actual
+§ page.print.modal.type: Sección actual
+§ page.print.modal.all: Todas las estadísticas
+§ page.print.modal.cancel: Cancelación
+§ page.print.tableOfContents: Tabla
+§ page.print.title: Informe del repositorio git
 § page.print.sub_title: «$1»
-§ page.print.description: Данные для отчёта были получены из истории коммитов.
-§ page.team.author.title: Статистика по сотрудникам
-§ page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
-§ page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
-§ page.team.author.types: Тип работ
-§ page.team.author.commits: Коммитов
-§ page.team.author.commitsSmall: коммитов
-§ page.team.author.tasks: Задач
-§ page.team.author.tasksSmall: задач
-§ page.team.author.workedLosses: Дни с коммитами и без
-§ page.team.author.worked: работа
-§ page.team.author.losses: дни без коммитов
-§ page.team.author.days: дней
-§ page.team.author.daysForTask: Дней на задачу
-§ page.team.author.scopes: Фич
-§ page.team.author.moneyAll: Получил
-§ page.team.author.moneyWorked: Отработал
-§ page.team.author.moneyLosses: Переплата
-§ page.team.hours.title: Распределение коммитов в течении каждого дня недели
-§ page.team.month.title: Календарь работы по проекту
-§ page.team.scope.title: Статистика по фичам
-§ page.team.scope.scope: Фича
-§ page.team.scope.days: Раб. дней
-§ page.team.scope.authorsDays: Человеко-дней
-§ page.team.scope.tasks: Задач
-§ page.team.scope.commits: Коммитов
-§ page.team.scope.commitsSmall: коммитов
-§ page.team.scope.types: Тип работ
-§ page.team.scope.authors: Персональный вклад
-§ page.team.scope.cost: Стоимость
-§ page.team.type.title: Статистика по типам задач
-§ page.team.type.description: *Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений.
-§ page.team.type.type: Тип работы
-§ page.team.type.tasks: Задач
-§ page.team.type.tasksSmall: задач
-§ page.team.type.days: Дней
-§ page.team.type.daysSmall: дней
-§ page.team.type.authorsDays: Человеко-дней
-§ page.team.type.commits: Коммитов
-§ page.team.type.authors: Персональный вклад
-§ page.team.total.titleA: Объём работ
-§ page.team.total.titleB: Стоимость
-§ page.team.total.daysWorked.title: человеко-дней
-§ page.team.total.daysWorked.description: Учтены только дни, в которые делались коммиты
-§ page.team.total.commits.title: коммитов
-§ page.team.total.commits.description: Удалённые ветки не считаются
-§ page.team.total.daysLosses.title: дней без коммитов
-§ page.team.total.daysLosses.description: Все дни минус: праздники, выходные, отпуск, дни с коммитами
-§ page.team.total.employment.title: работает / уволилось
-§ page.team.total.employment.description: Если сотрудник в течении месяца не сделал ни одного коммита, он считается уволенным
-§ page.team.total.moneyAll.title: общая
-§ page.team.total.moneyAll.description: Суммарные затраты на зп
-§ page.team.total.moneyWorked.title: фактическая
-§ page.team.total.moneyWorked.description: Фактически отработанные дни умноженные на среднюю зп
-§ page.team.total.moneyLosses.title: возможная переплата
-§ page.team.total.moneyLosses.description: Оплаченные рабочие дни, когда коммитов не было
-§ page.team.total.weekendPayment.title: работа на выходных
-§ page.team.total.weekendPayment.description: Суммарная переплата за работу в выходные дни
-§ page.team.total.workSpeed.title: задач в день
-§ page.team.total.workSpeed.description: Средняя скорость работы команды при текущем составе сотрудников
-§ page.team.total.moneySpeed.title: в месяц
-§ page.team.total.moneySpeed.description: Прогнозируемая сумма выплаты на зп при текущем составе сотрудников без учета налогов и сопутствующих затрат
-§ page.team.total.description1: *Человеко-дни* — это работа одного сотрудника в течение одного рабочего дня. Например, за один календарный день, команда из трех сотрудников выдает объем работы в три человеко-дня.
-§ page.team.total.description2: *Днями прогулов* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют.
-§ page.team.total.description3: Карточка *работает и уволилось* показывает фактический состав сотрудников, которые постоянно участвуют в работе. Кроме этого, есть «помощники» — это сотрудники, как правило другой специализации, которые могут иногда делать коммиты в проект.
-§ page.team.total.description4: *Переплатой* считаются только рабочие дни, когда коммиты могли бы быть сделаны. Выходные, государственные праздники и отпуска в расчёте не участвуют. Именно поэтому переплата + фактическая стоимость != общей. В общей стоимости заложена оплата выходных, государственных праздников и отпусков.
-§ page.team.total.description5: *Работой на выходных* считается по коэффициенту х2 от оплаты обычного дня. Выше отображена именно переплата (х1), т.к. сам факт переработки в данном контексте не интересен. Мы не смотрим скорость сжигания бюджета. Мы смотрим переплату при увеличении скорости работы.
-§ page.team.tree.title: Дерево проекта с учётом выбранных фильтров
-§ page.team.tree.filters.author: Сотрудник
-§ page.team.tree.filters.commits: Количество коммитов
-§ page.team.tree.filters.help: Минимальное количество коммитов, которое сделал сотрудник в файле
-§ page.team.tree.filters.all: Все сотрудники
-§ page.team.tree.add: Кто добавлял
-§ page.team.tree.change: Кто менял
-§ page.team.tree.remove: Кто удалял
-§ page.team.tree.line: строк
-§ page.team.tree.lineAdd: добавили
-§ page.team.tree.lineRemove: изменили
-§ page.team.week.title: Статистика по неделям
-§ page.team.week.date: Дата
-§ page.team.week.numberTasks: Количество задач
-§ page.team.week.people: Количество человек
-§ page.team.week.line: Изменение строк
-§ page.team.week.days: Дни с коммитами и без
-§ page.team.week.lossesDetails: Кто не коммитил
-§ page.team.week.add: добавили
-§ page.team.week.change: изменили
-§ page.team.week.remove: удалили
-§ page.team.week.hasCommits: были коммиты
-§ page.team.week.hasNotCommits: небыло коммитов
-§ page.team.week.days: дней
-§ page.team.week.tasks: задач
-§ page.team.pr.task: Задача
-§ page.team.pr.tasks: задач
-§ page.team.pr.firstCommitTime: Первый коммит
-§ page.team.pr.lastCommitTime: Последний
-§ page.team.pr.workDays: Дней разработки
-§ page.team.pr.delayDays: Дней ожидания влития
-§ page.team.pr.commits: Коммиты
-§ page.team.pr.date: Дата влития
-§ page.team.pr.mergeAuthor: Влил
-§ page.team.pr.author: Сотрудник
-§ page.team.pr.middleTimeRelease: Среднее время поставки (дни)
-§ page.team.pr.work: разработка
-§ page.team.pr.delay: ожидание
-§ page.team.pr.days: дней
-§ page.team.pr.oneTaskDays: Время потраченное на одну задачу
-§ page.team.pr.description1: *Время разработки* это разница времени от первого до последнего коммита по задаче. Не важно были перерывы в несколько дней между коммитами или нет. Сам факт какого-либо коммита увеличивает время.
-§ page.team.pr.description2: *Время ожидания* это время между последним коммитом и влитием кода. Оно показывает фактический простой в ожидании чего-либо.
-§ page.team.pr.description3: *Зачем отображать время разработки* без разбивки на кодинг и код-ревью? Затем, чтобы показать бизнесу фактическое время поставки кода. Ожидание тестирования, замечания на ревью, проблемы DevOps и прочие несовершенства процесса, как раз уже заложены в этот срок.
-§ page.team.pr.statByAuthors: Статистика по сотрудникам
-§ page.team.pr.longDelay: Длительное ожидание влития
-§ page.person.print.photo.title: Фотография
-§ page.person.print.photo.description: место для фотографии
-§ page.person.total.title: Основные характеристики
-§ page.person.total.daysWorked.title: дней работы
-§ page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты
-§ page.person.total.tasks.title: задач
-§ page.person.total.tasks.description: Если коммиты правильно подписаны
-§ page.person.character.title: Персонаж
-§ page.person.achievement.title: Достижения
-§ page.person.achievement.positive: Позитивные
-§ page.person.achievement.normal: Нейтральные
-§ page.person.achievement.negative: Негативные
-§ page.person.achievement.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
-§ page.person.gets.title: Взятые геты:
-§ page.person.gets.description: «Взять гет» в данном случае означает первым оставить коммит к задаче с  «красивым» номером.
-§ page.person.business.days.title: дней работы
-§ page.person.business.days.description: Учтены только дни, в которые делались коммиты
-§ page.person.business.tasks.title: задач
-§ page.person.business.tasks.description: Если коммиты правильно подписаны
-§ page.person.business.losses.title: дней без коммитов
-§ page.person.business.losses.description: Все дни минус: праздники, выходные, отпуск, дни с коммитами
-§ page.person.business.commits.title: коммитов
-§ page.person.business.commits.description: Удалённые ветки не считаются
-§ page.person.business.time.description: Время от первого, до последнего коммита (в том числе, нерабочие дни)
-§ page.person.business.time.title: Дней на проекте:
-§ page.person.business.time.dismissed: (уволен)
-§ page.person.business.time.staff: (не в команде)
-§ page.person.business.achievements: Достижения
-§ page.person.changes.title: Достижения
+§ page.print.description: Los datos para el informe se obtuvieron del historial de commits.
+§ page.team.author.title: Estadísticas de los empleados
+§ page.team.author.description1: Parte de las estadísticas (la velocidad del trabajo, el dinero gastado, etc.) para los empleados con el tipo de "Asistente" no cuenta, ya que no es un rol permanente en el proyecto. Su trabajo es insignificante y puede ser ignorado.
+§ page.team.author.description2: La clasificación predeterminada es la clasificación por número de tareas y grupos(empleados actuales, despedidos, ayudantes).
+§ page.team.author.types: Tipo de trabajo
+§ page.team.author.commits: Commits
+§ page.team.author.commitsSmall: commits
+§ page.team.author.tasks: Tareas
+§ page.team.author.tasksSmall: Tareas
+§ page.team.author.workedLosses: Días con y sin commits
+§ page.team.author.worked: trabajo
+§ page.team.author.losses: días sin commits
+§ page.team.author.days: día
+§ page.team.author.daysForTask: Días por tarea
+§ page.team.author.scopes: Elaboración definitiva
+§ page.team.author.moneyAll: Dinero recibido
+§ page.team.author.moneyWorked: Trabajo
+§ page.team.author.moneyLosses: Sobrepago
+§ page.team.hours.title: Distribución del trabajo cada día de la semana
+§ page.team.month.title: Calendario del proyecto
+§ page.team.scope.title: Estadísticas de módulos
+§ page.team.scope.scope: Elaboración definitiva
+§ page.team.scope.days: Siervo. día
+§ page.team.scope.authorsDays: Días-persona
+§ page.team.scope.tasks: Tareas
+§ page.team.scope.commits: Commits
+§ page.team.scope.commitsSmall: commits
+§ page.team.scope.types: Tipo de trabajo
+§ page.team.scope.authors: Contribución personal
+§ page.team.scope.cost: Costo
+§ page.team.type.title: Estadísticas por tipo de tarea
+§ page.team.type.description: *Contribución personal* se considera por el número de Commits, no por el volumen de líneas o archivos modificados. Por lo tanto, también debe ver la sección "Análisis de archivos" para evaluar el alcance de los cambios
+§ page.team.type.type: Tipo de trabajo
+§ page.team.type.tasks: Tareas
+§ page.team.type.tasksSmall: Tareas
+§ page.team.type.days: Día
+§ page.team.type.daysSmall: Día
+§ page.team.type.authorsDays: Días-persona
+§ page.team.type.commits: Commits
+§ page.team.type.authors: Contribución personal
+§ page.team.total.titleA: Alcance
+§ page.team.total.titleB: Costo
+§ page.team.total.daysWorked.title: días-persona
+§ page.team.total.daysWorked.description: Solo se tienen en cuenta los días en que se realizaron los commits
+§ page.team.total.commits.title: commits
+§ page.team.total.commits.description: Las ramas eliminadas no cuentan
+§ page.team.total.daysLosses.title: días sin commits
+§ page.team.total.daysLosses.description: Todos los días menos: vacaciones, fin de semana, vacaciones, días con commits
+§ page.team.total.employment.title: empleado / despedido
+§ page.team.total.employment.description: Si un empleado no ha hecho ningún commit en un mes, se considera despedido
+§ page.team.total.moneyAll.title: general
+§ page.team.total.moneyAll.description: Costos totales de nómina
+§ page.team.total.moneyWorked.title: real
+§ page.team.total.moneyWorked.description: Días efectivamente trabajados multiplicados por el salario promedio
+§ page.team.total.moneyLosses.title: posible sobrepago
+§ page.team.total.moneyLosses.description: Días laborables pagados cuando no hubo commits
+§ page.team.total.weekendPayment.title: trabajo de fin de semana
+§ page.team.total.weekendPayment.description: Sobrepago total por trabajo de fin de semana
+§ page.team.total.workSpeed.title: tareas por día
+§ page.team.total.workSpeed.description: Velocidad media del equipo con la plantilla actual
+§ page.team.total.moneySpeed.title: por mes
+§ page.team.total.moneySpeed.description: Monto previsto de la nómina de sueldos en la plantilla actual, sin incluir impuestos ni costos asociados
+§ page.team.total.description1: *Días-persona* — es el trabajo de un empleado durante una jornada laboral. Por ejemplo, en un día calendario, un equipo de tres empleados emite una cantidad de trabajo de tres días-persona.
+§ page.team.total.description2: *Días de absentismo* solo se cuentan los días hábiles en que se podrían haber realizado commits. Fines de semana, días festivos y vacaciones no participan en el cálculo.
+§ page.team.total.description3: Tarjeta *trabaja y se despide* muestra la composición real de los empleados que participan constantemente en el trabajo. Aparte de eso, hay " ayudantes — - que son empleados, por lo general de otra Especialización, que a veces pueden hacer commits en un proyecto.
+§ page.team.total.description4: *Pago excesivo* solo se cuentan los días hábiles en que se podrían haber realizado commits. Los fines de semana, días festivos y vacaciones no están incluidos en el cálculo. ¡Es por eso que el sobrepago + el costo real!= general. El costo total incluye el pago de fines de semana, días festivos y vacaciones.
+§ page.team.total.description5: *Trabajo de fin de semana* se considera por el factor X2 del pago de un día normal. Lo anterior muestra exactamente el pago excesivo (X1), ya que el hecho de procesar en este contexto no es interesante. No estamos viendo la tasa de quema del presupuesto. Estamos viendo el sobrepago al aumentar la velocidad del trabajo.
+§ page.team.tree.title: Árbol de proyecto con filtros seleccionados
+§ page.team.tree.filters.author: Empleado
+§ page.team.tree.filters.commits: Número de commits
+§ page.team.tree.filters.help: El número mínimo de commits que hizo un empleado en el archivo
+§ page.team.tree.filters.all: Todos los empleados
+§ page.team.tree.add: Quien ha añadido
+§ page.team.tree.change: Quien cambió
+§ page.team.tree.remove: Quién borró
+§ page.team.tree.line: filas
+§ page.team.tree.lineAdd: agregaron
+§ page.team.tree.lineRemove: cambiaron
+§ page.team.week.title: Estadísticas semanales
+§ page.team.week.date: Fecha
+§ page.team.week.numberTasks: Número de tareas
+§ page.team.week.people: Número de personas
+§ page.team.week.line: Cambiar filas
+§ page.team.week.days: Días con y sin commits
+§ page.team.week.lossesDetails: ¿Quién no commits
+§ page.team.week.add: agregaron
+§ page.team.week.change: cambiaron
+§ page.team.week.remove: eliminaron
+§ page.team.week.hasCommits: fueron commits
+§ page.team.week.hasNotCommits: no hubo commits
+§ page.team.week.days: día
+§ page.team.week.tasks: tareas
+§ page.team.pr.task: Tarea
+§ page.team.pr.tasks: tareas
+§ page.team.pr.firstCommitTime: Primer commits
+§ page.team.pr.lastCommitTime: Last
+§ page.team.pr.workDays: Days of development
+§ page.team.pr.delayDays: Days of waiting for the infusion
+§ page.team.pr.commits: commits
+§ page.team.pr.date: Date of injection
+§ page.team.pr.mergeAuthor: I poured it in
+§ page.team.pr.author: Employee
+§ page.team.pr.middleTimeRelease: Average delivery time (days)
+§ page.team.pr.work: development
+§ page.team.pr.delay: expectation
+§ page.team.pr.days: days
+§ page.team.pr.oneTaskDays: Time spent on one task
+§ page.team.pr.description1: *Development time* this is the time difference from the first to the last commits for the task. It doesn't matter if there were breaks of several days between commits or not. The very fact of any commits increases the time.
+§ page.team.pr.description2: *Waiting time* this is the time between the last commit and the code injection. It shows the actual idle waiting for something.
+§ page.team.pr.description3: *Why display the development time* without a breakdown into coding and code review? Then, to show the business the actual delivery time of the code. The expectation of testing, comments on the review, DevOps problems and other imperfections of the process are already laid down in this period.
+§ page.team.pr.statByAuthors: Employee statistics
+§ page.team.pr.longDelay: Long wait for infusion
+§ page.team.tasks.task: Task
+§ page.team.tasks.author: The author of the first commits
+§ page.team.tasks.from: The first commits
+§ page.team.tasks.to: Last commits
+§ page.team.tasks.daysInWork: Days in the work
+§ page.team.tasks.commits: Number of commits
+§ page.team.tasks.pr: Date of injection
+§ page.team.tasks.prAuthor: I poured it in
+§ page.team.tasks.prDelayDays: Days of waiting for the infusion
+§ page.team.tasks.comments: Comments
+§ page.person.print.photo.title: Photo
+§ page.person.print.photo.description: a place for a photo
+§ page.person.total.title: Main Features
+§ page.person.total.daysWorked.title: working days
+§ page.person.total.daysWorked.description: Only the days on which commits were made are taken into account
+§ page.person.total.tasks.title: tasks
+§ page.person.total.tasks.description: If the commits are signed correctly
+§ page.person.character.title: Character
+§ page.person.achievement.title: Progress
+§ page.person.achievement.positive: Positive
+§ page.person.achievement.normal: Neutral
+§ page.person.achievement.negative: Negative
+§ page.person.achievement.description: Cuantos más logros negativos tenga un empleado, más probable es que la situación no sea estándar. Puede que valga la pena cambiar su modo de trabajo, tareas o informes. Debe hablar con él y averiguar qué problemas interfieren con su trabajo.
+§ page.person.gets.title: Geta Capturado:
+§ page.person.gets.description: «Geta Capturado» in this case, it means leaving commits to the task with the "beautiful" number first.
+§ page.person.business.days.title: working days
+§ page.person.business.days.description: Only the days on which commits were made are taken into account
+§ page.person.business.tasks.title: tasks
+§ page.person.business.tasks.description: If commits are signed correctly
+§ page.person.business.losses.title: days without commits
+§ page.person.business.losses.description: All days minus: holidays, weekends, vacations, days with commits
+§ page.person.business.commits.title: commits
+§ page.person.business.commits.description: Deleted branches don't count
+§ page.person.business.time.description: Time from the first to the last commits (including non-working days)
+§ page.person.business.time.title: Days on the project:
+§ page.person.business.time.dismissed: (Progreso)
+§ page.person.business.time.staff: (Not in the team)
+§ page.person.business.achievements: Progreso
+§ page.person.changes.title: Progreso
 § page.person.changes.description: 
-При некоторых видах форматирования git отмечает строки как «удалённые» и «добавленные»,
-хотя на самом деле они были «изменены». Поэтому, если вы провели большой рефакторинг,
-git может показать малое количество изменений в статистике, а фактический результат
-будет отмечен, как скачок «удаленных» и «добавленных» строк.
-§ page.person.changes.description: Список коммитов и количество изменений в них за этот день:
-§ page.person.commits.title: Список коммитов:
-§ page.person.money.title.total: За всё время
-§ page.person.money.title.middle: Средняя стоимость
-§ page.person.money.moneyAll.title: получил
-§ page.person.money.moneyAll.description: Предполагаемая сумма зп с проекта (см. настройки)
-§ page.person.money.moneyWorked.title: отработал
-§ page.person.money.moneyWorked.description: Фактически отработанные дни умноженные на среднюю зп
-§ page.person.money.moneyLosses.title: возможная переплата
-§ page.person.money.moneyLosses.description: Дни без коммитов умноженные на среднюю зп
-§ page.person.money.tasks.title: задача
-§ page.person.money.tasks.description: Количество закрытых задач к стоимости дня
-§ page.person.money.commits.title: коммит
-§ page.person.money.commits.description: Количество коммитов к стоимости рабочего дня
-§ page.person.speed.task: Одна задача в среднем это
-§ page.person.speed.max: Максимальная скорость в день
-§ page.person.speed.days.title: дней
-§ page.person.speed.days.description: Имеются ввиду рабочие дни, если коммиты правильно подписаны
-§ page.person.speed.commits.title: коммитов
-§ page.person.speed.commits.description: Отрезаны 10% максимальных и минимальных значений
-§ page.person.speed.line.title: строк кода
-§ page.person.speed.line.description: Отрезаны 10% максимальных и минимальных значений
-§ page.person.speed.tasks.title: задач
-§ page.person.speed.tasks.description: Задача может быть не доделана, но работа по ней должна быть
-§ page.person.speed.maxCommits.title: коммитов
-§ page.person.speed.maxCommits.description: Задача может быть не доделана, но работа по ней должна быть
-§ page.person.hours.title: Распределение коммитов в течении каждого дня недели
-§ page.person.week.date: Дата
-§ page.person.week.tasks: Количество задач
-§ page.person.week.workDays: Дни с коммитами
-§ page.person.week.taskInDay: Задач в день
-§ page.person.week.days: дней
-§ page.person.week.workDay: будни
-§ page.person.week.weekends: выходные
+En algunos tipos de formato, git marca las líneas como "eliminadas" y "agregadas", cuando en realidad se han "modificado". Entonces, si has hecho mucha refactorización,
+git puede Mostrar una pequeña cantidad de cambios en las estadísticas, y el resultado real se marcará como un salto en las líneas "eliminado" y "agregado"
+§ page.person.changes.description: The list of commits and the number of changes to them for that day:
+§ page.person.commits.title: Lista de commits:
+§ page.person.money.title.total: Durante todo este tiempo 👌️
+§ page.person.money.title.middle: Average cost
+§ page.person.money.moneyAll.title: received
+§ page.person.money.moneyAll.description: Estimated amount of the PO from the project (see settings)
+§ page.person.money.moneyWorked.title: worked out
+§ page.person.money.moneyWorked.description: Actual days worked multiplied by the average po
+§ page.person.money.moneyLosses.title: possible overpayment
+§ page.person.money.moneyLosses.description: Days without commits multiplied by the average po
+§ page.person.money.tasks.title: task
+§ page.person.money.tasks.description: The number of closed tasks to the cost of the day
+§ page.person.money.commits.title: commits
+§ page.person.money.commits.description: The number of commits to the cost of the working day
+§ page.person.speed.task: One task on average is
+§ page.person.speed.max: Velocidad máxima por día
+§ page.person.speed.days.title: días
+§ page.person.speed.days.description: This means working days if the commits are signed correctly
+§ page.person.speed.commits.title: commits
+§ page.person.speed.commits.description: 10% of the maximum and minimum values were cut off
+§ page.person.speed.line.title: lines of code
+§ page.person.speed.line.description: 10% of the maximum and minimum values were cut off
+§ page.person.speed.tasks.title: tasks
+§ page.person.speed.tasks.description: The task may not be completed, but the work on it should be
+§ page.person.speed.maxCommits.title: commits
+§ page.person.speed.maxCommits.description: The task may not be completed, but the work on it should be
+§ page.person.hours.title: Distribution of commits during each day of the week
+§ page.person.week.date: Date
+§ page.person.week.tasks: Number of tasks
+§ page.person.week.workDays: Days with commits
+§ page.person.week.taskInDay: Tasks per day
+§ page.person.week.days: days
+§ page.person.week.workDay: entresemana
+§ page.person.week.weekends: día de descanso
 `;

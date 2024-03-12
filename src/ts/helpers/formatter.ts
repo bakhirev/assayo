@@ -53,6 +53,12 @@ export function getDate(timestamp: string) {
   return date.toLocaleString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+export function getDateForExcel(timestamp: string) {
+  if (!timestamp) return '';
+  const date = new Date(timestamp);
+  return date.toISOString().substring(0, 10).split('-').reverse().join('.');
+}
+
 export function getShortDate(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);

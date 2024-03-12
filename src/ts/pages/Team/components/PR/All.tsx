@@ -15,15 +15,17 @@ import { getMax } from 'ts/pages/Common/helpers/getMax';
 import { getDate } from 'ts/helpers/formatter';
 
 interface IPRViewProps {
-  mode?: string;
   response?: IPagination<any>;
   updateSort?: Function;
+  rowsForExcel?: any[];
+  mode?: string;
 }
 
 function AllPR({
-  mode,
   response,
   updateSort,
+  rowsForExcel,
+  mode,
 }: IPRViewProps) {
   if (!response) return null;
 
@@ -36,6 +38,7 @@ function AllPR({
 
   return (
     <DataView
+      rowsForExcel={rowsForExcel}
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}

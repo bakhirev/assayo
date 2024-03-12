@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
@@ -15,6 +15,7 @@ import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
+import NothingFound from 'ts/components/NothingFound';
 
 import TreeFilters from './TreeFilters';
 import { getSubTreeByPath, getArrayFromTree } from '../helpers/tree';
@@ -121,11 +122,24 @@ TreeView.defaultProps = {
   response: undefined,
 };
 
-const Tree = observer((): React.ReactElement => {
+interface ITreeProps {
+  type?: string
+}
+
+const Tree = observer(({ type }: ITreeProps): React.ReactElement => {
   const { t } = useTranslation();
-  const fileTree = dataGripStore.fileTree;
+  const fileTree = type === 'removed'
+    ? dataGripStore.removedFileTree
+    : dataGripStore.fileTree;
   const subTree = getSubTreeByPath(fileTree, treeStore.selectedPath);
   const fileList = getArrayFromTree(subTree);
+
+  // @ts-ignore
+  if (!fileTree?.lines) return <NothingFound />;
+
+  useEffect(() => {
+    treeStore.updateFilter('selectedPath', []);
+  }, [type]);
 
   return (
     <>
@@ -138,7 +152,7 @@ const Tree = observer((): React.ReactElement => {
           loader={(pagination?: IPaginationRequest) => getFakeLoader({
             content: fileList, pagination: { ...pagination, size: 500 },
           })}
-          watch={treeStore.hash}
+          watch={`${treeStore.hash}${type}`}
         >
           <TreeView />
           <Pagination />

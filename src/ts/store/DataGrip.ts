@@ -1,6 +1,6 @@
 import { makeObservable, observable, action } from 'mobx';
 
-import ICommit from 'ts/interfaces/Commit';
+import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 import { IDirtyFile, IFileTree } from 'ts/interfaces/FileInfo';
 import achievements from 'ts/helpers/achievement/byCompetition';
 import dataGrip from 'ts/helpers/DataGrip';
@@ -52,7 +52,12 @@ class DataGripStore implements IDataGripStore {
       fileList,
       fileTree,
       removed,
-    } = parser(dump || [], (commit: ICommit) => dataGrip.addCommit(commit));
+    } = parser(dump || []);
+
+    commits.sort((a, b) => a.milliseconds - b.milliseconds);
+    commits.forEach((commit: ICommit | ISystemCommit) => {
+      dataGrip.addCommit(commit);
+    });
 
     this.commits = commits;
     this.fileList = fileList;
@@ -70,7 +75,7 @@ class DataGripStore implements IDataGripStore {
       );
 
       dataGrip.updateByInitialization();
-      dataGrip.updateByFiles(fileList);
+      dataGrip.updateByFiles(fileList, removed.fileList);
       achievements.updateByDataGrip(dataGrip.author.statistic);
     }
 

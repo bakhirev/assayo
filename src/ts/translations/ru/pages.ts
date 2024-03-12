@@ -141,6 +141,16 @@ export default `
 § page.team.tasks.prAuthor: Влил
 § page.team.tasks.prDelayDays: Дней ожидания влития
 § page.team.tasks.comments: Комментарии
+§ page.team.extension.name: Тип
+§ page.team.extension.path: Путь
+§ page.team.extension.current.count: Количество
+§ page.team.extension.removed.count: Количество удалённых
+§ page.team.extension.files: файлов
+§ page.team.release.title: Релиз
+§ page.team.release.from: Дата создания
+§ page.team.release.to: Дата завершения
+§ page.team.release.delay: Дней работы
+§ page.team.release.waiting: Дней до следующего релиза
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики
