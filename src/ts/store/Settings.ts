@@ -43,13 +43,13 @@ class SettingsStore implements ISettingsStore {
 
   isFullTime: boolean = true;
 
-  defaultSalary: number = 180000;
+  defaultSalary: number = 3000;
 
   defaultWorkDays: number = 5;
 
   holidaysInYear: number = 118 + 22; // праздники + выходные + отпуск
 
-  currency: string = 'RUB';
+  currency: string = 'USD';
 
   salary: any = {};
 

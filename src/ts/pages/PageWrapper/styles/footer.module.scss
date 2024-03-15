@@ -42,13 +42,15 @@
     border-radius: var(--border-radius-m);
     --temp-color: var(--color-grey);
 
-    &:hover,
+    &:first-child:hover,
+    &:nth-child(4n+2):hover,
     &_selected {
       background-color: #35353F;
       --temp-color: white;
     }
 
-    &:active {
+    &:first-child:active,
+    &:nth-child(4n+2):active {
       background-color: #45454F;
       --temp-color: white;
     }

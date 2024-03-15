@@ -3,6 +3,8 @@ export default `
 § sidebar.switch.person: Сотрудник
 § sidebar.buttons.settings: Настройки
 § sidebar.buttons.print: Печать
+§ sidebar.buttons.share: Расшарить
+§ sidebar.buttons.logout: Выйти
 § sidebar.filters.all: всё время
 § sidebar.filters.year: год
 § sidebar.filters.halfYear: пол года

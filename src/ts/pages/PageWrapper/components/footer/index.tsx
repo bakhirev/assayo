@@ -29,8 +29,8 @@ function getMenu(navigate: Function): any[] {
     },
     {
       id: 'print',
-      title: 'sidebar.buttons.print',
-      icon: './assets/menu/print.svg',
+      title: 'sidebar.buttons.share',
+      icon: './assets/menu/share.svg',
       onClick() {
         navigator.share({
           title: localization.get('common.title'),
@@ -41,8 +41,8 @@ function getMenu(navigate: Function): any[] {
     },
     {
       id: 'settings',
-      title: 'sidebar.buttons.settings',
-      icon: './assets/menu/setting.svg',
+      title: 'sidebar.buttons.logout',
+      icon: './assets/menu/logout.svg',
       onClick() {
         confirm.open({
           title: 'Вы уверены что хотите выйти?',

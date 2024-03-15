@@ -58,8 +58,8 @@ export default function applyUrlCommands(callback: Function) {
 
   const jsUrl = parameters.dump || parameters.log;
   if (jsUrl) {
-    loadJsDump(jsUrl, callback);
+    loadJsDump(jsUrl, () => callback(parameters));
   } else {
-    callback();
+    callback(parameters);
   }
 }

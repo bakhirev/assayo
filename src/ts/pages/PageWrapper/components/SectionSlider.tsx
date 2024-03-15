@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import isMobile from 'ts/helpers/isMobile';
 
 import { TEAM, PERSON } from '../helpers/menu';
+import PageSwiper from './Swiper';
 import style from '../styles/slider.module.scss';
 
 interface ISectionSliderProps {
@@ -56,6 +57,11 @@ function MobileView({ getViewById }: ISectionSliderProps) {
 
   if (!currentView.length) {
     return getViewById(page);
+    return (
+      <PageSwiper>
+        {getViewById(page)}
+      </PageSwiper>
+    );
   }
 
   const [viewName, className] = currentView;

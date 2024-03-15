@@ -45,6 +45,8 @@ function Table({
     <div
       ref={refTable}
       className={`${style.table_wrapper} scroll_x`}
+      onTouchStart={(event) => event.stopPropagation()}
+      onMouseDown={(event) => event.stopPropagation()}
     >
       <div className={`${style.table}`}>
         <Header

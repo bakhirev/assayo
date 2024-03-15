@@ -1,0 +1,43 @@
+@import 'src/styles/variables';
+
+.ui_kit_wrapper + .ui_kit_wrapper {
+  vertical-align: top;
+  margin-top: var(--space-l);
+}
+
+.ui_kit_title,
+.ui_kit_description,
+.ui_kit_help,
+.ui_kit_error {
+  font-weight: 100;
+  font-size: var(--font-xs);
+
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+
+  text-align: left;
+  line-height: 1.3;
+  text-decoration: none;
+  vertical-align: bottom;
+  color: var(--color-grey);
+}
+
+.ui_kit_title {
+  font-weight: bold;
+  color: var(--color-black);
+}
+
+.ui_kit_title,
+.ui_kit_description {
+  margin-bottom: 6px;
+}
+
+.ui_kit_help,
+.ui_kit_error {
+  margin-top: 6px;
+}
+
+.ui_kit_error {
+  color: var(--color-12);
+}

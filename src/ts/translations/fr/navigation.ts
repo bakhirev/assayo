@@ -3,6 +3,8 @@ export default `
 § sidebar.switch.person: Employé
 § sidebar.buttons.settings: Réglages
 § sidebar.buttons.print: Impression
+§ sidebar.buttons.share: Share
+§ sidebar.buttons.logout: Logout
 § sidebar.filters.all: à toute heure
 § sidebar.filters.year: année
 § sidebar.filters.halfYear: demi-année

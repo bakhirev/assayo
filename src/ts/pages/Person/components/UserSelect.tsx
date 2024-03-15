@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
-import UiKitSelect from 'ts/components/UiKit/components/Select';
-import UiKitButton from 'ts/components/UiKit/components/Button';
+import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
+import style from 'ts/pages/Team/styles/filters.module.scss';
+import { getFormattedWeeks } from 'ts/pages/Team/components/TempoFilters';
 
-import style from '../styles/index.module.scss';
+interface IUserSelectProps {
+  filters: any,
+  onChange: Function,
+}
 
-const UserSelect = observer((): React.ReactElement => {
+const UserSelect = observer(({
+  filters,
+  onChange,
+}: IUserSelectProps): React.ReactElement => {
   const { type, page, userId } = useParams<any>();
   const navigate = useNavigate();
 
@@ -16,34 +23,32 @@ const UserSelect = observer((): React.ReactElement => {
   const authors = dataGripStore.dataGrip.author.list;
   const options = authors.map((title: string, id: number) => ({ id, title }));
 
+  const rows = dataGripStore.dataGrip.timestamp.statistic.allCommitsByTimestamp || [];
+  const weeks = useMemo(() => getFormattedWeeks(rows), [rows]);
+
   return (
-    <div className={style.user_select}>
-      <UiKitButton
-        mode="second"
-        disabled={formattedUserId <= 0}
-        onClick={() => {
-          navigate(`/${type}/${page}/${formattedUserId - 1}`);
-        }}
-      >
-        «
-      </UiKitButton>
-      <UiKitSelect
+    <div className={style.table_filters}>
+      <SelectWithButtons
+        title="page.team.tree.filters.author"
         value={formattedUserId}
+        className={style.table_filters_item}
         options={options}
-        className={style.user_name}
-        onChange={(newUserId: string) => {
+        onChange={(newUserId: number) => {
           navigate(`/${type}/${page}/${newUserId}`);
         }}
       />
-      <UiKitButton
-        mode="second"
-        disabled={formattedUserId >= (authors.length - 1)}
-        onClick={() => {
-          navigate(`/${type}/${page}/${formattedUserId + 1}`);
-        }}
-      >
-        »
-      </UiKitButton>
+      {page === 'day' ? (
+        <SelectWithButtons
+          reverse
+          title="page.team.tree.filters.author"
+          value={filters?.week || rows[rows.length - 1].week}
+          className={style.table_filters_item}
+          options={weeks.reverse()}
+          onChange={(week: number) => {
+            onChange({ ...filters, week });
+          }}
+        />
+      ) : null}
     </div>
   );
 });

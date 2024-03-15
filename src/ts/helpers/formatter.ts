@@ -30,11 +30,26 @@ export function getDayPrefix(index:number) {
   ][index];
 }
 
+function getLangPrefix() {
+  // @ts-ignore
+  const code = window?.localization?.language || 'ru';
+  return {
+    ru: 'ru-RU',
+    en: 'en-EN',
+    zh: 'zh-ZH',
+    es: 'es-ES',
+    fr: 'fr-FR',
+    pt: 'pt-PT',
+    de: 'de-DE',
+    ja: 'ja-JA',
+  }[code] || 'ru-RU';
+}
+
 export function getDateByTimestamp(timestamp: string) {
   const date = new Date(timestamp);
   const day = date.getDay() - 1;
   return [
-    date.toLocaleString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }),
+    date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long', year: 'numeric' }),
     getDayName(day < 0 ? 6 : day),
   ];
 }
@@ -50,7 +65,7 @@ export function getClearHTML(text: string) {
 export function getDate(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
-  return date.toLocaleString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+  return date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 export function getDateForExcel(timestamp: string) {
@@ -62,7 +77,7 @@ export function getDateForExcel(timestamp: string) {
 export function getShortDate(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
-  return date.toLocaleString('ru-RU', { day: 'numeric', month: 'long' });
+  return date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long' });
 }
 
 export function getShortTime(timestamp: string) {
@@ -72,7 +87,7 @@ export function getShortTime(timestamp: string) {
 }
 
 export function getMoney(value: number, options?: any) {
-  return (value || 0).toLocaleString('ru-RU', {
+  return (value || 0).toLocaleString(getLangPrefix(), {
     style: 'currency',
     currency: settingsStore?.currency || 'USD',
     currencyDisplay: 'symbol',

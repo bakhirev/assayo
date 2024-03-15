@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Wrapper, { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/index.module.scss';
@@ -20,6 +21,7 @@ function UiKitInputNumber({
   placeholder,
   onChange,
 }: IUiKitSelectProps) {
+  const { t } = useTranslation();
   return (
     <Wrapper
       title={title}
@@ -31,7 +33,7 @@ function UiKitInputNumber({
       <input
         type="number"
         value={value}
-        placeholder={placeholder}
+        placeholder={placeholder ? t(placeholder) : ''}
         className={style.ui_kit_common}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           if (onChange) onChange(parseInt(event.target.value, 10) || 0);

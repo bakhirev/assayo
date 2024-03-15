@@ -3,12 +3,14 @@ export default `
 § sidebar.switch.person: 従業員
 § sidebar.buttons.settings: 設定
 § sidebar.buttons.print: 印刷
+§ sidebar.buttons.share: Share
+§ sidebar.buttons.logout: Logout
 § sidebar.filters.all: すべての時間
 § sidebar.filters.year: 年
 § sidebar.filters.halfYear: 半年
 § sidebar.filters.month: 月
-§ sidebar.filters.week: 一週間
-§ sidebar.team.total: 一般的な情報
+§ sidebar.filters.week: 週間
+§ sidebar.team.total: 般的な情報
 § sidebar.team.scope: モジュール
 § sidebar.team.author: スタッフ
 § sidebar.team.type: タスクの種類

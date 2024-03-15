@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
 import dataGripStore from 'ts/store/DataGrip';
-import UiKitSelect from 'ts/components/UiKit/components/SelectWithButtons';
+import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import UiKitInputNumber from 'ts/components/UiKit/components/InputNumber';
 
 import treeStore from '../store/Tree';
@@ -16,21 +16,21 @@ const TreeFilters = observer((): React.ReactElement => {
   options.unshift({ id: 0, title: t('page.team.tree.filters.all') });
 
   return (
-    <div>
-      <UiKitSelect
+    <div className={style.table_filters}>
+      <SelectWithButtons
         title="page.team.tree.filters.author"
         value={treeStore.authorId}
+        className={style.table_filters_item}
         options={options}
-        className={style.tree_filters}
         onChange={(authorId: number) => {
           treeStore.updateFilter('authorId', authorId);
         }}
       />
       <UiKitInputNumber
-        title="page.team.tree.filters.commits"
+        placeholder="page.team.tree.filters.commits"
         help="page.team.tree.filters.help"
-        value={treeStore.minCommits}
-        className={style.tree_filters}
+        value={treeStore.minCommits || ''}
+        className={style.table_filters_item}
         onChange={(minCommits: number) => {
           treeStore.updateFilter('minCommits', minCommits);
         }}

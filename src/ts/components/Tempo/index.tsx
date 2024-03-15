@@ -38,6 +38,8 @@ function Tempo({
       ref={ref}
       style={customStyle}
       className={`${style.tempo_wrapper} scroll_x`}
+      onTouchStart={(event) => event.stopPropagation()}
+      onMouseDown={(event) => event.stopPropagation()}
     >
       <div className={style.tempo}>
         {columns}

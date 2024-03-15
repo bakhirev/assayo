@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -26,7 +26,7 @@ interface IPersonProps {
   userId?: string | number;
 }
 
-function getViewByIdByUser(user: any) {
+function getViewByIdByUser(user: any, filters: any) {
   return function getViewById(page?: string) {
     const mode = printStore.processing ? 'print' : undefined;
     if (page === 'total') return <Total user={user}/>;
@@ -48,7 +48,12 @@ function getViewByIdByUser(user: any) {
       />
     );
     if (page === 'speed') return <Speed user={user}/>;
-    if (page === 'day') return <Tempo user={user}/>;
+    if (page === 'day') return (
+      <Tempo
+        user={user}
+        filters={filters}
+      />
+    );
     if (page === 'print') return <Print user={user}/>;
     return <Total user={user}/>;
   };
@@ -59,16 +64,26 @@ const Person = observer(({
 }: IPersonProps) => {
   const { t } = useTranslation();
   const { type, page, userId: userIdFromUrl } = useParams<any>();
+
+  const rows = dataGripStore.dataGrip.timestamp.statistic.allCommitsByTimestamp || [];
+  const defaultWeek = rows.length
+    ? rows[rows.length - 1].week
+    : 0;
+  const [filters, setFilters] = useState<any>({ week: defaultWeek });
+
   const user = dataGripStore.dataGrip.author.statistic[userId || userIdFromUrl || 0];
   if (type !== 'person' || !user) return null;
 
-  const getViewById = getViewByIdByUser(user);
+  const getViewById = getViewByIdByUser(user, filters);
   return (
     <>
       {page !== 'print' && (
         <>
           <Title title={t('common.filters')} />
-          <UserSelect />
+          <UserSelect
+            filters={filters}
+            onChange={setFilters}
+          />
         </>
       )}
       <SectionSlider getViewById={getViewById} />

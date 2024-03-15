@@ -18,18 +18,31 @@
   }
 
   &_print,
+  &_lang,
   &_setting {
     display: inline-block;
     width: 24px;
     height: 24px;
     padding: 0;
+    margin: 4px 24px 0 0;
     cursor: pointer;
     user-select: none;
     vertical-align: top;
   }
 
+  &_setting {
+    margin: 4px 0 0;
+  }
+
   &_print {
-    margin-right: 24px;
+    margin: 4px 24px 0 0;
+  }
+
+  &_lang {
+    width: 50px;
+    height: 32px;
+    padding: 0;
+    margin: 0 24px 0 0;
   }
 
   &_with_tab {

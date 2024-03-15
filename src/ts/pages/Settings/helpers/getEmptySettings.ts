@@ -42,8 +42,8 @@ export default function getEmptySettings(): IUserSetting {
   return {
     version: 1,
     defaultSalary: {
-      value: 180000,
-      currency: 'RUB',
+      value: 3000,
+      currency: 'USD',
       workDaysInYear: 247,
       vacationDaysInYear: 28,
       workDaysInWeek: [1, 1, 1, 1, 1, 0, 0],

@@ -1,0 +1,27 @@
+@import 'src/styles/variables';
+
+.ui_kit_select {
+  padding: 0 var(--space-xs) 0 var(--space-l);
+}
+
+.ui_kit_select_with_buttons {
+  &_wrapper {
+    position: relative;
+    padding: 0 50px;
+    text-align: center;
+  }
+
+  &_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+  }
+
+  &_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+  }
+}

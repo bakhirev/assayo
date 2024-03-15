@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import style from '../styles/index.module.scss';
+import style from '../styles/wrapper.module.scss';
 
 export interface IUiKitWrapperProps {
   title?: string;

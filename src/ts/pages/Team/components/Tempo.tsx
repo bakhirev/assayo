@@ -3,10 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
-import { getShortDateRange } from 'ts/helpers/formatter';
 
-import UiKitButton from 'ts/components/UiKit/components/Button';
-import UiKitSelect from 'ts/components/UiKit/components/Select';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
@@ -14,8 +11,7 @@ import NothingFound from 'ts/components/NothingFound';
 import TempoChart from 'ts/components/Tempo';
 import Title from 'ts/components/Title';
 
-import uiKitStyle from 'ts/components/UiKit/styles/index.module.scss';
-import style from '../styles/filters.module.scss';
+import TempoFilters from './TempoFilters';
 
 interface ITempoViewProps {
   order: string[];
@@ -44,83 +40,38 @@ function getPartOfData(filters: any, rows: any[]) {
 
 const Tempo = observer((): React.ReactElement => {
   const rows = dataGripStore.dataGrip.timestamp.statistic.allCommitsByTimestamp || [];
-  const order = dataGripStore.dataGrip.author.list || [];
+  const users = dataGripStore.dataGrip.author.list || [];
   const firstIndex = rows.length - 1;
   const firstPoint = rows[firstIndex];
 
-  const [week, setWeek] = useState<number>(firstPoint.week);
-  const [user, setUser] = useState<string>('');
+  const [filters, setFilters] = useState<any>({ week: firstPoint.week });
+  const user = filters.user
+    ? users[filters.user - 1]
+    : '';
 
   if (!rows?.length) return (<NothingFound />);
-  const partOfData = getPartOfData({ week, user }, rows);
-  const firstWeekDay = partOfData[0];
-  const lastWeekDay = partOfData[partOfData.length - 1];
 
+  const partOfData = getPartOfData({ week: filters.week, user }, rows);
   if (!partOfData?.length) return (<NothingFound />);
+
   return (
     <>
       <Title title="common.filters" />
       <PageWrapper>
-        <div className={style.tempo_filters}>
-          <UiKitButton
-            mode="second"
-            disabled={week === 1}
-            onClick={() => {
-              setWeek(week - 1);
-            }}
-          >
-            «
-          </UiKitButton>
-          <div className={`${uiKitStyle.ui_kit_common} ${style.tempo_filters_date_range}`}>
-            {getShortDateRange({
-              from: firstWeekDay.timestamp,
-              to: lastWeekDay.timestamp,
-            })}
-          </div>
-          <UiKitButton
-            mode="second"
-            disabled={week === firstPoint.week}
-            onClick={() => {
-              setWeek(week + 1);
-            }}
-          >
-            »
-          </UiKitButton>
-
-          <UiKitButton
-            mode="second"
-            onClick={() => {
-              setUser(order[order.indexOf(user) - 1]);
-            }}
-          >
-            «
-          </UiKitButton>
-          <UiKitSelect
-            className={style.tempo_filters_user}
-            value={user}
-            options={[ '', ...dataGripStore.dataGrip.author.list]}
-            onChange={(id: number, name: string) => {
-              setUser(name);
-            }}
-          />
-          <UiKitButton
-            mode="second"
-            onClick={() => {
-              setUser(order[order.indexOf(user) + 1]);
-            }}
-          >
-            »
-          </UiKitButton>
-        </div>
+        <TempoFilters
+          filters={filters}
+          onChange={setFilters}
+        />
       </PageWrapper>
+      <br/>
       <PageWrapper template="table">
         <DataLoader
           to="response"
           loader={() => getFakeLoader({ content: partOfData })}
-          watch={`${week}${user}`}
+          watch={JSON.stringify(filters)}
         >
           <TempoView
-            order={order}
+            order={users}
             user={user}
           />
         </DataLoader>

@@ -13,14 +13,17 @@ const Month = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const max = statistic.commitsByTimestampCounter.max;
 
   return (
-    <PageWrapper template="table">
-      <YearChart
-        showEvents={false}
-        maxCommits={max}
-        authors={[author]}
-        wordDays={statistic.allCommitsByTimestamp}
-      />
-    </PageWrapper>
+    <>
+      <br/>
+      <PageWrapper template="table">
+        <YearChart
+          showEvents={false}
+          maxCommits={max}
+          authors={[author]}
+          wordDays={statistic.allCommitsByTimestamp}
+        />
+      </PageWrapper>
+    </>
   );
 });
 

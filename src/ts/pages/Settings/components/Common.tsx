@@ -15,7 +15,6 @@ const Common = observer((): React.ReactElement | null => {
   const [language, setLanguage] = useState<string>(localization.language);
 
   useEffect(() => {
-    console.log(language);
     i18n.changeLanguage(language);
   }, [language]);
 
@@ -39,6 +38,12 @@ const Common = observer((): React.ReactElement | null => {
           options={[
             { id: 'ru', title: 'Русский' },
             { id: 'en', title: 'English' },
+            { id: 'zh', title: '中文' },
+            { id: 'es', title: 'Español' },
+            { id: 'fr', title: 'Français' },
+            { id: 'pt', title: 'Português' },
+            { id: 'de', title: 'Deutsch' },
+            { id: 'ja', title: '日本語' },
           ]}
           onChange={(item: any, id: string) => {
             localization.language = id;

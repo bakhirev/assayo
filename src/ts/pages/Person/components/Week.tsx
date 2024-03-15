@@ -132,6 +132,7 @@ const Week = observer(({
 
   return (
     <>
+      <br/>
       <Recommendations
         mode={mode}
         recommendations={recommendations}

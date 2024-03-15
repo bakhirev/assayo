@@ -10,7 +10,7 @@ class Settings {
 
   workDaysInMonth: number = 22;
 
-  salaryInDay: number = 180000 / 22;
+  salaryInDay: number = 3000 / 22;
 
   update(customSettings?: IUserSetting) {
     this.customSettings = customSettings || getEmptySettings();

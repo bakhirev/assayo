@@ -3,12 +3,14 @@ export default `
 § sidebar.switch.person: 雇员
 § sidebar.buttons.settings: 设置
 § sidebar.buttons.print: 印刷业
+§ sidebar.buttons.share: Share
+§ sidebar.buttons.logout: Logout
 § sidebar.filters.all: 一直
 § sidebar.filters.year: 年份
 § sidebar.filters.halfYear: 半年
 § sidebar.filters.month: 月份
-§ sidebar.filters.week: 一周
-§ sidebar.team.total: 一般资料
+§ sidebar.filters.week: 周
+§ sidebar.team.total: 般资料
 § sidebar.team.scope: 功能
 § sidebar.team.author: 员工
 § sidebar.team.type: 任务类型
@@ -26,7 +28,7 @@ export default `
 § sidebar.team.words: 流行语
 § sidebar.team.top: 测验
 § sidebar.team.settings: 设置
-§ sidebar.person.total: 一般资料
+§ sidebar.person.total: 般资料
 § sidebar.person.money: 工作的成本
 § sidebar.person.speed: 速度
 § sidebar.person.day: 白天

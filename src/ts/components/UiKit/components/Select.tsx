@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 
 import Wrapper, { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/index.module.scss';
+import styleSelect from '../styles/select.module.scss';
 
 interface IUiKitSelectProps extends IUiKitWrapperProps {
   value: any;
@@ -46,7 +47,7 @@ function UiKitSelect({
       className={className}
     >
       <select
-        className={`${style.ui_kit_common} ${style.ui_kit_select}`}
+        className={`${style.ui_kit_common} ${styleSelect.ui_kit_select} ${className || ''}`}
         onChange={(event: ChangeEvent<HTMLSelectElement>) => {
           const selectedValue = event.target.value;
           const formattedValue = selectedValue !== 'null'

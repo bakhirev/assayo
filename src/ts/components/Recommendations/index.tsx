@@ -44,7 +44,11 @@ function Recommendations({
   return (
     <>
       <Title title={title}/>
-      <div className={className}>
+      <div
+        className={className}
+        onTouchStart={(event) => event.stopPropagation()}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
         {cards}
       </div>
     </>
