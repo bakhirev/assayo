@@ -32,12 +32,42 @@
 - прогноз времени доработок;
 - прогноз стоимости;
 
+### Содержание
+
+- [Как быстро посмотреть количество коммитов?](#link-1)
+- [Как объединить авторов?](#link-2)
+- [Как выгрузить данные из git?](#link-3)
+  - [Для онлайн просмотра](#link-4)
+  - [Для офлайн просмотра](#link-5)
+- [Как посмотреть отчёт?](#link-6)
+  - [Онлайн](#headers)
+  - [Офлайн](#headers)
+- [Как пересобрать билд отчёта?](#headers)
+- [Как посмотреть отчёт по группе микросервисов?](#headers)
+- [Как брендировать интерфейс?](#headers)
+- [Как подписывать коммиты?](#headers)
+- [Как добавить проверку текста коммита?](#headers)
+  - [Используя файл commit-msg](#headers)
+  - [Используя пакет pre-commit](#headers)
+- [Как автоматизировать сбор данных?](#headers)
+  - [С бекендом](#headers)
+  - [Без бекенда](#headers)
+- [DevOps (CI/CD)](#headers)
+  - [Публичный сервер](#headers)
+  - [Приватный сервер](#headers)
+  - [Обновление Docker-образа](#headers)
+- [Как добавить или отредактировать перевод?](#headers)
+- [Дорожная карта](#headers)
+- [Пожелания, предложения, замечания](#headers)
+
+<a name="link-1"></a>
 ### Как быстро посмотреть количество коммитов?
 
 В корневой директории вашего проекта выполнить:
 ```
 git shortlog -s -n -e
 ```
+<a name="link-2"></a>
 ### Как объединить авторов?
 В корневой директории вашего проекта нужно создать файл `.mailmap`.
 Пример содержания файла:
@@ -49,13 +79,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 ``` 
 Подробнее про формат этого файла можно прочитать [тут](https://git-scm.com/docs/gitmailmap).
 
+<a name="link-3"></a>
 ### Как выгрузить данные из git?
 
+<a name="link-4"></a>
 #### Для онлайн просмотра
 В корневой директории вашего проекта выполнить:
 ```
 git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt
 ```
+<a name="link-5"></a>
 #### Для офлайн просмотра
 
 ```
@@ -66,13 +99,14 @@ Git создаст файл `log.txt`.
 
 Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
 
-### Как посмотреть отчёт онлайн? 
+### Как посмотреть отчёт? 
+#### Онлайн
 
 - Перейти на [сайт](https://assayo.online/)
 - Нажать кнопку «[Демо](https://assayo.online/demo)»
 - Перетащить файл `log.txt` в окно браузера
 
-### Как посмотреть отчёт офлайн?
+#### Офлайн
 - Скачать этот репозиторий
 - Перетащить файл `log.txt` в папку `/build`
 - Запустить `/build/index.html`
@@ -108,7 +142,38 @@ JIRA-1234 feat(profile): Added avatar for user
 - фича `(profile - раздел сайта, страница или новый функционал, одним словом)`
 - какую проблему решали `(Added avatar for user)`
 
+### Как добавить проверку текста коммита?
+
+#### Используя файл `commit-msg`
+
+1. Создайте файл `commit-msg` в папке `.git/hooks/`
+2. Добавьте в файл следующий текст:
+```
+#!/usr/bin/env bash
+
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+```
+#### Используя пакет [pre-commit](https://www.npmjs.com/package/pre-commit)
+
+1. Добавьте в файл `package.json` блок `commit-msg`:
+```
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+```
+2. Выполните команду `npm install pre-commit`
+
 ### Как автоматизировать сбор данных?
+
+#### С бекендом
+
+- используйте модуль [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 #### Без бекенда
 - создайте клон нужного вам репозитория;

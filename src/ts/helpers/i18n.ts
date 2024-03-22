@@ -33,22 +33,29 @@ function getTranslationWrapper(translation: string) {
   };
 }
 
-export default function initializationI18n(defaultLanguage?: string) {
+const translations = {
+  de: getTranslationWrapper(de),
+  en: getTranslationWrapper(en),
+  es: getTranslationWrapper(es),
+  fr: getTranslationWrapper(fr),
+  ja: getTranslationWrapper(ja),
+  pt: getTranslationWrapper(pt),
+  ru: getTranslationWrapper(ru),
+  zh: getTranslationWrapper(zh),
+};
+
+const defaultLanguage = navigator.languages
+  .filter((language) => language.length === 2 && translations[language])
+  .shift() || 'en';
+
+export default function initializationI18n(userLanguage?: string) {
   i18next.use(initReactI18next).init({
-    lng: defaultLanguage || 'ru', // if you're using a language detector, do not define the lng option
+    lng: userLanguage || defaultLanguage || 'ru', // if you're using a language detector, do not define the lng option
     debug: false,
-    resources: {
-      de: getTranslationWrapper(de),
-      en: getTranslationWrapper(en),
-      es: getTranslationWrapper(es),
-      fr: getTranslationWrapper(fr),
-      ja: getTranslationWrapper(ja),
-      pt: getTranslationWrapper(pt),
-      ru: getTranslationWrapper(ru),
-      zh: getTranslationWrapper(zh),
-    },
+    resources: translations,
     // if you see an error like: "Argument of type 'DefaultTFuncReturn' is not assignable to parameter of type xyz"
     // set returnNull to false (and also in the i18next.d.ts options)
     // returnNull: false,
   });
 }
+

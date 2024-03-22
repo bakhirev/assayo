@@ -34,6 +34,34 @@ Visualization and analysis of your git repository data ([demo](https://assayo.on
 - forecast of rework time;
 - forecast cost;
 
+### Table of contents
+
+- [How to quickly view the number of commits?](#link-1)
+- [How to concat authors?](#link-2)
+- [How to export data from git?](#link-3)
+  - [For online viewing](#link-4)
+  - [For offline viewing](#link-5)
+- [How to view the report?](#link-6)
+  - [Online](#headers)
+  - [Offline](#headers)
+- [How to rebuild the report build?](#link-)
+- [How to view a report on a group of microservices?](#link-)
+- [How to brand the interface?](#link-)
+- [How to sign commits?](#link-)
+- [How to add checking for commit message?](#link-)
+  - [Use file commit-msg](#link-)
+  - [Use package pre-commit](#link-)
+- [How to automate data collection?](#link-)
+  - [With backend](#link-)
+  - [Without backend](#link-)
+- [DevOps (CI/CD)](#link-)
+  - [Public server](#link-)
+  - [Private server](#link-)
+  - [How to update the Docker image?](#link-)
+- [How to add or edit a translation?](#link-)
+- [RoadMap](#link-)
+- [Contacts](#link-)
+
 ### How to quickly view the number of commits?
 
 In the root directory of your project, run:
@@ -68,12 +96,13 @@ This file contains data for show a report.
 
 The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
 
-### How to view the report online?
+### How to view the report?
+#### Online
 - go to the [website](https://assayo.online/);
 - click the “[Demo](https://assayo.online/demo)” button;
 - drag the `log.txt` file into the browser window;
 
-### How to view the report offline?
+#### Offline
 - download this repository;
 - drag the `log.txt` file to the `/build` folder;
 - run `/build/index.html`;
@@ -109,7 +138,39 @@ JIRA-1234 feat(profile): Added avatar for user
 - feature `(profile - new page on site or new function, use one (two) short wordor an abbreviation)`
 - what problem were solved `(Added avatar for user)`
 
+### How to add checking for commit message?
+
+#### Use file `commit-msg`
+
+1. Create file `commit-msg` in folder `.git/hooks/`
+2. Add this text in file:
+```
+#!/usr/bin/env bash
+
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+```
+#### Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+
+1. Add in file `package.json` property `commit-msg`:
+```
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+```
+2. Run command `npm install pre-commit`
+
+
 ### How to automate data collection?
+
+#### With backend
+
+- use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 #### Without backend
 - create a clone of the repository you need;

@@ -37,7 +37,6 @@ export function getNewEmployeesSettings(
     ],
   };
 }
-
 export default function getEmptySettings(): IUserSetting {
   return {
     version: 1,
