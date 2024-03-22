@@ -1,6 +1,5 @@
 > The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
 
-> - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 > - [English](https://github.com/bakhirev/assayo)
 > - [中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)
 > - [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
@@ -8,6 +7,7 @@
 > - [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md)
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
+> - [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 
 # [Assayo](https://assayo.online/?ref=github&lang=en)
 
