@@ -9,9 +9,9 @@
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=ja)
 
-データの可視化とGitレポジトリの分析 ([デモ](https://assayo.jp/demo/?dump=./test.txt&lang=ru)).
+データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt&lang=ru)).
 
 ##### 従業員は新しい職場を評価することができます
 - 働きのペース;
@@ -70,8 +70,8 @@ Gitはファイルを作成します `log.txt`.
 
 ### インターネットを使ってレポートを見るにはどうすれば良いでしょうか。 
 
-- に切り替える [ウェブサイト](https://assayo.jp/)
-- ボタンを押す “[デモ](https://assayo.jp/demo?lang=ru)”
+- に切り替える [ウェブサイト](https://assayo.online/)
+- ボタンを押す “[デモ](https://assayo.online/demo?lang=ru)”
 - ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで
 
 ### インターネットを使用せずレポートを見るにはどうしたらよいでしょうか
@@ -124,9 +124,9 @@ JIRA-1234 feat(profile): Added avatar for user
 
 #### 公開サーバ
 
-データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.jp/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
+データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.online/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### プライベートサーバー
@@ -155,10 +155,10 @@ you_url    - gitのログのコンテナーのURLアドレス;
 ### 翻訳を追加または編集するにはどうすればいいでしょうか。
 
 新しい翻訳を追加するか、現在の翻訳を修正するために、以下のセクションでそれを行うことができます: ```ts/translations/```.
-[取扱説明書](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[取扱説明書](https://github.com/firstcontributions/first-contributions)
 
 ### 願い、提案、コメント
 - telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- ウェブサイト [https://assayo.jp/](https://assayo.jp/)
+- ウェブサイト [https://assayo.online/](https://assayo.online/?ref=github&lang=ja)
 

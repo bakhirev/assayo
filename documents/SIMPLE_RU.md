@@ -149,7 +149,7 @@ you_url    - URL адресс вашего контейнера с логами 
 ### Как добавить или отредактировать перевод?
 
 Вы можете добавить новый перевод или поправить текущий в разделе ```ts/translations/```.
-[Инструкция](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[Инструкция](https://github.com/firstcontributions/first-contributions)
 
 ### Пожелания, предложения, замечания
 - telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)

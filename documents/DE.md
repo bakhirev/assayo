@@ -7,9 +7,9 @@
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=de)
 
-Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.jp/demo/?dump=./test.txt&lang=ru)).
+Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.online/demo/?dump=./test.txt&lang=ru)).
 
 ##### Mitarbeiter können den neuen arbeitsplatz bewerten
 - arbeitsgeschwindigkeit;
@@ -68,8 +68,8 @@ Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für 
 
 ### Wie kann ich den bericht mit dem internet anzeigen? 
 
-- gehe zu [Webseite](https://assayo.jp/)
-- den knopf drücken “[Demonstration](https://assayo.jp/demo?lang=ru)”
+- gehe zu [Webseite](https://assayo.online/)
+- den knopf drücken “[Demonstration](https://assayo.online/demo?lang=ru)”
 - datei ziehen `log.txt` in das Browserfenster
 
 ### Wie kann ich einen bericht ohne internet anzeigen?
@@ -122,9 +122,9 @@ Jedes mal, wenn der computer neu gestartet wird, aktualisiert das skript die sta
 
 #### Öffentlicher server
 
-Sie können eine datendatei zum erstellen eines berichts auf eine öffentliche URL hochladen. Sie können die Website verwenden, um sie zu visualisieren [assayo](https://assayo.jp/). Geben sie im URL-parameter die adresse an, an der die daten liegen ```dump```:
+Sie können eine datendatei zum erstellen eines berichts auf eine öffentliche URL hochladen. Sie können die Website verwenden, um sie zu visualisieren [assayo](https://assayo.online/). Geben sie im URL-parameter die adresse an, an der die daten liegen ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Privater server
@@ -153,10 +153,10 @@ Schau [haupt dokumentation](https://github.com/bakhirev/assayo/blob/main/documen
 ### Wie kann ich eine übersetzung hinzufügen oder bearbeiten?
 
 Sie können eine neue übersetzung hinzufügen oder die aktuelle im abschnitt korrigieren ```ts/translations/```.
-[Anleitung](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[Anleitung](https://github.com/firstcontributions/first-contributions)
 
 ### Wünsche, Anregungen, Kommentare
 - telegramm [@bakhirev](https://t.me/bakhirev) (vorrangiger kommunikationsweg)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- web site [https://assayo.jp/](https://assayo.jp/)
+- web site [https://assayo.online/](https://assayo.online/?ref=github&lang=de)
 

@@ -9,7 +9,7 @@
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.online/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=es)
 
 Visualización y análisis de los datos de su repositorio git. ([демо](https://assayo.online/demo/?dump=./test.txt)).
 
@@ -162,10 +162,10 @@ Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.
 ### ¿Cómo añadir o editar una traducción?
 
 Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```.
-[Instrucciones](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[Instrucciones](https://github.com/firstcontributions/first-contributions)
 
 ### Deseos, sugerencias, comentarios
 - telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- sitio web [https://assayo.online/](https://assayo.online/)
+- sitio web [https://assayo.online/](https://assayo.online/?ref=github&lang=es)
 

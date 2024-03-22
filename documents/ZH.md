@@ -9,9 +9,9 @@
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=zh)
 
-对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.jp/demo/?dump=./test.txt&lang=ru)).
+对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.online/demo/?dump=./test.txt&lang=ru)).
 
 ##### 工作人员可以评估新工作场所
 - 工作节奏；
@@ -70,8 +70,8 @@ Git会创建一个文件 `log.txt`.
 
 ### 如何在线查看报告？
 
-- 切换到 [网站](https://assayo.jp/)
-- 按下按钮 “[示范](https://assayo.jp/demo?lang=ru)”
+- 切换到 [网站](https://assayo.online/)
+- 按下按钮 “[示范](https://assayo.online/demo?lang=ru)”
 - 拖放文件 `log.txt` 在浏览器窗口中
 
 ### 如何在没有网络环境下查看报告？
@@ -124,9 +124,9 @@ JIRA-1234 feat(profile): Added avatar for user
 
 #### 公共服务器
 
-您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://assayo.jp/). 指定数据所在的地址作为URL参数 ```dump```:
+您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://assayo.online/). 指定数据所在的地址作为URL参数 ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### 专用服务器
@@ -155,10 +155,10 @@ you_url    - git日志的容器的URL地址;
 ### 如何添加或编辑翻译？
 
 您可以在“翻译”部分添加新翻译或更正当前翻译。 ```ts/translations/```.
-[指示手册](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[指示手册](https://github.com/firstcontributions/first-contributions)
 
 ### 愿望，建议，意见
 - telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- 网站 [https://assayo.jp/](https://assayo.jp/)
+- 网站 [https://assayo.online/](https://assayo.online/?ref=github&lang=zh)
 

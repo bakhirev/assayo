@@ -9,9 +9,9 @@
 > - [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md)
 > - [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md)
 
-# [Assayo](https://assayo.jp/?ref=github&lang=ru)
+# [Assayo](https://assayo.online/?ref=github&lang=pt)
 
-Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.jp/demo/?dump=./test.txt&lang=ru)).
+Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt&lang=ru)).
 
 ##### Funcionario de avaliar o novo local de trabalho
 - ritmo de trabalho;
@@ -70,8 +70,8 @@ A diferença entre os formatos está na existência de uma envoltória para as l
 
 ### Como ver o relatório da Internet? 
 
-- Ir para [site](https://assayo.jp/)
-- Pressione o botão “[Demonstração](https://assayo.jp/demo?lang=ru)”
+- Ir para [site](https://assayo.online/)
+- Pressione o botão “[Demonstração](https://assayo.online/demo?lang=ru)”
 - Arrastar e largar `log.txt` na janela do navegador
 
 ### Como visualizar o relatório sem internet?
@@ -124,9 +124,9 @@ A cada reinício do computador, o script atualiza a estatística com todos os da
 
 #### Servidor Público
 
-Você pode disponibilizar o arquivo com os dados para construção do relatório em um URL público. Para visualizá-lo, você pode usar um site [assayo](https://assayo.jp/). Especifique o endereço onde os dados estão localizados no parâmetro de URL ```dump```:
+Você pode disponibilizar o arquivo com os dados para construção do relatório em um URL público. Para visualizá-lo, você pode usar um site [assayo](https://assayo.online/). Especifique o endereço onde os dados estão localizados no parâmetro de URL ```dump```:
 ```
-https://assayo.jp/demo/?dump=//you_site.com/some/log.txt
+https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Servidor Privado
@@ -155,10 +155,10 @@ Vide [documentação básica](https://github.com/bakhirev/assayo/blob/main/docum
 ### Como adicionar ou editar uma tradução?
 
 Você pode adicionar uma nova tradução ou corrigir uma existente na seção ```ts/translations/```.
-[Instrução](https://docs.github.com/ru/get-started/exploring-projects-on-github/contributing-to-a-project)
+[Instrução](https://github.com/firstcontributions/first-contributions)
 
 ### Sugestões, sugestões, comentários
 - telegramm [@bakhirev](https://t.me/bakhirev) (método de comunicação prioritário)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- site [https://assayo.jp/](https://assayo.jp/)
+- site [https://assayo.online/](https://assayo.online/?ref=github&lang=pt)
 
