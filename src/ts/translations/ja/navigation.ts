@@ -34,6 +34,7 @@ export default `
 § sidebar.person.day: 日によって
 § sidebar.person.week: 週ごと
 § sidebar.person.month: 月別
+§ sidebar.person.tasks: Tasks
 § sidebar.person.hours: スケジュール
 § sidebar.person.commits: All commits
 § sidebar.person.changes: すべての変更

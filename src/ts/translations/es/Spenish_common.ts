@@ -3,6 +3,7 @@ export default `
 § uiKit.console.notification: Texto copiado
 § uiKit.dataLoader.page: Página
 § uiKit.dataLoader.size: Se muestra por
+§ uiKit.dataLoader.rows: lines.
 § uiKit.dataLoader.from: de
 § uiKit.dataLoader.all: Mostrar todo
 § uiKit.hoursChart.work: tiempo de trabajo estándar (lunes a viernes, de 07:00 a 20:00)

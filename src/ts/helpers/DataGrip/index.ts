@@ -46,6 +46,8 @@ class DataGrip {
 
   initializationInfo: any = {};
 
+  hash: number = 0;
+
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -110,6 +112,7 @@ class DataGrip {
       this.addCommit(commit);
     });
     this.#updateTotalInfo();
+    this.hash = Math.random();
   }
 
   updateByFiles(fileList: IDirtyFile[], removedFileList: IDirtyFile[]) {

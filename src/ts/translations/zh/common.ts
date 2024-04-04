@@ -3,6 +3,7 @@ export default `
 § uiKit.console.notification: 文本已被复制
 § uiKit.dataLoader.page: 页面
 § uiKit.dataLoader.size: 显示的
+§ uiKit.dataLoader.rows: lines.
 § uiKit.dataLoader.from: 从
 § uiKit.dataLoader.all: 全部展示
 § uiKit.hoursChart.work: 标准工作时间 (平日07:00～20:00)
@@ -24,4 +25,5 @@ export default `
 § common.filters: 过滤器
 § common.notifications.save: 将保存更改
 § common.notifications.setting: 设置被保存
+§ common.fileLoader.notification: Cant open file $1
 `;

@@ -56,7 +56,7 @@ const RecommendationDescription = observer(() => {
       </Body>
       <Footer className={style.recommendations_modal_footer}>
         <UiKitButton
-          mode={[ isMobile ? 'primary' : 'slim', 'full_size']}
+          mode={[ isMobile ? 'primary' : 'border', 'full_size']}
           onClick={() => {
             recommendationStore.close();
           }}

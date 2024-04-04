@@ -133,6 +133,8 @@ const Tree = observer(({ type }: ITreeProps): React.ReactElement => {
     : dataGripStore.fileTree;
   const subTree = getSubTreeByPath(fileTree, treeStore.selectedPath);
   const fileList = getArrayFromTree(subTree);
+  console.dir(dataGripStore.removedFileTree);
+  console.dir(fileList);
 
   // @ts-ignore
   if (!fileTree?.lines) return <NothingFound />;
@@ -145,6 +147,7 @@ const Tree = observer(({ type }: ITreeProps): React.ReactElement => {
     <>
       <Title title={t('common.filters')} />
       <TreeFilters/>
+      {false && treeStore.selectedPath?.join('/')}
       <Title title="page.team.tree.title"/>
       <PageWrapper template="table">
         <DataLoader

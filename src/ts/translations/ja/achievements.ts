@@ -51,13 +51,13 @@ export default `
 § achievements.lessDaysInProject.description: least days in the project
 § achievements.more90DaysInProject.title: Welcome aboard
 § achievements.more90DaysInProject.description: not fired during the probation period
-§ achievements.lessDaysForTask.title: Quick draw
+§ achievements.lessDaysForTask.title: Fast shooting
 § achievements.lessDaysForTask.description: a task takes less than a day
 § achievements.adam.title: Adam
 § achievements.adam.description: the first stable employee on the project
 § achievements.more666DaysInProject.title: Devil
 § achievements.more666DaysInProject.description: worked 666 days on the project
-§ achievements.more777DaysInProject.title: Azino three axes
+§ achievements.more777DaysInProject.title: Las Vegas
 § achievements.more777DaysInProject.description: worked 777 days on the project
 § achievements.moreRefactoring.title: Executive editor
 § achievements.moreRefactoring.description: made the most 'refactoring' tags

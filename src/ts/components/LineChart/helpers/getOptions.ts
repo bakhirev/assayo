@@ -21,8 +21,8 @@ export default function getOptions({
   return {
     max: max instanceof Array ? Math.max(...max) : (max || 100),
     order: order || [],
-    suffix: suffix ?? 'коммитов',
-    otherTitle: other ?? 'Остальные',
+    suffix: suffix ?? 'commits',
+    otherTitle: other ?? '...',
     color: order?.length ? (new ColorGenerator(order)) : null,
     limit: limit || 15,
     formatter: formatter || ((v: any) => v),

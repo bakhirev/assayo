@@ -30,7 +30,7 @@ interface ITasksViewProps {
   mode?: string;
 }
 
-function TasksView({ response, updateSort, rowsForExcel, mode }: ITasksViewProps) {
+export function TasksView({ response, updateSort, rowsForExcel, mode }: ITasksViewProps) {
   if (!response) return null;
 
   const commitsChart = getOptions({ max: getMax(response, 'commits'), suffix: 'page.team.type.tasksSmall' });
@@ -155,7 +155,7 @@ const Tasks = observer(({
       loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
         content: rows, pagination, sort, mode,
       })}
-      watch={mode}
+      watch={`${mode}${dataGripStore.dataGrip.hash}`}
     >
       <br/>
       <br/>

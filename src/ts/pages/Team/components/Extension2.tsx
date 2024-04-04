@@ -146,7 +146,7 @@ const Extension = observer(({
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
           content: rows, pagination, mode,
         })}
-        watch={mode}
+        watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
         <ExtensionView
           mode={mode}

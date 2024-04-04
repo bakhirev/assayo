@@ -3,6 +3,7 @@ export default `
 § uiKit.console.notification: テキストがコピーされました
 § uiKit.dataLoader.page: ページ
 § uiKit.dataLoader.size: によって表示される
+§ uiKit.dataLoader.rows: lines.
 § uiKit.dataLoader.from: から
 § uiKit.dataLoader.all: すべて表示
 § uiKit.hoursChart.work: 標準労働時間 (平日,から07:00へ20:00)
@@ -24,4 +25,5 @@ export default `
 § common.filters: フィルター
 § common.notifications.save: 変更は保存されます
 § common.notifications.setting: 設定が保存されます
+§ common.fileLoader.notification: Cant open file $1
 `;

@@ -15,7 +15,7 @@ function Header({ dayInfo }: IHeaderProps) {
         {getDate(dayInfo?.timestamp)}
       </p>
       <p className={style.tempo_header_day}>
-        {getDayName(dayInfo?.day)}
+        {getDayName(dayInfo?.day, 'long')}
       </p>
     </div>
   );

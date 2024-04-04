@@ -23,7 +23,8 @@ export default function Parser(report: string[]) {
     const index = message.indexOf('\t');
     if (index > 0 && index < 10) {
       let [addedRaw, removedRaw, fileName] = message.split('\t');
-      fileName = getNewFileName(fileName, allFiles);
+      const formattedFileName = fileName?.replace(/"/gm, '');
+      fileName = getNewFileName(formattedFileName, allFiles);
       let added = parseInt(addedRaw, 10) || 0;
       let removed = parseInt(removedRaw, 10) || 0;
       const diff = added - removed;

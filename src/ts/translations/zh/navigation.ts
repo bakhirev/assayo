@@ -34,6 +34,7 @@ export default `
 § sidebar.person.day: 白天
 § sidebar.person.week: 按星期计算
 § sidebar.person.month: 按月计算
+§ sidebar.person.tasks: Tasks
 § sidebar.person.hours: 时间表
 § sidebar.person.commits: All commits
 § sidebar.person.changes: 所有更改

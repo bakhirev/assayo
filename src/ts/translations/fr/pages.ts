@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: L'argent reçu
 § page.team.author.moneyWorked: Travaillas
 § page.team.author.moneyLosses: Trop-perçu
+§ page.team.author.type.work: works
+§ page.team.author.type.dismissed: dismissed
+§ page.team.author.type.staff: staff
 § page.team.hours.title: Répartition du travail pour chaque jour de la semaine
 § page.team.month.title: Calendrier du projet
+§ page.team.month.first: (first work day)
+§ page.team.month.last: (last work day)
 § page.team.scope.title: Statistiques par module
 § page.team.scope.scope: Mise au point
 § page.team.scope.days: Esclave. jours

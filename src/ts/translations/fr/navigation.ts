@@ -33,6 +33,7 @@ export default `
 § sidebar.person.day: Au jour le jour
 § sidebar.person.week: Une semaine
 § sidebar.person.month: Par mois
+§ sidebar.person.tasks: Tasks
 § sidebar.person.hours: Horaire
 § sidebar.person.commits: all commits
 § sidebar.person.changes: Tous les changements

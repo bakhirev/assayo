@@ -3,37 +3,22 @@
 .year_chart_month {
   &_info {
     display: block;
-    white-space: nowrap;
-  }
 
-  &_text {
     font-weight: 100;
     font-size: var(--font-xs);
     font-family: Arial, Verdana, sans-serif;
 
-    display: inline-block;
-    width: 16px;
     padding: 0;
-    margin: 0;
+    margin: var(--space-s) 0 0;
 
-    text-align: left;
     line-height: var(--font-xs);
+    white-space: nowrap;
     text-decoration: none;
     vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
     color: var(--color-11);
-  }
-
-  &_chart {
-    display: inline-block;
-    width: 94px;
-    height: var(--space-s);
-    margin: 0;
-    border-radius: 0;
-    vertical-align: middle;
-
-    > div:last-child {
-      border-radius: 0;
-      background-color: #C2CEE4;
-    }
   }
 }

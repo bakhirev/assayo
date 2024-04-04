@@ -1,5 +1,6 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import localization from 'ts/helpers/Localization';
+import notificationsStore from 'ts/components/Notifications/store';
 
 function getParametersFromString(text: string): IHashMap<string> {
   return Object.fromEntries((text || '')
@@ -20,7 +21,9 @@ function loadJsDump(url: string, callback: Function) {
   script.src = url;
   script.async = true; // @ts-ignore
   script.onload = callback; // @ts-ignore
-  script.onerror = callback;
+  script.onerror = () => {
+    notificationsStore.show('common.fileLoader.notification');
+  };
   document.body.appendChild(script);
 }
 

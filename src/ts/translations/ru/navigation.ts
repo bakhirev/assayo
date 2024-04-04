@@ -35,6 +35,7 @@ export default `
 § sidebar.person.day: По дням
 § sidebar.person.week: По неделям
 § sidebar.person.month: По месяцам
+§ sidebar.person.tasks: Список задач
 § sidebar.person.hours: Расписание
 § sidebar.person.commits: Все коммиты
 § sidebar.person.changes: Все изменения

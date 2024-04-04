@@ -1,36 +1,7 @@
 import settingsStore from 'ts/store/Settings';
 
-export function getDayName(index: number, value?: string) {
-  const name = [
-    'понедельник',
-    'вторник',
-    'среда',
-    'четверг',
-    'пятница',
-    'суббота',
-    'воскресенье',
-  ][index];
-  if (value) {
-    if (index == 2) return 'среду';
-    else if (index == 4) return 'пятницу';
-    else if (index == 5) return 'субботу';
-  }
-  return name;
-}
 
-export function getDayPrefix(index:number) {
-  return [
-    'пн',
-    'вт',
-    'ср',
-    'чт',
-    'пт',
-    'сб',
-    'вс',
-  ][index];
-}
-
-function getLangPrefix() {
+export function getLangPrefix() {
   // @ts-ignore
   const code = window?.localization?.language || 'ru';
   return {
@@ -45,12 +16,28 @@ function getLangPrefix() {
   }[code] || 'ru-RU';
 }
 
+const ONE_DAY = 24 * 60 * 60 * 1000;
+const TIMESTAMP = [
+  ONE_DAY * 4,
+  ONE_DAY * 5,
+  ONE_DAY * 6,
+  0,
+  ONE_DAY,
+  ONE_DAY * 2,
+  ONE_DAY * 3,
+];
+
+export function getDayName(index:number, weekday: 'long' | 'short') {
+  const date = new Date(TIMESTAMP[index]);
+  return date.toLocaleString(getLangPrefix(), { weekday: weekday || 'long' });
+}
+
 export function getDateByTimestamp(timestamp: string) {
   const date = new Date(timestamp);
   const day = date.getDay() - 1;
   return [
     date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long', year: 'numeric' }),
-    getDayName(day < 0 ? 6 : day),
+    getDayName(day < 0 ? 6 : day, 'long'),
   ];
 }
 
@@ -83,7 +70,7 @@ export function getShortDate(timestamp: string) {
 export function getShortTime(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
-  return date.toLocaleString('ru-RU', { hour: 'numeric', minute: 'numeric' });
+  return date.toLocaleString(getLangPrefix(), { hour: 'numeric', minute: 'numeric' });
 }
 
 export function getMoney(value: number, options?: any) {

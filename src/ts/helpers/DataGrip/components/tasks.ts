@@ -63,7 +63,6 @@ export default class DataGripByTasks {
           if (commit.scope !== 'неопределенна') scope.add(commit.scope);
         });
 
-        const authorsList = Array.from(authors).join(', ');
         const comments = Array.from(messages).join(', ');
         const to = lastCommit.milliseconds;
         const daysInWork = Math.ceil((to - from) / settingsStore.ONE_DAY) + 1;
@@ -73,7 +72,7 @@ export default class DataGripByTasks {
           to: to !== from ? to : undefined,
           commits: commits.length,
           daysInWork,
-          authors: authorsList,
+          authors: Array.from(authors),
           comments,
           types: Array.from(types),
           scope: Array.from(scope),

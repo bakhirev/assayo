@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: 我拿到钱了
 § page.team.author.moneyWorked: 工作了
 § page.team.author.moneyLosses: 多付
+§ page.team.author.type.work: works
+§ page.team.author.type.dismissed: dismissed
+§ page.team.author.type.staff: staff
 § page.team.hours.title: 每周每一天的工作分配
 § page.team.month.title: 项目工作日历
+§ page.team.month.first: (first work day)
+§ page.team.month.last: (last work day)
 § page.team.scope.title: 按模块划分的统计数字
 § page.team.scope.scope: 修改
 § page.team.scope.days: 工作天

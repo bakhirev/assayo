@@ -1,7 +1,8 @@
 export default `
 § recommendations.modal.cancel: Ok
+§ recommendations.modal.open: More
 § recommendations.title
-Recommendations and Facts
+Recommendations and facts
 
 § recommendations.timestamp.firstCommit.description
 made the first commit

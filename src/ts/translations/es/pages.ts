@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: Dinero recibido
 § page.team.author.moneyWorked: Trabajo
 § page.team.author.moneyLosses: Sobrepago
+§ page.team.author.type.work: works
+§ page.team.author.type.dismissed: dismissed
+§ page.team.author.type.staff: staff
 § page.team.hours.title: Distribución del trabajo cada día de la semana
 § page.team.month.title: Calendario del proyecto
+§ page.team.month.first: (first work day)
+§ page.team.month.last: (last work day)
 § page.team.scope.title: Estadísticas de módulos
 § page.team.scope.scope: Elaboración definitiva
 § page.team.scope.days: Siervo. día

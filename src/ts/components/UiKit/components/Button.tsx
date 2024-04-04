@@ -3,7 +3,7 @@ import React from 'react';
 import { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/button.module.scss';
 
-export type Mode = 'primary' | 'second' | 'link' | 'slim' | 'full_size';
+export type Mode = 'primary' | 'second'  | 'border' | 'link' | 'slim' | 'full_size';
 
 export function getClassNameForMode(mode?: string) {
   return {
@@ -11,6 +11,7 @@ export function getClassNameForMode(mode?: string) {
     slim: style.ui_kit_button_slim,
     second: style.ui_kit_button_second,
     primary: style.ui_kit_button_primary,
+    border: style.ui_kit_button_border,
     full_size: style.ui_kit_button_full_size,
   }[mode || ''] || '';
 }

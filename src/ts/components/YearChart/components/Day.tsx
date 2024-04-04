@@ -42,7 +42,7 @@ function Day({
   return ( // @ts-ignore
     <div
       className={style.year_chart_month_body_day}
-      title={`коммитов: ${dayInfo.commits}, задач: ${dayInfo.tasksInDay || 0}`}
+      title={`commits: ${dayInfo.commits}, tasks: ${dayInfo.tasksInDay || 0}`}
       style={{
         backgroundColor,
         backgroundImage: iconUrl ? `url(${iconUrl})` : '',

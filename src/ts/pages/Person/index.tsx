@@ -19,6 +19,7 @@ import Speed from './components/Speed';
 import Total from './components/Total';
 import Week from './components/Week';
 import Month from './components/Month';
+import Tasks from './components/Tasks';
 import Tempo from './components/Tempo';
 import Print from './components/Print';
 
@@ -55,6 +56,7 @@ function getViewByIdByUser(user: any, filters: any) {
       />
     );
     if (page === 'print') return <Print user={user}/>;
+    if (page === 'tasks') return <Tasks user={user}/>;
     return <Total user={user}/>;
   };
 }

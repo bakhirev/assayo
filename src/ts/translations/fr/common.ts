@@ -3,6 +3,7 @@ export default `
 § uiKit.console.notification: Texte copié
 § uiKit.dataLoader.page: Page
 § uiKit.dataLoader.size: Affiché par
+§ uiKit.dataLoader.rows: lines.
 § uiKit.dataLoader.from: de
 § uiKit.dataLoader.all: Afficher tout
 § uiKit.hoursChart.work: temps de travail standard (Les jours ouvrables de 07h00 à 20h00)
@@ -24,4 +25,5 @@ Si c’est une erreur et que la statistique pour ce collaborateur doit être pri
 § common.filters: Filtres
 § common.notifications.save: Modifications enregistrées
 § common.notifications.setting: Paramètres enregistrés
+§ common.fileLoader.notification: Cant open file $1
 `;

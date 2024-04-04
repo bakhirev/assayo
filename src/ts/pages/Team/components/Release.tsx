@@ -127,7 +127,7 @@ const Release = observer(({
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
           content: rows, pagination, mode,
         })}
-        watch={mode}
+        watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
         <ReleaseView
           mode={mode}

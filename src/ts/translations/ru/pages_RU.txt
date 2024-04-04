@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: Денег получил
 § page.team.author.moneyWorked: Отработал
 § page.team.author.moneyLosses: Переплата
+§ page.team.author.type.work: works
+§ page.team.author.type.dismissed: dismissed
+§ page.team.author.type.staff: staff
 § page.team.hours.title: Распределение работы в течении каждого дня недели
 § page.team.month.title: Календарь работы по проекту
+§ page.team.month.first: (first work day)
+§ page.team.month.last: (last work day)
 § page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Доработка
 § page.team.scope.days: Раб. дней
@@ -170,7 +175,7 @@ export default `
 § page.person.business.time.staff: (не в команде)
 § page.person.business.achievements: Достижения
 § page.person.changes.title: Достижения
-§ page.person.changes.description: 
+§ page.person.changes.description:
 При некоторых видах форматирования git отмечает строки как «удалённые» и «добавленные»,
 хотя на самом деле они были «изменены». Поэтому, если вы провели большой рефакторинг,
 git может показать малое количество изменений в статистике, а фактический результат

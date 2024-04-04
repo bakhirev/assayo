@@ -165,6 +165,13 @@ export const PERSON = [
   },
   {},
   {
+    id: 'tasks',
+    link: '/person/tasks/',
+    title: 'sidebar.person.tasks',
+    icon: './assets/menu/team_date_1.svg',
+  },
+  {},
+  {
     id: 'commits',
     link: '/person/commits/',
     title: 'sidebar.person.commits',

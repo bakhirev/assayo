@@ -124,7 +124,7 @@ function SimplePagination({
         }}
       />
       <p className={style.paginator_text}>
-        строк.
+        {t('uiKit.dataLoader.rows')}
       </p>
       {canShowMore && (
         <UiKitButton

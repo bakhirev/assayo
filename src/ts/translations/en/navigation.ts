@@ -35,6 +35,7 @@ export default `
 § sidebar.person.day: By day
 § sidebar.person.week: By week
 § sidebar.person.month: By month
+§ sidebar.person.tasks: Tasks
 § sidebar.person.hours: Work schedule
 § sidebar.person.commits: All commits
 § sidebar.person.changes: All changes

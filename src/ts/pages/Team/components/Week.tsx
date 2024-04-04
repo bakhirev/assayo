@@ -181,7 +181,7 @@ const Week = observer(({
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
           content: rows, pagination, sort,
         })}
-        watch={mode}
+        watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
         <WeekView
           mode={mode}

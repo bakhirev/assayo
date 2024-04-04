@@ -3,6 +3,7 @@ export default `
 § uiKit.console.notification: Text was copied
 § uiKit.dataLoader.page: Page
 § uiKit.dataLoader.size: Displayed
+§ uiKit.dataLoader.rows: lines.
 § uiKit.dataLoader.from: out of
 § uiKit.dataLoader.all: Show all
 § uiKit.hoursChart.work: standard working hours (weekdays, 07:00 to 20:00)
@@ -27,4 +28,5 @@ If this is an error and this employee needs to be calculated as usual, go to the
 § common.filters: Filters
 § common.notifications.save: The changes have been saved
 § common.notifications.setting: The settings have been saved
+§ common.fileLoader.notification: Cant open file $1
 `;

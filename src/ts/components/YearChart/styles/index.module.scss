@@ -1,20 +1,24 @@
 @import 'src/styles/variables';
 
-.year_chart_month {
+.year_chart {
   --day-size: 16px;
+  padding: var(--space-xs) 0;
+  margin: 0 calc(var(--day-size) / -2);
+}
+
+.year_chart_month {
   --month-size: calc(var(--day-size) * 7 + 7px);
+
   display: inline-block;
   width: var(--month-size);
-  margin: var(--day-size) var(--day-size) 0 0;
+  margin: var(--day-size) calc(var(--day-size) / 2) 0;
   vertical-align: top;
 
   &_header {
-    position: relative;
     display: block;
     height: 24px;
 
-    &_title,
-    &_money {
+    &_title {
       font-weight: 100;
       font-size: var(--font-xs);
       font-family: Arial, Verdana, sans-serif;
@@ -23,17 +27,11 @@
       padding: 0;
       margin: 0 auto;
 
-      text-align: left;
+      text-align: center;
       line-height: var(--font-m);
       text-decoration: none;
       vertical-align: bottom;
       color: var(--color-black);
-    }
-
-    &_money {
-      position: absolute;
-      top: 0;
-      right: 0;
     }
   }
 

@@ -39,7 +39,7 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[user.author];
   const taskNumber = statistic.tasks.length;
   const achievements = getAchievementByAuthor(statistic.author);
-
+  console.dir(achievements);
   return (
     <PageWrapper>
       <PageColumn>
@@ -77,15 +77,15 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
         <Title title="page.person.achievement.title"/>
         <AchievementBlock
           title="page.person.achievement.positive"
-          achievements={achievements[ACHIEVEMENT_TYPE.GOOD]}
+          achievements={achievements[ACHIEVEMENT_TYPE.GOOD - 1]}
         />
         <AchievementBlock
           title="page.person.achievement.normal"
-          achievements={achievements[ACHIEVEMENT_TYPE.NORMAL]}
+          achievements={achievements[ACHIEVEMENT_TYPE.NORMAL - 1]}
         />
         <AchievementBlock
           title="page.person.achievement.negative"
-          achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
+          achievements={achievements[ACHIEVEMENT_TYPE.BAD - 1]}
         />
         <Description
           text={t('page.person.achievement.description')}

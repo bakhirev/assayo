@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Description from 'ts/components/Description';
 import UiKitButton from 'ts/components/UiKit/components/Button';
@@ -28,6 +29,8 @@ function Card({
   recommendation,
   onClick,
 }: IRecommendationsProps) {
+  const { t } = useTranslation();
+
   if (!recommendation) return null;
 
   const className = getClassName(recommendation);
@@ -55,12 +58,11 @@ function Card({
           className={style.recommendations_card_button}
           onClick={onClick}
         >
-          Подробнее
+          {t('recommendations.modal.open')}
         </UiKitButton>
       )}
     </div>
   );
 }
-
 
 export default Card;

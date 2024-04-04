@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getDayPrefix } from 'ts/helpers/formatter';
+import { getDayName } from 'ts/helpers/formatter';
 
 import Header from './components/Header';
 import Columns from './components/Columns';
@@ -24,7 +24,7 @@ function HoursChart({
           className={style.day}
         >
           <div className={style.day_name}>
-            {getDayPrefix(day)}
+            {getDayName(day, 'short')}
           </div>
           <Columns
             week={week}

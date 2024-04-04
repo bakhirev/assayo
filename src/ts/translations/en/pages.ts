@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: Received
 § page.team.author.moneyWorked: Worked for
 § page.team.author.moneyLosses: Overpayment
+§ page.team.author.type.work: works
+§ page.team.author.type.dismissed: dismissed
+§ page.team.author.type.staff: staff
 § page.team.hours.title: Distribution of commits during each day of the week
 § page.team.month.title: Project work calendar
+§ page.team.month.first: (first work day)
+§ page.team.month.last: (last work day)
 § page.team.scope.title: Feature statistics
 § page.team.scope.scope: Feature
 § page.team.scope.days: Working Days
@@ -86,7 +91,7 @@ export default `
 § page.team.total.description3: The *working and dismissed* card shows the actual composition of employees who are continuously involved in work. Additionally, there are "assistants" — typically employees of a different specialization who may occasionally make commits to the project.
 § page.team.total.description4: *Overpayment* includes only working days when commits could have been made. Weekends, public holidays, and vacations are not included in the calculation. This is why overpayment + actual cost != total. The total cost includes payment for weekends, public holidays, and vacations.
 § page.team.total.description5: *Weekend work* is calculated at a rate of x2 the payment of a regular day. The displayed amount is specifically the overpayment (x1), as the fact of overtime in this context is not of interest. We focus on overpayment when increasing work speed.
-§ page.team.tree.title: Project Tree Considering Selected Filters
+§ page.team.tree.title: Project tree considering selected filters
 § page.team.tree.filters.author: Employee
 § page.team.tree.filters.commits: Number of commits
 § page.team.tree.filters.help: The minimum number of commits an employee has made in a file
@@ -101,7 +106,7 @@ export default `
 § page.team.week.date: Date
 § page.team.week.numberTasks: Number of tasks
 § page.team.week.people: Number of people
-§ page.team.week.line: Line Changes
+§ page.team.week.line: Line changes
 § page.team.week.days: Days with and without commits
 § page.team.week.lossesDetails: Who did not commit
 § page.team.week.add: added

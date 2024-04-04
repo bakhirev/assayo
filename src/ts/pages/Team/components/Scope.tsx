@@ -133,7 +133,7 @@ const Scope = observer(({
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
           content: rows, pagination, mode,
         })}
-        watch={mode}
+        watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
         <ScopeView
           mode={mode}

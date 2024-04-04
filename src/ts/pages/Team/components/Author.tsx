@@ -38,6 +38,12 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
   const { t } = useTranslation();
   if (!response) return null;
 
+  const [works, dismissed, staff] = [
+    t('page.team.author.type.work'),
+    t('page.team.author.type.dismissed'),
+    t('page.team.author.type.staff'),
+  ];
+
   const textWork = t('page.team.author.worked');
   const textLosses = t('page.team.author.losses');
   const daysWorked = getOptions({ order: [textWork, textLosses], suffix: 'page.team.author.days' });
@@ -62,9 +68,9 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
       />
       <Column
         template={(row: any) => {
-          let value = 'работает';
-          if (row.isDismissed) value = 'уволен';
-          if (row.isStaff) value = 'помощник';
+          let value = works;
+          if (row.isDismissed) value = dismissed;
+          if (row.isStaff) value = staff;
           return <UiKitTags value={value} />;
         }}
         width={100}
@@ -189,7 +195,7 @@ const Author = observer(({
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
           content: rows, pagination, sort, mode,
         })}
-        watch={mode}
+        watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
         <AuthorView
           mode={mode}

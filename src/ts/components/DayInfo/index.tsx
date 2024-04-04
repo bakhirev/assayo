@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ExternalLink from 'ts/components/ExternalLink';
@@ -69,6 +70,7 @@ interface IDayInfoProps {
 }
 
 function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactElement {
+  const { t } = useTranslation();
   const firstCommit = events?.firstCommit?.[timestamp || ''] || [];
   const lastCommit = events?.lastCommit?.[timestamp || ''] || [];
   let taskNumber = 0;
@@ -79,8 +81,8 @@ function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactE
       taskNumber += Object.keys(tasks).length;
 
       let suffix = '';
-      if (firstCommit.includes(author)) suffix = '(первый рабочий день)';
-      if (lastCommit.includes(author)) suffix = '(последний рабочий день)';
+      if (firstCommit.includes(author)) suffix = t('page.team.month.first');
+      if (lastCommit.includes(author)) suffix = t('page.team.month.last');
 
       return (
         <div

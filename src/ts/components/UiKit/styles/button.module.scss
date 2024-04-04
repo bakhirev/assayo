@@ -16,6 +16,13 @@
     --button-color-active: var(--color-border);
   }
 
+  &_border {
+    --button-color-bg: transparent;
+    --button-color-text: var(--color-button);
+    --button-color-hover: var(--color-border);
+    --button-color-active: var(--color-border);
+  }
+
   &_link {
     --button-color-bg: transparent;
     --button-color-text: var(--color-button);
@@ -61,6 +68,11 @@
 
   &_slim {
     font-weight: 100;
+  }
+
+  &_border {
+    line-height: 38px;
+    border-width: 3px
   }
 
   &_link {

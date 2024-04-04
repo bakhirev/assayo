@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getLangPrefix } from 'ts/helpers/formatter';
+
 import IMonth from '../interfaces/Month';
 import style from '../styles/index.module.scss';
 
@@ -10,7 +12,7 @@ interface IHeaderProps {
 function Header({
   month,
 }: IHeaderProps): React.ReactElement | null {
-  const name = month.date.toLocaleString('ru-RU', { month: 'long' });
+  const name = month.date.toLocaleString(getLangPrefix(), { month: 'long' });
   const showYear = month.first || month.last || !month.month;
 
   return (

@@ -37,8 +37,13 @@ export default `
 § page.team.author.moneyAll: Получил
 § page.team.author.moneyWorked: Отработал
 § page.team.author.moneyLosses: Переплата
+§ page.team.author.type.work: работает
+§ page.team.author.type.dismissed: уволен
+§ page.team.author.type.staff: помощник
 § page.team.hours.title: Распределение коммитов в течении каждого дня недели
 § page.team.month.title: Календарь работы по проекту
+§ page.team.month.first: (первый рабочий день)
+§ page.team.month.last: (последний рабочий день)
 § page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней
@@ -177,7 +182,7 @@ export default `
 § page.person.business.time.description: Время от первого, до последнего коммита (в том числе, нерабочие дни)
 § page.person.business.time.title: Дней на проекте:
 § page.person.business.time.dismissed: (уволен)
-§ page.person.business.time.staff: (не в команде)
+§ page.person.business.time.staff: (помощник)
 § page.person.business.achievements: Достижения
 § page.person.changes.title: Достижения
 § page.person.changes.description: 

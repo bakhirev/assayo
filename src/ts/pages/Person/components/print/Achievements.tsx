@@ -44,18 +44,18 @@ const Total = observer(({
         <Title title="page.person.achievement.title"/>
         <AchievementBlock
           title="page.person.achievement.positive"
-          achievements={achievements[ACHIEVEMENT_TYPE.GOOD]}
+          achievements={achievements[ACHIEVEMENT_TYPE.GOOD - 1]}
         />
       </PageColumn>
       <PageColumn>
         <Title title={t('_')}/>
         <AchievementBlock
           title="page.person.achievement.normal"
-          achievements={achievements[ACHIEVEMENT_TYPE.NORMAL]}
+          achievements={achievements[ACHIEVEMENT_TYPE.NORMAL - 1]}
         />
         <AchievementBlock
           title="page.person.achievement.negative"
-          achievements={achievements[ACHIEVEMENT_TYPE.BAD]}
+          achievements={achievements[ACHIEVEMENT_TYPE.BAD - 1]}
         />
         <br />
         <br />
