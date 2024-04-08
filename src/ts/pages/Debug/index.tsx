@@ -1,7 +1,8 @@
 import React from 'react';
 
 import localization from 'ts/helpers/Localization';
-import Description from 'ts/components/Description';
+import CardForPrint from 'ts/components/Recommendations/components/CardForPrint';
+
 function getFlatRecommendations(translations: any, list: any[] = []) {
   if (!translations) return list;
 
@@ -22,22 +23,20 @@ function getFlatRecommendations(translations: any, list: any[] = []) {
 function DebugPage() {
   const translations = localization.translations[localization.language];
   const recommendations = getFlatRecommendations(translations.recommendations)
-    .map((item: any) => (
-      <div key={`${item.title}`}>
-        <Description
-          text={`
-            # ${localization.get(item.title)}
-            ${localization.get(item.description)}
-          `}
-        />
-      </div>
+    .map((recommendation: any) => (
+      <CardForPrint
+        key={recommendation[1]}
+        recommendation={recommendation}
+      />
     ));
 
   console.dir(recommendations);
   return (
-    <section>
-      {recommendations}
-    </section>
+    <>
+      <section>
+        {recommendations}
+      </section>
+    </>
   );
 }
 

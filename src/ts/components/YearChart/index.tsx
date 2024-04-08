@@ -35,8 +35,6 @@ function YearChart({
 }: IYearChartProps): React.ReactElement | null {
   const wrapper = useRef(null);
   const [dayWidth, setDayWidth] = useState<number>(16);
-  const [monthNumber, setMonthNumber] = useState<number>(7);
-  console.log(monthNumber);
 
   useEffect(() => {
     if (!wrapper.current) return; // @ts-ignore
@@ -46,7 +44,6 @@ function YearChart({
     const width = getDayWidth(size.width, newMonthNumber);
 
     setDayWidth(width);
-    setMonthNumber(newMonthNumber);
   }, []);
 
   if (!wordDays || !wordDays.length) return null;
