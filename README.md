@@ -120,7 +120,7 @@ The difference between the online and offline format is the presence of a wrappe
 
 <a name="link-10"></a>
 ### 🗃️ How to view a report on a group of microservices?
-- generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.)
+- generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/essay-crawler) module for automatic log collection;
 - see “How to view an online report?”. At the last step, drag all the files at once into the browser window.
 - see “How to see a report offline?”. At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) to the report folder (`/build`).
 
