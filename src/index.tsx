@@ -40,8 +40,6 @@ localization.parse('ru', ru);
 localization.parse('zh', zh);
 
 function renderReactApplication() {
-  // @ts-ignore
-  console.log(window?.report?.length);
   window.onafterprint = () => {
     printStore.endPrint();
   };
@@ -57,9 +55,9 @@ function renderReactApplication() {
   );
 }
 
-userSettings.loadUserSettings().then(() => {
-  applyUrlCommands((parameters: any) => {
-    initializationI18n(parameters.lang || parameters.language);
+applyUrlCommands((parameters: any) => {
+  initializationI18n(parameters.lang || parameters.language);
+  userSettings.loadUserSettings().then(() => {
     renderReactApplication();
   });
 });

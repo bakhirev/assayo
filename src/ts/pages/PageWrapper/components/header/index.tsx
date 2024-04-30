@@ -7,6 +7,7 @@ import Select from 'ts/components/UiKit/components/Select';
 import Buttons from 'ts/pages/Settings/components/Buttons';
 import settingsForm from 'ts/pages/Settings/store/Form';
 import localization from 'ts/helpers/Localization';
+import { BROWSER_LANGUAGE } from 'ts/helpers/i18n';
 
 import Title from './Title';
 import Filters from './Filters';
@@ -42,6 +43,11 @@ const Header = observer((): React.ReactElement | null => {
             onChange={(item: any, id: string) => {
               localization.language = id;
               i18n.changeLanguage(id);
+              if (id === BROWSER_LANGUAGE) {
+                localStorage.removeItem('language');
+              } else {
+                localStorage.setItem('language', id);
+              }
             }}
           />
           <img

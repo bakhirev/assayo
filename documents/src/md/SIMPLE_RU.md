@@ -5,7 +5,7 @@
 
 # [Assayo](https://assayo.online/?ref=github&lang=ru)
 
-Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://assayo.online/demo/?dump=./test.txt&lang=ru)).
+Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://assayo.online/demo/?dump=./test.txt)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;
@@ -139,7 +139,7 @@ you_url    - URL адресс вашего контейнера с логами 
 - выполнить команду ```npm run build```
 - выполнить команду ```docker build -t assayo .```
 - проверить результат ```docker run --name assayo -p 80:80 -d assayo```;
-- выполнить команду ```docker tag IMAGE_ID bakhirev/assayo:latest```;
+- выполнить команду ```docker tag assayo bakhirev/assayo:latest```;
 - отправить образ контейнера в Docker Hub
 
 ### Релизы, примерно, раз в полгода. Что дальше:

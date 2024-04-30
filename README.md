@@ -212,8 +212,8 @@ By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work
 - run ```npm run build```
 - run ```docker build -t assayo .```
 - visually check the image ```docker run --name assayo -p 80:80 -d assayo```;
-- add tag ```docker tag IMAGE_ID bakhirev/assayo:latest```;
-- push image to [Docker Hub](https://hub.docker.com/r/bakhirev/assayo);
+- add tag ```docker tag assayo bakhirev/assayo:latest```;
+- push image to [Docker Hub](https://hub.docker.com/r/bakhirev/assayo) ```docker push bakhirev/assayo:latest```;
 
 <a name="link-23"></a>
 ### ️ 🛠️ About application

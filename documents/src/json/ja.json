@@ -1,0 +1,343 @@
+[
+    {
+        "warning": "[主な文書はロシア語です。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) これは翻訳です。 エラーが含まれている可能性があります。 あなたがネイティブスピーカーであれば、この翻訳を改善するのに役立ちます。 ありがとう！"
+    },
+    {
+        "p": "データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt))."
+    },
+    {
+        "h5": "従業員は新しい職場を評価することができます"
+    },
+    {
+        "li": [
+            "働きのペース;",
+            "過労;",
+            "職務範囲;",
+            "新機能とバグの量;",
+            "同僚の仕事スタイル;"
+        ]
+    },
+    {
+        "h5": "管理者は従業員を評価できます"
+    },
+    {
+        "li": [
+            "無職人の特定;",
+            "コードの量を推定する;",
+            "作業速度を確認する;",
+            "行動の異常を発見する;",
+            "週次で作業状況を確認する;"
+        ]
+    },
+    {
+        "h5": "アイベンターは製品を評価できます"
+    },
+    {
+        "li": [
+            "製品の価格;",
+            "新機能の価格;",
+            "開発時間;",
+            "改善時間の予測;",
+            "予測価格;"
+        ]
+    },
+    {
+        "h3": "Table of contents"
+    },
+    {
+        "h3": "コミット数を素早く確認するにはどうすればよいでしょうか。"
+    },
+    {
+        "p": "プロジェクトのルートディレクトリで以下のコマンドを実行します:"
+    },
+    {
+        "pre": [
+            "git shortlog -s -n -e"
+        ]
+    },
+    {
+        "h3": "作者をまとめるにはどうすればいいですか？"
+    },
+    {
+        "p": "プロジェクトのルートディレクトリ内に.mailmapファイルを作成する必要があります。"
+    },
+    {
+        "p": "ファイルの内容の例:"
+    },
+    {
+        "pre": [
+            "Alex B <alex@mail.uk>",
+            "Alex B <alex@mail.uk> <alex@gov.tk>",
+            "Alex B <alex@mail.uk> <bakhirev@ya.kz>",
+            "Alex B <alex@mail.uk> <man64@yahoo.com>"
+        ]
+    },
+    {
+        "p": "このファイルの形式について詳しく読むことができます [ここに](https://git-scm.com/docs/gitmailmap)."
+    },
+    {
+        "h3": "Gitからデータをダウンロードするにはどうすればよろしいでしょうか。"
+    },
+    {
+        "h4": "Дオンラインで見るため"
+    },
+    {
+        "p": "プロジェクトのルートディレクトリに次のコマンドを入力します:"
+    },
+    {
+        "pre": [
+            "git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%cN>%cE>%s\" > log.txt"
+        ]
+    },
+    {
+        "h4": "インターネットなしで見るために"
+    },
+    {
+        "pre": [
+            "git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%cN>%cE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/^/report.push(\\`/g' | sed 's/$/\\`\\);/g' | sed 's/\\$/_/g' > log.txt"
+        ]
+    },
+    {
+        "p": "Gitはファイルを作成します `log.txt`."
+    },
+    {
+        "p": "このファイルには、レポートを構築するためのデータが含まれています。 "
+    },
+    {
+        "p": "インターネットのない形式とインターネットのある形式は、文字列が埋め込まれているという点で異なります。インターネットを持たない形式でファイルを開くと、単に「js」ファイルとして読み込まれます。 `/build/index.html`"
+    },
+    {
+        "h3": "レポートを表示するにはどうすればよいですか？ "
+    },
+    {
+        "h4": "Online"
+    },
+    {
+        "li": [
+            "に切り替える [ウェブサイト](https://assayo.online/)",
+            "ボタンを押す “[デモ](https://assayo.online/demo?lang=ru)”",
+            "ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで"
+        ]
+    },
+    {
+        "h4": "Offline"
+    },
+    {
+        "li": [
+            "このリポジトリをダウンロードする",
+            "ファイルをドラッグ＆ドロップする `log.txt` フォルダへ `/build`",
+            "実行するには `/build/index.html`",
+            "フォルダをドラッグして下さい `/build` 自分のリポジトリーにフォルダを置いてください (それがある場所 `log.txt`). 名前を変更することができます。例えば名前 `/build` を `/report`"
+        ]
+    },
+    {
+        "p": "重要なのは、ファイル `log.txt` インターネットが利用できない環境で、レポートを表示するために作成されたコマンドである必要があります。"
+    },
+    {
+        "h3": "レポートファイルを再構成する方法は？"
+    },
+    {
+        "li": [
+            "このリポジトリをダウンロードしてください",
+            "実行するには `npm install`",
+            "実行するには `npm run build`",
+            "最新のビルドは、フォルダに含まれるでしょう `/build`"
+        ]
+    },
+    {
+        "h3": "マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。"
+    },
+    {
+        "li": [
+            "マイクロサービスごとにファイルを作成します。 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` など。)",
+            "\"インターネット上でレポートを見る方法\"を参照してください。最後の手順では、すべてのファイルをブラウザのウィンドウに一度にドラッグ＆ドロップします。",
+            "“インターネットなしでレポートを見る方法” を参照してください。第二段階では、マイクロサービスのすべてのファイルをドラッグしてドロップする必要があります。(`log-1.txt`, `log-2.txt`, `log-3.txt` など。) レポートフォルダへ (`/build`)."
+        ]
+    },
+    {
+        "h3": "自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。"
+    },
+    {
+        "p": "インターフェースのテーマを独自に作成することができます。下記の項目は変更できます。"
+    },
+    {
+        "li": [
+            "**見出し**. それはURLパラメータで指定することができます ```title```. 例えば: ```?title=You Company```",
+            "**CSS スタイル**. そのためにはCSSファイルを用意し、そのアドレスをURLパラメーターに指定する必要があります ```theme```. 例えば: ```?theme=//company.com/some.css```. クラス名をセレクターとして使用することができます。ほとんどの場合、新しいバージョンがリリースされると変更されません",
+            "**言語**. URLパラメータに指定することができます ```lang```. 例えば: ```?lang=es```"
+        ]
+    },
+    {
+        "h3": "commit文の署名方法は？"
+    },
+    {
+        "p": "練習に従ってください [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例えば:"
+    },
+    {
+        "pre": [
+            "JIRA-1234 feat(profile): Added avatar for user "
+        ]
+    },
+    {
+        "li": [
+            "発行番号 `(JIRA-1234)`",
+            "仕事の種類 `(feat, fix, style, refactor, test, doc など。)`",
+            "仕事の分野 `(profile - サイトのセクション、ページ、新機能、簡単に)`",
+            "ジョブの説明 `(Added avatar for user)`"
+        ]
+    },
+    {
+        "h3": "How to add checking for commit message?"
+    },
+    {
+        "h4": " Use file `commit-msg`"
+    },
+    {
+        "p": "1. Create file `commit-msg` in folder `.git/hooks/`"
+    },
+    {
+        "p": "2. Add this text in file:"
+    },
+    {
+        "pre": [
+            "#!/usr/bin/env bash",
+            "if ! grep -iqE \"(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})\" \"$1\"; then",
+            "   echo \"Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages\" >&2",
+            "   exit 1",
+            "fi"
+        ]
+    },
+    {
+        "h4": " Use package [pre-commit](https://www.npmjs.com/package/pre-commit)"
+    },
+    {
+        "p": "1. Add in file `package.json` property `commit-msg`:"
+    },
+    {
+        "pre": [
+            "  ...",
+            "  \"commit-msg\": {",
+            "    \"regex\": \"(JIRA-[0-9]{1,5})(\\\\s)(feat|fix|docs|style|refactor|test|chore)((\\\\([a-z0-9_-]{1,}\\\\)){0,})(:\\\\s)([a-z]{1,})\",",
+            "    \"error-message\": \"Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages\"",
+            "  },",
+            "  ..."
+        ]
+    },
+    {
+        "p": "2. Run command `npm install pre-commit`"
+    },
+    {
+        "h3": "データの自動収集方法は？"
+    },
+    {
+        "h4": "With backend"
+    },
+    {
+        "li": [
+            "use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);"
+        ]
+    },
+    {
+        "h4": "バックエンドなし"
+    },
+    {
+        "li": [
+            "リポジトリのクローンを作成します。;",
+            "フォルダをコピーする `build` 現在のリポジトリから;",
+            "オープン `build/index.html` ブラウザでブックマークに追加します。;",
+            "にショートカットを追加する `build/assets/ci-cd.sh` 自動起動フォルダーに (Windows);"
+        ]
+    },
+    {
+        "p": "コンピューターを再起動するとき、スクリプトはメインブランチに自動的に挿入されたすべてのデータについての統計を更新します。"
+    },
+    {
+        "h3": "DevOps (CI/CD)"
+    },
+    {
+        "h4": "公開サーバ"
+    },
+    {
+        "p": "データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.online/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:"
+    },
+    {
+        "pre": [
+            "https://assayo.online/demo/?dump=//you_site.com/some/log.txt"
+        ]
+    },
+    {
+        "h4": "プライベートサーバー"
+    },
+    {
+        "li": [
+            "ダウンロード [dockerイメージ](https://hub.docker.com/r/bakhirev/assayo);",
+            "ローカルネットワーク内で実行します。;",
+            "レポートの表示には、データが置かれている場所のアドレスがURLパラメータに入っていることを指定したウェブインターフェイスを使用します。 ```dump```:"
+        ]
+    },
+    {
+        "pre": [
+            "http://assayo_url/?dump=//you_url/some/log.txt",
+            "assayo_url - ポート80でリッスンしているassayoコンテナのURL;",
+            "you_url    - gitのログのコンテナーのURLアドレス;"
+        ]
+    },
+    {
+        "p": "デフォルトではイメージは以下のアドレスで起動します ```http://127.0.0.1:80/```. 問題が解決しない場合は、ポート80が開いているか確認してみてください。"
+    },
+    {
+        "h4": "Dockerイメージの更新"
+    },
+    {
+        "li": [
+            "次のコマンドを実行します ```npm run build```",
+            "次のコマンドを実行します ```docker build -t assayo .```",
+            "結果を確認する ```docker run --name assayo -p 80:80 -d assayo```;",
+            "次のコマンドを実行します ```docker tag assayo bakhirev/assayo:latest```;",
+            "コンテナイメージをDocker Hubにアップロードする ```docker push bakhirev/assayo:latest```;"
+        ]
+    },
+    {
+        "h3": "️ About application"
+    },
+    {
+        "h4": "Architecture"
+    },
+    {
+        "img": "<img src=\"https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg\" width=\"70%\" />"
+    },
+    {
+        "p": "1. [Reports showcase UI](###) displays a list of available reports. Each report consists of a title, description, and a list of repositories."
+    },
+    {
+        "p": "2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report."
+    },
+    {
+        "p": "3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work."
+    },
+    {
+        "h4": "半年ごとにリリースを行います。次は何でしょうか。"
+    },
+    {
+        "p": "見て！ [主なドキュメント](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)"
+    },
+    {
+        "h4": "翻訳を追加または編集するにはどうすればいいでしょうか。"
+    },
+    {
+        "p": "新しい翻訳を追加するか、現在の翻訳を修正するために、以下のセクションでそれを行うことができます: ```ts/translations/```."
+    },
+    {
+        "p": "[取扱説明書](https://github.com/firstcontributions/first-contributions)"
+    },
+    {
+        "h4": "願い、提案、コメント"
+    },
+    {
+        "li": [
+            "telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)",
+            "[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)",
+            "ウェブサイト [https://assayo.online/](https://assayo.online/?ref=github&lang=ja)"
+        ]
+    }
+]

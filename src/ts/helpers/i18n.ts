@@ -9,6 +9,7 @@ import ja from '../translations/ja';
 import pt from '../translations/pt';
 import ru from '../translations/ru';
 import zh from '../translations/zh';
+import localization from './Localization';
 
 function getJsonFromString(text: string) {
   return text
@@ -44,13 +45,20 @@ const translations = {
   zh: getTranslationWrapper(zh),
 };
 
-const defaultLanguage = navigator.languages
+export const BROWSER_LANGUAGE = navigator.languages
   .filter((language) => language.length === 2 && translations[language])
   .shift() || 'en';
 
 export default function initializationI18n(userLanguage?: string) {
+  const language = userLanguage
+    || localStorage.getItem('language')
+    || BROWSER_LANGUAGE
+    || 'en';
+
+  localization.language = language;
+
   i18next.use(initReactI18next).init({
-    lng: userLanguage || defaultLanguage || 'ru', // if you're using a language detector, do not define the lng option
+    lng: language, // if you're using a language detector, do not define the lng option
     debug: false,
     resources: translations,
     // if you see an error like: "Argument of type 'DefaultTFuncReturn' is not assignable to parameter of type xyz"

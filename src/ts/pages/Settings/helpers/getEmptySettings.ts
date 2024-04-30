@@ -1,5 +1,6 @@
 import { IUserSetting, IEmployees, IEmployeesSalary } from 'ts/interfaces/UserSetting';
 import ICommit from 'ts/interfaces/Commit';
+import localization from 'ts/helpers/Localization';
 
 let DEFAULT_VALUES: any = {};
 
@@ -37,12 +38,23 @@ export function getNewEmployeesSettings(
     ],
   };
 }
+
 export default function getEmptySettings(): IUserSetting {
+  const currency = {
+    ru: 'RUB',
+    en: 'USD',
+  }[localization.language || ''] || 'EUR';
+
+  const value = {
+    RUB: 200000,
+    USD: 12000,
+  }[currency] || 3000;
+
   return {
     version: 1,
     defaultSalary: {
-      value: 3000,
-      currency: 'USD',
+      value,
+      currency,
       workDaysInYear: 247,
       vacationDaysInYear: 28,
       workDaysInWeek: [1, 1, 1, 1, 1, 0, 0],

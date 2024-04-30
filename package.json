@@ -25,9 +25,10 @@
     "build-rename": "npm run build-rename-js && npm run build-rename-css",
     "build-rename-js": "mv build/static/js/main.*.js build/static/index.js && rm -rf build/static/js",
     "build-rename-css": "mv build/static/css/main.*.css build/static/index.css && rm -rf build/static/css",
+    "build-rename-html": "rm build/index.html && mv build/local.html build/index.html",
     "dev": "set PORT=3006 && react-app-rewired start",
     "build": "react-scripts build && npm run build-rename",
-    "build-local": "set REACT_APP_TYPE=local && react-scripts build && npm run build-rename",
+    "build-local": "set REACT_APP_TYPE=local && react-scripts build && npm run build-rename && npm run build-rename-html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "js:check": "npx eslint \"src/**/*.{ts,tsx,js}\"",
@@ -71,6 +72,6 @@
     "stylelint": "^14.16.1",
     "stylelint-group-selectors": "^1.0.9",
     "stylelint-order": "^6.0.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   }
 }

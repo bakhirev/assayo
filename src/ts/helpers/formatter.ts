@@ -1,5 +1,4 @@
-import settingsStore from 'ts/store/Settings';
-
+import userSettings from 'ts/store/UserSettings';
 
 export function getLangPrefix() {
   // @ts-ignore
@@ -76,7 +75,7 @@ export function getShortTime(timestamp: string) {
 export function getMoney(value: number, options?: any) {
   return (value || 0).toLocaleString(getLangPrefix(), {
     style: 'currency',
-    currency: settingsStore?.currency || 'USD',
+    currency: userSettings?.settings?.defaultSalary?.currency || 'USD',
     currencyDisplay: 'symbol',
     maximumFractionDigits: 0,
     ...(options || {}),
