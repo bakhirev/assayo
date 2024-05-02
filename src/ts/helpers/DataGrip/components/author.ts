@@ -163,8 +163,7 @@ export default class DataGripByAuthor {
         const moneyLosses = lazyDays > 0
           ? Math.ceil(lazyDays * middleSalaryInDay)
           : 0;
-        const salaryInMonth = settingsStore.getMiddleSalaryInMonth(dot.author);
-        const moneyAll = Math.ceil((allDaysInProject / 30) * salaryInMonth);
+        const moneyAll = Math.ceil((allDaysInProject / 30) * middleSalaryInMonth);
 
         const tasksEntries = Object.entries(dot.tasks).filter(t => t[0]);
         const tasks = tasksEntries.map(t => t[0]);

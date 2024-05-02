@@ -46,7 +46,6 @@ const Tempo = observer(({ user, filters }: IPersonCommonProps): React.ReactEleme
 
   return (
     <>
-      <br/>
       <PageWrapper template="table">
         <DataLoader
           to="response"

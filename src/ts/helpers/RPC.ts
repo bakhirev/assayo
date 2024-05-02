@@ -16,7 +16,7 @@ function getParametersFromURL(): IHashMap<string> {
   };
 }
 
-function loadJsDump(url: string, callback: Function) {
+function loadJsLocal(url: string, callback: Function) {
   const script = document.createElement('script');
   script.src = url;
   script.async = true; // @ts-ignore
@@ -25,6 +25,30 @@ function loadJsDump(url: string, callback: Function) {
     notificationsStore.show('common.fileLoader.notification');
   };
   document.body.appendChild(script);
+}
+
+function loadJsLGlobal(url: string, callback: Function) {
+  fetch(url)
+    .then((response) => response.text())
+    .then((text) => {
+      if (!text) return callback();
+      if (text[0] === 'r') {
+        eval(text);
+        return callback();
+      } else {
+        // @ts-ignore
+        window.report = text.split('\n');
+      }
+      callback();
+    });
+}
+
+function loadJsDump(url: string, callback: Function) {
+  if (url?.[0] === '.') {
+    loadJsLocal(url, callback);
+  } else {
+    loadJsLGlobal(url, callback);
+  }
 }
 
 function loadCssFile(url: string) {

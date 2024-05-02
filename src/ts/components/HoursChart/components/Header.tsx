@@ -8,19 +8,19 @@ function Header(): React.ReactElement | null {
     if (!hour) return (
       <div
         key={hour}
-        className={style.day_name}
+        className={style.hours_chart_day_name}
       ></div>
     );
 
     return (
       <div
         key={hour}
-        className={style.day_time}
+        className={style.hours_chart_day_time}
       >
-        <span className={style.day_time_hh}>
+        <span className={style.hours_chart_day_time_hh}>
           {get2Number(hour - 1)}
         </span>
-        <span className={style.day_time_mm}>
+        <span className={style.hours_chart_day_time_mm}>
           :00
         </span>
       </div>

@@ -1,90 +1,94 @@
 @import 'src/styles/variables';
 
-.user {
-  display: block;
-  box-sizing: border-box;
-  vertical-align: top;
-  margin: 24px 0 0 0;
+.hours_chart {
+  &_user {
+    display: block;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin: 24px 0 0 0;
 
-  --commits-by-hours-size: calc((100vw - 400px) / 25);
-}
+    --commits-by-hours-size: calc((100vw - 400px) / 25);
+  }
 
-.title {
-  display: inline-block;
-  width: 200px;
-  text-align: left;
-  white-space: nowrap;
-}
+  &_title {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+    white-space: nowrap;
+  }
 
-.data {
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
-}
+  &_data {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
 
-.day {
-  display: block;
-  width: 100%;
-  vertical-align: top;
-  white-space: nowrap;
-}
+  &_day {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    white-space: nowrap;
+  }
 
-.day_time,
-.day_name,
-.hour {
-  font-size: var(--font-xs);
-  display: inline-block;
-  width: var(--commits-by-hours-size);
-  height: var(--commits-by-hours-size);
-  text-align: center;
-  line-height: var(--commits-by-hours-size);
-  vertical-align: top;
-  box-sizing: border-box;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-print-color-adjust: exact;
-}
+  &_day_time,
+  &_day_name,
+  &_hour {
+    font-size: var(--font-xs);
+    display: inline-block;
+    width: var(--commits-by-hours-size);
+    height: var(--commits-by-hours-size);
+    text-align: center;
+    line-height: var(--commits-by-hours-size);
+    vertical-align: top;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-print-color-adjust: exact;
+  }
 
-.day_time,
-.day_name {
-  box-sizing: border-box;
-  border-bottom: 1px solid grey;
-}
+  &_day_time,
+  &_day_name {
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+  }
 
-.day_name {
-  font-size: var(--font-xs);
-  border-right: 1px solid grey;
-}
+  &_day_name {
+    font-size: var(--font-xs);
+    border-right: 1px solid grey;
+  }
 
-.hour {
-  color: white;
-  border-radius: 6px;
-  border: 1px solid #FFFFFF;
-  background-color: var(--color-first);
+  &_hour {
+    color: white;
+    border-radius: 6px;
+    border: 1px solid #FFFFFF;
+    background-color: var(--color-first);
+  }
 }
 
 @media (max-width: 1300px) {
-  .day_time_mm {
+  .hours_chart_day_time_mm {
     display: none;
   }
 }
 
 @media (max-width: 1000px) {
-  .user {
+  .hours_chart_user {
     --commits-by-hours-size: calc((100vw - 156px) / 25);
   }
 }
 
 @media (max-width: 900px) {
-  .day_time,
-  .day_name,
-  .hour {
-    font-size: var(--font-xxs);
-  }
+  .hours_chart {
+    &_day_time,
+    &_day_name,
+    &_hour {
+      font-size: var(--font-xxs);
+    }
 
-  .hour {
-    border-radius: 0;
-    border: none;
+    &_hour {
+      border-radius: 0;
+      border: none;
+    }
   }
 }

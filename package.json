@@ -27,7 +27,7 @@
     "build-rename-css": "mv build/static/css/main.*.css build/static/index.css && rm -rf build/static/css",
     "build-rename-html": "rm build/index.html && mv build/local.html build/index.html",
     "dev": "set PORT=3006 && react-app-rewired start",
-    "build": "react-scripts build && npm run build-rename",
+    "build": "react-scripts build",
     "build-local": "set REACT_APP_TYPE=local && react-scripts build && npm run build-rename && npm run build-rename-html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

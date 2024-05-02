@@ -47,7 +47,7 @@ export default function getEmptySettings(): IUserSetting {
 
   const value = {
     RUB: 200000,
-    USD: 12000,
+    USD: 3000,
   }[currency] || 3000;
 
   return {

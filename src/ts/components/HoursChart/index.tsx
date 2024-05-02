@@ -21,9 +21,9 @@ function HoursChart({
       return (
         <div
           key={day}
-          className={style.day}
+          className={style.hours_chart_day}
         >
-          <div className={style.day_name}>
+          <div className={style.hours_chart_day_name}>
             {getDayName(day, 'short')}
           </div>
           <Columns
@@ -36,9 +36,9 @@ function HoursChart({
     });
 
   return (
-    <div className={style.user}>
-      <div className={style.data}>
-        <div className={style.day}>
+    <div className={style.hours_chart_user}>
+      <div className={style.hours_chart_data}>
+        <div className={style.hours_chart_day}>
           <Header />
         </div>
         {items}

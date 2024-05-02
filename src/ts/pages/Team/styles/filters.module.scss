@@ -1,6 +1,8 @@
 @import 'src/styles/variables';
 
 .table_filters {
+  margin: 0 0 24px;
+
   &_item {
     display: inline-block;
     width: 350px;

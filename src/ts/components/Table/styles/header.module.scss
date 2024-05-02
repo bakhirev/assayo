@@ -1,28 +1,23 @@
 @import 'src/styles/variables';
 
-.title {
-  font-size: var(--font-l);
-  font-weight: 100;
-  margin: 24px 0;
-  color: var(--color-black);
-}
+.table {
+  &_sort_up,
+  &_sort_down {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    margin: 0 0 -5px 8px;
 
-.sort_up,
-.sort_down {
-  display: inline-block;
-  height: 0;
-  width: 0;
-  margin: 0 0 -5px 8px;
+    cursor: pointer;
+    transform: rotateZ(-45deg);
 
-  cursor: pointer;
-  transform: rotateZ(-45deg);
+    border: 6px solid var(--color-grey);
+    border-left-color: white;
+    border-bottom-color: white;
+  }
 
-  border: 6px solid var(--color-grey);
-  border-left-color: white;
-  border-bottom-color: white;
-}
-
-.sort_down {
-  margin: 0 0 3px 8px;
-  transform: rotateZ(135deg);
+  &_sort_down {
+    margin: 0 0 3px 8px;
+    transform: rotateZ(135deg);
+  }
 }

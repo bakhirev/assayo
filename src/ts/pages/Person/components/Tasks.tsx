@@ -33,9 +33,6 @@ const Tasks = observer(({
       })}
       watch={`${mode}${dataGripStore.dataGrip.hash}${user.author}`}
     >
-      <br/>
-      <br/>
-      <br/>
       <TasksView
         mode={mode}
         rowsForExcel={rows}

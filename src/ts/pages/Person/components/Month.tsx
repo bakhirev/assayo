@@ -14,7 +14,6 @@ const Month = observer(({ user }: IPersonCommonProps): React.ReactElement => {
 
   return (
     <>
-      <br/>
       <PageWrapper template="table">
         <YearChart
           showEvents={false}

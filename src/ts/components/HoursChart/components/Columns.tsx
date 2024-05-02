@@ -22,7 +22,7 @@ function Columns({ week, day, max }: IColumnsProps): React.ReactElement | null {
     return (
       <div
         key={hour}
-        className={style.hour}
+        className={style.hours_chart_hour}
         style={{
           color,
           backgroundColor: `rgba(${backgroundColor}, ${opacity})`,

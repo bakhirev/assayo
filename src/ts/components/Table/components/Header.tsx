@@ -42,10 +42,10 @@ function Header({
           {formattedTitle}
         </span>
         {column.title && column.sortDirection === -1 && (
-          <div className={headerStyle.sort_down} />
+          <div className={headerStyle.table_sort_down} />
         )}
         {column.title && column.sortDirection === 1 && (
-          <div className={headerStyle.sort_up} />
+          <div className={headerStyle.table_sort_up} />
         )}
       </div>
     );
