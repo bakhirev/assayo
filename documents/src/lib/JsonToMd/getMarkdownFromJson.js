@@ -22,11 +22,15 @@ function getMarkdownFromJson(json, languages, language) {
     custom.getLanguageLinks(languages, language),
     firstTag ? `> ${firstTag.warning}\n` : '',
     custom.getTitle(language),
-    custom.getSocialLinks(),
   ];
 
-  (json || []).forEach((tag) => {
+  (json || []).forEach((tag, index) => {
     if (!tag) return;
+
+    if (index === 1) {
+      markdown.push(custom.getSocialLinks());
+      markdown.push(custom.getSreenshot());
+    }
 
     if (tag.p) markdown.push(tag.p);
     else if (tag.warning) markdown.push(`> ${tag.warning}\n`);

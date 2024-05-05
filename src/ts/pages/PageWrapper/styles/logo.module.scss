@@ -10,9 +10,15 @@
   box-sizing: border-box;
   border: none;
 
+  &_link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
   &_icon {
     height: 20px;
     margin: 0 auto;
+    text-decoration: none;
   }
 }
 

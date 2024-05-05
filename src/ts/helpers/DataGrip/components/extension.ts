@@ -59,10 +59,10 @@ export default class DataGripByExtension {
 
   #getNewExtension(file: IDirtyFile) {
     return {
-      extension: file.extension,
+      extension: file?.extension,
       authors: {},
-      task: file.created.task,
-      path: file.name,
+      task: file?.firstCommit?.task,
+      path: file?.name,
       current: {
         files: {},
         count: 0,

@@ -37,6 +37,7 @@ export default function Parser(report: string[]) {
 
       if (allFiles[fileName]) {
         const fileInfo: IDirtyFile = allFiles[fileName];
+        fileInfo.lastCommit = prev;
         fileInfo.lines += diff;
         if (!fileInfo.authors[prev?.author || '']) {
           fileInfo.authors[prev?.author || ''] = {

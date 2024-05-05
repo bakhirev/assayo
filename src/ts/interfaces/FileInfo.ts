@@ -1,10 +1,11 @@
-import ICommit from './Commit';
+import ICommit, { ISystemCommit } from './Commit';
 import IHashMap from './HashMap';
 
 export interface IDirtyFile {
   name: string; // ".gitignore",
   lines: number; // 38, line in file for this moment
-  created: ICommit,
+  firstCommit: ICommit | ISystemCommit | null,
+  lastCommit: ICommit | ISystemCommit | null,
   path: string[],
   extension: string,
   firstName: string,
@@ -30,5 +31,7 @@ export interface IDirtyFile {
 export interface IFileTree {
   id?: number;
   name?: string;
+  firstCommit: ICommit | ISystemCommit | null,
+  lastCommit: ICommit | ISystemCommit | null,
   content: IHashMap<IDirtyFile>,
 }

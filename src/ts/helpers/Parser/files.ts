@@ -24,10 +24,12 @@ export function getNewFileName(fileName: string, allFiles: any) {
   return newPath;
 }
 
-function getFolder(name?: string): IFileTree {
+function getFolder(name: string, file: IDirtyFile): IFileTree {
   return {
     id: Math.random(),
     name: name || '',
+    firstCommit: file?.firstCommit,
+    lastCommit: file?.firstCommit,
     content: {},
   };
 }
@@ -37,7 +39,9 @@ function getFolderTree(fileTree: any, file: IDirtyFile) {
   let fileName: string = file.path.pop() || '';
   file.path.forEach((folder: any) => {
     if (!prev[folder] || !prev[folder].content) {
-      prev[folder] = getFolder(folder);
+      prev[folder] = getFolder(folder, file);
+    } else {
+      prev[folder].lastCommit = file?.lastCommit;
     }
     prev = prev[folder].content;
   });
@@ -46,7 +50,7 @@ function getFolderTree(fileTree: any, file: IDirtyFile) {
 
 
 export function getFileList(allFiles: IHashMap<IDirtyFile>) {
-  const fileList = Object.values(allFiles);
+  const fileList = Object.values(allFiles); // @ts-ignore
   const fileTree: IFileTree = getFolder();
 
   fileList.forEach((file: IDirtyFile) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
 import { render } from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
 import de from 'ts/translations/de';
@@ -16,6 +16,7 @@ import initializationI18n from './ts/helpers/i18n';
 
 import Authorization from 'ts/pages/Authorization';
 import userSettings from 'ts/store/UserSettings';
+import themeSettings from 'ts/store/ThemeSettings';
 import Notifications from 'ts/components/Notifications';
 import printStore from 'ts/pages/PageWrapper/store/Print';
 import applyUrlCommands from 'ts/helpers/RPC';
@@ -57,6 +58,7 @@ function renderReactApplication() {
 
 applyUrlCommands((parameters: any) => {
   initializationI18n(parameters.lang || parameters.language);
+  themeSettings.setUrlParameters(parameters);
   userSettings.loadUserSettings().then(() => {
     renderReactApplication();
   });

@@ -17,6 +17,8 @@ import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import NothingFound from 'ts/components/NothingFound';
 
+import { getDate } from 'ts/helpers/formatter';
+
 import TreeFilters from './TreeFilters';
 import { getSubTreeByPath, getArrayFromTree } from '../helpers/tree';
 import treeStore from '../store/Tree';
@@ -43,6 +45,7 @@ function TreeView({ response }: ITreeViewProps) {
     'page.team.tree.lineRemove',
   ], suffix: 'page.team.tree.line' });
 
+  console.log(response.content);
   return (
     <Table
       rows={response.content}
@@ -65,8 +68,36 @@ function TreeView({ response }: ITreeViewProps) {
         }}
       />
       <Column
+        isSortable
+        template={ColumnTypesEnum.STRING}
+        title="page.team.pr.firstCommitTime"
+        formatter={(item: any) => getDate(item?.file?.firstCommit?.timestamp)}
+        width={130}
+      />
+      <Column
+        isSortable
+        template={ColumnTypesEnum.STRING}
+        title="page.team.pr.author"
+        formatter={(item: any) => item?.file?.firstCommit?.author || ''}
+        width={150}
+      />
+      <Column
+        isSortable
+        template={ColumnTypesEnum.STRING}
+        title="page.team.pr.lastCommitTime"
+        formatter={(item: any) => getDate(item?.file?.lastCommit?.timestamp)}
+        width={130}
+      />
+      <Column
+        isSortable
+        template={ColumnTypesEnum.STRING}
+        title="page.team.pr.author"
+        formatter={(item: any) => item?.file?.lastCommit?.author || ''}
+        width={150}
+      />
+      <Column
         properties="file"
-        minWidth={250}
+        minWidth={200}
         template={(file: any) => (
           <LineChart
             value={file ? 100 : 0}

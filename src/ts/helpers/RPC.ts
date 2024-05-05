@@ -10,10 +10,12 @@ function getParametersFromString(text: string): IHashMap<string> {
 }
 
 function getParametersFromURL(): IHashMap<string> {
-  return {
+  const parameters = {
     ...getParametersFromString(location.search),
     ...getParametersFromString(location.hash),
   };
+  delete parameters[''];
+  return parameters;
 }
 
 function loadJsLocal(url: string, callback: Function) {

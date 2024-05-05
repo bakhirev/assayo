@@ -27,7 +27,8 @@ export function getNewFileInfo(
     firstName: nameParts.shift(),
     suffixes: nameParts,
     lines: addedLines,
-    created: commit,
+    firstCommit: commit,
+    lastCommit: commit,
     authors: {
       [commit?.author || '']: getNewFileAuthor(addedLines, commit),
     },
