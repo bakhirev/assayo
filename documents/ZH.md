@@ -213,3 +213,5 @@ you_url    - git日志的容器的URL地址;
 - telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 网站 [https://assayo.online/](https://assayo.online/?ref=github&lang=zh)
+
+<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

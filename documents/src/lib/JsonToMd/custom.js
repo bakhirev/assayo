@@ -34,6 +34,10 @@ function getSreenshot() {
   return '<a href="https://assayo.online/demo/?dump=./test.txt" target="_blank"><img src="https://assayo.online/seo/github/index.png" width="100%" /></a>\n';
 }
 
+function getYandexMetrika() {
+  return '\n<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />\n';
+}
+
 function getTitle(language) {
   return `# [Assayo](${SITE}?ref=github&lang=${language})`;
 }
@@ -42,5 +46,6 @@ module.exports = {
   getLanguageLinks,
   getSocialLinks,
   getSreenshot,
+  getYandexMetrika,
   getTitle,
 };

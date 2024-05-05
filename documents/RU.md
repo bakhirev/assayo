@@ -221,3 +221,5 @@ you_url    - URL адресс вашего контейнера с логами 
 - telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - сайт [https://assayo.online/](https://assayo.online/?ref=github&lang=ru)
+
+<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

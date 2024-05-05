@@ -223,3 +223,5 @@ Releases are planned approximately once every six months. What’s next:
 - telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - website [https://assayo.online/](https://assayo.online/?ref=github&lang=en)
+
+<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

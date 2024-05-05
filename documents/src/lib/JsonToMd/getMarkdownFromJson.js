@@ -46,7 +46,9 @@ function getMarkdownFromJson(json, languages, language) {
     else if (tag.li) tableOfContent.addTitle(5, tag.h5, markdown);
   });
 
+  markdown.push(custom.getYandexMetrika());
   markdown = tableOfContent.getMarkdownWithTable(markdown);
+
   markdownText = markdown
     .join('\n')
     .replace('demo/?dump=./test.txt', `demo/?ref=github&lang=${language}&dump=./test.txt`)

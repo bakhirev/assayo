@@ -223,3 +223,5 @@ Puede agregar una nueva traducción o corregir la actual en la sección ```ts/tr
 - telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - sitio web [https://assayo.online/](https://assayo.online/?ref=github&lang=es)
+
+<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

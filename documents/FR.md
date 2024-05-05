@@ -220,3 +220,5 @@ Vous pouvez ajouter une nouvelle traduction ou corriger la traduction existante 
 - telegramm [@bakhirev](https://t.me/bakhirev) (voie de communication prioritaire)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - site [https://assayo.online/](https://assayo.online/?ref=github&lang=fr)
+
+<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />
