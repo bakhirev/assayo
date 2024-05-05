@@ -140,7 +140,7 @@
         "li": [
             "このリポジトリをダウンロードしてください",
             "実行するには `npm install`",
-            "実行するには `npm run build`",
+            "実行するには `npm run build-local`",
             "最新のビルドは、フォルダに含まれるでしょう `/build`"
         ]
     },
@@ -290,7 +290,7 @@
     },
     {
         "li": [
-            "次のコマンドを実行します ```npm run build```",
+            "次のコマンドを実行します ```npm run build-local```",
             "次のコマンドを実行します ```docker build -t assayo .```",
             "結果を確認する ```docker run --name assayo -p 80:80 -d assayo```;",
             "次のコマンドを実行します ```docker tag assayo bakhirev/assayo:latest```;",

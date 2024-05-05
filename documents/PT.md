@@ -109,7 +109,7 @@ A diferença entre os formatos está na existência de uma envoltória para as l
 ### 🏭 Como recompilar o arquivo do relatório?
 - Baixar este repositório
 - Executar `npm install`
-- Executar `npm run build`
+- Executar `npm run build-local`
 - A compilação mais recente estará na pasta `/build`
 <a name="link-13"></a>
 ### 🗃️ Como visualizar o relatório do grupo de microserviços?
@@ -190,7 +190,7 @@ you_url    - O URL do seu container com os logs do git;
 Por padrão, a imagem será iniciada no endereço ```http://127.0.0.1:80/```. Se você não conseguiu, verifique se a porta 80 está disponível no seu computador.
 <a name="link-25"></a>
 ####  Atualizar a imagem Docker
-- executar um comando ```npm run build```
+- executar um comando ```npm run build-local```
 - executar um comando ```docker build -t assayo .```
 - verificar o resultado ```docker run --name assayo -p 80:80 -d assayo```;
 - executar um comando ```docker tag assayo bakhirev/assayo:latest```;

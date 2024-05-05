@@ -140,7 +140,7 @@
         "li": [
             "Descargar este repositorio",
             "Ejecutar `npm install`",
-            "Ejecutar `npm run build`",
+            "Ejecutar `npm run build-local`",
             "La nueva compilación estará en el directorio `/build`"
         ]
     },
@@ -294,7 +294,7 @@
     {
         "li": [
             "eliminar métricas, alertas, compilaciones antiguas;",
-            "construir ```npm run build```",
+            "construir ```npm run build-local```",
             "montar la imagen ```docker build -t assayo .```",
             "comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;",
             "poner la etiqueta ```docker tag assayo bakhirev/assayo:latest```;",

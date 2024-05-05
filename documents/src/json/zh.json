@@ -137,7 +137,7 @@
         "li": [
             "下载这个储存库",
             "要执行 `npm install`",
-            "要执行 `npm run build`",
+            "要执行 `npm run build-local`",
             "最新的构建将在文件夹 `/build`"
         ]
     },
@@ -287,7 +287,7 @@
     },
     {
         "li": [
-            "运行命令 ```npm run build```",
+            "运行命令 ```npm run build-local```",
             "运行命令 ```docker build -t assayo .```",
             "检查结果 ```docker run --name assayo -p 80:80 -d assayo```;",
             "运行命令 ```docker tag assayo bakhirev/assayo:latest```;",

@@ -140,7 +140,7 @@
         "li": [
             "download this repository",
             "run `npm install`",
-            "run `npm run build`",
+            "run `npm run build-local`",
             "the new build will be in the `/build` folder"
         ]
     },
@@ -291,7 +291,7 @@
     {
         "li": [
             "remove metrics, alerts, old builds;",
-            "run ```npm run build```",
+            "run ```npm run build-local```",
             "run ```docker build -t assayo .```",
             "visually check the image ```docker run --name assayo -p 80:80 -d assayo```;",
             "add tag ```docker tag assayo bakhirev/assayo:latest```;",

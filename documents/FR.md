@@ -108,7 +108,7 @@ La différence entre le format en ligne et le format hors ligne réside dans l�
 ### 🏭 Comment recompiler la build du rapport?
 - Télécharger ce dépôt
 - Exécuter `npm install`
-- Exécuter `npm run build`
+- Exécuter `npm run build-local`
 - La dernière build sera dans le dossier `/build`
 <a name="link-13"></a>
 ### 🗃️ Comment voir le compte rendu pour un groupe de microservices?
@@ -189,7 +189,7 @@ Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne foncti
 <a name="link-25"></a>
 ####  Mise à jour de l’image-Docker
 - supprimer la métrique, les alertes, les vieilles builds;
-- constuire la build ```npm run build```
+- constuire la build ```npm run build-local```
 - assembler l'image ```docker build -t assayo .```
 - vérifier visuellement l'image ```docker run --name assayo -p 80:80 -d assayo```;
 - mettre la balise ```docker tag assayo bakhirev/assayo:latest```;

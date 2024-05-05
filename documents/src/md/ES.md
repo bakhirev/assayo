@@ -75,7 +75,7 @@ En este caso, es importante que el archivo ' log.txt ' fue generado por el equip
 ### Como recompilar el build de un informe?
 - Descargar este repositorio
 - Ejecutar `npm install`
-- Ejecutar `npm run build`
+- Ejecutar `npm run build-local`
 - La nueva compilación estará en el directorio `/build`
 
 ### Como mirar el reporte de un grupo de microservicios?
@@ -159,7 +159,7 @@ Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.
 #### Actualización de la imagen Docker
 
 - eliminar métricas, alertas, compilaciones antiguas;
-- construir ```npm run build```
+- construir ```npm run build-local```
 - montar la imagen ```docker build -t assayo .```
 - comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;
 - poner la etiqueta ```docker tag assayo bakhirev/assayo:latest```;

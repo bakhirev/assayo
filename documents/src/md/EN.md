@@ -76,7 +76,7 @@ The difference between the online and offline format is the presence of a wrappe
 ### How to rebuild the report build?
 - download this repository
 - run `npm install`
-- run `npm run build`
+- run `npm run build-local`
 - the new build will be in the `/build` folder
 ### How to view a report on a group of microservices?
 - generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection;
@@ -168,7 +168,7 @@ By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work
 <a name="link-22"></a>
 #### How to update the Docker image?
 - remove metrics, alerts, old builds;
-- run ```npm run build```
+- run ```npm run build-local```
 - run ```docker build -t assayo .```
 - visually check the image ```docker run --name assayo -p 80:80 -d assayo```;
 - add tag ```docker tag assayo bakhirev/assayo:latest```;

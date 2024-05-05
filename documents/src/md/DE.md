@@ -73,7 +73,7 @@ Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstel
 ### Wie kann ich die berichtsdatei neu erstellen?
 - Laden sie dieses repository herunter
 - Erfüllen `npm install`
-- Erfüllen `npm run build`
+- Erfüllen `npm run build-local`
 - Der neue build wird im ordner sein `/build`
 
 ### Wie kann ich den bericht zur microservices-gruppe anzeigen?
@@ -155,7 +155,7 @@ you_url    - URL die adresse ihres containers mit git-logs;
 Standardmäßig wird das abbild an der folgenden adresse ausgeführt ```http://127.0.0.1:80/```. Wenn es nicht funktioniert, überprüfen sie, ob der port 80 frei ist.
 #### Aktualisieren eines Docker-Images
 
-- befehl ausführen ```npm run build```
+- befehl ausführen ```npm run build-local```
 - befehl ausführen ```docker build -t assayo .```
 - ergebnis überprüfen ```docker run --name assayo -p 80:80 -d assayo```;
 - befehl ausführen ```docker tag assayo bakhirev/assayo:latest```;
