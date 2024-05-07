@@ -305,7 +305,7 @@
         "img": "<img src=\"https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg\" width=\"70%\" />"
     },
     {
-        "p": "1. [Reports showcase UI](###) отображение списка отчётов. Каждый отчёт имеет название, описание и список репозиториев."
+        "p": "1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) отображение списка отчётов. Каждый отчёт имеет название, описание и список репозиториев."
     },
     {
         "p": "2. [Crawler service](https://github.com/bakhirev/assayo-crawler) сборка, склейка, обработка логов из репозиториев для отчётов."

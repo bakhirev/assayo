@@ -198,7 +198,7 @@ you_url    - git日志的容器的URL地址;
 #### 🛠️ Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
-1. [Reports showcase UI](###) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
+1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-27"></a>

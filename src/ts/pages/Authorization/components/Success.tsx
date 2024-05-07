@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
-import dataGripStore from 'ts/store/DataGrip';
+import dataGripStore, { DataParseStatusEnum } from 'ts/store/DataGrip';
 import DropZone from 'ts/components/DropZone';
 import SplashScreen from 'ts/components/SplashScreen';
 import Confirm from 'ts/components/ModalWindow/Confirm';
@@ -78,7 +78,7 @@ function ViewWithCharts({ showSplashScreen }: IViewWithChartsProps) {
   );
 }
 
-function ViewWithText() {
+function ViewWithWelcome() {
   return (
     <Routes>
       <Route
@@ -91,19 +91,25 @@ function ViewWithText() {
   );
 }
 
-const Success = observer((): React.ReactElement => {
+const Success = observer(() => {
   const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
-  const showChart = dataGripStore.showApplication;
+  const status = dataGripStore.status;
 
   useEffect(() => {
     // @ts-ignore
     dataGripStore.setCommits(window?.report || []);
   }, []);
 
+  if (status === DataParseStatusEnum.PROCESSING) return null;
+
   return (
     <>
-      {showChart && <ViewWithCharts showSplashScreen={showSplashScreen} />}
-      {!showChart && <ViewWithText />}
+      {status === DataParseStatusEnum.DONE && (
+        <ViewWithCharts showSplashScreen={showSplashScreen} />
+      )}
+      {status === DataParseStatusEnum.WAITING && (
+        <ViewWithWelcome />
+      )}
       <DropZone
         onChange={(type: string, data: any[]) => {
           setShowSplashScreen(false);

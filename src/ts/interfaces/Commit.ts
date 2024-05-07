@@ -27,6 +27,7 @@ export interface ILog {
 export const COMMIT_TYPE = {
   PR_BITBUCKET: 'PR_BITBUCKET',
   PR_GITHUB: 'PR_GITHUB',
+  MERGE: 'MERGE',
   AUTO_MERGE: 'AUTO_MERGE',
 };
 

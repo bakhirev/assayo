@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Logo from 'ts/pages/PageWrapper/components/sidebar/Logo';
 
@@ -6,6 +6,14 @@ import style from './index.module.scss';
 import progress from './progress.module.scss';
 
 function SplashScreen(): React.ReactElement | null {
+
+  useEffect(() => {
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      document.body.style.overflow = overflow;
+    }, 5400);
+  }, []);
 
   return (
     <div className={style.splash_screen}>

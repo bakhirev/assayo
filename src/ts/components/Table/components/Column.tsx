@@ -48,7 +48,7 @@ Column.defaultProps = {
   title: '',
   prefixes: [''],
   suffixes: [''],
-  formatter: (value: any) => value,
+  formatter: undefined,
   className: '',
   isDisabled: false,
   isFixed: false,

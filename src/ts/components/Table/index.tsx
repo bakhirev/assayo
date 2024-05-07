@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 import ISort from 'ts/interfaces/Sort';
+import IHashMap from 'ts/interfaces/HashMap';
 
-import { IColumn } from './interfaces/Column';
+import { IColumn, IRowsConfig } from './interfaces/Column';
 import Header from './components/Header';
 import Body from './components/Body';
 import getAdaptiveColumnWidth from './helpers/getAdaptiveColumnWidth';
 import getColumnConfigs from './helpers/getColumnConfigs';
 import getDefaultProps from './helpers/getDefaultProps';
+import getRowsConfig from './helpers/getRowsConfig';
 
 import style from './styles/index.module.scss';
 
@@ -27,6 +29,7 @@ function Table({
   children,
 }: ITableProps): React.ReactElement | null {
   const [offsetWidth, setOffsetWidth] = useState<number>(0);
+  const [rowsConfig, setRowsConfig] = useState<IHashMap<IRowsConfig>>({});
 
   if (!rows || !rows.length) return null;
 
@@ -37,9 +40,20 @@ function Table({
     setOffsetWidth(currentWidth);
   }, [currentWidth]);
 
+  useEffect(() => {
+    const newRowsConfig = getRowsConfig(rows, rowsConfig);
+    setRowsConfig(newRowsConfig);
+  }, [rows]);
+
   const defaultColumns = getDefaultProps(children) as IColumn[];
   const adaptiveWidth = getAdaptiveColumnWidth(defaultColumns, offsetWidth);
   const columns = getColumnConfigs(defaultColumns, adaptiveWidth, sort);
+  const updateRowsConfig = (config: IRowsConfig) => {
+    setRowsConfig({
+      ...rowsConfig,
+      [config.id]: config,
+    });
+  };
 
   return (
     <div
@@ -57,6 +71,8 @@ function Table({
           rows={rows}
           columns={columns}
           disabledRow={disabledRow}
+          rowsConfig={rowsConfig}
+          updateRowsConfig={updateRowsConfig}
         />
       </div>
     </div>

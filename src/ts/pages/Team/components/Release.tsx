@@ -18,6 +18,8 @@ import LineChart from 'ts/components/LineChart';
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 import { getDate } from 'ts/helpers/formatter';
 
+import AllPR from './PR/All';
+
 interface IReleaseViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
@@ -44,6 +46,22 @@ function ReleaseView({ response, updateSort, rowsForExcel, mode }: IReleaseViewP
     >
       <Column
         isFixed
+        template={ColumnTypesEnum.DETAILS}
+        width={40}
+        formatter={(row: any) => {
+          const content = row.pr.map((commit: any) => (
+            dataGripStore?.dataGrip?.pr?.pr?.[commit.prId]
+          ));
+          console.log(dataGripStore?.dataGrip?.pr?.pr?.['2810']);
+          return (
+            <AllPR // @ts-ignore
+              response={{ content }}
+            />
+          );
+        }}
+      />
+      <Column
+        isFixed
         template={ColumnTypesEnum.STRING}
         title="page.team.release.title"
         properties="title"
@@ -62,6 +80,10 @@ function ReleaseView({ response, updateSort, rowsForExcel, mode }: IReleaseViewP
         width={150}
         properties="to"
         formatter={getDate}
+      />
+      <Column
+        template={ColumnTypesEnum.SHORT_NUMBER}
+        properties="prLength"
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}

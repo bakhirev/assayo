@@ -180,7 +180,7 @@ you_url    - URL адресс вашего контейнера с логами 
 #### Архитектура
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
-1. [Reports showcase UI](###) отображение списка отчётов. Каждый отчёт имеет название, описание и список репозиториев.
+1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) отображение списка отчётов. Каждый отчёт имеет название, описание и список репозиториев.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) сборка, склейка, обработка логов из репозиториев для отчётов.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(вы тут)** отображение отчётов. Для работы ему нужен log файл с данными.
 

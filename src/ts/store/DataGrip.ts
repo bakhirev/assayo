@@ -12,10 +12,16 @@ import { applicationHasCustom } from 'ts/helpers/RPC';
 
 import settingsStore from './Settings';
 
+export enum DataParseStatusEnum {
+  WAITING = 'waiting',
+  PROCESSING = 'processing',
+  DONE = 'done',
+}
+
 interface IDataGripStore {
   commits: ICommit[];
   dataGrip: any;
-  showApplication: boolean;
+  status: DataParseStatusEnum;
   setCommits: (log?: string[]) => void;
 }
 
@@ -32,13 +38,13 @@ class DataGripStore implements IDataGripStore {
 
   dataGrip: any = null;
 
-  showApplication: boolean = false;
+  status: DataParseStatusEnum = DataParseStatusEnum.PROCESSING;
 
   constructor() {
     makeObservable(this, {
       commits: observable,
       dataGrip: observable,
-      showApplication: observable,
+      status: observable,
       setCommits: action,
     });
   }
@@ -65,8 +71,11 @@ class DataGripStore implements IDataGripStore {
     this.removedFileList = removed.fileList;
     this.removedFileTree = getFileTreeWithStatistic(removed.fileTree);
 
-    this.showApplication = !!this.commits.length;// && !!dataGrip.author.list.length;
-    if (this.showApplication) {
+    this.status = this.commits.length
+      ? DataParseStatusEnum.DONE
+      : DataParseStatusEnum.WAITING;
+
+    if (this.status === DataParseStatusEnum.DONE) {
       setDefaultValues(dataGrip.firstLastCommit.minData, dataGrip.firstLastCommit.maxData);
       settingsStore.updateByCommits(
         this.commits,

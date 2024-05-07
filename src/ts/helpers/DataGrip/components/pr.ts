@@ -27,7 +27,8 @@ export default class DataGripByPR {
       } else {
         this.#updateCommitByTaskNumber(commit);
       }
-    } else if (commit.commitType !== COMMIT_TYPE.AUTO_MERGE && !this.pr[commit.prId]) {
+    } else if (!this.pr[commit.prId]
+      && [COMMIT_TYPE.PR_BITBUCKET, COMMIT_TYPE.PR_GITHUB].includes(commit.commitType)) {
       this.#addCommitByPR(commit);
     }
   }

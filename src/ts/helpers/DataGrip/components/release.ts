@@ -15,11 +15,14 @@ export default class DataGripByRelease {
 
   statistic: any[] = [];
 
+  lastPrList: any[] = [];
+
   statisticByName: IHashMap<any> = [];
 
   clear() {
     this.release = {};
     this.statistic = [];
+    this.lastPrList = [];
   }
 
   addCommit(commit: ISystemCommit) {
@@ -29,6 +32,8 @@ export default class DataGripByRelease {
       } else {
         this.#addRelease(commit);
       }
+    } else if (commit.commitType === COMMIT_TYPE.PR_GITHUB || commit.commitType === COMMIT_TYPE.PR_BITBUCKET) {
+      this.lastPrList.push(commit);
     }
   }
 
@@ -58,11 +63,17 @@ export default class DataGripByRelease {
       to: null,
       delayInDays: 0,
       waitingInDays: 0,
+      pr: this.lastPrList,
+      prLength: this.lastPrList.length,
     };
+
+    this.lastPrList = [];
   }
 
   updateTotalInfo() {
     let prev: any = null;
+
+    this.lastPrList = [];
 
     this.statistic = Object.entries(this.release)
       .sort((a: any, b: any) => a[1].firstCommit.milliseconds - b[1].firstCommit.milliseconds)

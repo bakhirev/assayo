@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import { IColumn } from '../../interfaces/Column';
 import style from '../../styles/index.module.scss';
@@ -7,14 +7,12 @@ interface IDefaultCellProps {
   column: IColumn,
   row: any,
   className?: string,
-  children?: ReactNode | string | number | boolean | null;
 }
 
 function DefaultCell({
   column,
   row,
   className,
-  children,
 }: IDefaultCellProps): JSX.Element {
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', row)
@@ -24,8 +22,20 @@ function DefaultCell({
     ? (() => { if (column.onClick) column.onClick(row); })
     : undefined;
 
-  const cellTitle = typeof children === 'string' && children.length > 20
-    ? children
+  const value = column.properties
+    ? row[column.properties]
+    : row;
+
+  const formattedValue = column.formatter
+    ? column.formatter(value)
+    : value;
+
+  const content: any = typeof column.template === 'function'
+    ? column.template(formattedValue, row)
+    : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}`;
+
+  const cellTitle = typeof content === 'string' && content.length > 20
+    ? content
     : null;
 
   return (
@@ -39,7 +49,7 @@ function DefaultCell({
       }} // @ts-ignore
       onClick={onClick}
     >
-      {children}
+      {content}
     </div>
   );
 }
