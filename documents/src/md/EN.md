@@ -1,6 +1,6 @@
 > The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
 
-Visualization and analysis of your git repository data ([demo](https://assayo.online/demo/?ref=github&lang=en&dump=./test.txt)).
+Visualization and analysis of your git repository data ([demo](https://assayo.online/demo/?ref=github&lang=en&dump=./test.txt), [install](https://assayo.online/demo/?ref=github)).
 
 ##### Employee can evaluate new workplace
 - work speed;

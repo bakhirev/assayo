@@ -1,6 +1,6 @@
 > [Documentación básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) en ruso. Es una traducción. Puede contener errores. Si usted es un hablante nativo, puede ayudar a mejorar esta traducción. ¡Gracias!
 
-Visualización y análisis de los datos de su repositorio git. ([demo](https://assayo.online/demo/?dump=./test.txt)).
+Visualización y análisis de los datos de su repositorio git. ([demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github)).
 
 ##### El empleado puede evaluar el nuevo lugar de trabajo
 - El ritmo de trabajo;
