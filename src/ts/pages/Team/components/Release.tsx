@@ -51,8 +51,7 @@ function ReleaseView({ response, updateSort, rowsForExcel, mode }: IReleaseViewP
         formatter={(row: any) => {
           const content = row.pr.map((commit: any) => (
             dataGripStore?.dataGrip?.pr?.pr?.[commit.prId]
-          ));
-          console.log(dataGripStore?.dataGrip?.pr?.pr?.['2810']);
+          )).filter((item: any) => item?.firstCommit);
           return (
             <AllPR // @ts-ignore
               response={{ content }}

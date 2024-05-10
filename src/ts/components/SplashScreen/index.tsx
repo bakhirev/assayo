@@ -18,7 +18,7 @@ function SplashScreen(): React.ReactElement | null {
   return (
     <div className={style.splash_screen}>
       <div className={style.splash_screen_container}>
-        <Logo />
+        <Logo center />
         <div className={progress.progress_bar}></div>
       </div>
     </div>

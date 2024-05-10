@@ -13,6 +13,7 @@
   vertical-align: top;
   box-sizing: border-box;
   white-space: normal;
+  text-decoration: none;
   page-break-inside: avoid;
   break-inside: avoid;
 
@@ -103,5 +104,14 @@
 
   background-color: var(--color-temp-bg);
   border-left-color: var(--color-temp-border);
+
+  &_banner {
+    border-left-width: 1px;
+    border-left-color: var(--color-border);
+
+    background-repeat: no-repeat;
+    background-size: 180% auto;
+    background-position: center center;
+  }
 }
 

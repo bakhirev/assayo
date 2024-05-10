@@ -2,13 +2,17 @@
 
 .logo {
   display: block;
-  padding: 0 24px 0 0;
-  margin: 0 0 27px 0;
+  padding: 0 var(--space-xxl) 0 0;
+  margin: 0 0 var(--space-m) 0;
 
   text-align: center;
   text-decoration: none;
   box-sizing: border-box;
   border: none;
+
+  &_center {
+    padding: 0;
+  }
 
   &_link {
     display: inline-block;
@@ -16,31 +20,19 @@
   }
 
   &_icon {
-    height: 20px;
     margin: 0 auto;
     text-decoration: none;
   }
-}
 
-.logo_title {
-  font-weight: bold;
-  font-size: 18px;
-  display: inline-block;
-  margin: 0 0 0 46px;
-  line-height: 32px;
-  vertical-align: middle;
-  text-align: center;
-  letter-spacing: 7px;
-  color: #DCE3F6;
+  &_default {
+    height: var(--space-xxl);
+    margin-bottom: var(--space-m);
+  }
 }
 
 @media (max-width: 1000px) {
   .logo {
     padding: 0;
     text-align: center;
-  }
-
-  .logo_title {
-    display: none;
   }
 }

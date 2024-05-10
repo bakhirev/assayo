@@ -21,7 +21,10 @@ function LineChart({
   details,
   className,
 }: ILineChartProps): React.ReactElement | null {
-  if (!value || value === 0) return  null;
+  if (!value) return  null;
+  if (options.suffix === 'stop') {
+    console.log('xxx');
+  }
 
   const width = Math.round((value ?? 100) * (100 / options.max));
 
@@ -29,7 +32,7 @@ function LineChart({
     return (
       <div className={`${style.line_chart} ${className || ''}`}>
         <Line
-          value={value ?? 100}
+          value={value}
           width={width}
           suffix={options.suffix}
           formatter={options.formatter}

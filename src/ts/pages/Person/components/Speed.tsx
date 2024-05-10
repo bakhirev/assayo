@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { getShortNumber } from 'ts/helpers/formatter';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
+import CardWithBanner from 'ts/components/CardWithBanner';
 import NothingFound from 'ts/components/NothingFound';
 import IsStaff from 'ts/components/NothingFound/components/IsStaff';
 import PageWrapper from 'ts/components/Page/wrapper';
@@ -56,6 +57,7 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               title="page.person.speed.line.title"
               description="page.person.speed.line.description"
             />
+            <CardWithBanner />
           </div>
         )}
       </PageColumn>

@@ -4,6 +4,7 @@ import Title from 'ts/components/Title';
 import localization from 'ts/helpers/Localization';
 
 import Card from './components/Card';
+import Banner from './components/Banner';
 import CardForPrint from './components/CardForPrint';
 import recommendationStore from './store/index';
 import style from './styles/index.module.scss';
@@ -35,6 +36,9 @@ function Recommendations({
     )));
 
   if (!cards.length) return null;
+  if (mode !== 'print') {
+    cards.push(<Banner />);
+  }
 
   const title = localization.get('recommendations.title');
   const className = mode === 'print'

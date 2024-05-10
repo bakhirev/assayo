@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 
+import CardWithBanner from 'ts/components/CardWithBanner';
 import CardWithIcon from 'ts/components/CardWithIcon';
 import Achievements from 'ts/components/Achievement';
 import Description from 'ts/components/Description';
@@ -69,6 +70,7 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             title="page.team.total.commits.title"
             description="page.team.total.commits.description"
           />
+          <CardWithBanner long />
         </div>
         {false && <Title title="page.person.character.title"/>}
         {false && <Character user={statistic} />}
