@@ -73,8 +73,6 @@ export default `
 § achievements.hasCommitEveryTime.description: a commit for every hour of each day (including weekends)
 § achievements.commitsAfter1800.title: Business Time
 § achievements.commitsAfter1800.description: no commits after 6:00 PM
-§ achievements.more1488DaysInProject.title: Named after Maxim Martsinkevich
-§ achievements.more1488DaysInProject.description: worked 1488 days on the project
 § achievements.moreFix.title: Bug hunter
 § achievements.moreFix.description: most closed bugs
 § achievements.lessWorkDays.title: Count me out

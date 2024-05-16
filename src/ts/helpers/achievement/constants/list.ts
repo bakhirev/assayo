@@ -25,15 +25,15 @@ export default {
   lessScopes: ACHIEVEMENT_TYPE.BAD, // Щегол
   moreDaysForTask: ACHIEVEMENT_TYPE.BAD, // Улитка на склоне
   more2DaysForTask: ACHIEVEMENT_TYPE.BAD, // Cо слоу
-  moreDaysInProject: ACHIEVEMENT_TYPE.GOOD, // Старожил
+  moreDaysInProject: ACHIEVEMENT_TYPE.GOOD, // Часть команды, часть коробля
   lessDaysInProject: ACHIEVEMENT_TYPE.NORMAL, // А это кто?
   more90DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Добро пожаловать
   lessDaysForTask: ACHIEVEMENT_TYPE.GOOD, // Скорострел
   adam: ACHIEVEMENT_TYPE.NORMAL, // Адам
   more666DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Чёрт
   more777DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Азино 3 топора
-
   moreRefactoring: ACHIEVEMENT_TYPE.GOOD, // Выпускающий редактор
+
   // нет картинки
   longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...
   moreTasksInDay: ACHIEVEMENT_TYPE.GOOD, // Спиди-гонщик
@@ -41,14 +41,46 @@ export default {
   noCommitOnDay: ACHIEVEMENT_TYPE.NORMAL, // Технический перерыв
   hasCommitEveryTime: ACHIEVEMENT_TYPE.BAD, // Умер на работе
   commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время
-  more1488DaysInProject: ACHIEVEMENT_TYPE.GOOD, // им. Максима Марцинкевича
+  more365DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Нужно чуть чуть потерпеть, отработал год и не уволился
+  firstCommit: ACHIEVEMENT_TYPE.NORMAL, // Кто первый, того и тапки. первый коммит на проекте
+  lastCommit: ACHIEVEMENT_TYPE.NORMAL, // Я закончил. последний коммит на проекте
+  firstLastCommit: ACHIEVEMENT_TYPE.NORMAL, // От начала и до конца. первый и последний коммит на проекте
 
   // нет кода
-  // moreFix: ACHIEVEMENT_TYPE.GOOD, // Bug hunter
-  lessWorkDays: ACHIEVEMENT_TYPE.BAD, // Дальше без меня
-  moreCreateCode: ACHIEVEMENT_TYPE.NORMAL, // Созидатель
-  moreRemoveCode: ACHIEVEMENT_TYPE.NORMAL, // Разрушитель
-  moreChangeCode: ACHIEVEMENT_TYPE.NORMAL, // Реформатор // есть картинка
   moreStyle: ACHIEVEMENT_TYPE.GOOD, // Полиция моды
+  lessWorkDays: ACHIEVEMENT_TYPE.BAD, // Дальше без меня
   moreOnHoliday: ACHIEVEMENT_TYPE.BAD, // Нет жизни
+  moreCreateCode: ACHIEVEMENT_TYPE.NORMAL, // Созидатель -- переименовать?
+  moreRemoveCode: ACHIEVEMENT_TYPE.NORMAL, // Разрушитель
+  moreChangeCode: ACHIEVEMENT_TYPE.NORMAL, // Реформатор
+
+  morePRMerge: ACHIEVEMENT_TYPE.GOOD, // Таможня даёт добро,
+  workOnWeekends: ACHIEVEMENT_TYPE.BAD, // Работа не walk. хоть раз работал на выходных
+  longWaitPR: ACHIEVEMENT_TYPE.BAD, // Обещать не значит жениться, ожидание PR больше месяца
+  moreLongWaitPR: ACHIEVEMENT_TYPE.BAD, // Давным давно, в далёкой галактике
+  more3YearsInProject: ACHIEVEMENT_TYPE.GOOD, // Старожил. больше 3х лет на проекте
+
+  oneExtension: ACHIEVEMENT_TYPE.NORMAL, // Один в поле воин. Только он работает с файлами определенного расширения
+  fileRush: ACHIEVEMENT_TYPE.NORMAL, // Зерг Раш. Создал больше всех файлов в проекте
+  moreLintHint: ACHIEVEMENT_TYPE.GOOD, // Грамар-наци. Больше всех внес в .eslintrc .stylelintrc.json
+  moreReadMe: ACHIEVEMENT_TYPE.GOOD, // Летописец. Больше остальных внес в .MD
+  moreDevOps: ACHIEVEMENT_TYPE.GOOD, // DevOps. Больше остальных внес в DevOps
+  moreTests: ACHIEVEMENT_TYPE.GOOD, // Тестировщик. Больше остальных внес в тестирование
+
+  allRelease: ACHIEVEMENT_TYPE.NORMAL, // Фулл хаус. есть релиз, собранный только из его задач
+  longFilePath: ACHIEVEMENT_TYPE.NORMAL, // Закрома родины. первый создал файл с самым глубоким вложением
+  longFileName: ACHIEVEMENT_TYPE.NORMAL, // Размер имеет значение. создал файл с самым длинным именем
+
+  removeCreateFile: ACHIEVEMENT_TYPE.NORMAL, // Откопал стюардессу. востановил удаленный файл
+  renameFile: ACHIEVEMENT_TYPE.NORMAL, // Астана Нур-Султан Астана. переименовывал туда-сюда файл
+  longTask: ACHIEVEMENT_TYPE.BAD, // Вроде изян. работал над задачей больше трех месяцев
+  // Галя, у нас отмена - откатил назад
+  // У меня работает - больше всего коммитов с текстом fix
+  // 500я на проде - больше всего коммитов с префиксом hotfix
+  // moreFix: ACHIEVEMENT_TYPE.GOOD, // Bug hunter
+  // godFather: ACHIEVEMENT_TYPE.NORMAL, // Крёстный отец. Первый создал файлы небольшой группы.
+  // Боярин - есть папка на 20 файлов, где правит только этот человек
+  // Феодал - есть папка на 50 файлов, где правит только этот человек
+
+  // Психологический знак задиака по дате первого коммита
 };

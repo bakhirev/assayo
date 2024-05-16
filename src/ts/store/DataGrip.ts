@@ -85,7 +85,7 @@ class DataGripStore implements IDataGripStore {
 
       dataGrip.updateByInitialization();
       dataGrip.updateByFiles(fileList, removed.fileList);
-      achievements.updateByDataGrip(dataGrip.author.statistic);
+      achievements.updateByDataGrip(dataGrip);
     }
 
     this.dataGrip = null;
@@ -101,7 +101,7 @@ class DataGripStore implements IDataGripStore {
     console.log('need update data TODO');
     dataGrip.updateByFilters();
     if (!dataGrip.author.list.length) return;
-    achievements.updateByDataGrip(dataGrip.author.statistic);
+    achievements.updateByDataGrip(dataGrip);
     this.dataGrip = null;
     this.dataGrip = dataGrip;
   }

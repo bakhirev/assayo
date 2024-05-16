@@ -62,6 +62,12 @@
     line-height: 16px;
     color: var(--color-grey);
   }
+
+  &_banner {
+    font-size: 32px;
+    padding: 0;
+    line-height: 270px;
+  }
 }
 
 .card_with_icon_long {
@@ -92,7 +98,7 @@
 @media (max-width: 650px) {
   .card_with_icon,
   .card_with_icon_long {
-    min-height: auto;
+    min-height: 190px;
     padding: 32px 0;
 
     &_value {

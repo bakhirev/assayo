@@ -2,12 +2,22 @@ import React from 'react';
 
 import Title from 'ts/components/Title';
 import localization from 'ts/helpers/Localization';
+import Banner from 'ts/components/Banner';
 
 import Card from './components/Card';
-import Banner from './components/Banner';
 import CardForPrint from './components/CardForPrint';
 import recommendationStore from './store/index';
+import styleCard from './styles/card.module.scss';
 import style from './styles/index.module.scss';
+
+function addBannerInRandomIndex(list: any[]) {
+  const className = `${styleCard.recommendations_card} ${styleCard.recommendations_card_banner}`;
+  const item = (<Banner className={className} />);
+
+  const index = Math.floor(Math.random() * list.length);
+  const last = list.splice(index);
+  return [...list, item, ...last];
+}
 
 interface IRecommendationsProps {
   recommendations: any[];
@@ -18,7 +28,7 @@ function Recommendations({
   recommendations,
   mode,
 }: IRecommendationsProps) {
-  const cards = (recommendations || [])
+  let cards = (recommendations || [])
     .filter(item => item)
     .map((recommendation) => (mode === 'print' ? (
       <CardForPrint
@@ -37,7 +47,7 @@ function Recommendations({
 
   if (!cards.length) return null;
   if (mode !== 'print') {
-    cards.push(<Banner />);
+    cards = addBannerInRandomIndex(cards);
   }
 
   const title = localization.get('recommendations.title');

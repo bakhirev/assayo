@@ -45,8 +45,10 @@ export default `
 § achievements.moreDaysForTask.description: работа по задачам идёт медленнее чем у остальных
 § achievements.more2DaysForTask.title: Cо слоу
 § achievements.more2DaysForTask.description: больше двух дней на задачу
-§ achievements.moreDaysInProject.title: Старожил
+§ achievements.moreDaysInProject.title: Часть команды, часть коробля
 § achievements.moreDaysInProject.description: больше всего дней на проекте
+§ achievements.more3YearsInProject.title: Старожил
+§ achievements.more3YearsInProject.description: больше трех лет на проекте
 § achievements.lessDaysInProject.title: А это кто?
 § achievements.lessDaysInProject.description: меньше всего дней на проекте
 § achievements.more90DaysInProject.title: Добро пожаловать
@@ -55,6 +57,8 @@ export default `
 § achievements.lessDaysForTask.description: одна задача занимает меньше дня
 § achievements.adam.title: Адам
 § achievements.adam.description: первый стабильный сотрудник на проекте
+§ achievements.more365DaysInProject.title: Годовасик
+§ achievements.more365DaysInProject.description: отработал год на проекте
 § achievements.more666DaysInProject.title: Чёрт
 § achievements.more666DaysInProject.description: отработал 666 дней на проекте
 § achievements.more777DaysInProject.title: Азино 3 топора
@@ -73,8 +77,6 @@ export default `
 § achievements.hasCommitEveryTime.description: есть коммит на час каждого дня (включая выходные)
 § achievements.commitsAfter1800.title: Делу время
 § achievements.commitsAfter1800.description: нет ни одного коммита после 18:00
-§ achievements.more1488DaysInProject.title: им. Максима Марцинкевича
-§ achievements.more1488DaysInProject.description: отработал 1488 дней на проекте
 § achievements.moreFix.title: Bug hunter
 § achievements.moreFix.description: больше всего закрытых багов
 § achievements.lessWorkDays.title: Дальше без меня
@@ -89,4 +91,43 @@ export default `
 § achievements.moreStyle.description: склонен больше остальных изменять CSS
 § achievements.moreOnHoliday.title: Нет жизни
 § achievements.moreOnHoliday.description: относительно много коммитов в нерабочее время
+§ achievements.morePRMerge.title: Таможня даёт добро
+§ achievements.morePRMerge.description: чаще остальных нажимает кнопку «Влить» для PR
+§ achievements.longWaitPR.title: Обещать не значит жениться
+§ achievements.longWaitPR.description: создал PR, который больше месяца провисел на ревью
+§ achievements.moreLongWaitPR.title: Давным давно, в далёкой галактике
+§ achievements.moreLongWaitPR.description: создал PR, который максимально долго провисел на ревью
+§ achievements.oneExtension.title: Один в поле воин
+§ achievements.oneExtension.description: только он работает с файлами определенного расширения
+§ achievements.fileRush.title: Зерг Раш
+§ achievements.fileRush.description: создал больше всех файлов в проекте
+§ achievements.moreLintHint.title: Грамар-наци
+§ achievements.moreLintHint.description: больше всех создал или изменил в правилах авто-проверки кода
+§ achievements.moreReadMe.title: Летописец
+§ achievements.moreReadMe.description: больше всех создал или изменил файлов MD
+§ achievements.moreDevOps.title: DevOps
+§ achievements.moreDevOps.description: больше всех создал или изменил файлов для CI/CD
+§ achievements.moreTests.title: Тестировщик
+§ achievements.moreTests.description: больше всех создал или изменил файлов для тестирования
+§ achievements.allRelease.title: Фулл хаус
+§ achievements.allRelease.description: есть релиз, собранный только из его задач
+§ achievements.firstCommit.title: Кто первый, того и тапки
+§ achievements.firstCommit.description: первый коммит на проекте
+§ achievements.lastCommit.title: Я закончил
+§ achievements.lastCommit.description: последний коммит на проекте
+§ achievements.firstLastCommit.title: От начала и до конца
+§ achievements.firstLastCommit.description: первый и последний коммит на проекте
+§ achievements.longFilePath.title: Закрома родины
+§ achievements.longFilePath.description: первый создал файл с самым глубоким вложением
+§ achievements.longFileName.title: Размер имеет значение
+§ achievements.longFileName.description: создал файл с самым длинным именемм
+§ achievements.workOnWeekends.title: Работа не walk
+§ achievements.workOnWeekends.description: хоть раз работал на выходных
+§ achievements.removeCreateFile.title: Откопал стюардессу
+§ achievements.removeCreateFile.description: востановил удаленный файл
+§ achievements.renameFile.title: Астана Нур-Султан Астана
+§ achievements.renameFile.description: переименовывал туда-сюда файл
+§ achievements.longTask.title: Вроде изян
+§ achievements.longTask.description: работал над задачей больше трех месяцев
+§ achievements.111.description: test
 `;

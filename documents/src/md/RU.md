@@ -1,4 +1,4 @@
-Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github)).
+Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt), [установка](https://assayo.online/demo/?ref=github)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;

@@ -2,11 +2,11 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
-import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
+import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 
-import CardWithBanner from 'ts/components/CardWithBanner';
 import CardWithIcon from 'ts/components/CardWithIcon';
+import CardWithBanner from 'ts/components/CardWithIcon/Banner';
 import Achievements from 'ts/components/Achievement';
 import Description from 'ts/components/Description';
 import PageWrapper from 'ts/components/Page/wrapper';
@@ -39,8 +39,8 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const statistic = user;
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[user.author];
   const taskNumber = statistic.tasks.length;
-  const achievements = getAchievementByAuthor(statistic.author);
-  console.dir(achievements);
+  const achievements = achievementByAuthor.authors[statistic.author];
+
   return (
     <PageWrapper>
       <PageColumn>

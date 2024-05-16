@@ -1,98 +1,98 @@
 import IHashMap from 'ts/interfaces/HashMap';
-import dataGrip from 'ts/helpers/DataGrip';
 
-class AchievementsByCompetition {
+import getAchievementByAuthor from './byAuthor';
+
+class AchievementsByAuthor {
   authors: IHashMap<string[]> = {};
 
-  get(name: string) {
-    return this.authors[name]
-      ? [...this.authors[name]]
-      : [];
+  addAuthor(name: string) {
+    this.authors[name] = [];
   }
 
-  updateByDataGrip(statisticByAuthor: any) {
-    //   У меня работает - больше всего коммитов с текстом fix
-    // 500я на проде - больше всего коммитов с префиксом hotfix
-    // Хуяк, хуяк и в продакшен - больше всего коммитов с префиксом add или feat
-    // Выпускающий редактор - больше всего коммитов с текстом refactor
-    //  - больше всего коммитов в час
-    const {
-      total,
-      achievements,
-    } = this.#getTotalByAuthor(statisticByAuthor);
+  add(authors: Array<[string, number]>, maxAchievementCode: string, minAchievementCode?: string) {
+    const first = authors[0][0];
+    this.authors?.[first]?.push(maxAchievementCode);
 
-    const nameLength = this.#getFirstAndLast(total.nameLength);
-    // Азим Азиз Иль Ам Кадир Имран II - самое длинное имя
-    achievements[nameLength.first].push('longestName');
-    // Корнишон - самое короткое имя
-    achievements[nameLength.last].push('shortestName');
+    if (!minAchievementCode) return;
+    const last = authors[authors.length - 1][0];
+    this.authors?.[last]?.push(minAchievementCode);
+  }
+}
 
-    const midMessage = this.#getFirstAndLast(total.midMessage);
-    // Мастер красноречия - стабильно ,самые длинные подписи коммитов
-    achievements[midMessage.first].push('everyMessageLong');
-    // Нет времени обьяснять - стабильно, самые короткие подписи коммитов
-    achievements[midMessage.last].push('everyMessageShort');
+class AchievementsByCompetition {
+  authors: IHashMap<Array<string[]>> = {};
 
-    const maxMessage = this.#getFirstAndLast(total.maxMessage);
-    // Пиздеть, не мешки ворочить - самая длинная подпись коммита за все время
-    achievements[maxMessage.first].push('longestMessage');
+  updateByDataGrip(dataGrip: any) {
+    const statisticByAuthor = dataGrip.author.statistic;
+    const byAuthor: any = new AchievementsByAuthor();
+    const total  = this.#getMinMaxValue(statisticByAuthor, dataGrip, (statistic: any) => {
+      byAuthor.addAuthor(statistic.author);
+    });
 
-    const tasks = this.#getFirstAndLast(total.tasks);
-    // Батя - больше всего закрытых задач
-    achievements[tasks.first].push('moreTasks');
-    // Зашел и вышел - меньше всего закрытых задач
-    achievements[tasks.last].push('lessTasks');
+    // Длина имени
+    byAuthor.add(total.nameLength, 'longestName', 'shortestName');
 
-    const days = this.#getFirstAndLast(total.days);
-    // Ценный работник - больше всего рабочих дней
-    achievements[days.first].push('moreWorkDays');
-    // Дальше без меня - меньше всего рабочих дней
-    achievements[days.last].push('lessWorkDays');
+    // Длина сообщения
+    byAuthor.add(total.messageLength, 'longestMessage');
 
-    const lazyDays = this.#getFirstAndLast(total.lazyDays);
-    // Мысленно я с вами - больше всего дней без коммитов
-    achievements[lazyDays.first].push('moreLazyDays');
-    // Папа Карло - меньше всего дней без коммитов
-    achievements[lazyDays.last].push('lessLazyDays');
+    // Средняя длина сообщения
+    byAuthor.add(total.midMessageLength, 'everyMessageLong', 'everyMessageShort');
 
-    const allDaysInProject = this.#getFirstAndLast(total.allDaysInProject);
-    // Старожил - больше всего дней на проекте
-    achievements[allDaysInProject.first].push('moreDaysInProject');
-    // А это кто? - меньше всего дней на проекте
-    achievements[allDaysInProject.last].push('lessDaysInProject');
+    // Количество закрытых задач
+    byAuthor.add(total.tasks, 'moreTasks', 'lessTasks');
 
-    const firstCommit = this.#getFirstAndLast(total.firstCommit);
-    // Адам - первый стабильны сотрудник на проекте
-    achievements[firstCommit.last].push('adam');
+    // Количество дней с коммитами
+    byAuthor.add(total.days, 'moreWorkDays', 'lessWorkDays');
 
-    const moreRefactoring = this.#getFirstAndLast(total.moreRefactoring);
-    // Главный редактор - сделал больше всех меток «рефакторинг»
-    achievements[moreRefactoring.first].push('moreRefactoring');
+    // Количество дней без коммитов
+    byAuthor.add(total.lazyDays, 'moreLazyDays', 'lessLazyDays');
 
-    const tasksInDay = this.#getFirstAndLast(total.tasksInDay);
-    // Спиди-гонщик - рекорд по количеству закрытых задач в день
-    achievements[tasksInDay.first].push('moreTasksInDay');
+    // Количество дней на проекте
+    byAuthor.add(total.allDaysInProject, 'moreDaysInProject', 'lessDaysInProject');
 
-    const commitsInDay = this.#getFirstAndLast(total.commitsInDay);
-    // Zerg Rush - рекорд по количеству коммитов в день
-    achievements[commitsInDay.first].push('moreCommits');
+    // Дата первого коммита
+    byAuthor.add(total.firstCommit, 'adam');
 
-    this.authors = achievements;
+    // Количество метки «рефакторинг»
+    byAuthor.add(total.moreRefactoring, 'moreRefactoring');
+
+    // Количество закрытых задач в день
+    byAuthor.add(total.tasksInDay, 'moreTasksInDay');
+
+    // Количество коммитов в день
+    byAuthor.add(total.commitsInDay, 'moreCommits');
+
+    // Первый и последний коммит
+    const lastAuthor = dataGrip.firstLastCommit.maxData.author;
+    const firstAuthor = dataGrip.firstLastCommit.minData.author;
+    if (firstAuthor === lastAuthor) {
+      byAuthor.authors[firstAuthor].push('firstLastCommit');
+    } else {
+      byAuthor.authors[firstAuthor].push('firstCommit');
+      byAuthor.authors[lastAuthor].push('lastCommit');
+    }
+
+    console.dir(byAuthor);
+    statisticByAuthor.forEach((statistic: any) => {
+      const achievements = byAuthor.authors[statistic.author];
+      this.authors[statistic.author] = getAchievementByAuthor(achievements, statistic);
+    });
   }
 
-  #getTotalByAuthor(statisticByAuthor: any) {
-    const achievements = {};
+  #getMinMaxValue(statisticByAuthor: any, dataGrip: any, callback: Function) {
     const total: IHashMap<any> = {};
 
     statisticByAuthor.forEach((statistic: any) => {
-      achievements[statistic.author] = [];
+      callback(statistic);
+
       const addData = (property: string, count: number) => {
         if (!total[property]) total[property] = [];
         total[property].push([statistic.author, count]);
       };
+
       addData('nameLength', statistic.author.length);
-      addData('maxMessage', statistic.messageLength[statistic.messageLength.length - 1]);
-      addData('midMessage', statistic.middleMessageLength);
+      addData('messageLength', statistic.messageLength[statistic.messageLength.length - 1]);
+      addData('midMessageLength', statistic.middleMessageLength);
       addData('tasks', statistic.tasks.length);
       addData('days', statistic.days);
       addData('moreRefactoring', statistic.types.refactor);
@@ -111,17 +111,7 @@ class AchievementsByCompetition {
       total[achievement].sort((a: any, b: any) => b[1] - a[1]);
     });
 
-    return { total, achievements };
-  }
-
-  #getFirstAndLast(list: any[]) {
-    const first = list.shift();
-    const last = list.pop() || first;
-
-    return {
-      first: first[0],
-      last: last[0],
-    };
+    return total;
   }
 }
 

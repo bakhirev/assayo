@@ -57,6 +57,7 @@ CardWithIcon.defaultProps = {
   suffix: '',
   color: undefined,
   icon: undefined,
+  long: false,
 };
 
 export default CardWithIcon;

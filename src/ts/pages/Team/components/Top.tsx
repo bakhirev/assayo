@@ -11,8 +11,6 @@ import Races from 'ts/components/Races';
 
 import Tv100And1 from 'ts/components/Tv100And1';
 
-// import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
-import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
 import Description from 'ts/components/Description';
 import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
@@ -50,8 +48,6 @@ const Top = observer((): React.ReactElement => {
   const chartMessageLength = getOptions({ max: maxMessageLength[0].value, suffix: 'сиволов' });
 
   const authors = dataGripStore.dataGrip.author.statistic.map((statistic: any) => {
-    const achievements = getAchievementByAuthor(statistic.author);
-    console.dir(achievements);
     const from = getDate(statistic.firstCommit.date);
     const to = getDate(statistic.lastCommit.date);
     const achievementsList = [

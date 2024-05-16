@@ -73,8 +73,6 @@ export default `
 § achievements.hasCommitEveryTime.description: есть коммит на час каждого дня (включая выходные)
 § achievements.commitsAfter1800.title: Делу время
 § achievements.commitsAfter1800.description: нет ни одного коммита после 18:00
-§ achievements.more1488DaysInProject.title: им. Максима Марцинкевича
-§ achievements.more1488DaysInProject.description: отработал 1488 дней на проекте
 § achievements.moreFix.title: Bug hunter
 § achievements.moreFix.description: больше всего закрытых багов
 § achievements.lessWorkDays.title: Дальше без меня

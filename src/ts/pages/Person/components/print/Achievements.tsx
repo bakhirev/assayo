@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
-import getAchievementByAuthor from 'ts/helpers/achievement/byAuthor';
+import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 
 import Achievements from 'ts/components/Achievement';
@@ -36,7 +36,7 @@ const Total = observer(({
   const { t } = useTranslation();
   const statistic = user;
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[statistic.author];
-  const achievements = getAchievementByAuthor(statistic.author);
+  const achievements = achievementByAuthor.authors[statistic.author];
 
   return (
     <PageWrapper>
