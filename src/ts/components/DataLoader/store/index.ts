@@ -78,7 +78,7 @@ export class DataLoaderStore implements IDataLoaderStore {
     makeObservable(this, {
       state: observable,
       watchedValue: observable,
-      response: observable,
+      // response: observable,
       sort: observable,
       fetchData: action,
       successCallback: action,

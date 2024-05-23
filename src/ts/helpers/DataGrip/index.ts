@@ -1,5 +1,4 @@
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
-import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
 import settingsStore from 'ts/store/Settings';
 import Recommendations from 'ts/helpers/Recommendations';
@@ -11,7 +10,6 @@ import DataGripByType from './components/type';
 import DataGripByTimestamp from './components/timestamp';
 import DataGripByWeek from './components/week';
 import MinMaxCounter from './components/counter';
-import DataGripByExtension from './components/extension';
 import DataGripByGet from './components/get';
 import DataGripByPR from './components/pr';
 import DataGripByTasks from './components/tasks';
@@ -34,8 +32,6 @@ class DataGrip {
 
   recommendations: any = new Recommendations();
 
-  extension: any = new DataGripByExtension();
-
   get: any = new DataGripByGet();
 
   pr: any = new DataGripByPR();
@@ -57,7 +53,6 @@ class DataGrip {
     this.timestamp.clear();
     this.week.clear();
     this.recommendations.clear();
-    this.extension.clear();
     this.get.clear();
     this.pr.clear();
     this.tasks.clear();
@@ -113,10 +108,6 @@ class DataGrip {
     });
     this.#updateTotalInfo();
     this.hash = Math.random();
-  }
-
-  updateByFiles(fileList: IDirtyFile[], removedFileList: IDirtyFile[]) {
-    this.extension.updateTotalInfo(fileList, removedFileList);
   }
 }
 

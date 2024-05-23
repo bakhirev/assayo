@@ -45,24 +45,24 @@ export default `
 § achievements.moreDaysForTask.description: работа по задачам идёт медленнее чем у остальных
 § achievements.more2DaysForTask.title: Cо слоу
 § achievements.more2DaysForTask.description: больше двух дней на задачу
-§ achievements.moreDaysInProject.title: Часть команды, часть коробля
-§ achievements.moreDaysInProject.description: больше всего дней на проекте
 § achievements.more3YearsInProject.title: Старожил
 § achievements.more3YearsInProject.description: больше трех лет на проекте
 § achievements.lessDaysInProject.title: А это кто?
 § achievements.lessDaysInProject.description: меньше всего дней на проекте
-§ achievements.more90DaysInProject.title: Добро пожаловать
-§ achievements.more90DaysInProject.description: не уволили на испытательном
 § achievements.lessDaysForTask.title: Скорострел
 § achievements.lessDaysForTask.description: одна задача занимает меньше дня
 § achievements.adam.title: Адам
 § achievements.adam.description: первый стабильный сотрудник на проекте
+§ achievements.more90DaysInProject.title: Добро пожаловать
+§ achievements.more90DaysInProject.description: не уволили на испытательном
 § achievements.more365DaysInProject.title: Годовасик
 § achievements.more365DaysInProject.description: отработал год на проекте
 § achievements.more666DaysInProject.title: Чёрт
 § achievements.more666DaysInProject.description: отработал 666 дней на проекте
 § achievements.more777DaysInProject.title: Азино 3 топора
 § achievements.more777DaysInProject.description: отработал 777 дней на проекте
+§ achievements.moreDaysInProject.title: Часть команды, часть коробля
+§ achievements.moreDaysInProject.description: больше всего дней на проекте
 § achievements.moreRefactoring.title: Выпускающий редактор
 § achievements.moreRefactoring.description: сделал больше всех меток «рефакторинг»
 § achievements.longestMessage.title: А разговоров то было...

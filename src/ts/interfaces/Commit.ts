@@ -1,3 +1,17 @@
+export interface IFileChange {
+  id: string; // регистро-независимый путь в качестве ID
+  path: string; // актуальный путь с учётом регистра
+
+  newId?: string; // новый ID, если файл переименовали
+  newPath?: string; // новый путь с учётом регистра
+
+  action: string; // тип действия с файлом: добавили, изменили, удалили
+
+  addedLines: number;
+  removedLines: number;
+  changedLines: number;
+}
+
 export interface ILog {
   // date
   date: string; // "2021-02-09T12:59:17+03:00",
@@ -22,6 +36,8 @@ export interface ILog {
   taskNumber: string; // "0000",
   type: string; // feat|fix|docs|style|refactor|test|chore
   scope: string; //  table, sale, profile and etc.
+
+  fileChanges: IFileChange[];
 }
 
 export const COMMIT_TYPE = {

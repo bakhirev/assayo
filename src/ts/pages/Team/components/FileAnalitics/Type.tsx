@@ -26,11 +26,11 @@ interface IFilesViewProps {
   mode?: string;
 }
 
-function ExtensionView({ response, updateSort, rowsForExcel, mode }: IFilesViewProps) {
+function TypeView({ response, updateSort, rowsForExcel, mode }: IFilesViewProps) {
   if (!response) return null;
 
-  const current = getMax(response, 'current', 'count');
-  const removed = getMax(response, 'removed', 'count');
+  const current = getMax(response, 'count');
+  const removed = getMax(response, 'removedCount');
   const max = Math.max(current, removed);
   const filesChart = getOptions({ max, suffix: 'page.team.extension.files' });
 
@@ -47,14 +47,14 @@ function ExtensionView({ response, updateSort, rowsForExcel, mode }: IFilesViewP
         isFixed
         template={ColumnTypesEnum.STRING}
         title="page.team.extension.name"
-        properties="extension"
+        properties="type"
         width={200}
       />
       <Column
         template={ColumnTypesEnum.STRING}
         title="page.team.extension.path"
         width={350}
-        properties="path"
+        formatter={(row: any) => row.count === 1 || row.removedCount === 1 ? row.path : ''}
       />
       {mode === 'print' ? (
         <Column
@@ -82,37 +82,35 @@ function ExtensionView({ response, updateSort, rowsForExcel, mode }: IFilesViewP
       )}
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
-        properties="current"
-        formatter={(value: any) => value.count}
+        properties="count"
       />
       <Column
         isSortable
         title="page.team.extension.current.count"
-        properties="current"
+        properties="count"
         width={170}
         minWidth={170}
-        template={(value: any) => (
+        template={(value: number) => (
           <LineChart
             options={filesChart}
-            value={value.count}
+            value={value}
           />
         )}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
-        properties="removed"
-        formatter={(value: any) => value.count}
+        properties="removedCount"
       />
       <Column
         isSortable
         title="page.team.extension.removed.count"
-        properties="removed"
+        properties="removedCount"
         width={170}
         minWidth={170}
-        template={(value: any) => (
+        template={(value: number) => (
           <LineChart
             options={filesChart}
-            value={value.count}
+            value={value}
           />
         )}
       />
@@ -120,27 +118,19 @@ function ExtensionView({ response, updateSort, rowsForExcel, mode }: IFilesViewP
   );
 }
 
-ExtensionView.defaultProps = {
+TypeView.defaultProps = {
   response: undefined,
 };
 
-const Extension = observer(({
+const Type = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
-  const rows = dataGripStore.dataGrip.extension.statistic;
+  const rows = dataGripStore.fileGrip.type.statistic;
   if (rows?.length < 2) return mode !== 'print' ? (<NothingFound />) : null;
 
   return (
     <>
-      {mode === 'print' ? (
-        <Title title="sidebar.team.extension"/>
-      ) : (
-        <>
-          <br/>
-          <br/>
-          <br/>
-        </>
-      )}
+      <Title title="sidebar.team.extension"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
@@ -148,7 +138,7 @@ const Extension = observer(({
         })}
         watch={`${mode}${dataGripStore.dataGrip.hash}`}
       >
-        <ExtensionView
+        <TypeView
           mode={mode}
           rowsForExcel={rows}
         />
@@ -158,4 +148,4 @@ const Extension = observer(({
   );
 });
 
-export default Extension;
+export default Type;

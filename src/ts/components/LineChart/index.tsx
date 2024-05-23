@@ -22,11 +22,8 @@ function LineChart({
   className,
 }: ILineChartProps): React.ReactElement | null {
   if (!value) return  null;
-  if (options.suffix === 'stop') {
-    console.log('xxx');
-  }
 
-  const width = Math.round((value ?? 100) * (100 / options.max));
+  let width = Math.round((value ?? 100) * (100 / options.max));
 
   if (!details) {
     return (

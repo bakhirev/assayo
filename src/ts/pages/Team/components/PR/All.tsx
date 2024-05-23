@@ -36,7 +36,6 @@ function AllPR({
     order: dataGripStore.dataGrip.author.list,
   });
 
-  console.log(commitsChart);
   return (
     <DataView
       rowsForExcel={rowsForExcel}

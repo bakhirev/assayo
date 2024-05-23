@@ -53,7 +53,7 @@ export default class DataGripByExtension {
     if (!group[file.extension]) {
       group[file.extension] = this.#getNewExtension(file);
     }
-    group[file.extension][type].files[file.name] = file.firstName;
+    group[file.extension][type].files[file.id] = file.name;
     group[file.extension][type].count += 1;
   }
 

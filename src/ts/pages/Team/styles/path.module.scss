@@ -1,0 +1,26 @@
+@import 'src/styles/variables';
+
+.file_breadcrumbs {
+  margin: 0 0 24px 0;
+
+  &_text {
+    font-size: var(--font-l);
+    font-weight: 100;
+
+    display: inline-block;
+    margin-right: var(--space-m);
+
+    text-decoration: none;
+    vertical-align: top;
+
+    color: var(--color-black);
+  }
+
+  &_link {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

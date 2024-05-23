@@ -11,7 +11,7 @@ interface IExtensionProps {
 function Extension({
   statistic,
 }: IExtensionProps): React.ReactElement | null {
-  if (!statistic) return null;
+  if (!statistic || true) return null;
 
   const getValue = (more: any) => `${more.author} (${more.percent.toFixed(1)}%)`;
 

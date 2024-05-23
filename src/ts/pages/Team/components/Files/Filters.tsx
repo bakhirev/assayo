@@ -6,8 +6,8 @@ import dataGripStore from 'ts/store/DataGrip';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import UiKitInputNumber from 'ts/components/UiKit/components/InputNumber';
 
-import treeStore from '../store/Tree';
-import style from '../styles/filters.module.scss';
+import treeStore from '../../store/Tree';
+import style from '../../styles/filters.module.scss';
 
 const TreeFilters = observer((): React.ReactElement => {
   const { t } = useTranslation();

@@ -73,12 +73,14 @@ export default function getFakeLoader({
   const totalElements = sortedContent.length;
   const totalPages = Math.ceil(totalElements / size);
 
-  return Promise.resolve({
+  const response = {
     size,
     number: page,
     totalPages,
     totalElements,
     sort: sort || [],
     content: sortedContent.slice(begin, end) || [],
-  });
+  };
+
+  return Promise.resolve(response);
 }

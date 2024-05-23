@@ -1,6 +1,37 @@
 import ALL_ACHIEVEMENTS from './constants/list';
+import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
-export default function getAchievementByAuthor(list: string[], statistic: any) {
+function getHoroscope(firstCommit: ICommit | ISystemCommit) {
+  const month = firstCommit.month + 1;
+  const dayInMonth = firstCommit.month;
+  const horoscopeRange = [
+    { from: [22, 12], to: [20, 1] },
+    { from: [20, 1], to: [18, 2] },
+    { from: [19, 2], to: [20, 3] },
+    { from: [21, 3], to: [19, 4] },
+    { from: [20, 4], to: [20, 5] },
+    { from: [21, 5], to: [21, 6] },
+    { from: [22, 6], to: [22, 7] },
+    { from: [23, 7], to: [22, 8] },
+    { from: [23, 8], to: [22, 9] },
+    { from: [23, 9], to: [23, 10] },
+    { from: [24, 10], to: [22, 11] },
+    { from: [23, 11], to: [21, 12] },
+  ];
+
+  const achievementIndex = horoscopeRange.reduce((acc: string, item: any, index: number) => {
+    if (acc) return acc;
+    if ((item.from[1] === month && dayInMonth >= item.from[0])
+      || (item.to[1] === month && dayInMonth <= item.to[0])) return `${index + 1}`;
+    return acc;
+  }, '');
+
+  return `horoscope${achievementIndex}`;
+}
+
+
+export default function getAchievementByAuthor(list: string[], dataGrip: any, author: string) {
+  const statistic = dataGrip.author.statisticByName[author];
   const commitByHours = statistic.commitsByHour;
 
   if (statistic.commits > 20) {
@@ -40,6 +71,15 @@ export default function getAchievementByAuthor(list: string[], statistic: any) {
     if (statistic.allDaysInProject >= 666) list.push('more666DaysInProject');
     // Азино - отработал 777 дней на проекте
     if (statistic.allDaysInProject >= 777) list.push('more777DaysInProject');
+    // Старожил - отработал 3 года на проекте
+    if (statistic.allDaysInProject >= (3 * 365)) list.push('more3YearsInProject');
+    // хоть раз работал на выходных
+    if (statistic.commitsByDayAndHourTotal[5]
+      || statistic.commitsByDayAndHourTotal[6]) list.push('workOnWeekends');
+
+    // работал над задачей больше трех месяцев
+    const daysInWork = dataGrip.tasks.longTaskByAuthor[author] || {};
+    if (daysInWork > 92) list.push('longTask');
   }
   // Ни единого разрыва - 0 дней без коммитов
   if (statistic.lazyDays === 0) list.push('zeroLazyDays');
@@ -47,6 +87,11 @@ export default function getAchievementByAuthor(list: string[], statistic: any) {
   if (statistic.commits > 0 && statistic.tasks === 0) list.push('workNotWork');
   // Точно в цель - в среднем 1 коммит на таск
   if (statistic.tasks / statistic.commits) list.push('oneCommitOneTask');
+
+  list.push(getHoroscope(statistic.firstCommit));
+
+  const statisticByPr = dataGrip.pr.statisticByName[author] || {};
+  if (statisticByPr?.maxDelayDays > 31) list.push('longWaitPR');
 
   return list.reduce((acc: any, type: string) => {
     const index = ALL_ACHIEVEMENTS[type] - 1;

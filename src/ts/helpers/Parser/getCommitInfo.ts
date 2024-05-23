@@ -2,7 +2,7 @@ import ICommit, { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
 
-export default function getUserInfo(logString: string): ICommit | ISystemCommit {
+export default function getCommitInfo(logString: string): ICommit | ISystemCommit {
   // "2021-02-09T12:59:17+03:00>Frolov Ivan>frolov@mail.ru>profile"
   const parts = logString.split('>');
 
@@ -35,6 +35,7 @@ export default function getUserInfo(logString: string): ICommit | ISystemCommit 
     text: '',
     type: 'не подписан',
     scope: 'неопределенна',
+    fileChanges: [],
   };
 
   const isSystemPR = message.indexOf('Pull request #') === 0;

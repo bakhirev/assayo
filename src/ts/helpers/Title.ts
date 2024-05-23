@@ -1,7 +1,7 @@
 import localization from './Localization';
 
-function getFormattedType(dataGrip: any): string {
-  const popularType = dataGrip.extension.statistic?.[0] || {};
+function getFormattedType(fileGrip: any): string {
+  const popularType = fileGrip.extension.statistic?.[0] || {};
   const extension = popularType?.extension || '';
 
   if ([
@@ -30,7 +30,7 @@ function getFormattedType(dataGrip: any): string {
     'perl',
     'java',
   ].includes(extension)) {
-    const hasManifest = dataGrip.extension.statisticByName?.xml?.files?.AndroidManifest;
+    const hasManifest = fileGrip.extension.statisticByName?.xml?.files?.AndroidManifest;
     return hasManifest
       ? 'Android'
       : 'Back';
@@ -45,12 +45,12 @@ function getFormattedType(dataGrip: any): string {
   return extension.toUpperCase();
 }
 
-export default function getTitle(dataGrip: any, commits: any) {
+export default function getTitle(dataGrip: any, fileGrip: any, commits: any) {
   if (!commits.length) {
     return localization.get('common.title');
   }
 
-  const type = getFormattedType(dataGrip) || '';
+  const type = getFormattedType(fileGrip) || '';
   const task = dataGrip.pr.statistic?.[0]?.task || '';
   const author = dataGrip.firstLastCommit.minData.author || '';
   const year = commits?.[0]?.year || '';

@@ -143,6 +143,13 @@ export default class DataGripByPR {
   updateTotalByAuthor(authors: any, refAuthorPR: IHashMap<any>) {
     this.statisticByName = {};
     authors.map((name: string) => {
+
+      let maxDelayDays = 0;
+      refAuthorPR[name].forEach((pr: any) => {
+        if (pr.delayDays > maxDelayDays) maxDelayDays = pr.delayDays;
+      });
+
+      // TODO: сложын и не интересные показатели. Гистаграмму?
       const delayDays = DataGripByPR.getPRByGroups(refAuthorPR[name], 'delayDays');
       const delayDaysWeightedAverage = parseInt(delayDays.weightedAverage.toFixed(1), 10);
 
@@ -151,6 +158,9 @@ export default class DataGripByPR {
 
       this.statisticByName[name] = {
         author: name,
+        maxDelayDays,
+        numberMergedPr: refAuthorPR[name].length,
+
         workDays: workDays.details,
         delayDays: delayDays.details,
         weightedAverage: workDaysWeightedAverage + delayDaysWeightedAverage,

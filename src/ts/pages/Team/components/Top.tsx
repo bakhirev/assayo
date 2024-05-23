@@ -23,7 +23,7 @@ import { getDate } from 'ts/helpers/formatter';
 import style from '../styles/quiz.module.scss';
 
 const Top = observer((): React.ReactElement => {
-  const extensions = dataGripStore.dataGrip.extension.statistic
+  const extensions = dataGripStore.fileGrip.extension.statistic
     .slice(0, 4).map((statistic: any) => {
       return (
         <Extension

@@ -27,7 +27,7 @@ function WarningInfo() {
 }
 
 function Welcome() {
-  const command = 'git --no-pager log --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt\n';
+  const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt\n';
   return (
     <>
       {process.env.REACT_APP_TYPE !== 'local' && (<WarningInfo />)}

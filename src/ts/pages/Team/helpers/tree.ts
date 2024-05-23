@@ -1,58 +1,22 @@
-import { IFileTree } from 'ts/interfaces/FileInfo';
+import { IFolder } from 'ts/interfaces/FileInfo';
 
-interface IFile {
-  name: string;
-  path: string[];
-  content: IFile[];
-}
-
-export function getSubTreeByPath(tree: IFileTree, path: string[]) {
-  let subTree: any = tree || { content: [] };
-  (path || []).forEach((folderName: string) => {
+function getSubTree(tree: IFolder, path: string[]) {
+  return (path || []).reduce((subTree: any, folderName: string) => {
     subTree = subTree.content[folderName] || { content: [] };
-  });
-  return subTree;
+    return subTree;
+  }, tree || { content: [] });
 }
 
-
-function getButtonUp(file: IFile) {
-  return file?.path?.length ? ({
-    title: '..',
-    path: file.path.slice(0, -1),
-  }) : null;
+function getSortedContent(subTree: any) {
+  return Object.values(subTree.content)
+    .sort((a: any, b: any) => {
+      if (a.content && !b.content) return -1;
+      if (!a.content && b.content) return 1;
+      if (a.name === b.name) return 0;
+      return a.name > b.name ? 1 : -1;
+    });
 }
 
-function getFolderView(file: IFile) {
-  return {
-    file,
-    title: `📁 ${file.name}`,
-    path: file.path,
-  };
-}
-
-function getFileView(file: IFile) {
-  return {
-    file,
-    title: `📄 ${file.name.split('/').pop() || ''}`,
-  };
-}
-
-export function getArrayFromTree(tree: any) {
-  const folders = [];
-  const files = [];
-
-  for (let name in tree.content) {
-    const file = tree.content[name];
-    if (file.content) {
-      folders.push(getFolderView(file));
-    } else {
-      files.push(getFileView(file));
-    }
-  }
-
-  return [
-    getButtonUp(tree),
-    ...folders,
-    ...files,
-  ].filter(v => v);
+export function getContentByPath(fileTree: IFolder, path: string[]) {
+  return getSortedContent(getSubTree(fileTree, path));
 }

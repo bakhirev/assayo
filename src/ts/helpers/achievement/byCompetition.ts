@@ -1,6 +1,7 @@
 import IHashMap from 'ts/interfaces/HashMap';
 
 import getAchievementByAuthor from './byAuthor';
+import getAchievementByFile from './byFile';
 
 class AchievementsByAuthor {
   authors: IHashMap<string[]> = {};
@@ -10,11 +11,12 @@ class AchievementsByAuthor {
   }
 
   add(authors: Array<[string, number]>, maxAchievementCode: string, minAchievementCode?: string) {
-    const first = authors[0][0];
+    const first = authors?.[0]?.[0];
+    if (!first) return;
     this.authors?.[first]?.push(maxAchievementCode);
 
     if (!minAchievementCode) return;
-    const last = authors[authors.length - 1][0];
+    const last = authors?.[authors.length - 1]?.[0];
     this.authors?.[last]?.push(minAchievementCode);
   }
 }
@@ -22,7 +24,7 @@ class AchievementsByAuthor {
 class AchievementsByCompetition {
   authors: IHashMap<Array<string[]>> = {};
 
-  updateByDataGrip(dataGrip: any) {
+  updateByGrip(dataGrip: any, fileGrip: any) {
     const statisticByAuthor = dataGrip.author.statistic;
     const byAuthor: any = new AchievementsByAuthor();
     const total  = this.#getMinMaxValue(statisticByAuthor, dataGrip, (statistic: any) => {
@@ -62,6 +64,12 @@ class AchievementsByCompetition {
     // Количество коммитов в день
     byAuthor.add(total.commitsInDay, 'moreCommits');
 
+    // Таможня даёт добро
+    byAuthor.add(total.morePRMerge, 'morePRMerge');
+
+    // Давным давно, в далёкой галактике
+    byAuthor.add(total.moreLongWaitPR, 'moreLongWaitPR');
+
     // Первый и последний коммит
     const lastAuthor = dataGrip.firstLastCommit.maxData.author;
     const firstAuthor = dataGrip.firstLastCommit.minData.author;
@@ -72,10 +80,11 @@ class AchievementsByCompetition {
       byAuthor.authors[lastAuthor].push('lastCommit');
     }
 
-    console.dir(byAuthor);
+    getAchievementByFile(fileGrip, byAuthor);
+
     statisticByAuthor.forEach((statistic: any) => {
       const achievements = byAuthor.authors[statistic.author];
-      this.authors[statistic.author] = getAchievementByAuthor(achievements, statistic);
+      this.authors[statistic.author] = getAchievementByAuthor(achievements, dataGrip, statistic.author);
     });
   }
 
@@ -85,9 +94,9 @@ class AchievementsByCompetition {
     statisticByAuthor.forEach((statistic: any) => {
       callback(statistic);
 
-      const addData = (property: string, count: number) => {
+      const addData = (property: string, count?: number) => {
         if (!total[property]) total[property] = [];
-        total[property].push([statistic.author, count]);
+        total[property].push([statistic.author, count || 0]);
       };
 
       addData('nameLength', statistic.author.length);
@@ -100,6 +109,10 @@ class AchievementsByCompetition {
       const byTimestamp = dataGrip.timestamp.statisticByAuthor[statistic.author];
       addData('tasksInDay', byTimestamp.tasksByTimestampCounter.max);
       addData('commitsInDay', byTimestamp.commitsByTimestampCounter.max);
+
+      const byPr = dataGrip.pr.statisticByName[statistic.author] || {};
+      addData('moreLongWaitPR', byPr?.maxDelayDays);
+      addData('morePRMerge', byPr?.numberMergedPr);
 
       if (statistic.isStaff) return;
       addData('allDaysInProject', statistic.allDaysInProject);

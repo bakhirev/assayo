@@ -1,118 +1,48 @@
-import { IDirtyFile } from 'ts/interfaces/FileInfo';
+import ICommit, { IFileChange, ISystemCommit } from 'ts/interfaces/Commit';
+
 import IHashMap from 'ts/interfaces/HashMap';
-import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
-import settingsStore from 'ts/store/Settings';
 
-import getUserInfo from './user_info';
-import { getNewFileName, getFileList } from './files';
-import { getNewFileInfo } from './file_info';
+import getCommitInfo from './getCommitInfo';
+import { getInfoFromPath, getNumStatInfo, getRawInfo } from './getFileChanges';
 
-const uniq = {};
 export default function Parser(report: string[]) {
-  const allFiles: IHashMap<IDirtyFile> = {};
-  const removedFiles: IHashMap<IDirtyFile> = {};
+  let commit = null;
   const commits: Array<ICommit | ISystemCommit> = [];
-  let week: number = 0;
-  let weekEndTime: number = 0;
 
-  let prev = null;
+  let files: IHashMap<IFileChange> = {};
+  let fileChanges: IFileChange | null = null;
 
   for (let i = 0, l = report.length; i < l; i += 1) {
     const message = report[i];
     if (!message) continue;
+
     const index = message.indexOf('\t');
-    if (index > 0 && index < 10) {
-      let [addedRaw, removedRaw, fileName] = message.split('\t');
-      const formattedFileName = fileName?.replace(/"/gm, '');
-      fileName = getNewFileName(formattedFileName, allFiles);
-      let added = parseInt(addedRaw, 10) || 0;
-      let removed = parseInt(removedRaw, 10) || 0;
-      const diff = added - removed;
-      let changes = added > removed ? removed : added;
+    if (index > 0 && index < 10) { // парсинг файлов формата --num-stat
+      const line = getNumStatInfo(message);
+      if (!files[line.path]) {
+        files[line.path] = getInfoFromPath(line.path);
+      }
+      fileChanges = files[line.path];
+      fileChanges.addedLines = line.addedLines;
+      fileChanges.removedLines = line.removedLines;
+      fileChanges.changedLines = line.changedLines;
 
-      if (!allFiles[fileName] && removedFiles[fileName]) {
-        allFiles[fileName] = removedFiles[fileName];
-        delete removedFiles[fileName];
+    } else if (message[0] === ':') { // парсинг файлов формата --raw
+      const line = getRawInfo(message);
+      if (!files[line.path]) {
+        files[line.path] = getInfoFromPath(line.path);
       }
+      fileChanges = files[line.path];
+      fileChanges.action = line.action;
 
-      if (allFiles[fileName]) {
-        const fileInfo: IDirtyFile = allFiles[fileName];
-        fileInfo.lastCommit = prev;
-        fileInfo.lines += diff;
-        if (!fileInfo.authors[prev?.author || '']) {
-          fileInfo.authors[prev?.author || ''] = {
-            added: 0,
-            changes: 0,
-            removed: 0,
-            commits: 1,
-            tasks: {},
-            types: {},
-            scopes: {},
-          };
-        }
-        const authorInfo = fileInfo.authors[prev?.author || ''];
-        authorInfo.changes = authorInfo.changes + changes;
-        if (diff > 0) {
-          authorInfo.added = authorInfo.added + diff;
-        } else {
-          authorInfo.removed = authorInfo.removed + diff * (-1);
-        }
-        authorInfo.commits += 1;
-        authorInfo.tasks[prev?.task || ''] = (authorInfo.tasks[prev?.task || ''] || 0) + 1;
-        authorInfo.types[prev?.type || ''] = (authorInfo.tasks[prev?.type || ''] || 0) + 1;
-        authorInfo.scopes[prev?.scope || ''] = (authorInfo.tasks[prev?.scope || ''] || 0) + 1;
-        if (allFiles[fileName].lines === 0) {
-          removedFiles[fileName] = allFiles[fileName];
-          delete allFiles[fileName];
-        }
-      } else {
-        // @ts-ignore
-        allFiles[fileName] = getNewFileInfo(fileName, added, prev);
-      }
-      if (removed > added) {
-        removed -= added;
-        changes += added;
-        added = 0;
-      } else if (added > removed) {
-        added -= removed;
-        changes += removed;
-        removed = 0;
-      } else if (added === removed) {
-        changes += added;
-        added = 0;
-        removed = 0;
-      }
-      if (prev) { // @ts-ignore
-        prev.changes += changes; // @ts-ignore
-        prev.added += added; // @ts-ignore
-        prev.removed += removed;
-      }
-    } else {
-      if (prev) {
-        if (uniq[prev.date]) {
-          // console.log(`double ${uniq[prev.date]} === ${i}`);
-        }
-        uniq[prev.date] = i;
-      }
-
-      const next = getUserInfo(message);
-      if (next.milliseconds > weekEndTime) {
-        week += 1;
-        weekEndTime = next.milliseconds + (settingsStore.ONE_DAY * (6 - next.day));
-      }
-      // @ts-ignore
-      next.week = week;
-
-      prev = next;
-      commits.push(prev); // @ts-ignore
+    } else { // парсинг коммита
+      if (commit) commit.fileChanges = Object.values(files);
+      files = {};
+      commit = getCommitInfo(message);
+      commit.week = 1;
+      commits.push(commit);
     }
   }
 
-  const { fileList, fileTree } = getFileList(allFiles);
-  return {
-    commits,
-    fileList,
-    fileTree,
-    removed: getFileList(removedFiles),
-  };
+  return commits;
 }

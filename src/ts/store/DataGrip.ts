@@ -1,13 +1,14 @@
 import { makeObservable, observable, action } from 'mobx';
 
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
-import { IDirtyFile, IFileTree } from 'ts/interfaces/FileInfo';
+
 import achievements from 'ts/helpers/achievement/byCompetition';
 import dataGrip from 'ts/helpers/DataGrip';
-import getFileTreeWithStatistic from 'ts/helpers/DataGrip/helpers/tree';
+import fileGrip from 'ts/helpers/FileGrip';
 import Parser from 'ts/helpers/Parser';
-import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import getTitle from 'ts/helpers/Title';
+
+import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 
 import settingsStore from './Settings';
@@ -21,6 +22,7 @@ export enum DataParseStatusEnum {
 interface IDataGripStore {
   commits: ICommit[];
   dataGrip: any;
+  fileGrip: any;
   status: DataParseStatusEnum;
   setCommits: (log?: string[]) => void;
 }
@@ -28,15 +30,9 @@ interface IDataGripStore {
 class DataGripStore implements IDataGripStore {
   commits: any[] = [];
 
-  fileList: IDirtyFile[] = [];
-
-  fileTree: IFileTree = {} as IFileTree;
-
-  removedFileList: IDirtyFile[] = [];
-
-  removedFileTree: IFileTree = {} as IFileTree;
-
   dataGrip: any = null;
+
+  fileGrip: any = null;
 
   status: DataParseStatusEnum = DataParseStatusEnum.PROCESSING;
 
@@ -51,25 +47,18 @@ class DataGripStore implements IDataGripStore {
 
   setCommits(dump?: string[]) {
     dataGrip.clear();
-    const parser = Parser;
+    fileGrip.clear();
 
-    const {
-      commits,
-      fileList,
-      fileTree,
-      removed,
-    } = parser(dump || []);
+    const commits = Parser(dump || []);
 
     commits.sort((a, b) => a.milliseconds - b.milliseconds);
     commits.forEach((commit: ICommit | ISystemCommit) => {
       dataGrip.addCommit(commit);
+      fileGrip.addCommit(commit);
     });
+    fileGrip.updateTotalInfo();
 
     this.commits = commits;
-    this.fileList = fileList;
-    this.fileTree = getFileTreeWithStatistic(fileTree);
-    this.removedFileList = removed.fileList;
-    this.removedFileTree = getFileTreeWithStatistic(removed.fileTree);
 
     this.status = this.commits.length
       ? DataParseStatusEnum.DONE
@@ -84,16 +73,17 @@ class DataGripStore implements IDataGripStore {
       );
 
       dataGrip.updateByInitialization();
-      dataGrip.updateByFiles(fileList, removed.fileList);
-      achievements.updateByDataGrip(dataGrip);
+      achievements.updateByGrip(dataGrip, fileGrip);
     }
 
     this.dataGrip = null;
     this.dataGrip = dataGrip;
+    this.fileGrip = fileGrip;
 
     console.dir(this.dataGrip);
+    console.dir(this.fileGrip);
     if (!applicationHasCustom.title) {
-      document.title = getTitle(this.dataGrip, this.commits);
+      document.title = getTitle(this.dataGrip, this.fileGrip, this.commits);
     }
   }
 
@@ -101,7 +91,7 @@ class DataGripStore implements IDataGripStore {
     console.log('need update data TODO');
     dataGrip.updateByFilters();
     if (!dataGrip.author.list.length) return;
-    achievements.updateByDataGrip(dataGrip);
+    achievements.updateByGrip(dataGrip, fileGrip);
     this.dataGrip = null;
     this.dataGrip = dataGrip;
   }

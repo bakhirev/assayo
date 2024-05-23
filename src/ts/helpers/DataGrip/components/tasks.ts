@@ -7,9 +7,13 @@ export default class DataGripByTasks {
 
   statistic: any = [];
 
+  // achievements
+  longTaskByAuthor: IHashMap<number> = {};
+
   clear() {
     this.commits = {};
     this.statistic = [];
+    this.longTaskByAuthor = {};
   }
 
   addCommit(commit: ICommit) {
@@ -66,6 +70,11 @@ export default class DataGripByTasks {
         const comments = Array.from(messages).join(', ');
         const to = lastCommit.milliseconds;
         const daysInWork = Math.ceil((to - from) / settingsStore.ONE_DAY) + 1;
+
+        const longTaskByAuthor = this.longTaskByAuthor[shortInfo.author];
+        if (!longTaskByAuthor || longTaskByAuthor < daysInWork) {
+          this.longTaskByAuthor[shortInfo.author] = daysInWork;
+        }
 
         return {
           ...shortInfo,

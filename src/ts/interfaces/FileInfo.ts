@@ -1,37 +1,40 @@
 import ICommit, { ISystemCommit } from './Commit';
 import IHashMap from './HashMap';
 
-export interface IDirtyFile {
-  name: string; // ".gitignore",
+interface IFileStat {
   lines: number; // 38, line in file for this moment
+
+  addedLines: number;
+  removedLines: number;
+  changedLines: number;
+
+  addedLinesByAuthor: IHashMap<number>; // added lines by author
+  removedLinesByAuthor: IHashMap<number>; // removed lines by author
+  changedLinesByAuthor: IHashMap<number>; // removed lines by author
+
+  addedByAuthorInPercent: IHashMap<number>;
+  removedByAuthorInPercent: IHashMap<number>;
+  changedByAuthorInPercent: IHashMap<number>;
+  addedRemovedChangedInPercent: IHashMap<number>;
+
   firstCommit: ICommit | ISystemCommit | null,
   lastCommit: ICommit | ISystemCommit | null,
-  path: string[],
-  extension: string,
-  firstName: string,
-  authors: {
-    [author: string]: {
-      added: number; // 38,
-      changes: number; // 38,
-      removed: number; // 0,
-      commits: number; // 1,
-      tasks: {
-        [taskName: string]: number,
-      },
-      types: {
-        [typeName: string]: number,
-      },
-      scopes: {
-        [scopeName: string]: number,
-      }
-    }
-  }
 }
 
-export interface IFileTree {
+export interface IDirtyFile extends IFileStat {
+  id: string; // "src/mynewlogo.test.ts",
+  path: string[]; // ['src']
+  pathString: string; // 'src/MyNewLogo.test.ts'
+  name: string; // "MyNewLogo.test.ts",
+  extension: string; // "ts",
+  type: string; // "test",
+  action: string; // 'A' or 'M' or 'D'
+}
+
+export interface IFolder extends IFileStat {
   id?: number;
   name?: string;
-  firstCommit: ICommit | ISystemCommit | null,
-  lastCommit: ICommit | ISystemCommit | null,
+  path: string[]; // ['src']
+  pathString: string; // 'src\\ts'
   content: IHashMap<IDirtyFile>,
 }
