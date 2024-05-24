@@ -1,6 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import settingsStore from 'ts/store/Settings';
+
+import { ONE_DAY } from 'ts/helpers/formatter';
 
 export default class DataGripByTasks {
   commits: IHashMap<ICommit[]> = {};
@@ -69,7 +70,7 @@ export default class DataGripByTasks {
 
         const comments = Array.from(messages).join(', ');
         const to = lastCommit.milliseconds;
-        const daysInWork = Math.ceil((to - from) / settingsStore.ONE_DAY) + 1;
+        const daysInWork = Math.ceil((to - from) / ONE_DAY) + 1;
 
         const longTaskByAuthor = this.longTaskByAuthor[shortInfo.author];
         if (!longTaskByAuthor || longTaskByAuthor < daysInWork) {

@@ -1,5 +1,8 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
+
+import { ONE_DAY } from 'ts/helpers/formatter';
+
 import settingsStore from 'ts/store/Settings';
 import userSettings from 'ts/store/UserSettings';
 
@@ -139,7 +142,7 @@ export default class DataGripByAuthor {
     const HOLIDAYS = 118 + 22; // праздники + выходные + отпуск
     const WORK_AND_HOLIDAYS = (HOLIDAYS / (365 - HOLIDAYS));
     const lastCommit = settingsStore.commits[settingsStore.commits.length - 1];
-    const dismissedLimit = lastCommit?.milliseconds - (settingsStore.ONE_DAY * 32);
+    const dismissedLimit = lastCommit?.milliseconds - 32 * ONE_DAY;
 
     this.employment = {
       staff: [],
@@ -154,7 +157,7 @@ export default class DataGripByAuthor {
         const to = dot.lastCommit.milliseconds;
 
         const workDays = Object.keys(dot.days).length;
-        const allDaysInProject = Math.ceil((to - from) / settingsStore.ONE_DAY);
+        const allDaysInProject = Math.ceil((to - from) / ONE_DAY);
         const lazyDays = Math.floor((allDaysInProject * WORK_AND_HOLIDAYS) - workDays) + 1;
 
         const middleSalaryInMonth = userSettings.getMiddleSalaryInMonth(dot.author, from, to);

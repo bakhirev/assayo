@@ -1,12 +1,12 @@
 import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 
-import settingsStore from 'ts/store/Settings';
+import { ONE_DAY } from 'ts/helpers/formatter';
 
 function getRangeInDay(fromObject: any, toObject: any, gap?: number) {
   const to = toObject.milliseconds;
   const from = fromObject.milliseconds;
-  const delay = ((to - from) / settingsStore.ONE_DAY) - (gap || 0);
+  const delay = ((to - from) / ONE_DAY) - (gap || 0);
   return to !== from && delay > 0 ? delay : 0;
 }
 

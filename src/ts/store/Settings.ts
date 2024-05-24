@@ -1,4 +1,6 @@
 import { makeObservable, observable, action } from 'mobx';
+import { ONE_DAY } from 'ts/helpers/formatter';
+
 import ICommit from '../interfaces/Commit';
 import dataGripStore from './DataGrip';
 
@@ -7,7 +9,6 @@ interface ISettingsStore {
   defaultFrom: string;
   defaultTo: string;
   TODAY: Date;
-  ONE_DAY: number;
   from: string;
   to: string;
   minCommits: number;
@@ -32,8 +33,6 @@ class SettingsStore implements ISettingsStore {
   defaultTo: string = '';
 
   TODAY: Date = new Date();
-
-  ONE_DAY: number = 24 * 60 * 60 * 1000;
 
   from: string = '';
 
@@ -61,7 +60,6 @@ class SettingsStore implements ISettingsStore {
       defaultFrom: observable,
       defaultTo: observable,
       TODAY: observable,
-      ONE_DAY: observable,
       from: observable,
       to: observable,
       minCommits: observable,
@@ -117,7 +115,7 @@ class SettingsStore implements ISettingsStore {
     }[type];
 
     this.from = count
-      ? (new Date(this.TODAY.getTime() - this.ONE_DAY * count)).toISOString().split('T')[0]
+      ? (new Date(this.TODAY.getTime() - ONE_DAY * count)).toISOString().split('T')[0]
       : this.defaultFrom;
 
     this.to = this.defaultTo;

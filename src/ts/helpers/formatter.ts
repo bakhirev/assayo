@@ -1,5 +1,9 @@
 import userSettings from 'ts/store/UserSettings';
 
+export const ONE_DAY = 24 * 60 * 60 * 1000;
+
+export const ONE_WEEK = 7 * ONE_DAY;
+
 export function getLangPrefix() {
   // @ts-ignore
   const code = window?.localization?.language || 'ru';
@@ -15,7 +19,6 @@ export function getLangPrefix() {
   }[code] || 'ru-RU';
 }
 
-const ONE_DAY = 24 * 60 * 60 * 1000;
 const TIMESTAMP = [
   ONE_DAY * 4,
   ONE_DAY * 5,
@@ -25,7 +28,6 @@ const TIMESTAMP = [
   ONE_DAY * 2,
   ONE_DAY * 3,
 ];
-
 export function getDayName(index:number, weekday: 'long' | 'short') {
   const date = new Date(TIMESTAMP[index]);
   return date.toLocaleString(getLangPrefix(), { weekday: weekday || 'long' });

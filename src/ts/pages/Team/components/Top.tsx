@@ -79,6 +79,8 @@ const Top = observer((): React.ReactElement => {
     <>
       <Title title="Скорость закрытия задач"/>
       <Races tracks={tracks} />
+      {'City builder - тепловая карта'}
+      {'Небоскребы вверх ввиде графика'}
 
       <Title title="Максимальная длинна подписи коммита"/>
       <PageWrapper template="table">
