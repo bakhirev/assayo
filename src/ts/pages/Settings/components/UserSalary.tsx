@@ -50,6 +50,7 @@ function UserSalary({
               }}
             />
             <UiKitSwitch
+              disabled
               title="page.settings.common.workDaysInWeek"
               value={salary.workDaysInWeek}
               options={[1, 2, 3, 4, 5, 6, 7]}
@@ -67,6 +68,7 @@ function UserSalary({
               }}
             />
             <UiKitSwitch
+              disabled
               title="page.settings.common.currency"
               value={salary?.currency}
               options={['RUB', 'USD', 'EUR']}

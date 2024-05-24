@@ -17,6 +17,8 @@ function UiKitSwitch({
   error,
   className,
 
+  disabled,
+  multiple,
   value,
   options,
   onChange,
@@ -34,18 +36,23 @@ function UiKitSwitch({
         : option;
       const isSelected = hasValue && selectedIds.includes(formattedOption?.id);
 
+      const customClassName = [style.ui_kit_switch_item];
+      if (isSelected) customClassName.push(style.ui_kit_switch_item_selected);
+      if (disabled) customClassName.push(style.ui_kit_switch_item_disabled);
+
       return (
         <button
           key={`${formattedOption?.id}_${index}`}
-          className={isSelected
-            ? `${style.ui_kit_switch_item} ${style.ui_kit_switch_item_selected}`
-            : style.ui_kit_switch_item}
+          className={customClassName.join(' ')}
           onClick={() => {
             if (!onChange) return;
 
-            const newSelected = isSelected
-              ? selectedIds.filter((id: any) => id !== formattedOption?.id)
-              : [...selectedIds, formattedOption?.id].sort();
+            let newSelected = [formattedOption?.id];
+            if (multiple) {
+              newSelected = isSelected
+                ? selectedIds.filter((id: any) => id !== formattedOption?.id)
+                : [...selectedIds, formattedOption?.id].sort();
+            }
 
             onChange(newSelected);
           }}

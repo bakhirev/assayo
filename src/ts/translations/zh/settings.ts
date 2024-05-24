@@ -14,8 +14,8 @@ export default `
 § page.settings.common.type.title: Project work type
 § page.settings.common.type.full: Full-time employment
 § page.settings.common.type.part: Project work
-§ page.settings.common.salary: Monthly salary
-§ page.settings.common.currency: Currency
+§ page.settings.common.salary: Monthly salary in USD (US dollar, $)
+§ page.settings.common.currency: Currency for view
 § page.settings.common.workDaysInYear: Number of working days in a year
 § page.settings.common.vacationDaysInYear: Number of vacation days in a year
 § page.settings.common.workDaysInWeek: Workdays

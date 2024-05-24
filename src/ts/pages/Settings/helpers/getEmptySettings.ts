@@ -45,13 +45,10 @@ export default function getEmptySettings(): IUserSetting {
     en: 'USD',
   }[localization.language || ''] || 'EUR';
 
-  const value = {
-    RUB: 200000,
-    USD: 3000,
-  }[currency] || 3000;
+  const value = 3000;
 
   return {
-    version: 1,
+    version: 2,
     defaultSalary: {
       value,
       currency,

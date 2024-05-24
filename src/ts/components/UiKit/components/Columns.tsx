@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import style from '../styles/index.module.scss';
+import style from '../styles/wrapper.module.scss';
 
 export interface IUiKitColumnsProps {
   columns?: number;
@@ -15,7 +15,7 @@ function UiKitColumns({
 }: IUiKitColumnsProps) {
   return (
     <div
-      className={`${style.wrapper} ${className || ''}`}
+      className={`${style.ui_kit_wrapper} ${className || ''}`}
       style={{ columnCount: columns || 2 }}
     >
       {children}

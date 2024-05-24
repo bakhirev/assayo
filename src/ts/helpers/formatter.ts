@@ -28,6 +28,7 @@ const TIMESTAMP = [
   ONE_DAY * 2,
   ONE_DAY * 3,
 ];
+
 export function getDayName(index:number, weekday: 'long' | 'short') {
   const date = new Date(TIMESTAMP[index]);
   return date.toLocaleString(getLangPrefix(), { weekday: weekday || 'long' });
@@ -74,14 +75,31 @@ export function getShortTime(timestamp: string) {
   return date.toLocaleString(getLangPrefix(), { hour: 'numeric', minute: 'numeric' });
 }
 
+
+function getCurrencyFromUSD(money: number, currency: string) {
+  if (currency === 'USD' || !money) return money;
+  const k = {
+    USD: 1,
+    EUR: 0.92,
+    RUB: 98,
+    CNY: 7.26,
+    JPY: 158,
+    KRW: 1360,
+    CAD: 1.4,
+  }[currency] || 1;
+  return k * money;
+}
+
 export function getMoney(value: number, options?: any) {
-  return (value || 0).toLocaleString(getLangPrefix(), {
-    style: 'currency',
-    currency: userSettings?.settings?.defaultSalary?.currency || 'USD',
-    currencyDisplay: 'symbol',
-    maximumFractionDigits: 0,
-    ...(options || {}),
-  });
+  const currency = userSettings?.settings?.defaultSalary?.currency || 'USD';
+  return getCurrencyFromUSD(value || 0, currency)
+    .toLocaleString(getLangPrefix(), {
+      style: 'currency',
+      currency,
+      currencyDisplay: 'symbol',
+      maximumFractionDigits: 0,
+      ...(options || {}),
+    });
 }
 
 export function getShortMoney(value: number, maximumFractionDigits:number = 1) {

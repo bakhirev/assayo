@@ -17,6 +17,7 @@ function UiKitInputNumber({
   error,
   className,
 
+  disabled,
   value,
   placeholder,
   onChange,
@@ -31,6 +32,7 @@ function UiKitInputNumber({
       className={className}
     >
       <input
+        disabled={disabled}
         type="number"
         value={value}
         placeholder={placeholder ? t(placeholder) : ''}

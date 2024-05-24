@@ -44,6 +44,11 @@
       background-color: var(--color-button);
     }
 
+    &_disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
     &:first-child {
       border-radius: 8px 0 0 8px;
     }

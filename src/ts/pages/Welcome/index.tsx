@@ -30,7 +30,7 @@ function Welcome() {
   const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt\n';
   return (
     <>
-      {process.env.REACT_APP_TYPE !== 'local' && (<WarningInfo />)}
+      {false && process.env.REACT_APP_TYPE !== 'local' && (<WarningInfo />)}
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>

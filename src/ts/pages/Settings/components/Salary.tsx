@@ -8,6 +8,7 @@ import PageBox from 'ts/components/Page/Box';
 import Title from 'ts/components/Title';
 
 import localization from 'ts/helpers/Localization';
+import { getDayName } from 'ts/helpers/formatter';
 
 import formStore from '../store/Form';
 
@@ -20,6 +21,7 @@ const Common = observer((): React.ReactElement | null => {
       <Title title="page.settings.common.title"/>
       <PageBox>
         <UiKitSwitch
+          disabled
           title="page.settings.common.type.title"
           value={defaultSalary.type}
           options={[
@@ -30,6 +32,27 @@ const Common = observer((): React.ReactElement | null => {
             formStore.updateState('defaultSalary.type', type?.id);
           }}
         />
+        <UiKitSwitch
+          disabled
+          multiple
+          title="page.settings.common.workDaysInWeek"
+          value={defaultSalary.workDaysInWeek.map((v: number, i: number) => v ? (i + 1) : null)}
+          options={[
+            { id: 1, title: getDayName(0, 'short') },
+            { id: 2, title: getDayName(1, 'short') },
+            { id: 3, title: getDayName(2, 'short') },
+            { id: 4, title: getDayName(3, 'short') },
+            { id: 5, title: getDayName(4, 'short') },
+            { id: 6, title: getDayName(5, 'short') },
+            { id: 7, title: getDayName(6, 'short') },
+          ]}
+          onChange={(workDaysInWeek: number[]) => {
+            const formattedValue = (new Array(7)).fill(0)
+              .map((v: number, i: number) => workDaysInWeek.includes(i + 1));
+            console.log(formattedValue);
+            formStore.updateState('defaultSalary.workDaysInWeek', formattedValue);
+          }}
+        />
         <UiKitColumns>
           <UiKitInputNumber
             title="page.settings.common.salary"
@@ -38,12 +61,12 @@ const Common = observer((): React.ReactElement | null => {
               formStore.updateState('defaultSalary.value', value);
             }}
           />
-          <UiKitSwitch
-            title="page.settings.common.currency"
-            value={defaultSalary.currency}
-            options={['RUB', 'USD', 'EUR']}
-            onChange={(currency: string) => {
-              formStore.updateState('defaultSalary.currency', currency);
+          <UiKitInputNumber
+            disabled
+            title="page.settings.common.tax"
+            value={defaultSalary.tax}
+            onChange={(value: number) => {
+              formStore.updateState('defaultSalary.tax', value);
             }}
           />
         </UiKitColumns>
@@ -64,30 +87,11 @@ const Common = observer((): React.ReactElement | null => {
           />
         </UiKitColumns>
         <UiKitSwitch
-          title="page.settings.common.workDaysInWeek"
-          value={defaultSalary.workDaysInWeek}
-          options={[1, 2, 3, 4, 5, 6, 7]}
-          onChange={(workDaysInWeek: number) => {
-            formStore.updateState('defaultSalary.workDaysInWeek', workDaysInWeek);
-          }}
-        />
-        <UiKitSwitch
-          title="page.settings.common.workDaysInWeek"
-          value={defaultSalary.workDaysInWeek.map((v: number, i: number) => v ? (i + 1) : null)}
-          options={[
-            { id: 1, title: 'Пн' },
-            { id: 2, title: 'Вт' },
-            { id: 3, title: 'Ср' },
-            { id: 4, title: 'Чт' },
-            { id: 5, title: 'Пт' },
-            { id: 6, title: 'Сб' },
-            { id: 7, title: 'Вс' },
-          ]}
-          onChange={(workDaysInWeek: number[]) => {
-            const formattedValue = (new Array(7)).fill(0)
-              .map((v: number, i: number) => workDaysInWeek.includes(i + 1));
-            console.log(formattedValue);
-            formStore.updateState('defaultSalary.workDaysInWeek', formattedValue);
+          title="page.settings.common.currency"
+          value={defaultSalary.currency}
+          options={['USD', 'EUR', 'RUB', 'CNY', 'JPY', 'KRW', 'CAD']}
+          onChange={(currency: string) => {
+            formStore.updateState('defaultSalary.currency', currency);
           }}
         />
       </PageBox>
