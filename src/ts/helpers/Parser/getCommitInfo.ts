@@ -11,8 +11,10 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
   const day = date.getDay() - 1;
   const timestamp = sourceDate.split('T')[0];
 
-  const author = parts.shift()?.replace(/\./gm, ' ') || '';
-  const email = parts.shift() || '';
+  const author = parts.shift()?.replace(/[._]/gm, ' ') || '';
+
+  let email = parts.shift() || '';
+  if (!(/@/gim).test(email)) email = '';
 
   const message = parts.join('>');
 

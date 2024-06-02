@@ -81,6 +81,8 @@ export default function getAchievementByAuthor(list: string[], dataGrip: any, au
     const daysInWork = dataGrip.tasks.longTaskByAuthor[author] || {};
     if (daysInWork > 92) list.push('longTask');
   }
+  // Почтальон Печкин. Не заполнил поле e-mail
+  if (!statistic.lastCommit.email) list.push('haveNotEmail');
   // Ни единого разрыва - 0 дней без коммитов
   if (statistic.lazyDays === 0) list.push('zeroLazyDays');
   // Стрельба холостыми - коммиты есть, а закрытых задач нет

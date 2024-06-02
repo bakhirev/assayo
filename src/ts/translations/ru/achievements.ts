@@ -121,7 +121,7 @@ export default `
 § achievements.longFilePath.description: первый создал файл с самым глубоким вложением
 § achievements.longFileName.title: Размер имеет значение
 § achievements.longFileName.description: создал файл с самым длинным именемм
-§ achievements.workOnWeekends.title: Работа не walk
+§ achievements.workOnWeekends.title: Один раз не водолаз
 § achievements.workOnWeekends.description: хоть раз работал на выходных
 § achievements.removeCreateFile.title: Откопал стюардессу
 § achievements.removeCreateFile.description: востановил удаленный файл
@@ -129,5 +129,33 @@ export default `
 § achievements.renameFile.description: переименовывал туда-сюда файл
 § achievements.longTask.title: Вроде изян
 § achievements.longTask.description: работал над задачей больше трех месяцев
+§ achievements.haveNotEmail.title: Почтальон Печкин 
+§ achievements.haveNotEmail.description: не заполнил поле e-mail в git config
+§ achievements.moreAddedFolders.title: Директор 
+§ achievements.moreAddedFolders.description: создал больше всех дирректорий
+§ achievements.horoscope1.title: Меркурий в Козероге
+§ achievements.horoscope2.title: Меркурий в Водолее
+§ achievements.horoscope3.title: Меркурий в Рыбе
+§ achievements.horoscope4.title: Меркурий в Овне
+§ achievements.horoscope5.title: Меркурий в Тельце
+§ achievements.horoscope6.title: Меркурий в Близнеце
+§ achievements.horoscope7.title: Меркурий в Раке
+§ achievements.horoscope8.title: Меркурий в Льве
+§ achievements.horoscope9.title: Меркурий в Деве
+§ achievements.horoscope10.title: Меркурий в Весах
+§ achievements.horoscope11.title: Меркурий в Скорпионе
+§ achievements.horoscope12.title: Меркурий в Стрельце
+§ achievements.horoscope1.description: по месяцу первого коммита
+§ achievements.horoscope2.description: по месяцу первого коммита
+§ achievements.horoscope3.description: по месяцу первого коммита
+§ achievements.horoscope4.description: по месяцу первого коммита
+§ achievements.horoscope5.description: по месяцу первого коммита
+§ achievements.horoscope6.description: по месяцу первого коммита
+§ achievements.horoscope7.description: по месяцу первого коммита
+§ achievements.horoscope8.description: по месяцу первого коммита
+§ achievements.horoscope9.description: по месяцу первого коммита
+§ achievements.horoscope10.description: по месяцу первого коммита
+§ achievements.horoscope11.description: по месяцу первого коммита
+§ achievements.horoscope12.description: по месяцу первого коммита
 § achievements.111.description: test
 `;
