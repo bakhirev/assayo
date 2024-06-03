@@ -28,9 +28,11 @@ function WarningInfo() {
 
 function Welcome() {
   const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%cN>%cE>%s" > log.txt\n';
+  // @ts-ignore
+  const hasYandexMetrika = window.ym;
   return (
     <>
-      {process.env.REACT_APP_TYPE === 'local' && (<WarningInfo />)}
+      {hasYandexMetrika && (<WarningInfo />)}
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>

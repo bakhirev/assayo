@@ -14,7 +14,7 @@ export default `
 § page.settings.common.type.title: Тип работы над проектом
 § page.settings.common.type.full: Полная занятость
 § page.settings.common.type.part: Проектная работа
-§ page.settings.common.salary: Зарплата в месяц в долларах США (USD, $)
+§ page.settings.common.salary: Зарплата в месяц в долларах США
 § page.settings.common.currency: Валюта для отображения
 § page.settings.common.workDaysInYear: Количество рабочих дней в году
 § page.settings.common.vacationDaysInYear: Количество дней отпуска в год

@@ -6,6 +6,12 @@ import { ONE_DAY, ONE_WEEK } from 'ts/helpers/formatter';
 import getCommitInfo from './getCommitInfo';
 import { getInfoFromPath, getNumStatInfo, getRawInfo } from './getFileChanges';
 
+function updateLineTotal(commit: any, line: any) {
+  commit.added += line.addedLines || 0;
+  commit.removed += line.removedLines || 0;
+  commit.changes += line.changedLines || 0;
+}
+
 export default function Parser(report: string[]) {
   let commit = null;
   const commits: Array<ICommit | ISystemCommit> = [];
@@ -29,6 +35,7 @@ export default function Parser(report: string[]) {
       fileChanges.addedLines = line.addedLines;
       fileChanges.removedLines = line.removedLines;
       fileChanges.changedLines = line.changedLines;
+      updateLineTotal(commit, line);
 
     } else if (message[0] === ':') { // парсинг файлов формата --raw
       const line = getRawInfo(message);

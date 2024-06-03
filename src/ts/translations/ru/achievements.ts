@@ -93,7 +93,7 @@ export default `
 § achievements.moreOnHoliday.description: относительно много коммитов в нерабочее время
 § achievements.morePRMerge.title: Таможня даёт добро
 § achievements.morePRMerge.description: чаще остальных нажимает кнопку «Влить» для PR
-§ achievements.longWaitPR.title: Обещать не значит жениться
+§ achievements.longWaitPR.title: Завтра точно вольём
 § achievements.longWaitPR.description: создал PR, который больше месяца провисел на ревью
 § achievements.moreLongWaitPR.title: Давным давно, в далёкой галактике
 § achievements.moreLongWaitPR.description: создал PR, который максимально долго провисел на ревью

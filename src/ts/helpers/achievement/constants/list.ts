@@ -44,6 +44,11 @@ export default {
   longFileName: ACHIEVEMENT_TYPE.NORMAL, // Размер имеет значение. создал файл с самым длинным именем
   moreTasksInDay: ACHIEVEMENT_TYPE.GOOD, // Спиди-гонщик
   moreLongWaitPR: ACHIEVEMENT_TYPE.BAD, // Давным давно, в далёкой галактике
+  morePRMerge: ACHIEVEMENT_TYPE.NORMAL, // Таможня даёт добро,
+  firstLastCommit: ACHIEVEMENT_TYPE.NORMAL, // От начала и до конца. первый и последний коммит на проекте
+  haveNotEmail: ACHIEVEMENT_TYPE.NORMAL, // Почтальон Печкин. Не заполнил поле e-mail
+  hasCommitFrom0to7: ACHIEVEMENT_TYPE.BAD, // Ночной дозор
+  longWaitPR: ACHIEVEMENT_TYPE.BAD, // Обещать не значит жениться, ожидание PR больше месяца
 
   // Типаж Козерога, по месяцу первого коммита
   horoscope1: ACHIEVEMENT_TYPE.NORMAL, // козерог
@@ -61,21 +66,16 @@ export default {
 
   // нет картинки
   longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...
-  hasCommitFrom0to7: ACHIEVEMENT_TYPE.BAD, // Ночной дозор
   noCommitOnDay: ACHIEVEMENT_TYPE.NORMAL, // Технический перерыв
   commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время
   more3YearsInProject: ACHIEVEMENT_TYPE.GOOD, // Старожил. больше 3х лет на проекте
   firstCommit: ACHIEVEMENT_TYPE.NORMAL, // Кто первый, того и тапки. первый коммит на проекте
   lastCommit: ACHIEVEMENT_TYPE.NORMAL, // Я закончил. последний коммит на проекте
-  firstLastCommit: ACHIEVEMENT_TYPE.NORMAL, // От начала и до конца. первый и последний коммит на проекте
   moreLintHint: ACHIEVEMENT_TYPE.GOOD, // Грамар-наци. Больше всех внес в .eslintrc .stylelintrc.json
   moreAddedFolders: ACHIEVEMENT_TYPE.NORMAL, // Директор, создал больше всех дирректорий
-  morePRMerge: ACHIEVEMENT_TYPE.NORMAL, // Таможня даёт добро,
-  longWaitPR: ACHIEVEMENT_TYPE.BAD, // Обещать не значит жениться, ожидание PR больше месяца
   workOnWeekends: ACHIEVEMENT_TYPE.BAD, // Работа не walk. хоть раз работал на выходных
   longTask: ACHIEVEMENT_TYPE.BAD, // Вроде изян. работал над задачей больше трех месяцев
   fileRush: ACHIEVEMENT_TYPE.NORMAL, // Зерг Раш. Создал больше всех файлов в проекте
-  haveNotEmail: ACHIEVEMENT_TYPE.NORMAL, // Почтальон Печкин. Не заполнил поле e-mail
 
   // нет кода
   lessWorkDays: ACHIEVEMENT_TYPE.BAD, // Дальше без меня
