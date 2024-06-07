@@ -1,0 +1,36 @@
+@import 'src/styles/variables';
+
+.races_track_info {
+  font-size: 28px;
+  font-weight: bold;
+
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 5px 12%;
+  padding: var(--space-s) 0;
+
+  text-align: center;
+  border-radius: 60px;
+  line-height: 40px;
+  box-sizing: border-box;
+  border: var(--space-xxs) solid var(--color-border);
+  color: var(--color-black);
+  background-color: white;
+
+  animation-name: races_track_info;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+
+
+@keyframes races_track_info {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

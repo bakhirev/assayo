@@ -27,7 +27,7 @@ export default `
 § sidebar.team.commits: Все коммиты
 § sidebar.team.changes: Все изменения
 § sidebar.team.words: Популярные слова
-§ sidebar.team.top: Викторина
+§ sidebar.team.building: Викторина
 § sidebar.team.settings: Настройки
 § sidebar.person.total: Общая информация
 § sidebar.person.money: Стоимость работы

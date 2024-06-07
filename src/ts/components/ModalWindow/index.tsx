@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import isMobile from 'ts/helpers/isMobile';
+import globalScroll from 'ts/helpers/globalScroll';
 
 import Header from './components/Header';
 import Body from './components/Body';
@@ -21,13 +22,7 @@ function Modal({
   onClose,
   children,
 }: IModalProps) {
-  useEffect(() => {
-    const overflowY = document.body.style.overflowY;
-    document.body.style.overflowY = 'hidden';
-    return () => {
-      document.body.style.overflowY = overflowY;
-    };
-  }, []);
+  useEffect(globalScroll.useOnOff, []);
 
   const childrenWithProps = React.Children.map(children, (child) => (React.isValidElement(child)
     ? React.cloneElement(

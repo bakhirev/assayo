@@ -27,7 +27,7 @@ export default `
 § sidebar.team.commits: All commits
 § sidebar.team.changes: Alle Änderungen
 § sidebar.team.words: Beliebte Wörter
-§ sidebar.team.top: Quiz
+§ sidebar.team.building: Quiz
 § sidebar.team.settings: Die Einstellungen
 § sidebar.person.total: Allgemeine Informationen
 § sidebar.person.money: Arbeitskosten

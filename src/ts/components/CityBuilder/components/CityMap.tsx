@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getRandomLevel } from '../helpers/level';
 import Blocks from './Blocks';
 
-import style from '../style/index.module.scss';
+import style from '../style/map.module.scss';
 
 function getCitySize(percent: number): [number, number] {
   if (percent > 70) return [20, 20];

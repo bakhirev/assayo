@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Logo from 'ts/pages/PageWrapper/components/sidebar/Logo';
+import globalScroll from 'ts/helpers/globalScroll';
 
 import style from './index.module.scss';
 import progress from './progress.module.scss';
@@ -8,11 +9,7 @@ import progress from './progress.module.scss';
 function SplashScreen(): React.ReactElement | null {
 
   useEffect(() => {
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      document.body.style.overflow = overflow;
-    }, 5400);
+    globalScroll.off(5400);
   }, []);
 
   return (

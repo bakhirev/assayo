@@ -49,6 +49,10 @@ export default {
   haveNotEmail: ACHIEVEMENT_TYPE.NORMAL, // Почтальон Печкин. Не заполнил поле e-mail
   hasCommitFrom0to7: ACHIEVEMENT_TYPE.BAD, // Ночной дозор
   longWaitPR: ACHIEVEMENT_TYPE.BAD, // Обещать не значит жениться, ожидание PR больше месяца
+  lastCommit: ACHIEVEMENT_TYPE.NORMAL, // Я закончил. последний коммит на проекте
+  longTask: ACHIEVEMENT_TYPE.BAD, // Вроде изян. работал над задачей больше трех месяцев
+  noCommitOnDay: ACHIEVEMENT_TYPE.NORMAL, // Технический перерыв
+  firstCommit: ACHIEVEMENT_TYPE.NORMAL, // Кто первый, того и тапки. первый коммит на проекте
 
   // Типаж Козерога, по месяцу первого коммита
   horoscope1: ACHIEVEMENT_TYPE.NORMAL, // козерог
@@ -66,15 +70,11 @@ export default {
 
   // нет картинки
   longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...
-  noCommitOnDay: ACHIEVEMENT_TYPE.NORMAL, // Технический перерыв
   commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время
   more3YearsInProject: ACHIEVEMENT_TYPE.GOOD, // Старожил. больше 3х лет на проекте
-  firstCommit: ACHIEVEMENT_TYPE.NORMAL, // Кто первый, того и тапки. первый коммит на проекте
-  lastCommit: ACHIEVEMENT_TYPE.NORMAL, // Я закончил. последний коммит на проекте
   moreLintHint: ACHIEVEMENT_TYPE.GOOD, // Грамар-наци. Больше всех внес в .eslintrc .stylelintrc.json
   moreAddedFolders: ACHIEVEMENT_TYPE.NORMAL, // Директор, создал больше всех дирректорий
   workOnWeekends: ACHIEVEMENT_TYPE.BAD, // Работа не walk. хоть раз работал на выходных
-  longTask: ACHIEVEMENT_TYPE.BAD, // Вроде изян. работал над задачей больше трех месяцев
   fileRush: ACHIEVEMENT_TYPE.NORMAL, // Зерг Раш. Создал больше всех файлов в проекте
 
   // нет кода

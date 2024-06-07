@@ -1,0 +1,33 @@
+@import 'src/styles/variables';
+
+.races {
+  position: relative;
+  margin: 0 auto var(--space-xxl);
+  border: var(--space-xxl) solid var(--color-13);
+  border-left: none;
+  border-right: none;
+  user-select: none;
+
+  &_track {
+    position: relative;
+    height: 80px;
+    padding: var(--space-xxs);
+    margin: 0 auto;
+
+    text-align: right;
+    border-bottom: var(--space-xxs) dashed var(--color-border);
+    background-color: var(--color-grey);
+
+    &:first-child {
+      border-top: var(--space-xxs) dashed var(--color-border);
+    }
+  }
+
+  &_button {
+    position: absolute;
+    top: var(--space-l);
+    left: calc(50% - 100px);
+    z-index: 1;
+  }
+}
+

@@ -46,14 +46,13 @@
     position: absolute;
     top: var(--space-s);
     right: var(--space-s);
+    z-index: 0;
 
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% auto;
+    opacity: 0.5;
   }
 
   &_button {
@@ -64,28 +63,24 @@
 
   &_info {
     --color-temp-border: #97C2A9;
-    --color-temp-icon: url('/assets/recommendations/info.svg');
     --color-temp-bg: #E3F8EC;
     --color-temp-title: #58866B;
   }
 
   &_fact {
     --color-temp-border: var(--color-11);
-    --color-temp-icon: url('/assets/recommendations/info.svg');
     --color-temp-bg: #EFF7FF;
     --color-temp-title: var(--color-first);
   }
 
   &_warning {
     --color-temp-border: var(--color-21);
-    --color-temp-icon: url('/assets/recommendations/warning.svg');
     --color-temp-bg: #FFF5F2;
     --color-temp-title: #E8B06D;
   }
 
   &_error {
     --color-temp-border: var(--color-12);
-    --color-temp-icon: url('/assets/recommendations/alert.svg');
     --color-temp-bg: #FFEFEE;
     --color-temp-title: #DD8B87;
   }

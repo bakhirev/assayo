@@ -4,14 +4,16 @@ import style from './index.module.scss';
 
 interface IPageWrapperProps {
   children: ReactNode | string | null;
+  className?: string;
   template?: 'box' | 'table';
 }
 
 function PageWrapper({
   children,
+  className,
   template,
 }: IPageWrapperProps) {
-  const className = template
+  const localClassName = template
     ? `${style.main_wrapper} ${style.main_wrapper_white}`
     : `${style.main_wrapper}`;
 
@@ -21,7 +23,7 @@ function PageWrapper({
 
   return (
     <div
-      className={className}
+      className={`${localClassName} ${className || ''}`}
       style={css}
     >
       {children}

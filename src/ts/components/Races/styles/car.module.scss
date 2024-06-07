@@ -1,0 +1,69 @@
+@import 'src/styles/variables';
+
+.races_track_car {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 10%;
+  height: 100%;
+  text-align: center;
+
+  &_title {
+    font-size: 12px;
+
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: var(--space-xs) auto 0 auto;
+    padding: var(--space-xxs) var(--space-xs);
+
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border: 1px solid var(--color-grey);
+    border-radius: var(--border-radius-s);
+    color: var(--color-black);
+    background-color: white;
+
+    &:before {
+      content: ' ';
+
+      position: absolute;
+      top: 22px;
+      left: 47%;
+
+      display: block;
+      padding: 4px;
+      transform: rotate(45deg);
+
+      background-color: white;
+    }
+  }
+
+  &_cover {
+    font-size: 12px;
+
+    display: block;
+    height: 50%;
+    margin: 0 auto;
+  }
+
+  &_animation {
+    animation-name: races_track_car;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes races_track_car {
+  from {
+    left: 0;
+  }
+  to {
+    left: 90%;
+  }
+}

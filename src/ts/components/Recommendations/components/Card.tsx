@@ -20,6 +20,16 @@ function getClassName(recommendation?: any) {
   }[type || RECOMMENDATION_TYPES.INFO] ?? style.recommendations_card_fact;
 }
 
+function getImageUrl(recommendation?: any) {
+  const type = recommendation?.type;
+  return {
+    [RECOMMENDATION_TYPES.INFO]: './assets/recommendations/info.svg',
+    [RECOMMENDATION_TYPES.FACT]: './assets/recommendations/fact.svg',
+    [RECOMMENDATION_TYPES.WARNING]: './assets/recommendations/warning.svg',
+    [RECOMMENDATION_TYPES.ALERT]: './assets/recommendations/alert.svg',
+  }[type || RECOMMENDATION_TYPES.INFO] ?? './assets/recommendations/info.svg';
+}
+
 interface IRecommendationsProps {
   recommendation: any;
   onClick: Function;
@@ -45,7 +55,10 @@ function Card({
       onClick={isMobile ? onClick : undefined}
     >
       <h5 className={style.recommendations_card_title}>
-        <span className={style.recommendations_card_icon}></span>
+        <img
+          className={style.recommendations_card_icon}
+          src={getImageUrl(recommendation)}
+        />
         {localization.get(title, titleArgs)}
       </h5>
       <Description

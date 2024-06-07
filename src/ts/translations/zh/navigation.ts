@@ -26,7 +26,7 @@ export default `
 § sidebar.team.commits: All commits
 § sidebar.team.changes: 所有更改
 § sidebar.team.words: 流行语
-§ sidebar.team.top: 测验
+§ sidebar.team.building: 测验
 § sidebar.team.settings: 设置
 § sidebar.person.total: 般资料
 § sidebar.person.money: 工作的成本

@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import { shuffle } from 'ts/helpers/random';
 
-import Track from './Track';
-import style from './index.module.scss';
+import Track from './components/Track';
 
-export function shuffle(items: any[]) {
-  // @ts-ignore
-  for (let j, x, i = items.length; i; j = parseInt(Math.random() * i), x = items[--i], items[i] = items[j], items[j] = x) {}
-  return items;
-}
+import style from './styles/index.module.scss';
 
 interface IRacesProps {
   tracks: {
@@ -25,10 +21,11 @@ function Races({
 }: IRacesProps): React.ReactElement | null {
   const { t } = useTranslation();
   const [showAnimation, setShowAnimation] = useState<boolean>(false);
+  const [shuffleTracks] = useState<any>([...shuffle(tracks)]);
 
   if (!tracks.length) return null;
 
-  const lines = shuffle(tracks).map((track: any) => {
+  const lines = shuffleTracks.map((track: any) => {
     return (
       <Track
         key={track.title}

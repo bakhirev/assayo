@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next';
 import ISort from 'ts/interfaces/Sort';
 import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
-import { downloadExcel } from 'ts/helpers/File';
 import viewSettings from 'ts/store/ViewSettings';
+import globalScroll from 'ts/helpers/globalScroll';
+import { downloadExcel } from 'ts/helpers/File';
 import isMobile from 'ts/helpers/isMobile';
 
 import style from './index.module.scss';
@@ -40,6 +41,7 @@ function DataView({
   const urlParams = useParams<any>();
   const defaultType = viewSettings.getItem(urlParams, isMobile ? 'cards' : 'table');
   const [localType, setType] = useState<string>(type || defaultType);
+  const [fullSize, setFullSize] = useState<boolean>(false);
 
   if (!rows || !rows.length) return null;
 
@@ -48,10 +50,12 @@ function DataView({
     cards: './assets/icons/Table.svg',
   }[localType];
 
-  const title = {
+  const titleForType = {
     table: 'Отобразить карточками',
     cards: 'Отобразить таблицой',
   }[localType];
+
+  const fullSizeClass = fullSize ? style.data_view_full_screen : '';
 
   return (
     <>
@@ -68,9 +72,24 @@ function DataView({
               }}
             />
           )}
+          {false && !isMobile && (
+            <img
+              title={'Развернуть'}
+              src="./assets/icons/OpenFullscreen.svg"
+              className={style.data_view_icon}
+              onClick={() => {
+                if (fullSize) {
+                  globalScroll.off();
+                } else {
+                  globalScroll.on();
+                }
+                setFullSize(!fullSize);
+              }}
+            />
+          )}
           {!isMobile && (
             <img
-              title={title}
+              title={titleForType}
               src={icon}
               className={style.data_view_icon}
               onClick={() => {
@@ -84,7 +103,10 @@ function DataView({
       </div>
 
       {localType === 'table' && (
-        <PageWrapper template="table">
+        <PageWrapper
+          template="table"
+          className={fullSizeClass}
+        >
           <Table
             rows={rows}
             sort={sort}

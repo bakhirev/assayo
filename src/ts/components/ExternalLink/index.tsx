@@ -6,14 +6,15 @@ import style from './index.module.scss';
 interface IExternalLinkProps {
   link: string,
   text: string,
+  className?: string,
 }
 
-function ExternalLink({ link, text }: IExternalLinkProps) {
+function ExternalLink({ link, text, className }: IExternalLinkProps) {
   return (
     <Link
       to={link}
       target="_blank"
-      className={style.external_link}
+      className={`${style.external_link} ${className || ''}`}
     >
       {text}
     </Link>

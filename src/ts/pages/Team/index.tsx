@@ -18,7 +18,7 @@ import Type from './components/Type';
 import Week from './components/Week';
 import Month from './components/Month';
 import Tasks from './components/Tasks';
-import Top from './components/Top';
+import TeamBuilding from './components/Top';
 import Pr from './components/PR';
 import Print from './components/Print';
 import Release from './components/Release';
@@ -41,7 +41,7 @@ function getViewById(page?: string) {
   if (page === 'commits') return <Commits/>;
   if (page === 'changes') return <Changes/>;
   if (page === 'words') return <PopularWords mode={mode}/>;
-  if (page === 'top') return <Top/>;
+  if (page === 'building') return <TeamBuilding/>;
   if (page === 'print') return <Print/>;
   if (page === 'tasks') return <Tasks/>;
   return <Total/>;

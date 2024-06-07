@@ -5,6 +5,7 @@ import FileBuilder from './components/FileBuilder';
 import FileGripByExtension from './components/extension';
 import FileGripByType from './components/type';
 import FileGripByFolder from './components/folder';
+import FileGripByAuthor from './components/author';
 
 class FileGrip {
   files: any = new FileBuilder();
@@ -17,12 +18,15 @@ class FileGrip {
 
   removedTree: any = new FileGripByFolder();
 
+  author: any = new FileGripByAuthor();
+
   clear() {
     this.files.clear();
     this.extension.clear();
     this.type.clear();
     this.tree.clear();
     this.removedTree.clear();
+    this.author.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit) {
@@ -37,6 +41,7 @@ class FileGrip {
     this.files.updateTotalInfo((file: IDirtyFile) => {
       this.extension.addFile(file);
       this.type.addFile(file);
+      this.author.addFile(file);
       if (file.action !== 'D') {
         this.tree.addFile(file);
       } else {
@@ -46,6 +51,7 @@ class FileGrip {
 
     this.extension.updateTotalInfo();
     this.type.updateTotalInfo();
+    this.author.updateTotalInfo();
     this.tree.updateTotalInfo();
     this.removedTree.updateTotalInfo();
   }

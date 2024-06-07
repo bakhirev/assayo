@@ -169,8 +169,8 @@ export default `
 § page.person.achievement.normal: Нейтральные
 § page.person.achievement.negative: Негативные
 § page.person.achievement.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
-§ page.person.gets.title: Взятые геты:
-§ page.person.gets.description: «Взять гет» в данном случае означает первым оставить коммит к задаче с  «красивым» номером.
+§ page.person.gets.title: Медали за номера задач:
+§ page.person.gets.description: Медаль выдается, если пользователь первым оставляет коммит к задаче с  «красивым» номером.
 § page.person.business.days.title: дней работы
 § page.person.business.days.description: Учтены только дни, в которые делались коммиты
 § page.person.business.tasks.title: задач
