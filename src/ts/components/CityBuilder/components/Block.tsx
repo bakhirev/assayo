@@ -16,8 +16,11 @@ function Block({
   const src = {
     home: `./assets/games/home${getRandom(2)}.png`,
     road: './assets/games/road.png',
-    green: './assets/games/green.png',
   }[type || ''] || defaultSprite;
+
+  if (type === 'green') {
+    return (<div className={className.join(' ')} />);
+  }
 
   return (
     <img

@@ -1,10 +1,18 @@
 @import 'src/styles/variables';
 
+.city_builder_description {
+  margin: var(--space-m) auto;
+}
+
 .city_builder_control {
   position: relative;
-  margin: 0 0 var(--space-xxl);
+  margin: var(--space-xxl) auto;
   user-select: none;
   background-color: var(--color-13);
+
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: top left;
 
   &_prev,
   &_next {
@@ -12,7 +20,10 @@
     top: 0;
     bottom: 0;
 
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 30%;
     height: 100%;
     cursor: pointer;
@@ -20,7 +31,15 @@
     border-radius: 0;
     border: none;
     color: transparent;
+
     background-color: transparent;
+    background-size: auto 30%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 
   &_prev {

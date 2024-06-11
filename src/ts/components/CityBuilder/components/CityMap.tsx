@@ -42,7 +42,6 @@ function CityMap({
       style={{
         padding: `${paddingTop * cellSize}px ${paddingLeft * cellSize}px`,
         maxWidth: 24 * cellSize,
-        backgroundImage: 'url(./assets/games/green.png)',
       }}
     >
       <div className={style.city_builder}>

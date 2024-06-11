@@ -15,7 +15,12 @@ import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 
 const TeamBuilding = observer((): React.ReactElement => {
-  const filesByAuthor = dataGripStore.fileGrip.author?.addedFilesByAuthor;
+  const filesByAuthor = dataGripStore.fileGrip.author?.statisticByName || {};
+  const addedFilesByAuthor = Object.entries(filesByAuthor)
+    .reduce((acc: any, item: any) => {
+      acc[item[0]] = item[1].addedFiles;
+      return acc;
+    }, {});
 
   const tracksAuth = dataGripStore.dataGrip.author.statistic
     .filter((item: any) => !item.isStaff);
@@ -69,7 +74,7 @@ const TeamBuilding = observer((): React.ReactElement => {
       </DataView>
 
       <Title title="Количество созданных файлов, если бы это был город"/>
-      <CityBuilder valuesByTitle={filesByAuthor} />
+      <CityBuilder valuesByTitle={addedFilesByAuthor} />
 
       <Title title="Количество созданных папок"/>
       <DataView rows={maxMessageLength}>

@@ -51,36 +51,36 @@ const SettingForm = observer((response: any): React.ReactElement | null => {
       <PageWrapper>
         <PageColumn>
           <Common />
-          <Prefixes />
           <Salary />
         </PageColumn>
         <PageColumn>
-          <Title title="page.settings.user.title"/>
-          {employees.length > 0 ? (
-            users
-          ) : (
-            <NothingFound message="page.settings.user.notFound" />
-          )}
-          {authors.length && (
-            <div className={style.buttons_footer}>
-              <UiKitButtonMenu
-                options={authors}
-                onClick={(user: any) => {
-                  formStore.updateState('employees', [
-                    ...employees,
-                    getNewEmployeesSettings(user?.title, formStore.state, selectedNames?.length),
-                  ]);
-                }}
-              >
-                {localization.get('page.settings.form.addEmployee')}
-              </UiKitButtonMenu>
-            </div>
-          )}
+          <Prefixes />
+          <Title title="page.settings.mailmap"/>
+          <MailMap />
         </PageColumn>
       </PageWrapper>
       <PageWrapper>
-        <Title title="page.settings.mailmap"/>
-        <MailMap />
+        <Title title="page.settings.user.title"/>
+        {employees.length > 0 ? (
+          users
+        ) : (
+          <NothingFound message="page.settings.user.notFound" />
+        )}
+        {authors.length && (
+          <div className={style.buttons_footer}>
+            <UiKitButtonMenu
+              options={authors}
+              onClick={(user: any) => {
+                formStore.updateState('employees', [
+                  ...employees,
+                  getNewEmployeesSettings(user?.title, formStore.state, selectedNames?.length),
+                ]);
+              }}
+            >
+              {localization.get('page.settings.form.addEmployee')}
+            </UiKitButtonMenu>
+          </div>
+        )}
       </PageWrapper>
     </>
   );

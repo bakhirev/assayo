@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import UiKitButton from 'ts/components/UiKit/components/Button';
 import Description from 'ts/components/Description';
 import ShowSymbol from 'ts/components/ShowSymbol';
 import { shuffle } from 'ts/helpers/random';
@@ -54,19 +53,22 @@ function CityBuilder({
         length={20}
       />
       <Description
+        className={style.city_builder_description}
         text={`Сейчас в проекте есть ${selected.value || 0} файлов созданных этим пользователем. Это примерно ${percent}% от всех файлов в проекте.`}
       />
       <div className={style.city_builder_control}>
-        <UiKitButton
+        <button
           disabled={!selectedIndex}
           className={style.city_builder_control_prev}
+          style={{ backgroundImage: 'url(./assets/menu/arrow_left.svg)' }}
           onClick={() => {
             setSelectedIndex(selectedIndex - 1);
           }}
         />
-        <UiKitButton
+        <button
           disabled={selectedIndex === lastIndex}
           className={style.city_builder_control_next}
+          style={{ backgroundImage: 'url(./assets/menu/arrow_right.svg)' }}
           onClick={() => {
             setSelectedIndex(selectedIndex + 1);
           }}

@@ -2,48 +2,48 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
 export default class FileGripByAuthor {
-  addedFilesByAuthor: IHashMap<number> = {};
-
-  addedWithoutRemoveFilesByAuthor: IHashMap<number> = {};
-
-  removedFilesByAuthor: IHashMap<number> = {};
+  statisticByName: IHashMap<any> = {};
 
   totalAddedFiles: number = 0;
 
   clear() {
-    this.addedFilesByAuthor = {};
-    this.addedWithoutRemoveFilesByAuthor = {};
-    this.removedFilesByAuthor = {};
-    this.totalAddedFiles = 0;
+    this.statisticByName = {};
   }
 
   addFile(file: IDirtyFile) {
-    const create = file?.firstCommit?.author || '';
-    const remove = file?.lastCommit?.author || '';
+    const firstAuthor = file?.firstCommit?.author || '';
+    const lastAuthor = file?.lastCommit?.author || '';
 
-    if (!(create || remove) || file?.name?.[0] === '.') return;
+    if (!(firstAuthor || lastAuthor) || file?.name?.[0] === '.') return;
 
-    this.#addNewAuthor(create);
-    this.#addNewAuthor(remove);
+    this.#addCommitByAuthor(firstAuthor);
+    this.#addCommitByAuthor(lastAuthor);
+    this.#updateCommitByAuthor(file, firstAuthor, lastAuthor);
+  }
 
-    this.addedWithoutRemoveFilesByAuthor[create] += 1;
-    if (file.action !== 'D') {
-      this.addedFilesByAuthor[create] += 1;
+  #addCommitByAuthor(author: string) {
+    if (this.statisticByName[author]) return;
+    this.statisticByName[author] = {
+      addedFiles: 0,
+      removedFiles: 0,
+      addedWithoutRemoveFiles: 0,
+    };
+  }
+
+  #updateCommitByAuthor(file: IDirtyFile, firstAuthor: string, lastAuthor: string) {
+    const createStatistic = this.statisticByName[firstAuthor];
+    const removeStatistic = this.statisticByName[lastAuthor];
+
+    createStatistic.addedWithoutRemoveFiles += 1;
+    if (file.action === 'D') {
+      removeStatistic.removedFiles += 1;
     } else {
-      this.removedFilesByAuthor[remove] += 1;
+      createStatistic.addedFiles += 1;
     }
   }
 
-  #addNewAuthor(author: string) {
-    const value = this.addedFilesByAuthor[author];
-    if (value || value === 0) return;
-    this.addedFilesByAuthor[author] = 0;
-    this.addedWithoutRemoveFilesByAuthor[author] = 0;
-    this.removedFilesByAuthor[author] = 0;
-  }
-
   updateTotalInfo() {
-    this.totalAddedFiles = Object.values(this.addedFilesByAuthor)
-      .reduce((sum: number, value: number) => sum + value, 0);
+    this.totalAddedFiles = Object.values(this.statisticByName)
+      .reduce((sum: number, stat: any) => sum + stat.addedFiles, 0);
   }
 }
