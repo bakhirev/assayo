@@ -25,4 +25,11 @@
   background-repeat: no-repeat;
   background-size: 180% auto;
   background-position: center center;
+
+  &_icon {
+    display: inline-block;
+    width: 50px;
+    margin: 0 var(--space-xs) 0 0;
+    vertical-align: middle;
+  }
 }

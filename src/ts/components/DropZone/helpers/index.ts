@@ -52,6 +52,7 @@ export function getOnDrop(setLoading: Function, onChange: Function) {
       .map((file: any) => file.kind === 'file' ? file?.getAsFile() : null)
       .filter(file => file);
 
+    console.log(files);
     setLoading(false);
     if (!files.length) return;
 

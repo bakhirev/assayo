@@ -1,0 +1,112 @@
+@import 'src/styles/variables';
+
+.quize_answer {
+  width: 250px;
+  padding-bottom: var(--space-m);
+
+  cursor: pointer;
+  border-radius: var(--border-radius-s);
+  border: none;
+  box-shadow: 0 0 5px var(--color-grey);
+  transition: width 0.5s;
+
+  background-color: white;
+
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-name: quize_answer;
+
+  &_wrapper {
+    display: inline-block;
+    padding: 0;
+
+    vertical-align: top;
+    border-radius: var(--border-radius-s);
+    transition: padding 0.5s;
+
+    &_small {
+      padding: var(--space-s) var(--space-l);
+    }
+  }
+
+  &_selected {
+    box-shadow: 0 0 var(--space-l) var(--color-13), 0 0 var(--space-xxl) var(--color-13);
+    background-color: var(--color-13);
+    animation-name: quize_answer_selected;
+  }
+
+  &_correct {
+    box-shadow: 0 0 var(--space-l) var(--color-23), 0 0 var(--space-xxl) var(--color-23);
+    background-color: var(--color-23);
+    animation-name: quize_answer_selected;
+  }
+
+  &_error {
+    width: 218px;
+    box-shadow: 0 0 var(--space-l) var(--color-12), 0 0 var(--space-xxl) var(--color-12);
+    background-color: var(--color-12);
+    animation-name: quize_answer_selected;
+  }
+
+  &_small {
+    width: 218px;
+  }
+
+  &_icon {
+    display: block;
+    width: 100%;
+    margin: 0 auto var(--space-l);
+
+    border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;
+    background-position: center center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s;
+
+    &:hover {
+      background-size: auto 105%;
+    }
+  }
+
+  &_text {
+    font-size: var(--font-m);
+    font-weight: 100;
+
+    display: block;
+    margin: 0 auto;
+
+    text-align: center;
+    color: var(--color-black);
+  }
+}
+
+.quize_answer_wrapper + .quize_answer_wrapper {
+  margin-left: var(--space-xxl);
+}
+
+@keyframes quize_answer {
+  from {
+    box-shadow: none;
+  }
+  86% {
+    box-shadow: none;
+  }
+  93% {
+    box-shadow: 0 0 10px var(--color-13), 0 0 20px var(--color-13);
+  }
+  to {
+    box-shadow: none;
+  }
+}
+
+@keyframes quize_answer_selected {
+  from {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 10px var(--color-13), 0 0 20px var(--color-13);
+  }
+  to {
+    box-shadow: none;
+  }
+}

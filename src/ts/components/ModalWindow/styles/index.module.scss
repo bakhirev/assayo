@@ -28,6 +28,8 @@
 }
 
 .modal_window {
+  position: relative;
+
   &_wrapper {
     position: fixed;
     top: 0;
@@ -44,6 +46,16 @@
     background-color: rgba(90, 90, 90, 0.2);
   }
 
+  &_halo {
+    position: absolute;
+    top: -50px;
+    left: -80px;
+    z-index: -1;
+    display: block;
+    width: 560px;
+    animation: modal_window_halo 40s linear 0s infinite normal none running;
+  }
+
   &_title,
   &_body,
   &_footer {
@@ -52,8 +64,6 @@
     margin: 0 auto;
     box-sizing: border-box;
 
-    border-radius: 8px;
-
     text-align: left;
     white-space: normal;
   }
@@ -61,24 +71,30 @@
   &_title {
     position: relative;
     padding: 24px;
+    border-radius: 8px 8px 0 0;
   }
 
   &_body {
     max-height: 60vh;
     padding: 0 24px;
     overflow: auto;
+    line-height: 1.5;
   }
 
   &_footer {
     padding: 24px;
     text-align: right;
+    border-radius: 0 0 8px 8px;
   }
 
+  &_locker,
   &_close {
     position: absolute;
     top: 12px;
     right: 12px;
+  }
 
+  &_close {
     display: block;
     width: 32px;
     height: 32px;
@@ -89,5 +105,22 @@
     &:hover {
       transform: rotate(180deg);
     }
+  }
+}
+
+@keyframes modal_window_halo {
+  from {
+    transform: rotateZ(0deg);
+    opacity: 0;
+  }
+  11% {
+    opacity: 0.4;
+  }
+  89% {
+    opacity: 0.4;
+  }
+  to {
+    transform: rotateZ(360deg);
+    opacity: 0;
   }
 }

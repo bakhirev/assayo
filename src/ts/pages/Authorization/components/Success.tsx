@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 
 import dataGripStore, { DataParseStatusEnum } from 'ts/store/DataGrip';
 import DropZone from 'ts/components/DropZone';
+import Sponsor from 'ts/components/Sponsor';
 import SplashScreen from 'ts/components/SplashScreen';
 import Confirm from 'ts/components/ModalWindow/Confirm';
 
@@ -22,6 +23,7 @@ interface IViewWithChartsProps {
 function ViewWithCharts({ showSplashScreen }: IViewWithChartsProps) {
   return (
     <>
+      <Sponsor />
       <Confirm />
       <Routes>
         <Route

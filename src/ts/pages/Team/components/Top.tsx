@@ -12,6 +12,9 @@ import ShowSymbol from 'ts/components/ShowSymbol';
 import Column from 'ts/components/Table/components/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
+import GameConsole from 'ts/components/GameConsole';
+import GameBanner from 'ts/components/GameBanner';
+import Quize from 'ts/components/Quize';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 
 const TeamBuilding = observer((): React.ReactElement => {
@@ -38,10 +41,16 @@ const TeamBuilding = observer((): React.ReactElement => {
 
   return (
     <>
+      <Title title="Скорость коммитов в день"/>
+      <GameConsole />
+
+      <Title title="Квиз"/>
+      <Quize />
       <Title title="Скорость закрытия задач"/>
       <Races tracks={tracks} />
 
       <Title title="Максимальная длинна подписи коммита"/>
+      <GameBanner src="./assets/games/wheel.jpg" />
       <DataView rows={maxMessageLength}>
         <Column
           isFixed
@@ -107,7 +116,7 @@ const TeamBuilding = observer((): React.ReactElement => {
           )}
         />
       </DataView>
-
+      {'Квиз'}
       {'Небоскребы вверх ввиде графика'}
     </>
   );

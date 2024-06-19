@@ -87,4 +87,71 @@ export default `
 § achievements.moreStyle.description: склонен больше остальных изменять CSS
 § achievements.moreOnHoliday.title: Нет жизни
 § achievements.moreOnHoliday.description: относительно много коммитов в нерабочее время
+§ achievements.morePRMerge.title: Таможня даёт добро
+§ achievements.morePRMerge.description: more often than others, presses the "Merge" button for PR
+§ achievements.longWaitPR.title: Завтра точно вольём
+§ achievements.longWaitPR.description: создал PR, который больше месяца провисел на ревью
+§ achievements.moreLongWaitPR.title: A long time ago in a galaxy far, far away
+§ achievements.moreLongWaitPR.description: создал PR, который максимально долго провисел на ревью
+§ achievements.oneExtension.title: Один в поле воин
+§ achievements.oneExtension.description: только он работает с файлами определенного расширения
+§ achievements.fileRush.title: Zerg Rush
+§ achievements.fileRush.description: created the most files in the project
+§ achievements.moreLintHint.title: Грамар-наци
+§ achievements.moreLintHint.description: больше всех создал или изменил в правилах авто-проверки кода
+§ achievements.moreReadMe.title: Летописец
+§ achievements.moreReadMe.description: больше всех создал или изменил файлов MD
+§ achievements.moreDevOps.title: DevOps
+§ achievements.moreDevOps.description: больше всех создал или изменил файлов для CI/CD
+§ achievements.moreTests.title: Тестировщик
+§ achievements.moreTests.description: больше всех создал или изменил файлов для тестирования
+§ achievements.allRelease.title: Фулл хаус
+§ achievements.allRelease.description: есть релиз, собранный только из его задач
+§ achievements.firstCommit.title: First come, first served
+§ achievements.firstCommit.description: first commit in this project
+§ achievements.lastCommit.title: I've finished
+§ achievements.lastCommit.description: последний коммит на проекте
+§ achievements.firstLastCommit.title: From beginning to end
+§ achievements.firstLastCommit.description: первый и последний коммит на проекте
+§ achievements.longFilePath.title: Закрома родины
+§ achievements.longFilePath.description: the first created the file with the deepest directory
+§ achievements.longFileName.title: Size matters
+§ achievements.longFileName.description: created the file with the longest name
+§ achievements.workOnWeekends.title: Work not walk
+§ achievements.workOnWeekends.description: хоть раз работал на выходных
+§ achievements.removeCreateFile.title: Откопал стюардессу
+§ achievements.removeCreateFile.description: recover removed file
+§ achievements.renameFile.title: Астана Нур-Султан Астана
+§ achievements.renameFile.description: переименовывал туда-сюда файл
+§ achievements.longTask.title: Easy task
+§ achievements.longTask.description: worked on task more than three months
+§ achievements.haveNotEmail.title: Mailman
+§ achievements.haveNotEmail.description: empty email field in git config
+§ achievements.moreAddedFolders.title: Director 
+§ achievements.moreAddedFolders.description: created the most directories
+§ achievements.horoscope1.title: Mercury Retrograde for Capricorn
+§ achievements.horoscope2.title: Mercury Retrograde for Aquarius
+§ achievements.horoscope3.title: Mercury Retrograde for Pisces
+§ achievements.horoscope4.title: Mercury Retrograde for Aries
+§ achievements.horoscope5.title: Mercury Retrograde for Taurus
+§ achievements.horoscope6.title: Mercury Retrograde for Gemini
+§ achievements.horoscope7.title: Mercury Retrograde for Cancer
+§ achievements.horoscope8.title: Mercury Retrograde for Leo
+§ achievements.horoscope9.title: Mercury Retrograde for Virgo
+§ achievements.horoscope10.title: Mercury Retrograde for Libra
+§ achievements.horoscope11.title: Mercury Retrograde for Scorpio
+§ achievements.horoscope12.title: Mercury Retrograde for Sagittarius
+§ achievements.horoscope1.description: by the month of the first commit
+§ achievements.horoscope2.description: by the month of the first commit
+§ achievements.horoscope3.description: by the month of the first commit
+§ achievements.horoscope4.description: by the month of the first commit
+§ achievements.horoscope5.description: by the month of the first commit
+§ achievements.horoscope6.description: by the month of the first commit
+§ achievements.horoscope7.description: by the month of the first commit
+§ achievements.horoscope8.description: by the month of the first commit
+§ achievements.horoscope9.description: by the month of the first commit
+§ achievements.horoscope10.description: by the month of the first commit
+§ achievements.horoscope11.description: by the month of the first commit
+§ achievements.horoscope12.description: by the month of the first commit
+§ achievements.111.description: test
 `;

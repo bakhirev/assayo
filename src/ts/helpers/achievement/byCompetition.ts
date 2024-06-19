@@ -10,14 +10,20 @@ class AchievementsByAuthor {
     this.authors[name] = [];
   }
 
-  add(authors: Array<[string, number]>, maxAchievementCode: string, minAchievementCode?: string) {
+  add(
+    authors: Array<[string, number]>,
+    maxAchievementCode?: string,
+    minAchievementCode?: string,
+  ) {
     const first = authors?.[0]?.[0];
     if (!first) return;
-    this.authors?.[first]?.push(maxAchievementCode);
-
-    if (!minAchievementCode) return;
-    const last = authors?.[authors.length - 1]?.[0];
-    this.authors?.[last]?.push(minAchievementCode);
+    if (maxAchievementCode) {
+      this.authors?.[first]?.push(maxAchievementCode);
+    }
+    if (minAchievementCode) {
+      const last = authors?.[authors.length - 1]?.[0];
+      this.authors?.[last]?.push(minAchievementCode);
+    }
   }
 }
 
@@ -53,7 +59,7 @@ class AchievementsByCompetition {
     byAuthor.add(total.allDaysInProject, 'moreDaysInProject', 'lessDaysInProject');
 
     // Дата первого коммита
-    byAuthor.add(total.firstCommit, 'adam');
+    byAuthor.add(total.firstCommit, null, 'adam');
 
     // Количество метки «рефакторинг»
     byAuthor.add(total.moreRefactoring, 'moreRefactoring');

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import isMobile from 'ts/helpers/isMobile';
@@ -11,6 +11,8 @@ import style from './styles/index.module.scss';
 
 interface IModalProps {
   id?: string,
+  delay?: number;
+  mode?: string | string[],
   className?: string,
   onClose?: Function,
   children?: ReactNode;
@@ -18,16 +20,20 @@ interface IModalProps {
 
 function Modal({
   id,
+  mode,
+  delay,
   className,
   onClose,
   children,
 }: IModalProps) {
+  const [canClose, setCanClose] = useState<boolean>(!delay);
+
   useEffect(globalScroll.useOnOff, []);
 
   const childrenWithProps = React.Children.map(children, (child) => (React.isValidElement(child)
     ? React.cloneElement(
       child, // @ts-ignore
-      { onClose },
+      { onClose, delay, setCanClose },
     ) : child));
 
   const customClass = isMobile
@@ -41,7 +47,7 @@ function Modal({
       onClick={(event: any) => {
         event.stopPropagation();
         if (event.target?.id !== `${id}-wrapper`) return;
-        if (onClose) onClose();
+        if (onClose && canClose) onClose();
       }}
     >
       <div
@@ -51,6 +57,12 @@ function Modal({
           event.stopPropagation();
         }}
       >
+        {mode === 'halo' ? (
+          <img
+            className={style.modal_window_halo}
+            src="./assets/sponsor/halo.png"
+          />
+        ) : null}
         {childrenWithProps}
       </div>
     </div>
@@ -61,6 +73,7 @@ Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
   id: 'modal-window',
+  delay: undefined,
   className: '',
   onClose: undefined,
   children: undefined,

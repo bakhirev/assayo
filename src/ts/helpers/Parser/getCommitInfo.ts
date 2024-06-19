@@ -35,8 +35,8 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
     message,
 
     text: '',
-    type: 'не подписан',
-    scope: 'неопределенна',
+    type: '—',
+    scope: '—',
     fileChanges: [],
   };
 
@@ -98,8 +98,8 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
     task,
     taskNumber,
     text,
-    type: type || 'не подписан',
-    scope: scope || 'неопределенна',
+    type: type || '—',
+    scope: scope || '—',
 
     changes: 0,
     added: 0,

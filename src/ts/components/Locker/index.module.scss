@@ -1,0 +1,51 @@
+@import 'src/styles/variables';
+
+.locker {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+
+  &_icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_border {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 1px;
+  }
+
+  &_center {
+    fill: white;
+    stroke: none;
+    stroke-width: 0;
+  }
+
+  &_sector {
+    fill: none;
+    stroke: var(--color-grey);
+    stroke-width: 50px;
+    transition: stroke-dasharray 1s;
+  }
+
+  &_text {
+    font-size: var(--font-s);
+    font-weight: 100;
+
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+
+    display: block;
+    width: 100%;
+
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-black);
+  }
+}

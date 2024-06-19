@@ -1,0 +1,35 @@
+@import 'src/styles/variables';
+
+.quize_result {
+  &_title,
+  &_description {
+    font-weight: 100;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-black);
+  }
+
+  &_title {
+    font-size: var(--font-l);
+    margin: 0 auto var(--space-xxl);
+  }
+
+  &_description {
+    font-size: var(--font-m);
+  }
+
+  &_icon {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto var(--space-xxl);
+
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 5px var(--color-grey);
+    background-color: var(--color-border);
+
+    background-position: center center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+}

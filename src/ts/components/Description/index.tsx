@@ -30,7 +30,7 @@ function getTextWithLink(text: string, className?: string) {
   return (<>{parts}</>) ;
 }
 
-function getTextWithStyle(text: string, className?: string) {
+export function getTextWithStyle(text: string, className?: string) {
   const parts = (text || '')
     .split('*')
     .map((value: string, index: number) => (index % 2

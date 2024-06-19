@@ -211,4 +211,7 @@ export default `
 § page.person.week.days: jours
 § page.person.week.workDay: jours de semaine
 § page.person.week.weekends: congés
+§ page.sponsor.share.title: Please, support this project
+§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/github/comments/1bvtsl3/how_i_parsed_git_statistics/] or make a video review.
+§ page.sponsor.share.button: Copy the link
 `;

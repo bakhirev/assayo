@@ -25,7 +25,8 @@ export default class FileGripByPaths {
     if (file) {
       this.#updateDirtyFile(file, fileChange, commit);
     } else {
-      this.refFileIds[fileChange.id] = this.#getNewDirtyFile(fileChange, commit) as IDirtyFile;
+      file = this.#getNewDirtyFile(fileChange, commit) as IDirtyFile;
+      this.refFileIds[fileChange.id] = file;
     }
 
     if (fileChange.newId) {

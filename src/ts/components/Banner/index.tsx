@@ -16,15 +16,15 @@ function Banner({ className }: IBannerProps) {
   const {
     ref,
     link,
-    title,
     banner,
-    bannerText,
+    text,
+    textIcon,
     color,
     backgroundColor,
   } = config;
 
   const props = {
-    title,
+    title: text,
     to: link || '',
     target: '_blank',
     className,
@@ -43,29 +43,31 @@ function Banner({ className }: IBannerProps) {
     );
   }
 
-  if (!banner) {
-    const textFromRef = (ref || '').split('_').splice(1).join(' ').toUpperCase();
-    const background = backgroundColor
-      ? backgroundColor
-      : 'linear-gradient(135deg, rgba(64,117,252,1) 0%, rgba(172,179,246,1) 100%)';
+  const textFromRef = (ref || '').split('_').splice(1).join(' ').toUpperCase();
+  const background = backgroundColor
+    ? backgroundColor
+    : 'linear-gradient(135deg, rgba(64,117,252,1) 0%, rgba(172,179,246,1) 100%)';
 
-    return (
-      <Link {...props}>
-        <div
-          title={title}
-          className={style.banner}
-          style={{
-            color: color,
-            background,
-          }}
-        >
-          {bannerText || textFromRef || ''}
-        </div>
-      </Link>
-    );
-  }
-
-  return null;
+  return (
+    <Link {...props}>
+      <div
+        title={text}
+        className={style.banner}
+        style={{
+          color,
+          background,
+        }}
+      >
+        {textIcon ? (
+          <img
+            src={textIcon}
+            className={style.banner_icon}
+          />
+        ) : null}
+        {text || textFromRef || ''}
+      </div>
+    </Link>
+  );
 }
 
 export default Banner;

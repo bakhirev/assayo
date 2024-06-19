@@ -24,10 +24,7 @@
   }
 
   &_button {
-    position: absolute;
-    top: var(--space-l);
-    left: calc(50% - 100px);
-    z-index: 1;
+    margin-bottom: var(--space-xxl);
   }
 }
 

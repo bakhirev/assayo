@@ -57,13 +57,13 @@ function ShowSymbol({
         paddingTop: mode === 'table-row' ? '8px' : 0,
       }}
     >
+      {line}
       <Button
         mode={mode}
         onClick={() => setShowAll(true)}
       >
         »
       </Button>
-      {line}
     </div>
   );
 }

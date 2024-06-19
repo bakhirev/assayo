@@ -1,18 +1,18 @@
 interface IBanner {
-  isDefault?: boolean;
   ref?: string;
   link?: string;
   isOpenInNewTab?: boolean;
 
   /* Логотип */
-  icon?: string;
+  logo?: string;
   title?: string;
 
   /* Картинка баннера */
   banner?: string;
 
   /* Текстовы баннер */
-  bannerText?: string;
+  text?: string;
+  textIcon?: string;
   color?: string;
   backgroundColor?: string;
 }

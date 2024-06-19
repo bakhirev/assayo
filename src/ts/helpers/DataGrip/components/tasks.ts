@@ -51,8 +51,8 @@ export default class DataGripByTasks {
           prDelayDays: pr?.delayDays,
           prAuthor: firstCommit.author === pr?.author ? null : pr?.author,
           comments: firstCommit.text,
-          types: firstCommit.type && firstCommit.type !== 'не подписан' ? [firstCommit.type] : [],
-          scope: firstCommit.scope && firstCommit.scope !== 'неопределенна' ? [firstCommit.scope] : [],
+          types: firstCommit.type && firstCommit.type !== '—' ? [firstCommit.type] : [],
+          scope: firstCommit.scope && firstCommit.scope !== '—' ? [firstCommit.scope] : [],
         };
 
         if (commits.length === 1) return shortInfo;
@@ -64,8 +64,8 @@ export default class DataGripByTasks {
         commits.forEach((commit: ICommit) => {
           authors.add(commit.author);
           messages.add(commit.text);
-          if (commit.type !== 'не подписан') types.add(commit.type);
-          if (commit.scope !== 'неопределенна') scope.add(commit.scope);
+          if (commit.type !== '—') types.add(commit.type);
+          if (commit.scope !== '—') scope.add(commit.scope);
         });
 
         const comments = Array.from(messages).join(', ');

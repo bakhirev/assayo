@@ -23,14 +23,16 @@ function getFormattedDate(commits: ICommit[]) {
 
 function getTags(commits: ICommit[]) {
   const uniqueTypes = new Set(commits.map((commit: ICommit) => commit.type));
-  const tags = Array.from(uniqueTypes).map((title: string) => (
-    <p
-      key={title}
-      className={style.tempo_task_tag}
-    >
-      {title}
-    </p>
-  ));
+  const tags = Array.from(uniqueTypes)
+    .filter((title: string) => title && title !== '—')
+    .map((title: string) => (
+      <p
+        key={title}
+        className={style.tempo_task_tag}
+      >
+        {title}
+      </p>
+    ));
   return (<>{tags}</>);
 }
 
@@ -48,14 +50,18 @@ function Task({ title, commits }: ITaskProps) {
     >
       <div className={style.tempo_task_header}>
         <div>
-          <ExternalLink
-            text={title}
-            link={`${userSettings?.settings?.linksPrefix?.task || '/'}${title}`}
-          />
-          <ExternalLink
-            text="PR"
-            link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
-          />
+          {title ? (
+            <ExternalLink
+              text={title}
+              link={`${userSettings?.settings?.linksPrefix?.task || '/'}${title}`}
+            />
+          ) : '—'}
+          {prId ? (
+            <ExternalLink
+              text="PR"
+              link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
+            />
+          ) : null}
         </div>
         <div className={style.tempo_task_tags}>
           {getTags(commits)}

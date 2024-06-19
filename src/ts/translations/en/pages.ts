@@ -224,4 +224,7 @@ will be marked as a jump in "deleted" and "added" lines.
 § page.person.week.days: days
 § page.person.week.workDay: weekdays
 § page.person.week.weekends: weekends
+§ page.sponsor.share.title: Please, support this project
+§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/github/comments/1bvtsl3/how_i_parsed_git_statistics/] or make a video review.
+§ page.sponsor.share.button: Copy the link
 `;

@@ -1,0 +1,16 @@
+@import 'src/styles/variables';
+
+.quize_question {
+  &_title {
+    font-size: var(--font-l);
+    font-weight: 100;
+    margin: 0 auto var(--space-xxl);
+    text-align: center;
+    color: var(--color-black);
+  }
+
+  &_answer {
+    display: block;
+    text-align: center;
+  }
+}

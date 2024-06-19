@@ -3,21 +3,9 @@ import React, { ReactNode } from 'react';
 import Button from 'ts/components/UiKit/components/Button';
 import notificationsStore from 'ts/components/Notifications/store';
 import localization from 'ts/helpers/Localization';
+import copyInBuffer from 'ts/helpers/copyInBuffer';
 
 import style from './index.module.scss';
-
-function copyInBuffer(value?: string) {
-  if (!value) return;
-  const copyTextarea = document.createElement('textarea');
-  copyTextarea.style.position = 'fixed';
-  copyTextarea.style.opacity = '0';
-  copyTextarea.textContent = value;
-
-  document.body.appendChild(copyTextarea);
-  copyTextarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(copyTextarea);
-}
 
 interface IConsoleProps {
   textForCopy?: string;
@@ -36,16 +24,18 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
       <div className={`${style.console_body}`}>
         {children || textForCopy}
       </div>
-      <Button
-        mode="second"
-        className={`${style.console_copy}`}
-        onClick={() => {
-          copyInBuffer(textForCopy);
-          notificationsStore.show(localization.get('uiKit.console.notification'));
-        }}
-	    >
-        {localization.get('uiKit.console.button')}
-      </Button>
+      {textForCopy ? (
+        <Button
+          mode="second"
+          className={`${style.console_copy}`}
+          onClick={() => {
+            copyInBuffer(textForCopy);
+            notificationsStore.show(localization.get('uiKit.console.notification'));
+          }}
+        >
+          {localization.get('uiKit.console.button')}
+        </Button>
+      ) : null}
     </div>
   );
 }

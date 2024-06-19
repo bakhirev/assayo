@@ -11,12 +11,11 @@ interface ILogoProps {
 
 function Logo({ center }: ILogoProps) {
   const {
-    isDefault,
-    icon,
+    logo,
     link,
     title,
-    isOpenInNewTab,
-  } = themeSettings.getLogo();
+  } = themeSettings.getLogo() || {};
+  const isDefault = logo === './assets/logo.svg';
 
   return (
     <figure
@@ -26,11 +25,11 @@ function Logo({ center }: ILogoProps) {
     >
       <Link
         to={link || ''}
-        target={isOpenInNewTab ? '_blank' : ''}
+        target={isDefault ? '' : '_blank'}
         className={style.logo_link}
       >
         <img
-          src={icon || ''}
+          src={logo || ''}
           title={title || ''}
           className={isDefault
             ? `${style.logo_icon} ${style.logo_default}`

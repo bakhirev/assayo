@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import GameBanner from 'ts/components/GameBanner';
 import { shuffle } from 'ts/helpers/random';
 
 import Track from './components/Track';
@@ -37,19 +38,23 @@ function Races({
   });
 
   return (
-    <div className={style.races}>
-      {!showAnimation && (
-        <UiKitButton
-          className={style.races_button}
-          onClick={() => {
-            setShowAnimation(true);
-          }}
-        >
-          {t('uiKit.races.go')}
-        </UiKitButton>
-      )}
-      {lines}
-    </div>
+    <>
+      <GameBanner src="./assets/games/races.jpg">
+        {!showAnimation && (
+          <UiKitButton
+            className={style.races_button}
+            onClick={() => {
+              setShowAnimation(true);
+            }}
+          >
+            {t('uiKit.races.go')}
+          </UiKitButton>
+        )}
+      </GameBanner>
+      <div className={style.races}>
+        {lines}
+      </div>
+    </>
   );
 }
 

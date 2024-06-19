@@ -4,6 +4,8 @@ import IHashMap from 'ts/interfaces/HashMap';
 import Description from 'ts/components/Description';
 import ShowSymbol from 'ts/components/ShowSymbol';
 import { shuffle } from 'ts/helpers/random';
+import GameBanner from 'ts/components/GameBanner';
+import styleBanner from 'ts/components/GameBanner/index.module.scss';
 
 import CityMap from './components/CityMap';
 import style from './style/wrapper.module.scss';
@@ -48,14 +50,16 @@ function CityBuilder({
 
   return (
     <>
-      <ShowSymbol
-        text={selected.title}
-        length={20}
-      />
-      <Description
-        className={style.city_builder_description}
-        text={`Сейчас в проекте есть ${selected.value || 0} файлов созданных этим пользователем. Это примерно ${percent}% от всех файлов в проекте.`}
-      />
+      <GameBanner src="./assets/games/citybuilder.jpg">
+        <ShowSymbol
+          text={selected.title}
+          length={20}
+        />
+        <Description
+          className={styleBanner.game_banner_text}
+          text={`Сейчас в проекте есть ${selected.value || 0} файлов созданных этим пользователем. Это примерно ${percent}% от всех файлов в проекте.`}
+        />
+      </GameBanner>
       <div className={style.city_builder_control}>
         <button
           disabled={!selectedIndex}

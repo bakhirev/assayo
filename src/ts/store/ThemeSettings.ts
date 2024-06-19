@@ -1,45 +1,56 @@
 import { makeObservable, observable, action } from 'mobx';
 
-import IBanner from 'ts/interfaces/Banner';
 import IHashMap from 'ts/interfaces/HashMap';
+import IBanner from 'ts/interfaces/Banner';
 
 const LOGO: IBanner = {
-  isDefault: true,
-  icon: './assets/logo.svg',
+  logo: './assets/logo.svg',
   isOpenInNewTab: false,
 };
 
 const EXTERNAL_LOGO: IHashMap<IBanner> = {
   vk_frontend_du2: {
-    icon: './social/vk/frontend_du2.png',
+    logo: './social/vk/frontend_du2.png',
     banner: './social/vk/frontend_du2.jpg',
     link: 'https://vk.com/frontend_du2',
-    title: 'Сообщество о веб-разработке и программировании',
   },
   vk_take_off_staff: {
-    icon: './social/vk/take_off_staff.png',
+    logo: './social/vk/take_off_staff.png',
     banner: './social/vk/take_off_staff.jpg',
     link: 'https://vk.com/takeoff_staff',
   },
-  vk_awesomejs: {
-    icon: './social/vk/awesomejs.png',
-    // banner: './social/vk/awesomejs.jpg',
-    link: 'https://vk.com/awesomejs',
-    bannerText: 'Сбер Банк',
-    color: '#000',
-    backgroundColor: '#C2ECC1',
-  },
-  vk_frontend_dev: {
-    icon: './social/vk/frontend_dev.png',
-    banner: './social/vk/frontend_dev.jpg',
-    link: 'https://vk.com/frontend_dev',
-  },
-  vk_front_work: {
-    icon: './social/vk/front_work.png',
-    banner: './social/vk/front_work.jpg',
-    link: 'https://frontends.work/?ref=assayo',
-  },
 };
+
+function getDefaultBanner(ref: string): IBanner | null {
+  if (!ref) return null;
+
+  const parts = ref.split('_');
+  const type = parts.shift() || '';
+  const name = parts.join('_');
+  if (!name) return null;
+
+  return {
+    isOpenInNewTab: true,
+    logo: './assets/logo.svg',
+    link: {
+      vk: `https://vk.com/${name}`,
+      yt: `https://www.youtube.com/@${name}`,
+      tg: `https://t.me/@${name}`,
+    }[type],
+    text: name,
+    textIcon: {
+      vk: './social/vk.png',
+      yt: './social/youtube.png',
+      tg: './social/tg.png',
+    }[type],
+    color: '#FFFFFF',
+    backgroundColor: {
+      vk: '#5181B8',
+      yt: '#FE0000',
+      tg: '#29A6E6',
+    }[type] || '#EFC526',
+  };
+}
 
 class ThemeSettings {
   urlParameters: any = {};
@@ -55,23 +66,17 @@ class ThemeSettings {
     this.urlParameters = urlParameters || {};
   }
 
-  getLogo(): IBanner {
+  getConfig(): IBanner {
     const ref = this.urlParameters?.ref || '';
-    let config = EXTERNAL_LOGO[ref];
-    if (!config) return LOGO;
+    return EXTERNAL_LOGO[ref] || getDefaultBanner(ref);
+  }
 
-    config.ref = ref;
-    config.isOpenInNewTab = true;
-
-    return config;
+  getLogo(): IBanner | null {
+    return LOGO || this.getConfig() || LOGO;
   }
 
   getBanner(): IBanner | null {
-    let config = EXTERNAL_LOGO[this.urlParameters?.ref || ''];
-    if (!config) return null;
-
-    config.isOpenInNewTab = true;
-    return config;
+    return this.getConfig();
   }
 }
 

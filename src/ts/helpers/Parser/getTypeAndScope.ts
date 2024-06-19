@@ -71,7 +71,7 @@ export function getTypeAndScope(message: string, task: string) {
 
 // ABC-123, #123, gh-123
 export function getTask(message: string) {
-  return ((message || '').match(/(([A-Z]+-)|(#)|(gh-)|(GH-))([0-9]+)/gm) || [])[0] || '';
+  return ((message || '').match(/(([A-Z]+[-_])|(#)|(gh-)|(GH-))([0-9]+)/gm) || [])[0] || '';
 }
 
 // ABC-123 => '123';

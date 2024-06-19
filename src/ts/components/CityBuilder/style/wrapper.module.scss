@@ -6,7 +6,7 @@
 
 .city_builder_control {
   position: relative;
-  margin: var(--space-xxl) auto;
+  margin: 0 auto var(--space-xxl);
   user-select: none;
   background-color: var(--color-13);
 
@@ -36,10 +36,6 @@
     background-size: auto 30%;
     background-repeat: no-repeat;
     background-position: center center;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
   }
 
   &_prev {
