@@ -2,11 +2,19 @@
 
 .races {
   position: relative;
-  margin: 0 auto var(--space-xxl);
-  border: var(--space-xxl) solid var(--color-13);
-  border-left: none;
-  border-right: none;
+  margin: 0 auto;
   user-select: none;
+
+  &_green {
+    display: block;
+    height: var(--space-xxl);
+
+    background-color: var(--color-13);
+
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: top left;
+  }
 
   &_track {
     position: relative;
@@ -15,11 +23,14 @@
     margin: 0 auto;
 
     text-align: right;
-    border-bottom: var(--space-xxs) dashed var(--color-border);
     background-color: var(--color-grey);
 
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: top left;
+
     &:first-child {
-      border-top: var(--space-xxs) dashed var(--color-border);
+      // border-top: var(--space-xxs) dashed var(--color-border);
     }
   }
 

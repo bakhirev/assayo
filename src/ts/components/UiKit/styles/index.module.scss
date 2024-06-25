@@ -19,7 +19,7 @@
   border-radius: var(--border-radius-s);
   border: 1px solid var(--color-border);
   color: var(--color-black);
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
 }
 
 .ui_kit_dialog {
@@ -35,6 +35,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 8px;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   box-shadow: 0 0 5px #C0C0C0;
 }

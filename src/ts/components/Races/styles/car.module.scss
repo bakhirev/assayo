@@ -2,7 +2,7 @@
 
 .races_track_car {
   position: absolute;
-  top: 0;
+  top: -8px;
   left: 0;
 
   width: 10%;
@@ -26,7 +26,7 @@
     border: 1px solid var(--color-grey);
     border-radius: var(--border-radius-s);
     color: var(--color-black);
-    background-color: white;
+    background-color: var(--color-white);
 
     &:before {
       content: ' ';
@@ -39,16 +39,16 @@
       padding: 4px;
       transform: rotate(45deg);
 
-      background-color: white;
+      background-color: var(--color-white);
     }
   }
 
   &_cover {
     font-size: 12px;
-
     display: block;
     height: 50%;
     margin: 0 auto;
+    user-select: none;
   }
 
   &_animation {

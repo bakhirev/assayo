@@ -4,9 +4,12 @@
   &_title {
     font-size: var(--font-l);
     font-weight: 100;
+
     margin: 0 auto var(--space-xxl);
     text-align: center;
+
     color: var(--color-black);
+    background-color: var(--color-white);
   }
 
   &_answer {

@@ -22,7 +22,9 @@ export default `
 § sidebar.team.removedTree: Gelöschte dateien
 § sidebar.team.files: Dateien
 § sidebar.team.removedFiles: Gelöschte Dateien
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: Aufgabenliste
+§ sidebar.team.release: Releases
 § sidebar.team.hours: Zeitplan
 § sidebar.team.commits: All commits
 § sidebar.team.changes: Alle Änderungen

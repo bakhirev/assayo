@@ -12,8 +12,8 @@
     transform: rotateZ(-45deg);
 
     border: 6px solid var(--color-grey);
-    border-left-color: white;
-    border-bottom-color: white;
+    border-left-color: var(--color-white);
+    border-bottom-color: var(--color-white);
   }
 
   &_sort_down {

@@ -23,6 +23,9 @@ export default `
 § page.team.author.title: Статистика по сотрудникам
 § page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
+§ page.team.author.status: Статус
+§ page.team.author.firstCommit: Первый коммит
+§ page.team.author.daysAll: Всего дней
 § page.team.author.types: Тип работ
 § page.team.author.commits: Коммитов
 § page.team.author.commitsSmall: коммитов
@@ -120,13 +123,13 @@ export default `
 § page.team.pr.tasks: задач
 § page.team.pr.firstCommitTime: Первый коммит
 § page.team.pr.lastCommitTime: Последний
-§ page.team.pr.workDays: Дней разработки
-§ page.team.pr.delayDays: Дней ожидания влития
+§ page.team.pr.workDays: Среднее время работы над задачей
+§ page.team.pr.delayDays: Среднее время ревью PR
+§ page.team.pr.middleTimeRelease: Отношение времени разработки к времени ревью
 § page.team.pr.commits: Коммиты
 § page.team.pr.date: Дата влития
 § page.team.pr.mergeAuthor: Влил
 § page.team.pr.author: Сотрудник
-§ page.team.pr.middleTimeRelease: Среднее время поставки (дни)
 § page.team.pr.work: разработка
 § page.team.pr.delay: ожидание
 § page.team.pr.days: дней
@@ -146,6 +149,8 @@ export default `
 § page.team.tasks.prAuthor: Влил
 § page.team.tasks.prDelayDays: Дней ожидания влития
 § page.team.tasks.comments: Комментарии
+§ page.team.extension.extension: Расширения файлов
+§ page.team.extension.type: Подтип файлов
 § page.team.extension.name: Тип
 § page.team.extension.path: Путь
 § page.team.extension.current.count: Количество

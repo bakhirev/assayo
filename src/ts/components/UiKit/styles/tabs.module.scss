@@ -30,7 +30,7 @@
 
     border: none;
     border-bottom: 3px solid #E2E9F0;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     color: var(--color-black);
 
     &_selected {

@@ -5,14 +5,15 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 400px;
-    margin: 0 auto var(--space-xxl);
+    height: 500px;
+    margin: 0 auto;
 
     text-align: center;
     overflow: hidden;
 
+    background-color: #F0AE7A;
     background-position: center center;
-    background-size: 10%;
+    background-size: auto 100%;
     background-repeat: repeat;
   }
 
@@ -47,18 +48,30 @@
   &_title,
   &_description {
     font-weight: 100;
+
+    display: block;
+    width: 500px;
+    padding: var(--space-xxl) 64px;
     margin: 0 auto;
+
+    line-height: 1.5;
+    box-sizing: border-box;
     text-align: center;
+
     color: var(--color-black);
+    background-color: var(--color-white);
   }
 
   &_title {
     font-size: var(--font-l);
     margin: 0 auto var(--space-xxl);
+    border-radius: var(--border-radius-m);
+    background: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(240, 174, 122, 0.5) 100%);
   }
 
   &_description {
     font-size: var(--font-m);
+    margin: 100px auto 0;
   }
 
   &_icon {
@@ -67,9 +80,9 @@
     max-width: 300px;
     margin: 0 auto var(--space-xxl);
 
-    border: var(--space-s) solid var(--color-border);
+    border: var(--space-s) solid #E8816E;
     box-shadow: 0 0 5px var(--color-grey);
-    background-color: var(--color-border);
+    background-color: #E8816E;
 
     background-position: center center;
     background-size: auto 100%;
@@ -79,21 +92,21 @@
 
 @keyframes quize_slider {
   from {
-    right: 0;
+    bottom: 0;
     left: auto;
     opacity: 1;
   }
   49% {
-    right: 100%;
+    bottom: 100%;
     opacity: 0;
   }
   51% {
     right: auto;
-    left: 100%;
+    top: 100%;
     opacity: 0;
   }
   to {
-    left: 0;
+    top: 0;
     opacity: 1;
   }
 }

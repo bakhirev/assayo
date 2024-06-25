@@ -21,7 +21,9 @@ export default `
 § sidebar.team.tree: ファイルの分析
 § sidebar.team.files: ファイル
 § sidebar.team.removedFiles: 削除されたファイル
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: タスクリスト
+§ sidebar.team.release: Releases
 § sidebar.team.hours: スケジュール
 § sidebar.team.commits: All commits
 § sidebar.team.changes: すべての変更

@@ -1,506 +1,515 @@
 export default `
+§ recommendations.modal.cancel: Ok
+§ recommendations.modal.open: More
 § recommendations.title
-Рекомендации и факты
+Recommendations and facts
 
 § recommendations.timestamp.firstCommit.description
-сделал первый коммит
+made the first commit
 
-День недели: $1
+Day of the Week: $1
 
 § recommendations.timestamp.lastCommit.description
-сделал последний коммит
+made the last commit
 
-День недели: $1
+Day of the Week: $1
 
-§ recommendations.timestamp.common.title: $1 дней
-§ recommendations.timestamp.allDays.description: от первого до последнего коммита (включая выходные и праздники).
-§ recommendations.timestamp.lossesDays.description: без коммитов, даже с учётом выходных, отпуска и государственных праздников.
+§ recommendations.timestamp.common.title: $1 days
+§ recommendations.timestamp.allDays.description: from the first to the last commit (including weekends and holidays).
+§ recommendations.timestamp.lossesDays.description: days without commits, even considering weekends, vacation, and public holidays.
 § recommendations.timestamp.weekendDays.description
-работы на выходных
+working on weekends
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- сотрудники быстрее выгорают;
+# Why this is bad:
+- the client pays double the price for work on a weekend day;
+- employees burn out faster;
 
-§ recommendations.timestamp.regularWeekendWord.title: Регулярные переработки
-§ recommendations.timestamp.sometimeWeekendWord.title: Бывают переработки
+§ recommendations.timestamp.regularWeekendWord.title: Regular Overtime
+§ recommendations.timestamp.sometimeWeekendWord.title: Occasional Overtime
 § recommendations.timestamp.weekendWord.description
-Вероятно, стоит сменить менеджера проекта, аналитика и архитектора.
+It might be advisable to change the project manager, analyst, and architect.
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- качество продукта, как правило, получается низкое;
-- часть сотрудников увольняется;
-- из-за спешки появляются новые ошибки;
+# Why this is bad:
+- the client pays double the price for work on a weekend day;
+- the quality of the product is usually low;
+- some employees resign;
+- new errors emerge due to the rush;
 
-# Скорее всего:
-- неверно оценили сроки в самом начале;
-- тех. задание отсутствует;
-- слабая аналитика;
-- слабая архитектура (архитектора не нанимали, а команда состоит из мидл разработчиков);
-- сначала начали писать код, потом проектировать;
-- нет нормальных процессов, чтобы понять ошибки;
+# Most likely:
+- deadlines were incorrectly estimated at the beginning;
+- technical specifications are missing;
+- weak analytics;
+- weak architecture (no architect was hired, and the team consists of mid-level developers);
+- started writing code first, then planning;
+- lack of proper processes to understand mistakes;
 
-§ recommendations.timestamp.neverWeekendWord.title: Обычно без переработок
+§ recommendations.timestamp.neverWeekendWord.title: Usually Without Overtime
 § recommendations.timestamp.neverWeekendWord.description
-Но иногда бывают.
+But sometimes it happens.
 
-# Почему это плохо:
-- заказчик платит двойную цену за работу в выходной день;
-- сотрудники быстрее выгорают;
+# Why this is bad:
+- the client pays double the price for work on a weekend day;
+- employees burn out faster;
 
 § recommendations.scope.parallelism.not.title
-Нет параллельных работ
+No Parallel Work
 
 § recommendations.scope.parallelism.not.description
-любую фичу в один момент времени делает один человек.
+any feature at any given time is done by one person.
 
-# Метод расчёта:
-- человеко-дни делятся на фактические дни для каждой фичи;
-- находим среднее арифметическое;
-- если результат меньше 1.3 считаем, что параллельных работ в рамках большинства фичей обычно нет;
+# Calculation method:
+- person-days are divided by the actual days for each feature;
+- we find the arithmetic mean;
+- if the result is less than 1.3, we consider that there is usually no parallel work within most features;
 
-# Почему это плохо:
-- повышается bus factor;
-- сотрудники медленнее развиваются;
-- трудно качественно проверить работу сотрудника;
+# Why this is bad:
+- increases bus factor;
+- employees develop more slowly;
+- difficult to properly check an employee's work;
 
-# Почему это хорошо:
-- появляются эксперты, которые очень глубоко погружены в предметную область и могут предложить более качественные решения;
-- скорее всего не бывает merge конфликтов;
-- проект может очень быстро параллельно развиваться в разные стороны;
+# Why this is good:
+- experts emerge who are deeply immersed in the subject area and can offer more quality solutions;
+- most likely there are no merge conflicts;
+- the project can quickly develop in different directions simultaneously;
 
 § recommendations.scope.parallelism.has.title
-Часть работ параллельно
+Some Work Done in Parallel
 
 § recommendations.scope.parallelism.has.description
-Иногда фичу делают одновременно несколько человек.
+Sometimes a feature is worked on simultaneously by several people.
 
-# Метод расчёта:
-- человеко-дни делятся на фактические дни для каждой фичи;
-- находим среднее арифметическое;
-- если результат от 1.3 до 2.0 считаем, что часть работ в рамках разных фичей иногда делается параллельно;
-
+# Calculation method:
+- person-days are divided by the actual days for each feature;
+- we find the arithmetic mean;
+- if the result is from 1.3 to 2.0, we consider that some of the work within different features is sometimes done in parallel;
 
 § recommendations.scope.parallelism.every.title
-Параллельные работы
+Parallel Work
 
 § recommendations.scope.parallelism.every.description
-любую фичу в один момент времени делают несколько человек
+any feature at any given time is worked on by several people
 
-# Метод расчёта:
-- человеко-дни делятся на фактические дни для каждой фичи;
-- находим среднее арифметическое;
-- если результат больше двух считаем, что большая часть работ в рамках разных фичей обычно делается параллельно;
-
+# Calculation method:
+- person-days are divided by the actual days for each feature;
+- we find the arithmetic mean;
+- if the result is more than two, we consider that most of the work within different features is usually done in parallel;
 
 § recommendations.scope.money
-в такую сумму можно оценить работу по данному проекту.
+this is the estimated cost for the work on this project.
 
-# Метод расчёта:
-- человеко-дни затраченные на разработку умножаются на индивидуальную зарплату разработчиков;
+# Calculation method:
+- person-days spent on development are multiplied by the individual salaries of the developers;
 
-Изменить зарплату каждого разработчика, для более точной суммы, можно в разделе «Настройки»
+To change the salary of each developer for a more accurate total, go to the "Settings" section.
 
-# Это много или мало?
-Для ответа на этот вопрос, нужно ответить на следующие:
-- Можно ли за эти деньги было купить готовое решение?
-- Можно ли за эти деньги сделать более хороший продукт?
+# Is this too much or too little?
+To answer this question, consider the following:
+- Could a ready-made solution have been purchased for this amount of money?
+- Could a better product have been developed for this amount of money?
 
-Если ответ на оба вопроса «да», то возможно, разработка с нуля не стоила потраченных на неё денег.
+If the answer to both questions is "yes," then perhaps developing from scratch was not worth the money spent.
  
 § recommendations.scope.bus.everyHasOne.title
 Bus factor = 1
 
 § recommendations.scope.bus.everyHasOne.description
-В большинство фич погружен один человек.
-Надо переключать людей.
+Most features are deeply understood by only one person.
+It's necessary to rotate people.
 
-# Почему это плохо:
-- если сотрудники будут увольняться, будет трудно продолжить их работу;
-- невозможно контролировать качество его кода;
+# Why this is bad:
+- if employees resign, it will be difficult to continue their work;
+- it’s impossible to control the quality of their code;
 
-# Как делается выборка:
-- более 80% коммитов в фичу делает один человек;
-- проект имеет более 60% таких фичей;
+# How the sample is chosen:
+- more than 80% of commits in a feature are made by one person;
+- the project has more than 60% of such features;
 
 § recommendations.scope.bus.oneMaintainer
-в фичи погружен один человек.
+one person is deeply involved in a feature.
 
-# Почему это плохо:
-- если он уволится, будет трудно продолжить разработку;
-- снижается качество code-review;
-- трудно запараллелить разработку при необходимости;
+# Why this is bad:
+- if they resign, it will be hard to continue development;
+- the quality of code-review decreases;
+- it’s difficult to parallelize development when needed;
 
-# Как делается выборка:
-- более 80% коммитов в фичу сделал один человек;
+# How the sample is chosen:
+- more than 80% of commits in a feature are made by one person;
 
 § recommendations.scope.types.process.title
-Плохие процессы
+Poor Processes
 
 § recommendations.scope.types.process.description
-Большинство фич содержат один тип задач.
+Most features contain one type of task.
 
 § recommendations.scope.types.one
-фичи содержат один тип задач.
+features contain one type of task.
 
 § recommendations.scope.types.common
-Возможно, разработчики неправильно подписывают коммиты или менеджер заводит один и тот же тип задач.
+It's possible that developers are incorrectly signing commits or the manager is entering the same type of tasks.
 
-# Почему это важно:
-- невозможно передать поддержку другой команде;
-- невозможно выпустить "коробочную" версию;
-- сильная зависимость от конкретных разработчиков;
-- большое количество ошибок и низкое качество кода;
-- вероятное замедление разработки в будущем;
+# Why this is important:
+- it's impossible to hand over support to another team;
+- it's impossible to release a "boxed" version;
+- strong dependence on specific developers;
+- a high number of errors and low code quality;
+- potential slowdown in development in the future;
 
-# В чём ошибка менеджера:
-- взгляд на продукт, только с позиции «работающей демки»;
+# The manager's mistake:
+- viewing the product only from the perspective of a "working demo";
 
-# Что должно быть:
-- тесты;
-- ошибки (выявленные по результатам тестов);
-- рефакторинг (т.к. архитектура может измениться);
-- документация;
-- правки стиля (как результат опроса фокус-группы);
+# What should be done:
+- tests;
+- bugs (identified through testing);
+- refactoring (as architecture may change);
+- documentation;
+- style revisions (as a result of focus group feedback);
 
 § recommendations.scope.plan.title
-Постройте долгосрочный план
+Develop a Long-Term Plan
 
 § recommendations.scope.plan.description
-с учетом архитектуры.
+taking architecture into account.
 
-При том опираться этот план должен сразу на самые трудные задачи.
+This plan should immediately focus on the most challenging tasks.
 
-# Почему отсутствие плана плохо:
-- сотрудники делают минимально работающую версию, не закладывая точки расширения. После этого пишется не масштабируемый код, который тормозит следующие фичи;
+# Why the lack of a plan is bad:
+- employees create a minimally viable version without planning for expansion points. After this, unscalable code is written, which slows down future features;
 
-# В чём ошибка менеджера:
-- он не показал, как продукт будет развиваться далее и в каких точках будет рост;
+# The manager's mistake:
+- they haven't shown how the product will develop further and where the growth points will be;
 
-# Как должно быть:
-- составляется глобальный план развития продукта;
-- составляется глобальный план развития архитектуры (с разработчиками и DBA);
-- на уровне схем сразу проговариваются моменты, которые могут сильно измениться;
+# How it should be done:
+- a global product development plan is created;
+- a global architecture development plan is created (with developers and DBAs);
+- potential significant changes are discussed upfront at the schematic level;
 
 § recommendations.scope.cost.title
-Оцените инвестиции в фичу
+Evaluate Investment in a Feature
 
 § recommendations.scope.cost.description
-с количеством потенциальной прибыли.
+in terms of potential profit.
 
-Фичи которые дорого стоят в разработке, но приносят мало прибыли, возможно, стоит отложить или вообще отменить. Это сделает проект более коммерчески успешным.
+Features that are expensive to develop but bring little profit may need to be postponed or even canceled. This will make the project more commercially successful.
 
-§ recommendations.author.lotOfLazy
-пишет слишком мало кода.
+§ recommendations.author.lotOfLazy.title: Too little code: $1
+§ recommendations.author.lotOfLazy.description
+Should they be fired?
 
-# Может уволить?
-- он тимлид, архитектор, аналитик?
-- это его основной проект?
-- есть какие-то зависимости от него?
+# Composition: 
+- $1;
 
-# Почему нет смысла исправлять
-Суммарные затраты на разработчика уже больше чем прибыль от его работы.
-Если мы считаем, что объективных помех его работе не было, то человек либо не хочет работать вообще, либо работает на двух проектах одновременно.
-Увольнение и замена новым сотрудником выглядит оправданным с точки зрения общей статистики.
+# Answer the questions:
+- are they a team leader, architect, or analyst?
+- is this their primary project?
+- are there any dependencies on them?
 
-§ recommendations.author.manyLazy
-пишет мало кода. Нужно взять на контроль.
+# Why it makes no sense to correct
+The total costs for the developer are already more than the profit from their work.
+If we believe that there were no objective hindrances to their work, then the person either does not want to work at all or is working on two projects simultaneously.
+Firing and replacing them with a new employee seems justified from a statistical point of view.
 
-# Как делается выборка:
-- на тестовых выборках хороший программист пишет код больше 80% времени;
-- в данном случае показатель от 60% до 80%;
+§ recommendations.author.manyLazy.title: Little code: $1
+§ recommendations.author.manyLazy.description
+Needs to be monitored.
 
-# Как контролировать:
-- дробить задачи на 1..2 дня;
-- каждый день спрашивать статус;
-- убедиться, что задачи хорошо расписаны и готовы к началу разработки;
-- устроить парное программирование, чтобы проверить фактическую скорость;
+# Composition: 
+- $1;
+
+# How the sample is chosen:
+- in test samples, a good programmer writes code for more than 80% of the time;
+- in this case, the indicator is between 60% and 80%;
+
+# How to monitor:
+- break tasks into 1..2 days;
+- ask for a status update every day;
+- ensure tasks are well defined and ready for development;
+- arrange pair programming to check actual speed;
 
 § recommendations.author.oneTypeMans
-получает слишком однообразные задачи по типу. Может выгореть.
+receives too many monotonous tasks of the same type. Risk of burnout.
 
-# Почему это важно:
-- если сотрудник выгорит, его скорость работы снизится;
-- замедляется профессиональный рост;
-- повышается вероятность увольнения;
+# Why this is important:
+- if an employee burns out, their work speed will decrease;
+- professional growth slows down;
+- the likelihood of resignation increases;
 
-# Как делается выборка:
-- для каждого коммита определятся тип задачи;
-- если больше 70% задач одного типа, значит человек делает одно и тоже;
+# How the sample is chosen:
+- the type of task is determined for each commit;
+- if more than 70% of tasks are of the same type, it means the person is doing the same thing repeatedly;
 
-§ recommendations.author.workToday.title: Работает $1
+§ recommendations.author.workToday.title: Working $1
 § recommendations.author.workToday.description
-над проектом в данный момент.
+on the project at this moment.
 
-# Состав: 
+# Composition: 
 - $1;
 
-# Почему именно они:
-- рабочих дней более 50%;
-- работали в течении последних 30 дней;
+# Why specifically them:
+- more than 50% of workdays;
+- have worked during the last 30 days;
 
-§ recommendations.author.dismissed.title: Уволилось $1
+§ recommendations.author.dismissed.title: Dismissed $1
 § recommendations.author.dismissed.description
-или работало короткий промежуток времени.
+or worked for a short period.
 
-# Состав:
+# Composition:
 - $1;
 
-# Почему именно они:
-- работали в нормальном ритме (видимо, это их основной репозиторий);
-- за последний месяц не было ни одного коммита;
-- отпуск обычно 14 дней (их отсутствие не похоже на отпуск);
+# Why specifically them:
+- worked at a normal pace (apparently, this is their main repository);
+- no commits in the last month;
+- vacation usually lasts 14 days (their absence does not resemble a vacation);
 
-§ recommendations.author.staff.title: Помогают $1
+§ recommendations.author.staff.title: Assisting $1
 § recommendations.author.staff.description
-Люди другой специализации, которые что-либо коммитили.
+People of other specializations who have committed something.
 
-# Состав: 
+# Composition: 
 - $1;
 
-# Почему именно они:
-- это не open-source проект;
-- рабочих дней менее 15% от общего числа;
-- изменяют примерно одни и те же файлы;
+# Why specifically them:
+- this is not an open-source project;
+- workdays less than 15% of the total number;
+- modify roughly the same files;
 
 § recommendations.author.projectType.openSource.title
-Открытый проект
+Open Project
 
 § recommendations.author.projectType.openSource.description
-пять дней в неделю тут не работают.
+they do not work five days a week here.
 
-Проект может быть и закрытым, просто такой темп работы обычно у открытых библиотек на GitHub.
+The project may be closed, but this work pace is typical for open libraries on GitHub.
 
-# Метод оценки:
-- берется статистика по всем активным разработчикам;
-- подсчитывается среднее число дней работы и без коммитов;
-- у open-source библиотек рабочих дней обычно максимум 15..20%;
+# Assessment method:
+- statistics are taken for all active developers;
+- the average number of working days and days without commits is calculated;
+- for open-source libraries, working days are usually a maximum of 15..20%;
 
-# Последствия
-Для проектов, где работа не постоянна, нет смысла во многих показателях. Поэтому показатели без коммитов, скорости и т.п. будут скрыты.
+# Consequences
+For projects where work is not constant, many indicators do not make sense. Therefore, indicators like days without commits, speed, etc., will be hidden.
 
-Как правило, оценку таких проектов делают перед началом разработки своей закрытой версии. Самые интересные показатели в этом случае вероятная стоимость и суммарное время на разработку.
-
+Typically, such projects are assessed before starting the development of their own closed version. The most interesting indicators in this case are the probable cost and total development time.
 
 § recommendations.author.projectType.easy.title
-Слабая загрузка
+Light Workload
 
 § recommendations.author.projectType.easy.description
-слишком много дней без коммитов. Нужно понять почему команда не пишет код.
+too many days without commits.
 
-# Метод оценки:
-- берется статистика по всем активным разработчикам;
-- подсчитывается среднее число дней работы и без коммитов;
-- загрузка считается слабой, если процент без коммитов от 5% до 20%;
+It is necessary to understand why the team is not writing code.
 
-# Возможные причины:
-- фактически нет задач;
-- задачи есть, но хорошо ложатся на текущую архитектуру;
-- разработчиков отвлекают совещаниями;
-- команда не работает;
+# Assessment method:
+- take statistics from all active developers;
+- calculate the average number of working days and days without commits;
+- workload is considered light if the percentage of days without commits is between 5% and 20%;
 
-# Варианты решения:
-- обсудить проблему с командой;
-- уменьшить гранулярность задач, чтобы за день можно было успеть сделать одну или две задачи;
-- ввести ежедневные совещания, чтобы проверять движение задач по статусу;
-- устроить сеансы парного программирования, чтобы убедиться, что разработчик может работать быстрее;
+# Possible reasons:
+- there are actually no tasks;
+- there are tasks, but they fit well with the current architecture;
+- developers are distracted by meetings;
+- the team is not working;
+
+# Solutions:
+- discuss the issue with the team;
+- reduce task granularity so that one or two tasks can be completed in a day;
+- introduce daily meetings to check the status of tasks;
+- arrange pair programming sessions to ensure that the developer can work faster;
 
 § recommendations.author.manager.title
-Обозначьте дедлайны
+Set Deadlines
 
 § recommendations.author.manager.description
-У любой задачи должен быть чёткий дедлайн.
+Every task should have a clear deadline.
  
-Это позволит не затягивать её выполнение на несколько дней или недель.
+This will prevent dragging out its completion for several days or weeks.
 
-# Какие показатели стоит проверить:
-- количество дней на одну задачу, которое тратит работник;
-- количество дней ожидания влития PR (страница статистики по PR);
+# Indicators to check:
+- the number of days spent on one task by an employee;
+- the number of days waiting for PR merge (PR statistics page);
 
 § recommendations.author.shorTalk.title
-Проводите ежедневные совещания
+Conduct Daily Meetings
 
 § recommendations.author.shorTalk.description
-они помогают быть в курсе проекта.
+they help stay informed about the project.
  
-Не растягивайте их отвлекаясь на посторонние темы.
+Do not stretch them by getting sidetracked on irrelevant topics.
 
-# На какие вопросы должен ответить сотрудник:
-- что было сделано;
-- что будет сделано;
-- есть ли какие-либо проблемы;
+# Questions the employee should answer:
+- what was done;
+- what will be done;
+- are there any issues;
 
-# Следует обрывать монолог, если:
-- начинают подробно описывать мелкие детали, которые не важны;
-- уводят диалог в сторону, от первоначального плана;
+# Interruptions should occur if:
+- they start describing minor details in-depth, which are not important;
+- they steer the conversation away from the original plan;
 
-# Почему это важно:
-Часто сотрудник, который ничего не делает, старается уйти от ответа. Для этого он рассказывает кучу ненужных подробностей свой работы. Это позволяет усыпить внимание участников и растянуть время ответа. Создается ощущение что он чем-то занят, хотя по факту работы не было.
+# Why this is important:
+Often an employee who does nothing tries to avoid the answer by telling a bunch of unnecessary details of their work. This lulls the participants' attention and stretches the time for a response. It creates an impression that they are busy, even though there was no actual work done.
 
 § recommendations.author.ipr.title
-Составьте план обучения
+Develop a Training Plan
 
 § recommendations.author.ipr.description
-на каждого сотрудника.
+for each employee.
 
-*Индивидуальный план обучения* — это список целей и задач, которые помогают человеку развиваться в определенной области.
+*Individual training plan* is a list of goals and tasks that help a person develop in a certain area.
 
-# Как составить план:
-- составить матрицу компетенций;
-- определить по каким компетенциям меньше всего знаний и опыта;
-- узнать какие из этих компетенций интересны сотруднику;
-- придумать 3..5 целей в рамках каждой такой компетенции на полпостороние года или год;
-- каждый месяц пытаться сделать что-либо для достижения одной цели;
-- каждый месяц напоминать об общем плане достижения этих целей;
+# How to create a plan:
+- create a competency matrix;
+- identify which competencies have the least knowledge and experience;
+- find out which of these competencies are of interest to the employee;
+- come up with 3..5 goals within each such competency for the next six months or a year;
+- try to do something every month to achieve one goal;
+- remind every month about the overall plan to achieve these goals;
 
-# Нужен ли план руководителю?
-Да, руководитель так же должен составить план на себя. Если нет вышестоящего руководителя, то он должен проверять сам себя.
+# Does a manager need a plan?
+Yes, the manager should also make a plan for themselves. If there is no higher-level manager, they should self-assess.
 
-# Почему это важно:
-- сотрудники становятся более лояльны к компании;
-- за теже деньги вы получаете более квалифицированные кадры;
+# Why this is important:
+- employees become more loyal to the company;
+- you get more qualified personnel for the same money;
 
 § recommendations.author.oneToOne.title
-Проводите 1-1 каждый месяц
+Conduct One-on-One Meetings Every Month
 
 § recommendations.author.oneToOne.description
-это поможет выявить проблемы на ранней стадии.
+it helps to identify problems at an early stage.
 
-*One-to-one* — это регулярные личные встречи руководителя с подчиненным. На таких встречах обычно обсуждают всё, что важно для сотрудника, что его волнует, и то, чем он может поделиться с руководителем только наедине.
+*One-to-one* is a regular personal meeting of a manager with a subordinate. Such meetings typically discuss everything important to the employee, what concerns them, and what they can share with the manager in private.
 
-# Почему это важно:
-- легко выяснить, кто из сотрудников перегружен, а у кого есть свободное время;
-- можно предотвратить выгорание сотрудника;
-- можно получить быструю обратную связь о процессах, которые вы можете не замечать;
-- формируется доверительное отношение, сотрудники становятся более лояльны к компании;
-- повышается мотивация и вовлеченность сотрудников;
+# Why this is important:
+- easy to find out who is overburdened and who has free time;
+- possible to prevent employee burnout;
+- quick feedback can be obtained about processes that you might not notice;
+- trust is built, making employees more loyal to the company;
+- increases employee motivation and engagement;
 
 § recommendations.author.club.title
-Ходите в бар
+Go to a Bar
 
 § recommendations.author.club.description
-один раз в месяц или два.
+once a month or two.
 
-Это поможет выстроить неформальную коммуникацию в коллективе и сплотить команду, даже если общение будет сжатым.
+This will help build informal communication within the team and bring the team together, even if the interaction is brief.
 
-# Почему это важно:
-- можно получить быструю обратную связь о процессах, которые вы можете не замечать;
-- формируется доверительное отношение, сотрудники становятся более лояльны к компании;
-- повышается вовлеченность сотрудников;
+# Why this is important:
+- quick feedback can be obtained about processes that you might not notice;
+- trust is built, making employees more loyal to the company;
+- increases employee engagement;
 
-§ recommendations.hour.onlyWork.title: Выходных тут нет
-§ recommendations.hour.onlyWork.description: Вероятно, стоит уволить менеджера проекта.
-§ recommendations.hour.weekends.title: Работа на выходных
-§ recommendations.hour.weekends.description: Вероятно, стоит проверить менеджера проекта.
-§ recommendations.hour.easy.title: Бывают проблемы
-§ recommendations.hour.easy.description: Вероятно, бывают завалы и приходится работать на выходных.
-§ recommendations.week.lazyDays.down.title: Стало меньше прогулов
-§ recommendations.week.lazyDays.down.description: за последние три недели этот показатель упал
-§ recommendations.week.lazyDays.up.title: Стало больше прогулов
-§ recommendations.week.lazyDays.up.description: нет задач или нужен более жесткий контроль
-§ recommendations.week.notWork.title: Стабильно не дорабатывает
-§ recommendations.week.notWork.description: т.к. каждую неделю пишет код не 100% времени
-§ recommendations.week.upWork.title: Стабильно перерабатывает
-§ recommendations.week.upWork.description: т.к. каждую неделю пишет код в выходные дни
-§ recommendations.week.task.up.title: Растёт производительность
-§ recommendations.week.task.up.description: или задачи стали слишком мелкие. Нужно проверить. Если гранулярность та же - закрепить результат.
-§ recommendations.week.task.lazyMaintainer.description: стабильный лидер по прогулам. Уволить?
-§ recommendations.week.task.down.title: Падает производительность
+§ recommendations.hour.onlyWork.title: No Weekends Here
+§ recommendations.hour.onlyWork.description: The project manager should probably be fired.
+§ recommendations.hour.weekends.title: Working on Weekends
+§ recommendations.hour.weekends.description: The project manager should probably be checked.
+§ recommendations.hour.easy.title: There Are Problems
+§ recommendations.hour.easy.description: There are likely crunch times and work is needed on weekends.
+§ recommendations.week.lazyDays.down.title: Fewer Absences
+§ recommendations.week.lazyDays.down.description: this indicator has dropped over the last three weeks
+§ recommendations.week.lazyDays.up.title: More Absences
+§ recommendations.week.lazyDays.up.description: no tasks or stricter control is needed
+§ recommendations.week.notWork.title: Consistently Underperforms
+§ recommendations.week.notWork.description: as every week the code is not 100% of the time
+§ recommendations.week.upWork.title: Consistently Overworks
+§ recommendations.week.upWork.description: as every week code is written on weekend days
+§ recommendations.week.task.up.title: Productivity is growing
+§ recommendations.week.task.up.description: or tasks have become too small. Need to check. If granularity is the same - reinforce the result.
+§ recommendations.week.task.lazyMaintainer.description: consistently leads in absences. Fire?
+§ recommendations.week.task.down.title: Productivity is Falling
 § recommendations.week.task.down.description
-или задачи хуже разбивают. Нужно проверить. Если гранулярность та же - взять на контроль.
+or tasks are poorly split. Need to check. If granularity is the same - take control.
 
-# Метод оценки:
-- количество задач в день, над которыми работают, на протяжении последних трех недель стабильно падает.
+# Assessment method:
+- the number of tasks per day that are being worked on has been steadily decreasing over the last three weeks.
 
-# Возможные ошибки:
-- задачи могли быть сложнее, чем казались;
-- задачи могли иметь большой объём работы (нужно проверить количество изменений, падают они или нет за этот же период)
+# Possible errors:
+- tasks could have been more complex than they seemed;
+- tasks could have had a large volume of work (need to check if the number of changes is also decreasing during this period)
 
-§ recommendations.type.everyHasOne.title: Не подписывают тип задачи
-§ recommendations.type.everyHasOne.description: большинство типов задач делает один человек.
-§ recommendations.type.oneMaintainer.title: Узкая специализация
+§ recommendations.type.everyHasOne.title: Not Signing Task Types
+§ recommendations.type.everyHasOne.description: Most task types are done by one person.
+§ recommendations.type.oneMaintainer.title: Narrow Specialization
 § recommendations.type.oneMaintainer.description
-большинство задач одного типа делают одни и те же люди.
+most tasks of one type are done by the same people.
 
-# Типы задач:
+# Task types:
 
 § recommendations.type.common
-# Возможно, это не так
+# It might not be the case
 
-Нужно убедиться, что остальные сотрудники верно подписывают коммиты.
+Make sure that other employees correctly sign commits.
 
-Шаги, которые помогут это сделать:
-- настроить пре-коммит проверку для commit message;
-- объяснить команде, что нужно указывать тип;
-- проверить в новых ветках, что сотрудники следуют правилу;
+Steps to ensure this:
+- set up a pre-commit check for commit messages;
+- explain to the team the need to indicate the type;
+- check in new branches that employees follow this rule;
 
-# Если это действительно так
+# If it is indeed the case
 
-Вы настроили проверки и убедились что один и тот же сотрудник, делает задачи одного и того же типа.
+You have set up checks and ensured that the same employee does tasks of the same type.
 
-Почему это плохо:
-- его увольнение остановит целую пачку процессов;
-- уменьшается компетенция остальных членов команды;
-- трудно верхнеуровнево понять его правки;
+Why this is bad:
+- their resignation will halt a whole bunch of processes;
+- it reduces the competence of other team members;
+- difficult to understand their edits at a higher level;
 
-Как это исправить:
-- распределять разные типы задач равномерно;
-- менять область работы (тесты, документация, ошибки) между сотрудниками через спринт;
+How to fix this:
+- distribute different types of tasks evenly;
+- change the area of work (tests, documentation, bugs) among employees every sprint;
 
 § recommendations.type.fewTypes.title
-Это локальный продукт
+This is a Local Product
 
 § recommendations.type.fewTypes.description
-для конкретного заказчика или проблемы.
+for a specific customer or problem.
 
-# Какие признаки есть у «глобального» продукта:
-- локализация;
-- документация;
-- большой объём тестов;
-- визуальная кастомизация;
-- рефакторинг узких мест;
-- и т.п.
+# Signs of a "global" product:
+- localization;
+- documentation;
+- a large volume of tests;
+- visual customization;
+- refactoring of bottlenecks;
+- etc.
 
-# Почему этот продукт выглядит как «локальный»:
-- у каждого «глобального» признака будет перевес по своему типу задач;
-- чем больше «глобальных» признаков, тем больше вероятность «глобального» продукта;
+# Why this product looks like a "local" one:
+- each "global" sign will be outweighed by its type of task;
+- the more "global" signs, the more likely a "global" product;
 
-В данном случае мы видим небольшое число типов, а следовательно, скорее всего есть недоработки, мешающие легко масштабировать продукт на мировой рынок и продавать его в других странах.
+In this case, we see a small number of types, which likely indicates shortcomings that prevent the product from being easily scaled to the global market and sold in other countries.
 
-# Возможно, это не так
-По типам файлов мы можем предположить тип программы (сайт, серверное приложение, DevOps скрипты и т.д.). Для frontend приложения наша гипотеза будет более верной, чем для DevOps-скриптов, которые могут быть лишь микро-модулем инициализации.
+# It might not be the case
+Based on file types, we can assume the type of program (website, server application, DevOps scripts, etc.). For a frontend application, our hypothesis will be more accurate than for DevOps scripts, which might just be a micro-module of initialization.
 
 § recommendations.type.diff.title
-Разбейте лидирующий тип на подтипы
+Break Down the Leading Type into Subtypes
 
 § recommendations.type.diff.description
-для детализации ошибок.
+to detail errors.
 
-Как правило, тип задач с меткой «исправление ошибок» является лидирующим. Это делает статистику слабо-детализированной.
+Typically, the task type labeled "bug fixing" is leading. This makes the statistics weakly detailed.
 
-*Если у вас произошла такая ситуация*, вы можете разбить этот тип на подтипы (например, по месту обнаружения).
+*If you encounter this situation*, you can break down this type into subtypes (e.g., based on the location of detection).
 
-Рассмотрим несколько вариантов подтипов:
-- fix_dev (ошибка выявленная в процессе разработки);
-- fix_test (ошибка выявленная в процессе тестирования);
-- fix (ошибка выявленная в проде);
+Consider several options for subtypes:
+- fix_dev (error detected during development);
+- fix_test (error detected during testing);
+- fix (error detected in production);
 
 § recommendations.type.buddy.title
-Копите мелкие задачи
+Accumulate Minor Tasks
 
 § recommendations.type.buddy.description
-для новых сотрудников.
+for new employees.
 
-# Если задача:
-- не важная;
-- не большая;
-- не требует сильного погружения в контекст;
-- больше про рефакторинг, чем про новый код;
+# If a task is:
+- not important;
+- not big;
+- doesn't require deep immersion in the context;
+- more about refactoring than new code;
 
-# Положите её в backlog с меткой «для новичков».
+# Put it in the backlog with the label "for beginners".
 
-Когда придёт новый сотрудник, вы сможете моментально достать ему пачку небольших и разнообразных по типу задач, для ознакомления с проектом.
+When a new employee arrives, you will be able to immediately pull out a bunch of small and varied tasks for them to get acquainted with the project.
 
-Также, если у вас будет застой в работе, вы сможете доставать по одной такой мелкой задаче из backlog-а.
+Also, if you have a lull in work, you can pull out one such minor task from the backlog.
 `;

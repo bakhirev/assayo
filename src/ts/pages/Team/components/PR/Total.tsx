@@ -1,15 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import Table from 'ts/components/Table';
-import Column from 'ts/components/Table/components/Column';
-import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
-import LineChart from 'ts/components/LineChart';
+import PieChart from 'ts/components/PieChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
+import Description from 'ts/components/Description';
+import PageWrapper from 'ts/components/Page/wrapper';
+import PageColumn from 'ts/components/Page/column';
 
 import dataGripStore from 'ts/store/DataGrip';
 import DataGripByPR from 'ts/helpers/DataGrip/components/pr';
 
 function Total() {
+  const { t } = useTranslation();
+
   const allPR = dataGripStore.dataGrip.pr.statistic;
 
   const workChart = DataGripByPR.getPRByGroups(allPR, 'workDays');
@@ -27,59 +30,36 @@ function Total() {
     suffix: 'page.team.pr.days',
   });
 
-  const rows = [
-    {
-      workDays: workChart.details,
-      delayDays: delayChart.details,
-      weightedAverage: weightedAverage.toFixed(1),
-      weightedAverageDetails: {
-        workDays: workDaysWeightedAverage,
-        delayDays: delayDaysWeightedAverage,
-      },
-    },
-  ];
+  console.log(weightedAverage.toFixed(1));
 
   return (
-    <Table rows={rows}>
-      <Column
-        title="page.team.pr.workDays"
-        properties="workDays"
-        template={(details: any) => (
-          <LineChart
-            options={workChartOptions}
-            details={details}
-          />
-        )}
-      />
-      <Column
-        title="page.team.pr.delayDays"
-        properties="delayDays"
-        template={(details: any) => (
-          <LineChart
-            options={delayChartOptions}
-            details={details}
-          />
-        )}
-      />
-      <Column
-        properties="weightedAverage"
-        template={ColumnTypesEnum.SHORT_NUMBER}
-      />
-      <Column
-        title="page.team.pr.middleTimeRelease"
-        properties="weightedAverageDetails"
-        width={300}
-        template={(item: any) => (
-          <LineChart
-            options={weightedAverageChart}
-            details={{
-              'page.team.pr.work': item.workDays,
-              'page.team.pr.delay': item.delayDays,
-            }}
-          />
-        )}
-      />
-    </Table>
+    <PageWrapper>
+      <PageColumn>
+        <PieChart
+          title="page.team.pr.workDays"
+          options={workChartOptions}
+          details={workChart.details}
+        />
+        <PieChart
+          title="page.team.pr.middleTimeRelease"
+          options={weightedAverageChart}
+          details={{
+            'page.team.pr.work': workDaysWeightedAverage,
+            'page.team.pr.delay': delayDaysWeightedAverage,
+          }}
+        />
+      </PageColumn>
+      <PageColumn>
+        <PieChart
+          title="page.team.pr.delayDays"
+          options={delayChartOptions}
+          details={delayChart.details}
+        />
+        <Description text={t('page.team.pr.description1')} />
+        <Description text={t('page.team.pr.description2')} />
+        <Description text={t('page.team.pr.description3')} />
+      </PageColumn>
+    </PageWrapper>
   );
 }
 

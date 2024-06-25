@@ -1,0 +1,54 @@
+@import 'src/styles/variables';
+
+.swimming_pool_track {
+  display: block;
+  height: 84px;
+  width: 100%;
+
+  text-align: left;
+  white-space: nowrap;
+
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: top left;
+
+  &_value,
+  &_line,
+  &_chart {
+    display: inline-block;
+    height: 100%;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  &_value {
+    width: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: var(--color-black);
+    background-color: var(--color-white);
+  }
+
+  &_line {
+    width: calc(100% - 505px);
+    border-left: 16px solid var(--color-12);
+    border-right: 16px solid var(--color-12);
+    border-bottom: 6px dashed white;
+    background-color: var(--color-31);
+  }
+
+  &_chart {
+    width: 50%;
+    text-align: right;
+    background-color: var(--color-button-2);
+  }
+
+  &_man {
+    position: relative;
+    top: 15px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
+}

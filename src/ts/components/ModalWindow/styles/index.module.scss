@@ -6,7 +6,7 @@
   margin: 0 auto;
   box-sizing: border-box;
   box-shadow: 0 0 5px gray;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   border-radius: 8px;
 }
 
@@ -111,16 +111,16 @@
 @keyframes modal_window_halo {
   from {
     transform: rotateZ(0deg);
-    opacity: 0;
+    opacity: 0.4;
   }
   11% {
-    opacity: 0.4;
+    opacity: 0.7;
   }
   89% {
-    opacity: 0.4;
+    opacity: 0.7;
   }
   to {
     transform: rotateZ(360deg);
-    opacity: 0;
+    opacity: 0.4;
   }
 }

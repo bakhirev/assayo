@@ -20,7 +20,9 @@ export default `
 § sidebar.team.month: Par mois
 § sidebar.team.files: Fichiers
 § sidebar.team.removedFiles: Fichiers supprimés
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: Liste des tâches
+§ sidebar.team.release: Releases
 § sidebar.team.hours: Horaire
 § sidebar.team.commits: all commits
 § sidebar.team.changes: Tous les changements

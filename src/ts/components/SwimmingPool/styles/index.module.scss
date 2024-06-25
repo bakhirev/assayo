@@ -1,0 +1,20 @@
+@import 'src/styles/variables';
+
+.swimming_pool {
+  position: relative;
+  margin: 0 auto;
+  user-select: none;
+
+  &_top_border,
+  &_bottom_border {
+    display: block;
+    height: 50px;
+
+    background-color: var(--color-border);
+
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: top left;
+  }
+}
+

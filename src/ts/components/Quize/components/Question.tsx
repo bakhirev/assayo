@@ -4,7 +4,6 @@ import UiKitButton from 'ts/components/UiKit/components/Button';
 
 import IQuestion from '../interfaces/Question';
 import IAnswer from '../interfaces/Answer';
-import Progress from './Progress';
 import Answer from './Answer';
 
 import stylePage from '../styles/question.module.scss';
@@ -20,13 +19,11 @@ function getModes(answers: IAnswer[], selected: IAnswer | null) {
 
 interface IQuestionProps {
   question: IQuestion;
-  progress: number;
   onClick: Function;
 }
 
 function Question({
   question,
-  progress,
   onClick,
 }: IQuestionProps): React.ReactElement | null {
   const [selected, setSelected] = useState<IAnswer | null>(null);
@@ -71,7 +68,6 @@ function Question({
 
   return (
     <div className={stylePage.quize_question}>
-      <Progress progress={progress}/>
       <div className={stylePage.quize_question_body}>
         <div className={style.quize_title}>
           {question.title}

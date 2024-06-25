@@ -2,14 +2,14 @@
 
 .ui_kit_button {
   --button-color-bg: var(--color-button);
-  --button-color-text: #FFFFFF;
+  --button-color-text: var(--color-white);
   --button-color-border: var(--color-button);
   --button-color-hover: var(--color-button-2);
   --button-color-active: var(--color-button-3);
 
   &_slim,
   &_second {
-    --button-color-bg: #FFFFFF;
+    --button-color-bg: var(--color-white);
     --button-color-text: var(--color-black);
     --button-color-border: var(--color-border);
     --button-color-hover: var(--color-border);
@@ -111,7 +111,7 @@
 }
 
 .ui_kit_button_menu {
-  --button-color-bg: #FFFFFF;
+  --button-color-bg: var(--color-white);
   --button-color-text: var(--color-black);
   --button-color-border: var(--color-border);
   --button-color-hover: var(--color-border);

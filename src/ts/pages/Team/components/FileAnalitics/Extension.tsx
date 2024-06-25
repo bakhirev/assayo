@@ -130,7 +130,7 @@ const Extension = observer(({
 
   return (
     <>
-      <Title title="sidebar.team.extension"/>
+      <Title title="page.team.extension.extension"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest) => getFakeLoader({

@@ -115,10 +115,6 @@ export function getShortNumber(value: number) {
   return (value || 0).toFixed(fractionDigits);
 }
 
-export function getShortName(name: string) {
-  return name?.split(/[\s.]+/gm)[1] || name;
-}
-
 export function getShortDateRange({ from, to }: any) {
   return from && to
     ? `${getShortDate(from)} — ${getDate(to)}`

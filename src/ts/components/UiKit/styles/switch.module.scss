@@ -34,11 +34,11 @@
     border: 1px solid #E2E9F0;
     border-right: none;
     border-radius: 0;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     color: #84858D;
 
     &_selected {
-      color: #FFFFFF;
+      color: var(--color-white);
       border-top: 1px solid var(--color-button);
       border-bottom: 1px solid var(--color-button);
       background-color: var(--color-button);

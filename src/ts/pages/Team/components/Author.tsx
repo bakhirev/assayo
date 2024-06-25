@@ -3,9 +3,10 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
 import ISort from 'ts/interfaces/Sort';
+import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
-import { getMoney, getShortNumber } from 'ts/helpers/formatter';
+import { getDate, getMoney, getShortNumber } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
@@ -67,6 +68,7 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
         width={200}
       />
       <Column
+        title="page.team.author.status"
         template={(row: any) => {
           let value = works;
           if (row.isDismissed) value = dismissed;
@@ -74,6 +76,19 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
           return <UiKitTags value={value} />;
         }}
         width={100}
+      />
+      <Column
+        template={ColumnTypesEnum.STRING}
+        properties="firstCommit"
+        title="page.team.author.firstCommit"
+        width={130}
+        formatter={(commit: ICommit) => getDate(commit.timestamp)}
+      />
+      <Column
+        template={ColumnTypesEnum.SHORT_NUMBER}
+        title="page.team.author.daysAll"
+        properties="daysAll"
+        width={90}
       />
       <Column
         isSortable="daysWorked"

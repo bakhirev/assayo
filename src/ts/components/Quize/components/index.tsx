@@ -44,7 +44,6 @@ function QuizePage({
   const questions = getQuestionByGroups(quize.questions);
   let page: any = null;
 
-
   if (view === 'start') {
     page = (
       <Start
@@ -62,7 +61,6 @@ function QuizePage({
     page = (
       <Question
         question={question}
-        progress={30}
         onClick={(answer: IAnswer) => {
           const nextById = questions.byId[answer.nextQuestionId || ''];
           const nextByIndex = questions.byIndex[question.index + 1];
@@ -116,7 +114,7 @@ function QuizePage({
   return (
     <div
       className={style.quize_container}
-      style={{ backgroundImage: 'url(./assets/games/quize.png)' }}
+      style={{ backgroundImage: 'url(./assets/games/quize/air.jpg)' }}
     >
       <div className={className}>
         {page}

@@ -20,7 +20,7 @@ class SponsorStore {
     });
 
     if (!isMobile && !themeSettings.getConfig()) {
-      this.setTimer();
+      // this.setTimer();
     }
   }
 
@@ -31,7 +31,7 @@ class SponsorStore {
       this.type = Math.random() > 0.5
         ? MODAL_TYPE.SHARE
         : MODAL_TYPE.SHARE;
-    }, 6 * ONE_MINUTE);
+    }, 10 * ONE_MINUTE);
   }
 
   open() {

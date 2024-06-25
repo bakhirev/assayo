@@ -8,30 +8,41 @@
   display: inline-block;
 
   &_item {
+    position: relative;
+
     display: block;
     width: 300px;
-    padding: 24px;
+    padding: var(--space-xxl) var(--space-xxl) var(--space-xxl) 56px;
     margin: 0 12px 12px;
 
     box-sizing: border-box;
     box-shadow: 2px 2px 3px var(--color-grey);
-    border: 1px solid var(--color-border);
-    border-left: 8px solid var(--color-border);
+    border: none;
     border-radius: var(--border-radius-s);
-    background-color: white;
+    background-color: var(--color-white);
 
     animation: notification_item 3s linear 0.5s forwards;
 
+    &_icon {
+      position: absolute;
+      top: 16px;
+      left: 12px;
+
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+
     &_error {
-      border-color: var(--color-12);
+      background-color: var(--color-12);
     }
 
     &_warning {
-      border-color: var(--color-32);
+      background-color: var(--color-32);
     }
 
     &_success {
-      border-color: var(--color-13);
+      background-color: #35D081;
     }
 
     &_info {
@@ -44,7 +55,7 @@
       font-weight: 100;
       padding: 0;
       text-align: left;
-      color: var(--color-black);
+      color: var(--color-white);
       animation: notification_title 3s linear 0.5s forwards;
     }
 
@@ -62,12 +73,12 @@
   80% {
     overflow: hidden;
     height: auto;
-    padding: 24px;
+    padding: var(--space-xxl) var(--space-xxl) var(--space-xxl) 56px;
     opacity: 1;
   }
   to {
     height: 0;
-    padding: 0 24px;
+    padding: 0 var(--space-xxl) 0 64px;
     opacity: 0;
   }
 }

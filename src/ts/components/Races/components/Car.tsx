@@ -48,7 +48,7 @@ function Car({
       </div>
       <img
         className={style.races_track_car_cover}
-        src="./assets/games/car.png"
+        src="./assets/games/races/car.png"
       />
     </div>
   );

@@ -23,6 +23,9 @@ export default `
 § page.team.author.title: Employee statistics
 § page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
 § page.team.author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
+§ page.team.author.status: Status
+§ page.team.author.firstCommit: First commit
+§ page.team.author.daysAll: Total days
 § page.team.author.types: Types of work
 § page.team.author.commits: Commits
 § page.team.author.commitsSmall: commits
@@ -120,13 +123,13 @@ export default `
 § page.team.pr.tasks: tasks
 § page.team.pr.firstCommitTime: First commit
 § page.team.pr.lastCommitTime: Last
-§ page.team.pr.workDays: Development days
-§ page.team.pr.delayDays: Days waiting for merge
+§ page.team.pr.workDays: Average time spent working on a task
+§ page.team.pr.delayDays: Average time of the PR review
+§ page.team.pr.middleTimeRelease: The ratio of development time to review time
 § page.team.pr.commits: Commits
 § page.team.pr.date: Merge Date
 § page.team.pr.mergeAuthor: Merged by
 § page.team.pr.author: Employee
-§ page.team.pr.middleTimeRelease: Average delivery time (days)
 § page.team.pr.work: development
 § page.team.pr.delay: waiting
 § page.team.pr.days: days
@@ -146,14 +149,16 @@ export default `
 § page.team.tasks.prAuthor: Merged by user
 § page.team.tasks.prDelayDays: Delay before merge in days
 § page.team.tasks.comments: Comments
-§ page.team.extension.name: Extension
+§ page.team.extension.extension: File extensions
+§ page.team.extension.type: File sub types
+§ page.team.extension.name: Type
 § page.team.extension.path: Path
 § page.team.extension.current.count: Number
 § page.team.extension.removed.count: Number of removed
 § page.team.extension.files: files
 § page.team.release.title: Release
-§ page.team.release.from: Create date
-§ page.team.release.to: Last merge date
+§ page.team.release.from: Created date
+§ page.team.release.to: Delivery date
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: Photo

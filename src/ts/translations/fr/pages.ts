@@ -23,6 +23,9 @@ export default `
 § page.team.author.title: Statistiques du personnel
 § page.team.author.description1: Partie des statistiques (vitesse de travail, argent dépensé, etc.) pour les collaborateurs de type “Assistant”, ce n’est pas une rôle permanente dans le projet. Leur travail est insignifiant et peut être ignoré.
 § page.team.author.description2: Le tri par défaut est le tri par nombre de tâches et de groupes (employés actuels, licenciés et aidants).
+§ page.team.author.status: Status
+§ page.team.author.firstCommit: First commit
+§ page.team.author.daysAll: Total days
 § page.team.author.types: Type de travaux
 § page.team.author.commits: Commits
 § page.team.author.commitsSmall: commits
@@ -120,13 +123,13 @@ export default `
 § page.team.pr.tasks: tâches
 § page.team.pr.firstCommitTime: Premier commit
 § page.team.pr.lastCommitTime: Dernier
-§ page.team.pr.workDays: Jours de développement
-§ page.team.pr.delayDays: Jours d'attente
+§ page.team.pr.workDays: Average time spent working on a task
+§ page.team.pr.delayDays: Average time of the PR review
+§ page.team.pr.middleTimeRelease: The ratio of development time to review time
 § page.team.pr.commits: Commits
 § page.team.pr.date: Date de diffusion
 § page.team.pr.mergeAuthor: Versai
 § page.team.pr.author: Employé
-§ page.team.pr.middleTimeRelease: Délai de Livraison moyen (jours)
 § page.team.pr.work: développement
 § page.team.pr.delay: attente
 § page.team.pr.days: jours
@@ -146,6 +149,18 @@ export default `
 § page.team.tasks.prAuthor: Versai
 § page.team.tasks.prDelayDays: Jours d'attente
 § page.team.tasks.comments: Commentaires
+§ page.team.extension.extension: File extensions
+§ page.team.extension.type: File sub types
+§ page.team.extension.name: Type
+§ page.team.extension.path: Path
+§ page.team.extension.current.count: Number
+§ page.team.extension.removed.count: Number of removed
+§ page.team.extension.files: files
+§ page.team.release.title: Release
+§ page.team.release.from: Created date
+§ page.team.release.to: Delivery date
+§ page.team.release.delay: Preparation days
+§ page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: place à la photographie
 § page.person.total.title: Caractéristiques de base

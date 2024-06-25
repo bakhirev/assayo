@@ -15,8 +15,19 @@ function Card({ message }: ICardProps) {
     info: style.notifications_item_info,
   }[message.type || 'success'] || style.notifications_item_info;
 
+  const icon = {
+    error: './assets/notifications/alert.svg',
+    warning: './assets/notifications/warning.svg',
+    success: './assets/notifications/info.svg',
+    info: './assets/notifications/info.svg',
+  }[message.type || 'info'] || './assets/notifications/info.svg';
+
   return (
     <div className={`${style.notifications_item} ${className}`}>
+      <img
+        className={style.notifications_item_icon}
+        src={icon}
+      />
       {message.title && (
         <h6 className={style.notifications_item_title}>
           {message.title}

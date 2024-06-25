@@ -21,11 +21,6 @@ function Result({
       <h4 className={style.quize_title}>
         {result.title}
       </h4>
-      <img
-        className={style.quize_icon}
-        style={{ backgroundImage: `url(${result.icon})` }}
-        src="./assets/games/4x3.png"
-      />
       <p className={style.quize_description}>
         {result.description}
       </p>

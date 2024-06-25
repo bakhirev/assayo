@@ -23,6 +23,9 @@ export default `
 § page.team.author.title: Estadísticas de los empleados
 § page.team.author.description1: Parte de las estadísticas (la velocidad del trabajo, el dinero gastado, etc.) para los empleados con el tipo de "Asistente" no cuenta, ya que no es un rol permanente en el proyecto. Su trabajo es insignificante y puede ser ignorado.
 § page.team.author.description2: La clasificación predeterminada es la clasificación por número de tareas y grupos(empleados actuales, despedidos, ayudantes).
+§ page.team.author.status: Status
+§ page.team.author.firstCommit: First commit
+§ page.team.author.daysAll: Total days
 § page.team.author.types: Tipo de trabajo
 § page.team.author.commits: Commits
 § page.team.author.commitsSmall: commits
@@ -120,13 +123,13 @@ export default `
 § page.team.pr.tasks: tareas
 § page.team.pr.firstCommitTime: Primer commits
 § page.team.pr.lastCommitTime: Last
-§ page.team.pr.workDays: Days of development
-§ page.team.pr.delayDays: Days of waiting for the infusion
+§ page.team.pr.workDays: Average time spent working on a task
+§ page.team.pr.delayDays: Average time of the PR review
+§ page.team.pr.middleTimeRelease: The ratio of development time to review time
 § page.team.pr.commits: commits
 § page.team.pr.date: Date of injection
 § page.team.pr.mergeAuthor: I poured it in
 § page.team.pr.author: Employee
-§ page.team.pr.middleTimeRelease: Average delivery time (days)
 § page.team.pr.work: development
 § page.team.pr.delay: expectation
 § page.team.pr.days: days
@@ -146,6 +149,18 @@ export default `
 § page.team.tasks.prAuthor: I poured it in
 § page.team.tasks.prDelayDays: Days of waiting for the infusion
 § page.team.tasks.comments: Comments
+§ page.team.extension.extension: File extensions
+§ page.team.extension.type: File sub types
+§ page.team.extension.name: Type
+§ page.team.extension.path: Path
+§ page.team.extension.current.count: Number
+§ page.team.extension.removed.count: Number of removed
+§ page.team.extension.files: files
+§ page.team.release.title: Release
+§ page.team.release.from: Created date
+§ page.team.release.to: Delivery date
+§ page.team.release.delay: Preparation days
+§ page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: a place for a photo
 § page.person.total.title: Main Features

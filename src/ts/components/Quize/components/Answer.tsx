@@ -3,11 +3,6 @@ import React from 'react';
 import IAnswer from '../interfaces/Answer';
 import style from '../styles/answer.module.scss';
 
-const IS_WRAPPER_MODE = {
-  error: true,
-  small: true,
-};
-
 interface IAnswerProps {
   answer: IAnswer;
   mode: string;
@@ -19,28 +14,27 @@ function Answer({
   mode,
   onClick,
 }: IAnswerProps): React.ReactElement | null {
-  const className = [style.quize_answer];
-  if (mode === 'selected') className.push(style.quize_answer_selected);
-  if (mode === 'correct') className.push(style.quize_answer_correct);
-  if (mode === 'error') className.push(style.quize_answer_error);
-  if (mode === 'small') className.push(style.quize_answer_small);
+  const className = [style.quize_answer_wrapper];
+  const textClasName = [style.quize_answer_text];
 
-  const wrapperClass = [style.quize_answer_wrapper];
-  if (IS_WRAPPER_MODE[mode]) wrapperClass.push(style.quize_answer_wrapper_small);
+  if (mode === 'small' || mode === 'error') className.push(style.quize_answer_wrapper_small);
+  if (mode === 'selected') textClasName.push(style.quize_answer_text_selected);
+  if (mode === 'correct') textClasName.push(style.quize_answer_text_correct);
+  if (mode === 'error') textClasName.push(style.quize_answer_text_error);
 
   return (
-    <div className={wrapperClass.join(' ')}>
+    <div className={className.join(' ')}>
       <figure
-        className={className.join(' ')}
+        className={style.quize_answer}
         onClick={() => {
           onClick();
         }}
       >
         <img
           className={style.quize_answer_icon}
-          src={answer.icon}
+          src="./assets/games/quize/balloon.png"
         />
-        <figcaption className={style.quize_answer_text}>
+        <figcaption className={textClasName.join(' ')}>
           {answer.title}
         </figcaption>
       </figure>

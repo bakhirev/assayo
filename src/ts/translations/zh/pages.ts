@@ -120,13 +120,13 @@ export default `
 § page.team.pr.tasks: 任务
 § page.team.pr.firstCommitTime: 第一个 Commits
 § page.team.pr.lastCommitTime: 最后一次
-§ page.team.pr.workDays: 发展的日子
-§ page.team.pr.delayDays: 等待输液的日子
+§ page.team.pr.workDays: 完成任务的平均时间
+§ page.team.pr.delayDays: PR审查的平均时间
+§ page.team.pr.middleTimeRelease: 开发时间与审查时间的比率
 § page.team.pr.commits: Commits
 § page.team.pr.date: 注射日期
 § page.team.pr.mergeAuthor: 填写
 § page.team.pr.author: 雇员
-§ page.team.pr.middleTimeRelease: 平均派递时间 (天数)
 § page.team.pr.work: 发展
 § page.team.pr.delay: 期望
 § page.team.pr.days: 天数
@@ -146,6 +146,18 @@ export default `
 § page.team.tasks.prAuthor: 灌
 § page.team.tasks.prDelayDays: 等待输液的日子
 § page.team.tasks.comments: 评论
+§ page.team.extension.extension: File extensions
+§ page.team.extension.type: File sub types
+§ page.team.extension.name: Type
+§ page.team.extension.path: Path
+§ page.team.extension.current.count: Number
+§ page.team.extension.removed.count: Number of removed
+§ page.team.extension.files: files
+§ page.team.release.title: Release
+§ page.team.release.from: Created date
+§ page.team.release.to: Delivery date
+§ page.team.release.delay: Preparation days
+§ page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: 照片
 § page.person.print.photo.description: 拍照的地方
 § page.person.total.title: 主要特点

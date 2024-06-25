@@ -16,7 +16,7 @@
 
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
 }
 
 .achievement:last-child {
@@ -50,7 +50,7 @@
   border-radius: 40px;
   letter-spacing: 2px;
 
-  color: white;
+  color: var(--color-white);
   background-color: var(--color-border);
   border-color: var(--color-border);
 }
@@ -60,7 +60,7 @@
   width: 56px;
   height: 56px;
   margin: 4px auto;
-  fill: #FFFFFF;
+  fill: var(--color-white);
 }
 
 .achievement_title,

@@ -6,7 +6,7 @@
   padding: 20px 34px 20px 24px;
   box-sizing: border-box;
   text-align: right;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
 
   &_title {
     float: left;
@@ -52,7 +52,7 @@
     right: 0;
 
     padding: 0;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
   }
 }
 

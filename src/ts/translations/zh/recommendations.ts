@@ -191,10 +191,14 @@ in terms of potential profit.
 
 Features that are expensive to develop but bring little profit may need to be postponed or even canceled. This will make the project more commercially successful.
 
-§ recommendations.author.lotOfLazy
-writes too little code.
+§ recommendations.author.lotOfLazy.title: Too little code: $1
+§ recommendations.author.lotOfLazy.description
+Should they be fired?
 
-# Should they be fired?
+# Composition: 
+- $1;
+
+# Answer the questions:
 - are they a team leader, architect, or analyst?
 - is this their primary project?
 - are there any dependencies on them?
@@ -204,8 +208,12 @@ The total costs for the developer are already more than the profit from their wo
 If we believe that there were no objective hindrances to their work, then the person either does not want to work at all or is working on two projects simultaneously.
 Firing and replacing them with a new employee seems justified from a statistical point of view.
 
-§ recommendations.author.manyLazy
-writes little code. Needs to be monitored.
+§ recommendations.author.manyLazy.title: Little code: $1
+§ recommendations.author.manyLazy.description
+Needs to be monitored.
+
+# Composition: 
+- $1;
 
 # How the sample is chosen:
 - in test samples, a good programmer writes code for more than 80% of the time;
@@ -286,7 +294,9 @@ Typically, such projects are assessed before starting the development of their o
 Light Workload
 
 § recommendations.author.projectType.easy.description
-too many days without commits. It is necessary to understand why the team is not writing code.
+too many days without commits.
+
+It is necessary to understand why the team is not writing code.
 
 # Assessment method:
 - take statistics from all active developers;

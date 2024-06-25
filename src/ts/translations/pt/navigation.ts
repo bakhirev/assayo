@@ -21,7 +21,9 @@ export default `
 § sidebar.team.tree: Análise de arquivos
 § sidebar.team.files: Ficheiros
 § sidebar.team.removedFiles: Arquivos excluídos
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: Lista de Tarefas
+§ sidebar.team.release: Releases
 § sidebar.team.hours: Horário
 § sidebar.team.commits: All commits
 § sidebar.team.changes: Todas as alterações

@@ -42,15 +42,23 @@ export default class RecommendationsTeamByAuthor {
       projectType,
 
       (lotOfLazy.length ? {
-        title: lotOfLazy,
-        description: 'recommendations.author.lotOfLazy',
+        title: 'recommendations.author.lotOfLazy.title',
+        description: 'recommendations.author.lotOfLazy.description',
         type: RECOMMENDATION_TYPES.ALERT,
+        arguments: {
+          title: lotOfLazy.length,
+          description: lotOfLazy.join(';\n- '),
+        },
       } : null),
 
       (manyLazy.length ? {
-        title: manyLazy,
-        description: 'recommendations.author.manyLazy',
+        title: 'recommendations.author.manyLazy.title',
+        description: 'recommendations.author.manyLazy.description',
         type: RECOMMENDATION_TYPES.WARNING,
+        arguments: {
+          title: manyLazy.length,
+          description: manyLazy.join(';\n- '),
+        },
       } : null),
 
       (oneTypeMans.length ? {

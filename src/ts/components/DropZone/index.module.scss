@@ -11,7 +11,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 3;
-  background-color: white;
+  background-color: var(--color-white);
 
   &_icon {
     display: block;

@@ -21,11 +21,6 @@ function Start({
       <h4 className={style.quize_title}>
         {quize.title}
       </h4>
-      <img
-        className={style.quize_icon}
-        style={{ backgroundImage: `url(${quize.icon})` }}
-        src="./assets/games/4x3.png"
-      />
       <p className={style.quize_description}>
         {quize.description}
       </p>

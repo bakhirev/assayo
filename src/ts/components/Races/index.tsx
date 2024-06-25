@@ -39,7 +39,7 @@ function Races({
 
   return (
     <>
-      <GameBanner src="./assets/games/races.jpg">
+      <GameBanner src="./assets/games/races/bg.png">
         {!showAnimation && (
           <UiKitButton
             className={style.races_button}
@@ -51,9 +51,21 @@ function Races({
           </UiKitButton>
         )}
       </GameBanner>
+      <div
+        className={style.races_green}
+        style={{
+          backgroundImage: 'url(./assets/games/races/greenTop.png)',
+        }}
+      />
       <div className={style.races}>
         {lines}
       </div>
+      <div
+        className={style.races_green}
+        style={{
+          backgroundImage: 'url(./assets/games/races/greenBottom.png)',
+        }}
+      />
     </>
   );
 }

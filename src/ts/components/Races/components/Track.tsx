@@ -27,7 +27,12 @@ function Track({
   const duration = DURATION.MIN + (DURATION.BASE * (1 - speed)) * 3;
 
   return (
-    <div className={`${style.races_track} ${type || ''}`}>
+    <div
+      className={`${style.races_track} ${type || ''}`}
+      style={{
+        backgroundImage: 'url(./assets/games/races/road.png)',
+      }}
+    >
       {canStart && (
         <Info
           title={title}

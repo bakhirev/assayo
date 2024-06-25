@@ -10,7 +10,7 @@
   page-break-inside: avoid;
   box-sizing: border-box;
   vertical-align: top;
-  background-color: white;
+  background-color: var(--color-white);
 
   &_wrapper {
     width: calc(100% + 24px);

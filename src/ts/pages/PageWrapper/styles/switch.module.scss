@@ -31,7 +31,7 @@
   color: #84858D;
 
   &.selected {
-    color: #FFFFFF;
+    color: var(--color-white);
     background-color: #37394B;
   }
 

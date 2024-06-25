@@ -21,7 +21,9 @@ export default `
 § sidebar.team.tree: 文件分析
 § sidebar.team.files: 档案
 § sidebar.team.removedFiles: 删除的文件
+§ sidebar.team.extension: Extensions
 § sidebar.team.tasks: 任务列表
+§ sidebar.team.release: Releases
 § sidebar.team.hours: 时间表
 § sidebar.team.commits: All commits
 § sidebar.team.changes: 所有更改

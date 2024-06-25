@@ -130,7 +130,7 @@ const Type = observer(({
 
   return (
     <>
-      <Title title="sidebar.team.extension"/>
+      <Title title="page.team.extension.type"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
