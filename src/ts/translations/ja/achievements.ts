@@ -87,42 +87,42 @@ export default `
 § achievements.moreStyle.description: tends to change CSS more than others
 § achievements.moreOnHoliday.title: No life
 § achievements.moreOnHoliday.description: relatively many commits in non-working hours
-§ achievements.morePRMerge.title: Таможня даёт добро
+§ achievements.morePRMerge.title: Show me your pass
 § achievements.morePRMerge.description: more often than others, presses the "Merge" button for PR
-§ achievements.longWaitPR.title: Завтра точно вольём
-§ achievements.longWaitPR.description: создал PR, который больше месяца провисел на ревью
+§ achievements.longWaitPR.title: Tomorrow 100% be merge
+§ achievements.longWaitPR.description: created PR that waited more than a month on the review
 § achievements.moreLongWaitPR.title: A long time ago in a galaxy far, far away
-§ achievements.moreLongWaitPR.description: создал PR, который максимально долго провисел на ревью
-§ achievements.oneExtension.title: Один в поле воин
-§ achievements.oneExtension.description: только он работает с файлами определенного расширения
+§ achievements.moreLongWaitPR.description: created PR that has been waiting for a review the longest
+§ achievements.oneExtension.title: My name is LEGION
+§ achievements.oneExtension.description: only this man works with files of a certain extension
 § achievements.fileRush.title: Zerg Rush
 § achievements.fileRush.description: created the most files in the project
-§ achievements.moreLintHint.title: Грамар-наци
-§ achievements.moreLintHint.description: больше всех создал или изменил в правилах авто-проверки кода
-§ achievements.moreReadMe.title: Летописец
-§ achievements.moreReadMe.description: больше всех создал или изменил файлов MD
+§ achievements.moreLintHint.title: Grammar Nazi
+§ achievements.moreLintHint.description: more than anyone created or changed the code-style rules
+§ achievements.moreReadMe.title: Chronicler
+§ achievements.moreReadMe.description: more than anyone created or modified MD files
 § achievements.moreDevOps.title: DevOps
-§ achievements.moreDevOps.description: больше всех создал или изменил файлов для CI/CD
-§ achievements.moreTests.title: Тестировщик
-§ achievements.moreTests.description: больше всех создал или изменил файлов для тестирования
-§ achievements.allRelease.title: Фулл хаус
-§ achievements.allRelease.description: есть релиз, собранный только из его задач
+§ achievements.moreDevOps.description: more than anyone created or modified files for CI/CD
+§ achievements.moreTests.title: Tester
+§ achievements.moreTests.description: more than anyone created or modified files for testing
+§ achievements.allRelease.title: Full house
+§ achievements.allRelease.description: there is a release compiled only from his tasks
 § achievements.firstCommit.title: First come, first served
-§ achievements.firstCommit.description: first commit in this project
+§ achievements.firstCommit.description: first commit on the project
 § achievements.lastCommit.title: I've finished
-§ achievements.lastCommit.description: последний коммит на проекте
+§ achievements.lastCommit.description: last commit on the project
 § achievements.firstLastCommit.title: From beginning to end
-§ achievements.firstLastCommit.description: первый и последний коммит на проекте
-§ achievements.longFilePath.title: Закрома родины
+§ achievements.firstLastCommit.description: first and last commit on the project
+§ achievements.longFilePath.title: Deep cellar
 § achievements.longFilePath.description: the first created the file with the deepest directory
 § achievements.longFileName.title: Size matters
 § achievements.longFileName.description: created the file with the longest name
 § achievements.workOnWeekends.title: Work not walk
-§ achievements.workOnWeekends.description: хоть раз работал на выходных
-§ achievements.removeCreateFile.title: Откопал стюардессу
+§ achievements.workOnWeekends.description: at least once worked on weekends
+§ achievements.removeCreateFile.title: Dig out the stewardess
 § achievements.removeCreateFile.description: recover removed file
-§ achievements.renameFile.title: Астана Нур-Султан Астана
-§ achievements.renameFile.description: переименовывал туда-сюда файл
+§ achievements.renameFile.title: Astana Nur-Sultan Astana
+§ achievements.renameFile.description: rename file and rollback
 § achievements.longTask.title: Easy task
 § achievements.longTask.description: worked on task more than three months
 § achievements.haveNotEmail.title: Mailman

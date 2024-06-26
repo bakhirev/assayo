@@ -87,14 +87,14 @@ export default `
 § achievements.moreStyle.description: tends to change CSS more than others
 § achievements.moreOnHoliday.title: No life
 § achievements.moreOnHoliday.description: relatively many commits in non-working hours
-§ achievements.morePRMerge.title: Таможня даёт добро
+§ achievements.morePRMerge.title: Show me your pass
 § achievements.morePRMerge.description: more often than others, presses the "Merge" button for PR
-§ achievements.longWaitPR.title: Завтра точно вольём
-§ achievements.longWaitPR.description: создал PR, который больше месяца провисел на ревью
+§ achievements.longWaitPR.title: Tomorrow 100% be merge
+§ achievements.longWaitPR.description: created PR that waited more than a month on the review
 § achievements.moreLongWaitPR.title: A long time ago in a galaxy far, far away
-§ achievements.moreLongWaitPR.description: создал PR, который максимально долго провисел на ревью
-§ achievements.oneExtension.title: Один в поле воин
-§ achievements.oneExtension.description: только он работает с файлами определенного расширения
+§ achievements.moreLongWaitPR.description: created PR that has been waiting for a review the longest
+§ achievements.oneExtension.title: My name is LEGION
+§ achievements.oneExtension.description: only this man works with files of a certain extension
 § achievements.fileRush.title: Zerg Rush
 § achievements.fileRush.description: created the most files in the project
 § achievements.moreLintHint.title: Grammar Nazi
@@ -113,16 +113,16 @@ export default `
 § achievements.lastCommit.description: last commit on the project
 § achievements.firstLastCommit.title: From beginning to end
 § achievements.firstLastCommit.description: first and last commit on the project
-§ achievements.longFilePath.title: Закрома родины
+§ achievements.longFilePath.title: Deep cellar
 § achievements.longFilePath.description: the first created the file with the deepest directory
 § achievements.longFileName.title: Size matters
 § achievements.longFileName.description: created the file with the longest name
 § achievements.workOnWeekends.title: Work not walk
-§ achievements.workOnWeekends.description: хоть раз работал на выходных
-§ achievements.removeCreateFile.title: Откопал стюардессу
+§ achievements.workOnWeekends.description: at least once worked on weekends
+§ achievements.removeCreateFile.title: Dig out the stewardess
 § achievements.removeCreateFile.description: recover removed file
-§ achievements.renameFile.title: Астана Нур-Султан Астана
-§ achievements.renameFile.description: переименовывал туда-сюда файл
+§ achievements.renameFile.title: Astana Nur-Sultan Astana
+§ achievements.renameFile.description: rename file and rollback
 § achievements.longTask.title: Easy task
 § achievements.longTask.description: worked on task more than three months
 § achievements.haveNotEmail.title: Mailman

@@ -50,5 +50,6 @@ export default function getSubLines(
 
   if (other.length === 0) return normal;
   if (other.length === 1) return allItems;
-  return [...normal, getFormattedOther(other, options)];
+  return [...normal, getFormattedOther(other, options)]
+    .filter((item: any) => item.width > 1);
 }
