@@ -31,18 +31,18 @@ function SwimmingPool({
 
   return (
     <>
-      <GameBanner src="./assets/games/races/bg.png" />
+      <GameBanner src="./assets/games/swimmingPool/bg.png" />
       <div
         className={style.swimming_pool_top_border}
         style={{
-          backgroundImage: 'url(./assets/games/swimmingPool/track_title.png)',
+          backgroundImage: 'url(./assets/games/swimmingPool/block2.png)',
         }}
       />
       {lines}
       <div
         className={style.swimming_pool_bottom_border}
         style={{
-          backgroundImage: 'url(./assets/games/swimmingPool/track_title.png)',
+          backgroundImage: 'url(./assets/games/swimmingPool/block2.png)',
         }}
       />
     </>

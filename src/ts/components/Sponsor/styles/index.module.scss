@@ -11,6 +11,14 @@
     padding: 0;
   }
 
+  &_cover {
+    display: block;
+    width: 50%;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+  }
+
   &_text {
     font-size: var(--space-l);
     font-weight: 100;

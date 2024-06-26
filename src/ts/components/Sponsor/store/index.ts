@@ -30,7 +30,7 @@ class SponsorStore {
     setInterval(() => {
       if (this.type) return;
       this.type = Math.random() > 0.5
-        ? MODAL_TYPE.SHARE
+        ? MODAL_TYPE.MONEY
         : MODAL_TYPE.SHARE;
     }, 10 * ONE_MINUTE);
   }

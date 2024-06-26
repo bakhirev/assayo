@@ -27,7 +27,7 @@ const Share = observer((): React.ReactElement | null  => {
       }}
     >
       <Header className={style.sponsor_title}>
-        {t('page.sponsor.share.title')}
+        {t('page.sponsor.title')}
       </Header>
       <Body className={style.sponsor_body}>
         <p className={style.sponsor_text}>

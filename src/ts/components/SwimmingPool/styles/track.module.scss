@@ -19,10 +19,11 @@
     height: 100%;
     text-decoration: none;
     vertical-align: middle;
+    background-size: auto 100%;
   }
 
   &_value {
-    width: 80px;
+    width: 85px;
     line-height: 80px;
     text-align: center;
     color: var(--color-black);
@@ -30,25 +31,25 @@
   }
 
   &_line {
-    width: calc(100% - 505px);
-    border-left: 16px solid var(--color-12);
-    border-right: 16px solid var(--color-12);
-    border-bottom: 6px dashed white;
+    overflow: hidden;
+    width: calc(100% - 459px);
     background-color: var(--color-31);
   }
 
   &_chart {
     width: 50%;
     text-align: right;
-    background-color: var(--color-button-2);
+    background-color: rgba(0, 0, 55, 0.4);
   }
 
   &_man {
     position: relative;
-    top: 15px;
-    left: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+    top: 20px;
+    left: 30px;
+    height: 40px;
   }
+}
+
+.swimming_pool_track + .swimming_pool_track .swimming_pool_track_line {
+  border-top: 4px dashed red;
 }

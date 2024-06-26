@@ -27,7 +27,7 @@ function Track({
   maxValue,
 }: ITrackProps): React.ReactElement | null {
   if (!title) return null;
-  console.log(maxValue);
+
   const percent = (maxValue * 1.1) / 100;
   const width = Math.ceil(value / percent);
 
@@ -37,10 +37,10 @@ function Track({
         text={title}
         length={10}
       />
-      <div {...getProps(style.swimming_pool_track_value)}>
+      <div {...getProps(style.swimming_pool_track_value, './assets/games/swimmingPool/block.png')}>
         {value}
       </div>
-      <div {...getProps(style.swimming_pool_track_line)}>
+      <div {...getProps(style.swimming_pool_track_line, './assets/games/swimmingPool/water.png')}>
         <div
           className={style.swimming_pool_track_chart}
           style={{ width: `${width}%` }}
