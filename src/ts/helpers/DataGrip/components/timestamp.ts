@@ -1,6 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import settingsStore from 'ts/store/Settings';
+import { increment } from 'ts/helpers/Math';
 
 import MinMaxCounter from './counter';
 
@@ -43,9 +44,7 @@ export default class DataGripByTimestamp {
   #updateCommitByTimestamp(commit: ICommit, statistic: any) {
     statistic.commits += 1;
     statistic.addedAndChanges += commit.added + commit.changes;
-    statistic.tasks[commit.task] = statistic.tasks[commit.task]
-      ? (statistic.tasks[commit.task] + 1)
-      : 1;
+    increment(statistic.tasks, commit.task);
     if (!statistic.tasksByAuthor[commit.author]) {
       statistic.tasksByAuthor[commit.author] = {};
     }

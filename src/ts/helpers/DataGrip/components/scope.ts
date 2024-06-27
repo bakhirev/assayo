@@ -1,13 +1,29 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import settingsStore from 'ts/store/Settings';
+import { increment } from 'ts/helpers/Math';
+
+interface IStatByAuthor {
+  commits: number; // number of commits by author in this scope
+  days: IHashMap<boolean>; // commit timestamp
+  types: IHashMap<number>; // commit type by author in this scope (fix, feat)
+}
+
+interface IStatByScope {
+  scope: string; // scope name
+  commits: number; // number of commits in this scope
+  days: IHashMap<boolean>; // commit timestamp
+  tasks: IHashMap<boolean>; // task name in this scope (JIRA-123)
+  types: IHashMap<number>; // commit type in this scope (fix, feat)
+  authors: IHashMap<IStatByAuthor>; // stat by author for this scope
+}
 
 export default class DataGripByScope {
-  list: string[] = [];
+  list: string[] = []; // scope names
 
-  commits: IHashMap<any> = {};
+  commits: IHashMap<IStatByScope> = {};
 
-  statistic: any = [];
+  statistic: IStatByScope[] = [];
 
   clear() {
     this.list = [];
@@ -24,16 +40,17 @@ export default class DataGripByScope {
   }
 
   #updateCommitByScope(commit: ICommit) {
-    const statistic = this.commits[commit.scope];
+    const statistic = this.commits[commit.scope] as IStatByScope;
     statistic.commits += 1;
     statistic.days[commit.timestamp] = true;
     statistic.tasks[commit.task] = true;
-    statistic.types[commit.type] = statistic.types[commit.type] ? (statistic.types[commit.type] + 1) : 1;
+    increment(statistic.types, commit.type);
+
     const author = statistic.authors[commit.author];
     if (author) {
       author.commits += 1;
       author.days[commit.timestamp] = true;
-      author.types[commit.type] = author.types[commit.type] ? (author.types[commit.type] + 1) : 1;
+      increment(author.types, commit.type);
     } else {
       statistic.authors[commit.author] = this.#getDefaultAuthorForScope(commit);
     }
@@ -50,7 +67,7 @@ export default class DataGripByScope {
     };
   }
 
-  #getDefaultAuthorForScope(commit: ICommit) {
+  #getDefaultAuthorForScope(commit: ICommit): IStatByAuthor {
     return {
       commits: 1,
       days: { [commit.timestamp]: true },

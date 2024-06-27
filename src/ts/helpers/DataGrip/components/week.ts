@@ -1,12 +1,13 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import settingsStore from 'ts/store/Settings';
+import { increment } from 'ts/helpers/Math';
 
 export default class DataGripByWeek {
   commits: IHashMap<any> = {};
-  
+
   statistic: any = [];
-  
+
   constructor() {
     this.clear();
   }
@@ -30,7 +31,6 @@ export default class DataGripByWeek {
     statistic.tasks[commit.task] = true;
     statistic.timestamp.to = commit.timestamp;
 
-    const getIncrement = (v?: number) => v ? (v + 1) : 1;
     const setDefault = (s: any, v: string) => {
       if (!s[v]) s[v] = {};
       return s[v];
@@ -40,9 +40,10 @@ export default class DataGripByWeek {
 
     setDefault(statistic.authors, commit.author)[commit.task] = true;
     setDefault(statistic.workDays, commit.author)[commit.day] = true;
-    setDefault(statistic.typeByAuthor, commit.author)[commit.type] = getIncrement(statistic.typeByAuthor[commit.author][commit.type]);
 
-    statistic.types[commit.type] = getIncrement(statistic.types[commit.type]);
+    if (!statistic.typeByAuthor[commit.author]) statistic.typeByAuthor[commit.author] = {};
+    increment(statistic.typeByAuthor[commit.author], commit.type);
+    increment(statistic.types, commit.type);
   }
 
   #addCommitByWeek(commit: ICommit) {

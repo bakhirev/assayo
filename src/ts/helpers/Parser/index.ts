@@ -26,7 +26,9 @@ export default function Parser(report: string[]) {
     if (!message) continue;
 
     const index = message.indexOf('\t');
-    if (index > 0 && index < 10) { // парсинг файлов формата --num-stat
+    if (index > 0 && index < 10) {
+      // парсинг файлов формата --num-stat
+      // "1	0	.browserlistrc"
       const line = getNumStatInfo(message);
       if (!files[line.path]) {
         files[line.path] = getInfoFromPath(line.path);
@@ -37,7 +39,9 @@ export default function Parser(report: string[]) {
       fileChanges.changedLines = line.changedLines;
       updateLineTotal(commit, line);
 
-    } else if (message[0] === ':') { // парсинг файлов формата --raw
+    } else if (message[0] === ':') {
+      // парсинг файлов формата --raw
+      // ":000000 100644 0000000 496d1ef A	.browserlistrc"
       const line = getRawInfo(message);
       if (!files[line.path]) {
         files[line.path] = getInfoFromPath(line.path);
@@ -45,7 +49,9 @@ export default function Parser(report: string[]) {
       fileChanges = files[line.path];
       fileChanges.action = line.action;
 
-    } else { // парсинг коммита
+    } else {
+      // парсинг коммита
+      // "2021-02-09T16:08:15+03:00>Albert>instein@mail.de>feat(init): added the speed of light"
       if (commit) commit.fileChanges = Object.values(files);
       files = {};
       commit = getCommitInfo(message);

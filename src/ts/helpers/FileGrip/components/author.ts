@@ -1,8 +1,14 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
+interface IStatByAuthor {
+  addedFiles: number;
+  removedFiles: number;
+  addedWithoutRemoveFiles: number;
+}
+
 export default class FileGripByAuthor {
-  statisticByName: IHashMap<any> = {};
+  statisticByName: IHashMap<IStatByAuthor> = {};
 
   totalAddedFiles: number = 0;
 

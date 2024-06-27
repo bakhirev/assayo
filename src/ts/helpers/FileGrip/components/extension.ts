@@ -1,6 +1,16 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
+interface IStatByExtension {
+  extension: string;  // extension name
+  task?: string; // first file with this type was created in task
+  path: string;  // first file with this type has path,
+  files: IDirtyFile[], // all files with this type
+  count: number, // TODO: remove?
+  removedFiles: IDirtyFile[], // all removed files with this type
+  removedCount: number, // TODO: remove?
+}
+
 const IGNORE_LIST = [
   '.eslintrc',
   '.gitignore',
@@ -10,9 +20,9 @@ const IGNORE_LIST = [
 ];
 
 export default class FileGripByExtension {
-  statistic: any = [];
+  statistic: IStatByExtension[] = [];
 
-  statisticByName: IHashMap<any> = {};
+  statisticByName: IHashMap<IStatByExtension> = {};
 
   property: string = '';
 
@@ -44,7 +54,7 @@ export default class FileGripByExtension {
     }
   }
 
-  #getNewExtension(file: IDirtyFile) {
+  #getNewExtension(file: IDirtyFile): IStatByExtension {
     return {
       extension: file?.extension,
       task: file?.firstCommit?.task,

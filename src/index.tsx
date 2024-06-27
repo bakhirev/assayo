@@ -14,7 +14,7 @@ import zh from 'ts/translations/zh';
 
 import initializationI18n from './ts/helpers/i18n';
 
-import Authorization from 'ts/pages/Authorization';
+import Main from 'ts/pages/index';
 import userSettings from 'ts/store/UserSettings';
 import themeSettings from 'ts/store/ThemeSettings';
 import Notifications from 'ts/components/Notifications';
@@ -48,7 +48,7 @@ function renderReactApplication() {
   render(
     <React.StrictMode>
       <HashRouter>
-        <Authorization/>
+        <Main />
         <Notifications/>
       </HashRouter>
     </React.StrictMode>,

@@ -1,11 +1,12 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
+import { increment } from 'ts/helpers/Math';
 
 export default class DataGripByType {
   list: string[] = [];
-  
+
   commits: IHashMap<any> = {};
-  
+
   statistic: any = [];
 
   clear() {
@@ -28,14 +29,9 @@ export default class DataGripByType {
     statistic.days[commit.timestamp] = true;
     statistic.tasks[commit.task] = true;
 
-    const getIncrement = (v?: number) => v ? (v + 1) : 1;
-    const setDefault = (s: any, v: string) => {
-      if (!s[v]) s[v] = {};
-      return s[v];
-    };
-
-    statistic.commitsByAuthors[commit.author] = getIncrement(statistic.commitsByAuthors[commit.author]);
-    setDefault(statistic.daysByAuthors, commit.author)[commit.timestamp] = getIncrement(statistic.daysByAuthors[commit.author][commit.timestamp]);
+    increment(statistic.commitsByAuthors, commit.author);
+    if (!statistic.daysByAuthors[commit.author]) statistic.daysByAuthors[commit.author] = {};
+    increment(statistic.daysByAuthors[commit.author], commit.timestamp);
   }
 
   #addCommitByType(commit: ICommit) {

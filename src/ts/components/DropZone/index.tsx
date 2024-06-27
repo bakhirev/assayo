@@ -29,7 +29,7 @@ function DropZone({
     <div className={style.dropzone}>
       {/*<Dropzone className={style.dropzone_icon}/>*/}
       <p className={style.dropzone_title}>
-        Ловлю!
+        Drop file here
       </p>
     </div>
   );

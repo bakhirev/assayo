@@ -7,7 +7,6 @@ import Title from 'ts/components/Title';
 import Races from 'ts/components/Races';
 import CityBuilder from 'ts/components/CityBuilder';
 
-import GameConsole from 'ts/components/GameConsole';
 import SwimmingPool from 'ts/components/SwimmingPool';
 import Quize from 'ts/components/Quize';
 
@@ -45,7 +44,6 @@ const TeamBuilding = observer((): React.ReactElement => {
       <Title title="Количество созданных файлов, если бы это был город"/>
       <CityBuilder valuesByTitle={addedFilesByAuthor} />
       <Title title="Скорость коммитов в день"/>
-      <GameConsole />
       {'Небоскребы вверх ввиде графика'}
     </>
   );

@@ -4,14 +4,17 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 3;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  z-index: 3;
-  background-color: var(--color-white);
+
+  border: 8px dashed var(--color-black);
+  background-color: rgba(255, 255, 255, 0.7);
 
   &_icon {
     display: block;
@@ -22,13 +25,16 @@
   }
 
   &_title {
-    font-weight: 100;
-    font-size: 24px;
-    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+
     display: block;
     width: 100%;
-    color: black;
+
+    text-align: center;
     vertical-align: top;
+
+    color: var(--color-black);
   }
 }
 

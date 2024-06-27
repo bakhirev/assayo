@@ -1,10 +1,21 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
-export default class FileGripByType {
-  statistic: any = [];
+interface IStatByType {
+  type: string;  // type name
+  task?: string; // first file with this type was created in task
+  path: string;  // first file with this type has path,
+  extension: IHashMap<number>; // the number of extensions with this type
+  files: IDirtyFile[], // all files with this type
+  count: number, // TODO: remove?
+  removedFiles: IDirtyFile[], // all removed files with this type
+  removedCount: number, // TODO: remove?
+}
 
-  statisticByName: IHashMap<any> = {};
+export default class FileGripByType {
+  statistic: IStatByType[] = [];
+
+  statisticByName: IHashMap<IStatByType> = {};
 
   clear() {
     this.statistic = [];
@@ -34,7 +45,7 @@ export default class FileGripByType {
     }
   }
 
-  #getNewType(file: IDirtyFile) {
+  #getNewType(file: IDirtyFile): IStatByType {
     return {
       type: file?.type,
       task: file?.firstCommit?.task,

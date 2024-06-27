@@ -1,6 +1,6 @@
 import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import { WeightedAverage } from 'ts/helpers/Math';
+import { increment, WeightedAverage } from 'ts/helpers/Math';
 
 export default class DataGripByPR {
   pr: IHashMap<any> = {};
@@ -49,9 +49,7 @@ export default class DataGripByPR {
     const statistic = this.lastCommitByTaskNumber[commit.task];
     statistic.endTaskTime = commit.milliseconds;
     statistic.commits += 1;
-    statistic.commitsByAuthors[commit.author] = statistic.commitsByAuthors[commit.author]
-      ? (statistic.commitsByAuthors[commit.author] + 1)
-      : 1;
+    increment(statistic.commitsByAuthors, commit.author);
   }
 
   #addCommitByPR(commit: ISystemCommit) {

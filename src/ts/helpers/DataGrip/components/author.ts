@@ -2,6 +2,7 @@ import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
+import { increment } from 'ts/helpers/Math';
 
 import settingsStore from 'ts/store/Settings';
 import userSettings from 'ts/store/UserSettings';
@@ -40,8 +41,8 @@ export default class DataGripByAuthor {
     statistic.days[commit.timestamp] = true;
     statistic.tasks[commit.task] = commit.added + commit.changes + commit.removed
       + (statistic.tasks[commit.task] ? statistic.tasks[commit.task] : 0);
-    statistic.types[commit.type] = statistic.types[commit.type] ? (statistic.types[commit.type] + 1) : 1;
-    statistic.scopes[commit.scope] = statistic.scopes[commit.scope] ? (statistic.scopes[commit.scope] + 1) : 1;
+    increment(statistic.types, commit.type);
+    increment(statistic.scopes, commit.scope);
     statistic.hours.push(commit.hours);
     statistic.messageLength.push(commit.text.length);
     statistic.totalMessageLength += commit.text.length || 0;
@@ -130,9 +131,7 @@ export default class DataGripByAuthor {
 
     commit.text.toLowerCase().split(' ').forEach(word => {
       if (word.length <= LIMIT_WORD_LENGTH || disabledWords[word]) return;
-      total[word] = total[word]
-        ? (total[word] + 1)
-        : 1;
+      increment(total, word);
     });
 
     return total;

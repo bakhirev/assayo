@@ -35,3 +35,7 @@ export class WeightedAverage {
     return value / count;
   }
 }
+
+export function increment(object: Object, path: string) {
+  object[path] = (object[path] || 0) + 1;
+}

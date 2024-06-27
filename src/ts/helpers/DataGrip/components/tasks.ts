@@ -33,6 +33,7 @@ export default class DataGripByTasks {
     this.commits[commit.task] = [commit];
   }
 
+  // TODO: тут двойной пробег получился. А должен был частями собрать инфу
   updateTotalInfo(PRs: any) {
     this.statistic = Object.entries(this.commits)
       .map(([task, commits]: [string, ICommit[]]) => {
