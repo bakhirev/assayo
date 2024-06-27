@@ -19,7 +19,7 @@ class SponsorStore {
       close: action,
     });
 
-    const isLocal = window.location.host === 'localhost:3006';
+    const isLocal = window.location.hostname === 'localhost';
     if (!isLocal && !isMobile && !themeSettings.getConfig()) {
       this.setTimer();
     }
