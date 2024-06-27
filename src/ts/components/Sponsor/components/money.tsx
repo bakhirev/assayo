@@ -41,15 +41,15 @@ const Money = observer((): React.ReactElement | null  => {
         >
           {t('page.sponsor.money.qr')}
         </UiKitButton>
-        <UiKitButton
-          mode={['border', 'full_size']}
-          onClick={() => {
-            window.open('https://github.com/sponsors/bakhirev', '_blank');
-            sponsorStore.close();
-          }}
-        >
-          {t('page.sponsor.money.github')}
-        </UiKitButton>
+        {/*<UiKitButton*/}
+        {/*  mode={['border', 'full_size']}*/}
+        {/*  onClick={() => {*/}
+        {/*    window.open('https://github.com/sponsors/bakhirev', '_blank');*/}
+        {/*    sponsorStore.close();*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  {t('page.sponsor.money.github')}*/}
+        {/*</UiKitButton>*/}
       </Footer>
     </Modal>
   );
