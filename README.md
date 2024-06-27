@@ -243,9 +243,9 @@ Releases are planned approximately once every six months. What’s next:
 - development of the backend, integration with other systems;
 
 <a name="link-27"></a>
-#### 📧 Feedback, suggestions, comments
-- telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)
-- [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- website [https://assayo.online/](https://assayo.online/?ref=github)
+#### 📬 Feedback, suggestions, comments
+- <img alt="Telegram Messenger" src="https://telegram.org/img/website_icon.svg?4" style="vertical-align: middle;" /> [@bakhirev](https://t.me/bakhirev) (preferred method of communication)
+- 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+- 🌐 [https://assayo.online/](https://assayo.online/?ref=github)
 
 <img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />
