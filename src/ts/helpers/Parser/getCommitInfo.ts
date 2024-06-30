@@ -1,20 +1,50 @@
 import ICommit, { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
+import IHashMap from 'ts/interfaces/HashMap';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
 
-export default function getCommitInfo(logString: string): ICommit | ISystemCommit {
+let prevDate = new Date();
+
+export default function getCommitInfo(
+  logString: string,
+  refEmailAuthor: IHashMap<string>,
+): ICommit | ISystemCommit {
   // "2021-02-09T12:59:17+03:00>Frolov Ivan>frolov@mail.ru>profile"
   const parts = logString.split('>');
 
   const sourceDate = parts.shift() || '';
-  const date = new Date(sourceDate);
+  let date = new Date(sourceDate);
+  if (isNaN(date.getDay())) {
+    console.log(`PARSE ERROR: Date parse error for: "${logString}"`);
+    date = prevDate;
+  }
+  prevDate = date;
   const day = date.getDay() - 1;
   const timestamp = sourceDate.split('T')[0];
 
-  const author = parts.shift()?.replace(/[._]/gm, ' ') || '';
-
+  let author = parts.shift()?.replace(/[._]/gm, ' ') || '';
   let email = parts.shift() || '';
   if (!(/@/gim).test(email)) email = '';
+
+  const authorID = author.replace(/\s|\t/gm, '');
+  if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
+    console.log(`PARSE ERROR: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
+    author = refEmailAuthor[authorID];
+  }
+
+  if (email && refEmailAuthor[email] && refEmailAuthor[email] !== author) {
+    console.log(`PARSE ERROR: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
+    author = refEmailAuthor[email];
+  }
+
+  if (author && refEmailAuthor[author] && refEmailAuthor[author] !== email) {
+    console.log(`PARSE ERROR: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
+    email = refEmailAuthor[author];
+  }
+
+  refEmailAuthor[email] = author;
+  refEmailAuthor[author] = email;
+  refEmailAuthor[authorID] = author;
 
   const message = parts.join('>');
 

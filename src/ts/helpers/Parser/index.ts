@@ -16,6 +16,7 @@ export default function Parser(report: string[]) {
   let commit = null;
   const commits: Array<ICommit | ISystemCommit> = [];
 
+  let refEmailAuthor: IHashMap<string> = {};
   let files: IHashMap<IFileChange> = {};
   let fileChanges: IFileChange | null = null;
 
@@ -54,7 +55,7 @@ export default function Parser(report: string[]) {
       // "2021-02-09T16:08:15+03:00>Albert>instein@mail.de>feat(init): added the speed of light"
       if (commit) commit.fileChanges = Object.values(files);
       files = {};
-      commit = getCommitInfo(message);
+      commit = getCommitInfo(message, refEmailAuthor);
 
       const monday = commit.milliseconds - commit.day * ONE_DAY;
       if (firstMonday) {

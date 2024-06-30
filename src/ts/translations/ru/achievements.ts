@@ -61,7 +61,7 @@ export default `
 § achievements.more666DaysInProject.description: отработал 666 дней на проекте
 § achievements.more777DaysInProject.title: Азино 3 топора
 § achievements.more777DaysInProject.description: отработал 777 дней на проекте
-§ achievements.moreDaysInProject.title: Часть команды, часть коробля
+§ achievements.moreDaysInProject.title: Часть команды, часть корабля
 § achievements.moreDaysInProject.description: больше всего дней на проекте
 § achievements.moreRefactoring.title: Выпускающий редактор
 § achievements.moreRefactoring.description: сделал больше всех меток «рефакторинг»

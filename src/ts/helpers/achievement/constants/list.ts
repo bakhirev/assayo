@@ -25,7 +25,7 @@ export default {
   lessScopes: ACHIEVEMENT_TYPE.BAD, // Щегол
   moreDaysForTask: ACHIEVEMENT_TYPE.BAD, // Улитка на склоне
   more2DaysForTask: ACHIEVEMENT_TYPE.BAD, // Cо слоу
-  moreDaysInProject: ACHIEVEMENT_TYPE.GOOD, // Часть команды, часть коробля
+  moreDaysInProject: ACHIEVEMENT_TYPE.GOOD, // Часть команды, часть корабля
   lessDaysInProject: ACHIEVEMENT_TYPE.NORMAL, // А это кто?
   more90DaysInProject: ACHIEVEMENT_TYPE.GOOD, // Добро пожаловать
   lessDaysForTask: ACHIEVEMENT_TYPE.GOOD, // Скорострел

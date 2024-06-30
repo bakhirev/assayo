@@ -56,11 +56,8 @@ export default class DataGripByAuthor {
 
   #addCommitByAuthor(commit: ICommit) {
     const commitsByDayAndHour = DataGripByAuthor.getDefaultCommitsByDayAndHour();
-    try {
-      commitsByDayAndHour[commit.day][commit.hours] += 1;
-    } catch (e: any) {
-      debugger;
-    }
+    commitsByDayAndHour[commit.day][commit.hours] += 1;
+
     const commitsByHour = new Array(24).fill(0);
     commitsByHour[commit.hours] += 1;
 
