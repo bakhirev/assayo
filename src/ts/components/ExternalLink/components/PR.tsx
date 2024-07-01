@@ -13,11 +13,14 @@ function PRLink({ prId, text, className }: IPRLinkProps) {
   if (!prId) return null;
 
   const prefix = userSettings?.settings?.linksPrefix?.task || '/';
+  const formattedTask = prId?.[0] === '#'
+    ? prId.replace('#', '')
+    : prId;
 
   return (
     <ExternalLink
       text={text || 'PR'}
-      link={`${prefix}${prId}`}
+      link={`${prefix}${formattedTask}`}
       className={className}
     />
   );
