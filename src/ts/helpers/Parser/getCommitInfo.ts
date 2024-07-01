@@ -3,6 +3,12 @@ import IHashMap from 'ts/interfaces/HashMap';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
 
+const MASTER_BRANCH = {
+  master: true,
+  dev: true,
+  develop: true,
+};
+
 let prevDate = new Date();
 
 export default function getCommitInfo(
@@ -28,17 +34,17 @@ export default function getCommitInfo(
 
   const authorID = author.replace(/\s|\t/gm, '');
   if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
-    console.log(`PARSE ERROR: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
+    console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
     author = refEmailAuthor[authorID];
   }
 
   if (email && refEmailAuthor[email] && refEmailAuthor[email] !== author) {
-    console.log(`PARSE ERROR: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
+    console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
     author = refEmailAuthor[email];
   }
 
   if (author && refEmailAuthor[author] && refEmailAuthor[author] !== email) {
-    console.log(`PARSE ERROR: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
+    console.log(`PARSE WARNING: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
     email = refEmailAuthor[author];
   }
 
@@ -70,27 +76,28 @@ export default function getCommitInfo(
     fileChanges: [],
   };
 
-  const isSystemPR = message.indexOf('Pull request #') === 0;
-  const isSystemMerge = message.indexOf('Merge pull request #') === 0;
+  const isBitbucketPR = message.indexOf('Pull request #') === 0;
+  const isGithubPR = message.indexOf('Merge pull request #') === 0;
+  const isGitlabPR = message.indexOf('Merge branch ') === 0;
   const isMerge = message.indexOf('Merge commit ') === 0
-    || message.indexOf('Merge branch ') === 0
     || message.indexOf('Merge remote-tracking branch') === 0;
   const isAutoMerge = message.indexOf('Automatic merge from') === 0;
-  const isSystemCommit = isSystemPR
-    || isSystemMerge
+  const isSystemCommit = isBitbucketPR
+    || isGithubPR
     || isMerge
+    || isGitlabPR
     || isAutoMerge;
 
   if (isSystemCommit) {
     let commitType = COMMIT_TYPE.MERGE;
     let prId, repository, branch, toBranch, task, taskNumber;
-    if (isSystemMerge) {
+    if (isGithubPR) {
       commitType = COMMIT_TYPE.PR_GITHUB;
       [, prId, repository, branch, toBranch ] = message
         .replace(/(Merge\spull\srequest\s#)|(\sfrom\s)|(\sin\s)|(\sto\s)/gim, ',')
         .split(',');
       task = getTask(branch);
-    } else if (isSystemPR) {
+    } else if (isBitbucketPR) {
       commitType = COMMIT_TYPE.PR_BITBUCKET;
       const messageParts = message.substring(14, Infinity).split(':');
       prId = messageParts.shift();
@@ -101,6 +108,16 @@ export default function getCommitInfo(
         .replace(/(Automatic\smerge\sfrom\s)|(\s->\s)/gim, ',')
         .replace(/(Merge\sremote-tracking\sbranch\s')|('\sinto\s)/gim, ',')
         .split(',');
+    } else if (isGitlabPR) {
+      commitType = COMMIT_TYPE.PR_GITLAB;
+      [, branch, toBranch ] = message
+        .replace(/'/gim, '')
+        .replace(/(Merge\sbranch\s)|(\sinto\s)/gim, ',')
+        .split(',');
+      if (toBranch && MASTER_BRANCH[toBranch]) {
+        task = getTask(branch) || getTaskNumber(branch);
+        prId = task;
+      }
     }
     taskNumber = getTaskNumber(task);
 

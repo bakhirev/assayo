@@ -2,6 +2,12 @@ import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import { increment, WeightedAverage } from 'ts/helpers/Math';
 
+const IS_PR = {
+  [COMMIT_TYPE.PR_BITBUCKET]: true,
+  [COMMIT_TYPE.PR_GITHUB]: true,
+  [COMMIT_TYPE.PR_GITLAB]: true,
+};
+
 export default class DataGripByPR {
   pr: IHashMap<any> = {};
 
@@ -27,8 +33,7 @@ export default class DataGripByPR {
       } else {
         this.#updateCommitByTaskNumber(commit);
       }
-    } else if (!this.pr[commit.prId]
-      && [COMMIT_TYPE.PR_BITBUCKET, COMMIT_TYPE.PR_GITHUB].includes(commit.commitType)) {
+    } else if (!this.pr[commit.prId] && IS_PR[commit.commitType || '']) {
       this.#addCommitByPR(commit);
     }
   }
