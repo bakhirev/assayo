@@ -59,7 +59,9 @@ export default function getEmptySettings(): IUserSetting {
     },
     linksPrefix: {
       task: 'https://jira.com/secure/RapidBoard.jspa?task=',
+      // https://gitlab.com/___/___/-/issues/100500
       pr: 'https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/',
+      // https://gitlab.com/___/___/-/merge_requests/100500
     },
     employees: [],
   };

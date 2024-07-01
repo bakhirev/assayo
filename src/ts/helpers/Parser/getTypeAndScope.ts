@@ -1,4 +1,4 @@
-const POPULAR_TYPES = [
+export const POPULAR_TYPES = [
   'refactor',
   'feat',
   'chore',

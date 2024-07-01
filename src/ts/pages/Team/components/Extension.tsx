@@ -16,8 +16,7 @@ import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import LineChart from 'ts/components/LineChart';
 import { getMax } from 'ts/pages/Common/helpers/getMax';
-import ExternalLink from 'ts/components/ExternalLink';
-import userSettings from 'ts/store/UserSettings';
+import { TaskLink } from 'ts/components/ExternalLink';
 
 interface IFilesViewProps {
   response?: IPagination<any>;
@@ -66,15 +65,7 @@ function ExtensionView({ response, updateSort, rowsForExcel, mode }: IFilesViewP
       ) : (
         <Column
           isSortable
-          template={(value: string, row: any) => {
-            if (!row.path) return '';
-            return (
-              <ExternalLink
-                link={`${userSettings?.settings?.linksPrefix?.task || '/'}${value}`}
-                text={value}
-              />
-            );
-          }}
+          template={(value: string, row: any) => row.path ? (<TaskLink task={value} />) : ''}
           title="page.team.pr.task"
           properties="task"
           width={120}

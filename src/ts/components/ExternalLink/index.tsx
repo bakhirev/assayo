@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import TaskLink from './components/Task';
+import PRLink from './components/PR';
+
 import style from './index.module.scss';
 
 interface IExternalLinkProps {
@@ -21,4 +24,5 @@ function ExternalLink({ link, text, className }: IExternalLinkProps) {
   );
 }
 
+export { TaskLink, PRLink };
 export default ExternalLink;

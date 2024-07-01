@@ -2,8 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import ExternalLink from 'ts/components/ExternalLink';
-import userSettings from 'ts/store/UserSettings';
+import { TaskLink, PRLink } from 'ts/components/ExternalLink';
 import { getShortTime } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
 
@@ -44,16 +43,8 @@ function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
       return (
         <>
           <div className={style.day_info_link}>
-            <ExternalLink
-              link={`${userSettings?.settings?.linksPrefix?.task || '/'}${task}`}
-              text={task}
-            />
-            {prId && (
-              <ExternalLink
-                link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
-                text="PR"
-              />
-            )}
+            <TaskLink task={task}/>
+            <PRLink prId={prId}/>
           </div>
           <CommitInfo commits={commits}/>
         </>

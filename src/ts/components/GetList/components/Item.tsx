@@ -1,8 +1,7 @@
 import React from 'react';
 
 import ICommit from 'ts/interfaces/Commit';
-import ExternalLink from 'ts/components/ExternalLink';
-import userSettings from 'ts/store/UserSettings';
+import { PRLink, TaskLink } from 'ts/components/ExternalLink';
 import { getDate } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
 
@@ -23,15 +22,14 @@ function GetItem({ commit, mode }: IGetItemProps) {
   return (
     <div className={style.get_list}>
       <div className={style.get_list_title}>
-        <ExternalLink
-          text={commit.task}
-          link={`${userSettings?.settings?.linksPrefix?.task || '/'}${commit.task}`}
+        <TaskLink
+          task={commit.task}
           className={style.get_list_task}
         />
-        {prId && mode !== 'print' && (
-          <ExternalLink
+        {mode !== 'print' && (
+          <PRLink
             text="pull request"
-            link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
+            prId={prId}
             className={style.get_list_pr}
           />
         )}

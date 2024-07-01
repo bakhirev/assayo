@@ -2,12 +2,11 @@ import React from 'react';
 
 import { IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
-import userSettings from 'ts/store/UserSettings';
 
 import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
-import ExternalLink from 'ts/components/ExternalLink';
+import { PRLink, TaskLink } from 'ts/components/ExternalLink';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 
@@ -58,14 +57,8 @@ function AllPR({
           template={(value: string, row: any) => {
             return (
               <>
-                <ExternalLink
-                  link={`${userSettings?.settings?.linksPrefix?.task || '/'}${value}`}
-                  text={value}
-                />
-                <ExternalLink
-                  link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${row?.prId}`}
-                  text="PR"
-                />
+                <TaskLink task={value} />
+                <PRLink prId={row?.prId} />
               </>
             );
           }}

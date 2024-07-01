@@ -16,12 +16,10 @@ import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import UiKitTags from 'ts/components/UiKit/components/Tags';
+import { PRLink, TaskLink } from 'ts/components/ExternalLink';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 import { getDate } from 'ts/helpers/formatter';
-
-import ExternalLink from 'ts/components/ExternalLink';
-import userSettings from 'ts/store/UserSettings';
 
 interface ITasksViewProps {
   response?: IPagination<any>;
@@ -48,10 +46,7 @@ export function TasksView({ response, updateSort, rowsForExcel, mode }: ITasksVi
         isFixed
         isSortable
         template={(value: string) => (
-          <ExternalLink
-            link={`${userSettings?.settings?.linksPrefix?.task || '/'}${value}`}
-            text={value}
-          />
+          <TaskLink task={value} />
         )}
         title="page.team.tasks.task"
         properties="task"
@@ -74,10 +69,7 @@ export function TasksView({ response, updateSort, rowsForExcel, mode }: ITasksVi
       <Column
         isSortable
         template={(value: string, row: any) => (
-          <ExternalLink
-            link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${row?.prId}`}
-            text="PR"
-          />
+          <PRLink prId={row?.prId}/>
         )}
         properties="task"
         width={40}

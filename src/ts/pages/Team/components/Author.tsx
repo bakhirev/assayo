@@ -88,6 +88,7 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
         template={ColumnTypesEnum.SHORT_NUMBER}
         title="page.team.author.daysAll"
         properties="daysAll"
+        formatter={(value: number) => value || 1}
         width={90}
       />
       <Column

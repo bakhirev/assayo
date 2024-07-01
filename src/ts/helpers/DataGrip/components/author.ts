@@ -49,7 +49,11 @@ export default class DataGripByAuthor {
     statistic.maxMessageLength = commit.text.length > statistic.maxMessageLength
       ? commit.text.length
       : statistic.maxMessageLength;
-    statistic.commitsByDayAndHour[commit.day][commit.hours] += 1;
+    try {
+      statistic.commitsByDayAndHour[commit.day][commit.hours] += 1;
+    } catch (e: any) {
+      debugger;
+    }
     statistic.commitsByHour[commit.hours] += 1;
     statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
   }

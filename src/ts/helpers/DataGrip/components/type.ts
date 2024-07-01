@@ -1,6 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import { increment } from 'ts/helpers/Math';
+import { POPULAR_TYPES } from 'ts/helpers/Parser/getTypeAndScope';
 
 export default class DataGripByType {
   list: string[] = [];
@@ -46,8 +47,11 @@ export default class DataGripByType {
   }
 
   updateTotalInfo() {
+    const types = [...POPULAR_TYPES, 'ci'];
+    const isCorrectType = Object.fromEntries(types.map(type => [type, true]));
+
     this.statistic = Object.values(this.commits)
-      .filter((dot: any) => dot.commits > 5)
+      .filter((dot: any) => dot.commits > 5 || isCorrectType[dot?.type || ''])
       .map((dot: any) => ({
         ...dot,
         tasks: Object.keys(dot.tasks).length,

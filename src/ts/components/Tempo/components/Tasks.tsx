@@ -2,8 +2,7 @@ import React from 'react';
 
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import ExternalLink from 'ts/components/ExternalLink';
-import userSettings from 'ts/store/UserSettings';
+import { PRLink, TaskLink } from 'ts/components/ExternalLink';
 import { get2Number } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
 
@@ -50,18 +49,8 @@ function Task({ title, commits }: ITaskProps) {
     >
       <div className={style.tempo_task_header}>
         <div>
-          {title ? (
-            <ExternalLink
-              text={title}
-              link={`${userSettings?.settings?.linksPrefix?.task || '/'}${title}`}
-            />
-          ) : '—'}
-          {prId ? (
-            <ExternalLink
-              text="PR"
-              link={`${userSettings?.settings?.linksPrefix?.pr || '/'}${prId}`}
-            />
-          ) : null}
+          {title ? (<TaskLink task={title}/>) : '—'}
+          <PRLink prId={prId}/>
         </div>
         <div className={style.tempo_task_tags}>
           {getTags(commits)}
