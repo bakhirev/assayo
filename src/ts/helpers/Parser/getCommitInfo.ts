@@ -115,7 +115,7 @@ export default function getCommitInfo(
         .replace(/(Merge\sbranch\s)|(\sinto\s)/gim, ',')
         .split(',');
       if (toBranch && MASTER_BRANCH[toBranch]) {
-        task = getTask(branch) || getTaskNumber(branch);
+        task = getTask(branch) || `#${getTaskNumber(branch)}`;
         prId = task;
       }
     }
