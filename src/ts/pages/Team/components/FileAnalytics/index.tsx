@@ -6,7 +6,7 @@ import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import Extension from './Extension';
 import Type from './Type';
 
-const FileAnalitics = observer(({
+const FileAnalytics = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
   return (
@@ -17,4 +17,4 @@ const FileAnalitics = observer(({
   );
 });
 
-export default FileAnalitics;
+export default FileAnalytics;

@@ -33,10 +33,8 @@ const TeamBuilding = observer((): React.ReactElement => {
 
   return (
     <>
-
-      <Title title="Квиз"/>
       <Quize />
-      <Title title="Скорость закрытия задач"/>
+      {/*<Title title="Скорость закрытия задач"/>*/}
       <Races tracks={tracks} />
       <Title title="Максимальная длинна подписи коммита"/>
       <SwimmingPool tracks={maxMessageLength}/>

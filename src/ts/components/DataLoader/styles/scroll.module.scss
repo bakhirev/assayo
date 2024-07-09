@@ -1,18 +1,20 @@
 @import 'src/styles/variables';
 
-.infinite_scroll_border_top,
-.infinite_scroll_border_bottom {
-  position: sticky;
-  z-index: 3;
-  background-color: var(--color-white);
-}
+.infinite_scroll_border {
+  &_top,
+  &_bottom {
+    position: sticky;
+    z-index: 3;
+    background-color: var(--color-white);
+  }
 
-.infinite_scroll_border_top {
-  top: 0;
-  height: var(--space-s);
-}
+  &_top {
+    top: 0;
+    height: var(--space-s);
+  }
 
-.infinite_scroll_border_bottom {
-  bottom: -2px;
-  height: var(--space-s);
+  &_bottom {
+    bottom: -2px;
+    height: var(--space-s);
+  }
 }

@@ -17,6 +17,35 @@
     background-repeat: repeat;
   }
 
+  &_cloud,
+  &_cloud_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-position: 0 0;
+    background-size: auto 100%;
+    background-repeat: repeat;
+
+    animation-name: quize_cloud;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+  }
+
+  &_cloud_bg {
+    animation-duration: 170s;
+  }
+
+  &_cloud {
+    animation-duration: 70s;
+  }
+
   &_slider {
     position: absolute;
     display: block;
@@ -50,23 +79,28 @@
     font-weight: 100;
 
     display: block;
-    width: 500px;
+    width: 433px;
     padding: var(--space-xxl) 64px;
     margin: 0 auto;
 
     line-height: 1.5;
     box-sizing: border-box;
     text-align: center;
+    text-shadow: 0 0 5px var(--color-white), 0 0 5px var(--color-white), 0 0 5px var(--color-white);
 
     color: var(--color-black);
-    background-color: var(--color-white);
+    // background-color: var(--color-white);
+
+    background-position: center left;
+    background-size: auto 80%;
+    background-repeat: repeat-x;
   }
 
   &_title {
     font-size: var(--font-l);
     margin: 0 auto var(--space-xxl);
-    border-radius: var(--border-radius-m);
-    background: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(240, 174, 122, 0.5) 100%);
+    border-radius: 0 0 var(--border-radius-l) var(--border-radius-l);
+    // background: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(255, 255, 255, 1) 10%, rgba(240, 174, 122, 0.5) 100%);
   }
 
   &_description {
@@ -111,3 +145,11 @@
   }
 }
 
+@keyframes quize_cloud {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200px 0;
+  }
+}

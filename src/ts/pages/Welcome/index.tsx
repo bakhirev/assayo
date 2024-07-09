@@ -6,7 +6,7 @@ import {
   getStringFromFileList,
   getStringsForParser,
 } from 'ts/components/DropZone/helpers';
-import localization from 'ts/helpers/Localization';
+import { t } from 'ts/helpers/Localization';
 import dataGripStore from 'ts/store/DataGrip';
 
 import style from './styles/index.module.scss';
@@ -15,11 +15,11 @@ function WarningInfo() {
   return (
     <h4 className={style.welcome_warning}>
       <Description
-        text={localization.get('page.welcome.warning1')}
+        text={t('page.welcome.warning1')}
         className={style.welcome_warning_text}
       />
       <Description
-        text={localization.get('page.welcome.warning2')}
+        text={t('page.welcome.warning2')}
         className={style.welcome_warning_text}
       />
     </h4>
@@ -36,22 +36,22 @@ function Welcome() {
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>
-            {localization.get('page.welcome.step1')}
+            {t('page.welcome.step1')}
           </h2>
           <Console
             className={style.welcome_console}
             textForCopy={command}
           />
           <Description
-            text={localization.get('page.welcome.description')}
+            text={t('page.welcome.description')}
             className={`${style.welcome_description}`}
           />
           <h2 className={style.welcome_last_title}>
-            {localization.get('page.welcome.step2') === 'page.welcome.step2'
+            {t('page.welcome.step2') === 'page.welcome.step2'
               ? ''
-              : localization.get('page.welcome.step2')}
+              : t('page.welcome.step2')}
             <label className={style.welcome_title_link}>
-              {localization.get('page.welcome.step3')}
+              {t('page.welcome.step3')}
               <input
                 multiple
                 type="file"
@@ -64,7 +64,7 @@ function Welcome() {
                 }}
               />
             </label>
-            {localization.get('page.welcome.step4')}
+            {t('page.welcome.step4')}
           </h2>
         </div>
       </section>

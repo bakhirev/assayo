@@ -13,7 +13,7 @@ import Scope from './components/Scope';
 import Tempo from './components/Tempo';
 import Total from './components/Total';
 import Files from './components/Files';
-import FileAnalitics from './components/FileAnalitics';
+import FileAnalytics from './components/FileAnalytics';
 import Type from './components/Type';
 import Week from './components/Week';
 import Month from './components/Month';
@@ -36,7 +36,7 @@ function getViewById(page?: string) {
   if (page === 'hours') return <Hours mode={mode}/>;
   if (page === 'files') return <Files/>;
   if (page === 'removedFiles') return <Files type="removed" />;
-  if (page === 'extension') return <FileAnalitics mode={mode}/>;
+  if (page === 'extension') return <FileAnalytics mode={mode}/>;
   if (page === 'release') return <Release mode={mode}/>;
   if (page === 'commits') return <Commits/>;
   if (page === 'changes') return <Changes/>;

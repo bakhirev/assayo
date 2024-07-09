@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import Button from 'ts/components/UiKit/components/Button';
 import notificationsStore from 'ts/components/Notifications/store';
-import localization from 'ts/helpers/Localization';
+import { t } from 'ts/helpers/Localization';
 import copyInBuffer from 'ts/helpers/copyInBuffer';
 
 import style from './index.module.scss';
@@ -30,10 +30,10 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
           className={`${style.console_copy}`}
           onClick={() => {
             copyInBuffer(textForCopy);
-            notificationsStore.show(localization.get('uiKit.console.notification'));
+            notificationsStore.show(t('uiKit.console.notification'));
           }}
         >
-          {localization.get('uiKit.console.button')}
+          {t('uiKit.console.button')}
         </Button>
       ) : null}
     </div>

@@ -85,3 +85,7 @@ const localization = new Localization();
 window.localization = localization;
 
 export default localization;
+
+export function t(code: string): string {
+  return localization.get(code);
+}

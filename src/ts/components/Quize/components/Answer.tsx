@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { getRandom } from 'ts/helpers/random';
 
 import IAnswer from '../interfaces/Answer';
 import style from '../styles/answer.module.scss';
@@ -14,6 +16,7 @@ function Answer({
   mode,
   onClick,
 }: IAnswerProps): React.ReactElement | null {
+  const [iconIndex] = useState(getRandom(5));
   const className = [style.quize_answer_wrapper];
   const textClasName = [style.quize_answer_text];
 
@@ -32,7 +35,7 @@ function Answer({
       >
         <img
           className={style.quize_answer_icon}
-          src="./assets/games/quize/balloon.png"
+          src={`./assets/games/quize/balloon_${iconIndex}.png`}
         />
         <figcaption className={textClasName.join(' ')}>
           {answer.title}

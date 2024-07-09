@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Title from 'ts/components/Title';
-import localization from 'ts/helpers/Localization';
+import { t } from 'ts/helpers/Localization';
 import Banner from 'ts/components/Banner';
 
 import Card from './components/Card';
@@ -50,7 +50,7 @@ function Recommendations({
     cards = addBannerInRandomIndex(cards);
   }
 
-  const title = localization.get('recommendations.title');
+  const title = t('recommendations.title');
   const className = mode === 'print'
     ? `${style.recommendations_container} scroll_x ${style.recommendations_container_for_print}`
     : `${style.recommendations_container} scroll_x`;

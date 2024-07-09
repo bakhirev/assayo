@@ -9,11 +9,6 @@ export interface IPagination<TYPE> {
   content: TYPE[];
 }
 
-export interface IPaginationProps {
-  pageNumber: number;
-  pageSize: number;
-}
-
 export interface IPaginationRequest {
   page?: number;
   size?: number;

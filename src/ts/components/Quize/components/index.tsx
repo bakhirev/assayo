@@ -114,8 +114,16 @@ function QuizePage({
   return (
     <div
       className={style.quize_container}
-      style={{ backgroundImage: 'url(./assets/games/quize/air.jpg)' }}
+      style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
     >
+      <div
+        className={style.quize_cloud_bg}
+        style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
+      />
+      <div
+        className={style.quize_cloud}
+        style={{ backgroundImage: 'url(./assets/games/quize/cloud.png)' }}
+      />
       <div className={className}>
         {page}
       </div>
