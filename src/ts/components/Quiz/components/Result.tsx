@@ -17,14 +17,14 @@ function Result({
   onClick,
 }: IResultProps): React.ReactElement | null {
   return (
-    <section className={stylePage.quize_result}>
-      <h4 className={style.quize_title}>
+    <section className={stylePage.quiz_result}>
+      <h4 className={style.quiz_title}>
         {result.title}
       </h4>
-      <p className={style.quize_description}>
+      <p className={style.quiz_description}>
         {result.description}
       </p>
-      <div className={style.quize_footer}>
+      <div className={style.quiz_footer}>
         <UiKitButton
           onClick={() => {
             onClick();

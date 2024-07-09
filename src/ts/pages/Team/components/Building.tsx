@@ -5,19 +5,11 @@ import dataGripStore from 'ts/store/DataGrip';
 
 import Title from 'ts/components/Title';
 import Races from 'ts/components/Races';
-import CityBuilder from 'ts/components/CityBuilder';
 
 import SwimmingPool from 'ts/components/SwimmingPool';
-import Quize from 'ts/components/Quize';
+import Quiz from 'ts/components/Quiz';
 
 const TeamBuilding = observer((): React.ReactElement => {
-  const filesByAuthor = dataGripStore.fileGrip.author?.statisticByName || {};
-  const addedFilesByAuthor = Object.entries(filesByAuthor)
-    .reduce((acc: any, item: any) => {
-      acc[item[0]] = item[1].addedFiles;
-      return acc;
-    }, {});
-
   const tracksAuth = dataGripStore.dataGrip.author.statistic
     .filter((item: any) => !item.isStaff);
   const value = tracksAuth.map((statistic: any) => statistic.taskInDay);
@@ -33,16 +25,10 @@ const TeamBuilding = observer((): React.ReactElement => {
 
   return (
     <>
-      <Quize />
-      {/*<Title title="Скорость закрытия задач"/>*/}
+      <Quiz />
       <Races tracks={tracks} />
       <Title title="Максимальная длинна подписи коммита"/>
       <SwimmingPool tracks={maxMessageLength}/>
-
-      <Title title="Количество созданных файлов, если бы это был город"/>
-      <CityBuilder valuesByTitle={addedFilesByAuthor} />
-      <Title title="Скорость коммитов в день"/>
-      {'Небоскребы вверх ввиде графика'}
     </>
   );
 });

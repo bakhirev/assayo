@@ -1,6 +1,6 @@
 @import 'src/styles/variables';
 
-.quize_answer {
+.quiz_answer {
   --temp-width: 160px;
   --temp-small: calc(var(--temp-width) - 32px);
 
@@ -97,30 +97,30 @@
   }
 }
 
-.quize_answer_wrapper + .quize_answer_wrapper {
+.quiz_answer_wrapper + .quiz_answer_wrapper {
   margin-left: 64px;
 }
 
-.quize_answer_wrapper_small {
+.quiz_answer_wrapper_small {
   padding: var(--space-s) var(--space-l);
 
-  & .quize_answer {
+  & .quiz_answer {
     width: var(--temp-small);
 
     animation-delay: 1s;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-fill-mode: both;
-    animation-name: quize_answer;
+    animation-name: quiz_answer;
   }
 
-  & .quize_answer_text {
+  & .quiz_answer_text {
     font-size: var(--font-s);
   }
 }
 
 
-@keyframes quize_answer {
+@keyframes quiz_answer {
   from {
     top: 0;
   }

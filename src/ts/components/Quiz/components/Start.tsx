@@ -2,35 +2,35 @@ import React from 'react';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 
-import IQuize from '../interfaces/Quize';
+import IQuiz from '../interfaces/Quiz';
 
 import stylePage from '../styles/start.module.scss';
 import style from '../styles/index.module.scss';
 
 interface IStartProps {
-  quize: IQuize;
+  quiz: IQuiz;
   onClick: Function;
 }
 
 function Start({
-  quize,
+  quiz,
   onClick,
 }: IStartProps): React.ReactElement | null {
   return (
-    <section className={stylePage.quize_start}>
-      <h4 className={style.quize_title}>
-        {quize.title}
+    <section className={stylePage.quiz_start}>
+      <h4 className={style.quiz_title}>
+        {quiz.title}
       </h4>
-      <p className={style.quize_description}>
-        {quize.description}
+      <p className={style.quiz_description}>
+        {quiz.description}
       </p>
-      <div className={style.quize_footer}>
+      <div className={style.quiz_footer}>
         <UiKitButton
           onClick={() => {
             onClick();
           }}
         >
-          {quize.button || 'GO'}
+          {quiz.button || 'GO'}
         </UiKitButton>
       </div>
     </section>

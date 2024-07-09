@@ -4,7 +4,7 @@ import Result from './Result';
 import Question from './Question';
 import Start from './Start';
 
-import IQuize from '../interfaces/Quize';
+import IQuiz from '../interfaces/Quiz';
 import IQuestion from '../interfaces/Question';
 import IAnswer from '../interfaces/Answer';
 import IResult from '../interfaces/Result';
@@ -25,29 +25,29 @@ function getApplyInAnimation(setShowSlide: Function, delay: number) {
   };
 }
 
-interface IQuizePageProps {
-  quize: IQuize;
+interface IQuizPageProps {
+  quiz: IQuiz;
   onEnd: Function;
 }
 
-function QuizePage({
-  quize,
+function QuizPage({
+  quiz,
   onEnd,
-}: IQuizePageProps): React.ReactElement | null {
-  const [question, setQuestion] = useState<IQuestion>(quize.questions[0]);
-  const [result, setResult] = useState<IResult>(quize.results[0]);
+}: IQuizPageProps): React.ReactElement | null {
+  const [question, setQuestion] = useState<IQuestion>(quiz.questions[0]);
+  const [result, setResult] = useState<IResult>(quiz.results[0]);
   const [answers, setAnswers] = useState<IAnswer[]>([]);
   const [view, setView] = useState<string>('start');
   const [showSlide, setShowSlide] = useState<boolean>(false);
   const applyInAnimation = getApplyInAnimation(setShowSlide, 1500);
 
-  const questions = getQuestionByGroups(quize.questions);
+  const questions = getQuestionByGroups(quiz.questions);
   let page: any = null;
 
   if (view === 'start') {
     page = (
       <Start
-        quize={quize}
+        quiz={quiz}
         onClick={() => {
           applyInAnimation(() => {
             setView('question');
@@ -64,7 +64,7 @@ function QuizePage({
         onClick={(answer: IAnswer) => {
           const nextById = questions.byId[answer.nextQuestionId || ''];
           const nextByIndex = questions.byIndex[question.index + 1];
-          const newResult = getResult(answers, quize.results);
+          const newResult = getResult(answers, quiz.results);
           setAnswers([...answers, answer]);
 
           if (answer.isEnd) {
@@ -98,7 +98,7 @@ function QuizePage({
         onClick={() => {
           applyInAnimation(() => {
             onEnd();
-            setQuestion(quize.questions[0]);
+            setQuestion(quiz.questions[0]);
             setAnswers([]);
             setView('start');
           });
@@ -108,21 +108,21 @@ function QuizePage({
   }
 
   const className = showSlide
-    ? `${style.quize_slider} ${style.quize_slider_animation}`
-    : style.quize_slider;
+    ? `${style.quiz_slider} ${style.quiz_slider_animation}`
+    : style.quiz_slider;
 
   return (
     <div
-      className={style.quize_container}
-      style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
+      className={style.quiz_container}
+      style={{ backgroundImage: 'url(./assets/games/quiz/cloud_bg.png)' }}
     >
       <div
-        className={style.quize_cloud_bg}
-        style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
+        className={style.quiz_cloud_bg}
+        style={{ backgroundImage: 'url(./assets/games/quiz/cloud_bg.png)' }}
       />
       <div
-        className={style.quize_cloud}
-        style={{ backgroundImage: 'url(./assets/games/quize/cloud.png)' }}
+        className={style.quiz_cloud}
+        style={{ backgroundImage: 'url(./assets/games/quiz/cloud.png)' }}
       />
       <div className={className}>
         {page}
@@ -131,4 +131,4 @@ function QuizePage({
   );
 }
 
-export default QuizePage;
+export default QuizPage;

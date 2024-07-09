@@ -67,18 +67,18 @@ function Question({
   ));
 
   return (
-    <div className={stylePage.quize_question}>
-      <div className={stylePage.quize_question_body}>
+    <div className={stylePage.quiz_question}>
+      <div className={stylePage.quiz_question_body}>
         <div
-          className={style.quize_title}
-          style={{ backgroundImage: 'url(./assets/games/quize/cloud_big.png)' }}
+          className={style.quiz_title}
+          style={{ backgroundImage: 'url(./assets/games/quiz/cloud_big.png)' }}
         >
           {question.title}
         </div>
-        <div className={style.quize_question_answer}>
+        <div className={style.quiz_question_answer}>
           {answers}
         </div>
-        <div className={style.quize_footer}>
+        <div className={style.quiz_footer}>
           <UiKitButton
             disabled={disabled}
             onClick={() => {

@@ -10,9 +10,9 @@ function Progress({
   progress,
 }: IProgressProps): React.ReactElement | null {
   return (
-    <div className={style.quize_progress}>
-      <div className={style.quize_progress_line}>
-        <div className={style.quize_progress_text}>
+    <div className={style.quiz_progress}>
+      <div className={style.quiz_progress_line}>
+        <div className={style.quiz_progress_text}>
           {progress}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import IQuestion from './Question';
 import IResult from './Result';
 
-export default interface IQuize {
+export default interface IQuiz {
   id?: number;
   icon?: string;
   title?: string;

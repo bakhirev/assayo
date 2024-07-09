@@ -1,6 +1,6 @@
 @import 'src/styles/variables';
 
-.quize {
+.quiz {
   &_container {
     position: relative;
     display: block;
@@ -33,7 +33,7 @@
     background-size: auto 100%;
     background-repeat: repeat;
 
-    animation-name: quize_cloud;
+    animation-name: quiz_cloud;
     animation-iteration-count: infinite;
     animation-fill-mode: none;
   }
@@ -57,7 +57,7 @@
     animation-fill-mode: both;
 
     &_animation {
-      animation-name: quize_slider;
+      animation-name: quiz_slider;
     }
   }
 
@@ -124,7 +124,7 @@
   }
 }
 
-@keyframes quize_slider {
+@keyframes quiz_slider {
   from {
     bottom: 0;
     left: auto;
@@ -145,7 +145,7 @@
   }
 }
 
-@keyframes quize_cloud {
+@keyframes quiz_cloud {
   from {
     background-position: 0 0;
   }

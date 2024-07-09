@@ -17,25 +17,25 @@ function Answer({
   onClick,
 }: IAnswerProps): React.ReactElement | null {
   const [iconIndex] = useState(getRandom(5));
-  const className = [style.quize_answer_wrapper];
-  const textClasName = [style.quize_answer_text];
+  const className = [style.quiz_answer_wrapper];
+  const textClasName = [style.quiz_answer_text];
 
-  if (mode === 'small' || mode === 'error') className.push(style.quize_answer_wrapper_small);
-  if (mode === 'selected') textClasName.push(style.quize_answer_text_selected);
-  if (mode === 'correct') textClasName.push(style.quize_answer_text_correct);
-  if (mode === 'error') textClasName.push(style.quize_answer_text_error);
+  if (mode === 'small' || mode === 'error') className.push(style.quiz_answer_wrapper_small);
+  if (mode === 'selected') textClasName.push(style.quiz_answer_text_selected);
+  if (mode === 'correct') textClasName.push(style.quiz_answer_text_correct);
+  if (mode === 'error') textClasName.push(style.quiz_answer_text_error);
 
   return (
     <div className={className.join(' ')}>
       <figure
-        className={style.quize_answer}
+        className={style.quiz_answer}
         onClick={() => {
           onClick();
         }}
       >
         <img
-          className={style.quize_answer_icon}
-          src={`./assets/games/quize/balloon_${iconIndex}.png`}
+          className={style.quiz_answer_icon}
+          src={`./assets/games/quiz/balloon_${iconIndex}.png`}
         />
         <figcaption className={textClasName.join(' ')}>
           {answer.title}
