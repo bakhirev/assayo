@@ -137,7 +137,7 @@
         "li": [
             "Laden sie dieses repository herunter",
             "Erfüllen `npm install`",
-            "Erfüllen `npm run build-local`",
+            "Erfüllen `npm run build:local`",
             "Der neue build wird im ordner sein `/build`"
         ]
     },
@@ -287,7 +287,7 @@
     },
     {
         "li": [
-            "befehl ausführen ```npm run build-local```",
+            "befehl ausführen ```npm run build:local```",
             "befehl ausführen ```docker build -t assayo .```",
             "ergebnis überprüfen ```docker run --name assayo -p 80:80 -d assayo```;",
             "befehl ausführen ```docker tag assayo bakhirev/assayo:latest```;",

@@ -76,7 +76,7 @@ Git会创建一个文件 `log.txt`.
 ### 如何重打包报告文件？
 - 下载这个储存库
 - 要执行 `npm install`
-- 要执行 `npm run build-local`
+- 要执行 `npm run build:local`
 - 最新的构建将在文件夹 `/build`
 
 ### 如何查看微服务组的报告？
@@ -158,7 +158,7 @@ you_url    - git日志的容器的URL地址;
 默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
 #### Docker 图像更新
 
-- 运行命令 ```npm run build-local```
+- 运行命令 ```npm run build:local```
 - 运行命令 ```docker build -t assayo .```
 - 检查结果 ```docker run --name assayo -p 80:80 -d assayo```;
 - 运行命令 ```docker tag assayo bakhirev/assayo:latest```;

@@ -137,7 +137,7 @@
         "li": [
             "Скачать этот репозиторий",
             "Выполнить `npm install`",
-            "Выполнить `npm run build-local`",
+            "Выполнить `npm run build:local`",
             "Свежая сборка будет в папке `/build`"
         ]
     },
@@ -288,7 +288,7 @@
     {
         "li": [
             "удилить метрику, аллерты, старые билды;",
-            "собрать билд ```npm run build-local```",
+            "собрать билд ```npm run build:local```",
             "собрать образ ```docker build -t assayo .```",
             "визуально проверить образ ```docker run --name assayo -p 80:80 -d assayo```;",
             "поставить тег ```docker tag assayo bakhirev/assayo:latest```;",

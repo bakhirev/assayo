@@ -116,7 +116,7 @@ The difference between the online and offline format is the presence of a wrappe
 ### 🏭 How to rebuild the report build?
 - download this repository
 - run `npm install`
-- run `npm run build-local`
+- run `npm run build:local`
 - the new build will be in the `/build` folder
 
 <a name="link-10"></a>
@@ -210,7 +210,7 @@ By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work
 <a name="link-22"></a>
 #### How to update the Docker image?
 - remove metrics, alerts, old builds;
-- run ```npm run build-local```
+- run ```npm run build:local```
 - run ```docker build -t assayo .```
 - visually check the image ```docker run --name assayo -p 80:80 -d assayo```;
 - add tag ```docker tag assayo bakhirev/assayo:latest```;

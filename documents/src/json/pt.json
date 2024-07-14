@@ -140,7 +140,7 @@
         "li": [
             "Baixar este repositório",
             "Executar `npm install`",
-            "Executar `npm run build-local`",
+            "Executar `npm run build:local`",
             "A compilação mais recente estará na pasta `/build`"
         ]
     },
@@ -290,7 +290,7 @@
     },
     {
         "li": [
-            "executar um comando ```npm run build-local```",
+            "executar um comando ```npm run build:local```",
             "executar um comando ```docker build -t assayo .```",
             "verificar o resultado ```docker run --name assayo -p 80:80 -d assayo```;",
             "executar um comando ```docker tag assayo bakhirev/assayo:latest```;",

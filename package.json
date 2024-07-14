@@ -24,9 +24,9 @@
   "scripts": {
     "dev": "set PORT=3006 && react-app-rewired start",
     "build": "react-scripts build",
-    "build-website": "react-scripts build && cd scripts && node add-analytics.js",
-    "build-local": "set REACT_APP_TYPE=local && react-scripts build && cd scripts && node remove-hash.js && node add-local.js",
-    "build-docker": "set REACT_APP_TYPE=local && react-scripts build",
+    "build:website": "react-scripts build && cd scripts && node add-analytics.js",
+    "build:local": "react-scripts build && cd scripts && node remove-hash.js && node add-local.js",
+    "build:docker": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "js:check": "npx eslint \"src/**/*.{ts,tsx,js}\"",
