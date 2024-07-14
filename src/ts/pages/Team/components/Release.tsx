@@ -82,6 +82,7 @@ function ReleaseView({ response, updateSort, rowsForExcel, mode }: IReleaseViewP
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
+        title="page.team.release.prLength"
         properties="prLength"
       />
       <Column

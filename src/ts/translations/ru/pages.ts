@@ -25,6 +25,7 @@ export default `
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
 § page.team.author.status: Статус
 § page.team.author.firstCommit: Первый коммит
+§ page.team.author.lastCommit: Последний
 § page.team.author.daysAll: Всего дней
 § page.team.author.types: Тип работ
 § page.team.author.commits: Коммитов
@@ -103,8 +104,9 @@ export default `
 § page.team.tree.change: Кто менял
 § page.team.tree.remove: Кто удалял
 § page.team.tree.line: строк
-§ page.team.tree.lineAdd: добавили
-§ page.team.tree.lineRemove: изменили
+§ page.team.tree.linesAdded: добавили
+§ page.team.tree.linesChanged: изменили
+§ page.team.tree.linesRemoved: удалили
 § page.team.week.title: Статистика по неделям
 § page.team.week.date: Дата
 § page.team.week.numberTasks: Количество задач
@@ -125,6 +127,8 @@ export default `
 § page.team.pr.lastCommitTime: Последний
 § page.team.pr.workDays: Среднее время работы над задачей
 § page.team.pr.delayDays: Среднее время ревью PR
+§ page.team.pr.all.workDays: Время работы над задачей
+§ page.team.pr.all.delayDays: Время ревью PR
 § page.team.pr.middleTimeRelease: Отношение времени разработки к времени ревью
 § page.team.pr.commits: Коммиты
 § page.team.pr.date: Дата влития
@@ -159,6 +163,7 @@ export default `
 § page.team.release.title: Релиз
 § page.team.release.from: Дата создания
 § page.team.release.to: Дата завершения
+§ page.team.release.prLength: Задач
 § page.team.release.delay: Дней работы
 § page.team.release.waiting: Дней до следующего релиза
 § page.person.print.photo.title: Фотография

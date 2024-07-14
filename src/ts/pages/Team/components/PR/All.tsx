@@ -90,7 +90,7 @@ function AllPR({
       />
       <Column
         isSortable
-        title="page.team.pr.workDays"
+        title="page.team.pr.all.workDays"
         properties="workDays"
         minWidth={100}
         template={(value: any) => (
@@ -124,7 +124,7 @@ function AllPR({
       />
       <Column
         isSortable
-        title="page.team.pr.delayDays"
+        title="page.team.pr.all.delayDays"
         properties="delayDays"
         minWidth={200}
         template={(value: any) => (

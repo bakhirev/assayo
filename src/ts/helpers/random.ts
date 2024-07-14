@@ -1,5 +1,5 @@
 export function getRandom(max: number): number {
-  return Math.floor(Math.random() * (max - 0 + 1)) + 0;
+  return Math.floor(Math.random() * (max + 1));
 }
 
 export function shuffle(items: any[]): any[] {

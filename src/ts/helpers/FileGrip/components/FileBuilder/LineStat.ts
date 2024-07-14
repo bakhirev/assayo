@@ -21,6 +21,7 @@ export default class FileBuilderLineStat {
   static updateProps(file: IDirtyFile, fileChange: IFileChange, commit: ICommit) {
     file.lines += fileChange.addedLines;
     file.lines -= fileChange.removedLines;
+
     file.addedLines += fileChange.addedLines;
     file.removedLines += fileChange.removedLines;
     file.changedLines += fileChange.changedLines;
@@ -42,11 +43,5 @@ export default class FileBuilderLineStat {
     file.addedByAuthorInPercent = getValuesInPercent(file.addedLinesByAuthor, file.addedLines);
     file.removedByAuthorInPercent = getValuesInPercent(file.removedLinesByAuthor, file.removedLines);
     file.changedByAuthorInPercent = getValuesInPercent(file.changedLinesByAuthor, file.changedLines);
-
-    file.addedRemovedChangedInPercent = getValuesInPercent({
-      added: file.addedLines,
-      removed: file.removedLines,
-      changed: file.changedLines,
-    }, file.addedLines + file.removedLines + file.changedLines);
   }
 }

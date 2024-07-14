@@ -25,6 +25,7 @@ export default `
 § page.team.author.description2: Le tri par défaut est le tri par nombre de tâches et de groupes (employés actuels, licenciés et aidants).
 § page.team.author.status: Status
 § page.team.author.firstCommit: First commit
+§ page.team.author.lastCommit: Last
 § page.team.author.daysAll: Total days
 § page.team.author.types: Type de travaux
 § page.team.author.commits: Commits
@@ -103,8 +104,9 @@ export default `
 § page.team.tree.change: Qui a changé
 § page.team.tree.remove: Qui a supprimé
 § page.team.tree.line: lignes
-§ page.team.tree.lineAdd: ajoutâtes
-§ page.team.tree.lineRemove: modifiâtes
+§ page.team.tree.linesAdded: ajoutâtes
+§ page.team.tree.linesChanged: changed
+§ page.team.tree.linesRemoved: modifiâtes
 § page.team.week.title: Statistiques par semaine
 § page.team.week.date: Date
 § page.team.week.numberTasks: Nombre de tâches
@@ -125,6 +127,8 @@ export default `
 § page.team.pr.lastCommitTime: Dernier
 § page.team.pr.workDays: Average time spent working on a task
 § page.team.pr.delayDays: Average time of the PR review
+§ page.team.pr.all.workDays: Time spent working on a task
+§ page.team.pr.all.delayDays: Time of the PR review
 § page.team.pr.middleTimeRelease: The ratio of development time to review time
 § page.team.pr.commits: Commits
 § page.team.pr.date: Date de diffusion
@@ -159,6 +163,7 @@ export default `
 § page.team.release.title: Release
 § page.team.release.from: Created date
 § page.team.release.to: Delivery date
+§ page.team.release.prLength: Tasks
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: Photo

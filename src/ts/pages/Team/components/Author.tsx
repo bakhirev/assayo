@@ -85,6 +85,13 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
         formatter={(commit: ICommit) => getDate(commit.timestamp)}
       />
       <Column
+        template={ColumnTypesEnum.STRING}
+        properties="lastCommit"
+        title="page.team.author.lastCommit"
+        width={130}
+        formatter={(commit: ICommit) => getDate(commit.timestamp)}
+      />
+      <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
         title="page.team.author.daysAll"
         properties="daysAll"

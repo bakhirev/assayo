@@ -24,7 +24,6 @@ function getFolder(name?: string, path?: string[], file?: IDirtyFile): IFolder {
     addedByAuthorInPercent: {},
     removedByAuthorInPercent: {},
     changedByAuthorInPercent: {},
-    addedRemovedChangedInPercent: {},
 
     firstCommit: file?.firstCommit || null,
     lastCommit: file?.firstCommit || null,
@@ -92,12 +91,6 @@ export default class FileGripByFolder {
       folder.addedByAuthorInPercent = getValuesInPercent(folder.addedLinesByAuthor, folder.addedLines);
       folder.removedByAuthorInPercent = getValuesInPercent(folder.removedLinesByAuthor, folder.removedLines);
       folder.changedByAuthorInPercent = getValuesInPercent(folder.changedLinesByAuthor, folder.changedLines);
-
-      folder.addedRemovedChangedInPercent = getValuesInPercent({
-        added: folder.addedLines,
-        removed: folder.removedLines,
-        changed: folder.changedLines,
-      }, folder.addedLines + folder.removedLines + folder.changedLines);
 
       const author = folder.firstCommit?.author || '';
 

@@ -100,8 +100,9 @@ export default `
 § page.team.tree.change: 谁改变了它
 § page.team.tree.remove: 谁删除了它
 § page.team.tree.line: 线条
-§ page.team.tree.lineAdd: 补充道
-§ page.team.tree.lineRemove: 改变了
+§ page.team.tree.linesAdded: 补充道
+§ page.team.tree.linesChanged: changed
+§ page.team.tree.linesRemoved: 改变了
 § page.team.week.title: 按周划分的统计数字
 § page.team.week.date: 日期
 § page.team.week.numberTasks: 任务数量
@@ -122,6 +123,8 @@ export default `
 § page.team.pr.lastCommitTime: 最后一次
 § page.team.pr.workDays: 完成任务的平均时间
 § page.team.pr.delayDays: PR审查的平均时间
+§ page.team.pr.all.workDays: 任务完成时间
+§ page.team.pr.all.delayDays: PR请求的审议时间
 § page.team.pr.middleTimeRelease: 开发时间与审查时间的比率
 § page.team.pr.commits: Commits
 § page.team.pr.date: 注射日期
@@ -156,6 +159,7 @@ export default `
 § page.team.release.title: Release
 § page.team.release.from: Created date
 § page.team.release.to: Delivery date
+§ page.team.release.prLength: Tasks
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
 § page.person.print.photo.title: 照片

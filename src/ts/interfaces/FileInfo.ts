@@ -15,7 +15,6 @@ interface IFileStat {
   addedByAuthorInPercent: IHashMap<number>;
   removedByAuthorInPercent: IHashMap<number>;
   changedByAuthorInPercent: IHashMap<number>;
-  addedRemovedChangedInPercent: IHashMap<number>;
 
   firstCommit: ICommit | ISystemCommit | null,
   lastCommit: ICommit | ISystemCommit | null,

@@ -57,6 +57,7 @@ export default class FileGripByPaths {
   }
 
   #removeFile(file: any) {
+    file.action = 'D';
     this.refRemovedFileIds[file.id] = this.refFileIds[file.id];
     this.refRemovedFileIds[file.id].action = 'D';
     delete this.refFileIds[file.id];

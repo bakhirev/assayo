@@ -25,9 +25,9 @@ function View({ response }: IViewProps) {
   const fileSizeChart = getOptions({ max: getMax(response, 'lines'), suffix: 'page.team.tree.line' });
   const addedLinesChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'page.team.tree.line' });
   const addedRemovedChangedChart = getOptions({ order: [
-    'page.team.tree.lineAdd',
-    'page.team.tree.lineChange',
-    'page.team.tree.lineRemove',
+    'page.team.tree.linesAdded',
+    'page.team.tree.linesChanged',
+    'page.team.tree.linesRemoved',
   ], suffix: 'page.team.tree.line' });
 
   return (
@@ -36,6 +36,7 @@ function View({ response }: IViewProps) {
       disabledRow={(row: any) => {
         if (row?.title === '..') return false;
         else return true;
+        // TODO: not work
         const limit = treeStore.minCommits || 0;
         const name = dataGripStore.dataGrip.author.list[treeStore.authorId || ''] || '';
         const author = row.file?.authors[name];
@@ -105,9 +106,9 @@ function View({ response }: IViewProps) {
             value={100}
             options={addedRemovedChangedChart}
             details={{
-              'page.team.tree.lineAdd': file?.addedRemovedChangedInPercent?.added || 0,
-              'page.team.tree.lineRemove': file?.addedRemovedChangedInPercent?.removed || 0,
-              'page.team.tree.lineChange': file?.addedRemovedChangedInPercent?.changed || 0,
+              'page.team.tree.linesAdded': file?.addedLines || 0,
+              'page.team.tree.linesRemoved': file?.removedLines || 0,
+              'page.team.tree.linesChanged': file?.changedLines || 0,
             }}
           />
         )}
