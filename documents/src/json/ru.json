@@ -1,6 +1,6 @@
 [
     {
-        "p": "Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github))."
+        "p": "Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
     },
     {
         "h5": "Сотрудник может оценить новое место работы"

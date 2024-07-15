@@ -1,6 +1,6 @@
 > [主要文件是俄文。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) 这是一个翻译。 它可能包含错误。 如果您是母语人士，您可以帮助改进此翻译。 谢谢！
 
-对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github)).
+对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### 工作人员可以评估新工作场所
 - 工作节奏；

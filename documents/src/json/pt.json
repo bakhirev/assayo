@@ -3,7 +3,7 @@
         "warning": "[Documentação básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) em russo. É uma tradução. Pode conter erros. Se você é um falante nativo, você pode ajudar a melhorar esta tradução. Obrigado!"
     },
     {
-        "p": "Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github))."
+        "p": "Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
     },
     {
         "h5": "Funcionario de avaliar o novo local de trabalho"

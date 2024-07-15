@@ -1,6 +1,6 @@
 > [主な文書はロシア語です。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) これは翻訳です。 エラーが含まれている可能性があります。 あなたがネイティブスピーカーであれば、この翻訳を改善するのに役立ちます。 ありがとう！
 
-データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github)).
+データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### 従業員は新しい職場を評価することができます
 - 働きのペース;

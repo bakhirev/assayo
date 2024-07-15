@@ -3,7 +3,7 @@
         "warning": "La [documentation principale](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) est en russe. C'est une traduction. Il peut contenir des erreurs. Si vous êtes un locuteur natif, vous pouvez aider à améliorer cette traduction. Merci!"
     },
     {
-        "p": "Visualisation et analyse des données de votre dépôt Git ([demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github))."
+        "p": "Visualisation et analyse des données de votre dépôt Git ([demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
     },
     {
         "h5": "Un employé peut évaluer un nouveau lieu de travail"
