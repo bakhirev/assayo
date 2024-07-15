@@ -287,7 +287,7 @@
     },
     {
         "li": [
-            "运行命令 ```npm run build:local```",
+            "运行命令 ```npm run build:docker```",
             "运行命令 ```docker build -t assayo .```",
             "检查结果 ```docker run --name assayo -p 80:80 -d assayo```;",
             "运行命令 ```docker tag assayo bakhirev/assayo:latest```;",

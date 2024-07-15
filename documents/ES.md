@@ -191,8 +191,7 @@ you_url    - URL la dirección de su contenedor con registros git;
 Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.0.1:80/```. Si no funciona, compruebe si tiene el puerto 80 disponible
 <a name="link-25"></a>
 ####  Actualización de la imagen Docker
-- eliminar métricas, alertas, compilaciones antiguas;
-- construir ```npm run build:local```
+- construir ```npm run build:docker```
 - montar la imagen ```docker build -t assayo .```
 - comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;
 - poner la etiqueta ```docker tag assayo bakhirev/assayo:latest```;

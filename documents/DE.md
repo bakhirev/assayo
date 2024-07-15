@@ -189,7 +189,7 @@ you_url    - URL die adresse ihres containers mit git-logs;
 Standardmäßig wird das abbild an der folgenden adresse ausgeführt ```http://127.0.0.1:80/```. Wenn es nicht funktioniert, überprüfen sie, ob der port 80 frei ist.
 <a name="link-25"></a>
 ####  Aktualisieren eines Docker-Images
-- befehl ausführen ```npm run build:local```
+- befehl ausführen ```npm run build:docker```
 - befehl ausführen ```docker build -t assayo .```
 - ergebnis überprüfen ```docker run --name assayo -p 80:80 -d assayo```;
 - befehl ausführen ```docker tag assayo bakhirev/assayo:latest```;

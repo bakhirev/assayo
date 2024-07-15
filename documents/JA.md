@@ -190,7 +190,7 @@ you_url    - gitのログのコンテナーのURLアドレス;
 デフォルトではイメージは以下のアドレスで起動します ```http://127.0.0.1:80/```. 問題が解決しない場合は、ポート80が開いているか確認してみてください。
 <a name="link-25"></a>
 ####  Dockerイメージの更新
-- 次のコマンドを実行します ```npm run build:local```
+- 次のコマンドを実行します ```npm run build:docker```
 - 次のコマンドを実行します ```docker build -t assayo .```
 - 結果を確認する ```docker run --name assayo -p 80:80 -d assayo```;
 - 次のコマンドを実行します ```docker tag assayo bakhirev/assayo:latest```;

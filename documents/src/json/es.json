@@ -293,8 +293,7 @@
     },
     {
         "li": [
-            "eliminar métricas, alertas, compilaciones antiguas;",
-            "construir ```npm run build:local```",
+            "construir ```npm run build:docker```",
             "montar la imagen ```docker build -t assayo .```",
             "comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;",
             "poner la etiqueta ```docker tag assayo bakhirev/assayo:latest```;",

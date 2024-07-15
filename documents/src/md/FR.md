@@ -153,8 +153,7 @@ you_url    - URL адресс Adresse de votre conteneur de logs git;
 Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne fonctionne pas, vérifiez si le port 80 est disponible.
 #### Mise à jour de l’image-Docker
 
-- supprimer la métrique, les alertes, les vieilles builds;
-- constuire la build ```npm run build:local```
+- constuire la build ```npm run build:docker```
 - assembler l'image ```docker build -t assayo .```
 - vérifier visuellement l'image ```docker run --name assayo -p 80:80 -d assayo```;
 - mettre la balise ```docker tag assayo bakhirev/assayo:latest```;

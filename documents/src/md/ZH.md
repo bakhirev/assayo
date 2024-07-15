@@ -158,7 +158,7 @@ you_url    - git日志的容器的URL地址;
 默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
 #### Docker 图像更新
 
-- 运行命令 ```npm run build:local```
+- 运行命令 ```npm run build:docker```
 - 运行命令 ```docker build -t assayo .```
 - 检查结果 ```docker run --name assayo -p 80:80 -d assayo```;
 - 运行命令 ```docker tag assayo bakhirev/assayo:latest```;

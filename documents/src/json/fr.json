@@ -284,8 +284,7 @@
     },
     {
         "li": [
-            "supprimer la métrique, les alertes, les vieilles builds;",
-            "constuire la build ```npm run build:local```",
+            "constuire la build ```npm run build:docker```",
             "assembler l'image ```docker build -t assayo .```",
             "vérifier visuellement l'image ```docker run --name assayo -p 80:80 -d assayo```;",
             "mettre la balise ```docker tag assayo bakhirev/assayo:latest```;",
