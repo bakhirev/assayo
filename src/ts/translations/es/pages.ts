@@ -107,6 +107,8 @@ export default `
 § page.team.tree.linesAdded: agregaron
 § page.team.tree.linesChanged: changed
 § page.team.tree.linesRemoved: cambiaron
+§ page.team.day.commits: Commits
+§ page.team.day.activity: Activity
 § page.team.week.title: Estadísticas semanales
 § page.team.week.date: Fecha
 § page.team.week.numberTasks: Número de tareas
@@ -130,6 +132,12 @@ export default `
 § page.team.pr.all.workDays: Time spent working on a task
 § page.team.pr.all.delayDays: Time of the PR review
 § page.team.pr.middleTimeRelease: The ratio of development time to review time
+§ page.team.pr.chart.1day: day
+§ page.team.pr.chart.3day: three days
+§ page.team.pr.chart.7day: week
+§ page.team.pr.chart.14day: two weeks
+§ page.team.pr.chart.30day: month
+§ page.team.pr.chart.more: more
 § page.team.pr.commits: commits
 § page.team.pr.date: Date of injection
 § page.team.pr.mergeAuthor: I poured it in

@@ -106,12 +106,12 @@ export default class DataGripByPR {
 
   static getPRByGroups(list: any, propertyName: string) {
     const TITLES = {
-      DAY: 'день',
-      THREE_DAY: 'три дня',
-      WEEK: 'неделя',
-      TWO_WEEK: 'две недели',
-      MONTH: 'месяц',
-      MORE: 'более',
+      DAY: 'page.team.pr.chart.1day',
+      THREE_DAY: 'page.team.pr.chart.3day',
+      WEEK: 'page.team.pr.chart.7day',
+      TWO_WEEK: 'page.team.pr.chart.14day',
+      MONTH: 'page.team.pr.chart.30day',
+      MORE: 'page.team.pr.chart.more',
     };
 
     const details = {

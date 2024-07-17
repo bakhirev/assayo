@@ -107,6 +107,8 @@ export default `
 § page.team.tree.linesAdded: добавили
 § page.team.tree.linesChanged: изменили
 § page.team.tree.linesRemoved: удалили
+§ page.team.day.commits: Коммиты
+§ page.team.day.activity: Активность
 § page.team.week.title: Статистика по неделям
 § page.team.week.date: Дата
 § page.team.week.numberTasks: Количество задач
@@ -130,6 +132,12 @@ export default `
 § page.team.pr.all.workDays: Время работы над задачей
 § page.team.pr.all.delayDays: Время ревью PR
 § page.team.pr.middleTimeRelease: Отношение времени разработки к времени ревью
+§ page.team.pr.chart.1day: день
+§ page.team.pr.chart.3day: три дня
+§ page.team.pr.chart.7day: неделя
+§ page.team.pr.chart.14day: две недели
+§ page.team.pr.chart.30day: месяц
+§ page.team.pr.chart.more: более
 § page.team.pr.commits: Коммиты
 § page.team.pr.date: Дата влития
 § page.team.pr.mergeAuthor: Влил

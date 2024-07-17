@@ -103,6 +103,8 @@ export default `
 § page.team.tree.linesAdded: 补充道
 § page.team.tree.linesChanged: changed
 § page.team.tree.linesRemoved: 改变了
+§ page.team.day.commits: Commits
+§ page.team.day.activity: Activity
 § page.team.week.title: 按周划分的统计数字
 § page.team.week.date: 日期
 § page.team.week.numberTasks: 任务数量
@@ -126,6 +128,12 @@ export default `
 § page.team.pr.all.workDays: 任务完成时间
 § page.team.pr.all.delayDays: PR请求的审议时间
 § page.team.pr.middleTimeRelease: 开发时间与审查时间的比率
+§ page.team.pr.chart.1day: day
+§ page.team.pr.chart.3day: three days
+§ page.team.pr.chart.7day: week
+§ page.team.pr.chart.14day: two weeks
+§ page.team.pr.chart.30day: month
+§ page.team.pr.chart.more: more
 § page.team.pr.commits: Commits
 § page.team.pr.date: 注射日期
 § page.team.pr.mergeAuthor: 填写

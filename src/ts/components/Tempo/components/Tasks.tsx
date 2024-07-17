@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
@@ -41,6 +42,7 @@ interface ITaskProps {
 }
 
 function Task({ title, commits }: ITaskProps) {
+  const { t } = useTranslation();
   const prId = dataGrip.pr.prByTask[title];
   return (
     <div
@@ -67,7 +69,7 @@ function Task({ title, commits }: ITaskProps) {
           </figcaption>
         </figure>
         <figcaption className={style.tempo_task_title}>
-          Коммиты
+          {t('page.team.day.commits')}
         </figcaption>
       </figure>
       <figure className={style.tempo_task_hours}>
@@ -81,7 +83,7 @@ function Task({ title, commits }: ITaskProps) {
           </figcaption>
         </figure>
         <figcaption className={style.tempo_task_title}>
-          Активность
+          {t('page.team.day.activity')}
         </figcaption>
       </figure>
     </div>

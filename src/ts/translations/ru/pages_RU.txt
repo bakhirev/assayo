@@ -107,6 +107,8 @@ export default `
 § page.team.tree.linesAdded: добавили
 § page.team.tree.linesChanged: изменили
 § page.team.tree.linesRemoved: удалили
+§ page.team.day.commits: Commits
+§ page.team.day.activity: Activity
 § page.team.week.title: Статистика по неделям
 § page.team.week.date: Дата
 § page.team.week.numberTasks: Количество задач
@@ -134,6 +136,12 @@ export default `
 § page.team.pr.mergeAuthor: Влил
 § page.team.pr.author: Сотрудник
 § page.team.pr.middleTimeRelease: Среднее время поставки (дни)
+§ page.team.pr.chart.1day: day
+§ page.team.pr.chart.3day: three days
+§ page.team.pr.chart.7day: week
+§ page.team.pr.chart.14day: two weeks
+§ page.team.pr.chart.30day: month
+§ page.team.pr.chart.more: more
 § page.team.pr.work: разработка
 § page.team.pr.delay: ожидание
 § page.team.pr.days: дней

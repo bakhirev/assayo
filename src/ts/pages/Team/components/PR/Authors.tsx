@@ -9,16 +9,6 @@ import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 
-const TITLES = {
-  DAY: 'день',
-  THREE_DAY: 'три дня',
-  WEEK: 'неделя',
-  TWO_WEEK: 'две недели',
-  MONTH: 'месяц',
-  MORE: 'более',
-};
-const order = Object.values(TITLES);
-
 interface IAuthorsProps {
   response?: IPagination<any>;
   updateSort?: Function;
@@ -29,7 +19,18 @@ interface IAuthorsProps {
 function Authors({ response, updateSort, rowsForExcel, mode }: IAuthorsProps) {
   if (!response) return null;
 
-  const timeChart = getOptions({ order, limit: 3 });
+  const timeChart = getOptions({
+    order: [
+      'page.team.pr.chart.1day',
+      'page.team.pr.chart.3day',
+      'page.team.pr.chart.7day',
+      'page.team.pr.chart.14day',
+      'page.team.pr.chart.30day',
+      'page.team.pr.chart.more',
+    ],
+    limit: 3,
+  });
+
   const weightedAverageChart = getOptions({
     max: getMax(response, 'weightedAverage'),
     order: [

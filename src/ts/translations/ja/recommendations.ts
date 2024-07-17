@@ -25,7 +25,7 @@ working on weekends
 - employees burn out faster;
 
 § recommendations.timestamp.regularWeekendWord.title: Regular Overtime
-§ recommendations.timestamp.sometimeWeekendWord.title: Occasional Overtime
+§ recommendations.timestamp.sometimeWeekendWord.title: Occasional overtime
 § recommendations.timestamp.weekendWord.description
 It might be advisable to change the project manager, analyst, and architect.
 
@@ -52,7 +52,7 @@ But sometimes it happens.
 - employees burn out faster;
 
 § recommendations.scope.parallelism.not.title
-No Parallel Work
+No parallel work
 
 § recommendations.scope.parallelism.not.description
 any feature at any given time is done by one person.
@@ -136,7 +136,7 @@ one person is deeply involved in a feature.
 - more than 80% of commits in a feature are made by one person;
 
 § recommendations.scope.types.process.title
-Poor Processes
+Poor processes
 
 § recommendations.scope.types.process.description
 Most features contain one type of task.
@@ -165,7 +165,7 @@ It's possible that developers are incorrectly signing commits or the manager is 
 - style revisions (as a result of focus group feedback);
 
 § recommendations.scope.plan.title
-Develop a Long-Term Plan
+Develop a long-term plan
 
 § recommendations.scope.plan.description
 taking architecture into account.
@@ -426,7 +426,7 @@ or tasks are poorly split. Need to check. If granularity is the same - take cont
 - tasks could have been more complex than they seemed;
 - tasks could have had a large volume of work (need to check if the number of changes is also decreasing during this period)
 
-§ recommendations.type.everyHasOne.title: Not Signing Task Types
+§ recommendations.type.everyHasOne.title: Not signing task types
 § recommendations.type.everyHasOne.description: Most task types are done by one person.
 § recommendations.type.oneMaintainer.title: Narrow Specialization
 § recommendations.type.oneMaintainer.description
@@ -458,7 +458,7 @@ How to fix this:
 - change the area of work (tests, documentation, bugs) among employees every sprint;
 
 § recommendations.type.fewTypes.title
-This is a Local Product
+This is a local product
 
 § recommendations.type.fewTypes.description
 for a specific customer or problem.
@@ -481,7 +481,7 @@ In this case, we see a small number of types, which likely indicates shortcoming
 Based on file types, we can assume the type of program (website, server application, DevOps scripts, etc.). For a frontend application, our hypothesis will be more accurate than for DevOps scripts, which might just be a micro-module of initialization.
 
 § recommendations.type.diff.title
-Break Down the Leading Type into Subtypes
+Split the popular type into subtypes
 
 § recommendations.type.diff.description
 to detail errors.
@@ -496,7 +496,7 @@ Consider several options for subtypes:
 - fix (error detected in production);
 
 § recommendations.type.buddy.title
-Accumulate Minor Tasks
+Accumulate minor tasks
 
 § recommendations.type.buddy.description
 for new employees.
