@@ -20,10 +20,12 @@ const Month = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       <Title title="page.team.month.title"/>
       <PageWrapper template="table">
         <YearChart

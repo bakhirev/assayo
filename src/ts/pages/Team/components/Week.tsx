@@ -163,10 +163,12 @@ const Week = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       {mode === 'print' ? (
         <Title title="page.team.week.title"/>
       ) : (

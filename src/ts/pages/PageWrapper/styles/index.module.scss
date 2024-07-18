@@ -32,9 +32,20 @@
     break-inside: auto;
   }
 
-  &_main_mobile {
-    width: calc(100vw - 240px);
-    padding: 24px 24px 82px;
+  &_main {
+    &_mobile {
+      width: calc(100vw - 240px);
+      padding: 24px 24px 82px;
+    }
+
+    &_fullscreen {
+      display: block;
+      padding: 24px;
+      width: calc(100vw - 18px);
+      min-height: 100vh;
+      box-sizing: border-box;
+      background-color: #F5F7F9;
+    }
   }
 }
 

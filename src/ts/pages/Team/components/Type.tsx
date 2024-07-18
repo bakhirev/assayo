@@ -127,10 +127,12 @@ const Type = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       <Title title="page.team.type.title"/>
       <DataLoader
         to="response"

@@ -18,10 +18,12 @@ const Hours = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       <Title title="page.team.hours.title"/>
       <PageWrapper template="table">
         <HoursChart statistic={statistic} />

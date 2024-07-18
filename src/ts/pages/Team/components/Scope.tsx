@@ -123,10 +123,12 @@ const Scope = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       <Title title="page.team.scope.title"/>
       <DataLoader
         to="response"

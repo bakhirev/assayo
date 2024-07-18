@@ -1,10 +1,9 @@
 import React from 'react';
 import { utils, writeFile } from 'xlsx';
 
-import localization from 'ts/helpers/Localization';
+import { t } from 'ts/helpers/Localization';
 import { ColumnTypesEnum, IColumn } from '../components/Table/interfaces/Column';
 import { getDate, getDateForExcel } from './formatter';
-// import localization from './Localization';
 
 export function downloadFile(file: Blob, fileName: string) {
   const link = document.createElement('a');
@@ -34,7 +33,7 @@ function getColumnsFromChildren(children: React.ReactNode) {
 }
 
 function getTitles(columns: IColumn[]) {
-  return columns.map((column: IColumn) => localization.get(column.title || ''));
+  return columns.map((column: IColumn) => t(column.title || ''));
 }
 
 function getFormatter(columns: IColumn[]) {
@@ -58,8 +57,10 @@ function getFormatter(columns: IColumn[]) {
 
       const type = typeof value;
       if (type === 'object') {
+        if (!column.formatter && column.template) return '';
+
         return Object.entries(value)
-          .map((row: any) => row.join(': '))
+          .map((row: any) => `${t(row[0]) || ''}: ${row[1] || ''}`)
           .join(', ');
       }
 
@@ -78,7 +79,6 @@ export function downloadCsv(
   name?: string,
 ) {
   const columns = getColumnsFromChildren(children);
-  console.dir(columns);
   const formatter = getFormatter(columns);
   const csvFile = [
     getTitles(columns).join(';'),

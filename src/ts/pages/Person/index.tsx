@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Title from 'ts/components/Title';
 import dataGripStore from 'ts/store/DataGrip';
+import fullScreen from 'ts/store/FullScreen';
 
 import SectionSlider from 'ts/pages/PageWrapper/components/SectionSlider';
 import printStore from 'ts/pages/PageWrapper/store/Print';
@@ -29,7 +30,10 @@ interface IPersonProps {
 
 function getViewByIdByUser(user: any, filters: any) {
   return function getViewById(page?: string) {
-    const mode = printStore.processing ? 'print' : undefined;
+    let mode = undefined;
+    if (fullScreen.isOpen) mode = 'fullscreen';
+    if (printStore.processing) mode = 'print';
+
     if (page === 'total') return <Total user={user}/>;
     if (page === 'money') return <Money user={user}/>;
     if (page === 'week') return (

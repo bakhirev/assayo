@@ -65,16 +65,17 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
         isFixed
         template={ColumnTypesEnum.STRING}
         properties="author"
+        title="page.team.pr.author"
         width={200}
       />
       <Column
         title="page.team.author.status"
-        template={(row: any) => {
-          let value = works;
-          if (row.isDismissed) value = dismissed;
-          if (row.isStaff) value = staff;
-          return <UiKitTags value={value} />;
+        formatter={(row: any) => {
+          if (row.isDismissed) return dismissed;
+          if (row.isStaff) return staff;
+          return works;
         }}
+        template={(value: string) => <UiKitTags value={value} />}
         width={100}
       />
       <Column
@@ -208,10 +209,12 @@ const Author = observer(({
 
   return (
     <>
-      <Recommendations
-        mode={mode}
-        recommendations={recommendations}
-      />
+      {mode !== 'fullscreen' && (
+        <Recommendations
+          mode={mode}
+          recommendations={recommendations}
+        />
+      )}
       <Title title="page.team.author.title"/>
       <DataLoader
         to="response"

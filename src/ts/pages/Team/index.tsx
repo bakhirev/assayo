@@ -1,8 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
 import SectionSlider from 'ts/pages/PageWrapper/components/SectionSlider';
 import printStore from 'ts/pages/PageWrapper/store/Print';
+import fullScreen from 'ts/store/FullScreen';
 
 import Author from './components/Author';
 import Commits from './components/Commits';
@@ -23,8 +25,15 @@ import Pr from './components/PR';
 import Print from './components/Print';
 import Release from './components/Release';
 
-function getViewById(page?: string) {
-  const mode = printStore.processing ? 'print' : undefined;
+interface ViewProps {
+  page?: string;
+}
+
+const View = observer(({ page }: ViewProps): React.ReactElement => {
+  let mode = undefined;
+  if (fullScreen.isOpen) mode = 'fullscreen';
+  if (printStore.processing) mode = 'print';
+
   if (page === 'total') return <Total/>;
   if (page === 'scope') return <Scope mode={mode}/>;
   if (page === 'author') return <Author mode={mode}/>;
@@ -45,11 +54,11 @@ function getViewById(page?: string) {
   if (page === 'print') return <Print/>;
   if (page === 'tasks') return <Tasks/>;
   return <Total/>;
-}
+});
 
 export default function Team() {
   const { type } = useParams<any>();
   if (type && type !== 'team') return null;
 
-  return <SectionSlider getViewById={getViewById} />;
+  return <SectionSlider getViewById={(page: string) => <View page={page} />} />;
 }

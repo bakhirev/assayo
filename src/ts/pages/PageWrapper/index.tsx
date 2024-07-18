@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
+import { observer } from 'mobx-react-lite';
 
 import Recommendations from 'ts/components/Recommendations/components/ModalDescription';
+import fullScreen from 'ts/store/FullScreen';
 import isMobile from 'ts/helpers/isMobile';
 
 import SideBar from './components/sidebar';
@@ -33,7 +35,18 @@ function MobileView({
   );
 }
 
-function DesktopView({ children }: IPageWrapper) {
+const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement => {
+  if (fullScreen.isOpen) {
+    return (
+      <>
+        <div className={style.page_wrapper_main_fullscreen}>
+          {children}
+        </div>
+        <Recommendations/>
+      </>
+    );
+  }
+
   return (
     <div className={style.page_wrapper}>
       <SideBar/>
@@ -45,7 +58,7 @@ function DesktopView({ children }: IPageWrapper) {
       <Recommendations/>
     </div>
   );
-}
+});
 
 function PageWrapper({ children }: IPageWrapper) {
   return isMobile
