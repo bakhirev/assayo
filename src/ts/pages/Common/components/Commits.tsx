@@ -12,7 +12,6 @@ import Title from 'ts/components/Title';
 import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 import localization from 'ts/helpers/Localization';
 
-
 interface ICommitsProps {
   statistic: any;
 }

@@ -1,23 +1,84 @@
 @import 'src/styles/variables';
 
 .vertical_bar {
+  --temp-height: 300px;
+
+  position: relative;
   display: block;
   width: 100%;
-  height: 200px;
-  margin: 24px 0 0 0;
-  padding: 0;
+  height: var(--temp-height);
+  margin: var(--space-xxl) 0 0 0;
+  padding: 0 0 0 var(--space-xxl);
   white-space: nowrap;
+
+  &_item {
+    display: inline-block;
+    width: 10px;
+
+    vertical-align: bottom;
+    cursor: pointer;
+    transition: height 0.4s;
+
+    background-color: #DBDCDD;
+    -webkit-print-color-adjust: exact;
+
+    &:hover {
+      background-color: #ED675F;
+    }
+  }
+
+  &_scale {
+    display: inline-block;
+    width: var(--temp-height);
+
+    &_wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &_line {
+    position: absolute;
+    left: var(--space-xxl);
+
+    display: block;
+    height: 1px;
+    width: calc(100% - var(--space-xxl));
+    border-top:  1px solid  var(--color-grey);
+    -webkit-print-color-adjust: exact;
+
+    &_text {
+      position: relative;
+      bottom: 10px;
+
+      display: inline-block;
+      box-sizing: border-box;
+      padding: var(--space-xxxs) var(--space-xs);
+      text-align: center;
+
+      border-radius: var(--border-radius-s);
+      border: 1px solid var(--color-border);
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+  }
 }
 
-.vertical_bar_item {
-  display: inline-block;
-  width: 10px;
-  vertical-align: bottom;
-  cursor: pointer;
-  background-color: #DBDCDD;
-  -webkit-print-color-adjust: exact;
-}
+@media print {
+  .vertical_bar {
+    padding: 0;
 
-.vertical_bar_item:hover {
-  background-color: #ED675F;
+    &_scale {
+      display: none;
+    }
+
+    &_line {
+      left: 0;
+      width: 100%;
+    }
+  }
 }
