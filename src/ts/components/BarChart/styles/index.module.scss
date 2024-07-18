@@ -27,20 +27,6 @@
     }
   }
 
-  &_scale {
-    display: inline-block;
-    width: var(--temp-height);
-
-    &_wrapper {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 1px;
-      height: 1px;
-      transform: rotate(-90deg);
-    }
-  }
-
   &_line {
     position: absolute;
     left: var(--space-xxl);
@@ -71,10 +57,6 @@
 @media print {
   .vertical_bar {
     padding: 0;
-
-    &_scale {
-      display: none;
-    }
 
     &_line {
       left: 0;

@@ -12,6 +12,7 @@ import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
+import fullScreen from 'ts/store/FullScreen';
 
 import Total from './Total';
 import Authors from './Authors';
@@ -29,41 +30,54 @@ const PR = observer(({
 
   return (
     <>
-      <Title title="page.team.pr.oneTaskDays"/>
-      <Total/>
+      {!fullScreen.isOpen && (
+        <>
+          <Title title="page.team.pr.oneTaskDays"/>
+          <Total/>
+        </>
+      )}
 
-      <Title title="page.team.pr.statByAuthors"/>
-      <DataLoader
-        to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: authorsStat, pagination, sort, mode,
-        })}
-      >
-        <Authors
-          mode={mode}
-          rowsForExcel={authorsStat}
-        />
-        <Pagination/>
-      </DataLoader>
+      {!fullScreen.isOpen || fullScreen.mode === 'author' ? (
+        <>
+          <Title title="page.team.pr.statByAuthors"/>
+          <DataLoader
+            to="response"
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+              content: authorsStat, pagination, sort, mode,
+            })}
+          >
+            <Authors
+              mode={mode}
+              rowsForExcel={authorsStat}
+            />
+            <Pagination/>
+          </DataLoader>
+        </>
+      ) : null}
 
       <PageBreak/>
-      <Title title="page.team.pr.longDelay"/>
-      <DataLoader
-        to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: rows,
-          pagination: mode === 'print'
-            ? { size: 20 }
-            : pagination,
-          sort,
-        })}
-      >
-        <All
-          mode={mode}
-          rowsForExcel={rows}
-        />
-        {mode !== 'print' && <Pagination/>}
-      </DataLoader>
+
+      {!fullScreen.isOpen || fullScreen.mode === 'all' ? (
+        <>
+          <Title title="page.team.pr.longDelay"/>
+          <DataLoader
+            to="response"
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+              content: rows,
+              pagination: mode === 'print'
+                ? { size: 20 }
+                : pagination,
+              sort,
+            })}
+          >
+            <All
+              mode={mode}
+              rowsForExcel={rows}
+            />
+            {mode !== 'print' && <Pagination/>}
+          </DataLoader>
+        </>
+      ) : null}
     </>
   );
 });

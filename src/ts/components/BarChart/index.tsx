@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import HorizontalScale from './components/HorizontalScale';
 import Line from './components/Line';
 
-import style from './index.module.scss';
+import style from './styles/index.module.scss';
 
 interface IDot {
   title: string;

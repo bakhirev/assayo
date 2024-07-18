@@ -43,6 +43,7 @@ function AllPR({
       updateSort={updateSort}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 2 : undefined}
+      fullScreenMode="all"
     >
       {mode === 'print' ? (
         <Column

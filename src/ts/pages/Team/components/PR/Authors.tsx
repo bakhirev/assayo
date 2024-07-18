@@ -48,6 +48,7 @@ function Authors({ response, updateSort, rowsForExcel, mode }: IAuthorsProps) {
       updateSort={updateSort}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 3 : undefined}
+      fullScreenMode="author"
     >
       <Column
         isSortable

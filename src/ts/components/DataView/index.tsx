@@ -20,6 +20,7 @@ interface IDataViewProps {
   sort?: ISort[];
   columnCount?: number,
   className?: string,
+  fullScreenMode?: string,
   disabledRow?: (row: any) => boolean;
   converterToCsv?: Function,
   updateSort?: Function,
@@ -33,6 +34,7 @@ function DataView({
   type,
   columnCount,
   className,
+  fullScreenMode = '',
   disabledRow,
   updateSort,
   children,
@@ -60,7 +62,6 @@ function DataView({
         <div className={style.data_view_buttons}>
           {!isMobile && (
             <img
-              title={'Скачать XLSX'}
               src="./assets/icons/Download.svg"
               className={style.data_view_icon}
               onClick={() => {
@@ -76,7 +77,7 @@ function DataView({
                 : './assets/icons/OpenFullscreen.svg'}
               className={style.data_view_icon}
               onClick={() => {
-                fullScreen.toggle();
+                fullScreen.toggle(fullScreenMode);
               }}
             />
           )}

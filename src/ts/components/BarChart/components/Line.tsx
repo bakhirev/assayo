@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from '../index.module.scss';
+import style from '../styles/index.module.scss';
 
 interface HorizontalScaleProps {
   text: number | string;
