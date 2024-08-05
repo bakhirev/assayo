@@ -27,7 +27,7 @@ export default class FileGripByType {
 
     if (!key || file?.name?.[0] === '.') return;
 
-    if (!this.statisticByName[key]) {
+    if (!this.statisticByName.hasOwnProperty(key)) {
       this.statisticByName[key] = this.#getNewType(file);
     }
 
