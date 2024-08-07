@@ -6,12 +6,14 @@ import style from '../../styles/index.module.scss';
 interface IDefaultCellProps {
   column: IColumn,
   row: any,
+  rowIndex?: number,
   className?: string,
 }
 
 function DefaultCell({
   column,
   row,
+  rowIndex,
   className,
 }: IDefaultCellProps): JSX.Element {
   const columnClassName = typeof column.className === 'function'
@@ -27,7 +29,7 @@ function DefaultCell({
     : row;
 
   const formattedValue = column.formatter
-    ? column.formatter(value)
+    ? column.formatter(value, rowIndex)
     : value;
 
   const content: any = typeof column.template === 'function'

@@ -241,7 +241,7 @@ git puede Mostrar una pequeña cantidad de cambios en las estadísticas, y el re
 § page.person.week.workDay: entresemana
 § page.person.week.weekends: día de descanso
 § page.sponsor.title: Please, support this project
-§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/github/comments/1bvtsl3/how_i_parsed_git_statistics/] or make a video review.
+§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or make a video review.
 § page.sponsor.share.button: Copy the link
 § page.sponsor.money.description: We will be glad if you support us with any amount! All funds will be used for the further development of the project.
 § page.sponsor.money.qr: One-time payment (only Russia)

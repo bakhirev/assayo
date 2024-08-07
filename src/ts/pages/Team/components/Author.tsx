@@ -64,6 +64,12 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}
+        formatter={(row: any, index: number) => (index + 1)}
+        width={40}
+      />
+      <Column
+        isFixed
+        template={ColumnTypesEnum.STRING}
         properties="author"
         title="page.team.pr.author"
         width={200}

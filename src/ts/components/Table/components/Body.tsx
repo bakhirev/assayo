@@ -53,6 +53,7 @@ function Body({
           key={key}
           column={column}
           row={row}
+          rowIndex={rowIndex}
         />
       );
     });

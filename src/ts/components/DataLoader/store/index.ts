@@ -99,7 +99,10 @@ export class DataLoaderStore implements IDataLoaderStore {
 
   updateSort(sort: ISort[]) {
     this.sort = sort || [];
-    this.newSearch();
+    return this.fetchData(DataLoaderState.LOADING, {
+      pageNumber: this.pageNumber,
+      pageSize: this.pageSize,
+    });
   }
 
   goToPage(pageNumber: number, pageSize: number) {
