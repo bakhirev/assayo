@@ -115,7 +115,6 @@ export class DataLoaderStore implements IDataLoaderStore {
   }
 
   showAll() {
-    if (this.pageNumber === 0 && this.response?.totalPages === 2) return this.loadMore();
     const pageSize = this.response?.totalElements || 100;
     return this.fetchData(DataLoaderState.LOADING_ALL, { pageNumber: 0, pageSize });
   }
