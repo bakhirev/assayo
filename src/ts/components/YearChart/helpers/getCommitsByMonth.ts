@@ -1,6 +1,6 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import { get2Number } from 'ts/helpers/formatter';
-import settingsStore from 'ts/store/Settings';
+import userSettings from 'ts/store/UserSettings';
 
 import IMonth from '../interfaces/Month';
 import IWorkDay from '../interfaces/WorkDay';
@@ -66,7 +66,7 @@ function addCommitsInMonth(
     const uniqueAuthors = Array.from(new Set(authors));
     // @ts-ignore
     monthsByDate[key].money = uniqueAuthors.reduce((money: number, name: string) => {
-      return money + settingsStore.getMiddleSalaryInMonth(name);
+      return money + userSettings.getCurrentSalaryInMonth(name); // TODO: need middle salary in month
     }, 0);
   }
 }

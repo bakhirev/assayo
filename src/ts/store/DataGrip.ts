@@ -11,7 +11,7 @@ import getTitle from 'ts/helpers/Title';
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 
-import settingsStore from './Settings';
+import filtersInHeaderStore from './FiltersInHeader';
 
 export enum DataParseStatusEnum {
   WAITING = 'waiting',
@@ -34,14 +34,18 @@ class DataGripStore implements IDataGripStore {
 
   fileGrip: any = null;
 
+  hash: number = 0;
+
   status: DataParseStatusEnum = DataParseStatusEnum.PROCESSING;
 
   constructor() {
     makeObservable(this, {
       commits: observable,
       dataGrip: observable,
+      hash: observable,
       status: observable,
       setCommits: action,
+      updateStatistic: action,
     });
   }
 
@@ -65,20 +69,17 @@ class DataGripStore implements IDataGripStore {
       : DataParseStatusEnum.WAITING;
 
     if (this.status === DataParseStatusEnum.DONE) {
-      setDefaultValues(dataGrip.firstLastCommit.minData, dataGrip.firstLastCommit.maxData);
-      settingsStore.updateByCommits(
-        this.commits,
+      filtersInHeaderStore.updateByCommits(
         dataGrip.firstLastCommit.minData,
         dataGrip.firstLastCommit.maxData,
       );
+      setDefaultValues(dataGrip.firstLastCommit.minData, dataGrip.firstLastCommit.maxData);
 
-      dataGrip.updateByInitialization();
+      dataGrip.updateTotalInfo();
       achievements.updateByGrip(dataGrip, fileGrip);
     }
 
-    this.dataGrip = null;
-    this.dataGrip = dataGrip;
-    this.fileGrip = fileGrip;
+    this.#updateRender();
 
     console.dir(this.dataGrip);
     console.dir(this.fileGrip);
@@ -87,13 +88,27 @@ class DataGripStore implements IDataGripStore {
     }
   }
 
-  updateChars() { // todo: remove, never use
-    console.log('need update data TODO');
-    dataGrip.updateByFilters();
-    if (!dataGrip.author.list.length) return;
+  updateStatistic() {
+    dataGrip.clear();
+    fileGrip.clear();
+    this.commits.forEach((commit: ICommit | ISystemCommit) => {
+      if (commit.timestamp < filtersInHeaderStore.from
+        || commit.timestamp > filtersInHeaderStore.to) return;
+      dataGrip.addCommit(commit);
+      fileGrip.addCommit(commit);
+    });
+    fileGrip.updateTotalInfo();
+    dataGrip.updateTotalInfo();
     achievements.updateByGrip(dataGrip, fileGrip);
+    this.#updateRender();
+  }
+
+  #updateRender() {
     this.dataGrip = null;
     this.dataGrip = dataGrip;
+    this.fileGrip = null;
+    this.fileGrip = fileGrip;
+    this.hash = Math.random();
   }
 }
 

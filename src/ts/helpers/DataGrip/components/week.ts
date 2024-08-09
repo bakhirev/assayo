@@ -1,6 +1,5 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import settingsStore from 'ts/store/Settings';
 import { increment } from 'ts/helpers/Math';
 
 export default class DataGripByWeek {
@@ -79,8 +78,8 @@ export default class DataGripByWeek {
           authorsLength += 1;
           workDays[name] = Object.keys(dot.workDays[name]).length;
           workDaysTotal += workDays[name];
-
-          const limit = settingsStore.workDays[name] || settingsStore.defaultWorkDays;
+          // userSettings.getCurrentWorkDaysInWeek(name); TODO: need middle salary in month
+          const limit = 5;
           const lazyDaysValue = limit - workDays[name];
           const weekDaysValue = workDays[name] - limit;
 

@@ -31,7 +31,7 @@ const Tasks = observer(({
       loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
         content: rows, pagination, sort, mode,
       })}
-      watch={`${mode}${dataGripStore.dataGrip.hash}${user.author}`}
+      watch={`${mode}${dataGripStore.hash}${user.author}`}
     >
       <TasksView
         mode={mode}

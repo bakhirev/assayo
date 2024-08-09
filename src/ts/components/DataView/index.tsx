@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import ISort from 'ts/interfaces/Sort';
 import Table from 'ts/components/Table';
 import Cards from 'ts/components/Cards';
-import viewSettings from 'ts/store/ViewSettings';
 import { downloadExcel } from 'ts/helpers/File';
 import isMobile from 'ts/helpers/isMobile';
 import fullScreen from 'ts/store/FullScreen';
 
+import dataViewStore from './store';
 import style from './index.module.scss';
 import PageWrapper from '../Page/wrapper';
 
@@ -41,7 +41,7 @@ function DataView({
 }: IDataViewProps): React.ReactElement | null {
   const { t } = useTranslation();
   const urlParams = useParams<any>();
-  const defaultType = viewSettings.getItem(urlParams, isMobile ? 'cards' : 'table');
+  const defaultType = dataViewStore.getItem(urlParams, isMobile ? 'cards' : 'table');
   const [localType, setType] = useState<string>(type || defaultType);
 
   if (!rows || !rows.length) return null;
@@ -89,7 +89,7 @@ function DataView({
               onClick={() => {
                 const newType = localType === 'table' ? 'cards' : 'table';
                 setType(newType);
-                viewSettings.setItem(urlParams, newType, 'table');
+                dataViewStore.setItem(urlParams, newType, 'table');
               }}
             />
           )}

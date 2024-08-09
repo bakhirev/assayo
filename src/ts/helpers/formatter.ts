@@ -47,10 +47,6 @@ export function get2Number(time: number) {
   return time < 10 ? `0${time}` : time;
 }
 
-export function getClearHTML(text: string) {
-  return (text || '').trim().replace(/(>[\s\r\n]*<)/gim, '><');
-}
-
 export function getDate(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
@@ -81,7 +77,7 @@ function getCurrencyFromUSD(money: number, currency: string) {
   const k = {
     USD: 1,
     EUR: 0.92,
-    RUB: 98,
+    RUB: 90,
     CNY: 7.26,
     JPY: 158,
     KRW: 1360,

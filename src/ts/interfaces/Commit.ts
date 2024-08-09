@@ -22,7 +22,7 @@ export interface ILog {
   month: number; // 1,
   year: number; // 2021,
   timestamp: string; //  2021-02-09",
-  milliseconds: number; //  1612828800000,
+  milliseconds: number; // 1612828800000,
   week: number; //  42,
 
   // user

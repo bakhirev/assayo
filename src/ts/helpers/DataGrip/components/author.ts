@@ -4,7 +4,6 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { ONE_DAY } from 'ts/helpers/formatter';
 import { increment } from 'ts/helpers/Math';
 
-import settingsStore from 'ts/store/Settings';
 import userSettings from 'ts/store/UserSettings';
 
 export default class DataGripByAuthor {
@@ -138,10 +137,9 @@ export default class DataGripByAuthor {
     return total;
   }
 
-  updateTotalInfo() {
+  updateTotalInfo(lastCommit: ICommit) {
     const HOLIDAYS = 118 + 22; // праздники + выходные + отпуск
     const WORK_AND_HOLIDAYS = (HOLIDAYS / (365 - HOLIDAYS));
-    const lastCommit = settingsStore.commits[settingsStore.commits.length - 1];
     const dismissedLimit = lastCommit?.milliseconds - 32 * ONE_DAY;
 
     this.employment = {

@@ -127,7 +127,7 @@ const Type = observer(({
         loader={(pagination?: IPaginationRequest) => getFakeLoader({
           content: rows, pagination, mode,
         })}
-        watch={`${mode}${dataGripStore.dataGrip.hash}`}
+        watch={`${mode}${dataGripStore.hash}`}
       >
         <TypeView
           mode={mode}

@@ -1,6 +1,5 @@
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
-import settingsStore from 'ts/store/Settings';
 import Recommendations from 'ts/helpers/Recommendations';
 
 import DataGripByAuthor from './components/author';
@@ -40,10 +39,6 @@ class DataGrip {
 
   release: any = new DataGripByRelease();
 
-  initializationInfo: any = {};
-
-  hash: number = 0;
-
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -75,8 +70,8 @@ class DataGrip {
     }
   }
 
-  #updateTotalInfo() {
-    this.author.updateTotalInfo();
+  updateTotalInfo() {
+    this.author.updateTotalInfo(this.firstLastCommit.maxData);
     this.team.updateTotalInfo(this.author);
     this.scope.updateTotalInfo();
     this.type.updateTotalInfo();
@@ -86,28 +81,6 @@ class DataGrip {
     this.pr.updateTotalInfo(this.author);
     this.tasks.updateTotalInfo(this.pr);
     this.release.updateTotalInfo();
-  }
-
-  updateByInitialization() {
-    this.#updateTotalInfo();
-    this.initializationInfo = this.author.statistic
-      .reduce((info: any, author: any) => {
-        info[author.author] = { ...author };
-        return info;
-      }, {});
-  }
-
-  updateByFilters() {
-    this.clear();
-    settingsStore.commits.forEach((commit: ICommit) => {
-      const author = this.initializationInfo[commit.author] || { commits: 0 };
-      if (commit.timestamp < settingsStore.from
-        || commit.timestamp > settingsStore.to
-        || author.commits < settingsStore.minCommits) return;
-      this.addCommit(commit);
-    });
-    this.#updateTotalInfo();
-    this.hash = Math.random();
   }
 }
 

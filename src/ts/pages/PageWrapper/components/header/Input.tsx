@@ -1,7 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import settingsStore from 'ts/store/Settings';
+import filtersInHeaderStore from 'ts/store/FiltersInHeader';
+import dataGripStore from 'ts/store/DataGrip';
 
 import style from '../../styles/filters.module.scss';
 
@@ -18,10 +19,11 @@ const Input = observer(({
     <input
       type="date"
       placeholder={placeholder || ''}
-      value={settingsStore[type] ?? ''}
+      value={filtersInHeaderStore[type] ?? ''}
       className={style.header_filters_input}
       onChange={(event: any) => {
-        settingsStore.updateProperty(type, event.target.value);
+        filtersInHeaderStore.updateProperty(type, event.target.value);
+        dataGripStore.updateStatistic();
       }}
     />
   );

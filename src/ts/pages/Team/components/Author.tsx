@@ -227,7 +227,7 @@ const Author = observer(({
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
           content: rows, pagination, sort, mode,
         })}
-        watch={`${mode}${dataGripStore.dataGrip.hash}`}
+        watch={`${mode}${dataGripStore.hash}`}
       >
         <AuthorView
           mode={mode}

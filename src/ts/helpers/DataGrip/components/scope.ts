@@ -1,6 +1,6 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import settingsStore from 'ts/store/Settings';
+import userSettings from 'ts/store/UserSettings';
 import { increment } from 'ts/helpers/Math';
 
 interface IStatByAuthor {
@@ -85,7 +85,8 @@ export default class DataGripByScope {
         for (let name in dot.authors) {
           const user = dot.authors[name];
           const days: number = Object.keys(user.days).length;
-          salaryCache[name] = salaryCache[name] || settingsStore.getMiddleSalaryInDay(name);
+          // TODO: need middle salary in month;
+          salaryCache[name] = salaryCache[name] || userSettings.getCurrentSalaryInMonth(name);
           cost += days * salaryCache[name];
           dot.authors[name] = { ...user, days };
         }

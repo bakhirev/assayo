@@ -1,6 +1,6 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import settingsStore from 'ts/store/Settings';
+import userSettings from 'ts/store/UserSettings';
 import { increment } from 'ts/helpers/Math';
 
 import MinMaxCounter from './counter';
@@ -119,7 +119,7 @@ export default class DataGripByTimestamp {
 
   #getWeekendPaymentByAuthor(statistic: any, dataGripByAuthor: any) {
     if (dataGripByAuthor.isStaff) return 0;
-    const salaryInDay = settingsStore.getMiddleSalaryInDay(dataGripByAuthor.author);
+    const salaryInDay = userSettings.getCurrentSalaryInMonth(dataGripByAuthor.author); // TODO: need middle salary in month
     const saturday = statistic.workByDay[5] * salaryInDay;
     const sunday = statistic.workByDay[6] * salaryInDay;
     return saturday + sunday;

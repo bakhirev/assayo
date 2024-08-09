@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import settingsStore from 'ts/store/Settings';
+import filtersInHeaderStore from 'ts/store/FiltersInHeader';
+import dataGripStore from 'ts/store/DataGrip';
 
 import style from '../../styles/filters.module.scss';
 
@@ -19,7 +20,8 @@ function Button({
     <button
       className={style.header_filters_fast_button}
       onClick={() => {
-        settingsStore.setFilterByDateType(type);
+        filtersInHeaderStore.setFilterByDateType(type);
+        dataGripStore.updateStatistic();
       }}
     >
       {t(title)}

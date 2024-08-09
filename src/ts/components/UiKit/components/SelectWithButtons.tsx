@@ -1,5 +1,8 @@
 import React from 'react';
 
+import CustomSelect from 'ts/components/CustomSelect';
+import isMobile from 'ts/helpers/isMobile';
+
 import { IUiKitWrapperProps } from './Wrapper';
 import UiKitButton from './Button';
 import UiKitSelect from './Select';
@@ -41,11 +44,19 @@ function UiKitSelectWithButtons({
       >
         «
       </UiKitButton>
-      <UiKitSelect
-        value={value}
-        options={options}
-        onChange={onChange}
-      />
+      {isMobile ? (
+        <UiKitSelect
+          value={value}
+          options={options}
+          onChange={onChange}
+        />
+      ) : (
+        <CustomSelect
+          value={value}
+          options={options}
+          onChange={onChange}
+        />
+      )}
       <UiKitButton
         mode="second"
         className={style.ui_kit_select_with_buttons_right}
