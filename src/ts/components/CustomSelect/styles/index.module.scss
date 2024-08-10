@@ -25,6 +25,10 @@
     background-color: var(--color-white);
   }
 
+  &_search {
+    padding-top: var(--space-xxxs);
+  }
+
   &_container {
     position: relative;
   }

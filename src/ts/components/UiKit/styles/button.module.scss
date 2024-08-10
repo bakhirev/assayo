@@ -1,6 +1,7 @@
 @import 'src/styles/variables';
 
 .ui_kit_button {
+  --temp-size: 42px;
   --button-color-bg: var(--color-button);
   --button-color-text: var(--color-white);
   --button-color-border: var(--color-button);
@@ -36,13 +37,13 @@
   font-weight: bold;
   font-size: var(--font-xs);
   display: inline-block;
-  height: 42px;
-  min-width: 42px;
+  height: var(--temp-size);
+  min-width: var(--temp-size);
   padding: 0 var(--space-l);
   margin: 0;
 
   cursor: pointer;
-  line-height: 42px;
+  line-height: var(--temp-size);
   text-align: center;
   box-sizing: border-box;
   white-space: nowrap;
@@ -111,6 +112,7 @@
 }
 
 .ui_kit_button_menu {
+  --temp-size: 42px;
   --button-color-bg: var(--color-white);
   --button-color-text: var(--color-black);
   --button-color-border: var(--color-border);
@@ -119,13 +121,13 @@
   font-weight: bold;
   font-size: var(--font-xs);
   display: block;
-  height: 42px;
+  height: var(--temp-size);
   width: 100%;
   padding: 0 var(--space-s);
   margin: 0;
 
   cursor: pointer;
-  line-height: 42px;
+  line-height: var(--temp-size);
   text-align: left;
   box-sizing: border-box;
   white-space: nowrap;

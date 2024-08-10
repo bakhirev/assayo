@@ -1,0 +1,28 @@
+@import 'src/styles/variables';
+
+.ui_kit_select_icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  display: block;
+  width: 32px;
+  padding: 10px 0 0 0;
+
+  text-align: center;
+  cursor: pointer;
+
+  &_button {
+    display: block;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    padding: 0;
+    margin: 0;
+    transition: transform 0.5s;
+
+    &_open {
+      transform: rotate(-180deg);
+    }
+  }
+}

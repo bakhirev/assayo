@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 import UiKitSelectValue from './components/Value';
 import UiKitSelectSearch from './components/Search';
 import UiKitSelectList from './components/List';
+import UiKitSelectIcon from './components/Icon';
 import { getOption, getTitle } from './helpers';
 
 import style from './styles/index.module.scss';
@@ -54,6 +55,11 @@ function UiKitSelect({
           }}
         />
       ) : null}
+
+      <UiKitSelectIcon
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
+      />
 
       {openSearch ? (
         <UiKitSelectList
