@@ -13,7 +13,7 @@ interface IUiKitSelectWithButtonsProps extends IUiKitWrapperProps {
   className?: string;
   value: any;
   options: any[];
-  reverse: boolean;
+  reverse?: boolean;
   onChange: Function;
 }
 

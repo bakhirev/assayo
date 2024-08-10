@@ -44,7 +44,7 @@ const Tempo = observer((): React.ReactElement => {
   const firstIndex = rows.length - 1;
   const firstPoint = rows[firstIndex];
 
-  const [filters, setFilters] = useState<any>({ week: firstPoint.week });
+  const [filters, setFilters] = useState<any>({ user: 0, week: firstPoint.week });
   const user = filters.user
     ? users[filters.user - 1]
     : '';
