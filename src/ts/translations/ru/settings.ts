@@ -2,7 +2,7 @@ export default `
 § page.settings.document.title: Настройки отображения
 § page.settings.document.name: Заголовок страницы
 § page.settings.document.language: Язык интерфейса
-§ page.settings.document.depersonalize: Деперсонализировать данные
+§ page.settings.document.depersonalize: Скрыть персональные данные
 § page.settings.links.title: Префиксы ссылок
 § page.settings.links.task: Для номеров задач
 § page.settings.links.pr: Для PR
