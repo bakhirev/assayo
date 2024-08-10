@@ -1,0 +1,67 @@
+@import 'src/styles/variables';
+
+.ui_kit_select {
+  &_value,
+  &_search,
+  &_option {
+    font-size: var(--font-s);
+    font-weight: 100;
+
+    display: inline-block;
+    width: 100%;
+    height: 42px;
+    padding: 0 var(--space-l);
+    margin: 0;
+
+    line-height: 42px;
+    text-align: left;
+    box-sizing: border-box;
+    vertical-align: top;
+    outline-color: transparent;
+
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+    color: var(--color-black);
+    background-color: var(--color-white);
+  }
+
+  &_container {
+    position: relative;
+  }
+
+  &_list {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    display: block;
+    max-height: 300px;
+    padding: var(--space-xxs) 0;
+    text-align: left;
+
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 5px var(--color-border);
+    background-color: var(--color-white);
+  }
+
+  &_option {
+    display: block;
+
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+
+    &_focus,
+    &:hover {
+      background-color: var(--color-border);
+    }
+  }
+}
+
+.ui_kit_select_option + .ui_kit_select_option {
+  border-top: 1px solid var(--color-border);
+}

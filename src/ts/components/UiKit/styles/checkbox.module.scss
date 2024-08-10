@@ -1,0 +1,35 @@
+@import 'src/styles/variables';
+
+.ui_kit_checkbox {
+  position: relative;
+  display: block;
+  padding: 0 0 0 32px;
+
+  &_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: var(--space-xl);
+    height: var(--space-xl);
+
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+  }
+
+  &_title {
+    font-size: var(--font-s);
+    font-weight: 100;
+
+    display: block;
+    padding: var(--space-xxxs) 0 0;
+
+    cursor: pointer;
+    white-space: normal;
+
+    color: var(--color-black);
+  }
+}

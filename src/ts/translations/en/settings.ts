@@ -2,6 +2,7 @@ export default `
 § page.settings.document.title: Display settings
 § page.settings.document.name: Page title
 § page.settings.document.language: Interface language
+§ page.settings.document.depersonalize: Depersonalize the data
 § page.settings.links.title: Link prefixes
 § page.settings.links.task: For task numbers
 § page.settings.links.pr: For PR

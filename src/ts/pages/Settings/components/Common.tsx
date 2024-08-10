@@ -3,9 +3,11 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
 import InputString from 'ts/components/UiKit/components/InputString';
-import Select from 'ts/components/UiKit/components/Select';
+import UiKitSelect from 'ts/components/UiKit/components/Select';
+import UiKitCheckbox from 'ts/components/UiKit/components/Checkbox';
 import PageBox from 'ts/components/Page/Box';
 import Title from 'ts/components/Title';
+import dataGripStore from 'ts/store/DataGrip';
 import localization from 'ts/helpers/Localization';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 
@@ -32,7 +34,7 @@ const Common = observer((): React.ReactElement | null => {
             applicationHasCustom.title = true;
           }}
         />
-        <Select
+        <UiKitSelect
           title="page.settings.document.language"
           value={language}
           options={[
@@ -48,6 +50,13 @@ const Common = observer((): React.ReactElement | null => {
           onChange={(item: any, id: string) => {
             localization.language = id;
             setLanguage(id);
+          }}
+        />
+        <UiKitCheckbox
+          value={dataGripStore.isDepersonalized}
+          title="page.settings.document.depersonalize"
+          onChange={() => {
+            dataGripStore.depersonalized(!dataGripStore.isDepersonalized);
           }}
         />
       </PageBox>

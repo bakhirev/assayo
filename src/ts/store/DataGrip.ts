@@ -10,6 +10,7 @@ import getTitle from 'ts/helpers/Title';
 
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
 import { applicationHasCustom } from 'ts/helpers/RPC';
+import Depersonalized from 'ts/helpers/Depersonalized';
 
 import filtersInHeaderStore from './FiltersInHeader';
 
@@ -24,6 +25,7 @@ interface IDataGripStore {
   dataGrip: any;
   fileGrip: any;
   status: DataParseStatusEnum;
+  isDepersonalized: boolean;
   setCommits: (log?: string[]) => void;
 }
 
@@ -36,6 +38,8 @@ class DataGripStore implements IDataGripStore {
 
   hash: number = 0;
 
+  isDepersonalized: boolean = false;
+
   status: DataParseStatusEnum = DataParseStatusEnum.PROCESSING;
 
   constructor() {
@@ -43,8 +47,10 @@ class DataGripStore implements IDataGripStore {
       commits: observable,
       dataGrip: observable,
       hash: observable,
+      isDepersonalized: observable,
       status: observable,
       setCommits: action,
+      depersonalized: action,
       updateStatistic: action,
     });
   }
@@ -88,15 +94,31 @@ class DataGripStore implements IDataGripStore {
     }
   }
 
+  depersonalized(status?: boolean) {
+    this.isDepersonalized = !!status;
+    setTimeout(() => {
+      this.updateStatistic();
+    }, 100);
+  }
+
   updateStatistic() {
     dataGrip.clear();
     fileGrip.clear();
+
+    const depersonalized = new Depersonalized();
     this.commits.forEach((commit: ICommit | ISystemCommit) => {
       if (commit.timestamp < filtersInHeaderStore.from
         || commit.timestamp > filtersInHeaderStore.to) return;
-      dataGrip.addCommit(commit);
-      fileGrip.addCommit(commit);
+
+      const localCommit = this.isDepersonalized
+        ? depersonalized.getCommit(commit)
+        : commit;
+
+      dataGrip.addCommit(localCommit);
+      fileGrip.addCommit(localCommit);
     });
+
+    console.log(depersonalized.fakeTaskPrefix);
     fileGrip.updateTotalInfo();
     dataGrip.updateTotalInfo();
     achievements.updateByGrip(dataGrip, fileGrip);
