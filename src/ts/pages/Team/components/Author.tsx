@@ -77,8 +77,8 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
       <Column
         title="page.team.author.status"
         formatter={(row: any) => {
-          if (row.isDismissed) return dismissed;
           if (row.isStaff) return staff;
+          if (row.isDismissed) return dismissed;
           return works;
         }}
         template={(value: string) => <UiKitTags value={value} />}

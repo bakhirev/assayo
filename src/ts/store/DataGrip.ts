@@ -118,7 +118,6 @@ class DataGripStore implements IDataGripStore {
       fileGrip.addCommit(localCommit);
     });
 
-    console.log(depersonalized.fakeTaskPrefix);
     fileGrip.updateTotalInfo();
     dataGrip.updateTotalInfo();
     achievements.updateByGrip(dataGrip, fileGrip);

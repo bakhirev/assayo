@@ -15,9 +15,9 @@ export default class Depersonalized {
   fakeTaskPrefix: any = null;
 
   constructor() {
-    this.fakeName = new FakeName(FAKE_AUTHORS);
-    this.fakeEmail = new FakeName(FAKE_EMAILS);
-    this.fakeTaskPrefix = new FakeName(FAKE_TASK_PREFIXES);
+    this.fakeName = new FakeName('User', FAKE_AUTHORS);
+    this.fakeEmail = new FakeName('user', FAKE_EMAILS);
+    this.fakeTaskPrefix = new FakeName('JIRA', FAKE_TASK_PREFIXES);
   }
 
   getCommit(commit: ICommit | ISystemCommit): ICommit | ISystemCommit {
