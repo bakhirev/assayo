@@ -83,17 +83,6 @@
     line-height: var(--table-cell-height);
     background-color: var(--color-white);
   }
-  //&_cell:first-child,
-  //&_header_cell:first-child {
-  //  position: sticky;
-  //  top: 0;
-  //  left: 0;
-  //  z-index: 1;
-  //}
-  //
-  //&_cell:first-child {
-  //  background-color: rgba(255, 255, 255, 0.9);
-  //}
 
   &_cell_number {
     text-align: right;
@@ -108,10 +97,11 @@
       margin-top: 8px;
       cursor: pointer;
       transition: transform 0.5s;
+      transform: rotate(0);
     }
 
     &_open {
-      transform: rotate(90deg);
+      transform: rotate(-180deg);
     }
   }
 }

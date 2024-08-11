@@ -25,6 +25,7 @@ function LineChart({
 
   let width = Math.round((value || 100) * (100 / options.max));
   if (width < 1) return null;
+  if (width > 100) width = 100;
 
   if (!details) {
     return (

@@ -59,7 +59,7 @@ function DetailsCell({
       {hasIcon && (
         <img
           className={iconClassName}
-          src="./assets/menu/arrow_right.svg"
+          src="./assets/list/arrow.svg"
         />
       )}
     </div>

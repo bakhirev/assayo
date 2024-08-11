@@ -30,10 +30,7 @@ function AllPR({
 
   const workChart = getOptions({ max: getMax(response, 'workDays') });
   const delayChart = getOptions({ max: getMax(response, 'delayDays') });
-  const commitsChart = getOptions({
-    max: getMax(response, 'commits'),
-    order: dataGripStore.dataGrip.author.list,
-  });
+  const commitsChart = getOptions({ order: dataGripStore.dataGrip.author.list });
 
   return (
     <DataView

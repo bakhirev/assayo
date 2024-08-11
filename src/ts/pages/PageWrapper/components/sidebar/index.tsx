@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Logo from './Logo';
 import Switch from './Switch';
 import SideBarButtons from './Buttons';
+import SideBarScrollUp from './ScrollUp';
 
 import style from '../../styles/sidebar.module.scss';
 import { TYPES } from '../../helpers/menu';
@@ -29,6 +30,7 @@ function SideBar() {
         }}
       />
       <SideBarButtons type={formattedType} />
+      <SideBarScrollUp />
     </aside>
   );
 }

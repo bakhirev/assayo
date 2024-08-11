@@ -1,0 +1,64 @@
+@import 'src/styles/variables';
+
+.scroll_up_button {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+  background-color: rgba(255, 255, 255, 0.02);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &_icon {
+    position: relative;
+    top: 50px;
+
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+
+    transform: rotate(180deg);
+    animation: scroll_up_button_icon linear 2s backwards infinite;
+  }
+}
+
+@keyframes scroll_up_button_icon {
+  from {
+    opacity: 0;
+    top: 50px;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    top: -50px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .scroll_up_button {
+    width: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .scroll_up_button {
+    display: none;
+  }
+}
