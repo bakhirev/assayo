@@ -22,8 +22,8 @@ function Header({
   let marginLeft = 0;
   const cells = columns.map((column: IColumn, columnIndex: number) => {
     marginLeft += columns[columnIndex - 1]?.width || 0;
-    const localClassName = getClassName(style.table_header_cell, column, ['header', columnIndex], className);
 
+    const localClassName = getClassName(style.table_header_cell, column, ['header', columnIndex], className);
     const formattedTitle = t(column.title || '');
 
     return (
