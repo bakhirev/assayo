@@ -64,6 +64,14 @@
     vertical-align: top;
   }
 
+  &_fixed {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
   &_cell {
     padding: 0 4px;
   }
@@ -75,18 +83,17 @@
     line-height: var(--table-cell-height);
     background-color: var(--color-white);
   }
-
-  &_cell:first-child,
-  &_header_cell:first-child {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-
-  &_cell:first-child {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
+  //&_cell:first-child,
+  //&_header_cell:first-child {
+  //  position: sticky;
+  //  top: 0;
+  //  left: 0;
+  //  z-index: 1;
+  //}
+  //
+  //&_cell:first-child {
+  //  background-color: rgba(255, 255, 255, 0.9);
+  //}
 
   &_cell_number {
     text-align: right;

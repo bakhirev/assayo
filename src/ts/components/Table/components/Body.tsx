@@ -32,9 +32,11 @@ function Body({
     ?.formatter;
 
   rows?.forEach((row: any, rowIndex: number) => {
+    let marginLeft = 0;
     const rowConfig = (rowsConfig || {})[getRowId(row, rowIndex)];
     const cells = columns.map((column: IColumn, columnIndex: number) => {
       const key = `${column.title}_${columnIndex}`;
+      marginLeft += columns[columnIndex - 1]?.width || 0;
 
       if (column.template === ColumnTypesEnum.DETAILS) {
         return (
@@ -43,6 +45,7 @@ function Body({
             column={column}
             row={row}
             rowConfig={rowConfig}
+            marginLeft={marginLeft}
             updateRowsConfig={updateRowsConfig}
           />
         );
@@ -54,6 +57,7 @@ function Body({
           column={column}
           row={row}
           rowIndex={rowIndex}
+          marginLeft={marginLeft}
         />
       );
     });

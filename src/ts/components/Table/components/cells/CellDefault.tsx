@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { IColumn } from '../../interfaces/Column';
+import getClassName from '../../helpers/getClassName';
 import style from '../../styles/index.module.scss';
 
 interface IDefaultCellProps {
   column: IColumn,
   row: any,
   rowIndex?: number,
+  marginLeft?: number,
   className?: string,
 }
 
@@ -14,11 +16,12 @@ function DefaultCell({
   column,
   row,
   rowIndex,
+  marginLeft,
   className,
 }: IDefaultCellProps): JSX.Element {
-  const columnClassName = typeof column.className === 'function'
-    ? column.className('body', row)
-    : column.className;
+  const localClassName = getClassName(style.table_cell, column, ['body', row], className);
+
+  const left = column.isFixed ? marginLeft : 0;
 
   const onClick = column.onClick
     ? (() => { if (column.onClick) column.onClick(row); })
@@ -44,8 +47,9 @@ function DefaultCell({
     <div
       key={column.title} // @ts-ignore
       title={cellTitle}
-      className={`${style.table_cell} ${className || ''} ${columnClassName || ''}`}
+      className={localClassName}
       style={{
+        left,
         width: column.width,
         cursor: onClick ? 'pointer' : 'auto',
       }} // @ts-ignore

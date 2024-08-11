@@ -8,6 +8,7 @@ interface IDefaultCellProps {
   row: any,
   className?: string,
   rowConfig?: IRowsConfig;
+  marginLeft?: number;
   updateRowsConfig?: (config: IRowsConfig) => void;
 }
 
@@ -16,9 +17,12 @@ function DetailsCell({
   row,
   className,
   rowConfig,
+  marginLeft,
   updateRowsConfig,
 }: IDefaultCellProps): JSX.Element {
   const config = rowConfig || { id: 1 };
+
+  const left = column?.isFixed ? marginLeft : 0;
 
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', row)
@@ -48,6 +52,7 @@ function DetailsCell({
       style={{
         width: column.width,
         cursor: 'pointer',
+        left,
       }} // @ts-ignore
       onClick={onClick}
     >

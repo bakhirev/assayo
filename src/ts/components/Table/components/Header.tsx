@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { IColumn } from '../interfaces/Column';
+import getClassName from '../helpers/getClassName';
 import headerStyle from '../styles/header.module.scss';
 import style from '../styles/index.module.scss';
 
@@ -17,17 +18,19 @@ function Header({
   updateSort,
 }: ITitleProps) {
   const { t } = useTranslation();
+
+  let marginLeft = 0;
   const cells = columns.map((column: IColumn, columnIndex: number) => {
-    const columnClassName = typeof column.className === 'function'
-      ? column.className('header', columnIndex)
-      : column.className;
+    marginLeft += columns[columnIndex - 1]?.width || 0;
+    const localClassName = getClassName(style.table_header_cell, column, ['header', columnIndex], className);
+
     const formattedTitle = t(column.title || '');
 
     return (
       <div
         key={`${column.title}_${columnIndex}`}
-        className={`${style.table_header_cell} ${className} ${columnClassName || ''}`}
-        style={{ width: column.width }}
+        className={localClassName}
+        style={{ width: column.width, left: marginLeft }}
       >
         <span
           title={formattedTitle}
