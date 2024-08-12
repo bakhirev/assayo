@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 
+import IOption from './interfaces/Option';
 import UiKitSelectValue from './components/Value';
 import UiKitSelectSearch from './components/Search';
 import UiKitSelectList from './components/List';
@@ -25,7 +26,7 @@ function UiKitSelect({
   const [search, setSearch] = useState<string>('');
   const [keyCode, setKeyCode] = useState<string>('');
 
-  const formattedOptions = useMemo(() => options?.map(getOption) || [], [options]);
+  const formattedOptions: IOption[] = useMemo(() => options?.map(getOption) || [], [options]);
   const formattedValue = useMemo(() => {
     const selectedOption = options.find((option: any) => option.id === value);
     return getTitle(selectedOption) || getTitle(value);

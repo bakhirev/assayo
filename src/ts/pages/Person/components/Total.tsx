@@ -6,7 +6,7 @@ import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
-import CardWithBanner from 'ts/components/CardWithIcon/Banner';
+import CardWithBanner from 'ts/components/CardWithIcon/components/Banner';
 import Achievements from 'ts/components/Achievement';
 import Description from 'ts/components/Description';
 import PageWrapper from 'ts/components/Page/wrapper';
@@ -37,6 +37,8 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
 const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const { t } = useTranslation();
   const statistic = user;
+  const scoringTotal = dataGripStore.dataGrip.scoring.total;
+  const scoring = dataGripStore.dataGrip.scoring.statisticByName[user.author];
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[user.author];
   const taskNumber = statistic.tasks.length;
   const achievements = achievementByAuthor.authors[statistic.author];
@@ -51,24 +53,40 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             icon="./assets/cards/work_days.png"
             title="page.person.total.daysWorked.title"
             description="page.person.total.daysWorked.description"
+            scoring={{
+              value: scoring.daysWorked,
+              total: scoringTotal.daysWorked,
+            }}
           />
           <CardWithIcon
             value={taskNumber ? taskNumber : null}
             icon="./assets/cards/tasks.png"
             title="page.person.total.tasks.title"
             description="page.person.total.tasks.description"
+            scoring={{
+              value: scoring.tasks,
+              total: scoringTotal.tasks,
+            }}
           />
           <CardWithIcon
             value={statistic.daysLosses}
             icon="./assets/cards/lazy.png"
             title="page.team.total.daysLosses.title"
             description="page.team.total.daysLosses.description"
+            scoring={{
+              value: scoring.daysLosses,
+              total: scoringTotal.daysLosses,
+            }}
           />
           <CardWithIcon
             value={statistic.commits}
             icon="./assets/cards/commits.png"
             title="page.team.total.commits.title"
             description="page.team.total.commits.description"
+            scoring={{
+              value: scoring.commits,
+              total: scoringTotal.commits,
+            }}
           />
           <CardWithBanner long />
         </div>

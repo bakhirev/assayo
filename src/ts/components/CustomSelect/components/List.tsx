@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import UiKitSelectOption from './Option';
+import IOption from '../interfaces/Option';
 
 import style from '../styles/index.module.scss';
 
 interface UiKitSelectListProps {
   value: any;
-  options: any;
+  options: IOption[];
   search?: string;
   keyCode?: string;
   setKeyCode: Function;
@@ -26,8 +27,10 @@ function UiKitSelectList({
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
   console.log(value);
-  const searchResult = options
-    ?.filter((option: any) => option.title.indexOf(search) !== -1);
+  const searchText = search ? search.toLowerCase() : '';
+  const searchResult = searchText
+    ? options?.filter((option: any) => option?._textForSearch?.indexOf(searchText) !== -1)
+    : options;
 
   useEffect(() => {
     if (!keyCode) return;

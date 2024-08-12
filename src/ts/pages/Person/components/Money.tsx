@@ -15,6 +15,8 @@ import IPersonCommonProps from '../interfaces/CommonProps';
 
 const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const statistic = user;
+  const scoringTotal = dataGripStore.dataGrip.scoring.total;
+  const scoring = dataGripStore.dataGrip.scoring.statisticByName[user.author];
   const byTimestamp = dataGripStore.dataGrip.timestamp.statisticByAuthor[statistic.author];
   const taskNumber = statistic.tasks.length;
 
@@ -36,24 +38,40 @@ const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               icon="./assets/cards/money_total.png"
               title="page.person.money.moneyAll.title"
               description="page.person.money.moneyAll.description"
+              scoring={{
+                value: scoring.moneyAll,
+                total: scoringTotal.moneyAll,
+              }}
             />
             <CardWithIcon
               value={getShortMoney(statistic.moneyWorked)}
               icon="./assets/cards/money_work.png"
               title="page.person.money.moneyWorked.title"
               description="page.person.money.moneyWorked.description"
+              scoring={{
+                value: scoring.moneyWorked,
+                total: scoringTotal.moneyWorked,
+              }}
             />
             <CardWithIcon
               value={getShortMoney(statistic.moneyLosses)}
               icon="./assets/cards/money_lazy.png"
               title="page.person.money.moneyLosses.title"
               description="page.person.money.moneyLosses.description"
+              scoring={{
+                value: scoring.moneyLosses,
+                total: scoringTotal.moneyLosses,
+              }}
             />
             <CardWithIcon
               value={getShortMoney(byTimestamp.weekendPayment)}
               icon="./assets/cards/money_holidays.png"
               title="page.team.total.weekendPayment.title"
               description="page.team.total.weekendPayment.description"
+              scoring={{
+                value: scoring.weekendPayment,
+                total: scoringTotal.weekendPayment,
+              }}
             />
           </div>
       </PageColumn>

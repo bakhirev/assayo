@@ -2,7 +2,7 @@ import React from 'react';
 
 import Banner from 'ts/components/Banner';
 
-import style from './index.module.scss';
+import style from '../index.module.scss';
 
 interface ICardWithBannerProps {
   long?: boolean;

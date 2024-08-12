@@ -1,3 +1,5 @@
+import IOption from '../interfaces/Option';
+
 function getStringFromObject(value: any) {
   return value?.title
     || value?.name
@@ -23,8 +25,9 @@ function getValue(
   formatter: (a: any, i?: number) => string,
 ) {
   const type = typeof value;
-  if (type === 'boolean') return value ? 'yes' : 'no';
-  if (type === 'number' || type === 'string') return value;
+  if (type === 'boolean') return value ? 'true' : 'false';
+  if (type === 'number') return `${value}`;
+  if (type === 'string') return value;
   if (!value) return '';
 
   return Array.isArray(value)
@@ -40,10 +43,12 @@ export function getId(value: any, index: number) {
   return getValue(value, (v: any) => getIdFromObject(v, index));
 }
 
-export function getOption(value: any, index: number) {
+export function getOption(value: any, index: number): IOption {
+  const title = getTitle(value);
   return {
     id: getId(value, index),
-    title: getTitle(value),
+    title,
+    _textForSearch: title.toLowerCase(),
     source: value,
   };
 }

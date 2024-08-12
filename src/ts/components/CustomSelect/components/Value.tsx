@@ -1,10 +1,11 @@
 import React from 'react';
 
+import IOption from '../interfaces/Option';
 import style from '../styles/index.module.scss';
 
 interface UiKitSelectValueProps {
   value: any;
-  options: any;
+  options: IOption[];
   className?: string;
   onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

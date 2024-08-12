@@ -2,6 +2,8 @@
 
 .card_with_icon,
 .card_with_icon_long {
+  position: relative;
+
   display: inline-block;
   width: calc(50% - 12px);
   min-height: 270px;
@@ -11,8 +13,9 @@
   vertical-align: top;
   text-decoration: none;
   box-sizing: border-box;
+  text-align: center;
 
-  border-radius: 8px;
+  border-radius: var(--border-radius-m);
   border: 1px solid var(--color-border);
   background-color: var(--color-white);
 
@@ -40,7 +43,8 @@
   }
 
   &_title,
-  &_description {
+  &_description,
+  &_scoring {
     font-weight: 100;
     display: block;
     margin: 0 auto;
@@ -57,7 +61,8 @@
     margin: 0 0 4px 0;
   }
 
-  &_description {
+  &_description,
+  &_scoring {
     font-size: var(--font-xs);
     line-height: 16px;
     color: var(--color-grey);
@@ -67,6 +72,22 @@
     font-size: 32px;
     padding: 0;
     line-height: 270px;
+  }
+
+  &_scoring {
+    position: absolute;
+    bottom: -11px;
+    left: 30%;
+    right: 30%;
+
+    display: inline-block;
+    padding: var(--space-xxxs) var(--space-xs);
+    white-space: nowrap;
+    text-align: center;
+
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
   }
 }
 

@@ -181,6 +181,7 @@ export default `
 § page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты
 § page.person.total.tasks.title: задач
 § page.person.total.tasks.description: Если коммиты правильно подписаны
+§ page.person.scoring.toolbar: Позиция по этой метрике, относительно других сотрудников
 § page.person.character.title: Персонаж
 § page.person.achievement.title: Достижения
 § page.person.achievement.positive: Позитивные

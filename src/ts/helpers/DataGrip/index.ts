@@ -13,6 +13,7 @@ import DataGripByGet from './components/get';
 import DataGripByPR from './components/pr';
 import DataGripByTasks from './components/tasks';
 import DataGripByRelease from './components/release';
+import DataGripByScoring from './components/scoring';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -39,6 +40,8 @@ class DataGrip {
 
   release: any = new DataGripByRelease();
 
+  scoring: any = new DataGripByScoring();
+
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -52,6 +55,7 @@ class DataGrip {
     this.pr.clear();
     this.tasks.clear();
     this.release.clear();
+    this.scoring.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit) {
@@ -81,6 +85,7 @@ class DataGrip {
     this.pr.updateTotalInfo(this.author);
     this.tasks.updateTotalInfo(this.pr);
     this.release.updateTotalInfo();
+    this.scoring.updateTotalInfo(this.author);
   }
 }
 
