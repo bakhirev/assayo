@@ -3,7 +3,7 @@ import ICommit, { IFileChange, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import { ONE_DAY, ONE_WEEK } from 'ts/helpers/formatter';
 
-import getCommitInfo from './getCommitInfo';
+import getCommitInfo, { clearCache } from './getCommitInfo';
 import { getInfoFromPath, getNumStatInfo, getRawInfo } from './getFileChanges';
 
 function updateLineTotal(commit: any, line: any) {
@@ -21,6 +21,7 @@ export default function Parser(report: string[]) {
   let fileChanges: IFileChange | null = null;
 
   let firstMonday = 0;
+  clearCache();
 
   for (let i = 0, l = report.length; i < l; i += 1) {
     const message = report[i];

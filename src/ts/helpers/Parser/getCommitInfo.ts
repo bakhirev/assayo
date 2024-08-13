@@ -13,6 +13,11 @@ let prevDate = new Date();
 
 let refTimestampTime = {};
 
+export function clearCache() {
+  prevDate = new Date();
+  refTimestampTime = {};
+}
+
 export default function getCommitInfo(
   logString: string,
   refEmailAuthor: IHashMap<string>,
