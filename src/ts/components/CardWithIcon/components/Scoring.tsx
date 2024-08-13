@@ -15,6 +15,7 @@ function Scoring({
   total,
 }: IScoringProps): React.ReactElement | null {
   const { t } = useTranslation();
+
   if (!value) return null;
 
   return (

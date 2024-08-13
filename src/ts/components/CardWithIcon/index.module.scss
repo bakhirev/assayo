@@ -1,14 +1,13 @@
 @import 'src/styles/variables';
 
-.card_with_icon,
-.card_with_icon_long {
+.card_with_icon {
   position: relative;
 
   display: inline-block;
   width: calc(50% - 12px);
   min-height: 270px;
-  margin: 0 24px 24px 0;
-  padding: 16px;
+  margin: 0 var(--space-xxl) var(--space-xxl) 0;
+  padding: var(--space-l);
 
   vertical-align: top;
   text-decoration: none;
@@ -35,10 +34,13 @@
   &_value {
     font-weight: bold;
     font-size: 28px;
+
     display: block;
-    margin: 0 0 4px 0;
+    margin: 0 0 var(--space-xxs) 0;
     padding: 0;
+
     text-align: center;
+
     color: var(--color-11);
   }
 
@@ -46,19 +48,22 @@
   &_description,
   &_scoring {
     font-weight: 100;
+
     display: block;
     margin: 0 auto;
     padding: 0;
+
     line-height: 1.3;
     text-align: center;
     text-decoration: none;
+
     color: var(--color-black);
   }
 
   &_title {
     font-size: var(--font-m);
     line-height: 14px;
-    margin: 0 0 4px 0;
+    margin: 0 0 var(--space-xxs) 0;
   }
 
   &_description,
@@ -66,12 +71,6 @@
     font-size: var(--font-xs);
     line-height: 16px;
     color: var(--color-grey);
-  }
-
-  &_banner {
-    font-size: 32px;
-    padding: 0;
-    line-height: 270px;
   }
 
   &_scoring {
@@ -82,6 +81,7 @@
 
     display: inline-block;
     padding: var(--space-xxxs) var(--space-xs);
+
     white-space: nowrap;
     text-align: center;
 
@@ -89,11 +89,31 @@
     border: 1px solid var(--color-border);
     background-color: var(--color-white);
   }
+
+  &_small {
+    min-height: auto;
+    padding: var(--space-l) 0;
+  }
+
+  &_long {
+    width: 100%;
+    margin: 0 0 var(--space-xxl) 0;
+  }
+
+  &_banner {
+    font-size: 32px;
+    padding: 0;
+    line-height: 270px;
+  }
 }
 
-.card_with_icon_long {
-  width: 100%;
-  margin: 0 0 24px 0;
+.card_with_icon_small {
+  .card_with_icon_value {
+    font-size: var(--font-m);
+    font-weight: 100;
+    margin-bottom: var(--space-m);
+    color: var(--color-button-2);
+  }
 }
 
 .card_with_icon:nth-child(2n+2) {
@@ -101,10 +121,9 @@
 }
 
 @media (max-width: 900px) {
-  .card_with_icon,
-  .card_with_icon_long {
+  .card_with_icon {
     min-height: 220px;
-    padding: 16px 0;
+    padding: var(--space-l) 0;
 
     &_title {
       margin: 0;
@@ -117,8 +136,7 @@
 }
 
 @media (max-width: 650px) {
-  .card_with_icon,
-  .card_with_icon_long {
+  .card_with_icon {
     min-height: 190px;
     padding: 32px 0;
 
@@ -139,10 +157,9 @@
 }
 
 @media print {
-  .card_with_icon,
-  .card_with_icon_long {
+  .card_with_icon {
     min-height: 220px;
-    padding: 16px 0;
+    padding: var(--space-l) 0;
 
     &_icon {
       height: 60px;
@@ -155,7 +172,7 @@
 
     &_title {
       font-size: var(--font-s);
-      margin: 0 0 8px 0;
+      margin: 0 0 var(--space-s) 0;
     }
 
     &_description {

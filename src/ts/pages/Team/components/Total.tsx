@@ -54,7 +54,7 @@ const Total = observer((): React.ReactElement => {
             description="page.team.total.employment.description"
           />
           <CardWithIcon
-            long
+            size="l"
             value={workSpeed}
             icon="./assets/cards/tasks_month.png"
             title="page.team.total.workSpeed.title"
@@ -99,7 +99,7 @@ const Total = observer((): React.ReactElement => {
             description="page.team.total.weekendPayment.description"
           />
           <CardWithIcon
-            long
+            size="l"
             value={getShortMoney(moneySpeed)}
             icon="./assets/cards/money_month.png"
             title="page.team.total.moneySpeed.title"

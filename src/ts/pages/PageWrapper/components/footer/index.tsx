@@ -47,7 +47,7 @@ function getMenu(navigate: Function): any[] {
         confirm.open({
           title: 'Вы уверены что хотите выйти?',
         }).then(() => {
-          dataGripStore.setCommits([]);
+          dataGripStore.asyncSetCommits([]);
           navigate('/');
         });
       },

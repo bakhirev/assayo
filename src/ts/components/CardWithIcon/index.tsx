@@ -10,9 +10,8 @@ interface ICardWithIconProps {
   description?: string;
   value: number | string | null;
   suffix?: string;
-  color?: string;
   icon?: string;
-  long?: boolean;
+  size?: 's' | 'm' | 'l';
   scoring?: IScoringProps;
 }
 
@@ -21,43 +20,47 @@ function CardWithIcon({
   description,
   value,
   suffix,
-  color,
   icon,
-  long = false,
+  size,
   scoring,
 }: ICardWithIconProps): React.ReactElement | null {
   const { t } = useTranslation();
 
   if (!value && value !== 0) return null;
 
+  const className = [style.card_with_icon];
+  if (size === 's') className.push(style.card_with_icon_small);
+  if (size === 'l') className.push(style.card_with_icon_long);
+
   return (
-    <figure className={long
-      ? style.card_with_icon_long
-      : style.card_with_icon}>
+    <figure className={className.join(' ')}>
       {icon && (
         <img
           className={style.card_with_icon_icon}
           src={icon}
         />
       )}
-      <p
-        className={style.card_with_icon_value}
-        style={{ color: color || '' }}
-      >
+
+      <p className={style.card_with_icon_value}>
         {value}
         {suffix || ''}
       </p>
+
       <h4 className={style.card_with_icon_title}>
         {t(title || '')}
       </h4>
+
       <figcaption className={style.card_with_icon_description}>
         {t(description || '')}
       </figcaption>
-      <Scoring
-        title={scoring?.title}
-        value={scoring?.value}
-        total={scoring?.total}
-      />
+
+      {scoring ? (
+        <Scoring
+          title={scoring?.title}
+          value={scoring?.value}
+          total={scoring?.total}
+        />
+      ) : null}
     </figure>
   );
 }
@@ -65,9 +68,8 @@ function CardWithIcon({
 CardWithIcon.defaultProps = {
   description: '',
   suffix: '',
-  color: undefined,
   icon: undefined,
-  long: false,
+  size: 'm',
   scoring: undefined,
 };
 

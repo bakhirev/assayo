@@ -11,6 +11,8 @@ const MASTER_BRANCH = {
 
 let prevDate = new Date();
 
+let refTimestampTime = {};
+
 export default function getCommitInfo(
   logString: string,
   refEmailAuthor: IHashMap<string>,
@@ -18,7 +20,7 @@ export default function getCommitInfo(
   // "2021-02-09T12:59:17+03:00>Frolov Ivan>frolov@mail.ru>profile"
   const parts = logString.split('>');
 
-  const sourceDate = parts.shift() || '';
+  const sourceDate = parts[0] || '';
   let date = new Date(sourceDate);
   if (isNaN(date.getDay())) {
     console.log(`PARSE ERROR: Date parse error for: "${logString}"`);
@@ -26,11 +28,14 @@ export default function getCommitInfo(
   }
   prevDate = date;
   const day = date.getDay() - 1;
-  const timestamp = sourceDate.split('T')[0];
+  const timestamp = sourceDate.substring(0, 10); // split('T')[0];
+  if (!refTimestampTime[timestamp]) {
+    refTimestampTime[timestamp] = (new Date(timestamp)).getTime();
+  }
 
-  let author = parts.shift()?.replace(/[._]/gm, ' ') || '';
-  let email = parts.shift() || '';
-  if (!(/@/gim).test(email)) email = '';
+  let author = parts[1]?.replace(/[._]/gm, ' ') || '';
+  let email = parts[2] || '';
+  if (email.indexOf('@') === -1) email = '';
 
   const authorID = author.replace(/\s|\t/gm, '');
   if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
@@ -52,7 +57,8 @@ export default function getCommitInfo(
   refEmailAuthor[author] = email;
   refEmailAuthor[authorID] = author;
 
-  const message = parts.join('>');
+  // performance
+  const message = logString.substring(parts[0]?.length + parts[1]?.length + parts[2]?.length + 3);
 
   const commonInfo: any = {
     date: sourceDate,
@@ -64,7 +70,7 @@ export default function getCommitInfo(
     year: date.getUTCFullYear(),
     week: 0,
     timestamp,
-    milliseconds: (new Date(timestamp)).getTime(),
+    milliseconds: refTimestampTime[timestamp],
 
     author,
     email,
@@ -99,7 +105,7 @@ export default function getCommitInfo(
       task = getTask(branch);
     } else if (isBitbucketPR) {
       commitType = COMMIT_TYPE.PR_BITBUCKET;
-      const messageParts = message.substring(14, Infinity).split(':');
+      const messageParts = message.substring(14).split(':');
       prId = messageParts.shift();
       task = getTask(messageParts.join(':'));
     } else if (isAutoMerge) {

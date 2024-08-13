@@ -82,7 +82,7 @@ const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
         ) : (
           <div>
             <CardWithIcon
-              long
+              size="l"
               value={taskNumber
                 ? getShortMoney(statistic.moneyWorked / taskNumber, 0)
                 : null}
@@ -91,7 +91,7 @@ const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               description="page.person.money.tasks.description"
             />
             <CardWithIcon
-              long
+              size="l"
               value={taskNumber
                 ? getShortMoney(statistic.moneyWorked / statistic.commits, 0)
                 : null}

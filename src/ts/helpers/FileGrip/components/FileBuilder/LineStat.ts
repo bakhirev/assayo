@@ -26,16 +26,20 @@ export default class FileBuilderLineStat {
     file.removedLines += fileChange.removedLines;
     file.changedLines += fileChange.changedLines;
 
-    file.addedLinesByAuthor[commit.author] = file.addedLinesByAuthor[commit.author]
-      ? (file.addedLinesByAuthor[commit.author] + fileChange.addedLines)
+    // TODO: performance
+    const addedLinesByAuthor = file.addedLinesByAuthor[commit.author];
+    file.addedLinesByAuthor[commit.author] = addedLinesByAuthor
+      ? (addedLinesByAuthor + fileChange.addedLines)
       : fileChange.addedLines;
 
-    file.removedLinesByAuthor[commit.author] = file.removedLinesByAuthor[commit.author]
-      ? (file.removedLinesByAuthor[commit.author] + fileChange.removedLines)
+    const removedLinesByAuthor = file.removedLinesByAuthor[commit.author];
+    file.removedLinesByAuthor[commit.author] = removedLinesByAuthor
+      ? (removedLinesByAuthor + fileChange.removedLines)
       : fileChange.removedLines;
 
-    file.changedLinesByAuthor[commit.author] = file.changedLinesByAuthor[commit.author]
-      ? (file.changedLinesByAuthor[commit.author] + fileChange.changedLines)
+    const changedLinesByAuthor = file.changedLinesByAuthor[commit.author];
+    file.changedLinesByAuthor[commit.author] = changedLinesByAuthor
+      ? (changedLinesByAuthor + fileChange.changedLines)
       : fileChange.changedLines;
   }
 

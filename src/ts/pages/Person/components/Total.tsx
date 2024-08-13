@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
 import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
+import { getDate } from 'ts/helpers/formatter';
 
 import CardWithIcon from 'ts/components/CardWithIcon';
 import CardWithBanner from 'ts/components/CardWithIcon/components/Banner';
@@ -48,6 +49,20 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
       <PageColumn>
         <Title title="page.person.total.title"/>
         <div>
+          {false && (
+            <>
+              <CardWithIcon
+                size="s"
+                value={getDate(statistic.firstCommit.timestamp)}
+                title="page.team.tasks.from"
+              />
+              <CardWithIcon
+                size="s"
+                value={getDate(statistic.lastCommit.timestamp)}
+                title="page.team.tasks.to"
+              />
+            </>
+          )}
           <CardWithIcon
             value={statistic.daysWorked}
             icon="./assets/cards/work_days.png"
@@ -88,7 +103,7 @@ const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               total: scoringTotal.commits,
             }}
           />
-          <CardWithBanner long />
+          <CardWithBanner size="l" />
         </div>
         {false && <Title title="page.person.character.title"/>}
         {false && <Character user={statistic} />}

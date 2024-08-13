@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
-import dataGripStore, { DataParseStatusEnum } from 'ts/store/DataGrip';
+import dataGripStore from 'ts/store/DataGrip';
+import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import DropZone from 'ts/components/DropZone';
 import Sponsor from 'ts/components/Sponsor';
 import SplashScreen from 'ts/components/SplashScreen';
@@ -16,11 +17,7 @@ import Welcome from './Welcome/index';
 import Settings from './Settings/index';
 import DebugPage from './Debug/index';
 
-interface IViewWithChartsProps {
-  showSplashScreen: boolean;
-}
-
-function ViewWithCharts({ showSplashScreen }: IViewWithChartsProps) {
+function ViewWithCharts() {
   return (
     <>
       <Sponsor />
@@ -75,7 +72,6 @@ function ViewWithCharts({ showSplashScreen }: IViewWithChartsProps) {
           )}
         />
       </Routes>
-      {showSplashScreen && <SplashScreen />}
     </>
   );
 }
@@ -94,36 +90,38 @@ function ViewWithWelcome() {
 }
 
 const Main = observer(() => {
-  const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
-  const status = dataGripStore.status;
+  const view = viewNameStore.view;
 
   useEffect(() => {
     // @ts-ignore
-    dataGripStore.setCommits(window?.report || []);
+    const list = window?.report || [];
+    if (list?.length) {
+      dataGripStore.asyncSetCommits(list);
+    } else {
+      viewNameStore.toggle(ViewNameEnum.WELCOME);
+    }
   }, []);
 
   useEffect(() => {
-    if (status !== DataParseStatusEnum.DONE || window.location.hash) return;
+    if (view !== ViewNameEnum.INFO || window.location.hash) return;
     window.location.hash = '#/team/total';
-  }, [status]);
+  }, [view]);
 
-  if (status === DataParseStatusEnum.PROCESSING) return null;
+  if (view === ViewNameEnum.EMPTY) return null;
 
   return (
     <>
-      {status === DataParseStatusEnum.DONE && (
-        <ViewWithCharts showSplashScreen={showSplashScreen} />
-      )}
-      {status === DataParseStatusEnum.WAITING && (
+      {view === ViewNameEnum.WELCOME && (
         <ViewWithWelcome />
       )}
+      {view === ViewNameEnum.INFO && (
+        <ViewWithCharts />
+      )}
+      <SplashScreen />
       <DropZone
         onChange={(type: string, data: any[]) => {
-          setShowSplashScreen(false);
-          if (type === 'dump') dataGripStore.setCommits(data);
-          setTimeout(() => {
-            setShowSplashScreen(true);
-          });
+          if (type !== 'dump') return;
+          dataGripStore.asyncSetCommits(data);
         }}
       />
     </>

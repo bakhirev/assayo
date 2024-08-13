@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
@@ -9,27 +9,16 @@ import Parser from 'ts/helpers/Parser';
 import getTitle from 'ts/helpers/Title';
 
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
+import splashScreenStore from 'ts/components/SplashScreen/store';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 import Depersonalized from 'ts/helpers/Depersonalized';
 
 import filtersInHeaderStore from './FiltersInHeader';
+import viewNameStore, { ViewNameEnum } from './ViewName';
 
-export enum DataParseStatusEnum {
-  WAITING = 'waiting',
-  PROCESSING = 'processing',
-  DONE = 'done',
-}
+const PROCESSING_DELAY = 300;
 
-interface IDataGripStore {
-  commits: ICommit[];
-  dataGrip: any;
-  fileGrip: any;
-  status: DataParseStatusEnum;
-  isDepersonalized: boolean;
-  setCommits: (log?: string[]) => void;
-}
-
-class DataGripStore implements IDataGripStore {
+class DataGripStore {
   commits: any[] = [];
 
   dataGrip: any = null;
@@ -40,55 +29,66 @@ class DataGripStore implements IDataGripStore {
 
   isDepersonalized: boolean = false;
 
-  status: DataParseStatusEnum = DataParseStatusEnum.PROCESSING;
-
   constructor() {
     makeObservable(this, {
-      commits: observable,
       dataGrip: observable,
+      fileGrip: observable,
       hash: observable,
       isDepersonalized: observable,
-      status: observable,
-      setCommits: action,
+      asyncSetCommits: action,
+      processingStep01: action,
+      processingStep03: action,
       depersonalized: action,
       updateStatistic: action,
     });
   }
 
-  setCommits(dump?: string[]) {
+  asyncSetCommits(dump?: string[]) {
+    if (!dump?.length) return;
+    splashScreenStore.show();
+    setTimeout(() => this.processingStep01(dump), PROCESSING_DELAY);
+  }
+
+  processingStep01(dump?: string[]) {
     dataGrip.clear();
     fileGrip.clear();
 
     const commits = Parser(dump || []);
+    if (!commits.length) {
+      splashScreenStore.hide();
+      return;
+    }
 
+    setTimeout(() => this.processingStep02(commits), PROCESSING_DELAY);
+  }
+
+  processingStep02(commits: (ICommit | ISystemCommit)[]) {
     commits.sort((a, b) => a.milliseconds - b.milliseconds);
     commits.forEach((commit: ICommit | ISystemCommit) => {
       dataGrip.addCommit(commit);
       fileGrip.addCommit(commit);
     });
-    fileGrip.updateTotalInfo();
 
+    setTimeout(() => this.processingStep03(commits), PROCESSING_DELAY);
+  }
+
+  processingStep03(commits: (ICommit | ISystemCommit)[]) {
+    fileGrip.updateTotalInfo();
     this.commits = commits;
 
-    this.status = this.commits.length
-      ? DataParseStatusEnum.DONE
-      : DataParseStatusEnum.WAITING;
+    filtersInHeaderStore.updateByCommits(
+      dataGrip.firstLastCommit.minData,
+      dataGrip.firstLastCommit.maxData,
+    );
+    setDefaultValues(dataGrip.firstLastCommit.minData, dataGrip.firstLastCommit.maxData);
 
-    if (this.status === DataParseStatusEnum.DONE) {
-      filtersInHeaderStore.updateByCommits(
-        dataGrip.firstLastCommit.minData,
-        dataGrip.firstLastCommit.maxData,
-      );
-      setDefaultValues(dataGrip.firstLastCommit.minData, dataGrip.firstLastCommit.maxData);
+    dataGrip.updateTotalInfo();
+    achievements.updateByGrip(dataGrip, fileGrip);
 
-      dataGrip.updateTotalInfo();
-      achievements.updateByGrip(dataGrip, fileGrip);
-    }
-
+    viewNameStore.toggle(ViewNameEnum.INFO);
     this.#updateRender();
 
     console.dir(this.dataGrip);
-    console.dir(this.fileGrip);
     if (!applicationHasCustom.title) {
       document.title = getTitle(this.dataGrip, this.fileGrip, this.commits);
     }

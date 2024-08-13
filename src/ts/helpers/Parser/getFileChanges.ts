@@ -19,7 +19,7 @@ function getFilePath(path: string): string[] {
   return [oldPath, newPath];
 }
 
-// "38	9	src/app.css" -> [38, 9, 9, 'src/app.css']
+// "38	9	src/app.css" -> [38, 9, 'src/app.css']
 export function getNumStatInfo(message: string) {
   let [addedRaw, removedRaw, path] = message.split('\t');
 
@@ -50,16 +50,17 @@ export function getNumStatInfo(message: string) {
 }
 // ":000000 100644 000000000 fc44b0a37 A	public/logo192.png" -> ['A', 'public/logo192.png']
 export function getRawInfo(message: string) {
-  const action = message[35];
-  const path = message.split('\t')[1];
-  return { path, action };
+  return {
+    action:message[35],
+    path: message.substring(37),
+  };
 }
 
 // "src/AppGit.css" -> { id: 'src/appgit.css', path: 'src/AppGit.css' }
 export function getInfoFromPath(path: string): IFileChange {
   const [oldPath, newPath] = getFilePath(path);
 
-  const id = oldPath.toLowerCase();
+  const id = oldPath.toLowerCase(); // TODO: performance
   const newId = newPath?.toLowerCase();
 
   return {

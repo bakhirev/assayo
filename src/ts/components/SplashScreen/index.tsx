@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
 
 import Logo from 'ts/pages/PageWrapper/components/sidebar/Logo';
-import globalScroll from 'ts/helpers/globalScroll';
 
+import splashScreenStore from './store';
 import style from './index.module.scss';
 import progress from './progress.module.scss';
 
-function SplashScreen(): React.ReactElement | null {
-
+const SplashScreen = observer((): React.ReactElement | null  => {
   useEffect(() => {
-    globalScroll.off(5400);
-  }, []);
+    if (!splashScreenStore.isOpen) return;
+    setTimeout(() => {
+      splashScreenStore.hide();
+    }, 5400);
+  }, [splashScreenStore.isOpen]);
+
+  if (!splashScreenStore.isOpen) return null;
 
   return (
     <div className={style.splash_screen}>
@@ -20,6 +25,6 @@ function SplashScreen(): React.ReactElement | null {
       </div>
     </div>
   );
-}
+});
 
 export default SplashScreen;

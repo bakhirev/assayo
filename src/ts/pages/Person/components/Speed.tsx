@@ -65,14 +65,14 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
         <Title title="page.person.speed.max"/>
         <div>
           <CardWithIcon
-            long
+            size="l"
             value={byTimestamp.tasksByTimestampCounter.max}
             icon="./assets/cards/tasks.png"
             title="page.person.speed.tasks.title"
             description="page.person.speed.tasks.description"
           />
           <CardWithIcon
-            long
+            size="l"
             value={byTimestamp.commitsByTimestampCounter.max}
             icon="./assets/cards/commits.png"
             title="page.person.speed.maxCommits.title"

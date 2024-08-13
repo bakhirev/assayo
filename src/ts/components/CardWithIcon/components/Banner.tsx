@@ -5,23 +5,24 @@ import Banner from 'ts/components/Banner';
 import style from '../index.module.scss';
 
 interface ICardWithBannerProps {
-  long?: boolean;
+  size?: 's' | 'm' | 'l';
 }
 
-function CardWithBanner({
-  long = false,
-}: ICardWithBannerProps): React.ReactElement | null {
-  const className = long
-    ? style.card_with_icon_long
-    : style.card_with_icon;
+function CardWithBanner({ size }: ICardWithBannerProps): React.ReactElement | null {
+  const className = [
+    style.card_with_icon,
+    style.card_with_icon_banner,
+  ];
+  if (size === 's') className.push(style.card_with_icon_small);
+  if (size === 'l') className.push(style.card_with_icon_long);
 
   return (
-    <Banner className={`${className} ${style.card_with_icon_banner}`} />
+    <Banner className={className.join(' ')} />
   );
 }
 
 CardWithBanner.defaultProps = {
-  long: false,
+  size: 'm',
 };
 
 export default CardWithBanner;
