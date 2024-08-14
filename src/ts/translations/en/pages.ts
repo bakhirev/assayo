@@ -181,6 +181,7 @@ export default `
 § page.person.total.daysWorked.description: Only days with commits are counted
 § page.person.total.tasks.title: tasks
 § page.person.total.tasks.description: If commits are properly signed
+§ page.person.scoring.toolbar: Position by this metric, relative to other employees
 § page.person.character.title: Character
 § page.person.achievement.title: Achievements
 § page.person.achievement.positive: Positive
