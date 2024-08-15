@@ -79,7 +79,7 @@ export default class DataGripByTimestamp {
     for (let author in this.commitsByAuthor) {
       const statistic = this.#getTotalInfo(this.commitsByAuthor[author]);
       statistic.weekendPayment = this.#getWeekendPaymentByAuthor(statistic, dataGripByAuthor.statisticByName[author]);
-      this.statisticByAuthor[author] = statistic;
+      this.statisticByAuthor[author] = statistic; // TODO: странный результат, неверный расчёт?
       this.statistic.weekendPayment += statistic.weekendPayment;
     }
   }
@@ -119,7 +119,8 @@ export default class DataGripByTimestamp {
 
   #getWeekendPaymentByAuthor(statistic: any, dataGripByAuthor: any) {
     if (dataGripByAuthor.isStaff) return 0;
-    const salaryInDay = userSettings.getCurrentSalaryInMonth(dataGripByAuthor.author); // TODO: need middle salary in month
+    const salaryInMonth = userSettings.getCurrentSalaryInMonth(dataGripByAuthor.author);
+    const salaryInDay = (salaryInMonth / 22) * 2; // TODO: только по ТК РФ
     const saturday = statistic.workByDay[5] * salaryInDay;
     const sunday = statistic.workByDay[6] * salaryInDay;
     return saturday + sunday;

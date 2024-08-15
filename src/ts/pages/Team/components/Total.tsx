@@ -30,22 +30,10 @@ const Total = observer((): React.ReactElement => {
         <Title title="page.team.total.titleA"/>
         <div>
           <CardWithIcon
-            value={statistic.daysWorked}
-            icon="./assets/cards/work_days.png"
-            title="page.team.total.daysWorked.title"
-            description="page.team.total.daysWorked.description"
-          />
-          <CardWithIcon
-            value={statistic.commits}
-            icon="./assets/cards/commits.png"
-            title="page.team.total.commits.title"
-            description="page.team.total.commits.description"
-          />
-          <CardWithIcon
-            value={statistic.daysLosses}
-            icon="./assets/cards/lazy.png"
-            title="page.team.total.daysLosses.title"
-            description="page.team.total.daysLosses.description"
+            value={workSpeed}
+            icon="./assets/cards/tasks_month.png"
+            title="page.team.total.workSpeed.title"
+            description="page.team.total.workSpeed.description"
           />
           <CardWithIcon
             value={`${employment.active.length} / ${employment.dismissed.length}`}
@@ -54,11 +42,23 @@ const Total = observer((): React.ReactElement => {
             description="page.team.total.employment.description"
           />
           <CardWithIcon
+            value={statistic.daysWorked}
+            icon="./assets/cards/work_days.png"
+            title="page.team.total.daysWorked.title"
+            description="page.team.total.daysWorked.description"
+          />
+          <CardWithIcon
+            value={statistic.daysLosses}
+            icon="./assets/cards/lazy.png"
+            title="page.team.total.daysLosses.title"
+            description="page.team.total.daysLosses.description"
+          />
+          <CardWithIcon
             size="l"
-            value={workSpeed}
-            icon="./assets/cards/tasks_month.png"
-            title="page.team.total.workSpeed.title"
-            description="page.team.total.workSpeed.description"
+            value={statistic.commits}
+            icon="./assets/cards/commits.png"
+            title="page.team.total.commits.title"
+            description="page.team.total.commits.description"
           />
         </div>
         <Description
