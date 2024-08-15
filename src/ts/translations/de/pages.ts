@@ -179,7 +179,7 @@ export default `
 § page.person.total.daysWorked.description: Only days with commits are counted
 § page.person.total.tasks.title: tasks
 § page.person.total.tasks.description: If commits are properly signed
-§ page.person.scoring.toolbar: Position by this metric, relative to other employees
+§ page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
 § page.person.character.title: Character
 § page.person.achievement.title: Achievements
 § page.person.achievement.positive: Positive
