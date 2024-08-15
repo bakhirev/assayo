@@ -13,6 +13,7 @@ function UiKitTags({
 }: IUiKitTagsProps) {
   const values = Array.isArray(value) ? value : [value];
   const formattedValues = values.filter((v) => v);
+  if (!formattedValues?.length) return null;
 
   const items = formattedValues
     .map((tagValue: any) => (
@@ -21,6 +22,8 @@ function UiKitTags({
         value={tagValue}
       />
     ));
+
+  if (!items?.length) return null;
 
   return (
     <div className={style.ui_kit_tags}>

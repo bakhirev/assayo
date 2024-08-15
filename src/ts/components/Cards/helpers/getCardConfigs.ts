@@ -8,9 +8,13 @@ function getCardConfigs(
     column: IColumn,
     index: number,
   ) => {
+    if (index === 0) {
+      acc.text.push(column);
+      return acc;
+    }
+
     const nextColumn = dirtyColumns[index + 1];
-    if (column.template === ColumnTypesEnum.SHORT_NUMBER
-      && typeof nextColumn?.template === 'function') {
+    if (column.template === ColumnTypesEnum.SHORT_NUMBER && typeof nextColumn?.template === 'function') {
       acc.text.push({
         ...column,
         title: nextColumn?.title,

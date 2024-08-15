@@ -17,17 +17,21 @@ function Line({
   item,
   value,
   className,
-}: ILineProps): JSX.Element {
+}: ILineProps): JSX.Element | null {
   const { t } = useTranslation();
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', item)
     : column.className;
 
+  const type = typeof value;
+  if (!column.title
+   || type === 'undefined'
+   || value === ''
+   || (type === 'number' && isNaN(value as number))
+   || (type === 'object' && !value)) return null;
+
   return (
-    <div
-      key={column.title}
-      className={`${style.card_line} ${className || ''} ${columnClassName || ''}`}
-    >
+    <div className={`${style.card_line} ${className || ''} ${columnClassName || ''}`}>
       <div className={style.card_line_title}>
         {t(column.title || '')}
       </div>

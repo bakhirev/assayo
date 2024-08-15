@@ -7,7 +7,7 @@
   &_item {
     display: inline-block;
     padding: var(--space-xxxs) var(--space-xs);
-    margin: 0 var(--space-xs) var(--space-xs) 0;
+    margin: 0 0 var(--space-xs) 0;
 
     font-size: var(--font-s);
     font-weight: 100;
@@ -24,4 +24,8 @@
     background-color: var(--color-border);
     color: var(--color-black);
   }
+}
+
+.ui_kit_tags_item + .ui_kit_tags_item {
+  margin-right: var(--space-xs);
 }
