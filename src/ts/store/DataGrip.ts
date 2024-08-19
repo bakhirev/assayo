@@ -13,6 +13,7 @@ import splashScreenStore from 'ts/components/SplashScreen/store';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 import Depersonalized from 'ts/helpers/Depersonalized';
 
+import userSettingsStore from './UserSettings';
 import filtersInHeaderStore from './FiltersInHeader';
 import viewNameStore, { ViewNameEnum } from './ViewName';
 
@@ -105,13 +106,15 @@ class DataGripStore {
     dataGrip.clear();
     fileGrip.clear();
 
+    // const message = userSettingsStore.settings?.commitFilters?.message || '';
+    // const messageCheck = message ? new RegExp(message) : null;
+
     const depersonalized = new Depersonalized();
     this.commits.forEach((commit: ICommit | ISystemCommit) => {
       if (commit.timestamp < filtersInHeaderStore.from
         || commit.timestamp > filtersInHeaderStore.to) return;
 
-      // if ((commit.message || '').indexOf('Deploying') !== -1) return;
-      // if ((commit.message || '').indexOf('Deployed') !== -1) return;
+      // if (messageCheck && messageCheck.test(commit.message || '')) return;
 
       const localCommit = this.isDepersonalized
         ? depersonalized.getCommit(commit)

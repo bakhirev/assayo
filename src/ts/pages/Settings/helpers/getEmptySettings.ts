@@ -63,6 +63,10 @@ export default function getEmptySettings(): IUserSetting {
       pr: 'https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/',
       // https://gitlab.com/___/___/-/merge_requests/100500
     },
+    // commitFilters: {
+    //   author: '',
+    //   message: '',
+    // },
     employees: [],
   };
 }

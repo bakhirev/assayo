@@ -4,7 +4,7 @@ const PROPERTIES = [
   { property: 'daysWorked', sort: 1 },
   { property: 'daysLosses', sort: -1 },
   { property: 'commits', sort: 1 },
-  { property: 'tasks', sort: 1 },
+  { property: 'tasks', sort: 1, isNeedTasks: true },
   { property: 'moneyAll', sort: 1 },
   { property: 'moneyWorked', sort: 1 },
   { property: 'moneyLosses', sort: -1 },
@@ -12,21 +12,25 @@ const PROPERTIES = [
   {
     property: 'daysForTask',
     sort: -1,
-    formatter: (user: any) => user.daysForTask && user.tasks.length ? user.daysForTask : Infinity,
+    isNeedTasks: true,
+    formatter: (user: any) => user.daysForTask,
   },
   {
     property: 'commitsForTask',
     sort: 1,
-    formatter: (user: any) => user.tasks.length ? (user.commits / user.tasks.length) : Infinity,
+    isNeedTasks: true,
+    formatter: (user: any) => user.commits / user.tasks.length,
   },
   {
     property: 'linesForTask',
     sort: -1,
-    formatter: (user: any) => user.tasks.length ? user.changesForTask : Infinity,
+    isNeedTasks: true,
+    formatter: (user: any) => user.changesForTask,
   },
   {
     property: 'speedMaxTasks',
     sort: 1,
+    isNeedTasks: true,
     formatter: (user: any, timestamp: any) => timestamp.tasksByTimestampCounter.max,
   },
   {
@@ -37,6 +41,7 @@ const PROPERTIES = [
   {
     property: 'moneyForTask',
     sort: 1,
+    isNeedTasks: true,
     formatter: (user: any) => user.moneyWorked / user.tasks.length,
   },
   {
@@ -46,19 +51,23 @@ const PROPERTIES = [
   },
 ];
 
-function getValue(config: any, user: any, dataGripByTimestamp: any) {
-  const timestamp = dataGripByTimestamp.statisticByAuthor[user.author];
-  if (config.formatter) {
-    return config.formatter(user, timestamp);
-  }
+function getValues(config: any, dataGripByTimestamp: any) {
+  return (user: any) => {
+    const timestamp = dataGripByTimestamp.statisticByAuthor[user.author];
+    if (config.isNeedTasks && !user.tasks.length) return NaN;
 
-  const value = user[config.property]
-    || timestamp[config.property]
-    || 0;
+    if (config.formatter) {
+      return config.formatter(user, timestamp);
+    }
 
-  return Array.isArray(value)
-    ? value?.length
-    : value;
+    const value = user[config.property]
+      || timestamp[config.property]
+      || 0;
+
+    return Array.isArray(value)
+      ? value?.length
+      : value;
+  };
 }
 
 export default class DataGripByScoring {
@@ -83,7 +92,10 @@ export default class DataGripByScoring {
     });
 
     PROPERTIES.forEach((config: any) => {
-      const values = list.map((user: any) => getValue(config, user, dataGripByTimestamp));
+      const getValue = getValues(config, dataGripByTimestamp);
+      const values = list
+        .map(getValue)
+        .filter((value: number) => !isNaN(value));
 
       const uniqValues = Array.from(new Set(values));
       const places = uniqValues
