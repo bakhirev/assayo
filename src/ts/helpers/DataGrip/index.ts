@@ -85,7 +85,7 @@ class DataGrip {
     this.pr.updateTotalInfo(this.author);
     this.tasks.updateTotalInfo(this.pr);
     this.release.updateTotalInfo();
-    this.scoring.updateTotalInfo(this.author);
+    this.scoring.updateTotalInfo(this.author, this.timestamp);
   }
 }
 

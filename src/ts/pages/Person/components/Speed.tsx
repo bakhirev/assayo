@@ -17,6 +17,8 @@ import IPersonCommonProps from '../interfaces/CommonProps';
 const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const statistic = user;
   const byTimestamp = dataGripStore.dataGrip.timestamp.statisticByAuthor[statistic.author];
+  const scoring = dataGripStore.dataGrip.scoring.statisticByName[user.author];
+  const scoringTotal = dataGripStore.dataGrip.scoring.total;
   const taskNumber = statistic.tasks.length;
 
   if (statistic.isStaff) {
@@ -42,6 +44,10 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               icon="./assets/cards/month.png"
               title="page.person.speed.days.title"
               description="page.person.speed.days.description"
+              scoring={{
+                value: scoring.daysForTask,
+                total: scoringTotal.daysForTask,
+              }}
             />
             <CardWithIcon
               value={taskNumber
@@ -50,12 +56,20 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               icon="./assets/cards/commits.png"
               title="page.person.speed.commits.title"
               description="page.person.speed.commits.description"
+              scoring={{
+                value: scoring.commitsForTask,
+                total: scoringTotal.commitsForTask,
+              }}
             />
             <CardWithIcon
               value={taskNumber ? statistic.changesForTask : null}
               icon="./assets/cards/lines.png"
               title="page.person.speed.line.title"
               description="page.person.speed.line.description"
+              scoring={{
+                value: scoring.linesForTask,
+                total: scoringTotal.linesForTask,
+              }}
             />
             <CardWithBanner />
           </div>
@@ -70,6 +84,10 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             icon="./assets/cards/tasks.png"
             title="page.person.speed.tasks.title"
             description="page.person.speed.tasks.description"
+            scoring={{
+              value: scoring.speedMaxTasks,
+              total: scoringTotal.speedMaxTasks,
+            }}
           />
           <CardWithIcon
             size="l"
@@ -77,6 +95,10 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
             icon="./assets/cards/commits.png"
             title="page.person.speed.maxCommits.title"
             description="page.person.speed.maxCommits.description"
+            scoring={{
+              value: scoring.speedMaxCommits,
+              total: scoringTotal.speedMaxCommits,
+            }}
           />
         </div>
       </PageColumn>

@@ -2,7 +2,11 @@ const custom = require('./custom');
 const TableOfContent = require('./TableOfContent');
 
 function addListWithPrefix(list, markdown, prefix = '') {
-  (list || []).forEach((text) => text ? markdown.push(`${prefix}${text}`) : '');
+  if (Array.isArray(list)) {
+    (list || []).forEach((text) => text ? markdown.push(`${prefix}${text}`) : '');
+  } else if (typeof list === 'string') {
+    markdown.push(`${prefix}${list}`);
+  }
 }
 
 function addList(list, markdown) {

@@ -98,13 +98,19 @@
         ]
     },
     {
-        "p": "Git creará un archivo `log.txt`."
+        "p": "Git creará un archivo `log.txt`. contiene los datos para construir el informe. La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`"
     },
     {
-        "p": "contiene los datos para construir el informe. "
+        "h4": "If you use PowerShell in Windows"
     },
     {
-        "p": "La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`"
+        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
+    },
+    {
+        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+    },
+    {
+        "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
         "h3": "¿Cómo ver el informe?"

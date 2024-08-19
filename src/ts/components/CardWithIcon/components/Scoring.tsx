@@ -19,11 +19,13 @@ function Scoring({
   if (!value) return null;
 
   return (
-    <div
-      title={t(title || 'page.person.scoring.toolbar')}
-      className={style.card_with_icon_scoring}
-    >
-      {`${value} / ${total || value}`}
+    <div className={style.card_with_icon_scoring_wrapper}>
+      <div
+        title={t(title || 'page.person.scoring.toolbar')}
+        className={style.card_with_icon_scoring}
+      >
+        {`${value} / ${total || value}`}
+      </div>
     </div>
   );
 }

@@ -98,13 +98,19 @@
         ]
     },
     {
-        "p": "Git会创建一个文件 `log.txt`."
+        "p": "Git会创建一个文件 `log.txt`. 这个文件包含了构建报告的数据。 字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`"
     },
     {
-        "p": "这个文件包含了构建报告的数据。 "
+        "h4": "If you use PowerShell in Windows"
     },
     {
-        "p": "字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`"
+        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
+    },
+    {
+        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+    },
+    {
+        "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
         "h3": "如何在线查看报告？"

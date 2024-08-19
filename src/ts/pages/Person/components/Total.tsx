@@ -38,9 +38,9 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
 const Total = observer(({ user }: IPersonCommonProps): React.ReactElement => {
   const { t } = useTranslation();
   const statistic = user;
-  const scoringTotal = dataGripStore.dataGrip.scoring.total;
-  const scoring = dataGripStore.dataGrip.scoring.statisticByName[user.author];
   const commitsWithGet = dataGripStore.dataGrip.get.getsByAuthor[user.author];
+  const scoring = dataGripStore.dataGrip.scoring.statisticByName[user.author];
+  const scoringTotal = dataGripStore.dataGrip.scoring.total;
   const taskNumber = statistic.tasks.length;
   const achievements = achievementByAuthor.authors[statistic.author];
 

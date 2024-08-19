@@ -36,28 +36,29 @@ Visualización y análisis de los datos de su repositorio git. ([demo](https://a
 - [Cómo descargar los datos desde git?](#link-6)
   - [Para la visualización en línea](#link-7)
   - [Para ver sin conexión](#link-8)
-- [¿Cómo ver el informe?](#link-9)
-  - [Online](#link-10)
-  - [Offline](#link-11)
-- [Como recompilar el build de un informe?](#link-12)
-- [Como mirar el reporte de un grupo de microservicios?](#link-13)
-- [¿Cómo puedo personalizar la interfaz de usuario?](#link-14)
-- [¿Cómo firmar los commits?](#link-15)
-- [How to add checking for commit message?](#link-16)
-  - [ Use file commit-msg](#link-17)
-  - [ Use package pre-commit](#link-18)
-- [¿Cómo automatizar el recolección de datos?](#link-19)
-  - [With backend](#link-20)
-  - [Sin backend](#link-21)
-- [DevOps ](#link-22)
-  - [Servidor público](#link-23)
-  - [Servidor privado](#link-24)
-  - [Actualización de la imagen Docker](#link-25)
-- [️ About application](#link-26)
-  - [Architecture](#link-27)
-  - [Los lanzamientos son aproximadamente una vez cada seis meses. Lo siguiente será:](#link-28)
-  - [¿Cómo añadir o editar una traducción?](#link-29)
-  - [Deseos, comentarios](#link-30)
+  - [If you use PowerShell in Windows](#link-9)
+- [¿Cómo ver el informe?](#link-10)
+  - [Online](#link-11)
+  - [Offline](#link-12)
+- [Como recompilar el build de un informe?](#link-13)
+- [Como mirar el reporte de un grupo de microservicios?](#link-14)
+- [¿Cómo puedo personalizar la interfaz de usuario?](#link-15)
+- [¿Cómo firmar los commits?](#link-16)
+- [How to add checking for commit message?](#link-17)
+  - [ Use file commit-msg](#link-18)
+  - [ Use package pre-commit](#link-19)
+- [¿Cómo automatizar el recolección de datos?](#link-20)
+  - [With backend](#link-21)
+  - [Sin backend](#link-22)
+- [DevOps ](#link-23)
+  - [Servidor público](#link-24)
+  - [Servidor privado](#link-25)
+  - [Actualización de la imagen Docker](#link-26)
+- [️ About application](#link-27)
+  - [Architecture](#link-28)
+  - [Los lanzamientos son aproximadamente una vez cada seis meses. Lo siguiente será:](#link-29)
+  - [¿Cómo añadir o editar una traducción?](#link-30)
+  - [Deseos, comentarios](#link-31)
 <a name="link-4"></a>
 ### 🚀 Cómo puedo rápidamente ver el número de commits?
 En la carpeta raíz de su proyecto, ejecute:
@@ -88,41 +89,46 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
-Git creará un archivo `log.txt`.
-contiene los datos para construir el informe. 
-La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`
+Git creará un archivo `log.txt`. contiene los datos para construir el informe. La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`
 <a name="link-9"></a>
-### 📈 ¿Cómo ver el informe?
+####  If you use PowerShell in Windows
+By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+```
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+```
+Or open a saved file and manually change the encoding to UTF-8.
 <a name="link-10"></a>
+### 📈 ¿Cómo ver el informe?
+<a name="link-11"></a>
 ####  Online
 - Ir a [sitio web](https://assayo.online/)
 - Pulse el botón [Demo](https://assayo.online/demo?ref=github&lang=es)»
 - Arrastrar y soltar archivo `log.txt` en la ventana del navegador
-<a name="link-11"></a>
+<a name="link-12"></a>
 ####  Offline
 - Descargar este repositorio
 - Arrastrar y soltar archivo `log.txt` en la carpeta `/build`
 - Lanzar `/build/index.html`
 - O arrastrar una carpeta `/build` a su repositorio (donde se encuentra ' log.txt`). Puede cambiar el nombre. Por ejemplo `/build` contra `/report`
 En este caso, es importante que el archivo ' log.txt ' fue generado por el equipo para ver sin conexión.
-<a name="link-12"></a>
+<a name="link-13"></a>
 ### 🏭 Como recompilar el build de un informe?
 - Descargar este repositorio
 - Ejecutar `npm install`
 - Ejecutar `npm run build:local`
 - La nueva compilación estará en el directorio `/build`
-<a name="link-13"></a>
+<a name="link-14"></a>
 ### 🗃️ Como mirar el reporte de un grupo de microservicios?
 - Generar para cada microservicio el archivo `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Ver “Cómo ver el informe en línea?”. En el último paso, arrastrar todos los archivos al navegador.
 - Ver “Cómo ver informe fuera de línea?”. En el segundo paso, arrastrar los archivos de todos los microservicios al navegador (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) la carpeta informe (`/build`).
-<a name="link-14"></a>
+<a name="link-15"></a>
 ### 🎨 ¿Cómo puedo personalizar la interfaz de usuario?
 Puedes crear tu propio tema para la interfaz. Puedes cambiar:
 - **El título**. Puedes especificarlo en el parámetro de la URL ```title```. Por ejemplo: ```?title=You Company```
 - **El tema visual**. Para esto, debes preparar un archivo CSS con los nuevos estilos y especificar su dirección en el parámetro de URL ```theme```. Por ejemplo: ```?theme=//company.com/some.css```. Puedes usar los nombres de clases como selectores. La mayoría de ellos no cambia con el lanzamiento de nuevas versiones.
 - **La lengua**. Puedes especificarla en el parámetro de la URL ```lang```. Por ejemplo: ```?lang=es```
-<a name="link-15"></a>
+<a name="link-16"></a>
 ### 📝 ¿Cómo firmar los commits?
 Siga la práctica [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Por ejemplo:
 ```
@@ -132,9 +138,9 @@ JIRA-1234 feat(profile): Added avatar for user
 - tipo de trabajo `(feat, fix, style, refactor, test, doc etc.)`
 - ficha `(profile - La sección del sitio, la página o la nueva funcionalidad, en una palabra)`
 - ¿qué problema resolvieron? `(Added avatar for user)`
-<a name="link-16"></a>
-### 👮 How to add checking for commit message?
 <a name="link-17"></a>
+### 👮 How to add checking for commit message?
+<a name="link-18"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -145,7 +151,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-18"></a>
+<a name="link-19"></a>
 ####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
@@ -157,12 +163,12 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-19"></a>
-### 📚 ¿Cómo automatizar el recolección de datos?
 <a name="link-20"></a>
+### 📚 ¿Cómo automatizar el recolección de datos?
+<a name="link-21"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
-<a name="link-21"></a>
+<a name="link-22"></a>
 ####  Sin backend
 - clone del repositorio que desea;
 - copiar a la carpeta raíz `build`;
@@ -170,15 +176,15 @@ fi
 - agregue un icono de `build/assets/ci-cd.sh` a su carpeta de inicio automático
  (Windows);
 Cada vez que reinicie su computadora, el script actualizará la estadística de todos los datos que se hayan incorporado automáticamente a la rama principal.
-<a name="link-22"></a>
-### 🛠️ DevOps (CI/CD)
 <a name="link-23"></a>
+### 🛠️ DevOps (CI/CD)
+<a name="link-24"></a>
 ####  Servidor público
 Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://assayo.online/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:
 ```
 https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-24"></a>
+<a name="link-25"></a>
 ####  Servidor privado
 - descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);
 - recogerlo en la red local;
@@ -189,23 +195,23 @@ assayo_url - URL dirección del contenedor assayo, Él está escuchando el puert
 you_url    - URL la dirección de su contenedor con registros git;
 ```
 Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.0.1:80/```. Si no funciona, compruebe si tiene el puerto 80 disponible
-<a name="link-25"></a>
+<a name="link-26"></a>
 ####  Actualización de la imagen Docker
 - construir ```npm run build:docker```
 - montar la imagen ```docker build -t assayo .```
 - comprobar visualmente la imagen ```docker run --name assayo -p 80:80 -d assayo```;
 - poner la etiqueta ```docker tag assayo bakhirev/assayo:latest```;
 - poner la imagen en Docker Hub ```docker push bakhirev/assayo:latest```;
-<a name="link-26"></a>
-### 🛠️ ️ About application
 <a name="link-27"></a>
+### 🛠️ ️ About application
+<a name="link-28"></a>
 #### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-28"></a>
+<a name="link-29"></a>
 #### 🈯 Los lanzamientos son aproximadamente una vez cada seis meses. Lo siguiente será:
 - más consejos y logros;
 - resultados del año / mes, impresión de informes;
@@ -213,11 +219,11 @@ Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.
 - análisis de archivos;
 - diferentes roles para estadísticas (ocultación de finanzas);
 - desarrollo de la parte de atrás, integraciones con otros sistemas;
-<a name="link-29"></a>
+<a name="link-30"></a>
 #### 🗺️ ¿Cómo añadir o editar una traducción?
 Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```.
 [Instrucciones](https://github.com/firstcontributions/first-contributions)
-<a name="link-30"></a>
+<a name="link-31"></a>
 #### 📧 Deseos, comentarios
 - telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)

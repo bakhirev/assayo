@@ -98,13 +98,19 @@
         ]
     },
     {
-        "p": "Git criar um ficheiro `log.txt`."
+        "p": "Git criar um ficheiro `log.txt`. Esse arquivo contém dados para construção de relatórios. A diferença entre os formatos está na existência de uma envoltória para as linhas. O formato sem internet será puxado como `js` o arquivo se você o abriu simplesmente `/build/index.html`"
     },
     {
-        "p": "Esse arquivo contém dados para construção de relatórios. "
+        "h4": "If you use PowerShell in Windows"
     },
     {
-        "p": "A diferença entre os formatos está na existência de uma envoltória para as linhas. O formato sem internet será puxado como `js` o arquivo se você o abriu simplesmente `/build/index.html`"
+        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
+    },
+    {
+        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+    },
+    {
+        "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
         "h3": "Como ver o relatório?"

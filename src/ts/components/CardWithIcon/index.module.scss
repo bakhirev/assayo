@@ -73,21 +73,28 @@
     color: var(--color-grey);
   }
 
-  &_scoring {
-    position: absolute;
-    bottom: -11px;
-    left: 30%;
-    right: 30%;
 
+  &_scoring {
     display: inline-block;
+    min-width: 80px;
+    max-width: 80%;
     padding: var(--space-xxxs) var(--space-xs);
+    margin: 0 auto;
 
     white-space: nowrap;
-    text-align: center;
 
     border-radius: var(--border-radius-s);
     border: 1px solid var(--color-border);
     background-color: var(--color-white);
+
+    &_wrapper {
+      position: absolute;
+      bottom: -11px;
+      left: 0;
+      right: 0;
+
+      text-align: center;
+    }
   }
 
   &_small {

@@ -89,6 +89,10 @@ const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               icon="./assets/cards/money_task.png"
               title="page.person.money.tasks.title"
               description="page.person.money.tasks.description"
+              scoring={{
+                value: scoring.moneyForTask,
+                total: scoringTotal.moneyForTask,
+              }}
             />
             <CardWithIcon
               size="l"
@@ -98,6 +102,10 @@ const Money = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               icon="./assets/cards/money_work.png"
               title="page.person.money.commits.title"
               description="page.person.money.commits.description"
+              scoring={{
+                value: scoring.moneyForCommit,
+                total: scoringTotal.moneyForCommit,
+              }}
             />
           </div>
         )}

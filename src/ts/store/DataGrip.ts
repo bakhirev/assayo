@@ -110,6 +110,9 @@ class DataGripStore {
       if (commit.timestamp < filtersInHeaderStore.from
         || commit.timestamp > filtersInHeaderStore.to) return;
 
+      // if ((commit.message || '').indexOf('Deploying') !== -1) return;
+      // if ((commit.message || '').indexOf('Deployed') !== -1) return;
+
       const localCommit = this.isDepersonalized
         ? depersonalized.getCommit(commit)
         : commit;

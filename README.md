@@ -98,6 +98,16 @@ Git will create a file `log.txt`.
 This file contains data for show a report.
 The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
 
+#### If you use PowerShell in Windows
+
+By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+
+```
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+```
+Or open a saved file and manually change the encoding to UTF8.
+
+
 <a name="link-6"></a>
 ### 📈 How to view the report?
 <a name="link-7"></a>

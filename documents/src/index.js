@@ -27,6 +27,6 @@ function JsonToMd(lang) {
   fs.writeFileSync(`../${lang.toUpperCase()}.md`, content);
 }
 
-languages.forEach(MdToJson);
+// languages.forEach(MdToJson);
 languages.forEach(JsonToMd);
 

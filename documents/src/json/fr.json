@@ -98,13 +98,19 @@
         ]
     },
     {
-        "p": "Git va créer le fichier `log.txt`."
+        "p": "Git va créer le fichier `log.txt`. Son contenu est destiné à la création de rapports. La différence entre le format en ligne et le format hors ligne réside dans l’enveloppe des lignes. Le format hors ligne sera chargé comme un fichier js si vous avez simplement ouvert `/build/index.html`"
     },
     {
-        "p": "Son contenu est destiné à la création de rapports.  "
+        "h4": "If you use PowerShell in Windows"
     },
     {
-        "p": "La différence entre le format en ligne et le format hors ligne réside dans l’enveloppe des lignes. Le format hors ligne sera chargé comme un fichier js si vous avez simplement ouvert `/build/index.html`"
+        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
+    },
+    {
+        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+    },
+    {
+        "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
         "h3": "Comment voir le rapport en ligne?"
