@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Номер_задачи тип(фича): пояснение
 § uiKit.nothingFound.common.example: Например:
 § uiKit.nothingFound.staff.title: Нет данных для этого сотрудника
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 Он вносил правки не каждый рабочий день и получил статус  «Помошник».
 Работой сотрудников с таким статусом по данному проекту можно пренебречь, т.к. его влад на общем фоне незначителен.
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 Поэтому система не рассчитывает для него ряд показателей.
 Если это ошибка и данного сотрудника нужно рассчитать как обычного, перейдите в раздел «Настройки» и измените его тип.
 § common.title: Git статистика

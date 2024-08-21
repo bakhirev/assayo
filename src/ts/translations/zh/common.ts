@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: 发行编号类别(功能): 解释说明
 § uiKit.nothingFound.common.example: 例如:
 § uiKit.nothingFound.staff.title: 没有这个员工的数据
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 他不每天工作，所以获得了“助理”职务。
 可以不考虑带有这种职称的员工的统计数据。他的贡献很小。
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 系统不会为其计算若干指标。
 如果这是一个错误，并且需要考虑这个员工的数据，请转到“设置”部分并更改他的类型。
 § common.title: Git 统计数字

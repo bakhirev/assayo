@@ -5,48 +5,55 @@ const PROPERTIES = [
   { property: 'daysLosses', sort: -1 },
   { property: 'commits', sort: 1 },
   { property: 'tasks', sort: 1, isNeedTasks: true },
-  { property: 'moneyAll', sort: 1 },
-  { property: 'moneyWorked', sort: 1 },
-  { property: 'moneyLosses', sort: -1 },
-  { property: 'weekendPayment', sort: 1 },
+  { property: 'moneyAll', sort: 1, isNotStaff: true },
+  { property: 'moneyWorked', sort: 1, isNotStaff: true },
+  { property: 'moneyLosses', sort: -1, isNotStaff: true },
+  { property: 'weekendPayment', sort: 1, isNotStaff: true },
   {
     property: 'daysForTask',
     sort: -1,
+    isNotStaff: true,
     isNeedTasks: true,
     formatter: (user: any) => user.daysForTask,
   },
   {
     property: 'commitsForTask',
     sort: 1,
+    isNotStaff: true,
     isNeedTasks: true,
     formatter: (user: any) => user.commits / user.tasks.length,
   },
   {
-    property: 'linesForTask',
+    property: 'changesForTask',
     sort: -1,
+    isNotStaff: true,
     isNeedTasks: true,
     formatter: (user: any) => user.changesForTask,
   },
   {
     property: 'speedMaxTasks',
     sort: 1,
+    isNotStaff: true,
     isNeedTasks: true,
     formatter: (user: any, timestamp: any) => timestamp.tasksByTimestampCounter.max,
   },
   {
     property: 'speedMaxCommits',
     sort: 1,
+    isNotStaff: true,
     formatter: (user: any, timestamp: any) => timestamp.commitsByTimestampCounter.max,
   },
   {
     property: 'moneyForTask',
-    sort: 1,
+    sort: -1,
+    isNotStaff: true,
     isNeedTasks: true,
     formatter: (user: any) => user.moneyWorked / user.tasks.length,
   },
   {
     property: 'moneyForCommit',
-    sort: 1,
+    sort: -1,
+    isNotStaff: true,
     formatter: (user: any) => user.moneyWorked / user.commits,
   },
 ];
@@ -54,7 +61,8 @@ const PROPERTIES = [
 function getValues(config: any, dataGripByTimestamp: any) {
   return (user: any) => {
     const timestamp = dataGripByTimestamp.statisticByAuthor[user.author];
-    if (config.isNeedTasks && !user.tasks.length) return NaN;
+    if ((config.isNeedTasks && !user.tasks.length)
+      || (config.isNotStaff && user.isStaff)) return NaN;
 
     if (config.formatter) {
       return config.formatter(user, timestamp);

@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+
+import { t } from 'ts/helpers/Localization';
 
 import style from '../index.module.scss';
 
 function IsStaff() {
-  const { t } = useTranslation();
   return (
     <>
       <p className={style.nothing_found_title}>

@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Aufgabennummer Typ(Module): Erläuterung
 § uiKit.nothingFound.common.example: Zum Beispiel:
 § uiKit.nothingFound.staff.title: Keine Daten für diesen Mitarbeiter
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 Er hat nicht an allen Werktagen Änderungen vorgenommen. Deshalb erhielt er den Status "Assistent".
 Die Statistiken eines Mitarbeiters mit diesem Status können nicht berücksichtigt werden. Sein Beitrag ist gering.
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 Das System berechnet für ihn keine Anzahl von Indikatoren.
 Wenn dies ein Fehler ist und die Statistiken für diesen Mitarbeiter berücksichtigt werden müssen, gehen Sie zu «Einstellungen» und ändern Sie den Typ des Mitarbeiters.
 § common.title: Git Statistik

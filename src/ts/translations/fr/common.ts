@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Numéro_adresse type(modules): explication
 § uiKit.nothingFound.common.example: Par exemple:
 § uiKit.nothingFound.staff.title: Il n & apos; y a pas de données sur ce fonctionnaire.
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 Il a apporté des modifications pas tous les jours ouvrable. Par conséquent, il a reçu le statut  «Assistant».
 La statistique du collaborateur avec ce statut peut ne pas être prise en compte. Son impact est insignifiant.
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 Le système ne calcule pas pour lui plusieurs indicateurs.
 Si c’est une erreur et que la statistique pour ce collaborateur doit être prise en compte, accédez à la section “Paramètres” et modifiez son type.
 § common.title: Git statistique

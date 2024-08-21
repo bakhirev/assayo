@@ -16,11 +16,11 @@ export default `
 § uiKit.nothingFound.common.console: Task_number type(feature): description
 § uiKit.nothingFound.common.example: For example:
 § uiKit.nothingFound.staff.title: No data for this employee
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 They made edits not every working day and received the "Assistant" status.
 The work of employees with such status on this project can be neglected as their contribution is insignificant in the general context.
 
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 Therefore, the system does not calculate a number of indicators for him.
 If this is an error and this employee needs to be calculated as usual, go to the “Settings” section and change his type.
 

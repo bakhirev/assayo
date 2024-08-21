@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Número da tarefa_tipo(módulo): explicação
 § uiKit.nothingFound.common.example: Por exemplo:
 § uiKit.nothingFound.staff.title: Não há dados para este funcionário
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 Ele não fazia alterações todos os dias de trabalho. Por isso, ele recebeu o status “Assistente”.
 As estatísticas de um trabalhador com esse status não precisam ser registradas. Sua influência é insignificante.
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 O sistema não calcula uma série de indicadores para ele.
 Se este for um erro e a estatística para esse funcionário precisar ser levada em consideração, vá para a seção “Configurações” e altere o seu tipo.
 § common.title: Git estatística

@@ -67,8 +67,8 @@ const Speed = observer(({ user }: IPersonCommonProps): React.ReactElement => {
               title="page.person.speed.line.title"
               description="page.person.speed.line.description"
               scoring={{
-                value: scoring.linesForTask,
-                total: scoringTotal.linesForTask,
+                value: scoring.changesForTask,
+                total: scoringTotal.changesForTask,
               }}
             />
             <CardWithBanner />

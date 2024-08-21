@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Task_numberタイプ(モジュール): 説明
 § uiKit.nothingFound.common.example: 説明:
 § uiKit.nothingFound.staff.title: この従業員のデータはありません
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 彼は、毎日作業日のうち правки を行いませんでした。したがって、 “助手” という勤務種別を取得しました。
 そのような職種を持つ従業員の統計は無視できます。彼の知識は微妙です。
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 システムはそれのためのいくつかの指標を計算しません。
 もしそれがエラーであり、その従業員に関する統計を扱う必要がある場合、“設定” セクションに移動してタイプを変更してください。
 § common.title: Git 統計

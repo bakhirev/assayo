@@ -15,10 +15,10 @@ export default `
 § uiKit.nothingFound.common.console: Nombre_tipo de tarea(módulos): explicación
 § uiKit.nothingFound.common.example: Por ejemplo:
 § uiKit.nothingFound.staff.title: No hay datos para este empleado
-§ uiKit.nothingFound.staff.description1:
+§ uiKit.nothingFound.staff.description1
 Hacía cambios no todos los días laborables. Por lo tanto, recibió el estatus “Ayudante”.
 La estadística del empleado con este estatus puede no ser tenida en cuenta. Su impacto es insignificante.
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 El sistema no calcula para él una serie de indicadores.
 Si es un error y se necesita tener en cuenta los datos estadísticos de este empleado, vaya a la sección “Configuración” y cambie su tipo.
 § common.title: Git estadísticas

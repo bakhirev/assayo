@@ -19,7 +19,7 @@ export default `
 El no hizo cambios todos los días laborables y obtuvo el estado “Asistente”.
 El trabajo de los colaboradores con este estatus en este proyecto puede desestimarse, ya que su aporte en el conjunto es insignificante.
 
-§ uiKit.nothingFound.staff.description2:
+§ uiKit.nothingFound.staff.description2
 Поэтому система не рассчитывает для него ряд показателей.
 Если это ошибка и данного сотрудника нужно рассчитать как обычного, перейдите в раздел «Настройки» и измените его тип.
 
