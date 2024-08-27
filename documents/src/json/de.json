@@ -146,6 +146,15 @@
         ]
     },
     {
+        "h4": "Offline (NodeJS)"
+    },
+    {
+        "li": [
+            "Run `npx assayo`",
+            "Open `./assayo/index.html`"
+        ]
+    },
+    {
         "h4": "Offline"
     },
     {

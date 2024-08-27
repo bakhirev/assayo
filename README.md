@@ -131,6 +131,9 @@ Or open a saved file and manually change the encoding to UTF8.
 - drop the `log.txt` file into the browser window;
 
 <a name="link-8"></a>
+#### Offline (NodeJS)
+- run `npx assayo`
+- open `./assayo/index.html`
 #### Offline
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
 - drop the `log.txt` file to the `/build` folder;

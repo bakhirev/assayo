@@ -40,26 +40,27 @@ Visualização e análise de dados do seu repositório git ([demonstração](htt
   - [If you use PowerShell in Windows](#link-10)
 - [Como ver o relatório?](#link-11)
   - [Online](#link-12)
-  - [Offline](#link-13)
-- [Como recompilar o arquivo do relatório?](#link-14)
-- [Como visualizar o relatório do grupo de microserviços?](#link-15)
-- [Como alterar as cores da interface para as cores da sua marca?](#link-16)
-- [Como faço para assinar commits?](#link-17)
-- [How to add checking for commit message?](#link-18)
-  - [ Use file commit-msg](#link-19)
-  - [ Use package pre-commit](#link-20)
-- [Como automatizar a coleta de dados?](#link-21)
-  - [With backend](#link-22)
-  - [Sem backend](#link-23)
-- [DevOps ](#link-24)
-  - [Servidor Público](#link-25)
-  - [Servidor Privado](#link-26)
-  - [Atualizar a imagem Docker](#link-27)
-- [️ About application](#link-28)
-  - [Architecture](#link-29)
-  - [Liberações, aproximadamente, uma vez por semestre. O que vem a seguir:](#link-30)
-  - [Como adicionar ou editar uma tradução?](#link-31)
-  - [Sugestões, sugestões, comentários](#link-32)
+  - [Offline ](#link-13)
+  - [Offline](#link-14)
+- [Como recompilar o arquivo do relatório?](#link-15)
+- [Como visualizar o relatório do grupo de microserviços?](#link-16)
+- [Como alterar as cores da interface para as cores da sua marca?](#link-17)
+- [Como faço para assinar commits?](#link-18)
+- [How to add checking for commit message?](#link-19)
+  - [ Use file commit-msg](#link-20)
+  - [ Use package pre-commit](#link-21)
+- [Como automatizar a coleta de dados?](#link-22)
+  - [With backend](#link-23)
+  - [Sem backend](#link-24)
+- [DevOps ](#link-25)
+  - [Servidor Público](#link-26)
+  - [Servidor Privado](#link-27)
+  - [Atualizar a imagem Docker](#link-28)
+- [️ About application](#link-29)
+  - [Architecture](#link-30)
+  - [Liberações, aproximadamente, uma vez por semestre. O que vem a seguir:](#link-31)
+  - [Como adicionar ou editar uma tradução?](#link-32)
+  - [Sugestões, sugestões, comentários](#link-33)
 <a name="link-4"></a>
 ### 🚀 Como é rápido ver o número de commits?
 No diretório raiz do seu projeto, execute o comando:
@@ -67,7 +68,7 @@ No diretório raiz do seu projeto, execute o comando:
 git shortlog -s -n -e
 ```
 <a name="link-5"></a>
-### 🚀 How to create a report?
+### 🏭 How to create a report?
 If you have NodeJS, you can run:
 ```
 npx assayo
@@ -118,30 +119,34 @@ Or open a saved file and manually change the encoding to UTF-8.
 - Pressione o botão “[Demonstração](https://assayo.online/demo?lang=ru)”
 - Arrastar e largar `log.txt` na janela do navegador
 <a name="link-13"></a>
+####  Offline (NodeJS)
+- Run `npx assayo`
+- Open `./assayo/index.html`
+<a name="link-14"></a>
 ####  Offline
 - Baixar este repositório
 - Arraste o arquivo `log.txt` para a pasta `/build`
 - Lançar `/build/index.html`
 - Ou arraste a pasta `/build` ir para o repositório (o lugar onde se encontra `log.txt`). Você pode mudar o nome. Por exemplo, do nome `/build` no título `/report`
 É importante que o arquivo `log.txt` foi criado por uma equipe para navegar sem internet.
-<a name="link-14"></a>
+<a name="link-15"></a>
 ### 🏭 Como recompilar o arquivo do relatório?
 - Baixar este repositório
 - Executar `npm install`
 - Executar `npm run build:local`
 - A compilação mais recente estará na pasta `/build`
-<a name="link-15"></a>
+<a name="link-16"></a>
 ### 🗃️ Como visualizar o relatório do grupo de microserviços?
 - Gerar um arquivo para cada microserviço `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Veja “Como visualizar o relatório com a internet?”. No último passo, arraste todos os arquivos para a janela do navegador.
 - Veja “Como visualizar o relatório sem a internet?”. No segundo passo, arraste todos os microserviços (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) na pasta relatório (`/build`).
-<a name="link-16"></a>
+<a name="link-17"></a>
 ### 🎨 Como alterar as cores da interface para as cores da sua marca?
 Você pode escrever seu próprio tema de interface. Pode mudar:
 - **Cabeçalho**. Você pode especificar em um parâmetro da URL ```title```. Por exemplo: ```?title=You Company```
 - **CSS стили**. Para fazer isso, você precisa preparar um arquivo CSS e especificar o seu endereço no parâmetro da URL ```theme```. Por exemplo: ```?theme=//company.com/some.css```. Você pode usar os nomes das classes como seletores. A maioria deles não muda na saída de uma nova versão.
 - **Idioma**. Você pode incluir em um parâmetro de URL. ```lang```. Por exemplo: ```?lang=es```
-<a name="link-17"></a>
+<a name="link-18"></a>
 ### 📝 Como faço para assinar commits?
 Siga a prática [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Por exemplo:
 ```
@@ -151,9 +156,9 @@ JIRA-1234 feat(profile): Added avatar for user
 - tipo de trabalho `(feat, fix, style, refactor, test, doc etc.)`
 - área de trabalho `(profile - Página)`
 - descrição do trabalho `(Added avatar for user)`
-<a name="link-18"></a>
-### 👮 How to add checking for commit message?
 <a name="link-19"></a>
+### 👮 How to add checking for commit message?
+<a name="link-20"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -164,7 +169,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-20"></a>
+<a name="link-21"></a>
 ####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
@@ -176,27 +181,27 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-21"></a>
-### 📚 Como automatizar a coleta de dados?
 <a name="link-22"></a>
+### 📚 Como automatizar a coleta de dados?
+<a name="link-23"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
-<a name="link-23"></a>
+<a name="link-24"></a>
 ####  Sem backend
 - criar um clone do seu repositório;
 - copie a pasta `build` do repositório atual;
 - abrir `build/index.html` no navegador e adicionar aos favoritos;
 - adicionar um shortcut na `build/assets/ci-cd.sh` na pasta de inicialização (Windows);
 A cada reinício do computador, o script atualiza a estatística com todos os dados que sejam automaticamente incorporados na branch principal.
-<a name="link-24"></a>
-### 🛠️ DevOps (CI/CD)
 <a name="link-25"></a>
+### 🛠️ DevOps (CI/CD)
+<a name="link-26"></a>
 ####  Servidor Público
 Você pode disponibilizar o arquivo com os dados para construção do relatório em um URL público. Para visualizá-lo, você pode usar um site [assayo](https://assayo.online/). Especifique o endereço onde os dados estão localizados no parâmetro de URL ```dump```:
 ```
 https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-26"></a>
+<a name="link-27"></a>
 ####  Servidor Privado
 - baixar [docker imagem](https://hub.docker.com/r/bakhirev/assayo);
 - execute-o na rede local;
@@ -207,30 +212,30 @@ assayo_url - O URL do endereço do container Assay, ele está escutando na porta
 you_url    - O URL do seu container com os logs do git;
 ```
 Por padrão, a imagem será iniciada no endereço ```http://127.0.0.1:80/```. Se você não conseguiu, verifique se a porta 80 está disponível no seu computador.
-<a name="link-27"></a>
+<a name="link-28"></a>
 ####  Atualizar a imagem Docker
 - executar um comando ```npm run build:docker```
 - executar um comando ```docker build -t assayo .```
 - verificar o resultado ```docker run --name assayo -p 80:80 -d assayo```;
 - executar um comando ```docker tag assayo bakhirev/assayo:latest```;
 - enviar a imagem do container para o Docker Hub ```docker push bakhirev/assayo:latest```;
-<a name="link-28"></a>
-### 🛠️ ️ About application
 <a name="link-29"></a>
+### 🛠️ ️ About application
+<a name="link-30"></a>
 #### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-30"></a>
+<a name="link-31"></a>
 #### 🈯 Liberações, aproximadamente, uma vez por semestre. O que vem a seguir:
 Vide [documentação básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
-<a name="link-31"></a>
+<a name="link-32"></a>
 #### 🗺️ Como adicionar ou editar uma tradução?
 Você pode adicionar uma nova tradução ou corrigir uma existente na seção ```ts/translations/```.
 [Instrução](https://github.com/firstcontributions/first-contributions)
-<a name="link-32"></a>
+<a name="link-33"></a>
 #### 📧 Sugestões, sugestões, comentários
 - telegramm [@bakhirev](https://t.me/bakhirev) (método de comunicação prioritário)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
