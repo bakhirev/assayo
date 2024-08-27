@@ -56,6 +56,29 @@
         ]
     },
     {
+        "h3": "How to create a report?"
+    },
+    {
+        "p": "If you have NodeJS, you can run:"
+    },
+    {
+        "pre": [
+            "npx assayo"
+        ]
+    },
+    {
+        "p": "The script will create a folder `./assayo` with a report about repository:"
+    },
+    {
+        "pre": [
+            "./assayo/index.html - report",
+            "./assayo/log.txt    - information from git"
+        ]
+    },
+    {
+        "p": "If you do not have NodeJS , see the items \"How to download data from git?\" and \"How to view the report?\""
+    },
+    {
         "h3": "Como combinar os autores?"
     },
     {

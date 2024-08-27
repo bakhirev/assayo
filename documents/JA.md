@@ -32,33 +32,34 @@
 <a name="link-3"></a>
 ###  Table of contents
 - [コミット数を素早く確認するにはどうすればよいでしょうか。](#link-4)
-- [作者をまとめるにはどうすればいいですか？](#link-5)
-- [Gitからデータをダウンロードするにはどうすればよろしいでしょうか。](#link-6)
-  - [Дオンラインで見るため](#link-7)
-  - [インターネットなしで見るために](#link-8)
-  - [If you use PowerShell in Windows](#link-9)
-- [レポートを表示するにはどうすればよいですか？ ](#link-10)
-  - [Online](#link-11)
-  - [Offline](#link-12)
-- [レポートファイルを再構成する方法は？](#link-13)
-- [マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。](#link-14)
-- [自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。](#link-15)
-- [commit文の署名方法は？](#link-16)
-- [How to add checking for commit message?](#link-17)
-  - [ Use file commit-msg](#link-18)
-  - [ Use package pre-commit](#link-19)
-- [データの自動収集方法は？](#link-20)
-  - [With backend](#link-21)
-  - [バックエンドなし](#link-22)
-- [DevOps ](#link-23)
-  - [公開サーバ](#link-24)
-  - [プライベートサーバー](#link-25)
-  - [Dockerイメージの更新](#link-26)
-- [️ About application](#link-27)
-  - [Architecture](#link-28)
-  - [半年ごとにリリースを行います。次は何でしょうか。](#link-29)
-  - [翻訳を追加または編集するにはどうすればいいでしょうか。](#link-30)
-  - [願い、提案、コメント](#link-31)
+- [How to create a report?](#link-5)
+- [作者をまとめるにはどうすればいいですか？](#link-6)
+- [Gitからデータをダウンロードするにはどうすればよろしいでしょうか。](#link-7)
+  - [Дオンラインで見るため](#link-8)
+  - [インターネットなしで見るために](#link-9)
+  - [If you use PowerShell in Windows](#link-10)
+- [レポートを表示するにはどうすればよいですか？ ](#link-11)
+  - [Online](#link-12)
+  - [Offline](#link-13)
+- [レポートファイルを再構成する方法は？](#link-14)
+- [マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。](#link-15)
+- [自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。](#link-16)
+- [commit文の署名方法は？](#link-17)
+- [How to add checking for commit message?](#link-18)
+  - [ Use file commit-msg](#link-19)
+  - [ Use package pre-commit](#link-20)
+- [データの自動収集方法は？](#link-21)
+  - [With backend](#link-22)
+  - [バックエンドなし](#link-23)
+- [DevOps ](#link-24)
+  - [公開サーバ](#link-25)
+  - [プライベートサーバー](#link-26)
+  - [Dockerイメージの更新](#link-27)
+- [️ About application](#link-28)
+  - [Architecture](#link-29)
+  - [半年ごとにリリースを行います。次は何でしょうか。](#link-30)
+  - [翻訳を追加または編集するにはどうすればいいでしょうか。](#link-31)
+  - [願い、提案、コメント](#link-32)
 <a name="link-4"></a>
 ### 🚀 コミット数を素早く確認するにはどうすればよいでしょうか。
 プロジェクトのルートディレクトリで以下のコマンドを実行します:
@@ -66,6 +67,18 @@
 git shortlog -s -n -e
 ```
 <a name="link-5"></a>
+### 🚀 How to create a report?
+If you have NodeJS, you can run:
+```
+npx assayo
+```
+The script will create a folder `./assayo` with a report about repository:
+```
+./assayo/index.html - report
+./assayo/log.txt    - information from git
+```
+If you do not have NodeJS , see the items "How to download data from git?" and "How to view the report?"
+<a name="link-6"></a>
 ### ‍🎭 作者をまとめるにはどうすればいいですか？
 プロジェクトのルートディレクトリ内に.mailmapファイルを作成する必要があります。
 ファイルの内容の例:
@@ -76,59 +89,59 @@ Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
 このファイルの形式について詳しく読むことができます [ここに](https://git-scm.com/docs/gitmailmap).
-<a name="link-6"></a>
-### 📤 Gitからデータをダウンロードするにはどうすればよろしいでしょうか。
 <a name="link-7"></a>
+### 📤 Gitからデータをダウンロードするにはどうすればよろしいでしょうか。
+<a name="link-8"></a>
 ####  Дオンラインで見るため
 プロジェクトのルートディレクトリに次のコマンドを入力します:
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
 ```
-<a name="link-8"></a>
+<a name="link-9"></a>
 ####  インターネットなしで見るために
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Gitはファイルを作成します `log.txt`. このファイルには、レポートを構築するためのデータが含まれています。 インターネットのない形式とインターネットのある形式は、文字列が埋め込まれているという点で異なります。インターネットを持たない形式でファイルを開くと、単に「js」ファイルとして読み込まれます。 `/build/index.html`
-<a name="link-9"></a>
+<a name="link-10"></a>
 ####  If you use PowerShell in Windows
 By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 Or open a saved file and manually change the encoding to UTF-8.
-<a name="link-10"></a>
-### 📈 レポートを表示するにはどうすればよいですか？ 
 <a name="link-11"></a>
+### 📈 レポートを表示するにはどうすればよいですか？ 
+<a name="link-12"></a>
 ####  Online
 - に切り替える [ウェブサイト](https://assayo.online/)
 - ボタンを押す “[デモ](https://assayo.online/demo?lang=ru)”
 - ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで
-<a name="link-12"></a>
+<a name="link-13"></a>
 ####  Offline
 - このリポジトリをダウンロードする
 - ファイルをドラッグ＆ドロップする `log.txt` フォルダへ `/build`
 - 実行するには `/build/index.html`
 - フォルダをドラッグして下さい `/build` 自分のリポジトリーにフォルダを置いてください (それがある場所 `log.txt`). 名前を変更することができます。例えば名前 `/build` を `/report`
 重要なのは、ファイル `log.txt` インターネットが利用できない環境で、レポートを表示するために作成されたコマンドである必要があります。
-<a name="link-13"></a>
+<a name="link-14"></a>
 ### 🏭 レポートファイルを再構成する方法は？
 - このリポジトリをダウンロードしてください
 - 実行するには `npm install`
 - 実行するには `npm run build:local`
 - 最新のビルドは、フォルダに含まれるでしょう `/build`
-<a name="link-14"></a>
+<a name="link-15"></a>
 ### 🗃️ マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。
 - マイクロサービスごとにファイルを作成します。 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` など。)
 - "インターネット上でレポートを見る方法"を参照してください。最後の手順では、すべてのファイルをブラウザのウィンドウに一度にドラッグ＆ドロップします。
 - “インターネットなしでレポートを見る方法” を参照してください。第二段階では、マイクロサービスのすべてのファイルをドラッグしてドロップする必要があります。(`log-1.txt`, `log-2.txt`, `log-3.txt` など。) レポートフォルダへ (`/build`).
-<a name="link-15"></a>
+<a name="link-16"></a>
 ### 🎨 自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。
 インターフェースのテーマを独自に作成することができます。下記の項目は変更できます。
 - **見出し**. それはURLパラメータで指定することができます ```title```. 例えば: ```?title=You Company```
 - **CSS スタイル**. そのためにはCSSファイルを用意し、そのアドレスをURLパラメーターに指定する必要があります ```theme```. 例えば: ```?theme=//company.com/some.css```. クラス名をセレクターとして使用することができます。ほとんどの場合、新しいバージョンがリリースされると変更されません
 - **言語**. URLパラメータに指定することができます ```lang```. 例えば: ```?lang=es```
-<a name="link-16"></a>
+<a name="link-17"></a>
 ### 📝 commit文の署名方法は？
 練習に従ってください [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例えば:
 ```
@@ -138,9 +151,9 @@ JIRA-1234 feat(profile): Added avatar for user
 - 仕事の種類 `(feat, fix, style, refactor, test, doc など。)`
 - 仕事の分野 `(profile - サイトのセクション、ページ、新機能、簡単に)`
 - ジョブの説明 `(Added avatar for user)`
-<a name="link-17"></a>
-### 👮 How to add checking for commit message?
 <a name="link-18"></a>
+### 👮 How to add checking for commit message?
+<a name="link-19"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -151,7 +164,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-19"></a>
+<a name="link-20"></a>
 ####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
@@ -163,27 +176,27 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-20"></a>
-### 📚 データの自動収集方法は？
 <a name="link-21"></a>
+### 📚 データの自動収集方法は？
+<a name="link-22"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
-<a name="link-22"></a>
+<a name="link-23"></a>
 ####  バックエンドなし
 - リポジトリのクローンを作成します。;
 - フォルダをコピーする `build` 現在のリポジトリから;
 - オープン `build/index.html` ブラウザでブックマークに追加します。;
 - にショートカットを追加する `build/assets/ci-cd.sh` 自動起動フォルダーに (Windows);
 コンピューターを再起動するとき、スクリプトはメインブランチに自動的に挿入されたすべてのデータについての統計を更新します。
-<a name="link-23"></a>
-### 🛠️ DevOps (CI/CD)
 <a name="link-24"></a>
+### 🛠️ DevOps (CI/CD)
+<a name="link-25"></a>
 ####  公開サーバ
 データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.online/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
 ```
 https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-25"></a>
+<a name="link-26"></a>
 ####  プライベートサーバー
 - ダウンロード [dockerイメージ](https://hub.docker.com/r/bakhirev/assayo);
 - ローカルネットワーク内で実行します。;
@@ -194,30 +207,30 @@ assayo_url - ポート80でリッスンしているassayoコンテナのURL;
 you_url    - gitのログのコンテナーのURLアドレス;
 ```
 デフォルトではイメージは以下のアドレスで起動します ```http://127.0.0.1:80/```. 問題が解決しない場合は、ポート80が開いているか確認してみてください。
-<a name="link-26"></a>
+<a name="link-27"></a>
 ####  Dockerイメージの更新
 - 次のコマンドを実行します ```npm run build:docker```
 - 次のコマンドを実行します ```docker build -t assayo .```
 - 結果を確認する ```docker run --name assayo -p 80:80 -d assayo```;
 - 次のコマンドを実行します ```docker tag assayo bakhirev/assayo:latest```;
 - コンテナイメージをDocker Hubにアップロードする ```docker push bakhirev/assayo:latest```;
-<a name="link-27"></a>
-### 🛠️ ️ About application
 <a name="link-28"></a>
+### 🛠️ ️ About application
+<a name="link-29"></a>
 #### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-29"></a>
+<a name="link-30"></a>
 #### 🈯 半年ごとにリリースを行います。次は何でしょうか。
 見て！ [主なドキュメント](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
-<a name="link-30"></a>
+<a name="link-31"></a>
 #### 🗺️ 翻訳を追加または編集するにはどうすればいいでしょうか。
 新しい翻訳を追加するか、現在の翻訳を修正するために、以下のセクションでそれを行うことができます: ```ts/translations/```.
 [取扱説明書](https://github.com/firstcontributions/first-contributions)
-<a name="link-31"></a>
+<a name="link-32"></a>
 #### 📧 願い、提案、コメント
 - telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)

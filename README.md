@@ -34,6 +34,7 @@ Links: [demo](https://assayo.online/demo/?ref=github&dump=./test.txt), [install]
 
 ### Table of contents
 - [How to quickly view the number of commits?](#link-1)
+- [How to create a report?](#link-1-1)
 - [How to concat authors?](#link-2)
 - [How to export data from git?](#link-3)
   - [For online viewing](#link-4)
@@ -67,6 +68,19 @@ In the root directory of your project, run:
 ```
 git shortlog -s -n -e
 ```
+
+<a name="link-1-1"></a>
+### 🚀 How to create a report?
+If you have NodeJS, you can run:
+```
+npx assayo
+```
+The script will create a folder `./assayo` with a report about repository:
+```
+./assayo/index.html - report
+./assayo/log.txt    - information from git
+```
+If you do not have NodeJS , see the items "How to download data from git?" and "How to view the report?"
 
 <a name="link-2"></a>
 ### ‍🎭 How to concat authors?

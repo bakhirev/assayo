@@ -31,33 +31,34 @@ Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.online/dem
 <a name="link-3"></a>
 ###  Table of contents
 - [Wie kann ich die anzahl der commits schnell sehen?](#link-4)
-- [Wie kann ich autoren zusammenbringen?](#link-5)
-- [Wie kann ich daten aus git?](#link-6)
-  - [Für die onlineansicht](#link-7)
-  - [Zum surfen ohne internet](#link-8)
-  - [If you use PowerShell in Windows](#link-9)
-- [Wie kann ich den bericht sehen?](#link-10)
-  - [Online](#link-11)
-  - [Offline](#link-12)
-- [Wie kann ich die berichtsdatei neu erstellen?](#link-13)
-- [Wie kann ich den bericht zur microservices-gruppe anzeigen?](#link-14)
-- [Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?](#link-15)
-- [Wie signiere ich commits?](#link-16)
-- [How to add checking for commit message?](#link-17)
-  - [ Use file commit-msg](#link-18)
-  - [ Use package pre-commit](#link-19)
-- [Wie kann ich die datenerfassung automatisieren?](#link-20)
-  - [With backend](#link-21)
-  - [Kein bekend](#link-22)
-- [DevOps ](#link-23)
-  - [Öffentlicher server](#link-24)
-  - [Privater server](#link-25)
-  - [Aktualisieren eines Docker-Images](#link-26)
-- [️ About application](#link-27)
-  - [Architecture](#link-28)
-  - [Veröffentlichungen, ungefähr alle sechs monate. Was weiter:](#link-29)
-  - [Wie kann ich eine übersetzung hinzufügen oder bearbeiten?](#link-30)
-  - [Wünsche, Anregungen, Kommentare](#link-31)
+- [How to create a report?](#link-5)
+- [Wie kann ich autoren zusammenbringen?](#link-6)
+- [Wie kann ich daten aus git?](#link-7)
+  - [Für die onlineansicht](#link-8)
+  - [Zum surfen ohne internet](#link-9)
+  - [If you use PowerShell in Windows](#link-10)
+- [Wie kann ich den bericht sehen?](#link-11)
+  - [Online](#link-12)
+  - [Offline](#link-13)
+- [Wie kann ich die berichtsdatei neu erstellen?](#link-14)
+- [Wie kann ich den bericht zur microservices-gruppe anzeigen?](#link-15)
+- [Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?](#link-16)
+- [Wie signiere ich commits?](#link-17)
+- [How to add checking for commit message?](#link-18)
+  - [ Use file commit-msg](#link-19)
+  - [ Use package pre-commit](#link-20)
+- [Wie kann ich die datenerfassung automatisieren?](#link-21)
+  - [With backend](#link-22)
+  - [Kein bekend](#link-23)
+- [DevOps ](#link-24)
+  - [Öffentlicher server](#link-25)
+  - [Privater server](#link-26)
+  - [Aktualisieren eines Docker-Images](#link-27)
+- [️ About application](#link-28)
+  - [Architecture](#link-29)
+  - [Veröffentlichungen, ungefähr alle sechs monate. Was weiter:](#link-30)
+  - [Wie kann ich eine übersetzung hinzufügen oder bearbeiten?](#link-31)
+  - [Wünsche, Anregungen, Kommentare](#link-32)
 <a name="link-4"></a>
 ### 🚀 Wie kann ich die anzahl der commits schnell sehen?
 In der wurzelverzeichnis ihres projektes muss der befehl ausgeführt werden:
@@ -65,6 +66,18 @@ In der wurzelverzeichnis ihres projektes muss der befehl ausgeführt werden:
 git shortlog -s -n -e
 ```
 <a name="link-5"></a>
+### 🚀 How to create a report?
+If you have NodeJS, you can run:
+```
+npx assayo
+```
+The script will create a folder `./assayo` with a report about repository:
+```
+./assayo/index.html - report
+./assayo/log.txt    - information from git
+```
+If you do not have NodeJS , see the items "How to download data from git?" and "How to view the report?"
+<a name="link-6"></a>
 ### ‍🎭 Wie kann ich autoren zusammenbringen?
 Sie müssen eine datei im stammverzeichnis ihres projekts erstellen `.mailmap`.
 Beispiel für den Inhalt einer Datei:
@@ -75,59 +88,59 @@ Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
 Sie können mehr über das format dieser datei lesen[hier](https://git-scm.com/docs/gitmailmap).
-<a name="link-6"></a>
-### 📤 Wie kann ich daten aus git?
 <a name="link-7"></a>
+### 📤 Wie kann ich daten aus git?
+<a name="link-8"></a>
 ####  Für die onlineansicht
 In der wurzelverzeichnis ihres projektes ausführen:
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
 ```
-<a name="link-8"></a>
+<a name="link-9"></a>
 ####  Zum surfen ohne internet
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git erstellt eine datei `log.txt`. Diese datei enthält die daten zum erstellen des berichts. Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für zeilen. Das format ohne internet wird wie eine js-datei geladen, wenn sie es einfach öffnen. `/build/index.html`
-<a name="link-9"></a>
+<a name="link-10"></a>
 ####  If you use PowerShell in Windows
 By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 Or open a saved file and manually change the encoding to UTF-8.
-<a name="link-10"></a>
-### 📈 Wie kann ich den bericht sehen?
 <a name="link-11"></a>
+### 📈 Wie kann ich den bericht sehen?
+<a name="link-12"></a>
 ####  Online
 - gehe zu [Webseite](https://assayo.online/)
 - den knopf drücken “[Demonstration](https://assayo.online/demo?lang=ru)”
 - datei ziehen `log.txt` in das Browserfenster
-<a name="link-12"></a>
+<a name="link-13"></a>
 ####  Offline
 - laden sie dieses repository herunter
 - datei ziehen `log.txt` in den ordner`/build`
 - starten `/build/index.html`
 - oder ziehen sie einen ordner `/build` zu sich ins repository (der ort, an dem es liegt `log.txt`). Sie können den namen ändern. zum beispiel mit dem namen `/build` auf den namen `/report`
 Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstellt wird.
-<a name="link-13"></a>
+<a name="link-14"></a>
 ### 🏭 Wie kann ich die berichtsdatei neu erstellen?
 - Laden sie dieses repository herunter
 - Erfüllen `npm install`
 - Erfüllen `npm run build:local`
 - Der neue build wird im ordner sein `/build`
-<a name="link-14"></a>
+<a name="link-15"></a>
 ### 🗃️ Wie kann ich den bericht zur microservices-gruppe anzeigen?
 - Datei für jeden microservice generieren `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` usw.)
 - Siehe “Wie kann ich den bericht mit internet ansehen?”. Im letzten schritt ziehen sie alle dateien gleichzeitig in das browserfenster.
 - Siehe “Wie kann man den bericht ohne internet ansehen?” Im zweiten schritt ziehen sie die microservice-dateien alle (`log-1.txt`, `log-2.txt`, `log-3.txt` usw.) in den berichtsordner (`/build`).
-<a name="link-15"></a>
+<a name="link-16"></a>
 ### 🎨 Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?
 Sie können ihr skin für die schnittstelle schreiben. Kann geändert werden:
 - **Überschrift**. Sie können es im URL-parameter angeben ```title```. Zum beispiel: ```?title=you company```
 - **CSS stile**. Um dies zu tun, müssen sie die CSS-datei vorbereiten und ihre adresse im URL-parameter angeben ```theme```. Zum beispiel: ```?theme=//company.com/some.css```. Sie können klassennamen als selektoren verwenden. Die meisten von ihnen ändern sich nicht, wenn eine neue version veröffentlicht wird.
 - **Sprache**. Sie können es im URL-parameter angeben ```lang```. Zum Beispiel: ```?lang=es```
-<a name="link-16"></a>
+<a name="link-17"></a>
 ### 📝 Wie signiere ich commits?
 Folge der praxis [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Zum beispiel:
 ```
@@ -137,9 +150,9 @@ JIRA-1234 feat(profile): added avatar for user
 - art der arbeit `(feat, fix, style, refactor, test, doc usw.)`
 - arbeitsbereich `(profile - ein abschnitt der website, eine seite oder eine neue funktionalität, mit einem wort)`
 - beschreibung der arbeit `(added avatar for user)`
-<a name="link-17"></a>
-### 👮 How to add checking for commit message?
 <a name="link-18"></a>
+### 👮 How to add checking for commit message?
+<a name="link-19"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -150,7 +163,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-19"></a>
+<a name="link-20"></a>
 ####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
@@ -162,27 +175,27 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-20"></a>
-### 📚 Wie kann ich die datenerfassung automatisieren?
 <a name="link-21"></a>
+### 📚 Wie kann ich die datenerfassung automatisieren?
+<a name="link-22"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
-<a name="link-22"></a>
+<a name="link-23"></a>
 ####  Kein bekend
 - erstellen sie einen klon ihres repositorys;
 - kopieren sie den ordner `build` aus dem aktuellen repository;
 - öffnen `build/index.html` im browser und zu lesezeichen hinzufügen;
 - fügen sie eine verknüpfung hinzu `build/assets/ci-cd.sh` in den startordner (windows);
 Jedes mal, wenn der computer neu gestartet wird, aktualisiert das skript die statistiken für alle daten, die automatisch in den hauptzweig aufgenommen wurden.
-<a name="link-23"></a>
-### 🛠️ DevOps (CI/CD)
 <a name="link-24"></a>
+### 🛠️ DevOps (CI/CD)
+<a name="link-25"></a>
 ####  Öffentlicher server
 Sie können eine datendatei zum erstellen eines berichts auf eine öffentliche URL hochladen. Sie können die Website verwenden, um sie zu visualisieren [assayo](https://assayo.online/). Geben sie im URL-parameter die adresse an, an der die daten liegen ```dump```:
 ```
 https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-25"></a>
+<a name="link-26"></a>
 ####  Privater server
 - herunterladen [docker das bild](https://hub.docker.com/r/bakhirev/assayo);
 - führen Sie es im lokalen netzwerk aus;
@@ -193,30 +206,30 @@ assayo_url - die adresse des assayo-containers, er hört auf port 80;
 you_url    - URL die adresse ihres containers mit git-logs;
 ```
 Standardmäßig wird das abbild an der folgenden adresse ausgeführt ```http://127.0.0.1:80/```. Wenn es nicht funktioniert, überprüfen sie, ob der port 80 frei ist.
-<a name="link-26"></a>
+<a name="link-27"></a>
 ####  Aktualisieren eines Docker-Images
 - befehl ausführen ```npm run build:docker```
 - befehl ausführen ```docker build -t assayo .```
 - ergebnis überprüfen ```docker run --name assayo -p 80:80 -d assayo```;
 - befehl ausführen ```docker tag assayo bakhirev/assayo:latest```;
 - senden sie ein containerimage an Docker Hub ```docker push bakhirev/assayo:latest```;
-<a name="link-27"></a>
-### 🛠️ ️ About application
 <a name="link-28"></a>
+### 🛠️ ️ About application
+<a name="link-29"></a>
 #### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-29"></a>
+<a name="link-30"></a>
 #### 🈯 Veröffentlichungen, ungefähr alle sechs monate. Was weiter:
 Schau [haupt dokumentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
-<a name="link-30"></a>
+<a name="link-31"></a>
 #### 🗺️ Wie kann ich eine übersetzung hinzufügen oder bearbeiten?
 Sie können eine neue übersetzung hinzufügen oder die aktuelle im abschnitt korrigieren ```ts/translations/```.
 [Anleitung](https://github.com/firstcontributions/first-contributions)
-<a name="link-31"></a>
+<a name="link-32"></a>
 #### 📧 Wünsche, Anregungen, Kommentare
 - telegramm [@bakhirev](https://t.me/bakhirev) (vorrangiger kommunikationsweg)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)

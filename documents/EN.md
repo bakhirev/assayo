@@ -32,33 +32,34 @@ Visualization and analysis of git commit statistics. Team Lead performance tool.
 <a name="link-3"></a>
 ###  Table of contents
 - [How to quickly view the number of commits?](#link-4)
-- [How to concat authors?](#link-5)
-- [How to export data from git?](#link-6)
-  - [For online viewing](#link-7)
-  - [For offline viewing](#link-8)
-  - [If you use PowerShell in Windows](#link-9)
-- [How to view the report?](#link-10)
-  - [Online](#link-11)
-  - [Offline](#link-12)
-- [How to rebuild the HTML report from source code?](#link-13)
-- [How to view a report on a group of microservices?](#link-14)
-- [How to brand the interface?](#link-15)
-- [How to sign commits?](#link-16)
-- [How to add checking for commit message?](#link-17)
-  - [Use file commit-msg](#link-18)
-  - [Use package pre-commit](#link-19)
-- [How to automate data collection?](#link-20)
-  - [With backend](#link-21)
-  - [Without backend](#link-22)
-- [DevOps ](#link-23)
-  - [Public server](#link-24)
-  - [Private server](#link-25)
-  - [How to update the Docker image?](#link-26)
-- [️ About application](#link-27)
-  - [Architecture](#link-28)
-  - [How to add or edit a translation?](#link-29)
-  - [RoadMap:](#link-30)
-  - [Feedback, comments](#link-31)
+- [How to create a report?](#link-5)
+- [How to concat authors?](#link-6)
+- [How to export data from git?](#link-7)
+  - [For online viewing](#link-8)
+  - [For offline viewing](#link-9)
+  - [If you use PowerShell in Windows](#link-10)
+- [How to view the report?](#link-11)
+  - [Online](#link-12)
+  - [Offline](#link-13)
+- [How to rebuild the HTML report from source code?](#link-14)
+- [How to view a report on a group of microservices?](#link-15)
+- [How to brand the interface?](#link-16)
+- [How to sign commits?](#link-17)
+- [How to add checking for commit message?](#link-18)
+  - [Use file commit-msg](#link-19)
+  - [Use package pre-commit](#link-20)
+- [How to automate data collection?](#link-21)
+  - [With backend](#link-22)
+  - [Without backend](#link-23)
+- [DevOps ](#link-24)
+  - [Public server](#link-25)
+  - [Private server](#link-26)
+  - [How to update the Docker image?](#link-27)
+- [️ About application](#link-28)
+  - [Architecture](#link-29)
+  - [How to add or edit a translation?](#link-30)
+  - [RoadMap:](#link-31)
+  - [Feedback, comments](#link-32)
 <a name="link-4"></a>
 ### 🚀 How to quickly view the number of commits?
 In the root directory of your project, run:
@@ -66,6 +67,18 @@ In the root directory of your project, run:
 git shortlog -s -n -e
 ```
 <a name="link-5"></a>
+### 🚀 How to create a report?
+If you have NodeJS, you can run:
+```
+npx assayo
+```
+The script will create a folder `./assayo` with a report about repository:
+```
+./assayo/index.html - report
+./assayo/log.txt    - information from git
+```
+If you do not have NodeJS , see the items "How to download data from git?" and "How to view the report?"
+<a name="link-6"></a>
 ### ‍🎭 How to concat authors?
 In the root directory of your project, you need to create a `.mailmap` file.
 Example of the contents of the file:
@@ -76,59 +89,59 @@ Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
 Read more about the format of this file you can [here](https://git-scm.com/docs/gitmailmap).
-<a name="link-6"></a>
-### 📤 How to export data from git?
 <a name="link-7"></a>
+### 📤 How to export data from git?
+<a name="link-8"></a>
 ####  For online viewing
 In the root directory of your project run:
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
 ```
-<a name="link-8"></a>
+<a name="link-9"></a>
 ####  For offline viewing
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/report.push(\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git will create a file `log.txt`. This file contains data for show a report. The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
-<a name="link-9"></a>
+<a name="link-10"></a>
 ####  If you use PowerShell in Windows
 By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 Or open a saved file and manually change the encoding to UTF-8.
-<a name="link-10"></a>
-### 📈 How to view the report?
 <a name="link-11"></a>
+### 📈 How to view the report?
+<a name="link-12"></a>
 ####  Online
 - go to the [website](https://assayo.online/);
 - click the “[Demo](https://assayo.online/demo?ref=github&lang=en)” button;
 - drop the `log.txt` file into the browser window;
-<a name="link-12"></a>
+<a name="link-13"></a>
 ####  Offline
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
 - drop the `log.txt` file to the `/build` folder;
 - run `/build/index.html`;
 - or drop the `/build` folder to your repository (where the `log.txt` is located). You can change the name. For example, from `/build` to `/report`.
   In this case, it is important that the `log.txt` file is generated by the command for offline viewing.
-<a name="link-13"></a>
+<a name="link-14"></a>
 ### 🏭 How to rebuild the HTML report from source code?
 - download this repository `git clone https://github.com/bakhirev/assayo.git`
 - run `npm install`
 - run `npm run build:local`
 - the new HTML build will be in the `/build` folder
-<a name="link-14"></a>
+<a name="link-15"></a>
 ### 🗃️ How to view a report on a group of microservices?
 - generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection;
 - see “How to view an online report?”. At the last step, drag all the files at once into the browser window.
 - see “How to see a report offline?”. At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) to the report folder (`/build`).
-<a name="link-15"></a>
+<a name="link-16"></a>
 ### 🎨 How to brand the interface?
 You can create your own interface theme. Options:
 - **Title**. You can set default document title in the URL parameter ```title```. Example: ```?title=You Company```
 - **Visual theme**. To do this, you need to prepare a CSS file with new styles and specify its URL in the ```theme``` parameter. Example: ```?theme=//company.com/some.css```. You can use class names as selectors. Most of them do not change in new versions.
 - **Language**. You can set language in the URL parameter ```lang```. Example: ```?lang=es```
-<a name="link-16"></a>
+<a name="link-17"></a>
 ### 📝 How to sign commits?
 Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Example:
 ```
@@ -138,9 +151,9 @@ JIRA-1234 feat(profile): Added avatar for user
 - type of work `(feat, fix, style, refactor, test, doc и т.д.)`
 - feature `(profile - new page on site or new function, use one (two) short wordor an abbreviation)`
 - what problem were solved `(Added avatar for user)`
-<a name="link-17"></a>
-### 👮 How to add checking for commit message?
 <a name="link-18"></a>
+### 👮 How to add checking for commit message?
+<a name="link-19"></a>
 ####  Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -151,7 +164,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-19"></a>
+<a name="link-20"></a>
 ####  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
@@ -163,27 +176,27 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-20"></a>
-### 📚 How to automate data collection?
 <a name="link-21"></a>
+### 📚 How to automate data collection?
+<a name="link-22"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
-<a name="link-22"></a>
+<a name="link-23"></a>
 ####  Without backend
 - create a clone of the repository you need;
 - copy the `build` folder to the root;
 - open `build/index.html` in the browser and add it to bookmarks;
 - add a shortcut to `build/assets/ci-cd.sh` to the startup folder (Windows);
   Every time you restart the computer, the script will update statistics on all the data that automatically merged into the main branch.
-<a name="link-23"></a>
-### 🛠️ DevOps (CI/CD)
 <a name="link-24"></a>
+### 🛠️ DevOps (CI/CD)
+<a name="link-25"></a>
 ####  Public server
 You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://assayo.online/?ref=github&lang=en) to visualize it.
 ```
 https://assayo.online/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-25"></a>
+<a name="link-26"></a>
 ####  Private server
 - download the [docker image](https://hub.docker.com/r/bakhirev/assayo);
 - run it on your local network;
@@ -194,27 +207,27 @@ assayo_url - URL of the assayo container, it listens on port 80;
 you_url    - URL of your container with git logs;
 ```
 By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work, check if port 80 is free.
-<a name="link-26"></a>
+<a name="link-27"></a>
 ####  How to update the Docker image?
 - run ```npm run build:docker```
 - run ```docker build -t assayo .```
 - visually check the image ```docker run --name assayo -p 80:80 -d assayo```;
 - add tag ```docker tag assayo bakhirev/assayo:latest```;
 - push image to [Docker Hub](https://hub.docker.com/r/bakhirev/assayo) ```docker push bakhirev/assayo:latest```;
-<a name="link-27"></a>
-### 🛠️ ️ About application
 <a name="link-28"></a>
+### 🛠️ ️ About application
+<a name="link-29"></a>
 #### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-29"></a>
+<a name="link-30"></a>
 #### 🈯 How to add or edit a translation?
 You can add a new translation or correct an existing one in the ```ts/translations/``` folder.
 [Instruction](https://github.com/firstcontributions/first-contributions)
-<a name="link-30"></a>
+<a name="link-31"></a>
 #### 🗺️ RoadMap:
 Releases are planned approximately once every six months. What’s next:
 - more recommendations and achievements;
@@ -223,7 +236,7 @@ Releases are planned approximately once every six months. What’s next:
 - file analysis;
 - different roles for statistics (hiding finances);
 - development of the backend, integration with other systems;
-<a name="link-31"></a>
+<a name="link-32"></a>
 #### 📧 Feedback, comments
 - telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
