@@ -56,14 +56,23 @@
         ]
     },
     {
-        "h3": "How to create a report?"
+        "h3": "How to create a local report with using library?"
     },
     {
-        "p": "If you have NodeJS, you can run:"
+        "p": "NodeJS:"
     },
     {
         "pre": [
             "npx assayo"
+        ]
+    },
+    {
+        "p": "PHP:"
+    },
+    {
+        "pre": [
+            "composer require bakhirev/assayo",
+            "vendor/bin/assayo"
         ]
     },
     {
@@ -139,33 +148,43 @@
         "h3": "¿Cómo ver el informe?"
     },
     {
-        "h4": "Online"
+        "h4": "Using website"
     },
     {
         "li": [
-            "Ir a [sitio web](https://assayo.online/)",
-            "Pulse el botón [Demo](https://assayo.online/demo)»",
-            "Arrastrar y soltar archivo `log.txt` en la ventana del navegador"
+            "ir a [sitio web](https://assayo.online/)",
+            "pulse el botón [Demo](https://assayo.online/demo)»",
+            "arrastrar y soltar archivo `log.txt` en la ventana del navegador"
         ]
     },
     {
-        "h4": "Offline (NodeJS)"
+        "h4": "Use the library (NodeJS)"
     },
     {
         "li": [
-            "Run `npx assayo`",
-            "Open `./assayo/index.html`"
+            "run `npx assayo`",
+            "open `./assayo/index.html`"
         ]
     },
     {
-        "h4": "Offline"
+        "h4": "Use the library (PHP)"
     },
     {
         "li": [
-            "Descargar este repositorio",
-            "Arrastrar y soltar archivo `log.txt` en la carpeta `/build`",
-            "Lanzar `/build/index.html`",
-            "O arrastrar una carpeta `/build` a su repositorio (donde se encuentra ' log.txt`). Puede cambiar el nombre. Por ejemplo `/build` contra `/report`"
+            "run `composer require bakhirev/assayo`",
+            "run `vendor/bin/assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use source code"
+    },
+    {
+        "li": [
+            "descargar este repositorio",
+            "arrastrar y soltar archivo `log.txt` en la carpeta `/build`",
+            "lanzar `/build/index.html`",
+            "o arrastrar una carpeta `/build` a su repositorio (donde se encuentra ' log.txt`). Puede cambiar el nombre. Por ejemplo `/build` contra `/report`"
         ]
     },
     {

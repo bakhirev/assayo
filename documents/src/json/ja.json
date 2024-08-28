@@ -56,14 +56,23 @@
         ]
     },
     {
-        "h3": "How to create a report?"
+        "h3": "How to create a local report with using library?"
     },
     {
-        "p": "If you have NodeJS, you can run:"
+        "p": "NodeJS:"
     },
     {
         "pre": [
             "npx assayo"
+        ]
+    },
+    {
+        "p": "PHP:"
+    },
+    {
+        "pre": [
+            "composer require bakhirev/assayo",
+            "vendor/bin/assayo"
         ]
     },
     {
@@ -139,7 +148,7 @@
         "h3": "レポートを表示するにはどうすればよいですか？ "
     },
     {
-        "h4": "Online"
+        "h4": "Using website"
     },
     {
         "li": [
@@ -149,16 +158,26 @@
         ]
     },
     {
-        "h4": "Offline (NodeJS)"
+        "h4": "Use the library (NodeJS)"
     },
     {
         "li": [
-            "Run `npx assayo`",
-            "Open `./assayo/index.html`"
+            "run `npx assayo`",
+            "open `./assayo/index.html`"
         ]
     },
     {
-        "h4": "Offline"
+        "h4": "Use the library (PHP)"
+    },
+    {
+        "li": [
+            "run `composer require bakhirev/assayo`",
+            "run `vendor/bin/assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use source code"
     },
     {
         "li": [

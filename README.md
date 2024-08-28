@@ -125,16 +125,20 @@ Or open a saved file and manually change the encoding to UTF8.
 <a name="link-6"></a>
 ### 📈 How to view the report?
 <a name="link-7"></a>
-#### Online
+#### Using website
 - go to the [website](https://assayo.online/);
 - click the “[Demo](https://assayo.online/demo)” button;
 - drop the `log.txt` file into the browser window;
 
 <a name="link-8"></a>
-#### Offline (NodeJS)
+#### Use the library (NodeJS)
 - run `npx assayo`
 - open `./assayo/index.html`
-#### Offline
+#### Use the library (PHP)
+- run `composer require bakhirev/assayo`
+- run `vendor/bin/assayo`
+- open `./assayo/index.html`
+#### Use source code
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
 - drop the `log.txt` file to the `/build` folder;
 - run `/build/index.html`;

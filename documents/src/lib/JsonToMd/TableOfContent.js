@@ -9,6 +9,7 @@ const SMILES = [
   '📤', // 7
   null, // 8
   null, // 8
+  null, // 8
   null, // 9
   '📈', // 10
   null, // 9
