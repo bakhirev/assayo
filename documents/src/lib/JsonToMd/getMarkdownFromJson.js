@@ -31,7 +31,7 @@ function getMarkdownFromJson(json, languages, language) {
   (json || []).forEach((tag, index) => {
     if (!tag) return;
 
-    if (index === 1) {
+    if (index === 2) {
       markdown.push(custom.getSocialLinks());
       markdown.push(custom.getSreenshot());
     }

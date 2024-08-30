@@ -3,7 +3,10 @@
         "warning": "The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!"
     },
     {
-        "p": "Visualization and analysis of git commit statistics. Team Lead performance tool. ([demo](https://assayo.online/demo/?ref=github&lang=en&dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
+        "p": "Visualization and analysis of git commit statistics. Performance tool for Team Lead and IT-audit"
+    },
+    {
+        "p": "Links: [demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/)."
     },
     {
         "h5": "Employee can evaluate new workplace"

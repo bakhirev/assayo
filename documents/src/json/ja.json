@@ -3,7 +3,10 @@
         "warning": "[主な文書はロシア語です。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) これは翻訳です。 エラーが含まれている可能性があります。 あなたがネイティブスピーカーであれば、この翻訳を改善するのに役立ちます。 ありがとう！"
     },
     {
-        "p": "データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
+        "p": "データの可視化とGitレポジトリの分析"
+    },
+    {
+        "p": "Links: [デモ](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/)."
     },
     {
         "h5": "従業員は新しい職場を評価することができます"

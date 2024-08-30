@@ -3,7 +3,10 @@
         "warning": "[Documentación básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) en ruso. Es una traducción. Puede contener errores. Si usted es un hablante nativo, puede ayudar a mejorar esta traducción. ¡Gracias!"
     },
     {
-        "p": "Visualización y análisis de los datos de su repositorio git. ([demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo))."
+        "p": "Visualización y análisis de los datos de su repositorio git. Performance tool for Team Lead and IT-audit"
+    },
+    {
+        "p": "Links: [demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/)."
     },
     {
         "h5": "El empleado puede evaluar el nuevo lugar de trabajo"
