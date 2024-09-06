@@ -13,7 +13,7 @@ import splashScreenStore from 'ts/components/SplashScreen/store';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 import Depersonalized from 'ts/helpers/Depersonalized';
 
-import userSettingsStore from './UserSettings';
+// import userSettingsStore from './UserSettings';
 import filtersInHeaderStore from './FiltersInHeader';
 import viewNameStore, { ViewNameEnum } from './ViewName';
 
