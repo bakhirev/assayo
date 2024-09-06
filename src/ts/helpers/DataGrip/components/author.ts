@@ -3,6 +3,7 @@ import IHashMap from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
 import { increment } from 'ts/helpers/Math';
+import getCompany from '../helpers/getCompany';
 
 import userSettings from 'ts/store/UserSettings';
 
@@ -119,8 +120,6 @@ export default class DataGripByAuthor {
     };
   }
 
-
-
   static getDefaultCommitsByDayAndHour() {
     return (new Array(7)).fill(1).map(() => (new Array(24)).fill(0));
   }
@@ -187,6 +186,7 @@ export default class DataGripByAuthor {
           daysForTask: isStaff ? 0 : workDays / tasks.length,
           taskInDay: isStaff ? 0 : tasks.length / workDays,
           changesForTask: DataGripByAuthor.getMiddleValue(tasksSize),
+          company: getCompany(dot.author, dot.lastCommit.email),
 
           days: workDays,
           money: isStaff ? 0 : moneyWorked,

@@ -37,9 +37,9 @@ function loadJsLGlobal(url: string, callback: Function) {
       if (text[0] === 'r') {
         eval(text);
         return callback();
-      } else {
-        // @ts-ignore
-        window.report = text.split('\n');
+      } else { // @ts-ignore
+        window.r = text.split('\n'); // @ts-ignore
+        window.report = window.r;
       }
       callback();
     });

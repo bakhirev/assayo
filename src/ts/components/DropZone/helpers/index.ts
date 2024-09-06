@@ -8,22 +8,28 @@
 //   onChange('meta', { byTaskId });
 // }
 
+function getGlobalValue() { // @ts-ignore
+  return window.r || window.report;
+}
+
+function setGlobalValue(value?: any) { // @ts-ignore
+  window.r = value || []; // @ts-ignore
+  window.report = window.r;
+}
+
 export function getStringsForParser(text: string) {
-  // @ts-ignore
-  let temp = window.report; // @ts-ignore
-  window.report = [];
+  let temp = getGlobalValue();
+  setGlobalValue([]);
   const firstText = text.slice(0, 12);
   if (firstText === 'report.push(') {
     try {
       eval(text);
     } catch (e) {
-      // error(`Файл отчёта содержит запрещенный символ.\nОткройте его в редакторе и проверьте.\n${e.stack}`)
-      // @ts-ignore
-      window.report = temp;
+      setGlobalValue(temp);
       return;
     }
-  } else { // @ts-ignore
-    window.report = text.split('\n');
+  } else {
+    setGlobalValue(text.split('\n'));
   }
 
   // @ts-ignore
