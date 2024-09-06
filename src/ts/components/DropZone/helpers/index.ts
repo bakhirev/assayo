@@ -19,8 +19,8 @@ function setGlobalValue(value?: any) { // @ts-ignore
 export function getStringsForParser(text: string) {
   let temp = getGlobalValue();
   setGlobalValue([]);
-  const firstText = text.slice(0, 12);
-  if (firstText === 'report.push(') {
+  const firstText = text.slice(0, 3);
+  if (firstText === 'rep' || firstText === 'r(f') {
     try {
       eval(text);
     } catch (e) {
