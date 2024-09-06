@@ -12,6 +12,5 @@ prefixes.forEach((prefix) => {
 const content = paths.join('');
 
 const html = fs.readFileSync('../build/index.html', 'utf8');
-const text = html
-  .replace(/var\sreport=\[]<\/script>/gim, `var report=[]</script>${content}`);
+const text = html.replace(/<\/title>/gim, `</title>${content}`);
 fs.writeFileSync('../build/index.html', text);
