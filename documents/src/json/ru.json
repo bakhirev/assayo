@@ -117,7 +117,7 @@
     },
     {
         "pre": [
-            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/^/report.push(\\`/g' | sed 's/$/\\`\\);/g' | sed 's/\\$/_/g' > log.txt"
+            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/^/r.push(f\\`/g' | sed 's/$/\\`\\);/g' | sed 's/\\$/_/g' > log.txt"
         ]
     },
     {
