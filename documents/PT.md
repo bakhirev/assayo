@@ -108,7 +108,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  Para ver sem internet
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git criar um ficheiro `log.txt`. Esse arquivo contém dados para construção de relatórios. A diferença entre os formatos está na existência de uma envoltória para as linhas. O formato sem internet será puxado como `js` o arquivo se você o abriu simplesmente `/build/index.html`
 <a name="link-10"></a>

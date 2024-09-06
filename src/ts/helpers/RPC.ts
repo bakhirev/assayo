@@ -38,8 +38,7 @@ function loadJsLGlobal(url: string, callback: Function) {
         eval(text);
         return callback();
       } else { // @ts-ignore
-        window.r = text.split('\n'); // @ts-ignore
-        window.report = window.r;
+        window.report = text.split('\n');
       }
       callback();
     });

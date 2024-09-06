@@ -108,7 +108,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  在没有互联网的情况下观看
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git会创建一个文件 `log.txt`. 这个文件包含了构建报告的数据。 字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`
 <a name="link-10"></a>

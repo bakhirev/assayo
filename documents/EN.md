@@ -108,7 +108,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  For offline viewing
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git will create a file `log.txt`. This file contains data for show a report. The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
 <a name="link-10"></a>

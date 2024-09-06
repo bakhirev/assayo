@@ -102,7 +102,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  Для офлайн просмотра
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git создаст файл `log.txt`. Он содержит данные для построения отчёта. Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
 <a name="link-10"></a>

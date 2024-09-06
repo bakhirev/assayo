@@ -108,7 +108,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  Para ver sin conexión
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git creará un archivo `log.txt`. contiene los datos para construir el informe. La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`
 <a name="link-10"></a>

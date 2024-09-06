@@ -9,12 +9,11 @@
 // }
 
 function getGlobalValue() { // @ts-ignore
-  return window.r || window.report;
+  return window.report;
 }
 
 function setGlobalValue(value?: any) { // @ts-ignore
-  window.r = value || []; // @ts-ignore
-  window.report = window.r;
+  window.report = value || [];
 }
 
 export function getStringsForParser(text: string) {
@@ -32,8 +31,7 @@ export function getStringsForParser(text: string) {
     setGlobalValue(text.split('\n'));
   }
 
-  // @ts-ignore
-  return window.report;
+  return getGlobalValue();
 }
 
 export async function getStringFromFileList(files: any) {

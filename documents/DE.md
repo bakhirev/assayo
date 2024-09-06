@@ -107,7 +107,7 @@ git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict -
 <a name="link-9"></a>
 ####  Zum surfen ohne internet
 ```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r.push(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/^/r(f\`/g' | sed 's/$/\`\);/g' | sed 's/\$/_/g' > log.txt
 ```
 Git erstellt eine datei `log.txt`. Diese datei enthält die daten zum erstellen des berichts. Der unterschied zwischen den formaten liegt im vorhandensein einer wrapper für zeilen. Das format ohne internet wird wie eine js-datei geladen, wenn sie es einfach öffnen. `/build/index.html`
 <a name="link-10"></a>
