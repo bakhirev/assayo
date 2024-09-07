@@ -6,7 +6,7 @@
         "p": "Visualização e análise de dados do seu repositório git. Performance tool for Team Lead and IT-audit"
     },
     {
-        "p": "Links: [demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/)."
+        "p": "Links: [demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/), [video](https://www.youtube.com/watch?v=mqfu-ea3jao)."
     },
     {
         "h5": "Funcionario de avaliar o novo local de trabalho"
@@ -76,6 +76,15 @@
         "pre": [
             "composer require bakhirev/assayo",
             "vendor/bin/assayo"
+        ]
+    },
+    {
+        "p": "Python:"
+    },
+    {
+        "pre": [
+            "pipx install assayo",
+            "assayo"
         ]
     },
     {
