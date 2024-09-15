@@ -31,7 +31,7 @@ function getSocialLinks() {
 }
 
 function getSreenshot() {
-  return '<a href="https://assayo.online/demo/?dump=./test.txt" target="_blank"><img src="https://assayo.online/seo/github/index.png" width="100%" /></a>\n';
+  return '<a href="https://assayo.online/demo/?dump=./test.txt" target="_blank"><img src="https://assayo.online/assets/images/index.gif" width="100%" /></a>\n';
 }
 
 function getYandexMetrika() {
