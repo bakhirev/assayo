@@ -35,6 +35,7 @@ function getSreenshot() {
 }
 
 function getYandexMetrika() {
+  return '\n';
   return '\n<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />\n';
 }
 

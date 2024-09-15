@@ -264,5 +264,3 @@ Releases are planned approximately once every six months. What’s next:
 - <img alt="Telegram Messenger" src="https://telegram.org/img/website_icon.svg?4" style="vertical-align: middle;" /> [@bakhirev](https://t.me/bakhirev) (preferred method of communication)
 - 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 🌐 [https://assayo.online/](https://assayo.online/?ref=github&lang=en)
-
-<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

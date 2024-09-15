@@ -257,4 +257,3 @@ Sie können eine neue übersetzung hinzufügen oder die aktuelle im abschnitt ko
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - web site [https://assayo.online/](https://assayo.online/?ref=github&lang=de)
 
-<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

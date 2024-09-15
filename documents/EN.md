@@ -264,4 +264,3 @@ Releases are planned approximately once every six months. What’s next:
 - 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 🌐 [https://assayo.online/](https://assayo.online/?ref=github&lang=en)
 
-<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

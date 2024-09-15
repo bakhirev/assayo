@@ -258,4 +258,3 @@ Você pode adicionar uma nova tradução ou corrigir uma existente na seção ``
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - site [https://assayo.online/](https://assayo.online/?ref=github&lang=pt)
 
-<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />

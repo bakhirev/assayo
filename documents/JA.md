@@ -258,4 +258,3 @@ you_url    - gitのログのコンテナーのURLアドレス;
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - ウェブサイト [https://assayo.online/](https://assayo.online/?ref=github&lang=ja)
 
-<img src="https://mc.yandex.ru/watch/94903985" style="position:absolute; left:-9999px;" alt="" />
