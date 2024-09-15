@@ -1,4 +1,4 @@
-Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Visualisierung und analyse ihrer Git-datenbank ([demo](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Mitarbeiter können den neuen arbeitsplatz bewerten
 - arbeitsgeschwindigkeit;

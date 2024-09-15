@@ -1,6 +1,6 @@
 > [Documentação básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) em russo. É uma tradução. Pode conter erros. Se você é um falante nativo, você pode ajudar a melhorar esta tradução. Obrigado!
 
-Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Funcionario de avaliar o novo local de trabalho
 - ritmo de trabalho;

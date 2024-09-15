@@ -5,7 +5,7 @@
 
 # [Assayo](https://assayo.online/?ref=github&lang=ru)
 
-Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;

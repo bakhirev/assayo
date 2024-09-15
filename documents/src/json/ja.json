@@ -6,7 +6,7 @@
         "p": "データの可視化とGitレポジトリの分析"
     },
     {
-        "p": "Links: [デモ](https://assayo.online/demo/?dump=./test.txt), [install](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/), [video](https://www.youtube.com/watch?v=mqfu-ea3jao)."
+        "p": "Links: [デモ](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/), [video](https://www.youtube.com/watch?v=mqfu-ea3jao)."
     },
     {
         "h5": "従業員は新しい職場を評価することができます"
