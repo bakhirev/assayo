@@ -10,10 +10,12 @@ const SMILES = [
   null, // 8
   null, // 8
   null, // 8
-  null, // 9
   '📈', // 10
   null, // 9
+  null, // 9
   null, // 11
+  null, // 12
+  null, // 12
   null, // 12
   '🏭', // 13
   '🗃️', // 14

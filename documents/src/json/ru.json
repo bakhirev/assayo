@@ -56,14 +56,42 @@
         ]
     },
     {
-        "h3": "Как создать отчёт?"
+        "h3": "Как создать отчёт с помощью библиотеки?"
     },
+
     {
-        "p": "Если у вас установлен NodeJS, то вы можете выполнить:"
+        "p": "NodeJS:"
     },
     {
         "pre": [
             "npx assayo"
+        ]
+    },
+    {
+        "p": "PHP:"
+    },
+    {
+        "pre": [
+            "composer require bakhirev/assayo",
+            "vendor/bin/assayo"
+        ]
+    },
+    {
+        "p": "Python:"
+    },
+    {
+        "pre": [
+            "pipx install assayo",
+            "assayo"
+        ]
+    },
+    {
+        "p": "Ruby:"
+    },
+    {
+        "pre": [
+            "gem install assayo",
+            "assayo"
         ]
     },
     {
@@ -149,7 +177,7 @@
         ]
     },
     {
-        "h4": "Используя библиотеку (NodeJS)"
+        "h4": "Используя библиотеку NodeJS"
     },
     {
         "li": [
@@ -158,12 +186,32 @@
         ]
     },
     {
-        "h4": "Используя библиотеку (PHP)"
+        "h4": "Используя библиотеку PHP"
     },
     {
         "li": [
             "выполнить `composer require bakhirev/assayo`",
             "выполнить `vendor/bin/assayo`",
+            "открыть `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Используя библиотеку Python"
+    },
+    {
+        "li": [
+            "выполнить `pipx install assayo`",
+            "выполнить `assayo`",
+            "открыть `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Используя библиотеку Ruby"
+    },
+    {
+        "li": [
+            "выполнить `gem install assayo`",
+            "выполнить `assayo`",
             "открыть `./assayo/index.html`"
         ]
     },

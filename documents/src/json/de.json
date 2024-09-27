@@ -85,6 +85,15 @@
         ]
     },
     {
+        "p": "Ruby:"
+    },
+    {
+        "pre": [
+            "gem install assayo",
+            "assayo"
+        ]
+    },
+    {
         "p": "The script will create a folder `./assayo` with a report about repository:"
     },
     {
@@ -167,7 +176,7 @@
         ]
     },
     {
-        "h4": "Use the library (NodeJS)"
+        "h4": "Use the library NodeJS"
     },
     {
         "li": [
@@ -176,12 +185,32 @@
         ]
     },
     {
-        "h4": "Use the library (PHP)"
+        "h4": "Use the library PHP"
     },
     {
         "li": [
             "run `composer require bakhirev/assayo`",
             "run `vendor/bin/assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use the library Python"
+    },
+    {
+        "li": [
+            "run `pipx install assayo`",
+            "run `assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use the library Ruby"
+    },
+    {
+        "li": [
+            "run `gem install assayo`",
+            "run `assayo`",
             "open `./assayo/index.html`"
         ]
     },
