@@ -26,7 +26,7 @@ export default class DataGripByAuthor {
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.author]) {
+    if (this.commits.hasOwnProperty(commit.author)) {
       this.#updateCommitByAuthor(commit);
     } else {
       this.#addCommitByAuthor(commit);

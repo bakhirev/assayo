@@ -32,7 +32,7 @@ export default class DataGripByScope {
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.scope]) {
+    if (this.commits.hasOwnProperty(commit.scope)) {
       this.#updateCommitByScope(commit);
     } else {
       this.#addCommitByScope(commit);

@@ -21,22 +21,20 @@ function UiKitSelect({
   options,
   onChange,
 }: IUiKitSelectProps) {
-  const items = (options || [])
-    .map((option: any, index: number) => {
-      const formattedOption = typeof option !== 'object'
-        ? ({ id: option, title: option })
-        : option;
+  const formattedOptions = (options || []).map((option: any) => (
+    typeof option !== 'object'
+      ? ({ id: option, title: option })
+      : option
+  ));
 
-      return (
-        <option
-          key={`${formattedOption?.id}_${index}`}
-          value={formattedOption?.id ?? null}
-          selected={value === formattedOption?.id}
-        >
-          {formattedOption?.title ?? formattedOption?.id ?? ''}
-        </option>
-      );
-    });
+  const items = formattedOptions.map((option: any, index: number) => (
+    <option
+      key={`${option?.id}_${index}`}
+      value={option?.id ?? null}
+    >
+      {option?.title ?? option?.id ?? ''}
+    </option>
+  ));
 
   return (
     <Wrapper
@@ -47,6 +45,7 @@ function UiKitSelect({
       className={className}
     >
       <select
+        value={value}
         className={`${style.ui_kit_common} ${styleSelect.ui_kit_select} ${className || ''}`}
         onChange={(event: ChangeEvent<HTMLSelectElement>) => {
           const selectedValue = event.target.value;

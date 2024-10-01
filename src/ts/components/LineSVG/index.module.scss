@@ -1,0 +1,12 @@
+@import 'src/styles/variables';
+
+.pie_svg {
+  display: inline-block;
+  height: 100%;
+
+  &_sector {
+    fill: transparent;
+    stroke: var(--color-black);
+    stroke-width: 2px;
+  }
+}

@@ -12,7 +12,12 @@ import style from './styles/index.module.scss';
 
 function addBannerInRandomIndex(list: any[]) {
   const className = `${styleCard.recommendations_card} ${styleCard.recommendations_card_banner}`;
-  const item = (<Banner className={className} />);
+  const item = (
+    <Banner
+      key="banner"
+      className={className}
+    />
+  );
 
   const index = Math.floor(Math.random() * list.length);
   const last = list.splice(index);
@@ -32,12 +37,12 @@ function Recommendations({
     .filter(item => item)
     .map((recommendation) => (mode === 'print' ? (
       <CardForPrint
-        key={recommendation[1]}
+        key={recommendation.description}
         recommendation={recommendation}
       />
     ) : (
       <Card
-        key={recommendation[1]}
+        key={recommendation.description}
         recommendation={recommendation}
         onClick={() => {
           recommendationStore.open(recommendation);

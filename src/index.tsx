@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
@@ -45,14 +45,16 @@ function renderReactApplication() {
     printStore.endPrint();
   };
 
-  render(
+  const container = document.getElementById('root');
+  if (!container) return;
+
+  createRoot(container).render(
     <React.StrictMode>
       <HashRouter>
         <Main />
         <Notifications/>
       </HashRouter>
     </React.StrictMode>,
-    document.getElementById('root'),
   );
 }
 

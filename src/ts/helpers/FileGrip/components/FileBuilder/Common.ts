@@ -25,6 +25,7 @@ export default class FileBuilderCommon {
   }
 
   static updateTotal(file: IDirtyFile) {
+    if (Array.isArray(file?.path)) return;
     // @ts-ignore
     const { name, type, extension } = getNameTypeExtension(file?.path);
     file.name = name;

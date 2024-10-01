@@ -89,13 +89,16 @@ function ViewWithWelcome() {
   );
 }
 
+let bugInReactWithDoubleInit = 1;
 const Main = observer(() => {
   const view = viewNameStore.view;
 
   useEffect(() => {
+    console.log('main');
     // @ts-ignore
     const list = window?.report || [];
-    if (list?.length) {
+    if (list?.length && bugInReactWithDoubleInit !== list?.length) {
+      bugInReactWithDoubleInit = list?.length;
       dataGripStore.asyncSetCommits(list);
     } else {
       viewNameStore.toggle(ViewNameEnum.WELCOME);

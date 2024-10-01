@@ -33,6 +33,8 @@ function getTopUser(listOfChanges: any) {
 }
 
 export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
+  if (!fileGrip.files.list.length) return;
+
   const moreLintHint: any = [];
   const moreReadMe: any = [];
   const moreStyle: any = [];

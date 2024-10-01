@@ -18,7 +18,7 @@ export default class DataGripByTasks {
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.task]) {
+    if (this.commits.hasOwnProperty(commit.task)) {
       this.#updateCommitByTask(commit);
     } else {
       this.#addCommitByTask(commit);

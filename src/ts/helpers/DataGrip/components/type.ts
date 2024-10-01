@@ -17,7 +17,7 @@ export default class DataGripByType {
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.type]) {
+    if (this.commits.hasOwnProperty(commit.type)) {
       this.#updateCommitByType(commit);
     } else {
       this.#addCommitByType(commit);

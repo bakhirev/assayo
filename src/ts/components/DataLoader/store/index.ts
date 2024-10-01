@@ -86,6 +86,7 @@ export class DataLoaderStore implements IDataLoaderStore {
       loadMore: action,
       showAll: action,
       updateSort: action,
+      updateWatchedValue: action,
       canSendRequest: computed,
     });
   }

@@ -17,7 +17,7 @@ export default class DataGripByWeek {
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.week]) {
+    if (this.commits.hasOwnProperty(commit.week)) {
       this.#updateCommitByWeek(commit);
     } else {
       this.#addCommitByWeek(commit);
