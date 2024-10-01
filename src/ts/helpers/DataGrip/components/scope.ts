@@ -86,7 +86,7 @@ export default class DataGripByScope {
           const user = dot.authors[name];
           const days: number = Object.keys(user.days).length;
           // TODO: need middle salary in month;
-          salaryCache[name] = salaryCache[name] || userSettings.getCurrentSalaryInMonth(name);
+          salaryCache[name] = salaryCache[name] || userSettings.getCurrentSalaryInDay(name);
           cost += days * salaryCache[name];
           dot.authors[name] = { ...user, days };
         }

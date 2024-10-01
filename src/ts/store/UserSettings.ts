@@ -68,6 +68,10 @@ class UserSettings implements IUserSettingsStore {
     return this.getEmploymentContract(name).value;
   }
 
+  getCurrentSalaryInDay(name: string) {
+    return this.getCurrentSalaryInMonth(name) / 30;
+  }
+
   getMiddleSalaryInMonth(
     name: string,
     firstCommitTime: number,
