@@ -43,7 +43,7 @@ interface ITaskProps {
 
 function Task({ title, commits }: ITaskProps) {
   const { t } = useTranslation();
-  const prId = dataGrip.pr.prByTask[title];
+  const prId = dataGrip.pr.prByTask.get(title);
   return (
     <div
       key={title}

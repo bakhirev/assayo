@@ -8,6 +8,7 @@ import fullScreen from 'ts/store/FullScreen';
 
 import Author from './components/Author';
 import Commits from './components/Commits';
+import Company from './components/Company';
 import Changes from './components/Changes';
 import Hours from './components/Hours';
 import PopularWords from './components/PopularWords';
@@ -37,6 +38,7 @@ const View = observer(({ page }: ViewProps): React.ReactElement => {
   if (page === 'total') return <Total/>;
   if (page === 'scope') return <Scope mode={mode}/>;
   if (page === 'author') return <Author mode={mode}/>;
+  if (page === 'company') return <Company mode={mode}/>;
   if (page === 'type') return <Type mode={mode}/>;
   if (page === 'pr') return <Pr mode={mode}/>;
   if (page === 'day') return <Tempo/>;

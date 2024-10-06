@@ -41,11 +41,13 @@
     position: relative;
     font-weight: 100;
     display: block;
-    padding-top: 24px;
-    padding-left: 12px;
+    padding: 0 var(--space-m) var(--space-xxl) 42px;
+
     white-space: nowrap;
-    border-bottom: 1px solid #EEEEEE;
     break-inside: auto;
+
+    border-bottom: 1px solid #EEEEEE;
+    border-radius: var(--border-radius-m);
   }
 
   &_cell,
@@ -62,6 +64,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: top;
+
+    background-color: var(--color-white);
   }
 
   &_fixed {
@@ -97,11 +101,11 @@
       margin-top: 8px;
       cursor: pointer;
       transition: transform 0.5s;
-      transform: rotate(0);
+      transform: rotate(-90deg);
     }
 
     &_open {
-      transform: rotate(-180deg);
+      transform: rotate(0);
     }
   }
 }

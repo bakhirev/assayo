@@ -8,28 +8,31 @@
 //   onChange('meta', { byTaskId });
 // }
 
+import splashScreenStore from 'ts/components/SplashScreen/store';
+
 function getGlobalValue() { // @ts-ignore
   return window.report;
 }
 
 function setGlobalValue(value?: any) { // @ts-ignore
   window.report = value || [];
+  splashScreenStore.setDelay((value || [])?.length);
 }
 
 export function getStringsForParser(text: string) {
-  let temp = getGlobalValue();
   setGlobalValue([]);
+
   const firstText = text.slice(0, 3);
-  if (firstText === 'rep' || firstText === 'r(f') {
-    try {
-      eval(text);
-    } catch (e) {
-      setGlobalValue(temp);
-      return;
-    }
-  } else {
-    setGlobalValue(text.split('\n'));
+  const isNeedClear = {
+    'rep': true,
+    'r(f': true,
+    'R(f': true,
+  }[firstText];
+
+  if (isNeedClear) {
+    text = text.replace(/(R\(f`)|(r\(f`)|(report\.push\(`)|(`\);)/gim, '');
   }
+  setGlobalValue(text.split('\n'));
 
   return getGlobalValue();
 }
@@ -56,7 +59,6 @@ export function getOnDrop(setLoading: Function, onChange: Function) {
       .map((file: any) => file.kind === 'file' ? file?.getAsFile() : null)
       .filter(file => file);
 
-    console.log(files);
     setLoading(false);
     if (!files.length) return;
 

@@ -1,14 +1,14 @@
 import ICommit from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import { HashMap } from 'ts/interfaces/HashMap';
 import userSettings from 'ts/store/UserSettings';
 import { increment } from 'ts/helpers/Math';
 
 import MinMaxCounter from './counter';
 
 export default class DataGripByTimestamp {
-  commits: IHashMap<any> = {};
+  commits: HashMap<any> = new Map();
 
-  commitsByAuthor: IHashMap<any> = {};
+  commitsByAuthor: HashMap<any> = new Map();
 
   statistic: any = [];
 
@@ -19,29 +19,35 @@ export default class DataGripByTimestamp {
   }
 
   clear() {
-    this.commits = {};
-    this.commitsByAuthor = {};
+    this.commits.clear();
+    this.commitsByAuthor.clear();
     this.statistic = [];
     this.statisticByAuthor = {};
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits[commit.milliseconds]) {
-      this.#updateCommitByTimestamp(commit, this.commits[commit.milliseconds]);
+    const commitByMilliseconds = this.commits.get(commit.milliseconds);
+    if (commitByMilliseconds) {
+      this.#updateCommitByTimestamp(commitByMilliseconds, commit);
     } else {
-      this.commits[commit.milliseconds] = this.#getDefaultCommitByTimestamp(commit);
+      this.commits.set(commit.milliseconds, this.#getDefaultCommitByTimestamp(commit));
     }
-    if (!this.commitsByAuthor[commit.author]) {
-      this.commitsByAuthor[commit.author] = {};
+
+    let commitsByAuthor = this.commitsByAuthor.get(commit.author);
+    if (!commitsByAuthor) {
+      commitsByAuthor = new Map();
+      this.commitsByAuthor.set(commit.author, commitsByAuthor);
     }
-    if (this.commitsByAuthor[commit.author][commit.milliseconds]) {
-      this.#updateCommitByTimestamp(commit, this.commitsByAuthor[commit.author][commit.milliseconds]);
+
+    const commitByAuthorMilliseconds = commitsByAuthor.get(commit.milliseconds);
+    if (commitByAuthorMilliseconds) {
+      this.#updateCommitByTimestamp(commitByAuthorMilliseconds, commit);
     } else {
-      this.commitsByAuthor[commit.author][commit.milliseconds] = this.#getDefaultCommitByTimestamp(commit);
+      commitsByAuthor.set(commit.milliseconds, this.#getDefaultCommitByTimestamp(commit));
     }
   }
 
-  #updateCommitByTimestamp(commit: ICommit, statistic: any) {
+  #updateCommitByTimestamp(statistic: any, commit: ICommit) {
     statistic.commits += 1;
     statistic.addedAndChanges += commit.added + commit.changes;
     increment(statistic.tasks, commit.task);
@@ -76,16 +82,16 @@ export default class DataGripByTimestamp {
   updateTotalInfo(dataGripByAuthor: any) {
     this.statistic = this.#getTotalInfo(this.commits);
     this.statistic.weekendPayment  = 0;
-    for (let author in this.commitsByAuthor) {
-      const statistic = this.#getTotalInfo(this.commitsByAuthor[author]);
-      statistic.weekendPayment = this.#getWeekendPaymentByAuthor(statistic, dataGripByAuthor.statisticByName[author]);
-      this.statisticByAuthor[author] = statistic; // TODO: странный результат, неверный расчёт?
+    for (let author of this.commitsByAuthor.keys()) {
+      const statistic = this.#getTotalInfo(this.commitsByAuthor.get(author));
+      statistic.weekendPayment = this.#getWeekendPaymentByAuthor(statistic, dataGripByAuthor.statisticByName[author || '']);
+      this.statisticByAuthor[author || ''] = statistic; // TODO: странный результат, неверный расчёт?
       this.statistic.weekendPayment += statistic.weekendPayment;
     }
   }
 
-  #getTotalInfo(uniqCommitsByTimestamp: any) {
-    const allCommitsByTimestamp = Object.values(uniqCommitsByTimestamp);
+  #getTotalInfo(uniqCommitsByTimestamp: HashMap<any>) {
+    const allCommitsByTimestamp = Array.from(uniqCommitsByTimestamp.values());
 
     const commitsCounter = new MinMaxCounter();
     const changesCounter = new MinMaxCounter();
@@ -109,12 +115,6 @@ export default class DataGripByTimestamp {
       workByDay,
       weekendPayment: 0,
     };
-  }
-
-  #getMiddleValue(list: any, property: string) {
-    const sortList = list.sort((a: any, b: any) => b[property] - a[property]);
-    const gap = Math.floor(sortList.length * 0.05);
-    return sortList.slice(gap, sortList.length - gap);
   }
 
   #getWeekendPaymentByAuthor(statistic: any, dataGripByAuthor: any) {

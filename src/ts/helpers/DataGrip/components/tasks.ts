@@ -40,7 +40,7 @@ export default class DataGripByTasks {
         const firstCommit = commits[0];
         const lastCommit = commits[commits.length - 1];
         const from = firstCommit.milliseconds;
-        const pr = PRs.prByTask[task] ? PRs.pr[PRs.prByTask[task]] : null;
+        const pr = PRs.prByTask.get(task) ? PRs.pr.get(PRs.prByTask.get(task)) : null;
 
         const shortInfo = {
           task,

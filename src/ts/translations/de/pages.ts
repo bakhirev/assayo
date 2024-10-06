@@ -24,6 +24,7 @@ export default `
 § page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
 § page.team.author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
 § page.team.author.status: Status
+§ page.team.author.company: Company
 § page.team.author.firstCommit: First commit
 § page.team.author.lastCommit: Last
 § page.team.author.daysAll: Total days

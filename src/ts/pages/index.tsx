@@ -94,7 +94,6 @@ const Main = observer(() => {
   const view = viewNameStore.view;
 
   useEffect(() => {
-    console.log('main');
     // @ts-ignore
     const list = window?.report || [];
     if (list?.length && bugInReactWithDoubleInit !== list?.length) {

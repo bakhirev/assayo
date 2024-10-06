@@ -14,11 +14,14 @@ import DataGripByPR from './components/pr';
 import DataGripByTasks from './components/tasks';
 import DataGripByRelease from './components/release';
 import DataGripByScoring from './components/scoring';
+import DataGripByCompany from './components/company';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
 
   author: any = new DataGripByAuthor();
+
+  company: any = new DataGripByCompany();
 
   team: any = new DataGripByTeam();
 
@@ -45,6 +48,7 @@ class DataGrip {
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
+    this.company.clear();
     this.team.clear();
     this.scope.clear();
     this.type.clear();
@@ -71,6 +75,7 @@ class DataGrip {
       this.get.addCommit(commit);
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
+      this.company.addCommit(commit);
     }
   }
 
@@ -86,6 +91,7 @@ class DataGrip {
     this.tasks.updateTotalInfo(this.pr);
     this.release.updateTotalInfo();
     this.scoring.updateTotalInfo(this.author, this.timestamp);
+    this.company.updateTotalInfo(this.author);
   }
 }
 

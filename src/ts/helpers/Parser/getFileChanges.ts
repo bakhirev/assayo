@@ -5,6 +5,8 @@ function getFilePath(path: string): string[] {
     .replace(/"/gm, '')
     .replace(/\/\//gm, '/');
 
+  if (formattedPath.indexOf('{') === -1) return [formattedPath];
+
   const parts = formattedPath.split(/(?:\{)|(?:\s=>\s)|(?:})/gm);
   if (parts.length !== 2 && parts.length !== 4) return [formattedPath];
 
@@ -19,9 +21,32 @@ function getFilePath(path: string): string[] {
   return [oldPath, newPath];
 }
 
+function fastNumStatSplit(message: string) {
+  let firstIndex = 0;
+  if (message[1] === '\t') firstIndex = 1;
+  else if (message[2] === '\t') firstIndex = 2;
+  else if (message[3] === '\t') firstIndex = 3;
+  else if (message[4] === '\t') firstIndex = 4;
+  else if (message[5] === '\t') firstIndex = 5;
+
+  let secondIndex = firstIndex + 2;
+  if (message[firstIndex + 2] === '\t') secondIndex = firstIndex + 2;
+  else if (message[firstIndex + 3] === '\t') secondIndex = firstIndex + 3;
+  else if (message[firstIndex + 4] === '\t') secondIndex = firstIndex + 4;
+  else if (message[firstIndex + 5] === '\t') secondIndex = firstIndex + 5;
+  else if (message[firstIndex + 6] === '\t') secondIndex = firstIndex + 6;
+
+  return [
+    message.substring(0, firstIndex),
+    message.substring(firstIndex + 1, secondIndex),
+    message.substring(secondIndex + 1),
+  ];
+}
+
 // "38	9	src/app.css" -> [38, 9, 'src/app.css']
 export function getNumStatInfo(message: string) {
-  let [addedRaw, removedRaw, path] = message.split('\t');
+  let [addedRaw, removedRaw, path] = fastNumStatSplit(message);
+  // let [addedRaw, removedRaw, path] = message.split('\t');
 
   let added = parseInt(addedRaw, 10) || 0;
   let removed = parseInt(removedRaw, 10) || 0;
@@ -51,7 +76,7 @@ export function getNumStatInfo(message: string) {
 // ":000000 100644 000000000 fc44b0a37 A	public/logo192.png" -> ['A', 'public/logo192.png']
 export function getRawInfo(message: string) {
   return {
-    action:message[35],
+    action: message[35],
     path: message.substring(37),
   };
 }

@@ -1,6 +1,6 @@
 import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
-import { increment, WeightedAverage } from 'ts/helpers/Math';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
+import { createIncrement, increment, WeightedAverage } from 'ts/helpers/Math';
 
 const IS_PR = {
   [COMMIT_TYPE.PR_BITBUCKET]: true,
@@ -9,71 +9,69 @@ const IS_PR = {
 };
 
 export default class DataGripByPR {
-  pr: IHashMap<any> = {};
+  pr: HashMap<any> = new Map();
 
-  prByTask: IHashMap<string> = {};
+  prByTask: HashMap<any> = new Map();
 
-  lastCommitByTaskNumber: IHashMap<any> = {};
+  lastCommitByTaskNumber: HashMap<any> = new Map();
 
   statistic: any[] = [];
 
   statisticByName: IHashMap<any> = [];
 
   clear() {
-    this.pr = {};
-    this.prByTask = {};
-    this.lastCommitByTaskNumber = {};
+    this.pr.clear();
+    this.prByTask.clear();
+    this.lastCommitByTaskNumber.clear();
     this.statistic = [];
   }
 
   addCommit(commit: ISystemCommit) {
     if (!commit.commitType) {
-      if (!this.lastCommitByTaskNumber[commit.task]) {
-        this.#addCommitByTaskNumber(commit);
+      const commitByTaskNumber = this.lastCommitByTaskNumber.get(commit.task);
+      if (commitByTaskNumber) {
+        this.#updateCommitByTaskNumber(commitByTaskNumber, commit);
       } else {
-        this.#updateCommitByTaskNumber(commit);
+        this.#addCommitByTaskNumber(commit);
       }
-    } else if (!this.pr[commit.prId] && IS_PR[commit.commitType || '']) {
+    } else if (!this.pr.has(commit.prId) && IS_PR[commit.commitType || '']) {
       this.#addCommitByPR(commit);
     }
   }
 
   #addCommitByTaskNumber(commit: ISystemCommit) {
-    this.lastCommitByTaskNumber[commit.task] = {
+    this.lastCommitByTaskNumber.set(commit.task, {
       commits : 1,
       beginTaskTime: commit.milliseconds,
       endTaskTime: commit.milliseconds,
-      commitsByAuthors: {
-        [commit.author]: 1,
-      },
+      commitsByAuthors: createIncrement(commit.author),
       firstCommit: commit,
-    };
+    });
   }
 
-  #updateCommitByTaskNumber(commit: ISystemCommit) {
-    const statistic = this.lastCommitByTaskNumber[commit.task];
+  #updateCommitByTaskNumber(statistic: any, commit: ISystemCommit) {
     statistic.endTaskTime = commit.milliseconds;
     statistic.commits += 1;
     increment(statistic.commitsByAuthors, commit.author);
   }
 
   #addCommitByPR(commit: ISystemCommit) {
-    const lastCommit = this.lastCommitByTaskNumber[commit.task];
+    const lastCommit = this.lastCommitByTaskNumber.get(commit.task);
     if (lastCommit) {
       // коммиты после влития PR сгорают, чтобы не засчитать технические PR мержи веток
-      delete this.lastCommitByTaskNumber[commit.task];
+      this.lastCommitByTaskNumber.delete(commit.task);
       const delay = commit.milliseconds - lastCommit.endTaskTime;
       const work = lastCommit.endTaskTime - lastCommit.beginTaskTime;
-      this.pr[commit.prId] = {
+      this.pr.set(commit.prId, {
         ...commit,
         ...lastCommit,
         delay,
         delayDays: delay / (24 * 60 * 60 * 1000),
         workDays: work === 0 ? 1 : (work / (24 * 60 * 60 * 1000)),
-      };
-      this.prByTask[commit.task] = commit.prId;
+      });
+      this.prByTask.set(commit.task, commit.prId);
     } else {
-      this.pr[commit.prId] = { ...commit };
+      this.pr.set(commit.prId, { ...commit });
     }
   }
 
@@ -101,7 +99,7 @@ export default class DataGripByPR {
     this.statistic.sort((a: any, b: any) => b.delay - a.delay);
     this.updateTotalByAuthor(authors, refAuthorPR);
 
-    this.lastCommitByTaskNumber = {};
+    this.lastCommitByTaskNumber.clear();
   }
 
   static getPRByGroups(list: any, propertyName: string) {

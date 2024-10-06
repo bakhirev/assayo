@@ -1,4 +1,4 @@
-import IHashMap from 'ts/interfaces/HashMap';
+import { HashMap } from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
 interface IStatByAuthor {
@@ -8,12 +8,12 @@ interface IStatByAuthor {
 }
 
 export default class FileGripByAuthor {
-  statisticByName: IHashMap<IStatByAuthor> = {};
+  statisticByName: HashMap<IStatByAuthor> = new Map();
 
   totalAddedFiles: number = 0;
 
   clear() {
-    this.statisticByName = {};
+    this.statisticByName.clear();
   }
 
   addFile(file: IDirtyFile) {
@@ -28,17 +28,17 @@ export default class FileGripByAuthor {
   }
 
   #addCommitByAuthor(author: string) {
-    if (this.statisticByName[author]) return;
-    this.statisticByName[author] = {
+    if (this.statisticByName.has(author)) return;
+    this.statisticByName.set(author, {
       addedFiles: 0,
       removedFiles: 0,
       addedWithoutRemoveFiles: 0,
-    };
+    });
   }
 
   #updateCommitByAuthor(file: IDirtyFile, firstAuthor: string, lastAuthor: string) {
-    const createStatistic = this.statisticByName[firstAuthor];
-    const removeStatistic = this.statisticByName[lastAuthor];
+    const createStatistic = this.statisticByName.get(firstAuthor) as IStatByAuthor;
+    const removeStatistic = this.statisticByName.get(lastAuthor) as IStatByAuthor;
 
     createStatistic.addedWithoutRemoveFiles += 1;
     if (file.action === 'D') {
@@ -49,7 +49,7 @@ export default class FileGripByAuthor {
   }
 
   updateTotalInfo() {
-    this.totalAddedFiles = Object.values(this.statisticByName)
+    this.totalAddedFiles = Array.from(this.statisticByName.values())
       .reduce((sum: number, stat: any) => sum + stat.addedFiles, 0);
   }
 }

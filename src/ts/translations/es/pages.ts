@@ -24,6 +24,7 @@ export default `
 § page.team.author.description1: Parte de las estadísticas (la velocidad del trabajo, el dinero gastado, etc.) para los empleados con el tipo de "Asistente" no cuenta, ya que no es un rol permanente en el proyecto. Su trabajo es insignificante y puede ser ignorado.
 § page.team.author.description2: La clasificación predeterminada es la clasificación por número de tareas y grupos(empleados actuales, despedidos, ayudantes).
 § page.team.author.status: Status
+§ page.team.author.company: Company
 § page.team.author.firstCommit: First commit
 § page.team.author.lastCommit: Last
 § page.team.author.daysAll: Total days

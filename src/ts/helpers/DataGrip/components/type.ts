@@ -1,6 +1,6 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import { increment } from 'ts/helpers/Math';
+import { createIncrement, increment } from 'ts/helpers/Math';
 import { POPULAR_TYPES } from 'ts/helpers/Parser/getTypeAndScope';
 
 export default class DataGripByType {
@@ -39,10 +39,12 @@ export default class DataGripByType {
     this.commits[commit.type] = {
       type: commit.type,
       commits: 1,
-      days: { [commit.timestamp]: true },
-      tasks: { [commit.task]: true },
-      commitsByAuthors: { [commit.author]: 1 },
-      daysByAuthors: { [commit.author]: { [commit.timestamp]: true } },
+      days: createIncrement(commit.timestamp, true),
+      tasks: createIncrement(commit.task, true),
+      commitsByAuthors: createIncrement(commit.author, true),
+      daysByAuthors: {
+        [commit.author]: createIncrement(commit.timestamp, true),
+      },
     };
   }
 

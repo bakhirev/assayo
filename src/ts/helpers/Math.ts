@@ -37,5 +37,13 @@ export class WeightedAverage {
 }
 
 export function increment(object: Object, path: string) {
-  object[path] = (object[path] || 0) + 1;
+  if (path) object[path] = (object[path] || 0) + 1;
+}
+
+export function createIncrement(key?: string, firstValue?: any) {
+  return key ? { [key]: firstValue || 1 } : {};
+}
+
+export function createHashMap(key?: string) {
+  return createIncrement(key, true);
 }

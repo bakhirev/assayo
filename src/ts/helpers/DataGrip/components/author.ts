@@ -1,16 +1,16 @@
 import ICommit from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
-import { increment } from 'ts/helpers/Math';
-import getCompany from '../helpers/getCompany';
+import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
+import getCompany from 'ts/helpers/Parser/getCompany';
 
 import userSettings from 'ts/store/UserSettings';
 
 export default class DataGripByAuthor {
   list: string[] = [];
 
-  commits: IHashMap<any> = {};
+  commits: HashMap<any> = new Map();
 
   statistic: any = [];
 
@@ -20,22 +20,22 @@ export default class DataGripByAuthor {
 
   clear() {
     this.list = [];
-    this.commits = {};
+    this.commits.clear();
     this.statistic = [];
     this.statisticByName = {};
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits.hasOwnProperty(commit.author)) {
-      this.#updateCommitByAuthor(commit);
+    const statistic = this.commits.get(commit.author);
+    if (statistic) {
+      this.#updateCommitByAuthor(statistic, commit);
     } else {
       this.#addCommitByAuthor(commit);
     }
     this.#setMoneyByMonth(commit);
   }
 
-  #updateCommitByAuthor(commit: ICommit) {
-    const statistic = this.commits[commit.author];
+  #updateCommitByAuthor(statistic: any, commit: ICommit) {
     statistic.commits += 1;
     statistic.lastCommit = commit;
     statistic.days[commit.timestamp] = true;
@@ -56,6 +56,11 @@ export default class DataGripByAuthor {
     }
     statistic.commitsByHour[commit.hours] += 1;
     statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
+
+    if (commit.company && statistic.lastCompany !== commit.company) {
+      statistic.lastCompany = commit.company;
+      statistic.company.push({ title: commit.company, from: commit.timestamp });
+    }
   }
 
   #addCommitByAuthor(commit: ICommit) {
@@ -65,16 +70,20 @@ export default class DataGripByAuthor {
     const commitsByHour = new Array(24).fill(0);
     commitsByHour[commit.hours] += 1;
 
-    this.commits[commit.author] = {
+    this.commits.set(commit.author, {
       author: commit.author,
       commits: 1,
       firstCommit: commit,
       lastCommit: commit,
-      days: { [commit.timestamp]: true },
+      days: createHashMap(commit.timestamp),
       tasks: { [commit.task]: commit.added + commit.changes + commit.removed },
-      types: { [commit.type]: 1 },
-      scopes: { [commit.scope]: 1 },
+      types: createIncrement(commit.type),
+      scopes: createIncrement(commit.scope),
       hours: [commit.hours],
+      company: commit.company
+        ? [{ title: commit.company, from: commit.timestamp }]
+        : [],
+      lastCompany: commit.company,
       commitsByDayAndHour,
       commitsByHour,
       messageLength: [commit.text.length || 0],
@@ -82,12 +91,12 @@ export default class DataGripByAuthor {
       maxMessageLength: commit.text.length || 0,
       wordStatistics: DataGripByAuthor.#updateWordStatistics(commit),
       moneyByMonth: {},
-    };
+    });
   }
 
   #setMoneyByMonth(commit: ICommit) {
     const key = `${commit.year}-${commit.month}`;
-    if (this.commits[commit.author].moneyByMonth[key]) {
+    if (this.commits.get(commit.author).moneyByMonth[key]) {
       this.#updateMoneyByMonth(commit, key);
     } else {
       this.#addMoneyByMonth(commit, key);
@@ -95,7 +104,7 @@ export default class DataGripByAuthor {
   }
 
   #updateMoneyByMonth(commit: ICommit, key: string) {
-    const statistic = this.commits[commit.author].moneyByMonth[key];
+    const statistic = this.commits.get(commit.author).moneyByMonth[key];
     if (statistic.alreadyAdded[commit.milliseconds]) return;
     statistic.alreadyAdded[commit.milliseconds] = true;
 
@@ -110,7 +119,7 @@ export default class DataGripByAuthor {
   #addMoneyByMonth(commit: ICommit, key: string) {
     const contract = userSettings.getEmploymentContract(commit.author, commit.milliseconds);
     const isWorkDay = contract.workDaysInWeek[commit.day];
-    this.commits[commit.author].moneyByMonth[key] = {
+    this.commits.get(commit.author).moneyByMonth[key] = {
       workDay: isWorkDay ? 1 : 0,
       weekDay: isWorkDay ? 0 : 1,
       alreadyAdded: {
@@ -147,7 +156,7 @@ export default class DataGripByAuthor {
       active: [],
     };
 
-    this.statistic = Object.values(this.commits)
+    this.statistic = Array.from(this.commits.values())
       .sort((dotA: any, dotB: any) => dotB.commits - dotA.commits)
       .map((dot: any) => {
         const from = dot.firstCommit.milliseconds;
@@ -186,7 +195,7 @@ export default class DataGripByAuthor {
           daysForTask: isStaff ? 0 : workDays / tasks.length,
           taskInDay: isStaff ? 0 : tasks.length / workDays,
           changesForTask: DataGripByAuthor.getMiddleValue(tasksSize),
-          company: getCompany(dot.author, dot.lastCommit.email),
+          lastCompany: getCompany(dot.author, dot.lastCommit.email),
 
           days: workDays,
           money: isStaff ? 0 : moneyWorked,

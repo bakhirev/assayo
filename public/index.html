@@ -18,10 +18,13 @@
 
     <script type="text/javascript">
       var report = [];
+      var f = String.raw.bind(String);
       function r(t) {
         report.push(t);
       }
-      var f = String.raw.bind(String);
+      function R(t) {
+        report = report.concat(t.split("\n"));
+      }
     </script>
     <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />

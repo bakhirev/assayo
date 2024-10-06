@@ -26,8 +26,9 @@ export interface ILog {
   week: number; //  42,
 
   // user
-  author: string; // "Frolov Ivan",
-  email: string; // "frolov@mail.ru",
+  author: string; // "Dart Vader",
+  email: string; // "d.vader@emap.com",
+  company: string; // "emap",
 
   // task
   message: string; // "JIRA-0000 fix(profile): add new avatar",

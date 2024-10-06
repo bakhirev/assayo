@@ -17,7 +17,7 @@ function GetItem({ commit, mode }: IGetItemProps) {
   const className = size > 5
     ? style.get_list_big_number
     : '';
-  const prId = dataGrip.pr.prByTask[commit.task];
+  const prId = dataGrip.pr.prByTask.get(commit.task);
 
   return (
     <div className={style.get_list}>

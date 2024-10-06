@@ -1,4 +1,4 @@
-import IHashMap from 'ts/interfaces/HashMap';
+import { HashMap } from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
 interface IStatByExtension {
@@ -22,7 +22,7 @@ const IGNORE_LIST = [
 export default class FileGripByExtension {
   statistic: IStatByExtension[] = [];
 
-  statisticByName: IHashMap<IStatByExtension> = {};
+  statisticByName: HashMap<IStatByExtension> = new Map();
 
   property: string = '';
 
@@ -32,7 +32,7 @@ export default class FileGripByExtension {
 
   clear() {
     this.statistic = [];
-    this.statisticByName = {};
+    this.statisticByName.clear();
   }
 
   addFile(file: IDirtyFile) {
@@ -40,17 +40,18 @@ export default class FileGripByExtension {
 
     if (!key || IGNORE_LIST.includes(file.name)) return;
 
-    if (!this.statisticByName[key]) {
-      this.statisticByName[key] = this.#getNewExtension(file);
+    let extension = this.statisticByName.get(key);
+    if (!extension) {
+      extension = this.#getNewExtension(file);
+      this.statisticByName.set(key, extension);
     }
 
-    const extensions = this.statisticByName[key];
     if (file.action === 'D') {
-      extensions.removedFiles.push(file);
-      extensions.removedCount += 1;
+      extension.removedFiles.push(file);
+      extension.removedCount += 1;
     } else {
-      extensions.files.push(file);
-      extensions.count += 1;
+      extension.files.push(file);
+      extension.count += 1;
     }
   }
 
@@ -67,8 +68,7 @@ export default class FileGripByExtension {
   }
 
   updateTotalInfo() {
-    this.statistic = Object.entries(this.statisticByName)
-      .sort((a: any, b: any) => b[1].count - a[1].count)
-      .map((item: any) => item[1]);
+    this.statistic = Array.from(this.statisticByName.values())
+      .sort((a: any, b: any) => b.count - a.count);
   }
 }

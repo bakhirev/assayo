@@ -30,6 +30,16 @@ function getFolder(name?: string, path?: string[], file?: IDirtyFile): IFolder {
   };
 }
 
+function updateFolderBy(folder: any, file: IDirtyFile, property: string) {
+  for (let author in file[property]) {
+    const folderAddedLinesByAuthor = folder[property][author];
+    const fileAddedLinesByAuthor = file[property][author];
+    folder[property][author] = folderAddedLinesByAuthor
+      ? (folderAddedLinesByAuthor + fileAddedLinesByAuthor)
+      : fileAddedLinesByAuthor;
+  }
+}
+
 function updateFolder(folder: any, file: IDirtyFile) {
   folder.lastCommit = file.lastCommit;
   folder.lines += file.lines;
@@ -38,23 +48,9 @@ function updateFolder(folder: any, file: IDirtyFile) {
   folder.removedLines += file.removedLines || 0;
   folder.changedLines += file.changedLines || 0;
 
-  for (let author in file.addedLinesByAuthor) {
-    folder.addedLinesByAuthor[author] = folder.addedLinesByAuthor[author]
-      ? (folder.addedLinesByAuthor[author] + file.addedLinesByAuthor[author])
-      : file.addedLinesByAuthor[author];
-  }
-
-  for (let author in file.removedLinesByAuthor) {
-    folder.removedLinesByAuthor[author] = folder.removedLinesByAuthor[author]
-      ? (folder.removedLinesByAuthor[author] + file.removedLinesByAuthor[author])
-      : file.removedLinesByAuthor[author];
-  }
-
-  for (let author in file.changedLinesByAuthor) {
-    folder.changedLinesByAuthor[author] = folder.changedLinesByAuthor[author]
-      ? (folder.changedLinesByAuthor[author] + file.changedLinesByAuthor[author])
-      : file.changedLinesByAuthor[author];
-  }
+  updateFolderBy(folder, file, 'addedLinesByAuthor');
+  updateFolderBy(folder, file, 'removedLinesByAuthor');
+  updateFolderBy(folder, file, 'changedLinesByAuthor');
 }
 
 export default class FileGripByFolder {

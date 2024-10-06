@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { IColumn, IRowsConfig } from '../../interfaces/Column';
+import getClassName from '../../helpers/getClassName';
 import style from '../../styles/index.module.scss';
 
 interface IDefaultCellProps {
@@ -24,13 +25,11 @@ function DetailsCell({
 
   const left = column?.isFixed ? marginLeft : 0;
 
-  const columnClassName = typeof column.className === 'function'
-    ? column.className('body', row)
-    : column.className;
-
   const iconClassName = config?.details
     ? style.table_cell_icon_open
     : style.table_cell_icon_close;
+
+  const localClassName = getClassName(style.table_cell, column, ['body', row], className);
 
   const hasIcon = ((column.properties && row[column.properties])
     || !column.properties
@@ -47,13 +46,13 @@ function DetailsCell({
 
   return (
     <div
-      key={column.title} // @ts-ignore
-      className={`${style.table_cell} ${className || ''} ${columnClassName || ''}`}
+      key={column.title}
+      className={localClassName}
       style={{
+        left,
         width: column.width,
         cursor: 'pointer',
-        left,
-      }} // @ts-ignore
+      }}
       onClick={onClick}
     >
       {hasIcon && (

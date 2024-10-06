@@ -1,7 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import userSettings from 'ts/store/UserSettings';
-import { increment } from 'ts/helpers/Math';
+import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
 
 interface IStatByAuthor {
   commits: number; // number of commits by author in this scope
@@ -60,10 +60,10 @@ export default class DataGripByScope {
     this.commits[commit.scope] = {
       scope: commit.scope,
       commits: 1,
-      days: { [commit.timestamp]: true },
-      tasks: { [commit.task]: true },
-      types: { [commit.type]: 1 },
-      authors: { [commit.author]: this.#getDefaultAuthorForScope(commit) },
+      days: createHashMap(commit.timestamp),
+      tasks: createHashMap(commit.task),
+      types: createIncrement(commit.type),
+      authors: createIncrement(commit.author, this.#getDefaultAuthorForScope(commit)),
     };
   }
 

@@ -2,6 +2,7 @@ import ICommit, { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
+import getCompany from './getCompany';
 
 const MASTER_BRANCH = {
   master: true,
@@ -11,11 +12,11 @@ const MASTER_BRANCH = {
 
 let prevDate = new Date();
 
-let refTimestampTime = {};
+let refTimestampTime = new Map();
 
 export function clearCache() {
   prevDate = new Date();
-  refTimestampTime = {};
+  refTimestampTime.clear();
 }
 
 export default function getCommitInfo(
@@ -28,33 +29,44 @@ export default function getCommitInfo(
   const sourceDate = parts[0] || '';
   let date = new Date(sourceDate);
   if (isNaN(date.getDay())) {
-    console.log(`PARSE ERROR: Date parse error for: "${logString}"`);
+    // console.log(`PARSE ERROR: Date parse error for: "${logString}"`);
     date = prevDate;
   }
   prevDate = date;
   const day = date.getDay() - 1;
   const timestamp = sourceDate.substring(0, 10); // split('T')[0];
-  if (!refTimestampTime[timestamp]) {
-    refTimestampTime[timestamp] = (new Date(timestamp)).getTime();
+  let milliseconds = refTimestampTime.get(timestamp);
+  if (!milliseconds) {
+    milliseconds = (new Date(timestamp)).getTime();
+    refTimestampTime.set(timestamp, milliseconds);
   }
 
   let author = parts[1]?.replace(/[._]/gm, ' ') || '';
   let email = parts[2] || '';
   if (email.indexOf('@') === -1) email = '';
 
+  const companyKey = `${author}>in>${email}`;
+  if (!refEmailAuthor[companyKey]) {
+    const companyForKey = getCompany(author, email);
+    // @ts-ignore
+    refEmailAuthor[companyKey] = { company: companyForKey };
+  }
+  // @ts-ignore
+  const company = refEmailAuthor[companyKey].company;
+
   const authorID = author.replace(/\s|\t/gm, '');
   if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
-    console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
+    // console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
     author = refEmailAuthor[authorID];
   }
 
   if (email && refEmailAuthor[email] && refEmailAuthor[email] !== author) {
-    console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
+    // console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
     author = refEmailAuthor[email];
   }
 
   if (author && refEmailAuthor[author] && refEmailAuthor[author] !== email) {
-    console.log(`PARSE WARNING: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
+    // console.log(`PARSE WARNING: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
     email = refEmailAuthor[author];
   }
 
@@ -75,11 +87,12 @@ export default function getCommitInfo(
     year: date.getUTCFullYear(),
     week: 0,
     timestamp,
-    milliseconds: refTimestampTime[timestamp],
+    milliseconds,
 
     author,
     email,
     message,
+    company,
 
     text: '',
     type: '—',

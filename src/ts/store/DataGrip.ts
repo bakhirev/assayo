@@ -37,8 +37,8 @@ class DataGripStore {
       hash: observable,
       isDepersonalized: observable,
       asyncSetCommits: action,
-      processingStep01: action,
-      processingStep03: action,
+      processingStringToCommit: action,
+      processingDataAnalysis: action,
       depersonalized: action,
       updateStatistic: action,
     });
@@ -47,10 +47,10 @@ class DataGripStore {
   asyncSetCommits(dump?: string[]) {
     if (!dump?.length) return;
     splashScreenStore.show();
-    setTimeout(() => this.processingStep01(dump), PROCESSING_DELAY);
+    setTimeout(() => this.processingStringToCommit(dump), PROCESSING_DELAY);
   }
 
-  processingStep01(dump?: string[]) {
+  processingStringToCommit(dump?: string[]) {
     dataGrip.clear();
     fileGrip.clear();
 
@@ -60,20 +60,20 @@ class DataGripStore {
       return;
     }
 
-    setTimeout(() => this.processingStep02(commits), PROCESSING_DELAY);
+    setTimeout(() => this.processingCommitGrouping(commits), PROCESSING_DELAY);
   }
 
-  processingStep02(commits: (ICommit | ISystemCommit)[]) {
+  processingCommitGrouping(commits: (ICommit | ISystemCommit)[]) {
     commits.sort((a, b) => a.milliseconds - b.milliseconds);
     commits.forEach((commit: ICommit | ISystemCommit) => {
       dataGrip.addCommit(commit);
       fileGrip.addCommit(commit);
     });
 
-    setTimeout(() => this.processingStep03(commits), PROCESSING_DELAY);
+    setTimeout(() => this.processingDataAnalysis(commits), PROCESSING_DELAY);
   }
 
-  processingStep03(commits: (ICommit | ISystemCommit)[]) {
+  processingDataAnalysis(commits: (ICommit | ISystemCommit)[]) {
     fileGrip.updateTotalInfo();
     this.commits = commits;
 

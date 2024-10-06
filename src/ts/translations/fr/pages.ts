@@ -24,6 +24,7 @@ export default `
 § page.team.author.description1: Partie des statistiques (vitesse de travail, argent dépensé, etc.) pour les collaborateurs de type “Assistant”, ce n’est pas une rôle permanente dans le projet. Leur travail est insignifiant et peut être ignoré.
 § page.team.author.description2: Le tri par défaut est le tri par nombre de tâches et de groupes (employés actuels, licenciés et aidants).
 § page.team.author.status: Status
+§ page.team.author.company: Company
 § page.team.author.firstCommit: First commit
 § page.team.author.lastCommit: Last
 § page.team.author.daysAll: Total days

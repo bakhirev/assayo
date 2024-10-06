@@ -16,6 +16,7 @@ import PageWrapper from '../Page/wrapper';
 interface IDataViewProps {
   rowsForExcel?: any[];
   rows: any[];
+  mode?: string;
   type?: string;
   sort?: ISort[];
   columnCount?: number,
@@ -32,6 +33,7 @@ function DataView({
   rows = [],
   sort = [],
   type,
+  mode,
   columnCount,
   className,
   fullScreenMode = '',
@@ -58,45 +60,47 @@ function DataView({
 
   return (
     <>
-      <div style={{ position: 'relative' }}>
-        <div className={style.data_view_buttons}>
-          {!isMobile && (
-            <img
-              src="./assets/icons/Download.svg"
-              className={style.data_view_icon}
-              onClick={() => {
-                const fileName = t(`sidebar.${urlParams.type}.${urlParams.page}`);
-                downloadExcel(rowsForExcel || rows, children, fileName);
-              }}
-            />
-          )}
-          {!isMobile && (
-            <img
-              src={fullScreen.isOpen
-                ? './assets/icons/CloseFullscreen.svg'
-                : './assets/icons/OpenFullscreen.svg'}
-              className={style.data_view_icon}
-              onClick={() => {
-                fullScreen.toggle(fullScreenMode);
-              }}
-            />
-          )}
-          {!isMobile && (
-            <img
-              title={titleForType}
-              src={icon}
-              className={style.data_view_icon}
-              onClick={() => {
-                const newType = localType === 'table' ? 'cards' : 'table';
-                setType(newType);
-                dataViewStore.setItem(urlParams, newType, 'table');
-              }}
-            />
-          )}
+      {mode !== 'details' && (
+        <div style={{ position: 'relative' }}>
+          <div className={style.data_view_buttons}>
+            {!isMobile && (
+              <img
+                src="./assets/icons/Download.svg"
+                className={style.data_view_icon}
+                onClick={() => {
+                  const fileName = t(`sidebar.${urlParams.type}.${urlParams.page}`);
+                  downloadExcel(rowsForExcel || rows, children, fileName);
+                }}
+              />
+            )}
+            {!isMobile && (
+              <img
+                src={fullScreen.isOpen
+                  ? './assets/icons/CloseFullscreen.svg'
+                  : './assets/icons/OpenFullscreen.svg'}
+                className={style.data_view_icon}
+                onClick={() => {
+                  fullScreen.toggle(fullScreenMode);
+                }}
+              />
+            )}
+            {!isMobile && (
+              <img
+                title={titleForType}
+                src={icon}
+                className={style.data_view_icon}
+                onClick={() => {
+                  const newType = localType === 'table' ? 'cards' : 'table';
+                  setType(newType);
+                  dataViewStore.setItem(urlParams, newType, 'table');
+                }}
+              />
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
-      {localType === 'table' && (
+      {localType === 'table' && mode !== 'details' && (
         <PageWrapper template="table">
           <Table
             rows={rows}
@@ -107,6 +111,17 @@ function DataView({
             {children}
           </Table>
         </PageWrapper>
+      )}
+
+      {localType === 'table' && mode === 'details' && (
+        <Table
+          rows={rows}
+          sort={sort}
+          disabledRow={disabledRow}
+          updateSort={updateSort}
+        >
+          {children}
+        </Table>
       )}
 
       {localType === 'cards' && (

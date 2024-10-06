@@ -12,16 +12,27 @@ const SplashScreen = observer((): React.ReactElement | null  => {
     if (!splashScreenStore.isOpen) return;
     setTimeout(() => {
       splashScreenStore.hide();
-    }, 5400);
+    }, splashScreenStore.delay);
   }, [splashScreenStore.isOpen]);
 
   if (!splashScreenStore.isOpen) return null;
 
   return (
-    <div className={style.splash_screen}>
-      <div className={style.splash_screen_container}>
+    <div
+      className={style.splash_screen}
+      style={{ animationDelay: splashScreenStore.getDelay(100) }}
+    >
+      <div
+        className={style.splash_screen_container}
+        style={{ animationDelay: splashScreenStore.getDelay(-1400) }}
+      >
         <Logo center />
-        <div className={progress.progress_bar}></div>
+        <div className={progress.progress_bar}>
+          <div
+            className={progress.progress_bar_line}
+            style={{ animationDuration: splashScreenStore.getDelay(-1100) }}
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
-import IHashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
+import { increment } from 'ts/helpers/Math';
 
 interface IStatByType {
   type: string;  // type name
@@ -15,11 +16,11 @@ interface IStatByType {
 export default class FileGripByType {
   statistic: IStatByType[] = [];
 
-  statisticByName: IHashMap<IStatByType> = {};
+  statisticByName: HashMap<IStatByType> = new Map();
 
   clear() {
     this.statistic = [];
-    this.statisticByName = {};
+    this.statisticByName.clear();
   }
 
   addFile(file: IDirtyFile) {
@@ -27,14 +28,13 @@ export default class FileGripByType {
 
     if (!key || file?.name?.[0] === '.') return;
 
-    if (!this.statisticByName.hasOwnProperty(key)) {
-      this.statisticByName[key] = this.#getNewType(file);
+    let type = this.statisticByName.get(key);
+    if (!type) {
+      type = this.#getNewType(file);
+      this.statisticByName.set(key, type);
     }
 
-    const type = this.statisticByName[key];
-    type.extension[file?.extension] = type.extension[file?.extension]
-      ? (type.extension[file?.extension] + 1)
-      : 1;
+    increment(type.extension, file?.extension);
 
     if (file.action === 'D') {
       type.removedFiles.push(file);
@@ -50,7 +50,7 @@ export default class FileGripByType {
       type: file?.type,
       task: file?.firstCommit?.task,
       path: file?.name,
-      extension: { [file?.extension]: 1 },
+      extension: {},
       files: [],
       count: 0,
       removedFiles: [],
@@ -59,8 +59,7 @@ export default class FileGripByType {
   }
 
   updateTotalInfo() {
-    this.statistic = Object.entries(this.statisticByName)
-      .sort((a: any, b: any) => b[1].count - a[1].count)
-      .map((item: any) => item[1]);
+    this.statistic = Array.from(this.statisticByName.values())
+      .sort((a: any, b: any) => b.count - a.count);
   }
 }

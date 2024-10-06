@@ -28,14 +28,14 @@ import Recommendations from 'ts/components/Recommendations';
 import { getMax, getMaxByLength } from 'ts/pages/Common/helpers/getMax';
 import Description from 'ts/components/Description';
 
-interface IAuthorViewProps {
+interface AuthorViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
   rowsForExcel?: any[];
   mode?: string;
 }
 
-function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewProps) {
+export function AuthorView({ response, updateSort, rowsForExcel, mode }: AuthorViewProps) {
   const { t } = useTranslation();
   if (!response) return null;
 
@@ -58,6 +58,7 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      mode={mode}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 3 : undefined}
     >
@@ -83,6 +84,13 @@ function AuthorView({ response, updateSort, rowsForExcel, mode }: IAuthorViewPro
         }}
         template={(value: string) => <UiKitTags value={value} />}
         width={100}
+      />
+      <Column
+        isSortable="company"
+        title="page.team.author.company"
+        properties="lastCompany"
+        template={(value: string) => <UiKitTags value={value} />}
+        width={150}
       />
       <Column
         template={ColumnTypesEnum.STRING}

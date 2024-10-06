@@ -1,6 +1,7 @@
 import ICommit, { IFileChange } from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
+import { increment } from 'ts/helpers/Math';
 
 import FileBuilderCommon from './Common';
 import FileBuilderLineStat from './LineStat';
@@ -8,25 +9,26 @@ import FileBuilderLineStat from './LineStat';
 export default class FileGripByPaths {
   list: IDirtyFile[] = [];
 
-  refFileIds: IHashMap<IDirtyFile> = {};
+  refFileIds: HashMap<IDirtyFile> = new Map();
 
-  refRemovedFileIds: IHashMap<IDirtyFile> = {};
+  refRemovedFileIds: HashMap<IDirtyFile> = new Map();
 
-  refExtensionType: IHashMap<IHashMap<number>> = {}; // TODO: remove me?
+  refExtensionType: HashMap<IHashMap<number>> = new Map(); // TODO: remove me?
 
   clear() {
     this.list = [];
-    this.refFileIds = {};
-    this.refRemovedFileIds = {};
+    this.refFileIds.clear();
+    this.refRemovedFileIds.clear();
+    this.refExtensionType.clear();
   }
 
   addCommit(fileChange: IFileChange, commit: ICommit) {
-    let file = this.refFileIds[fileChange.id] || this.refFileIds[fileChange.newId || ''];
+    let file = this.refFileIds.get(fileChange.id) || this.refFileIds.get(fileChange.newId);
     if (file) {
       this.#updateDirtyFile(file, fileChange, commit);
     } else {
       file = this.#getNewDirtyFile(fileChange, commit) as IDirtyFile;
-      this.refFileIds[fileChange.id] = file;
+      this.refFileIds.set(fileChange.id, file);
     }
 
     if (fileChange.newId) {
@@ -51,20 +53,22 @@ export default class FileGripByPaths {
   }
 
   #renameFile(file: any, newId: string) {
-    this.refFileIds[newId] = this.refFileIds[file.id];
-    delete this.refFileIds[file.id];
+    const oldFile = this.refFileIds.get(file.id) as IDirtyFile;
+    this.refFileIds.set(newId, oldFile);
+    this.refFileIds.delete(file.id);
     file.id = newId;
   }
 
   #removeFile(file: any) {
     file.action = 'D';
-    this.refRemovedFileIds[file.id] = this.refFileIds[file.id];
-    this.refRemovedFileIds[file.id].action = 'D';
-    delete this.refFileIds[file.id];
+    const oldFile = this.refFileIds.get(file.id) as IDirtyFile;
+    oldFile.action = 'D';
+    this.refRemovedFileIds.set(file.id, oldFile);
+    this.refFileIds.delete(file.id);
   }
 
   updateTotalInfo(callback?: Function) {
-    this.list = Object.values(this.refFileIds);
+    this.list = Array.from(this.refFileIds.values());
     this.list.forEach((temp: any) => {
       const file = temp;
 
@@ -72,10 +76,12 @@ export default class FileGripByPaths {
       FileBuilderLineStat.updateTotal(file);
 
       if (file.type) {
-        if (!this.refExtensionType[file.extension])  this.refExtensionType[file.extension] = {};
-        this.refExtensionType[file.extension][file.type] = this.refExtensionType[file.extension][file.type]
-          ? (this.refExtensionType[file.extension][file.type] + 1)
-          : 1;
+        let refExtensionType = this.refExtensionType.get(file.extension);
+        if (!refExtensionType) {
+          refExtensionType = {};
+          this.refExtensionType.set(file.extension, refExtensionType);
+        }
+        increment(refExtensionType, file.type);
       }
 
       if (file.lines === 0

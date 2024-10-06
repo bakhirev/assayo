@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import ISort from 'ts/interfaces/Sort';
@@ -17,9 +17,13 @@ import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 import UiKitTags from 'ts/components/UiKit/components/Tags';
 import { PRLink, TaskLink } from 'ts/components/ExternalLink';
+import Title from 'ts/components/Title';
+import PageWrapper from 'ts/components/Page/wrapper';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 import { getDate } from 'ts/helpers/formatter';
+
+import TasksFilters from './TasksFilters';
 
 interface ITasksViewProps {
   response?: IPagination<any>;
@@ -139,25 +143,33 @@ const Tasks = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.tasks.statistic;
+  const [filters, setFilters] = useState<any>({ user: 0, company: 0 });
+
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
 
   return (
-    <DataLoader
-      to="response"
-      loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-        content: rows, pagination, sort, mode,
-      })}
-      watch={`${mode}${dataGripStore.hash}`}
-    >
-      <br/>
-      <br/>
-      <br/>
-      <TasksView
-        mode={mode}
-        rowsForExcel={rows}
-      />
-      <Pagination />
-    </DataLoader>
+    <>
+      <Title title="common.filters" />
+      <PageWrapper>
+        <TasksFilters
+          filters={filters}
+          onChange={setFilters}
+        />
+      </PageWrapper>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: rows, pagination, sort, mode,
+        })}
+        watch={`${mode}${dataGripStore.hash}`}
+      >
+        <TasksView
+          mode={mode}
+          rowsForExcel={rows}
+        />
+        <Pagination />
+      </DataLoader>
+    </>
   );
 });
 
