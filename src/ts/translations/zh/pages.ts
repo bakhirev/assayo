@@ -183,6 +183,8 @@ export default `
 § page.team.pr.description3: *为什么显示开发时间* 无需拆分为编码和代码审查? 然后，向业务显示代码的实际交付时间。 测试的期望，对审查的评论，DevOps问题和流程的其他不完善之处已经在这一时期制定.
 § page.team.pr.statByAuthors: 雇员统计数字
 § page.team.pr.longDelay: 长时间等待输液
+§ page.team.pr.anonymous: PR without task number
+§ page.team.pr.branch: Branch
 § page.team.tasks.task: 任务
 § page.team.tasks.author: 第一篇的作者 Commits
 § page.team.tasks.from: 第一个 Commits

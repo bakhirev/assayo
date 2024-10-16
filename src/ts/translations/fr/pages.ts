@@ -188,6 +188,8 @@ export default `
 § page.team.pr.description3: *Pourquoi afficher le temps de développement* sans se diviser en Coding et revue de code? Ensuite, pour montrer à l'entreprise le délai de Livraison réel du code. L'attente des tests, les commentaires sur la revue, les problèmes de DevOps et d'autres imperfections du processus sont déjà posés dans cette période.
 § page.team.pr.statByAuthors: Statistiques du personnel
 § page.team.pr.longDelay: Longue attente pour l'injection
+§ page.team.pr.anonymous: PR without task number
+§ page.team.pr.branch: Branch
 § page.team.tasks.task: Tâche
 § page.team.tasks.author: Auteur du premier commit
 § page.team.tasks.from: Premier commit

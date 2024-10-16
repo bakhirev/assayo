@@ -188,6 +188,8 @@ export default `
 § page.team.pr.description3: *Why display the development time* without a breakdown into coding and code review? Then, to show the business the actual delivery time of the code. The expectation of testing, comments on the review, DevOps problems and other imperfections of the process are already laid down in this period.
 § page.team.pr.statByAuthors: Employee statistics
 § page.team.pr.longDelay: Long wait for infusion
+§ page.team.pr.anonymous: PR without task number
+§ page.team.pr.branch: Branch
 § page.team.tasks.task: Task
 § page.team.tasks.author: The author of the first commits
 § page.team.tasks.from: The first commits
