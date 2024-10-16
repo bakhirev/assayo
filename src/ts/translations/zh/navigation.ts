@@ -29,6 +29,9 @@ export default `
 § sidebar.team.changes: 所有更改
 § sidebar.team.words: 流行语
 § sidebar.team.building: 测验
+§ sidebar.team.refactor: Refactoring
+§ sidebar.team.company: Companies
+§ sidebar.team.country: Locations
 § sidebar.team.settings: 设置
 § sidebar.person.total: 般资料
 § sidebar.person.money: 工作的成本

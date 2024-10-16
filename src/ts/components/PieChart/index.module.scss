@@ -19,16 +19,17 @@
     display: inline-block;
     width: 50%;
     height: 100%;
-    vertical-align: middle;
   }
 
   &_icon {
     width: 160px;
+    vertical-align: top;
   }
 
   &_legend {
     min-width: 160px;
     padding-left: var(--space-xxl);
+    vertical-align: middle;
   }
 
   &_line {
@@ -55,6 +56,7 @@
     line-height: 1.3;
     white-space: normal;
     text-decoration: none;
+    vertical-align: top;
     color: var(--color-black);
   }
 

@@ -4,6 +4,7 @@ import {
   FAKE_AUTHORS,
   FAKE_EMAILS,
   FAKE_TASK_PREFIXES,
+  FAKE_COMPANIES,
 } from './constants';
 import FakeName from './FakeName';
 
@@ -14,21 +15,26 @@ export default class Depersonalized {
 
   fakeTaskPrefix: any = null;
 
+  fakeCompany: any = null;
+
   constructor() {
     this.fakeName = new FakeName('User', FAKE_AUTHORS);
     this.fakeEmail = new FakeName('user', FAKE_EMAILS);
     this.fakeTaskPrefix = new FakeName('JIRA', FAKE_TASK_PREFIXES);
+    this.fakeCompany = new FakeName('Company', FAKE_COMPANIES);
   }
 
   getCommit(commit: ICommit | ISystemCommit): ICommit | ISystemCommit {
     const author = this.fakeName.get(commit.author);
     const email = this.fakeEmail.get(commit.author);
+    const company = this.fakeCompany.get(commit.company);
 
     if (!commit.task) {
       return {
         ...commit,
         author,
         email,
+        company,
       };
     }
 
@@ -53,6 +59,7 @@ export default class Depersonalized {
       message,
       author,
       email,
+      company,
       branch,
       toBranch,
     };

@@ -20,7 +20,15 @@ export default `
 § page.print.title: Informe del repositorio git
 § page.print.sub_title: «$1»
 § page.print.description: Los datos para el informe se obtuvieron del historial de commits.
-§ page.team.author.title: Estadísticas de los empleados
+§ page.team.author.statusChart.title: Status
+§ page.team.author.daysChart.title: Days of work
+§ page.team.author.daysChart.item: days
+§ page.team.author.days.half: half year
+§ page.team.author.days.one: year
+§ page.team.author.days.15: year and a half
+§ page.team.author.days.two: two years
+§ page.team.author.days.more: more
+§ page.team.author.title: Details
 § page.team.author.description1: Parte de las estadísticas (la velocidad del trabajo, el dinero gastado, etc.) para los empleados con el tipo de "Asistente" no cuenta, ya que no es un rol permanente en el proyecto. Su trabajo es insignificante y puede ser ignorado.
 § page.team.author.description2: La clasificación predeterminada es la clasificación por número de tareas y grupos(empleados actuales, despedidos, ayudantes).
 § page.team.author.status: Status
@@ -62,6 +70,7 @@ export default `
 § page.team.type.title: Estadísticas por tipo de tarea
 § page.team.type.description: *Contribución personal* se considera por el número de Commits, no por el volumen de líneas o archivos modificados. Por lo tanto, también debe ver la sección "Análisis de archivos" para evaluar el alcance de los cambios
 § page.team.type.type: Tipo de trabajo
+§ page.team.type.unknown: unknown
 § page.team.type.tasks: Tareas
 § page.team.type.tasksSmall: Tareas
 § page.team.type.days: Día
@@ -101,6 +110,11 @@ export default `
 § page.team.tree.filters.commits: Número de commits
 § page.team.tree.filters.help: El número mínimo de commits que hizo un empleado en el archivo
 § page.team.tree.filters.all: Todos los empleados
+§ page.team.tree.totalLines: Lines
+§ page.team.tree.totalTasks: Tasks
+§ page.team.tree.totalDays: Days
+§ page.team.tree.tasks: tasks
+§ page.team.tree.days: days
 § page.team.tree.add: Quien ha añadido
 § page.team.tree.change: Quien cambió
 § page.team.tree.remove: Quién borró
@@ -108,6 +122,29 @@ export default `
 § page.team.tree.linesAdded: agregaron
 § page.team.tree.linesChanged: changed
 § page.team.tree.linesRemoved: cambiaron
+§ page.team.company.title: Details
+§ page.team.company.employments.title: By number of employees
+§ page.team.company.employments.item: employments
+§ page.team.company.daysChart.title: By duration of the contract
+§ page.team.company.daysChart.item: days
+§ page.team.company.active.yes: active
+§ page.team.company.active.no: contract has expired
+§ page.team.country.byTimezone: By the time of the last commit
+§ page.team.country.pieByDomain.title: By email, timezone and language
+§ page.team.country.pieByTimezone.title: By timezone
+§ page.team.country.chart.item: employments
+§ page.team.country.table.title: List of employees
+§ page.team.country.table.country: Country
+§ page.team.country.table.employments: Employments
+§ page.team.refactor.title: Candidates for refactoring
+§ page.team.refactor.lines: lines
+§ page.team.refactor.tasks: tasks
+§ page.team.refactor.days: days
+§ page.team.refactor.path: Path
+§ page.team.refactor.firstCommit: First commit
+§ page.team.refactor.totalLines: Lines
+§ page.team.refactor.totalTasks: Tasks
+§ page.team.refactor.totalDays: Days in development
 § page.team.day.commits: Commits
 § page.team.day.activity: Activity
 § page.team.week.title: Estadísticas semanales
@@ -139,7 +176,6 @@ export default `
 § page.team.pr.chart.14day: two weeks
 § page.team.pr.chart.30day: month
 § page.team.pr.chart.more: more
-§ page.team.pr.commits: commits
 § page.team.pr.date: Date of injection
 § page.team.pr.mergeAuthor: I poured it in
 § page.team.pr.author: Employee
@@ -157,10 +193,6 @@ export default `
 § page.team.tasks.from: The first commits
 § page.team.tasks.to: Last commits
 § page.team.tasks.daysInWork: Days in the work
-§ page.team.tasks.commits: Number of commits
-§ page.team.tasks.pr: Date of injection
-§ page.team.tasks.prAuthor: I poured it in
-§ page.team.tasks.prDelayDays: Days of waiting for the infusion
 § page.team.tasks.comments: Comments
 § page.team.extension.extension: File extensions
 § page.team.extension.type: File sub types
@@ -169,6 +201,7 @@ export default `
 § page.team.extension.current.count: Number
 § page.team.extension.removed.count: Number of removed
 § page.team.extension.files: files
+§ page.team.release.download: Download
 § page.team.release.title: Release
 § page.team.release.from: Created date
 § page.team.release.to: Delivery date

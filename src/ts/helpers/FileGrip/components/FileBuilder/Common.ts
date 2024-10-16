@@ -35,6 +35,7 @@ export default class FileBuilderCommon {
     // @ts-ignore
     const parts = file.path.split('/');
     parts.pop();
+    file.pathString = file.path;
     file.path = parts;
   }
 }

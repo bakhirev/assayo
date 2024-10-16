@@ -39,7 +39,12 @@ function CommitInfo({ commits }: { commits: ICommit[] }): React.ReactElement {
 function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
   const items = Object.entries(tasks)
     .map(([task, commits]: [string, any]) => {
-      const prId = dataGrip.pr.prByTask.get(task);
+      const taskInfo = dataGrip.tasks.statisticByName.get(task);
+      const milliseconds = commits[0].milliseconds;
+      const prId = taskInfo?.prIds?.find((id: string) => {
+        const pr = dataGrip.pr.pr.get(id);
+        return pr.dateMerge >= milliseconds;
+      });
       return (
         <>
           <div className={style.day_info_link}>

@@ -90,6 +90,7 @@ class DataGripStore {
     this.#updateRender();
 
     console.dir(this.dataGrip);
+    console.dir(this.fileGrip);
     if (!applicationHasCustom.title) {
       document.title = getTitle(this.dataGrip, this.fileGrip, this.commits);
     }

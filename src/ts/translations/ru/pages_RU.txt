@@ -20,7 +20,15 @@ export default `
 § page.print.title: Отчёт по git-репозиторию
 § page.print.sub_title: «$1»
 § page.print.description: Данные для отчёта были получены из истории коммитов.
-§ page.team.author.title: Статистика по сотрудникам
+§ page.team.author.statusChart.title: Status
+§ page.team.author.daysChart.title: Days of work
+§ page.team.author.daysChart.item: days
+§ page.team.author.days.half: half year
+§ page.team.author.days.one: year
+§ page.team.author.days.15: year and a half
+§ page.team.author.days.two: two years
+§ page.team.author.days.more: more
+§ page.team.author.title: Details
 § page.team.author.description1: Часть статистики (скорость работы, затраченные деньги и т.п.) по сотрудникам с типом «Помощник» не считается, т.к. это не постоянная роль в проекте. Их работа незначительно и её можно не учитывать.
 § page.team.author.description2: Сортировка по умолчанию — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
 § page.team.author.status: Status
@@ -62,6 +70,7 @@ export default `
 § page.team.type.title: Статистика по типам задач
 § page.team.type.description: *Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений.
 § page.team.type.type: Тип работы
+§ page.team.type.unknown: unknown
 § page.team.type.tasks: Задач
 § page.team.type.tasksSmall: задач
 § page.team.type.days: Дней
@@ -101,6 +110,11 @@ export default `
 § page.team.tree.filters.commits: Количество коммитов
 § page.team.tree.filters.help: Минимальное количество коммитов, которое сделал сотрудник в файле
 § page.team.tree.filters.all: Все сотрудники
+§ page.team.tree.totalLines: Lines
+§ page.team.tree.totalTasks: Tasks
+§ page.team.tree.totalDays: Days
+§ page.team.tree.tasks: tasks
+§ page.team.tree.days: days
 § page.team.tree.add: Кто добавлял
 § page.team.tree.change: Кто менял
 § page.team.tree.remove: Кто удалял
@@ -132,7 +146,6 @@ export default `
 § page.team.pr.delayDays: Дней ожидания влития
 § page.team.pr.all.workDays: Время работы над задачей
 § page.team.pr.all.delayDays: Время ревью PR
-§ page.team.pr.commits: Коммиты
 § page.team.pr.date: Дата влития
 § page.team.pr.mergeAuthor: Влил
 § page.team.pr.author: Сотрудник
@@ -157,10 +170,6 @@ export default `
 § page.team.tasks.from: Первый коммит
 § page.team.tasks.to: Последний коммит
 § page.team.tasks.daysInWork: Дней в работе
-§ page.team.tasks.commits: Количество коммитов
-§ page.team.tasks.pr: Дата влития
-§ page.team.tasks.prAuthor: Влил
-§ page.team.tasks.prDelayDays: Дней ожидания влития
 § page.team.tasks.comments: Комментарии
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии

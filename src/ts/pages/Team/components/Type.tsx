@@ -32,6 +32,9 @@ interface ITypeViewProps {
 }
 
 function TypeView({ response, updateSort, rowsForExcel, mode }: ITypeViewProps) {
+  const { t } = useTranslation();
+  const unknown = t('page.team.type.unknown');
+
   if (!response) return null;
 
   const taskChart = getOptions({ max: getMax(response, 'tasks'), suffix: 'page.team.type.tasksSmall' });
@@ -52,6 +55,7 @@ function TypeView({ response, updateSort, rowsForExcel, mode }: ITypeViewProps) 
         template={ColumnTypesEnum.STRING}
         title="page.team.type.type"
         properties="type"
+        formatter={(type: string) => type || unknown}
         width={150}
       />
       <Column

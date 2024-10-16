@@ -5,6 +5,7 @@ import { increment } from 'ts/helpers/Math';
 
 import FileBuilderCommon from './Common';
 import FileBuilderLineStat from './LineStat';
+import FileBuilderTasks from './Tasks';
 
 export default class FileGripByPaths {
   list: IDirtyFile[] = [];
@@ -39,17 +40,20 @@ export default class FileGripByPaths {
   #getNewDirtyFile(fileChange: IFileChange, commit: ICommit): any {
     const commonProps = FileBuilderCommon.getProps(fileChange, commit);
     const statProps = FileBuilderLineStat.getProps(fileChange, commit);
+    const tasksProps = FileBuilderTasks.getProps(commit);
 
     return {
       id: fileChange.id,
       ...commonProps,
       ...statProps,
+      ...tasksProps,
     };
   }
 
   #updateDirtyFile(file: any, fileChange: IFileChange, commit: ICommit) {
     FileBuilderCommon.updateProps(file, fileChange, commit);
     FileBuilderLineStat.updateProps(file, fileChange, commit);
+    FileBuilderTasks.updateProps(file, commit);
   }
 
   #renameFile(file: any, newId: string) {
@@ -74,6 +78,7 @@ export default class FileGripByPaths {
 
       FileBuilderCommon.updateTotal(file);
       FileBuilderLineStat.updateTotal(file);
+      FileBuilderTasks.updateTotal(file);
 
       if (file.type) {
         let refExtensionType = this.refExtensionType.get(file.extension);

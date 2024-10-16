@@ -1,14 +1,15 @@
 import { IFolder } from 'ts/interfaces/FileInfo';
 
 function getSubTree(tree: IFolder, path: string[]) {
-  return (path || []).reduce((subTree: any, folderName: string) => {
-    subTree = subTree.content[folderName] || { content: [] };
-    return subTree;
-  }, tree || { content: [] });
+  return (path || [])
+    .reduce((subTree: any, folderName: string) => {
+      subTree = subTree.content.get(folderName) || { content: new Map() };
+      return subTree;
+    }, tree || { content: new Map() });
 }
 
-function getSortedContent(subTree: any) {
-  return Object.values(subTree.content)
+function getSortedContent(subTree: IFolder) {
+  return Array.from(subTree.content.values())
     .sort((a: any, b: any) => {
       if (a.content && !b.content) return -1;
       if (!a.content && b.content) return 1;

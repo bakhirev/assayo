@@ -15,6 +15,7 @@ import DataGripByTasks from './components/tasks';
 import DataGripByRelease from './components/release';
 import DataGripByScoring from './components/scoring';
 import DataGripByCompany from './components/company';
+import DataGripByCountry from './components/country';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -22,6 +23,8 @@ class DataGrip {
   author: any = new DataGripByAuthor();
 
   company: any = new DataGripByCompany();
+
+  country: any = new DataGripByCountry();
 
   team: any = new DataGripByTeam();
 
@@ -49,6 +52,7 @@ class DataGrip {
     this.firstLastCommit.clear();
     this.author.clear();
     this.company.clear();
+    this.country.clear();
     this.team.clear();
     this.scope.clear();
     this.type.clear();
@@ -75,7 +79,6 @@ class DataGrip {
       this.get.addCommit(commit);
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
-      this.company.addCommit(commit);
     }
   }
 
@@ -87,11 +90,12 @@ class DataGrip {
     this.timestamp.updateTotalInfo(this.author);
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
-    this.pr.updateTotalInfo(this.author);
-    this.tasks.updateTotalInfo(this.pr);
-    this.release.updateTotalInfo();
+    this.tasks.updateTotalInfo();
+    this.pr.updateTotalInfo(this.tasks, this.author);
+    this.release.updateTotalInfo(this.tasks, this.pr);
     this.scoring.updateTotalInfo(this.author, this.timestamp);
     this.company.updateTotalInfo(this.author);
+    this.country.updateTotalInfo(this.author);
   }
 }
 

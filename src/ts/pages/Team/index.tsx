@@ -9,6 +9,7 @@ import fullScreen from 'ts/store/FullScreen';
 import Author from './components/Author';
 import Commits from './components/Commits';
 import Company from './components/Company';
+import Country from './components/Country';
 import Changes from './components/Changes';
 import Hours from './components/Hours';
 import PopularWords from './components/PopularWords';
@@ -25,6 +26,7 @@ import Building from './components/Building';
 import Pr from './components/PR';
 import Print from './components/Print';
 import Release from './components/Release';
+import Refactor from './components/Refactor';
 
 interface ViewProps {
   page?: string;
@@ -39,6 +41,7 @@ const View = observer(({ page }: ViewProps): React.ReactElement => {
   if (page === 'scope') return <Scope mode={mode}/>;
   if (page === 'author') return <Author mode={mode}/>;
   if (page === 'company') return <Company mode={mode}/>;
+  if (page === 'country') return <Country mode={mode}/>;
   if (page === 'type') return <Type mode={mode}/>;
   if (page === 'pr') return <Pr mode={mode}/>;
   if (page === 'day') return <Tempo/>;
@@ -55,6 +58,7 @@ const View = observer(({ page }: ViewProps): React.ReactElement => {
   if (page === 'building') return <Building/>;
   if (page === 'print') return <Print/>;
   if (page === 'tasks') return <Tasks/>;
+  if (page === 'refactor') return <Refactor/>;
   return <Total/>;
 });
 

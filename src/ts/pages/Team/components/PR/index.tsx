@@ -16,28 +16,46 @@ import fullScreen from 'ts/store/FullScreen';
 
 import Total from './Total';
 import Authors from './Authors';
+import Anonymous from './Anonymous';
 import All from './All';
+
+function getGroupsByTasks(list: any[]) {
+  const withTask: any[] = [];
+  const withoutTask: any[] = [];
+  list.forEach((pr: any) => {
+    if (pr.task) withTask.push(pr);
+    else withoutTask.push(pr);
+  });
+  return [withTask, withoutTask.reverse()];
+}
 
 const PR = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
   const allPR = dataGripStore.dataGrip.pr.statistic;
-  const rows = allPR.filter((item: any) => item.delayDays > 3);
-  if (rows?.length < 2) return mode !== 'print' ? (<NothingFound />) : null;
+  const [withTask, withoutTask] = getGroupsByTasks(allPR);
+  const longReview = withTask.filter((item: any) => item.daysReview > 4);
+
+  const canShowByReview = (!fullScreen.isOpen || fullScreen.mode === 'all') && longReview.length > 1;
+  const canShowByAnonymous = (!fullScreen.isOpen || fullScreen.mode === 'anonymous') && withoutTask.length;
+
+  if (!canShowByReview && !canShowByAnonymous) {
+    return mode !== 'print' ? (<NothingFound />) : null;
+  }
 
   const PRbyName = dataGripStore.dataGrip.pr.statisticByName;
   const authorsStat = Object.values(PRbyName);
 
   return (
     <>
-      {!fullScreen.isOpen && (
+      {!fullScreen.isOpen && canShowByReview && (
         <>
           <Title title="page.team.pr.oneTaskDays"/>
           <Total/>
         </>
       )}
 
-      {!fullScreen.isOpen || fullScreen.mode === 'author' ? (
+      {canShowByReview ? (
         <>
           <Title title="page.team.pr.statByAuthors"/>
           <DataLoader
@@ -52,18 +70,12 @@ const PR = observer(({
             />
             <Pagination/>
           </DataLoader>
-        </>
-      ) : null}
-
-      <PageBreak/>
-
-      {!fullScreen.isOpen || fullScreen.mode === 'all' ? (
-        <>
+          <PageBreak/>
           <Title title="page.team.pr.longDelay"/>
           <DataLoader
             to="response"
             loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-              content: rows,
+              content: longReview,
               pagination: mode === 'print'
                 ? { size: 20 }
                 : pagination,
@@ -72,7 +84,31 @@ const PR = observer(({
           >
             <All
               mode={mode}
-              rowsForExcel={rows}
+              rowsForExcel={longReview}
+            />
+            {mode !== 'print' && <Pagination/>}
+          </DataLoader>
+        </>
+      ) : null}
+
+      <PageBreak/>
+
+      {canShowByAnonymous ? (
+        <>
+          <Title title="page.team.pr.anonymous"/>
+          <DataLoader
+            to="response"
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+              content: withoutTask,
+              pagination: mode === 'print'
+                ? { size: 20 }
+                : pagination,
+              sort,
+            })}
+          >
+            <Anonymous
+              mode={mode}
+              rowsForExcel={withoutTask}
             />
             {mode !== 'print' && <Pagination/>}
           </DataLoader>

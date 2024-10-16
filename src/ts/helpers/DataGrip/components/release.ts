@@ -28,34 +28,54 @@ export default class DataGripByRelease {
   addCommit(commit: ISystemCommit) {
     if (commit.commitType === COMMIT_TYPE.AUTO_MERGE) {
       if (this.release[commit.branch]) {
-        this.#updateRelease(commit);
+        this.#updateDateInRelease(commit.branch, commit);
       } else {
-        this.#addRelease(commit);
+        this.#addReleaseForBB(commit);
       }
-    } else if (commit.commitType === COMMIT_TYPE.PR_GITHUB || commit.commitType === COMMIT_TYPE.PR_BITBUCKET) {
-      this.lastPrList.push(commit);
+    } else if (commit.commitType === COMMIT_TYPE.PR_GITHUB) {
+      if (!this.release[commit.toBranch]) this.#addRelease(commit.toBranch, commit);
+      if (!this.release[commit.toBranch]) return;
+      this.#updateDateInRelease(commit.toBranch, commit);
+      this.#updatePRInRelease(commit.toBranch, commit);
+    } else if (commit.commitType === COMMIT_TYPE.PR_BITBUCKET) {
+      this.lastPrList.push(commit.prId);
     }
   }
 
-  #updateRelease(commit: ISystemCommit) {
-    const statistic = this.release[commit.branch];
+  #updateDateInRelease(branch: string, commit: ISystemCommit) {
+    const statistic = this.release[branch];
     statistic.lastCommit = commit;
     statistic.to = commit.timestamp;
     statistic.delayInDays = getRangeInDay(statistic.firstCommit, commit) || statistic.delayInDays;
   }
 
-  #addRelease(commit: ISystemCommit) {
+  #updatePRInRelease(branch: string, commit: ISystemCommit) {
+    const statistic = this.release[branch];
+    statistic.prIds.push(commit);
+    statistic.prLength = statistic.prIds.length;
+  }
+
+  #addReleaseForBB(commit: ISystemCommit) {
     if (!commit.branch) return;
 
-    const index = commit.branch.lastIndexOf('release');
-    if (index === -1) return;
+    const status = this.#addRelease(commit.branch, commit);
+    if (!status) return;
 
-    const title = commit.branch
+    this.release[commit.branch].prIds = this.lastPrList;
+    this.release[commit.branch].prLength = this.lastPrList.length;
+    this.lastPrList = [];
+  }
+
+  #addRelease(branch: string, commit: ISystemCommit) {
+    const index = branch.lastIndexOf('release');
+    if (index === -1) return false;
+
+    const title = branch
       .substring(index + 7)
-      .replace(/([^\w.]*)/, '')
+      .replace(/([^\w.]*)|(["']*)/gim, '')
       .trim();
 
-    this.release[commit.branch] = {
+    this.release[branch] = {
       title,
       firstCommit: commit,
       lastCommit: commit,
@@ -63,14 +83,14 @@ export default class DataGripByRelease {
       to: null,
       delayInDays: 0,
       waitingInDays: 0,
-      pr: this.lastPrList,
-      prLength: this.lastPrList.length,
+      prIds: [],
+      prLength: 0,
     };
 
-    this.lastPrList = [];
+    return true;
   }
 
-  updateTotalInfo() {
+  updateTotalInfo(dataGripByTasks: any, dataGripByPR: any) {
     let prev: any = null;
 
     this.lastPrList = [];
@@ -79,6 +99,14 @@ export default class DataGripByRelease {
       .sort((a: any, b: any) => a[1].firstCommit.milliseconds - b[1].firstCommit.milliseconds)
       .map((a: any) => {
         const item = a[1];
+
+        item.prIds.forEach((prId: string) => {
+          const pr = dataGripByPR.pr.get(prId);
+          if (!pr) return;
+          const task = dataGripByTasks.statisticByName.get(pr.task);
+          if (!task) return;
+          task.releaseIds.add(a[0]);
+        });
 
         item.to = item.from !== item.to && item.to
           ? item.lastCommit.date

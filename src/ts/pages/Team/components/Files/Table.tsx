@@ -14,6 +14,7 @@ import { getMax } from 'ts/pages/Common/helpers/getMax';
 import { getDate } from 'ts/helpers/formatter';
 
 import treeStore from '../../store/Tree';
+import Tasks from './Tasks';
 
 interface IViewProps {
   response?: IPagination<any>;
@@ -23,6 +24,8 @@ function View({ response }: IViewProps) {
   if (!response) return null;
 
   const fileSizeChart = getOptions({ max: getMax(response, 'lines'), suffix: 'page.team.tree.line' });
+  const totalTasksChart = getOptions({ max: getMax(response, 'totalTasks'), suffix: 'page.team.tree.tasks' });
+  const totalDaysChart = getOptions({ max: getMax(response, 'totalDays'), suffix: 'page.team.tree.days' });
   const addedLinesChart = getOptions({ order: dataGripStore.dataGrip.author.list, suffix: 'page.team.tree.line' });
   const addedRemovedChangedChart = getOptions({ order: [
     'page.team.tree.linesAdded',
@@ -46,6 +49,24 @@ function View({ response }: IViewProps) {
     >
       <Column
         isFixed
+        template={ColumnTypesEnum.DETAILS}
+        width={40}
+        properties="tasks"
+        formatter={(row: any) => {
+          const content = Array.from(row?.tasks)
+            .reverse()
+            .map((taskId: any) => dataGripStore.dataGrip.tasks.statisticByName.get(taskId))
+            .filter(v => v);
+          return (
+            <Tasks // @ts-ignore
+              response={{ content }}
+              mode="details"
+            />
+          );
+        }}
+      />
+      <Column
+        isFixed
         template={ColumnTypesEnum.STRING}
         formatter={(row: any) => row?.content ? `📁 ${row?.name}` : `📄 ${row?.name}`}
         minWidth={170}
@@ -56,17 +77,54 @@ function View({ response }: IViewProps) {
       />
       <Column
         isSortable
-        width={50}
+        width={60}
         properties="lines"
         template={ColumnTypesEnum.SHORT_NUMBER}
       />
       <Column
         isSortable
         properties="lines"
+        title="page.team.tree.totalLines"
         minWidth={100}
         template={(value: any) => (
           <LineChart
             options={fileSizeChart}
+            value={value}
+          />
+        )}
+      />
+      <Column
+        isSortable
+        width={50}
+        properties="totalTasks"
+        template={ColumnTypesEnum.SHORT_NUMBER}
+      />
+      <Column
+        isSortable
+        properties="totalTasks"
+        title="page.team.tree.totalTasks"
+        minWidth={100}
+        template={(value: any) => (
+          <LineChart
+            options={totalTasksChart}
+            value={value}
+          />
+        )}
+      />
+      <Column
+        isSortable
+        width={50}
+        properties="totalDays"
+        template={ColumnTypesEnum.SHORT_NUMBER}
+      />
+      <Column
+        isSortable
+        properties="totalDays"
+        title="page.team.tree.totalDays"
+        minWidth={100}
+        template={(value: any) => (
+          <LineChart
+            options={totalDaysChart}
             value={value}
           />
         )}

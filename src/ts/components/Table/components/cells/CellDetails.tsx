@@ -31,10 +31,11 @@ function DetailsCell({
 
   const localClassName = getClassName(style.table_cell, column, ['body', row], className);
 
-  const hasIcon = ((column.properties && row[column.properties])
-    || !column.properties
-    || !column.properties?.length)
-    && column.formatter;
+  const value = row?.[column?.properties || ''];
+  const notNull = (Array.isArray(value) || value instanceof Set) // @ts-ignore
+    ? (value?.length || value?.size)
+    : !!value;
+  const hasIcon = notNull || !column?.properties;
 
   const onClick = () => {
     if (!hasIcon || !updateRowsConfig) return;

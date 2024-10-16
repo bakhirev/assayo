@@ -18,13 +18,14 @@ export default function getDefaultProps(children: React.ReactNode) {
 
     // @ts-ignore
     const defaultWidth = child?.props?.width || {
-      [ColumnTypesEnum.STRING]: 200,
-      [ColumnTypesEnum.NUMBER]: 110,
       [ColumnTypesEnum.SHORT_NUMBER]: 70,
     }[template || ''] || 0;
 
     // @ts-ignore
-    const minWidth = child?.props?.minWidth || 40;
+    const minWidth = child?.props?.minWidth || {
+      [ColumnTypesEnum.STRING]: 200,
+      [ColumnTypesEnum.NUMBER]: 110,
+    }[template || ''] || 40;
 
     // @ts-ignore
     const isSortable = child?.props?.isSortable // @ts-ignore

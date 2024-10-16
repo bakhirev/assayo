@@ -109,3 +109,24 @@ export const FAKE_EMAILS = FAKE_AUTHORS
 export const FAKE_TASK_PREFIXES = 'axeurtyqwpsdfghjklzcvbnm'
   .split('')
   .map((symbol) => (new Array(5)).fill(symbol.toUpperCase()).join(''));
+
+export const FAKE_COMPANIES = [
+  'Apple',
+  'Microsoft',
+  'Samsung Electronics',
+  'Alphabet',
+  'AT&T', 'Amazon',
+  'Verizon Communications',
+  'China Mobile',
+  'Walt Disney',
+  'Facebook',
+  'Alibaba',
+  'Intel',
+  'Softbank',
+  'IBM',
+  'Tencent Holdings',
+  'Cisco Systems',
+  'Oracle',
+  'Deutsche Telekom',
+  'Taiwan Semiconductor',
+];

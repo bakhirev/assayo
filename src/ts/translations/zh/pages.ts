@@ -20,7 +20,15 @@ export default `
 § page.print.title: Git仓库报告
 § page.print.sub_title: «$1»
 § page.print.description: 报告的数据是从历史记录中获得的 Commits.
-§ page.team.author.title: 雇员统计数字
+§ page.team.author.statusChart.title: Status
+§ page.team.author.daysChart.title: Days of work
+§ page.team.author.daysChart.item: days
+§ page.team.author.days.half: half year
+§ page.team.author.days.one: year
+§ page.team.author.days.15: year and a half
+§ page.team.author.days.two: two years
+§ page.team.author.days.more: more
+§ page.team.author.title: Details
 § page.team.author.description1: 部分统计数字 (工作的速度，花费的钱等。.) 不考虑具有"助理"类型的员工，因为这不是项目中的永久角色。 他们的工作微不足道，可以忽略。.
 § page.team.author.description2: 默认排序是按任务和组数排序 (现任、被解雇、帮助雇员).
 § page.team.author.types: 工作类别
@@ -57,6 +65,7 @@ export default `
 § page.team.type.title: 按任务类型划分的统计信息
 § page.team.type.description: *个人贡献* 它是按数字计算的 Commits, 而不是修改的字符串或文件的体积。 因此，您还应该查看"文件分析"部分以评估更改的规模。
 § page.team.type.type: 工作类别
+§ page.team.type.unknown: unknown
 § page.team.type.tasks: 任务
 § page.team.type.tasksSmall: 任务
 § page.team.type.days: 天数
@@ -96,6 +105,11 @@ export default `
 § page.team.tree.filters.commits: 数量 Commits
 § page.team.tree.filters.help: 最低数量 Commits, 雇员在档案中所做的
 § page.team.tree.filters.all: 所有员工
+§ page.team.tree.totalLines: Lines
+§ page.team.tree.totalTasks: Tasks
+§ page.team.tree.totalDays: Days
+§ page.team.tree.tasks: tasks
+§ page.team.tree.days: days
 § page.team.tree.add: 谁加的
 § page.team.tree.change: 谁改变了它
 § page.team.tree.remove: 谁删除了它
@@ -103,6 +117,29 @@ export default `
 § page.team.tree.linesAdded: 补充道
 § page.team.tree.linesChanged: changed
 § page.team.tree.linesRemoved: 改变了
+§ page.team.company.title: Details
+§ page.team.company.employments.title: By number of employees
+§ page.team.company.employments.item: employments
+§ page.team.company.daysChart.title: By duration of the contract
+§ page.team.company.daysChart.item: days
+§ page.team.company.active.yes: active
+§ page.team.company.active.no: contract has expired
+§ page.team.country.byTimezone: By the time of the last commit
+§ page.team.country.pieByDomain.title: By email, timezone and language
+§ page.team.country.pieByTimezone.title: By timezone
+§ page.team.country.chart.item: employments
+§ page.team.country.table.title: List of employees
+§ page.team.country.table.country: Country
+§ page.team.country.table.employments: Employments
+§ page.team.refactor.title: Candidates for refactoring
+§ page.team.refactor.lines: lines
+§ page.team.refactor.tasks: tasks
+§ page.team.refactor.days: days
+§ page.team.refactor.path: Path
+§ page.team.refactor.firstCommit: First commit
+§ page.team.refactor.totalLines: Lines
+§ page.team.refactor.totalTasks: Tasks
+§ page.team.refactor.totalDays: Days in development
 § page.team.day.commits: Commits
 § page.team.day.activity: Activity
 § page.team.week.title: 按周划分的统计数字
@@ -134,7 +171,6 @@ export default `
 § page.team.pr.chart.14day: two weeks
 § page.team.pr.chart.30day: month
 § page.team.pr.chart.more: more
-§ page.team.pr.commits: Commits
 § page.team.pr.date: 注射日期
 § page.team.pr.mergeAuthor: 填写
 § page.team.pr.author: 雇员
@@ -152,10 +188,6 @@ export default `
 § page.team.tasks.from: 第一个 Commits
 § page.team.tasks.to: 最后一次 Commits
 § page.team.tasks.daysInWork: 工作中的日子
-§ page.team.tasks.commits: 数量 Commits
-§ page.team.tasks.pr: 注射日期
-§ page.team.tasks.prAuthor: 灌
-§ page.team.tasks.prDelayDays: 等待输液的日子
 § page.team.tasks.comments: 评论
 § page.team.extension.extension: File extensions
 § page.team.extension.type: File sub types
@@ -164,6 +196,7 @@ export default `
 § page.team.extension.current.count: Number
 § page.team.extension.removed.count: Number of removed
 § page.team.extension.files: files
+§ page.team.release.download: Download
 § page.team.release.title: Release
 § page.team.release.from: Created date
 § page.team.release.to: Delivery date

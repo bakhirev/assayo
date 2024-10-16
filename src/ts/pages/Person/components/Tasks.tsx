@@ -10,7 +10,7 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 
-import { TasksView } from 'ts/pages/Team/components/Tasks';
+import TasksView from 'ts/pages/Team/components/Tasks/View';
 
 import IPersonCommonProps from '../interfaces/CommonProps';
 

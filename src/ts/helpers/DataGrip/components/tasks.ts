@@ -1,46 +1,40 @@
 import ICommit from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
-import { ONE_DAY } from 'ts/helpers/formatter';
+import { increment } from 'ts/helpers/Math';
 
 export default class DataGripByTasks {
-  commits: IHashMap<ICommit[]> = {};
+  commits: HashMap<ICommit[]> = new Map();
 
   statistic: any = [];
+
+  statisticByName: HashMap<any> = new Map();
 
   // achievements
   longTaskByAuthor: IHashMap<number> = {};
 
   clear() {
-    this.commits = {};
+    this.commits.clear();
     this.statistic = [];
+    this.statisticByName.clear();
     this.longTaskByAuthor = {};
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits.hasOwnProperty(commit.task)) {
-      this.#updateCommitByTask(commit);
+    if (this.commits.has(commit.task)) {
+      this.commits.get(commit.task)?.push(commit);
     } else {
-      this.#addCommitByTask(commit);
+      this.commits.set(commit.task, [commit]);
     }
   }
 
-  #updateCommitByTask(commit: ICommit) {
-    this.commits[commit.task].push(commit);
-  }
-
-  #addCommitByTask(commit: ICommit) {
-    this.commits[commit.task] = [commit];
-  }
-
   // TODO: тут двойной пробег получился. А должен был частями собрать инфу
-  updateTotalInfo(PRs: any) {
-    this.statistic = Object.entries(this.commits)
+  updateTotalInfo() {
+    this.statistic = Array.from(this.commits, ([k, v]) => [k, v]) // @ts-ignore
       .map(([task, commits]: [string, ICommit[]]) => {
         const firstCommit = commits[0];
         const lastCommit = commits[commits.length - 1];
         const from = firstCommit.milliseconds;
-        const pr = PRs.prByTask.get(task) ? PRs.pr.get(PRs.prByTask.get(task)) : null;
 
         const shortInfo = {
           task,
@@ -48,30 +42,31 @@ export default class DataGripByTasks {
           from,
           commits: 1,
           daysInWork: 1,
-          prDate: pr?.milliseconds,
-          prDelayDays: pr?.delayDays,
-          prAuthor: firstCommit.author === pr?.author ? null : pr?.author,
+          prIds: [],
+          releaseIds: new Set(),
           comments: firstCommit.text,
-          types: firstCommit.type && firstCommit.type !== '—' ? [firstCommit.type] : [],
-          scope: firstCommit.scope && firstCommit.scope !== '—' ? [firstCommit.scope] : [],
+          types: firstCommit.type ? { [firstCommit.type]: 1 } : {},
+          scope: firstCommit.scope ? { [firstCommit.scope]: 1 } : {},
         };
 
         if (commits.length === 1) return shortInfo;
 
-        const authors = new Set();
         const messages = new Set();
-        const types = new Set();
-        const scope = new Set();
+        const timestamps = new Set();
+        const authors = {};
+        const types = {};
+        const scope = {};
         commits.forEach((commit: ICommit) => {
-          authors.add(commit.author);
           messages.add(commit.text);
-          if (commit.type !== '—') types.add(commit.type);
-          if (commit.scope !== '—') scope.add(commit.scope);
+          timestamps.add(commit.milliseconds);
+          increment(authors, commit.author);
+          increment(types, commit.type);
+          increment(scope, commit.scope);
         });
 
         const comments = Array.from(messages).join(', ');
         const to = lastCommit.milliseconds;
-        const daysInWork = Math.ceil((to - from) / ONE_DAY) + 1;
+        const daysInWork = timestamps.size;
 
         const longTaskByAuthor = this.longTaskByAuthor[shortInfo.author];
         if (!longTaskByAuthor || longTaskByAuthor < daysInWork) {
@@ -82,16 +77,21 @@ export default class DataGripByTasks {
           ...shortInfo,
           to: to !== from ? to : undefined,
           commits: commits.length,
+          timestamps: Array.from(timestamps),
           daysInWork,
-          authors: Array.from(authors),
           comments,
-          types: Array.from(types),
-          scope: Array.from(scope),
+          authors,
+          types,
+          scope,
         };
       })
       .filter((dot) => dot.task)
       .sort((dotA, dotB) => dotB.from - dotA.from);
 
-    this.commits = {};
+    this.statistic.forEach((item: any) => {
+      this.statisticByName.set(item.task, item);
+    });
+
+    this.commits.clear();
   }
 }

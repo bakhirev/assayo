@@ -29,6 +29,9 @@ export default `
 § sidebar.team.changes: すべての変更
 § sidebar.team.words: 人気のある言葉
 § sidebar.team.building: クイズ
+§ sidebar.team.refactor: Refactoring
+§ sidebar.team.company: Companies
+§ sidebar.team.country: Locations
 § sidebar.team.settings: 設定
 § sidebar.person.total: 一般的な情報
 § sidebar.person.money: 仕事のコスト

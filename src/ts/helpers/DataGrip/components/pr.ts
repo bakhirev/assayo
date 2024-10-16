@@ -1,105 +1,83 @@
-import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
+import { ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
-import { createIncrement, increment, WeightedAverage } from 'ts/helpers/Math';
-
-const IS_PR = {
-  [COMMIT_TYPE.PR_BITBUCKET]: true,
-  [COMMIT_TYPE.PR_GITHUB]: true,
-  [COMMIT_TYPE.PR_GITLAB]: true,
-};
+import { WeightedAverage } from 'ts/helpers/Math';
+import { ONE_DAY } from 'ts/helpers/formatter';
 
 export default class DataGripByPR {
   pr: HashMap<any> = new Map();
 
-  prByTask: HashMap<any> = new Map();
-
-  lastCommitByTaskNumber: HashMap<any> = new Map();
-
   statistic: any[] = [];
 
-  statisticByName: IHashMap<any> = [];
+  statisticByName: IHashMap<any> = {};
 
   clear() {
     this.pr.clear();
-    this.prByTask.clear();
-    this.lastCommitByTaskNumber.clear();
     this.statistic = [];
+    this.statisticByName = {};
   }
 
   addCommit(commit: ISystemCommit) {
-    if (!commit.commitType) {
-      const commitByTaskNumber = this.lastCommitByTaskNumber.get(commit.task);
-      if (commitByTaskNumber) {
-        this.#updateCommitByTaskNumber(commitByTaskNumber, commit);
-      } else {
-        this.#addCommitByTaskNumber(commit);
-      }
-    } else if (!this.pr.has(commit.prId) && IS_PR[commit.commitType || '']) {
+    // commitType PR
+    if (!commit.prId) return;
+    const statistic = this.pr.get(commit.prId);
+    if (statistic) {
+      console.log('PR error');
+    } else {
       this.#addCommitByPR(commit);
     }
   }
 
-  #addCommitByTaskNumber(commit: ISystemCommit) {
-    this.lastCommitByTaskNumber.set(commit.task, {
-      commits : 1,
-      beginTaskTime: commit.milliseconds,
-      endTaskTime: commit.milliseconds,
-      commitsByAuthors: createIncrement(commit.author),
-      firstCommit: commit,
-    });
-  }
-
-  #updateCommitByTaskNumber(statistic: any, commit: ISystemCommit) {
-    statistic.endTaskTime = commit.milliseconds;
-    statistic.commits += 1;
-    increment(statistic.commitsByAuthors, commit.author);
-  }
-
   #addCommitByPR(commit: ISystemCommit) {
-    const lastCommit = this.lastCommitByTaskNumber.get(commit.task);
-    if (lastCommit) {
-      // коммиты после влития PR сгорают, чтобы не засчитать технические PR мержи веток
-      this.lastCommitByTaskNumber.delete(commit.task);
-      const delay = commit.milliseconds - lastCommit.endTaskTime;
-      const work = lastCommit.endTaskTime - lastCommit.beginTaskTime;
-      this.pr.set(commit.prId, {
-        ...commit,
-        ...lastCommit,
-        delay,
-        delayDays: delay / (24 * 60 * 60 * 1000),
-        workDays: work === 0 ? 1 : (work / (24 * 60 * 60 * 1000)),
-      });
-      this.prByTask.set(commit.task, commit.prId);
-    } else {
-      this.pr.set(commit.prId, { ...commit });
-    }
+    this.pr.set(commit.prId, {
+      prId : commit.prId,
+      author: commit.author,
+      task: commit.task,
+      type: commit.type,
+      branch: commit.branch,
+      message: commit.message,
+      dateCreate: commit.milliseconds, // last commit date before PR
+      dateMerge: commit.milliseconds,
+      daysReview: 1,
+      daysInWork: 1,
+    });
   }
 
-  updateTotalInfo(dataGripByAuthor: any) {
-    const employment = dataGripByAuthor.employment;
-    const authors = [...employment.active, ...employment.dismissed];
-    const refAuthorPR: any = Object.fromEntries(authors.map((name: string) => ([name, []])));
+  updateTotalInfo(dataGripByTasks: any, dataGripByAuthor: any) {
+    const byAuthor = new Map();
 
-    this.statistic = Object.values(this.pr)
-      .filter((item: any) => item.delay && item.task)
-      .sort((a: any, b: any) => b.delay - a.delay);
+    this.pr.forEach((pr: any) => {
+      if (!pr.task) return;
+      const task = dataGripByTasks.statisticByName.get(pr.task);
+      if (!task) return;
 
-    this.statistic = [];
-    this.statisticByName = {};
+      task.prIds.push(pr.prId);
 
-    Object.values(this.pr).forEach((item: any) => {
-      if (!item.delay || !item.task) return;
-
-      this.statistic.push(item);
-      if (refAuthorPR[item.firstCommit.author]) {
-        refAuthorPR[item.firstCommit.author].push(item);
+      pr.daysInWork = task.daysInWork;
+      let lastCommitDateBeforePR = task?.to || task?.from;
+      if (lastCommitDateBeforePR > pr.dateMerge) {
+        if (!task.timestamps) {
+          console.log('x');
+          return;
+        }
+        const more = task.timestamps.find((milliseconds: number) => milliseconds > pr.dateMerge);
+        const index = task.timestamps.indexOf(more);
+        lastCommitDateBeforePR = task.timestamps[index - 1];
+        task.timestamps = task.timestamps.slice(index);
+        pr.daysInWork = index;
       }
+      // TODO он не мог быть пустым. Надо расследовать TASK-110 в тестовой выборке.
+      pr.dateCreate = lastCommitDateBeforePR || pr.dateCreate;
+      pr.daysReview = ((pr.dateMerge - pr.dateCreate) || ONE_DAY) / ONE_DAY;
+
+      const list = byAuthor.get(pr.author);
+      if (list) list.push(pr);
+      else byAuthor.set(pr.author, [pr]);
     });
 
-    this.statistic.sort((a: any, b: any) => b.delay - a.delay);
-    this.updateTotalByAuthor(authors, refAuthorPR);
+    this.statistic = Array.from(this.pr.values())
+      .sort((a: any, b: any) => b.daysReview - a.daysReview);
 
-    this.lastCommitByTaskNumber.clear();
+    this.updateTotalByAuthor(byAuthor, dataGripByAuthor);
   }
 
   static getPRByGroups(list: any, propertyName: string) {
@@ -121,11 +99,14 @@ export default class DataGripByPR {
       [TITLES.MORE]: 0,
     };
 
+    let max = 0;
+
     const weightedAverage = new WeightedAverage();
 
     list.forEach((pr: any) => {
       const value = pr[propertyName];
 
+      if (value > max) max = value;
       weightedAverage.update(value);
 
       if (value <= 1) details[TITLES.DAY]++;
@@ -138,36 +119,33 @@ export default class DataGripByPR {
 
     const order = Object.keys(details);
 
-    return { details, order, weightedAverage: weightedAverage.get() };
+    return { details, order, weightedAverage: weightedAverage.get(), max };
   }
 
-  updateTotalByAuthor(authors: any, refAuthorPR: IHashMap<any>) {
+  updateTotalByAuthor(refAuthorPR: HashMap<any>, dataGripByAuthor: any) {
     this.statisticByName = {};
-    authors.map((name: string) => {
+    refAuthorPR.forEach((prs: any) => {
+      const author = prs[0].author;
+      const stat = dataGripByAuthor.statisticByName[author];
+      if (!stat || stat?.isStaff) return;
 
-      let maxDelayDays = 0;
-      refAuthorPR[name].forEach((pr: any) => {
-        if (pr.delayDays > maxDelayDays) maxDelayDays = pr.delayDays;
-      });
+      const daysReview = DataGripByPR.getPRByGroups(prs, 'daysReview');
+      const daysReviewWeightedAverage = parseInt(daysReview.weightedAverage.toFixed(1), 10);
 
-      // TODO: сложын и не интересные показатели. Гистаграмму?
-      const delayDays = DataGripByPR.getPRByGroups(refAuthorPR[name], 'delayDays');
-      const delayDaysWeightedAverage = parseInt(delayDays.weightedAverage.toFixed(1), 10);
+      const daysInWork = DataGripByPR.getPRByGroups(prs, 'daysInWork');
+      const daysInWorkWeightedAverage = parseInt(daysInWork.weightedAverage.toFixed(1), 10);
 
-      const workDays = DataGripByPR.getPRByGroups(refAuthorPR[name], 'workDays');
-      const workDaysWeightedAverage = parseInt(workDays.weightedAverage.toFixed(1), 10);
+      this.statisticByName[author] = {
+        author,
+        maxDelayDays: daysReview.max,
+        numberMergedPr: prs.length,
 
-      this.statisticByName[name] = {
-        author: name,
-        maxDelayDays,
-        numberMergedPr: refAuthorPR[name].length,
-
-        workDays: workDays.details,
-        delayDays: delayDays.details,
-        weightedAverage: workDaysWeightedAverage + delayDaysWeightedAverage,
+        workDays: daysInWork.details,
+        delayDays: daysReview.details,
+        weightedAverage: daysInWorkWeightedAverage + daysReviewWeightedAverage,
         weightedAverageDetails: {
-          workDays: workDaysWeightedAverage,
-          delayDays: delayDaysWeightedAverage,
+          workDays: daysInWorkWeightedAverage,
+          delayDays: daysReviewWeightedAverage,
         },
       };
     });

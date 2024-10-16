@@ -21,14 +21,17 @@ export interface ILog {
   minutes: number; // 59,
   month: number; // 1,
   year: number; // 2021,
-  timestamp: string; //  2021-02-09",
+  timezone: string; //  "+03:00",
+  timestamp: string; //  "2021-02-09",
   milliseconds: number; // 1612828800000,
   week: number; //  42,
 
   // user
   author: string; // "Dart Vader",
-  email: string; // "d.vader@emap.com",
+  email: string; // "d.vader@emap.ru",
   company: string; // "emap",
+  country: string; // "ru",
+  device: string; // "Macbook",
 
   // task
   message: string; // "JIRA-0000 fix(profile): add new avatar",

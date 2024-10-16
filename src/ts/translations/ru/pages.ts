@@ -20,7 +20,15 @@ export default `
 § page.print.title: Отчёт по git-репозиторию
 § page.print.sub_title: «$1»
 § page.print.description: Данные для отчёта были получены из истории коммитов.
-§ page.team.author.title: Статистика по сотрудникам
+§ page.team.author.statusChart.title: Текущий статус
+§ page.team.author.daysChart.title: Время работы
+§ page.team.author.daysChart.item: дней
+§ page.team.author.days.half: пол года
+§ page.team.author.days.one: год
+§ page.team.author.days.15: полтора
+§ page.team.author.days.two: два года
+§ page.team.author.days.more: больше
+§ page.team.author.title: Детализация
 § page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
 § page.team.author.status: Статус
@@ -62,6 +70,7 @@ export default `
 § page.team.type.title: Статистика по типам задач
 § page.team.type.description: *Персональный вклад* считается по количеству коммитов, а не объему измененных строк или файлов. Поэтому следует так же смотреть раздел «Анализ файлов», чтобы оценить масштаб изменений.
 § page.team.type.type: Тип работы
+§ page.team.type.unknown: неизвестный
 § page.team.type.tasks: Задач
 § page.team.type.tasksSmall: задач
 § page.team.type.days: Дней
@@ -101,6 +110,11 @@ export default `
 § page.team.tree.filters.commits: Количество коммитов
 § page.team.tree.filters.help: Минимальное количество коммитов, которое сделал сотрудник в файле
 § page.team.tree.filters.all: Все сотрудники
+§ page.team.tree.totalLines: Строк
+§ page.team.tree.totalTasks: Задач
+§ page.team.tree.totalDays: Дней
+§ page.team.tree.tasks: задач
+§ page.team.tree.days: дней
 § page.team.tree.add: Кто добавлял
 § page.team.tree.change: Кто менял
 § page.team.tree.remove: Кто удалял
@@ -108,6 +122,29 @@ export default `
 § page.team.tree.linesAdded: добавили
 § page.team.tree.linesChanged: изменили
 § page.team.tree.linesRemoved: удалили
+§ page.team.company.title: Детализация
+§ page.team.company.employments.title: По количеству сотрудников
+§ page.team.company.employments.item: сотрудников
+§ page.team.company.daysChart.title: По длительности контракта
+§ page.team.company.daysChart.item: дней
+§ page.team.company.active.yes: активна
+§ page.team.company.active.no: контракт истёк
+§ page.team.country.byTimezone: По времени последнего коммита
+§ page.team.country.pieByDomain.title: По почте, времени и языку
+§ page.team.country.pieByTimezone.title: По времени
+§ page.team.country.chart.item: сотрудников
+§ page.team.country.table.title: Список сотрудников
+§ page.team.country.table.country: Местоположение
+§ page.team.country.table.employments: Сотрудники
+§ page.team.refactor.title: Кандидаты на рефакторинг
+§ page.team.refactor.lines: строк
+§ page.team.refactor.tasks: задач
+§ page.team.refactor.days: дней
+§ page.team.refactor.path: Путь
+§ page.team.refactor.firstCommit: Первый коммит
+§ page.team.refactor.totalLines: Строк
+§ page.team.refactor.totalTasks: Задач
+§ page.team.refactor.totalDays: Дней в разработке
 § page.team.day.commits: Коммиты
 § page.team.day.activity: Активность
 § page.team.week.title: Статистика по неделям
@@ -139,7 +176,6 @@ export default `
 § page.team.pr.chart.14day: две недели
 § page.team.pr.chart.30day: месяц
 § page.team.pr.chart.more: более
-§ page.team.pr.commits: Коммиты
 § page.team.pr.date: Дата влития
 § page.team.pr.mergeAuthor: Влил
 § page.team.pr.author: Сотрудник
@@ -157,10 +193,6 @@ export default `
 § page.team.tasks.from: Первый коммит
 § page.team.tasks.to: Последний коммит
 § page.team.tasks.daysInWork: Дней в работе
-§ page.team.tasks.commits: Количество коммитов
-§ page.team.tasks.pr: Дата влития
-§ page.team.tasks.prAuthor: Влил
-§ page.team.tasks.prDelayDays: Дней ожидания влития
 § page.team.tasks.comments: Комментарии
 § page.team.extension.extension: Расширения файлов
 § page.team.extension.type: Подтип файлов
@@ -169,6 +201,7 @@ export default `
 § page.team.extension.current.count: Количество
 § page.team.extension.removed.count: Количество удалённых
 § page.team.extension.files: файлов
+§ page.team.release.download: Скачать
 § page.team.release.title: Релиз
 § page.team.release.from: Дата создания
 § page.team.release.to: Дата завершения

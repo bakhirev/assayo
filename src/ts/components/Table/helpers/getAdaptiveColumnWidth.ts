@@ -33,5 +33,5 @@ export default function getAdaptiveColumnWidth(
     adaptiveColumnsWidth = adaptiveTableWidth / adaptiveColumnsCount;
   });
 
-  return Math.max(adaptiveColumnsWidth, 40);
+  return Math.max(adaptiveColumnsWidth || 40, 40);
 }

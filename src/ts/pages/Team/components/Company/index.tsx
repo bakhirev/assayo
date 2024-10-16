@@ -11,30 +11,32 @@ import Pagination from 'ts/components/DataLoader/components/Pagination';
 import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
-import Companies from './Companies';
+import Companies from './components/Companies';
+import CompanyCharts from './components/Charts';
 
 const Company = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
-  const rows = dataGripStore.dataGrip.company.statistic;
+  const companyRows = dataGripStore.dataGrip.company.statistic;
 
-  if (!rows?.length) {
+  if (!companyRows?.length) {
     return mode !== 'print' ? (<NothingFound />) : null;
   }
 
   return (
     <>
-      <Title title="page.team.author.title"/>
+      <CompanyCharts />
+      <Title title="page.team.company.title"/>
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: rows, pagination, sort, mode,
+          content: companyRows, pagination, sort, mode,
         })}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <Companies
           mode={mode}
-          rowsForExcel={rows}
+          rowsForExcel={companyRows}
         />
         <Pagination />
       </DataLoader>

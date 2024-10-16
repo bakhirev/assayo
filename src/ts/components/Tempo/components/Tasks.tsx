@@ -24,7 +24,7 @@ function getFormattedDate(commits: ICommit[]) {
 function getTags(commits: ICommit[]) {
   const uniqueTypes = new Set(commits.map((commit: ICommit) => commit.type));
   const tags = Array.from(uniqueTypes)
-    .filter((title: string) => title && title !== '—')
+    .filter((title: string) => title)
     .map((title: string) => (
       <p
         key={title}
@@ -43,7 +43,13 @@ interface ITaskProps {
 
 function Task({ title, commits }: ITaskProps) {
   const { t } = useTranslation();
-  const prId = dataGrip.pr.prByTask.get(title);
+  const task = dataGrip.tasks.statisticByName.get(title);
+  const milliseconds = commits[0].milliseconds;
+  const prId = task?.prIds?.find((id: string) => {
+    const pr = dataGrip.pr.pr.get(id);
+    return pr.dateMerge >= milliseconds;
+  });
+
   return (
     <div
       key={title}

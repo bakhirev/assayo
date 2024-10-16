@@ -28,6 +28,9 @@ export default `
 § sidebar.team.changes: Все изменения
 § sidebar.team.words: Популярные слова
 § sidebar.team.building: Викторина
+§ sidebar.team.refactor: Рефакторинг
+§ sidebar.team.company: Компании
+§ sidebar.team.country: Местоположение
 § sidebar.team.settings: Настройки
 § sidebar.person.total: Общая информация
 § sidebar.person.money: Стоимость работы

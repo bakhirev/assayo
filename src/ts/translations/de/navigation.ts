@@ -30,6 +30,9 @@ export default `
 § sidebar.team.changes: Alle Änderungen
 § sidebar.team.words: Beliebte Wörter
 § sidebar.team.building: Quiz
+§ sidebar.team.refactor: Refactoring
+§ sidebar.team.company: Companies
+§ sidebar.team.country: Locations
 § sidebar.team.settings: Die Einstellungen
 § sidebar.person.total: Allgemeine Informationen
 § sidebar.person.money: Arbeitskosten

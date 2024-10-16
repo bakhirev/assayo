@@ -2,7 +2,8 @@ import ICommit, { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
-import getCompany from './getCompany';
+import getInfoFromNameAndEmail from './getCompany';
+import { getGithubPrInfo } from './getMergeInfo';
 
 const MASTER_BRANCH = {
   master: true,
@@ -35,6 +36,7 @@ export default function getCommitInfo(
   prevDate = date;
   const day = date.getDay() - 1;
   const timestamp = sourceDate.substring(0, 10); // split('T')[0];
+  const timezone = sourceDate.substring(19, 25);
   let milliseconds = refTimestampTime.get(timestamp);
   if (!milliseconds) {
     milliseconds = (new Date(timestamp)).getTime();
@@ -47,12 +49,11 @@ export default function getCommitInfo(
 
   const companyKey = `${author}>in>${email}`;
   if (!refEmailAuthor[companyKey]) {
-    const companyForKey = getCompany(author, email);
     // @ts-ignore
-    refEmailAuthor[companyKey] = { company: companyForKey };
+    refEmailAuthor[companyKey] = getInfoFromNameAndEmail(author, email);
   }
   // @ts-ignore
-  const company = refEmailAuthor[companyKey].company;
+  const { company, country, device } = refEmailAuthor[companyKey];
 
   const authorID = author.replace(/\s|\t/gm, '');
   if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
@@ -86,6 +87,7 @@ export default function getCommitInfo(
     month: date.getMonth(),
     year: date.getUTCFullYear(),
     week: 0,
+    timezone,
     timestamp,
     milliseconds,
 
@@ -93,10 +95,12 @@ export default function getCommitInfo(
     email,
     message,
     company,
+    country,
+    device,
 
     text: '',
-    type: '—',
-    scope: '—',
+    type: '',
+    scope: '',
     fileChanges: [],
   };
 
@@ -114,24 +118,29 @@ export default function getCommitInfo(
 
   if (isSystemCommit) {
     let commitType = COMMIT_TYPE.MERGE;
-    let prId, repository, branch, toBranch, task, taskNumber;
+    let prId, repository, branch, toBranch, task, taskNumber, type, scope;
     if (isGithubPR) {
+      // "Merge pull request #3 in repository from TASK-123-add-profile to master"
+      // "Merge pull request #3 from facebook/compiler"
       commitType = COMMIT_TYPE.PR_GITHUB;
-      [, prId, repository, branch, toBranch ] = message
-        .replace(/(Merge\spull\srequest\s#)|(\sfrom\s)|(\sin\s)|(\sto\s)/gim, ',')
-        .split(',');
+      [prId, repository, branch, toBranch] = getGithubPrInfo(message);
       task = getTask(branch);
-    } else if (isBitbucketPR) {
+
+    } else if (isBitbucketPR) { // "Pull request #3: TASK-123 fix: Add profile"
       commitType = COMMIT_TYPE.PR_BITBUCKET;
       const messageParts = message.substring(14).split(':');
       prId = messageParts.shift();
-      task = getTask(messageParts.join(':'));
-    } else if (isAutoMerge) {
+      const description = messageParts.join(':');
+      task = getTask(description);
+      [type, scope] = getTypeAndScope(description, task);
+
+    } else if (isAutoMerge) { // "Automatic merge from release/release-2.8.0 -> master"
       commitType = COMMIT_TYPE.AUTO_MERGE;
       [, branch, toBranch ] = message
         .replace(/(Automatic\smerge\sfrom\s)|(\s->\s)/gim, ',')
         .replace(/(Merge\sremote-tracking\sbranch\s')|('\sinto\s)/gim, ',')
         .split(',');
+
     } else if (isGitlabPR) {
       commitType = COMMIT_TYPE.PR_GITLAB;
       [, branch, toBranch ] = message
@@ -147,6 +156,8 @@ export default function getCommitInfo(
 
     return {
       ...commonInfo,
+      type,
+      scope,
       prId: prId || '',
       task: task || '',
       taskNumber: taskNumber || '',
@@ -155,25 +166,25 @@ export default function getCommitInfo(
       toBranch: toBranch || '',
       commitType,
     };
+  } else {
+    const textIndex = (message || '').indexOf(':');
+    const text = textIndex > 1
+      ? message.substring(textIndex + 2).trim()
+      : message;
+    const task = getTask(message);
+    const taskNumber = getTaskNumber(task);
+    const [type, scope] = getTypeAndScope(message, task);
+    return {
+      ...commonInfo,
+      task,
+      taskNumber,
+      text,
+      type: type || '',
+      scope: scope || '',
+
+      changes: 0,
+      added: 0,
+      removed: 0,
+    };
   }
-
-  const textIndex = (message || '').indexOf(':');
-  const text = textIndex > 1
-    ? message.substring(textIndex + 2).trim()
-    : message;
-  const task = getTask(message);
-  const taskNumber = getTaskNumber(task);
-  const [type, scope] = getTypeAndScope(message, task);
-  return {
-    ...commonInfo,
-    task,
-    taskNumber,
-    text,
-    type: type || '—',
-    scope: scope || '—',
-
-    changes: 0,
-    added: 0,
-    removed: 0,
-  };
 }

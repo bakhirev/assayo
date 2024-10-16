@@ -28,9 +28,9 @@ function AllPR({
 }: IPRViewProps) {
   if (!response) return null;
 
-  const workChart = getOptions({ max: getMax(response, 'workDays') });
-  const delayChart = getOptions({ max: getMax(response, 'delayDays') });
-  const commitsChart = getOptions({ order: dataGripStore.dataGrip.author.list });
+  const tasks = dataGripStore.dataGrip.tasks.statisticByName;
+  const workChart = getOptions({ max: getMax(response, 'daysInWork') });
+  const delayChart = getOptions({ max: getMax(response, 'daysReview') });
 
   return (
     <DataView
@@ -38,6 +38,7 @@ function AllPR({
       rows={response.content}
       sort={response.sort}
       updateSort={updateSort}
+      mode={mode}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 2 : undefined}
       fullScreenMode="all"
@@ -47,7 +48,7 @@ function AllPR({
           isSortable
           title="page.team.pr.task"
           properties="task"
-          width={120}
+          width={140}
         />
       ) : (
         <Column
@@ -66,31 +67,29 @@ function AllPR({
         />
       )}
       <Column
-        isSortable
         template={ColumnTypesEnum.STRING}
         title="page.team.pr.firstCommitTime"
-        properties="beginTaskTime"
-        formatter={getDate}
+        formatter={(row: any) => getDate(tasks.get(row.task)?.from || row.beginTaskTime)}
         width={130}
       />
       <Column
         isSortable
         template={ColumnTypesEnum.STRING}
         title="page.team.pr.lastCommitTime"
-        properties="endTaskTime"
+        properties="dateCreate"
         formatter={getDate}
         width={130}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
-        properties="workDays"
+        properties="daysInWork"
         width={40}
       />
       <Column
         isSortable
         title="page.team.pr.all.workDays"
-        properties="workDays"
-        minWidth={100}
+        properties="daysInWork"
+        minWidth={170}
         template={(value: any) => (
           <LineChart
             options={workChart}
@@ -100,31 +99,14 @@ function AllPR({
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
-        properties="commits"
-        width={40}
-      />
-      <Column
-        isSortable
-        title="page.team.pr.commits"
-        properties="commitsByAuthors"
-        minWidth={100}
-        template={(details: any) => (
-          <LineChart
-            options={commitsChart}
-            details={details}
-          />
-        )}
-      />
-      <Column
-        template={ColumnTypesEnum.SHORT_NUMBER}
-        properties="delayDays"
+        properties="daysReview"
         width={40}
       />
       <Column
         isSortable
         title="page.team.pr.all.delayDays"
-        properties="delayDays"
-        minWidth={200}
+        properties="daysReview"
+        minWidth={170}
         template={(value: any) => (
           <LineChart
             options={delayChart}
@@ -136,7 +118,7 @@ function AllPR({
         isSortable
         template={ColumnTypesEnum.STRING}
         title="page.team.pr.date"
-        properties="milliseconds"
+        properties="dateMerge"
         formatter={getDate}
         width={130}
       />

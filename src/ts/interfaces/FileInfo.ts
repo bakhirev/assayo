@@ -1,7 +1,12 @@
 import ICommit, { ISystemCommit } from './Commit';
-import IHashMap from './HashMap';
+import IHashMap, { HashMap } from './HashMap';
 
 interface IFileStat {
+  tasks: Set<string>; // ['JIRA-123', 'JIRA-444']
+  timestamp: Set<string>; // ['2021-02-09', '2021-03-09', '2021-04-09']
+  totalTasks: number; // 2
+  totalDays: number; // 3
+
   lines: number; // 38, line in file for this moment
 
   addedLines: number;
@@ -35,5 +40,5 @@ export interface IFolder extends IFileStat {
   name?: string;
   path: string[]; // ['src']
   pathString: string; // 'src\\ts'
-  content: IHashMap<IDirtyFile>,
+  content: HashMap<IDirtyFile>,
 }

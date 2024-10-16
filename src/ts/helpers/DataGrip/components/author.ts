@@ -2,8 +2,9 @@ import ICommit from 'ts/interfaces/Commit';
 import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
+import getCountryByTimeZone from 'ts/helpers/Parser/getCountryByTimeZone';
+import getCountryBySymbol from 'ts/helpers/Parser/getCountryBySymbol';
 import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
-import getCompany from 'ts/helpers/Parser/getCompany';
 
 import userSettings from 'ts/store/UserSettings';
 
@@ -38,6 +39,7 @@ export default class DataGripByAuthor {
   #updateCommitByAuthor(statistic: any, commit: ICommit) {
     statistic.commits += 1;
     statistic.lastCommit = commit;
+    statistic.device = statistic.device || commit.device;
     statistic.days[commit.timestamp] = true;
     statistic.tasks[commit.task] = commit.added + commit.changes + commit.removed
       + (statistic.tasks[commit.task] ? statistic.tasks[commit.task] : 0);
@@ -61,6 +63,10 @@ export default class DataGripByAuthor {
       statistic.lastCompany = commit.company;
       statistic.company.push({ title: commit.company, from: commit.timestamp });
     }
+    if (commit.country && statistic.lastCountry !== commit.country) {
+      statistic.lastCountry = commit.country;
+      statistic.country.add(commit.country);
+    }
   }
 
   #addCommitByAuthor(commit: ICommit) {
@@ -69,6 +75,11 @@ export default class DataGripByAuthor {
 
     const commitsByHour = new Array(24).fill(0);
     commitsByHour[commit.hours] += 1;
+
+    const country = commit.country
+      || getCountryBySymbol(commit.author)
+      || getCountryBySymbol(commit.message)
+      || getCountryByTimeZone(commit.timezone, commit.author);
 
     this.commits.set(commit.author, {
       author: commit.author,
@@ -81,9 +92,12 @@ export default class DataGripByAuthor {
       scopes: createIncrement(commit.scope),
       hours: [commit.hours],
       company: commit.company
-        ? [{ title: commit.company, from: commit.timestamp }]
+        ? [{ title: commit.company, from: commit.milliseconds }]
         : [],
       lastCompany: commit.company,
+      country: new Set([country]),
+      lastCountry: country,
+      device: commit.device,
       commitsByDayAndHour,
       commitsByHour,
       messageLength: [commit.text.length || 0],
@@ -195,7 +209,6 @@ export default class DataGripByAuthor {
           daysForTask: isStaff ? 0 : workDays / tasks.length,
           taskInDay: isStaff ? 0 : tasks.length / workDays,
           changesForTask: DataGripByAuthor.getMiddleValue(tasksSize),
-          lastCompany: getCompany(dot.author, dot.lastCommit.email),
 
           days: workDays,
           money: isStaff ? 0 : moneyWorked,

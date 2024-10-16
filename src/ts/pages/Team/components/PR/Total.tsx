@@ -15,10 +15,10 @@ function Total() {
 
   const allPR = dataGripStore.dataGrip.pr.statistic;
 
-  const workChart = DataGripByPR.getPRByGroups(allPR, 'workDays');
+  const workChart = DataGripByPR.getPRByGroups(allPR, 'daysInWork');
   const workChartOptions = getOptions({ order: workChart.order, limit: 3, suffix: 'page.team.pr.tasks' });
 
-  const delayChart = DataGripByPR.getPRByGroups(allPR, 'delayDays');
+  const delayChart = DataGripByPR.getPRByGroups(allPR, 'daysReview');
   const delayChartOptions = getOptions({ order: delayChart.order, limit: 3, suffix: 'PR' });
 
   const workDaysWeightedAverage = Math.round(workChart.weightedAverage);

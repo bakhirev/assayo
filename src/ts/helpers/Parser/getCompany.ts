@@ -1,6 +1,10 @@
+import getCountryByDomain from './getCountryByDomain';
+import getDevice from './getDevice';
+
 const PUBLIC_SERVICES = [
   'icloud',
   'google',
+  'inbox',
   'yahoo',
   'aol',
   'zoho',
@@ -25,6 +29,8 @@ const isPublicService = Object.fromEntries(
   Object.values(PUBLIC_SERVICES).map(key => [key.toUpperCase(), true]),
 );
 
+const isIP = /([0-9]{1,3}(-|_|.)[0-9]{1,3}(-|_|.)[0-9]{1,3}(-|_|.)[0-9]{1,3})/;
+
 function getCompanyByName(author?: string): string {
   const tags = (author || '')
     .toUpperCase()
@@ -39,11 +45,12 @@ function getCompanyByName(author?: string): string {
     : '';
 }
 
-function getCompanyByEmail(email?: string) {
-  const domain = (email || '').split('@').pop() || '';
-  const parts = domain.split('.');
-  parts.pop();
-  return (parts.pop() || '').toUpperCase();
+function getCompanyAndDomainByEmail(email?: string) {
+  const fullDomain = (email || '').split('@').pop() || '';
+  const parts = fullDomain.split('.');
+  const domain = parts.pop();
+  const company = (parts.pop() || '').toUpperCase();
+  return [company, domain];
 }
 
 function getClearText(text: string) {
@@ -63,12 +70,19 @@ function isUserName(author?: string, company?: string): boolean {
   return !!clearAuthor.match(clearCompany);
 }
 
-function getCompany(author?: string, email?: string) {
-  const company = getCompanyByName(author) || getCompanyByEmail(email) || '';
-  const isMailService = company.indexOf('MAIL') !== -1;
-  return isPublicService[company] || isMailService || isUserName(author, company)
-    ? ''
-    : company;
-}
+export default function getInfoFromNameAndEmail(author?: string, email?: string) {
+  const companyByAuthor = getCompanyByName(author);
+  const [companyByEmail, domain] = getCompanyAndDomainByEmail(email);
+  const country = getCountryByDomain(domain);
+  const device = getDevice(companyByEmail);
 
-export default getCompany;
+  const companyName = companyByAuthor || companyByEmail || '';
+  const isMailService = companyName.indexOf('MAIL') !== -1;
+  const isInCorrect = isPublicService[companyName]
+    || isMailService
+    || isUserName(author, companyName)
+    || isIP.test(companyName);
+  const company = (!isInCorrect && !device) ? companyName : '';
+
+  return { company, country, device };
+}

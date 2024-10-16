@@ -4,12 +4,25 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { getValuesInPercent } from '../helpers';
 
 function getFolder(name?: string, path?: string[], file?: IDirtyFile): IFolder {
+  const tasks = file?.tasks
+    ? new Set(file.tasks)
+    : new Set();
+
+  const timestamp = file?.timestamp
+    ? new Set(file.timestamp) as Set<string>
+    : new Set();
+
   return {
     id: Math.random(),
     name: name || '', // @ts-ignore
     path: path || [],
     pathString: `${(path || []).join('/')}/${name || ''}`,
-    content: {},
+    content: new Map(),
+
+    tasks: tasks as Set<string>,
+    timestamp: timestamp as Set<string>,
+    totalTasks: tasks.size,
+    totalDays: timestamp.size,
 
     lines: file?.lines || 0,
 
@@ -48,6 +61,12 @@ function updateFolder(folder: any, file: IDirtyFile) {
   folder.removedLines += file.removedLines || 0;
   folder.changedLines += file.changedLines || 0;
 
+  // TODO: bad performance
+  folder.tasks = new Set([...folder.tasks, ...file.tasks]);
+  folder.timestamp = new Set([...folder.timestamp, ...file.timestamp]);
+  folder.totalTasks = folder.tasks.size;
+  folder.totalDays = folder.timestamp.size;
+
   updateFolderBy(folder, file, 'addedLinesByAuthor');
   updateFolderBy(folder, file, 'removedLinesByAuthor');
   updateFolderBy(folder, file, 'changedLinesByAuthor');
@@ -69,17 +88,19 @@ export default class FileGripByFolder {
   addFile(file: IDirtyFile) {
     let prev: any = this.tree.content;
     file.path.forEach((folderName: any, index: number) => {
-      let folder = prev[folderName];
-      if (!folder || !folder.content) {
+      const folder = prev.get(folderName);
+      if (!folder?.content) {
         const path = file.path.slice(0, index);
-        prev[folderName] = getFolder(folderName, path, file);
-        this.folders.push(prev[folderName]);
+        const newFolder = getFolder(folderName, path, file);
+        prev.set(folderName, newFolder);
+        this.folders.push(newFolder);
+        prev = newFolder.content;
       } else {
         updateFolder(folder, file);
+        prev = folder.content;
       }
-      prev = prev[folderName].content;
     });
-    prev[file.name] = file;
+    prev.set(file.name, file);
   }
 
   updateTotalInfo() {
