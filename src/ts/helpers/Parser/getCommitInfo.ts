@@ -4,6 +4,7 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
 import getInfoFromNameAndEmail from './getCompany';
 import { getGithubPrInfo } from './getMergeInfo';
+import getCountryByTimeZone from './getCountryByTimeZone';
 
 const MASTER_BRANCH = {
   master: true,
@@ -47,13 +48,17 @@ export default function getCommitInfo(
   let email = parts[2] || '';
   if (email.indexOf('@') === -1) email = '';
 
-  const companyKey = `${author}>in>${email}`;
-  if (!refEmailAuthor[companyKey]) {
-    // @ts-ignore
+  const companyKey = `${author}>mail>${email}`;
+  if (!refEmailAuthor[companyKey]) {  // @ts-ignore
     refEmailAuthor[companyKey] = getInfoFromNameAndEmail(author, email);
-  }
-  // @ts-ignore
-  const { company, country, device } = refEmailAuthor[companyKey];
+  } // @ts-ignore
+  const { company, domain, device } = refEmailAuthor[companyKey];
+
+  const countryKey = `${author}>time>${timezone}`;
+  if (!refEmailAuthor[countryKey]) {// @ts-ignore
+    refEmailAuthor[countryKey] = getCountryByTimeZone(timezone, domain, author);
+  } // @ts-ignore
+  const country = refEmailAuthor[countryKey];
 
   const authorID = author.replace(/\s|\t/gm, '');
   if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {

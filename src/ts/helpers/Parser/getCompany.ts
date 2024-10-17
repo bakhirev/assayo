@@ -1,4 +1,3 @@
-import getCountryByDomain from './getCountryByDomain';
 import getDevice from './getDevice';
 
 const PUBLIC_SERVICES = [
@@ -22,6 +21,7 @@ const PUBLIC_SERVICES = [
   'me',
   'qq',
   'dev',
+  'list',
   'localhost',
 ];
 
@@ -73,7 +73,6 @@ function isUserName(author?: string, company?: string): boolean {
 export default function getInfoFromNameAndEmail(author?: string, email?: string) {
   const companyByAuthor = getCompanyByName(author);
   const [companyByEmail, domain] = getCompanyAndDomainByEmail(email);
-  const country = getCountryByDomain(domain);
   const device = getDevice(companyByEmail);
 
   const companyName = companyByAuthor || companyByEmail || '';
@@ -84,5 +83,5 @@ export default function getInfoFromNameAndEmail(author?: string, email?: string)
     || isIP.test(companyName);
   const company = (!isInCorrect && !device) ? companyName : '';
 
-  return { company, country, device };
+  return { company, domain, device };
 }

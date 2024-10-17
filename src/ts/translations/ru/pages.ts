@@ -134,8 +134,14 @@ export default `
 § page.team.country.pieByTimezone.title: По времени
 § page.team.country.chart.item: сотрудников
 § page.team.country.table.title: Список сотрудников
-§ page.team.country.table.country: Местоположение
+§ page.team.country.table.country: Локация
 § page.team.country.table.employments: Сотрудники
+§ page.team.country.travel.title: Командировки (или VPN, или rebase)
+§ page.team.country.travel.author: Сотрудник
+§ page.team.country.travel.fly: Количество перелётов
+§ page.team.country.travel.path: Список локаций
+§ page.team.country.travel.date: Дата перлёта
+§ page.team.country.travel.country: Локация
 § page.team.refactor.title: Кандидаты на рефакторинг
 § page.team.refactor.lines: строк
 § page.team.refactor.tasks: задач

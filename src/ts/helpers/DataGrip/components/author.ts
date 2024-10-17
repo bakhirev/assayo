@@ -2,8 +2,6 @@ import ICommit from 'ts/interfaces/Commit';
 import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
-import getCountryByTimeZone from 'ts/helpers/Parser/getCountryByTimeZone';
-import getCountryBySymbol from 'ts/helpers/Parser/getCountryBySymbol';
 import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
 
 import userSettings from 'ts/store/UserSettings';
@@ -63,9 +61,10 @@ export default class DataGripByAuthor {
       statistic.lastCompany = commit.company;
       statistic.company.push({ title: commit.company, from: commit.timestamp });
     }
-    if (commit.country && statistic.lastCountry !== commit.country) {
+    if (commit.timezone && statistic.lastCountry !== commit.timezone) {
+      statistic.lastTimezone = commit.timezone;
       statistic.lastCountry = commit.country;
-      statistic.country.add(commit.country);
+      statistic.country.push({ country: commit.country, timezone: commit.timezone, from: commit.milliseconds });
     }
   }
 
@@ -75,11 +74,6 @@ export default class DataGripByAuthor {
 
     const commitsByHour = new Array(24).fill(0);
     commitsByHour[commit.hours] += 1;
-
-    const country = commit.country
-      || getCountryBySymbol(commit.author)
-      || getCountryBySymbol(commit.message)
-      || getCountryByTimeZone(commit.timezone, commit.author);
 
     this.commits.set(commit.author, {
       author: commit.author,
@@ -95,8 +89,9 @@ export default class DataGripByAuthor {
         ? [{ title: commit.company, from: commit.milliseconds }]
         : [],
       lastCompany: commit.company,
-      country: new Set([country]),
-      lastCountry: country,
+      country: [{ country: commit.country, timezone: commit.timezone, from: commit.milliseconds }],
+      lastTimezone: commit.timezone,
+      lastCountry: commit.country,
       device: commit.device,
       commitsByDayAndHour,
       commitsByHour,
