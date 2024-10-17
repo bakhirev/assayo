@@ -20,8 +20,7 @@ const Tasks = observer(({
 }: IPersonCommonProps): React.ReactElement | null => {
   const allRows = dataGripStore.dataGrip.tasks.statistic;
   const rows = allRows.filter((row: any) => (
-    row.author === user.author
-     || (row.authors || []).includes(user.author)
+    row.author === user.author || row?.authors?.[user.author]
   ));
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
 

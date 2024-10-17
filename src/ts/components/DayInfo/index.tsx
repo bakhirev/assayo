@@ -46,13 +46,13 @@ function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
         return pr.dateMerge >= milliseconds;
       });
       return (
-        <>
+        <div key={`${prId}${task}`}>
           <div className={style.day_info_link}>
             <TaskLink task={task}/>
             <PRLink prId={prId}/>
           </div>
           <CommitInfo commits={commits}/>
-        </>
+        </div>
       );
     });
   return (<>{items}</>);
