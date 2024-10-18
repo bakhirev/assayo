@@ -131,6 +131,12 @@ export default `
 § page.team.country.table.title: List of employees
 § page.team.country.table.country: Country
 § page.team.country.table.employments: Employments
+§ page.team.country.travel.title: Trips (or VPN, or rebase)
+§ page.team.country.travel.author: Employee
+§ page.team.country.travel.fly: Number of flights
+§ page.team.country.travel.path: Locations list
+§ page.team.country.travel.date: Arrival date
+§ page.team.country.travel.country: Location
 § page.team.refactor.title: Candidates for refactoring
 § page.team.refactor.lines: lines
 § page.team.refactor.tasks: tasks
