@@ -57,6 +57,7 @@ function View({ response, updateSort, rowsForExcel, mode }: CompaniesProps) {
             .reverse()
             .map((taskId: any) => dataGripStore.dataGrip.tasks.statisticByName.get(taskId))
             .filter(v => v);
+          console.log(content);
           return (
             <Tasks // @ts-ignore
               response={{ content }}

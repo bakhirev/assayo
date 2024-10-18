@@ -3,14 +3,14 @@ import { IDirtyFile } from 'ts/interfaces/FileInfo';
 
 export default class FileBuilderTasks {
   static setProps(file: any, commit: ICommit) {
-    file.tasks = [commit.task];
+    file.tasks = commit.task ? [commit.task] : [];
     file.timestamp = [commit.timestamp];
     file.totalTasks = 0;
     file.totalDays = 0;
   }
 
   static updateProps(file: IDirtyFile, commit: ICommit) {
-    file.tasks.push(commit.task);
+    if (commit.task) file.tasks.push(commit.task);
     file.timestamp.push(commit.timestamp);
   }
 
