@@ -2,7 +2,7 @@ import { IDirtyFile } from 'ts/interfaces/FileInfo';
 import IHashMap from 'ts/interfaces/HashMap';
 
 function getHashMap(list: string[]) {
-  return Object.fromEntries(list.map((code: string) => [code, true]));
+  return new Map(list.map((code: string) => [code, true]));
 }
 
 const IS_LINT_HINT = getHashMap(['.eslintrc', '.stylelintrc.json']);
@@ -45,11 +45,11 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   const fileRush: IHashMap<number> = {};
 
   fileGrip.files.list.forEach((file: IDirtyFile) => {
-    if (IS_LINT_HINT[file.name]) moreLintHint.push(getAddedChangedLines(file));
+    if (IS_LINT_HINT.has[file.name]) moreLintHint.push(getAddedChangedLines(file));
     if (file.extension === 'md') moreReadMe.push(getAddedChangedLines(file));
-    if (IS_CSS[file.extension]) moreStyle.push(getAddedChangedLines(file));
-    if (IS_TEST[file.extension] || IS_TEST[file.type]) moreTests.push(getAddedChangedLines(file));
-    if (IS_CI_CD[file.name]) moreDevOps.push(getAddedChangedLines(file));
+    if (IS_CSS.has[file.extension]) moreStyle.push(getAddedChangedLines(file));
+    if (IS_TEST.has[file.extension] || IS_TEST.has[file.type]) moreTests.push(getAddedChangedLines(file));
+    if (IS_CI_CD.has[file.name]) moreDevOps.push(getAddedChangedLines(file));
 
     fileRush[file.firstCommit?.author || ''] = fileRush[file.firstCommit?.author || '']
       ? (fileRush[file.firstCommit?.author || ''] + 1)

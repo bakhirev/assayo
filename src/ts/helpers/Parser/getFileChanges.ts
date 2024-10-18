@@ -1,9 +1,10 @@
 import { IFileChange } from 'ts/interfaces/Commit';
 
 function getFilePath(path: string): string[] {
-  const formattedPath = path
-    .replace(/"/gm, '')
-    .replace(/\/\//gm, '/');
+  // 0	0	"UI tests/\\320\\224\\320\\276\\320\\272\\321\\203\\320/my_lock.lock"
+  const formattedPath = path[path.length - 1] === '"'
+    ? path.replace(/"/gm, '').replace(/\/\//gm, '/')
+    : path;
 
   if (formattedPath.indexOf('{') === -1) return [formattedPath];
 

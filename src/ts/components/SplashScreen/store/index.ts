@@ -28,7 +28,7 @@ class SplashScreenStore {
   }
 
   setDelay(logSize: number) {
-    const delay = (logSize / 190) + 400;
+    const delay = (logSize / 180) + 400;
     this.delay = Math.max(DEFAULT_DELAY, delay);
   }
 

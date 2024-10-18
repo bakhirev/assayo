@@ -4,14 +4,6 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { getValuesInPercent } from '../helpers';
 
 function getFolder(name?: string, path?: string[], file?: IDirtyFile): IFolder {
-  const tasks = file?.tasks
-    ? new Set(file.tasks)
-    : new Set();
-
-  const timestamp = file?.timestamp
-    ? new Set(file.timestamp) as Set<string>
-    : new Set();
-
   return {
     id: Math.random(),
     name: name || '', // @ts-ignore
@@ -19,10 +11,10 @@ function getFolder(name?: string, path?: string[], file?: IDirtyFile): IFolder {
     pathString: `${(path || []).join('/')}/${name || ''}`,
     content: new Map(),
 
-    tasks: tasks as Set<string>,
-    timestamp: timestamp as Set<string>,
-    totalTasks: tasks.size,
-    totalDays: timestamp.size,
+    tasks: file?.tasks || [],
+    timestamp: file?.timestamp || [],
+    totalTasks: 0,
+    totalDays: 0,
 
     lines: file?.lines || 0,
 
@@ -61,11 +53,13 @@ function updateFolder(folder: any, file: IDirtyFile) {
   folder.removedLines += file.removedLines || 0;
   folder.changedLines += file.changedLines || 0;
 
-  // TODO: bad performance
-  folder.tasks = new Set([...folder.tasks, ...file.tasks]);
-  folder.timestamp = new Set([...folder.timestamp, ...file.timestamp]);
-  folder.totalTasks = folder.tasks.size;
-  folder.totalDays = folder.timestamp.size;
+  // for performance
+  for (let i = 0, l = file.tasks.length; i < l; i++) {
+    folder.tasks.push(file.tasks[i]);
+  }
+  for (let i = 0, l = file.timestamp.length; i < l; i++) {
+    folder.timestamp.push(file.timestamp[i]);
+  }
 
   updateFolderBy(folder, file, 'addedLinesByAuthor');
   updateFolderBy(folder, file, 'removedLinesByAuthor');
@@ -87,7 +81,9 @@ export default class FileGripByFolder {
 
   addFile(file: IDirtyFile) {
     let prev: any = this.tree.content;
-    file.path.forEach((folderName: any, index: number) => {
+    // for performance
+    for (let index = 0, l = file.path.length; index < l; index++) {
+      const folderName = file.path[index];
       const folder = prev.get(folderName);
       if (!folder?.content) {
         const path = file.path.slice(0, index);
@@ -99,12 +95,17 @@ export default class FileGripByFolder {
         updateFolder(folder, file);
         prev = folder.content;
       }
-    });
+    }
     prev.set(file.name, file);
   }
 
   updateTotalInfo() {
     this.folders.forEach((folder: IFolder) => {
+      folder.tasks = Array.from(new Set(folder.tasks));
+      folder.timestamp = Array.from(new Set(folder.timestamp));
+      folder.totalTasks = folder.tasks.length;
+      folder.totalDays = folder.timestamp.length;
+
       folder.addedByAuthorInPercent = getValuesInPercent(folder.addedLinesByAuthor, folder.addedLines);
       folder.removedByAuthorInPercent = getValuesInPercent(folder.removedLinesByAuthor, folder.removedLines);
       folder.changedByAuthorInPercent = getValuesInPercent(folder.changedLinesByAuthor, folder.changedLines);

@@ -2,8 +2,8 @@ import ICommit, { ISystemCommit } from './Commit';
 import IHashMap, { HashMap } from './HashMap';
 
 interface IFileStat {
-  tasks: Set<string>; // ['JIRA-123', 'JIRA-444']
-  timestamp: Set<string>; // ['2021-02-09', '2021-03-09', '2021-04-09']
+  tasks: string[]; // ['JIRA-123', 'JIRA-444']
+  timestamp: string[]; // ['2021-02-09', '2021-03-09', '2021-04-09']
   totalTasks: number; // 2
   totalDays: number; // 3
 

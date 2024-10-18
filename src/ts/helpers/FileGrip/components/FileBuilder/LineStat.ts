@@ -4,18 +4,16 @@ import { IDirtyFile } from 'ts/interfaces/FileInfo';
 import { getValuesInPercent } from '../../helpers';
 
 export default class FileBuilderLineStat {
-  static getProps(fileChange: IFileChange, commit: ICommit) {
-    return {
-      lines: fileChange.addedLines,
+  static setProps(file: any, fileChange: IFileChange, commit: ICommit) {
+    file.lines = fileChange.addedLines;
 
-      addedLines: fileChange.addedLines,
-      removedLines: fileChange.removedLines,
-      changedLines: fileChange.changedLines,
+    file.addedLines = fileChange.addedLines;
+    file.removedLines = fileChange.removedLines;
+    file.changedLines = fileChange.changedLines;
 
-      addedLinesByAuthor: { [commit.author]: fileChange.addedLines },
-      removedLinesByAuthor: { [commit.author]: fileChange.removedLines },
-      changedLinesByAuthor: { [commit.author]: fileChange.changedLines },
-    };
+    file.addedLinesByAuthor = { [commit.author]: fileChange.addedLines };
+    file.removedLinesByAuthor = { [commit.author]: fileChange.removedLines };
+    file.changedLinesByAuthor = { [commit.author]: fileChange.changedLines };
   }
 
   static updateProps(file: IDirtyFile, fileChange: IFileChange, commit: ICommit) {

@@ -67,6 +67,13 @@ class DataGripStore {
     commits.sort((a, b) => a.milliseconds - b.milliseconds);
     commits.forEach((commit: ICommit | ISystemCommit) => {
       dataGrip.addCommit(commit);
+    });
+
+    setTimeout(() => this.processingFileGrouping(commits), PROCESSING_DELAY);
+  }
+
+  processingFileGrouping(commits: (ICommit | ISystemCommit)[]) {
+    commits.forEach((commit: ICommit | ISystemCommit) => {
       fileGrip.addCommit(commit);
     });
 
