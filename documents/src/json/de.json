@@ -144,7 +144,7 @@
     },
     {
         "pre": [
-            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/^/r(f\\`/g' | sed 's/$/\\`\\);/g' | sed 's/\\$/_/g' > log.txt"
+            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/\\$/S/g' | sed -e '1s/^/R(f\\`/' | sed -e '$s/$/\\`\\);/' > log.txt"
         ]
     },
     {
