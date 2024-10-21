@@ -68,7 +68,7 @@
     &_item {
       display: block;
       width: 100%;
-      margin: 0 0 24px 0;
+      margin: 0;
     }
     &_white {
       display: block;
@@ -76,7 +76,7 @@
   }
   .main_wrapper_item + .main_wrapper_item {
     display: block;
-    margin: 0 0 24px 0;
+    margin: 0;
   }
 }
 

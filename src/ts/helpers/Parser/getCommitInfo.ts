@@ -3,7 +3,7 @@ import IHashMap from 'ts/interfaces/HashMap';
 
 import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
 import getInfoFromNameAndEmail from './getCompany';
-import { getGithubPrInfo } from './getMergeInfo';
+import { getGithubPrInfo, getGitlabPrInfo } from './getMergeInfo';
 import getCountryByTimeZone from './getCountryByTimeZone';
 
 const MASTER_BRANCH = {
@@ -148,13 +148,12 @@ export default function getCommitInfo(
 
     } else if (isGitlabPR) {
       commitType = COMMIT_TYPE.PR_GITLAB;
-      [, branch, toBranch ] = message
-        .replace(/'/gim, '')
-        .replace(/(Merge\sbranch\s)|(\sinto\s)/gim, ',')
-        .split(',');
+      [branch, toBranch] = getGitlabPrInfo(message);
       if (toBranch && MASTER_BRANCH[toBranch]) {
-        task = getTask(branch) || `#${getTaskNumber(branch)}`;
-        prId = task;
+        task = getTask(branch);
+        taskNumber = getTaskNumber(branch);
+        prId = `#${taskNumber}-${Math.random()}`;
+        if (!task && taskNumber) task = `#${taskNumber}`;
       }
     }
     taskNumber = getTaskNumber(task);

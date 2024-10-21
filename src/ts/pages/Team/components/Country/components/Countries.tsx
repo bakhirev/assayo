@@ -32,6 +32,7 @@ function Countries({ response, updateSort, rowsForExcel, mode }: CompaniesProps)
       updateSort={updateSort}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 3 : undefined}
+      fullScreenMode="countries"
     >
       <Column
         isFixed

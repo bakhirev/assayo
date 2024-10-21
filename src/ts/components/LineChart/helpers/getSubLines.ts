@@ -6,13 +6,12 @@ function getWidth(value: number, max: number) {
   return Math.round(value * (100 / max));
 }
 
-function getFormattedOther(other: any[], options: any): ISubLine {
-  let width = 0;
+function getFormattedOther(other: any[], normalWidth: number, options: any): ISubLine {
   let value = 0;
+  const width = 100 - normalWidth;
   const titles: string[] = [];
 
   other.forEach((field: any) => {
-    width += field.width;
     value += field.value;
     if (field.title) titles.push(field.title);
   });
@@ -36,6 +35,7 @@ export default function getSubLines(
   const normal: ISubLine[] = [];
   const other: ISubLine[] = [];
 
+  let normalWidth = 0;
   list.forEach(([title, value]: any) => {
     const width = getWidth(value || 0, currentMax);
     const field: ISubLine = { title, value, width };
@@ -43,6 +43,7 @@ export default function getSubLines(
     allItems.push(field);
     if (width >= options.limit) {
       normal.push(field);
+      normalWidth += width;
     } else {
       other.push(field);
     }
@@ -50,6 +51,6 @@ export default function getSubLines(
 
   if (other.length === 0) return normal;
   if (other.length === 1) return allItems;
-  return [...normal, getFormattedOther(other, options)]
+  return [...normal, getFormattedOther(other, normalWidth, options)]
     .filter((item: any) => item.width > 1);
 }

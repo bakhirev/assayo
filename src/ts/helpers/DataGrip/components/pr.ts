@@ -21,7 +21,7 @@ export default class DataGripByPR {
     if (!commit.prId) return;
     const statistic = this.pr.get(commit.prId);
     if (statistic) {
-      console.log('PR error');
+      console.log('Parsing error. PR already exist.');
     } else {
       this.#addCommitByPR(commit);
     }

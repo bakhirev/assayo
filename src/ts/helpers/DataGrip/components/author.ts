@@ -195,7 +195,8 @@ export default class DataGripByAuthor {
 
         const daysWorkedLosses = workDays + (lazyDays > 0 ? lazyDays : 0);
         const percentWork = workDays * 100 / daysWorkedLosses;
-        const isStaff = daysWorkedLosses < 20 || (percentWork < 15);
+        const isBot = (/[^a-z]bot[^a-z]/gim).test(dot.author);
+        const isStaff = daysWorkedLosses < 20 || (percentWork < 15) || isBot;
 
         const authorInfo = {
           ...dot,

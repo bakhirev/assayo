@@ -31,6 +31,7 @@ function Travel({ response, updateSort, rowsForExcel, mode }: TravelProps) {
       updateSort={updateSort}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 3 : undefined}
+      fullScreenMode="travel"
     >
       <Column
         isFixed

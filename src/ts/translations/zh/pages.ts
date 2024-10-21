@@ -121,7 +121,7 @@ export default `
 § page.team.company.employments.title: By number of employees
 § page.team.company.employments.item: employments
 § page.team.company.daysChart.title: By duration of the contract
-§ page.team.company.daysChart.item: days
+§ page.team.company.daysChart.item: companies
 § page.team.company.active.yes: active
 § page.team.company.active.no: contract has expired
 § page.team.country.byTimezone: By the time of the last commit

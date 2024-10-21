@@ -126,7 +126,7 @@ export default `
 § page.team.company.employments.title: По количеству сотрудников
 § page.team.company.employments.item: сотрудников
 § page.team.company.daysChart.title: По длительности контракта
-§ page.team.company.daysChart.item: дней
+§ page.team.company.daysChart.item: компаний
 § page.team.company.active.yes: активна
 § page.team.company.active.no: контракт истёк
 § page.team.country.byTimezone: По времени последнего коммита

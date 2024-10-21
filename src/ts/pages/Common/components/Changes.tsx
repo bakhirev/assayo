@@ -16,6 +16,7 @@ interface IChangesProps {
 }
 
 function Changes({ statistic }: IChangesProps) {
+  const files = dataGripStore.fileGrip.files.list;
   const maxData = statistic.changesByTimestampCounter.maxData;
 
   const [selected, setSelected] = useState<any>(maxData);
@@ -26,7 +27,8 @@ function Changes({ statistic }: IChangesProps) {
       value: dot.addedAndChanges,
       meta: dot,
     }));
-  if (!dots?.length) return (<NothingFound />);
+
+  if (!dots?.length || !files?.length) return (<NothingFound />);
 
   const [fullDay, shortDay] = getDateByTimestamp(maxData.timestamp);
   const recommendations = [

@@ -15,6 +15,7 @@ import Countries from './components/Countries';
 import CountryCharts from './components/Charts';
 import TimeZoneMap from 'ts/components/TimeZoneMap';
 import PageWrapper from 'ts/components/Page/Box';
+import fullScreen from 'ts/store/FullScreen';
 
 import Travel from './components/Travel';
 
@@ -26,32 +27,45 @@ const Country = observer(({
   const travel = authors.filter((dot: any) => dot?.country?.length)
     .sort((a: any, b: any) => b?.country?.length - a?.country?.length);
 
+  const canShowByCountries = (!fullScreen.isOpen || fullScreen.mode === 'countries');
+  const canShowByTravel = (!fullScreen.isOpen || fullScreen.mode === 'travel') && travel.length;
+
   if (!countryRows?.length) {
     return mode !== 'print' ? (<NothingFound/>) : null;
   }
 
   return (
     <>
-      <PageWrapper>
-        <Title title="page.team.country.byTimezone"/>
-        <TimeZoneMap authors={authors}/>
-      </PageWrapper>
-      <CountryCharts/>
-      <Title title="page.team.country.table.title"/>
-      <DataLoader
-        to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: countryRows, pagination, sort, mode,
-        })}
-        watch={`${mode}${dataGripStore.hash}`}
-      >
-        <Countries
-          mode={mode}
-          rowsForExcel={countryRows}
-        />
-        <Pagination/>
-      </DataLoader>
-      {travel.length ? (
+      {!fullScreen.isOpen && (
+        <>
+          <PageWrapper>
+            <Title title="page.team.country.byTimezone"/>
+            <TimeZoneMap authors={authors}/>
+          </PageWrapper>
+          <CountryCharts/>
+        </>
+      )}
+
+      {canShowByCountries ? (
+        <>
+          <Title title="page.team.country.table.title"/>
+          <DataLoader
+            to="response"
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+              content: countryRows, pagination, sort, mode,
+            })}
+            watch={`${mode}${dataGripStore.hash}`}
+          >
+            <Countries
+              mode={mode}
+              rowsForExcel={countryRows}
+            />
+            <Pagination/>
+          </DataLoader>
+        </>
+      ) : null}
+
+      {canShowByTravel ? (
         <>
           <Title title="page.team.country.travel.title"/>
           <DataLoader

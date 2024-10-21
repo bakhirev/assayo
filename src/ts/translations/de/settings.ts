@@ -1,28 +1,28 @@
 export default `
-§ page.settings.document.title: Display settings
-§ page.settings.document.name: Page title
-§ page.settings.document.language: Interface language
-§ page.settings.document.depersonalize: Hide personal data
-§ page.settings.links.title: Link prefixes
-§ page.settings.links.task: For task numbers
-§ page.settings.links.pr: For PR
-§ page.settings.user.title: Individual settings
-§ page.settings.user.notFound: No individual settings. Data for all employees are calculated based on common parameters.
-§ page.settings.user.subTitle: Addendum to employment contract №$1
-§ page.settings.user.from: Start date
-§ page.settings.mailmap: .mailmap example
-§ page.settings.common.title: General salary data
-§ page.settings.common.type.title: Project work type
-§ page.settings.common.type.full: Full-time employment
-§ page.settings.common.type.part: Project work
-§ page.settings.common.salary: Monthly salary in USD (US dollar, $)
-§ page.settings.common.currency: Currency for view
-§ page.settings.common.workDaysInYear: Number of working days in a year
-§ page.settings.common.vacationDaysInYear: Number of vacation days in a year
-§ page.settings.common.workDaysInWeek: Workdays
-§ page.settings.form.save: Save
-§ page.settings.form.cancel: Cancel
-§ page.settings.form.remove: Remove
-§ page.settings.form.addEmployee: Add an employee
-§ page.settings.form.addContract: Add an employment contract
+§ page.settings.document.title: Anzeigeeinstellungen
+§ page.settings.document.name: Seitentitel
+§ page.settings.document.language: Sprache der benutzeroberfläche
+§ page.settings.document.depersonalize: Persönliche daten verstecken
+§ page.settings.links.title: Link-Präfixe
+§ page.settings.links.task: Für Aufgabennummern
+§ page.settings.links.pr: Für PR
+§ page.settings.user.title: Individuelle einstellungen
+§ page.settings.user.notFound: Keine individuellen Einstellungen. Daten für alle Mitarbeiter werden anhand allgemeiner Parameter berechnet.
+§ page.settings.user.subTitle: Zusatz zum arbeitsvertrag №. $1
+§ page.settings.user.from: Startdatum
+§ page.settings.mailmap: Beispiel .mailmap
+§ page.settings.common.title: Allgemeine Gehaltsdaten
+§ page.settings.common.type.title: Art der projektarbeit
+§ page.settings.common.type.full: Vollzeitbeschäftigung
+§ page.settings.common.type.part: Projektarbeit
+§ page.settings.common.salary: Monatliches gehalt in USD (US-Dollar, $)
+§ page.settings.common.currency: Währung zur ansicht
+§ page.settings.common.workDaysInYear: Anzahl der arbeitstage im Jahr
+§ page.settings.common.vacationDaysInYear: Anzahl der urlaubstage im Jahr
+§ page.settings.common.workDaysInWeek: Arbeitstage
+§ page.settings.form.save: Speichern
+§ page.settings.form.cancel: Abbrechen
+§ page.settings.form.remove: Entfernen
+§ page.settings.form.addEmployee: Mitarbeiter hinzufügen
+§ page.settings.form.addContract: Arbeitsvertrag hinzufügen
 `;
