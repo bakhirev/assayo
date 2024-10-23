@@ -57,6 +57,7 @@ function getClearText(text: string) {
   return (text || '')
     .replace(/(\[[^\]]])+/gim, '')
     .replace(/[\s\t._0-9]+/gim, '')
+    .replace(/[*?^)(\-]+/gim, '')
     .toLowerCase();
 }
 

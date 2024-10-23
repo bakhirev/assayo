@@ -4,7 +4,7 @@ import {
 } from './getCountryByDomain';
 
 const FAMILY = {
-  ru: ['а', 'е', 'и', 'ivan', 'alexan', 'alexe', 'petr', 'konstan', 'sergey', 'dmitr', 'roman', 'pavel', 'vlad', 'nikol', 'maks', 'andre', 'oleg', 'denis', 'victor', 'eugen', 'ikhail', 'italy', 'yura', 'igor'],
+  ru: ['а', 'е', 'и', 'ivan', 'alexan', 'alexe', 'andre', 'anton', 'petr', 'konstan', 'sergey', 'dmitr', 'roman', 'pavel', 'vlad', 'nikol', 'nikita', 'maks', 'oleg', 'denis', 'viktor', 'victor', 'eugen', 'ikhail', 'italy', 'yura', 'igor', 'ov'],
   tr: ['ilmaz', 'aya', 'demir', 'elik', 'ahin', 'ildiz', 'ildirım'],
   pt: ['silva', 'santos', 'ferreira', 'pereira', 'oliveira', 'rodrigues', 'pereira', 'soares'],
   kr: ['kim', 'won', 'khan'],
@@ -15,6 +15,8 @@ const FAMILY = {
   it: ['rossi', 'ferrari', 'conti', 'romano', 'bruni', 'esposito', 'russo', 'marino', 'de luca', 'mancini'],
   pl: ['ł'],
   ee: ['õ'],
+  gr: ['α', 'ε', 'о', 'υ', 'β', 'π'],
+  de: ['ß'],
   il: ['ה', 'י', 'ו'],
 };
 
@@ -61,6 +63,8 @@ const LINE = {
       it: FAMILY.it,
       pl: FAMILY.pl,
       ee: FAMILY.ee,
+      gr: FAMILY.gr,
+      de: FAMILY.de,
     },
   },
   '+02:00': {
@@ -116,7 +120,13 @@ const LINE = {
     },
   },
   '+09:30': { countries: ['au'] },
-  '+10:00': { countries: ['au'] },
+  '+10:00': {
+    title: 'Australia',
+    countries: ['au', 'ru'],
+    name: {
+      ru: FAMILY.ru,
+    },
+  },
   '+10:30': { countries: ['au'] },
   '+11:00': { countries: ['au'] }, // not ru
   '+12:00': { countries: ['nz'] },
