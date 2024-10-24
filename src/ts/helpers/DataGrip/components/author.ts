@@ -2,7 +2,7 @@ import ICommit from 'ts/interfaces/Commit';
 import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 import { ONE_DAY } from 'ts/helpers/formatter';
-import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
+import { createIncrement, increment } from 'ts/helpers/Math';
 
 import userSettings from 'ts/store/UserSettings';
 
@@ -24,21 +24,21 @@ export default class DataGripByAuthor {
     this.statisticByName = {};
   }
 
-  addCommit(commit: ICommit) {
+  addCommit(commit: ICommit, totalCommits: number) {
     const statistic = this.commits.get(commit.author);
     if (statistic) {
-      this.#updateCommitByAuthor(statistic, commit);
+      this.#updateCommitByAuthor(statistic, commit, totalCommits);
     } else {
       this.#addCommitByAuthor(commit);
     }
     this.#setMoneyByMonth(commit);
   }
 
-  #updateCommitByAuthor(statistic: any, commit: ICommit) {
+  #updateCommitByAuthor(statistic: any, commit: ICommit, totalCommits: number) {
     statistic.commits += 1;
     statistic.lastCommit = commit;
     statistic.device = statistic.device || commit.device;
-    statistic.days[commit.timestamp] = true;
+    statistic.days.set(commit.timestamp, true);
     statistic.tasks[commit.task] = commit.added + commit.changes + commit.removed
       + (statistic.tasks[commit.task] ? statistic.tasks[commit.task] : 0);
     increment(statistic.types, commit.type);
@@ -55,7 +55,9 @@ export default class DataGripByAuthor {
       debugger;
     }
     statistic.commitsByHour[commit.hours] += 1;
-    statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
+    if (totalCommits < 50000) {
+      statistic.wordStatistics = DataGripByAuthor.#updateWordStatistics(commit, statistic.wordStatistics);
+    }
 
     if (commit.company && statistic.lastCompany !== commit.company) {
       statistic.lastCompany = commit.company;
@@ -80,7 +82,7 @@ export default class DataGripByAuthor {
       commits: 1,
       firstCommit: commit,
       lastCommit: commit,
-      days: createHashMap(commit.timestamp),
+      days: new Map([[commit.timestamp, true]]),
       tasks: { [commit.task]: commit.added + commit.changes + commit.removed },
       types: createIncrement(commit.type),
       scopes: createIncrement(commit.scope),
@@ -171,7 +173,7 @@ export default class DataGripByAuthor {
         const from = dot.firstCommit.milliseconds;
         const to = dot.lastCommit.milliseconds;
 
-        const workDays = Object.keys(dot.days).length;
+        const workDays = dot.days.size;
         const allDaysInProject = Math.ceil((to - from) / ONE_DAY);
         const lazyDays = Math.floor((allDaysInProject * WORK_AND_HOLIDAYS) - workDays) + 1;
 
@@ -242,8 +244,16 @@ export default class DataGripByAuthor {
       ...this.employment.staff,
     ];
 
+    this.updateSort();
+  }
+
+  updateSort() {
+    const position = new Map();
+    this.list.forEach((name: string, index: number) => {
+      position.set(name, index);
+    });
     this.statistic.sort((a: any, b: any) => (
-      this.list.indexOf(a.author) - this.list.indexOf(b.author)
+      position.get(a.author) - position.get(b.author)
     ));
   }
 

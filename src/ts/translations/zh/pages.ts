@@ -125,6 +125,9 @@ export default `
 § page.team.company.active.yes: active
 § page.team.company.active.no: contract has expired
 § page.team.country.byTimezone: By the time of the last commit
+§ page.team.country.filters.active: Works
+§ page.team.country.filters.dismissed: Dismissed
+§ page.team.country.filters.staff: Staff
 § page.team.country.pieByDomain.title: By email, timezone and language
 § page.team.country.pieByTimezone.title: By timezone
 § page.team.country.chart.item: employments

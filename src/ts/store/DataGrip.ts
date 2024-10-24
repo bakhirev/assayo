@@ -65,8 +65,10 @@ class DataGripStore {
 
   processingCommitGrouping(commits: (ICommit | ISystemCommit)[]) {
     commits.sort((a, b) => a.milliseconds - b.milliseconds);
+
+    const totalCommits = commits.length;
     commits.forEach((commit: ICommit | ISystemCommit) => {
-      dataGrip.addCommit(commit);
+      dataGrip.addCommit(commit, totalCommits);
     });
 
     setTimeout(() => this.processingFileGrouping(commits), PROCESSING_DELAY);
@@ -128,7 +130,7 @@ class DataGripStore {
         ? depersonalized.getCommit(commit)
         : commit;
 
-      dataGrip.addCommit(localCommit);
+      dataGrip.addCommit(localCommit, 0);
       fileGrip.addCommit(localCommit);
     });
 

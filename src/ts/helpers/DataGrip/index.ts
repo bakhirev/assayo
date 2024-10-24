@@ -66,13 +66,13 @@ class DataGrip {
     this.scoring.clear();
   }
 
-  addCommit(commit: ICommit | ISystemCommit) {
+  addCommit(commit: ICommit | ISystemCommit, totalCommits: number) {
     if (commit.author === 'GitHub') return;
     this.pr.addCommit(commit); // @ts-ignore
     this.release.addCommit(commit); // @ts-ignore
     if (!commit.commitType) {
       this.firstLastCommit.update(commit.milliseconds, commit);
-      this.author.addCommit(commit);
+      this.author.addCommit(commit, totalCommits);
       this.scope.addCommit(commit);
       this.type.addCommit(commit);
       this.timestamp.addCommit(commit);

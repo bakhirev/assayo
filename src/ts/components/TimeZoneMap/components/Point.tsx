@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getClassNameForTimeZone } from '../helpers';
+import { getPositionForTimeZone, getColorForTimeZone } from '../helpers';
 
 import style from '../styles/index.module.scss';
 
@@ -13,11 +13,12 @@ function Point({
   timezone,
   authors,
 }: PointProps): React.ReactElement | null {
-  const className = getClassNameForTimeZone(timezone);
+  const position = getPositionForTimeZone(timezone);
+  const color = getColorForTimeZone(authors);
   return (
     <div
       title={authors.join(', ')}
-      className={`${style.time_zone_map_point} ${className}`}
+      className={`${style.time_zone_map_point} ${position} ${color}`}
     >
       {authors.length}
     </div>

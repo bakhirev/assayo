@@ -27,8 +27,8 @@ export default class DataGripByType {
   #updateCommitByType(commit: ICommit) {
     const statistic = this.commits[commit.type];
     statistic.commits += 1;
-    statistic.days[commit.timestamp] = true;
-    statistic.tasks[commit.task] = true;
+    statistic.days.set(commit.timestamp, true);
+    statistic.tasks.set(commit.task, true);
 
     increment(statistic.commitsByAuthors, commit.author);
     if (!statistic.daysByAuthors[commit.author]) statistic.daysByAuthors[commit.author] = {};
@@ -39,8 +39,8 @@ export default class DataGripByType {
     this.commits[commit.type] = {
       type: commit.type,
       commits: 1,
-      days: createIncrement(commit.timestamp, true),
-      tasks: createIncrement(commit.task, true),
+      days: new Map([[commit.timestamp, true]]),
+      tasks: new Map([[commit.task, true]]),
       commitsByAuthors: createIncrement(commit.author, true),
       daysByAuthors: {
         [commit.author]: createIncrement(commit.timestamp, true),
@@ -56,8 +56,8 @@ export default class DataGripByType {
       .filter((dot: any) => dot.commits > 5 || isCorrectType[dot?.type || ''])
       .map((dot: any) => ({
         ...dot,
-        tasks: Object.keys(dot.tasks).length,
-        days: Object.keys(dot.days).length,
+        tasks: dot.tasks.size,
+        days: dot.days.size,
         daysByAuthorsTotal: Object.values(dot.daysByAuthors)
           .reduce((t: number, v: any) => (t + Object.keys(v).length), 0),
       }))

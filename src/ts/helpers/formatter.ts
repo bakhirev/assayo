@@ -29,9 +29,17 @@ const TIMESTAMP = [
   ONE_DAY * 3,
 ];
 
-export function getDayName(index:number, weekday: 'long' | 'short') {
+// for performance
+const dayNameCache = new Map();
+export function getDayName(index:number, weekday: 'long' | 'short') { // @ts-ignore
+  const code = window?.localization?.language || 'ru';
+  const response = dayNameCache.get(`${code}${index}${weekday}`);
+  if (response) return response;
+
   const date = new Date(TIMESTAMP[index]);
-  return date.toLocaleString(getLangPrefix(), { weekday: weekday || 'long' });
+  const dayName = date.toLocaleString(getLangPrefix(), { weekday: weekday || 'long' });
+  dayNameCache.set(`${code}${index}${weekday}`, dayName);
+  return dayName;
 }
 
 export function getDateByTimestamp(timestamp: string) {

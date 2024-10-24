@@ -1,3 +1,5 @@
+import dataGripStore from 'ts/store/DataGrip';
+
 import style from '../styles/index.module.scss';
 
 const REF_TIMEZONE_CLASS = {
@@ -46,10 +48,23 @@ export function getGroupsByTimeZone(authors: any[]) {
   }, {});
 }
 
-export function getClassNameForTimeZone(timezone?: string) {
+export function getPositionForTimeZone(timezone?: string) {
   const suffix = (timezone || '')
     .replace('+', 'p')
     .replace('-', 'm')
     .replace(':', '');
   return REF_TIMEZONE_CLASS[suffix] || style.time_zone_map_point_hide;
+}
+
+export function getColorForTimeZone(authors: string[]) {
+  let isDismissed = false;
+  for (let i = 0, l = authors.length; i < l; i++) {
+    const item = dataGripStore.dataGrip.author.statisticByName[authors[i]];
+    if (item?.isStaff) continue;
+    if (!item?.isDismissed) return style.time_zone_map_point_active;
+    if (item?.isDismissed) isDismissed = true;
+  }
+  return isDismissed
+    ? style.time_zone_map_point_dismissed
+    : '';
 }

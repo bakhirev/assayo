@@ -1,19 +1,19 @@
 import ICommit from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import userSettings from 'ts/store/UserSettings';
-import { createHashMap, createIncrement, increment } from 'ts/helpers/Math';
+import { createIncrement, increment } from 'ts/helpers/Math';
 
 interface IStatByAuthor {
   commits: number; // number of commits by author in this scope
-  days: IHashMap<boolean>; // commit timestamp
+  days: HashMap<boolean>; // commit timestamp
   types: IHashMap<number>; // commit type by author in this scope (fix, feat)
 }
 
 interface IStatByScope {
   scope: string; // scope name
   commits: number; // number of commits in this scope
-  days: IHashMap<boolean>; // commit timestamp
-  tasks: IHashMap<boolean>; // task name in this scope (JIRA-123)
+  days: HashMap<boolean>; // commit timestamp
+  tasks: HashMap<boolean>; // task name in this scope (JIRA-123)
   types: IHashMap<number>; // commit type in this scope (fix, feat)
   authors: IHashMap<IStatByAuthor>; // stat by author for this scope
 }
@@ -42,14 +42,14 @@ export default class DataGripByScope {
   #updateCommitByScope(commit: ICommit) {
     const statistic = this.commits[commit.scope] as IStatByScope;
     statistic.commits += 1;
-    statistic.days[commit.timestamp] = true;
-    statistic.tasks[commit.task] = true;
+    statistic.days.set(commit.timestamp, true);
+    statistic.tasks.set(commit.task, true);
     increment(statistic.types, commit.type);
 
     const author = statistic.authors[commit.author];
     if (author) {
       author.commits += 1;
-      author.days[commit.timestamp] = true;
+      author.days.set(commit.timestamp, true);
       increment(author.types, commit.type);
     } else {
       statistic.authors[commit.author] = this.#getDefaultAuthorForScope(commit);
@@ -60,8 +60,8 @@ export default class DataGripByScope {
     this.commits[commit.scope] = {
       scope: commit.scope,
       commits: 1,
-      days: createHashMap(commit.timestamp),
-      tasks: createHashMap(commit.task),
+      days: new Map([[commit.timestamp, true]]),
+      tasks: new Map([[commit.task, true]]),
       types: createIncrement(commit.type),
       authors: createIncrement(commit.author, this.#getDefaultAuthorForScope(commit)),
     };
@@ -70,7 +70,7 @@ export default class DataGripByScope {
   #getDefaultAuthorForScope(commit: ICommit): IStatByAuthor {
     return {
       commits: 1,
-      days: { [commit.timestamp]: true },
+      days: new Map([[commit.timestamp, true]]),
       types: { [commit.type]: 1 },
     };
   }
@@ -84,18 +84,20 @@ export default class DataGripByScope {
         let cost = 0;
         for (let name in dot.authors) {
           const user = dot.authors[name];
-          const days: number = Object.keys(user.days).length;
+          const days: number = user.days.size;
           // TODO: need middle salary in month;
           salaryCache[name] = salaryCache[name] || userSettings.getCurrentSalaryInDay(name);
           cost += days * salaryCache[name];
           dot.authors[name] = { ...user, days };
         }
 
+        dot.tasks.delete('');
+
         return {
           ...dot,
-          days: Object.keys(dot.days).length,
+          days: dot.days.size,
           cost,
-          tasks: Object.keys(dot.tasks).filter(t => t),
+          tasks: dot.tasks.size,
         };
       });
 

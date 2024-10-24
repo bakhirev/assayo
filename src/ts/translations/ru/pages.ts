@@ -130,6 +130,9 @@ export default `
 § page.team.company.active.yes: активна
 § page.team.company.active.no: контракт истёк
 § page.team.country.byTimezone: По времени последнего коммита
+§ page.team.country.filters.active: Работают
+§ page.team.country.filters.dismissed: Уволенные
+§ page.team.country.filters.staff: Помощники
 § page.team.country.pieByDomain.title: По почте, времени и языку
 § page.team.country.pieByTimezone.title: По времени
 § page.team.country.chart.item: сотрудников

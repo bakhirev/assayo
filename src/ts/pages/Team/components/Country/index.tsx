@@ -13,10 +13,9 @@ import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import Countries from './components/Countries';
 import CountryCharts from './components/Charts';
-import TimeZoneMap from 'ts/components/TimeZoneMap';
-import PageWrapper from 'ts/components/Page/Box';
 import fullScreen from 'ts/store/FullScreen';
 
+import CustomMap from './components/Map';
 import Travel from './components/Travel';
 
 const Country = observer(({
@@ -36,15 +35,8 @@ const Country = observer(({
 
   return (
     <>
-      {!fullScreen.isOpen && (
-        <>
-          <PageWrapper>
-            <Title title="page.team.country.byTimezone"/>
-            <TimeZoneMap authors={authors}/>
-          </PageWrapper>
-          <CountryCharts/>
-        </>
-      )}
+      {!fullScreen.isOpen && <CustomMap />}
+      {!fullScreen.isOpen && <CountryCharts />}
 
       {canShowByCountries ? (
         <>

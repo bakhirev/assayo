@@ -42,7 +42,7 @@
 
     color: var(--color-white);
     border-radius: var(--border-radius-l);
-    background-color: var(--color-second);
+    background-color: var(--color-black);
   }
 }
 
@@ -82,4 +82,6 @@
   &_m1100 { top: 67%; left: 0; }
   &_m1200 { top: 62%; left: 97%; }
   &_hide { display: none }
+  &_active { background-color: var(--color-first) }
+  &_dismissed { background-color: var(--color-second) }
 }
