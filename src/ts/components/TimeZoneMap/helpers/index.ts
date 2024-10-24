@@ -68,3 +68,9 @@ export function getColorForTimeZone(authors: string[]) {
     ? style.time_zone_map_point_dismissed
     : '';
 }
+
+export function getSizeForTimeZone(value: number, max: number) {
+  if (value < (max * 0.3) || max <= 10) return style.time_zone_map_point_s;
+  if (value < (max * 0.7) || max <= 100) return style.time_zone_map_point_m;
+  return style.time_zone_map_point_l;
+}

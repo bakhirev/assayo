@@ -41,7 +41,7 @@
     box-shadow: 0 0 5px var(--color-white), 0 0 5px var(--color-white), 0 0 15px var(--color-white);
 
     color: var(--color-white);
-    border-radius: var(--border-radius-l);
+    border-radius: 32px;
     background-color: var(--color-black);
   }
 }
@@ -84,4 +84,12 @@
   &_hide { display: none }
   &_active { background-color: var(--color-first) }
   &_dismissed { background-color: var(--color-second) }
+
+  &_s { --temp-size: var(--space-xl); padding-top: 0.5px; }
+  &_m { --temp-size: var(--space-xxl); margin: -3px; }
+  &_l { --temp-size: 32px; margin: -8px; }
+
+  width: var(--temp-size);
+  height: var(--temp-size);
+  line-height: var(--temp-size);
 }
