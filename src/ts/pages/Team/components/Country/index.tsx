@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import ISort from 'ts/interfaces/Sort';
@@ -15,28 +15,56 @@ import Countries from './components/Countries';
 import CountryCharts from './components/Charts';
 import fullScreen from 'ts/store/FullScreen';
 
-import CustomMap from './components/Map';
+import IFilters from './interfaces/Filters';
+import Filters from './components/Filters';
 import Travel from './components/Travel';
+import CustomMap from './components/Map';
+
+import { getCountryByAuthors, getDefaultFilters, getFilterForAuthors } from './helpers';
 
 const Country = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
-  const authors = dataGripStore.dataGrip.author.statistic;
-  const countryRows = dataGripStore.dataGrip.country.statistic;
-  const travel = authors.filter((dot: any) => dot?.country?.length)
-    .sort((a: any, b: any) => b?.country?.length - a?.country?.length);
+  const [filters, setFilters] = useState<IFilters>(getDefaultFilters());
+
+  const dataGripAuthors = dataGripStore.dataGrip.author.statistic;
+  const authors = useMemo(() => (
+    dataGripAuthors.filter(getFilterForAuthors(filters))
+  ), [dataGripAuthors, filters.hash]);
+
+  const dataGripCountries = dataGripStore.dataGrip.country.statistic;
+  const countries = useMemo(() => (
+    dataGripCountries.map(getCountryByAuthors(authors)).filter((v: any) => v)
+  ), [dataGripCountries, filters.hash]);
+
+  const travel = useMemo(() => (
+    authors
+      .filter((dot: any) => dot?.country?.length)
+      .sort((a: any, b: any) => b?.country?.length - a?.country?.length)
+  ), [authors, filters.hash]);
 
   const canShowByCountries = (!fullScreen.isOpen || fullScreen.mode === 'countries');
   const canShowByTravel = (!fullScreen.isOpen || fullScreen.mode === 'travel') && travel.length;
 
-  if (!countryRows?.length) {
+  if (!countries?.length) {
     return mode !== 'print' ? (<NothingFound/>) : null;
   }
 
   return (
     <>
-      {!fullScreen.isOpen && <CustomMap />}
-      {!fullScreen.isOpen && <CountryCharts />}
+      {!fullScreen.isOpen && (
+        <>
+          <Filters
+            filters={filters}
+            onChange={setFilters}
+          />
+          <CustomMap authors={authors} />
+          <CountryCharts
+            authors={authors}
+            countries={countries}
+          />
+        </>
+      )}
 
       {canShowByCountries ? (
         <>
@@ -44,13 +72,13 @@ const Country = observer(({
           <DataLoader
             to="response"
             loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-              content: countryRows, pagination, sort, mode,
+              content: countries, pagination, sort, mode,
             })}
-            watch={`${mode}${dataGripStore.hash}`}
+            watch={`${mode}${dataGripStore.hash}${filters.hash}`}
           >
             <Countries
               mode={mode}
-              rowsForExcel={countryRows}
+              rowsForExcel={countries}
             />
             <Pagination/>
           </DataLoader>
@@ -65,11 +93,11 @@ const Country = observer(({
             loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
               content: travel, pagination, sort, mode,
             })}
-            watch={`${mode}${dataGripStore.hash}`}
+            watch={`${mode}${dataGripStore.hash}${filters.hash}`}
           >
             <Travel
               mode={mode}
-              rowsForExcel={countryRows}
+              rowsForExcel={countries}
             />
             <Pagination/>
           </DataLoader>

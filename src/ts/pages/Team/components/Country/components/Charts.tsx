@@ -1,7 +1,4 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
-
-import dataGripStore from 'ts/store/DataGrip';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
@@ -25,18 +22,23 @@ function getTimeZoneChart(authors: any[]) {
     increment(acc, author.lastCommit.timezone.replace(':', '.'));
     return acc;
   }, {});
+
   const options = getOptions({
     order: Object.keys(details).sort(),
     limit: 5,
     suffix: 'page.team.country.chart.item',
   });
+
   return [options, details];
 }
 
-const PieCharts = observer((): React.ReactElement | null => {
-  const authors = dataGripStore.dataGrip.author.statistic;
-  const rows = dataGripStore.dataGrip.country.statistic;
-  const [countryOptions, countryDetails] = getCountryChart(rows);
+interface PieChartsProps {
+  authors: any[];
+  countries: any[];
+}
+
+function PieCharts({ authors, countries }: PieChartsProps): React.ReactElement | null {
+  const [countryOptions, countryDetails] = getCountryChart(countries);
   const [timezoneOptions, timezoneDetails] = getTimeZoneChart(authors);
 
   return (
@@ -57,6 +59,6 @@ const PieCharts = observer((): React.ReactElement | null => {
       </PageColumn>
     </PageWrapper>
   );
-});
+}
 
 export default PieCharts;

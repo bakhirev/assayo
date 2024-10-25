@@ -29,10 +29,11 @@ class SponsorStore {
     const ONE_MINUTE = 60 * 1000;
     setInterval(() => {
       if (this.type) return;
-      this.type = Math.random() > 0.5
-        ? MODAL_TYPE.MONEY
-        : MODAL_TYPE.SHARE;
-    }, 10 * ONE_MINUTE);
+      this.type = MODAL_TYPE.SHARE;
+      // Math.random() > 0.5
+      //   ? MODAL_TYPE.MONEY
+      //   : MODAL_TYPE.SHARE;
+    }, 7 * ONE_MINUTE);
   }
 
   open() {

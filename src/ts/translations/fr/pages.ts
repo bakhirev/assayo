@@ -286,7 +286,7 @@ export default `
 § page.person.week.workDay: jours de semaine
 § page.person.week.weekends: congés
 § page.sponsor.title: Please, support this project
-§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or make a video review.
+§ page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/763342/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or [video|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
 § page.sponsor.share.button: Copy the link
 § page.sponsor.money.description: We will be glad if you support us with any amount! All funds will be used for the further development of the project.
 § page.sponsor.money.qr: One-time payment (only Russia)
