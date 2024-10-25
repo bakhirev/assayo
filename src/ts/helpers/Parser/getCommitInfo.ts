@@ -13,6 +13,9 @@ const MASTER_BRANCH = {
 };
 
 let prevDate = new Date();
+// TODO: add limit for date in future or past
+// const MIN_DATE = new Date('01-01-2000');
+// const MAX_DATE = prevDate;
 
 let refTimestampTime = new Map();
 
