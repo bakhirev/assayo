@@ -16,6 +16,7 @@ export function getLangPrefix() {
     pt: 'pt-PT',
     de: 'de-DE',
     ja: 'ja-JA',
+    ko: 'ko-KO',
   }[code] || 'ru-RU';
 }
 

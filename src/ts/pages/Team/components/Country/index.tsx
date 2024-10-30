@@ -46,7 +46,7 @@ const Country = observer(({
   const canShowByCountries = (!fullScreen.isOpen || fullScreen.mode === 'countries');
   const canShowByTravel = (!fullScreen.isOpen || fullScreen.mode === 'travel') && travel.length;
 
-  if (!countries?.length) {
+  if (!dataGripCountries?.length) {
     return mode !== 'print' ? (<NothingFound/>) : null;
   }
 

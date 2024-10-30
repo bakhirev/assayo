@@ -10,6 +10,7 @@ import fr from 'ts/translations/fr';
 import ja from 'ts/translations/ja';
 import pt from 'ts/translations/pt';
 import ru from 'ts/translations/ru';
+import ko from 'ts/translations/ko';
 import zh from 'ts/translations/zh';
 
 import initializationI18n from './ts/helpers/i18n';
@@ -38,6 +39,7 @@ localization.parse('fr', fr);
 localization.parse('ja', ja);
 localization.parse('pt', pt);
 localization.parse('ru', ru);
+localization.parse('ko', ko);
 localization.parse('zh', zh);
 
 function renderReactApplication() {

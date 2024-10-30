@@ -114,15 +114,15 @@ function QuizPage({
   return (
     <div
       className={style.quiz_container}
-      style={{ backgroundImage: 'url(./assets/games/quiz/cloud_bg.png)' }}
+      style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
     >
       <div
         className={style.quiz_cloud_bg}
-        style={{ backgroundImage: 'url(./assets/games/quiz/cloud_bg.png)' }}
+        style={{ backgroundImage: 'url(./assets/games/quize/cloud_bg.png)' }}
       />
       <div
         className={style.quiz_cloud}
-        style={{ backgroundImage: 'url(./assets/games/quiz/cloud.png)' }}
+        style={{ backgroundImage: 'url(./assets/games/quize/cloud.png)' }}
       />
       <div className={className}>
         {page}

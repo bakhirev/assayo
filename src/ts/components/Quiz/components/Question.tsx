@@ -71,7 +71,7 @@ function Question({
       <div className={stylePage.quiz_question_body}>
         <div
           className={style.quiz_title}
-          style={{ backgroundImage: 'url(./assets/games/quiz/cloud_big.png)' }}
+          style={{ backgroundImage: 'url(./assets/games/quize/cloud_big.png)' }}
         >
           {question.title}
         </div>

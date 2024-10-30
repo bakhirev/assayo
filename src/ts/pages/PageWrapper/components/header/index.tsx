@@ -39,6 +39,7 @@ const Header = observer((): React.ReactElement | null => {
               { id: 'pt', title: 'PT' },
               { id: 'de', title: 'DE' },
               { id: 'ja', title: 'JA' },
+              { id: 'ko', title: 'KO' },
             ]}
             onChange={(item: any, id: string) => {
               localization.language = id;

@@ -9,6 +9,7 @@ import ja from '../translations/ja';
 import pt from '../translations/pt';
 import ru from '../translations/ru';
 import zh from '../translations/zh';
+import ko from '../translations/ko';
 import localization from './Localization';
 
 function getJsonFromString(text: string) {
@@ -43,6 +44,7 @@ const translations = {
   pt: getTranslationWrapper(pt),
   ru: getTranslationWrapper(ru),
   zh: getTranslationWrapper(zh),
+  ko: getTranslationWrapper(ko),
 };
 
 export const BROWSER_LANGUAGE = navigator.languages

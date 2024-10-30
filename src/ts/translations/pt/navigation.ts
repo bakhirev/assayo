@@ -13,8 +13,8 @@ export default `
 § sidebar.team.total: Informação geral
 § sidebar.team.scope: módulo
 § sidebar.team.author: Funcionário
-§ sidebar.team.type: Tipos de Tarefas
-§ sidebar.team.pr: Introdução do Código
+§ sidebar.team.type: Tipos de tarefas
+§ sidebar.team.pr: Introdução do código
 § sidebar.team.day: Por dia
 § sidebar.team.week: Por semana
 § sidebar.team.month: Por mês
@@ -22,7 +22,7 @@ export default `
 § sidebar.team.files: Ficheiros
 § sidebar.team.removedFiles: Arquivos excluídos
 § sidebar.team.extension: Extensions
-§ sidebar.team.tasks: Lista de Tarefas
+§ sidebar.team.tasks: Lista de tarefas
 § sidebar.team.release: Releases
 § sidebar.team.hours: Horário
 § sidebar.team.commits: All commits

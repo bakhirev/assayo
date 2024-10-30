@@ -3,6 +3,7 @@
 /.vscode
 /.pnp
 /.idea
+/src/ts/translations/src/transactions
 
 npm-debug.log*
 yarn-debug.log*

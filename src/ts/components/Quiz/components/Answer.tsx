@@ -35,7 +35,7 @@ function Answer({
       >
         <img
           className={style.quiz_answer_icon}
-          src={`./assets/games/quiz/balloon_${iconIndex}.png`}
+          src={`./assets/games/quize/balloon_${iconIndex}.png`}
         />
         <figcaption className={textClasName.join(' ')}>
           {answer.title}

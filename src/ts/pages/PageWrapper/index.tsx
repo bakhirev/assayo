@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useParams } from 'react-router-dom';
 
 import Recommendations from 'ts/components/Recommendations/components/ModalDescription';
 import fullScreen from 'ts/store/FullScreen';
@@ -36,6 +37,11 @@ function MobileView({
 }
 
 const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement => {
+  const { type, page } = useParams<any>();
+  const padding = type === 'team' && page === 'building'
+    ? { padding: 0 }
+    : {};
+
   if (fullScreen.isOpen) {
     return (
       <>
@@ -51,7 +57,10 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
     <div className={style.page_wrapper}>
       <SideBar/>
       <Header/>
-      <div className={style.page_wrapper_main}>
+      <div
+        className={style.page_wrapper_main}
+        style={padding}
+      >
         {children}
       </div>
       <Print/>
