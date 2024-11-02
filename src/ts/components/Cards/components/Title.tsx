@@ -26,7 +26,7 @@ function LineTitle({
       key={column.title}
       className={`${style.card_title} ${className || ''} ${columnClassName || ''}`}
     >
-      {value}
+      {value || '—'}
     </div>
   );
 }

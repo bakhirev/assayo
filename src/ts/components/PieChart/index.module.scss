@@ -27,14 +27,14 @@
   }
 
   &_legend {
-    min-width: 160px;
     padding-left: var(--space-xxl);
     vertical-align: middle;
   }
 
   &_line {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: flex-start;
     padding: 0 0 var(--space-xxs) 26px;
   }
 
@@ -62,5 +62,23 @@
 
   &_percent {
     width: 40px;
+  }
+
+  &_text {
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 700px) {
+  .pie_chart_icon,
+  .pie_chart_legend {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+  }
+  .pie_chart_legend {
+    width: 100%;
+    padding-left: 0;
+    margin-top: var(--space-xxl);
   }
 }

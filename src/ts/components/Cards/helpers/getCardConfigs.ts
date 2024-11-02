@@ -8,6 +8,10 @@ function getCardConfigs(
     column: IColumn,
     index: number,
   ) => {
+    if (column.template === ColumnTypesEnum.DETAILS) {
+      return acc;
+    }
+
     if (index === 0) {
       acc.text.push(column);
       return acc;

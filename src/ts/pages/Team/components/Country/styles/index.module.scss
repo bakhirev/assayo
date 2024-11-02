@@ -14,3 +14,15 @@
     min-width: 350px;
   }
 }
+
+@media (max-width: 900px) {
+  .team_country_filter_select {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .team_country_filter_checkbox {
+    min-width: calc(49% - 24px);
+  }
+}

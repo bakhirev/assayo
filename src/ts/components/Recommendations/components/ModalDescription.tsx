@@ -6,7 +6,6 @@ import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
 import Description from 'ts/components/Description';
 import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
 import localization from 'ts/helpers/Localization';
-import isMobile from 'ts/helpers/isMobile';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
 import recommendationStore from '../store/index';
@@ -56,7 +55,7 @@ const RecommendationDescription = observer(() => {
       </Body>
       <Footer className={style.recommendations_modal_footer}>
         <UiKitButton
-          mode={[ isMobile ? 'primary' : 'border', 'full_size']}
+          mode={[ 'border', 'full_size']}
           className={style.recommendations_modal_button}
           onClick={() => {
             recommendationStore.close();
