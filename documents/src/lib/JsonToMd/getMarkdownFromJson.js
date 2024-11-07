@@ -31,7 +31,7 @@ function getMarkdownFromJson(json, languages, language) {
   (json || []).forEach((tag, index) => {
     if (!tag) return;
 
-    if (index === 2) {
+    if (index === 3) {
       markdown.push(custom.getSocialLinks());
       markdown.push(custom.getSreenshot());
     }
@@ -55,8 +55,8 @@ function getMarkdownFromJson(json, languages, language) {
 
   markdownText = markdown
     .join('\n')
-    .replace('demo/?dump=./test.txt', `demo/?ref=github&lang=${language}&dump=./test.txt`)
-    .replace('online/demo)', `online/demo?ref=github&lang=${language})`);
+    .replace('demo/?dump=./test.txt', 'demo/?ref=github&dump=./test.txt')
+    .replace('online/demo)', 'online/demo?ref=github)');
 
   return markdownText;
 }

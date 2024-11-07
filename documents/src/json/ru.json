@@ -3,7 +3,10 @@
         "p": "Визуализация и анализ данных вашего git-репозитория. Инструмент для тимлидов и IT-аудита."
     },
     {
-        "p": "Ссылки: [демо](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/), [video](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
+        "p": "**Ссылки:** [демо](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/)."
+    },
+    {
+        "p": "**Видео:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
     },
     {
         "h5": "Сотрудник может оценить новое место работы"
