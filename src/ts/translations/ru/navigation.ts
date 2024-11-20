@@ -30,6 +30,7 @@ export default `
 § sidebar.team.building: Викторина
 § sidebar.team.refactor: Рефакторинг
 § sidebar.team.company: Компании
+§ sidebar.team.department: Отделы
 § sidebar.team.country: Местоположение
 § sidebar.team.settings: Настройки
 § sidebar.person.total: Общая информация

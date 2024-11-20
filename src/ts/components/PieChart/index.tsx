@@ -37,11 +37,15 @@ function PieChart({
 
   const formattedDetails = details || getDefaultDetails(value || 100, options.max || 100);
   const parts = getSubLines(formattedDetails, options);
+  const alignItems = parts.length > 6 ? 'flex-start' : 'center';
 
   return (
     <div className={`${style.pie_chart} ${className || ''}`}>
       <Title title={title || ''} />
-      <div className={style.pie_chart_data}>
+      <div
+        className={style.pie_chart_data}
+        style={{ alignItems }}
+      >
         <div className={style.pie_chart_icon}>
           <PieSVG
             parts={parts}

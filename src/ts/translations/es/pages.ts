@@ -27,7 +27,7 @@ export default `
 § page.team.author.days.one: year
 § page.team.author.days.15: year and a half
 § page.team.author.days.two: two years
-§ page.team.author.days.more: more
+§ page.team.author.days.more: more than two years
 § page.team.author.title: Details
 § page.team.author.description1: Parte de las estadísticas (la velocidad del trabajo, el dinero gastado, etc.) para los empleados con el tipo de "Asistente" no cuenta, ya que no es un rol permanente en el proyecto. Su trabajo es insignificante y puede ser ignorado.
 § page.team.author.description2: La clasificación predeterminada es la clasificación por número de tareas y grupos(empleados actuales, despedidos, ayudantes).
@@ -219,6 +219,26 @@ export default `
 § page.team.release.prLength: Tasks
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
+§ page.team.department.employments.title: The size of the current teams
+§ page.team.department.employments.item: of teams
+§ page.team.author.employments.less1: one employee
+§ page.team.author.employments.less2: two employees
+§ page.team.author.employments.less3: three employees
+§ page.team.author.employments.less6: up to six employees
+§ page.team.author.employments.less9: up to nine employees
+§ page.team.author.employments.less12: up to 12 employees
+§ page.team.author.employments.less15: up to 15 employees
+§ page.team.author.employments.more: more than 15
+§ page.team.department.daysChart.title: Duration of the project
+§ page.team.department.daysChart.item: projects
+§ page.team.department.title: List of projects
+§ page.team.department.code: Code
+§ page.team.department.from: First commit
+§ page.team.department.to: Last
+§ page.team.department.authors: employees
+§ page.team.department.tasks: tasks
+§ page.team.department.totalDays: Working days
+§ page.team.department.totalAuthors: Number of employees
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: a place for a photo
 § page.person.total.title: Main Features

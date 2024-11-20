@@ -3,9 +3,9 @@ const fs = require('node:fs');
 const PAGES = [
   // 'achievements',
   // 'common',
-  // 'navigation',
-  // 'pages',
-  'recommendations',
+  'navigation',
+  'pages',
+  // 'recommendations',
   // 'settings',
 ];
 

@@ -81,7 +81,7 @@ const LINE = {
     },
   },
   '+03:00': {
-    countries: ['ru', 'tr'],
+    countries: ['ru', 'by', 'tr'],
     name: {
       ru: FAMILY.ru,
       tr: FAMILY.tr,

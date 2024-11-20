@@ -1,47 +1,48 @@
 export default `
-§ sidebar.switch.team: 팀
-§ sidebar.switch.person: 직원
-§ sidebar.buttons.settings: 설정
-§ sidebar.buttons.print: 인쇄
-§ sidebar.buttons.share: 그것을 공유
-§ sidebar.buttons.logout: 나가
-§ sidebar.filters.all: 항상
-§ sidebar.filters.year: 년
-§ sidebar.filters.halfYear: 반년
-§ sidebar.filters.month: 월
-§ sidebar.filters.week: 주
-§ sidebar.team.total: 일반 정보
-§ sidebar.team.scope: 특징
-§ sidebar.team.author: 직원
-§ sidebar.team.type: 작업 유형
-§ sidebar.team.pr: 코드 삽입
-§ sidebar.team.day: 낮에
-§ sidebar.team.week: 주별
-§ sidebar.team.month: 월별
-§ sidebar.team.files: 파일
-§ sidebar.team.removedFiles: 삭제 된 파일
-§ sidebar.team.extension: 파일 형식
-§ sidebar.team.tasks: 작업 목록
-§ sidebar.team.release: 발매 목록
-§ sidebar.team.hours: 일정
-§ sidebar.team.commits: 모든 댓글
-§ sidebar.team.changes: 모든 변경 사항
-§ sidebar.team.words: 인기있는 단어
-§ sidebar.team.building: 퀴즈
-§ sidebar.team.refactor: 리팩토링
-§ sidebar.team.company: 회사
-§ sidebar.team.country: 위치
-§ sidebar.team.settings: 설정
-§ sidebar.person.total: 일반 정보
-§ sidebar.person.money: 작업 비용
-§ sidebar.person.speed: 속도
-§ sidebar.person.day: 낮에
-§ sidebar.person.week: 주별
-§ sidebar.person.month: 월별
-§ sidebar.person.tasks: 작업 목록
-§ sidebar.person.hours: 일정
-§ sidebar.person.commits: 모든 커밋
-§ sidebar.person.changes: 모든 변경 사항
-§ sidebar.person.words: 인기있는 단어
-§ sidebar.person.settings: 설정
+§ sidebar.switch.team: Команда
+§ sidebar.switch.person: Сотрудник
+§ sidebar.buttons.settings: Настройки
+§ sidebar.buttons.print: Печать
+§ sidebar.buttons.share: Расшарить
+§ sidebar.buttons.logout: Выйти
+§ sidebar.filters.all: всё время
+§ sidebar.filters.year: год
+§ sidebar.filters.halfYear: пол года
+§ sidebar.filters.month: месяц
+§ sidebar.filters.week: неделя
+§ sidebar.team.total: Общая информация
+§ sidebar.team.scope: Фичи
+§ sidebar.team.author: Сотрудники
+§ sidebar.team.type: Типы задач
+§ sidebar.team.pr: Влитие кода
+§ sidebar.team.day: По дням
+§ sidebar.team.week: По неделям
+§ sidebar.team.month: По месяцам
+§ sidebar.team.files: Файлы
+§ sidebar.team.removedFiles: Удалённые файлы
+§ sidebar.team.extension: Типы файлов
+§ sidebar.team.tasks: Список задач
+§ sidebar.team.release: Список релизов
+§ sidebar.team.hours: Расписание
+§ sidebar.team.commits: Все коммиты
+§ sidebar.team.changes: Все изменения
+§ sidebar.team.words: Популярные слова
+§ sidebar.team.building: Викторина
+§ sidebar.team.refactor: Рефакторинг
+§ sidebar.team.company: Компании
+§ sidebar.team.department: Отделы
+§ sidebar.team.country: Местоположение
+§ sidebar.team.settings: Настройки
+§ sidebar.person.total: Общая информация
+§ sidebar.person.money: Стоимость работы
+§ sidebar.person.speed: Скорость
+§ sidebar.person.day: По дням
+§ sidebar.person.week: По неделям
+§ sidebar.person.month: По месяцам
+§ sidebar.person.tasks: Список задач
+§ sidebar.person.hours: Расписание
+§ sidebar.person.commits: Все коммиты
+§ sidebar.person.changes: Все изменения
+§ sidebar.person.words: Популярные слова
+§ sidebar.person.settings: Настройки
 `;

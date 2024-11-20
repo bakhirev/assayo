@@ -31,6 +31,7 @@ export default `
 § sidebar.team.building: 测验
 § sidebar.team.refactor: Refactoring
 § sidebar.team.company: Companies
+§ sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: 设置
 § sidebar.person.total: 般资料

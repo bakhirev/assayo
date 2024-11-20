@@ -32,6 +32,7 @@ export default `
 § sidebar.team.building: Quiz
 § sidebar.team.refactor: Refactoring
 § sidebar.team.company: Companies
+§ sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: Die Einstellungen
 § sidebar.person.total: Allgemeine Informationen

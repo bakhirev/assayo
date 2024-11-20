@@ -27,7 +27,7 @@ export default `
 § page.team.author.days.one: 1 년
 § page.team.author.days.15: 한 반
 § page.team.author.days.two: 2 년
-§ page.team.author.days.more: 더 보기
+§ page.team.author.days.more: more than two years
 § page.team.author.title: 세부 정보
 § page.team.author.description1: *통계의 일부*(작업 속도,지출된 돈 등))*는 프로젝트에서 일시적인 역할이기 때문에"보조"유형*을 가진 직원에 포함되지 않습니다. 우리는 그들이 프로젝트에 영향을 미치지 않는다고 가정하고,그들의 편집은 총 작업량의 배경에 대해 무시할 수 있습니다.
 § page.team.author.description2: *기본 정렬*작업 및 그룹 수(현재,해고,직원 지원)로 정렬됩니다.
@@ -219,6 +219,26 @@ export default `
 § page.team.release.prLength: 작업
 § page.team.release.delay: 작업 일
 § page.team.release.waiting: 다음 릴리스 며칠 전
+§ page.team.department.employments.title: The size of the current teams
+§ page.team.department.employments.item: of teams
+§ page.team.author.employments.less1: one employee
+§ page.team.author.employments.less2: two employees
+§ page.team.author.employments.less3: three employees
+§ page.team.author.employments.less6: up to six employees
+§ page.team.author.employments.less9: up to nine employees
+§ page.team.author.employments.less12: up to 12 employees
+§ page.team.author.employments.less15: up to 15 employees
+§ page.team.author.employments.more: more than 15
+§ page.team.department.daysChart.title: Duration of the project
+§ page.team.department.daysChart.item: projects
+§ page.team.department.title: List of projects
+§ page.team.department.code: Code
+§ page.team.department.from: First commit
+§ page.team.department.to: Last
+§ page.team.department.authors: employees
+§ page.team.department.tasks: tasks
+§ page.team.department.totalDays: Working days
+§ page.team.department.totalAuthors: Number of employees
 § page.person.print.photo.title: 사진
 § page.person.print.photo.description: 사진 촬영 장소
 § page.person.total.title: 주요 특징

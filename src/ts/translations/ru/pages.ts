@@ -27,7 +27,7 @@ export default `
 § page.team.author.days.one: год
 § page.team.author.days.15: полтора
 § page.team.author.days.two: два года
-§ page.team.author.days.more: больше
+§ page.team.author.days.more: больше двух лет
 § page.team.author.title: Детализация
 § page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
@@ -219,6 +219,26 @@ export default `
 § page.team.release.prLength: Задач
 § page.team.release.delay: Дней работы
 § page.team.release.waiting: Дней до следующего релиза
+§ page.team.department.employments.title: Размер текущих команд
+§ page.team.department.employments.item: команд
+§ page.team.author.employments.less1: один сотрудник
+§ page.team.author.employments.less2: два сотрудника
+§ page.team.author.employments.less3: три сотрудника
+§ page.team.author.employments.less6: до шести сотрудников
+§ page.team.author.employments.less9: до девяти сотрудников
+§ page.team.author.employments.less12: до 12 сотрудников
+§ page.team.author.employments.less15: до 15 сотрудников
+§ page.team.author.employments.more: больше 15
+§ page.team.department.daysChart.title: Продолжительность проектов
+§ page.team.department.daysChart.item: проекта
+§ page.team.department.title: Список проектов
+§ page.team.department.code: Код
+§ page.team.department.from: Первый коммит
+§ page.team.department.to: Последний
+§ page.team.department.authors: человек
+§ page.team.department.tasks: задач
+§ page.team.department.totalDays: Дней работы
+§ page.team.department.totalAuthors: Количество сотрудников
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

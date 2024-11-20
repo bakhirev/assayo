@@ -30,6 +30,7 @@ export default `
 § sidebar.team.building: 퀴즈
 § sidebar.team.refactor: 리팩토링
 § sidebar.team.company: 회사
+§ sidebar.team.department: Departments
 § sidebar.team.country: 위치
 § sidebar.team.settings: 설정
 § sidebar.person.total: 일반 정보

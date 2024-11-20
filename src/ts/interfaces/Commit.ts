@@ -38,6 +38,7 @@ export interface ILog {
   text: string; // "add new avatar"
   task: string; // "JIRA-0000",
   taskNumber: string; // "0000",
+  taskCode: string; // "JIRA",
   type: string; // feat|fix|docs|style|refactor|test|chore
   scope: string; //  table, sale, profile and etc.
 

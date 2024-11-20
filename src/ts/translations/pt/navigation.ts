@@ -31,6 +31,7 @@ export default `
 § sidebar.team.building: Concurso
 § sidebar.team.refactor: Refactoring
 § sidebar.team.company: Companies
+§ sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: Sintonização
 § sidebar.person.total: Informação geral

@@ -27,7 +27,7 @@ export default `
 § page.team.author.days.one: year
 § page.team.author.days.15: year and a half
 § page.team.author.days.two: two years
-§ page.team.author.days.more: more
+§ page.team.author.days.more: more than two years
 § page.team.author.title: Details
 § page.team.author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
 § page.team.author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
@@ -219,6 +219,26 @@ export default `
 § page.team.release.prLength: Tasks
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
+§ page.team.department.employments.title: The size of the current teams
+§ page.team.department.employments.item: of teams
+§ page.team.author.employments.less1: one employee
+§ page.team.author.employments.less2: two employees
+§ page.team.author.employments.less3: three employees
+§ page.team.author.employments.less6: up to six employees
+§ page.team.author.employments.less9: up to nine employees
+§ page.team.author.employments.less12: up to 12 employees
+§ page.team.author.employments.less15: up to 15 employees
+§ page.team.author.employments.more: more than 15
+§ page.team.department.daysChart.title: Duration of the project
+§ page.team.department.daysChart.item: projects
+§ page.team.department.title: List of projects
+§ page.team.department.code: Code
+§ page.team.department.from: First commit
+§ page.team.department.to: Last
+§ page.team.department.authors: employees
+§ page.team.department.tasks: tasks
+§ page.team.department.totalDays: Working days
+§ page.team.department.totalAuthors: Number of employees
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
 § page.person.total.title: Main characteristics

@@ -78,3 +78,8 @@ export function getTask(message: string) {
 export function getTaskNumber(task?: string) {
   return (task || '').replace(/[^0-9]+/gim, '');
 }
+
+// ABC-123 => 'ABC';
+export function getTaskCode(task?: string) {
+  return (task || '').replace(/[^A-Z]+/gim, '');
+}

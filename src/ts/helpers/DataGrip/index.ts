@@ -14,6 +14,7 @@ import DataGripByPR from './components/pr';
 import DataGripByTasks from './components/tasks';
 import DataGripByRelease from './components/release';
 import DataGripByScoring from './components/scoring';
+import DataGripByTaskCodes from './components/taskCodes';
 import DataGripByCompany from './components/company';
 import DataGripByCountry from './components/country';
 
@@ -48,6 +49,8 @@ class DataGrip {
 
   scoring: any = new DataGripByScoring();
 
+  taskCodes: any = new DataGripByTaskCodes();
+
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -64,6 +67,7 @@ class DataGrip {
     this.tasks.clear();
     this.release.clear();
     this.scoring.clear();
+    this.taskCodes.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit, totalCommits: number) {
@@ -79,6 +83,7 @@ class DataGrip {
       this.get.addCommit(commit);
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
+      this.taskCodes.addCommit(commit);
     }
   }
 
@@ -96,6 +101,7 @@ class DataGrip {
     this.scoring.updateTotalInfo(this.author, this.timestamp);
     this.company.updateTotalInfo(this.author);
     this.country.updateTotalInfo(this.author);
+    this.taskCodes.updateTotalInfo(this.firstLastCommit.maxData, this.author);
   }
 }
 

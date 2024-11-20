@@ -31,6 +31,7 @@ export default `
 § sidebar.team.building: クイズ
 § sidebar.team.refactor: Refactoring
 § sidebar.team.company: Companies
+§ sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: 設定
 § sidebar.person.total: 一般的な情報

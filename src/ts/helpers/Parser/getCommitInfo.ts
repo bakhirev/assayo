@@ -1,10 +1,13 @@
 import ICommit, { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
 
-import { getTypeAndScope, getTask, getTaskNumber } from './getTypeAndScope';
-import getInfoFromNameAndEmail from './getCompany';
+import {
+  getTypeAndScope,
+  getTask,
+  getTaskNumber,
+  getTaskCode,
+} from './getTypeAndScope';
 import { getGithubPrInfo, getGitlabPrInfo } from './getMergeInfo';
-import getCountryByTimeZone from './getCountryByTimeZone';
+import getEmailAuthor from './getEmailAuthor';
 
 const MASTER_BRANCH = {
   master: true,
@@ -24,10 +27,7 @@ export function clearCache() {
   refTimestampTime.clear();
 }
 
-export default function getCommitInfo(
-  logString: string,
-  refEmailAuthor: IHashMap<string>,
-): ICommit | ISystemCommit {
+export default function getCommitInfo(logString: string): ICommit | ISystemCommit {
   // "2021-02-09T12:59:17+03:00>Frolov Ivan>frolov@mail.ru>profile"
   const parts = logString.split('>');
 
@@ -47,41 +47,13 @@ export default function getCommitInfo(
     refTimestampTime.set(timestamp, milliseconds);
   }
 
-  let author = parts[1]?.replace(/[._]/gm, ' ') || '';
-  let email = parts[2] || '';
-  if (email.indexOf('@') === -1) email = '';
-
-  const companyKey = `${author}>mail>${email}`;
-  if (!refEmailAuthor[companyKey]) {  // @ts-ignore
-    refEmailAuthor[companyKey] = getInfoFromNameAndEmail(author, email);
-  } // @ts-ignore
-  const { company, domain, device } = refEmailAuthor[companyKey];
-
-  const countryKey = `${author}>time>${timezone}`;
-  if (!refEmailAuthor[countryKey]) {// @ts-ignore
-    refEmailAuthor[countryKey] = getCountryByTimeZone(timezone, domain, author);
-  } // @ts-ignore
-  const country = refEmailAuthor[countryKey];
-
-  const authorID = author.replace(/\s|\t/gm, '');
-  if (authorID && refEmailAuthor[authorID] && refEmailAuthor[authorID] !== author) {
-    // console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[authorID]}"`);
-    author = refEmailAuthor[authorID];
-  }
-
-  if (email && refEmailAuthor[email] && refEmailAuthor[email] !== author) {
-    // console.log(`PARSE WARNING: Rename "${author}" to "${refEmailAuthor[email]}" by "${email}"`);
-    author = refEmailAuthor[email];
-  }
-
-  if (author && refEmailAuthor[author] && refEmailAuthor[author] !== email) {
-    // console.log(`PARSE WARNING: Rename "${email}" to "${refEmailAuthor[author]}" by "${author}"`);
-    email = refEmailAuthor[author];
-  }
-
-  refEmailAuthor[email] = author;
-  refEmailAuthor[author] = email;
-  refEmailAuthor[authorID] = author;
+  const {
+    author,
+    email,
+    device,
+    company,
+    country,
+  } = getEmailAuthor(parts, timezone);
 
   // performance
   const message = logString.substring(parts[0]?.length + parts[1]?.length + parts[2]?.length + 3);
@@ -160,6 +132,7 @@ export default function getCommitInfo(
       }
     }
     taskNumber = getTaskNumber(task);
+    const taskCode = getTaskCode(task);
 
     return {
       ...commonInfo,
@@ -168,6 +141,7 @@ export default function getCommitInfo(
       prId: prId || '',
       task: task || '',
       taskNumber: taskNumber || '',
+      taskCode,
       repository: repository || '',
       branch: branch || '',
       toBranch: toBranch || '',
@@ -180,11 +154,13 @@ export default function getCommitInfo(
       : message;
     const task = getTask(message);
     const taskNumber = getTaskNumber(task);
+    const taskCode = getTaskCode(task);
     const [type, scope] = getTypeAndScope(message, task);
     return {
       ...commonInfo,
       task,
       taskNumber,
+      taskCode,
       text,
       type: type || '',
       scope: scope || '',

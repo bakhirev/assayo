@@ -43,6 +43,12 @@ export const TEAM = [
     icon: './assets/menu/company.svg',
   },
   {
+    id: 'department',
+    link: '/team/department',
+    title: 'sidebar.team.department',
+    icon: './assets/menu/department.svg',
+  },
+  {
     id: 'country',
     link: '/team/country',
     title: 'sidebar.team.country',

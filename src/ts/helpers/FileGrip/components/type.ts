@@ -60,6 +60,7 @@ export default class FileGripByType {
 
   updateTotalInfo() {
     this.statistic = Array.from(this.statisticByName.values())
+      .filter((data: any) => data.type.indexOf('#') === -1)
       .sort((a: any, b: any) => b.count - a.count);
   }
 }

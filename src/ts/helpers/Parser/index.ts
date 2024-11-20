@@ -1,9 +1,9 @@
 import ICommit, { IFileChange, ISystemCommit } from 'ts/interfaces/Commit';
 
-import IHashMap from 'ts/interfaces/HashMap';
 import { ONE_DAY, ONE_WEEK } from 'ts/helpers/formatter';
 
 import getCommitInfo, { clearCache } from './getCommitInfo';
+import { clearRenameCache } from './getEmailAuthor';
 import {
   getInfoFromPath,
   getNumStatInfo,
@@ -30,7 +30,6 @@ export default function Parser(report: string[]) {
   let commit = null;
   const commits: Array<ICommit | ISystemCommit> = [];
 
-  let refEmailAuthor: IHashMap<string> = {};
   let files: Map<string, IFileChange> = new Map();
   let fileChanges: IFileChange | null = null;
 
@@ -70,7 +69,7 @@ export default function Parser(report: string[]) {
       // "2021-02-09T16:08:15+03:00>Albert>instein@mail.de>feat(init): added the speed of light"
       if (commit) commit.fileChanges = Array.from(files.values());
       files.clear();
-      commit = getCommitInfo(message, refEmailAuthor);
+      commit = getCommitInfo(message);
 
       const monday = commit.milliseconds - commit.day * ONE_DAY;
       if (firstMonday) {
@@ -83,6 +82,7 @@ export default function Parser(report: string[]) {
     }
   }
 
+  clearRenameCache();
   clearCache();
 
   return commits;

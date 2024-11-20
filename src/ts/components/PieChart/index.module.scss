@@ -10,14 +10,14 @@
   background-color: var(--color-white);
 
   &_data {
-    display: block;
-    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   &_icon,
   &_legend {
     display: inline-block;
-    width: 50%;
     height: 100%;
   }
 
@@ -27,6 +27,7 @@
   }
 
   &_legend {
+    width: fit-content;
     padding-left: var(--space-xxl);
     vertical-align: middle;
   }
@@ -71,7 +72,8 @@
 
 @media (max-width: 700px) {
   .pie_chart_icon,
-  .pie_chart_legend {
+  .pie_chart_legend,
+  .pie_chart_data {
       display: block;
       height: auto;
       margin: 0 auto;

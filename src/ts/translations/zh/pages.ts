@@ -27,7 +27,7 @@ export default `
 § page.team.author.days.one: year
 § page.team.author.days.15: year and a half
 § page.team.author.days.two: two years
-§ page.team.author.days.more: more
+§ page.team.author.days.more: more than two years
 § page.team.author.title: Details
 § page.team.author.description1: 部分统计数字 (工作的速度，花费的钱等。.) 不考虑具有"助理"类型的员工，因为这不是项目中的永久角色。 他们的工作微不足道，可以忽略。.
 § page.team.author.description2: 默认排序是按任务和组数排序 (现任、被解雇、帮助雇员).
@@ -214,6 +214,26 @@ export default `
 § page.team.release.prLength: Tasks
 § page.team.release.delay: Preparation days
 § page.team.release.waiting: Days of waiting for next release
+§ page.team.department.employments.title: The size of the current teams
+§ page.team.department.employments.item: of teams
+§ page.team.author.employments.less1: one employee
+§ page.team.author.employments.less2: two employees
+§ page.team.author.employments.less3: three employees
+§ page.team.author.employments.less6: up to six employees
+§ page.team.author.employments.less9: up to nine employees
+§ page.team.author.employments.less12: up to 12 employees
+§ page.team.author.employments.less15: up to 15 employees
+§ page.team.author.employments.more: more than 15
+§ page.team.department.daysChart.title: Duration of the project
+§ page.team.department.daysChart.item: projects
+§ page.team.department.title: List of projects
+§ page.team.department.code: Code
+§ page.team.department.from: First commit
+§ page.team.department.to: Last
+§ page.team.department.authors: employees
+§ page.team.department.tasks: tasks
+§ page.team.department.totalDays: Working days
+§ page.team.department.totalAuthors: Number of employees
 § page.person.print.photo.title: 照片
 § page.person.print.photo.description: 拍照的地方
 § page.person.total.title: 主要特点
