@@ -22,8 +22,6 @@ function getStatusChart(rows: any[]) {
 }
 
 function getDaysChart(rows: any[]) {
-  const order = Object.values(WORK_DAYS);
-  const options = getOptions({ order, limit: 1, suffix: 'page.team.company.daysChart.item' });
   const details = rows.reduce((acc: any, row: any) => {
     if (row.totalDays < 183) increment(acc, WORK_DAYS.HALF);
     else if (row.totalDays < 365) increment(acc, WORK_DAYS.ONE);
@@ -32,6 +30,10 @@ function getDaysChart(rows: any[]) {
     else increment(acc, WORK_DAYS.MORE);
     return acc;
   }, {});
+  const order = Object
+    .values(WORK_DAYS)
+    .filter((key: string) => details[key]);
+  const options = getOptions({ order, limit: 1, suffix: 'page.team.company.daysChart.item' });
   return [options, details];
 }
 

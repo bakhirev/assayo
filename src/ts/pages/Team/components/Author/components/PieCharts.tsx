@@ -12,20 +12,20 @@ import { STATUS, WORK_DAYS } from '../contstants';
 import { increment } from 'ts/helpers/Math';
 
 function getStatusChart(rows: any[]) {
-  const order = Object.values(STATUS);
-  const options = getOptions({ order, limit: 1 });
   const details = rows.reduce((acc: any, row: any) => {
     if (row.isStaff) increment(acc, STATUS.STAFF);
     else if (row.isDismissed) increment(acc, STATUS.DISMISSED);
     else increment(acc, STATUS.WORK);
     return acc;
   }, {});
+  const order = Object
+    .values(STATUS)
+    .filter((key: string) => details[key]);
+  const options = getOptions({ order, limit: 1 });
   return [options, details];
 }
 
 function getDaysChart(rows: any[]) {
-  const order = Object.values(WORK_DAYS);
-  const options = getOptions({ order, limit: 1, suffix: 'page.team.author.daysChart.item' });
   const details = rows.reduce((acc: any, row: any) => {
     if (row.daysAll < 183) increment(acc, WORK_DAYS.HALF);
     else if (row.daysAll < 365) increment(acc, WORK_DAYS.ONE);
@@ -34,6 +34,10 @@ function getDaysChart(rows: any[]) {
     else increment(acc, WORK_DAYS.MORE);
     return acc;
   }, {});
+  const order = Object
+    .values(WORK_DAYS)
+    .filter((key: string) => details[key]);
+  const options = getOptions({ order, limit: 1, suffix: 'page.team.author.daysChart.item' });
   return [options, details];
 }
 

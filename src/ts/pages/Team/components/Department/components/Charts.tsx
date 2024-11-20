@@ -13,8 +13,6 @@ import { WORK_DAYS } from '../../Author/contstants';
 import { EMPLOYMENTS } from '../contstants';
 
 function getEmploymentsChart(rows: any[]) {
-  const order = Object.values(EMPLOYMENTS);
-  const options = getOptions({ order, limit: 1, suffix: 'page.team.department.employments.item' });
   const details = rows.reduce((acc: any, row: any) => {
     if (!row.isActive) return acc;
     if (row.totalWorked <= 1) increment(acc, EMPLOYMENTS.LESS1);
@@ -27,12 +25,14 @@ function getEmploymentsChart(rows: any[]) {
     else increment(acc, EMPLOYMENTS.MORE);
     return acc;
   }, {});
+  const order = Object
+    .values(EMPLOYMENTS)
+    .filter((key: string) => details[key]);
+  const options = getOptions({ order, limit: 1, suffix: 'page.team.department.employments.item' });
   return [options, details];
 }
 
 function getDaysChart(rows: any[]) {
-  const order = Object.values(WORK_DAYS);
-  const options = getOptions({ order, limit: 1, suffix: 'page.team.department.daysChart.item' });
   const details = rows.reduce((acc: any, row: any) => {
     if (row.totalDays < 183) increment(acc, WORK_DAYS.HALF);
     else if (row.totalDays < 365) increment(acc, WORK_DAYS.ONE);
@@ -41,6 +41,10 @@ function getDaysChart(rows: any[]) {
     else increment(acc, WORK_DAYS.MORE);
     return acc;
   }, {});
+  const order = Object
+    .values(WORK_DAYS)
+    .filter((key: string) => details[key]);
+  const options = getOptions({ order, limit: 1, suffix: 'page.team.department.daysChart.item' });
   return [options, details];
 }
 
