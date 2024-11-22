@@ -1,16 +1,13 @@
 import React from 'react';
 
-import IQuiz from './interfaces/Quiz';
 import QuizPage from './components/index';
-import example from './helpers/example';
+import getQuizQuestions from './helpers/getQuestions';
 
-interface IQuizProps {
-}
-
-function Quiz({}: IQuizProps): React.ReactElement | null {
+function Quiz(): React.ReactElement | null {
+  const questions = getQuizQuestions();
   return (
     <QuizPage
-      quiz={example as IQuiz}
+      quiz={questions}
       onEnd={() => {
       }}
     />

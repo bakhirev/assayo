@@ -12,6 +12,7 @@ const DURATION = {
 
 interface ITrackProps {
   title: string;
+  position: string;
   speed: number;
   type?: string;
   canStart?: boolean;
@@ -19,6 +20,7 @@ interface ITrackProps {
 
 function Track({
   title,
+  position,
   speed,
   type,
   canStart,
@@ -35,7 +37,7 @@ function Track({
     >
       {canStart && (
         <Info
-          title={title}
+          title={position}
           duration={duration}
         />
       )}

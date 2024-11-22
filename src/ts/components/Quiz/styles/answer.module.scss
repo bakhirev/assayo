@@ -123,8 +123,13 @@
 @keyframes quiz_answer {
   from {
     top: 0;
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.3;
   }
   to {
     top: 800px;
+    opacity: 0.3;
   }
 }

@@ -33,6 +33,7 @@ export default `
 § sidebar.team.department: Отделы
 § sidebar.team.country: Местоположение
 § sidebar.team.settings: Настройки
+§ sidebar.team.building: Мини игры
 § sidebar.person.total: Общая информация
 § sidebar.person.money: Стоимость работы
 § sidebar.person.speed: Скорость

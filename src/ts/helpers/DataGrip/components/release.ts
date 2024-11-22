@@ -67,7 +67,7 @@ export default class DataGripByRelease {
   }
 
   #addRelease(branch: string, commit: ISystemCommit) {
-    const index = branch.lastIndexOf('release');
+    const index = (branch || '').lastIndexOf('release');
     if (index === -1) return false;
 
     const title = branch

@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import ISort from 'ts/interfaces/Sort';
 import dataGripStore from 'ts/store/DataGrip';
+import fullScreen from 'ts/store/FullScreen';
 
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
@@ -28,7 +29,9 @@ const Department = observer(({
 
   return (
     <>
-      <DepartmentCharts/>
+      {!fullScreen.isOpen && (
+        <DepartmentCharts/>
+      )}
       <Title title="page.team.department.title"/>
       <DataLoader
         to="response"

@@ -239,6 +239,9 @@ export default `
 § page.team.department.tasks: задач
 § page.team.department.totalDays: Дней работы
 § page.team.department.totalAuthors: Количество сотрудников
+§ page.team.building.races.title: Скорость закрытия задач
+§ page.team.building.races.go: Поехали!
+§ page.team.building.swimmingPool.title: Максимальная длинна подписи коммита
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

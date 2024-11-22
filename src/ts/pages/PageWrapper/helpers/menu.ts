@@ -109,7 +109,7 @@ export const TEAM = [
     id: 'release',
     link: '/team/release',
     title: 'sidebar.team.release',
-    icon: './assets/menu/team_release.svg',
+    icon: './assets/menu/release.svg',
   },
   {
     id: 'tasks',
@@ -141,6 +141,12 @@ export const TEAM = [
     link: '/team/words',
     title: 'sidebar.team.words',
     icon: './assets/menu/team_words.svg',
+  },
+  {
+    id: 'building',
+    link: '/team/building',
+    title: 'sidebar.team.building',
+    icon: './assets/menu/building.svg',
   },
 ];
 

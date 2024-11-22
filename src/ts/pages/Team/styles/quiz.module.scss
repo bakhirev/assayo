@@ -1,9 +1,21 @@
 @import 'src/styles/variables';
 
-.quiz {
-  &_achievements {
-    margin: 12px 0 24px 0;
-    column-count: 3;
-    white-space: normal;
+.team_building_full_screen {
+  &_open,
+  &_close {
+    position: absolute;
+    top: 84px;
+    right: 32px;
+    z-index: 1;
+
+    display: inline-block;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+
+    cursor: pointer;
+  }
+
+  &_open {
+    top: 32px;
   }
 }

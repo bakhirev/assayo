@@ -45,7 +45,10 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
   if (fullScreen.isOpen) {
     return (
       <>
-        <div className={style.page_wrapper_main_fullscreen}>
+        <div
+          className={style.page_wrapper_main_fullscreen}
+          style={padding}
+        >
           {children}
         </div>
         <Recommendations/>

@@ -30,6 +30,9 @@ function Question({
   const [disabled, setDisabled] = useState<boolean>(false);
   const [mode, setMode] = useState<string[]>([]);
   const formattedAnswers = question.answers || [];
+  const hideClassName = disabled
+    ? stylePage.quiz_question_hide
+    : '';
 
   useEffect(() => {
     setMode([]);
@@ -41,7 +44,7 @@ function Question({
 
   const answers = formattedAnswers.map((item: IAnswer, index: number) => (
     <Answer
-      key={`${item.id || ''}|${item.title}`}
+      key={`${item.id || ''}|${item.title}|${index}`}
       mode={mode[index]}
       answer={item}
       onClick={() => {
@@ -70,7 +73,7 @@ function Question({
     <div className={stylePage.quiz_question}>
       <div className={stylePage.quiz_question_body}>
         <div
-          className={style.quiz_title}
+          className={`${style.quiz_title} ${hideClassName}`}
           style={{ backgroundImage: 'url(./assets/games/quize/cloud_big.png)' }}
         >
           {question.title}
@@ -78,7 +81,7 @@ function Question({
         <div className={style.quiz_question_answer}>
           {answers}
         </div>
-        <div className={style.quiz_footer}>
+        <div className={`${style.quiz_footer} ${hideClassName}`}>
           <UiKitButton
             disabled={disabled}
             onClick={() => {

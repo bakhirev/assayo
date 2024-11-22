@@ -11,7 +11,6 @@ function Info({
   title,
   duration,
 }: IInfoProps): React.ReactElement | null {
-  console.log(title);
   return (
     <div
       className={style.races_track_info}
@@ -19,7 +18,7 @@ function Info({
         animationDelay: `${duration + 1}s`,
       }}
     >
-      4
+      {title}
     </div>
   );
 }

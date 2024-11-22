@@ -23,7 +23,6 @@
   },
   "scripts": {
     "dev": "set PORT=3006 && react-app-rewired start",
-    "build": "react-app-rewired build",
     "build:website": "react-app-rewired build && cd scripts && node add-analytics.js",
     "build:local": "react-app-rewired build && cd scripts && node remove-hash.js && node add-local.js",
     "build:docker": "react-app-rewired build",

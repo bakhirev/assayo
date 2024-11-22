@@ -31,6 +31,7 @@ function Races({
       <Track
         key={track.title}
         title={track.title}
+        position={track.position}
         speed={track.speed}
         canStart={showAnimation}
       />
@@ -47,7 +48,7 @@ function Races({
               setShowAnimation(true);
             }}
           >
-            {t('uiKit.races.go')}
+            {t('page.team.building.races.go')}
           </UiKitButton>
         )}
       </GameBanner>

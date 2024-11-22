@@ -16,4 +16,20 @@
     display: block;
     text-align: center;
   }
+
+  &_hide {
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-name: quiz_question_hide;
+  }
+}
+
+@keyframes quiz_question_hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
