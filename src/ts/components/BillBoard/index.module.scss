@@ -1,0 +1,57 @@
+@import 'src/styles/variables';
+
+.billboard {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto -44px;
+  text-align: center;
+
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: bottom left;
+
+  &_box {
+    position: relative;
+
+    display: inline-block;
+    width: 400px;
+    height: 160px;
+    margin: 0 auto;
+
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top left;
+  }
+
+  &_title {
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92px;
+    padding: var(--space-m);
+    margin: 0 auto;
+
+    line-height: 1.3;
+    text-align: center;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 1px #FEFEFE;
+    color: #4E3C3B;
+  }
+
+  &_cloud {
+    padding-top: 50px;
+    background-color: #F0AE7A;
+    background-size: auto 56%;
+  }
+
+  &_green {
+    padding-top: 12px;
+    background-color: #557D4B;
+  }
+}
+
