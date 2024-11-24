@@ -5,7 +5,7 @@
 # [Assayo](https://assayo.online/?ref=github&lang=fr)
 Visualisation et analyse des données de votre dépôt git. Performance tool for Team Lead and IT-audit
 
-**Links:** [demo](https://assayo.online/demo/?ref=github&dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/).
+**Links:** [demo](https://assayo.online/demo/?ref=github&dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
 
 **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
 

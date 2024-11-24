@@ -312,7 +312,7 @@ git может показать малое количество изменени
 § page.person.week.workDay: будни
 § page.person.week.weekends: выходные
 § page.sponsor.title: Поддержите проект
-§ page.sponsor.share.description: Расскажите о нашем [проекте|https://github.com/bakhirev/assayo] в соцсетях! Можно поделиться [статьей|https://habr.com/ru/articles/763342/], [постом|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] или [видео|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
+§ page.sponsor.share.description: Расскажите о нашем [проекте|https://github.com/bakhirev/assayo] в соцсетях! Можно поделиться [статьей|https://habr.com/ru/articles/852782/], [постом|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] или [видео|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
 § page.sponsor.share.button: Копировать ссылку
 § page.sponsor.money.description: Мы будем рады, если вы поддержите нас любой суммой! Все средства пойдут на дальнейшее развитие проекта.
 § page.sponsor.money.qr: Разовый платёж (СБП)

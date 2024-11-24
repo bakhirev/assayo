@@ -5,7 +5,7 @@
 # [Assayo](https://assayo.online/?ref=github&lang=zh)
 对您的git仓库的数据进行可视化和分析 团队领导及资讯科技审核的表现工具
 
-**Links:** [示范表现](https://assayo.online/demo/?ref=github&dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/763342/).
+**Links:** [示范表现](https://assayo.online/demo/?ref=github&dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
 
 **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
 
