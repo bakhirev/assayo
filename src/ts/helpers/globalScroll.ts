@@ -1,5 +1,10 @@
 let overflow = document.body.style.overflow;
 
+function setBlur(value?: number) {
+  const element = document.getElementById('root');
+  if (element) element.style.filter = value ? `blur(${value}px)` : 'none';
+}
+
 function on() {
   document.body.style.overflow = overflow;
 }
@@ -12,8 +17,10 @@ function off(delay?: number) {
 
 function useOnOff() {
   off();
+  setBlur(1);
   return () => {
     on();
+    setBlur();
   };
 }
 

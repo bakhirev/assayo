@@ -27,6 +27,7 @@ function Modal({
   children,
 }: IModalProps) {
   const [canClose, setCanClose] = useState<boolean>(!delay);
+  const formattedId = id || 'modal_window';
 
   useEffect(globalScroll.useOnOff, []);
 
@@ -42,16 +43,16 @@ function Modal({
 
   return ReactDOM.createPortal((
     <div
-      id={`${id}-wrapper`}
+      id={`${formattedId}-wrapper`}
       className={`${style.modal_window_wrapper || ''}`}
       onClick={(event: any) => {
         event.stopPropagation();
-        if (event.target?.id !== `${id}-wrapper`) return;
+        if (event.target?.id !== `${formattedId}-wrapper`) return;
         if (onClose && canClose) onClose();
       }}
     >
       <div
-        id={id}
+        id={formattedId}
         className={`${customClass} ${className || ''}`}
         onClick={(event: any) => {
           event.stopPropagation();

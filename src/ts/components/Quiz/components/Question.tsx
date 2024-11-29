@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 
@@ -26,6 +27,7 @@ function Question({
   question,
   onClick,
 }: IQuestionProps): React.ReactElement | null {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<IAnswer | null>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
   const [mode, setMode] = useState<string[]>([]);
@@ -76,7 +78,7 @@ function Question({
           className={`${style.quiz_title} ${hideClassName}`}
           style={{ backgroundImage: 'url(./assets/games/quize/cloud_big.png)' }}
         >
-          {question.title}
+          {t(question.title)}
         </div>
         <div className={style.quiz_question_answer}>
           {answers}

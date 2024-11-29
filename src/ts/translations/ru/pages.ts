@@ -242,6 +242,21 @@ export default `
 § page.team.building.races.title: Скорость закрытия задач
 § page.team.building.races.go: Поехали!
 § page.team.building.swimmingPool.title: Максимальная длинна подписи коммита
+§ page.team.building.quiz.question01: Кто сделал первый коммит?
+§ page.team.building.quiz.question02: Кто закрыл больше задач?
+§ page.team.building.quiz.question03: Кто быстрее всех делает задачи?
+§ page.team.building.quiz.question04: Кто дольше всех работал на проекте?
+§ page.team.building.quiz.question05: Кто меньше всех работал на проекте?
+§ page.team.building.quiz.question06: Кто чаще коммитит?
+§ page.team.building.quiz.question07: Кто реже коммитит?
+§ page.team.building.quiz.question08: У кого саммые длинные подписи коммитов?
+§ page.team.building.quiz.question09: У кого саммые короткие подписи коммитов?
+§ page.team.building.quiz.question10: У кого больше всего дней без коммитов?
+§ page.team.building.quiz.question11: Сколько человек уволилось?
+§ page.team.building.quiz.question12: Сколько человек помогало проекту?
+§ page.team.building.quiz.question13: Сколько максимум задач в день делал $1?
+§ page.team.building.quiz.question14: Задач какого типа больше влили?
+§ page.team.building.quiz.question15: Сколько в среднем дней работают на проекте?
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

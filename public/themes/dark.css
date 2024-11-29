@@ -1,0 +1,160 @@
+body {
+  --theme-sidebar: #12131B;
+  --theme-main: #12131B;
+  --theme-border: #666666;
+  --theme-progress: #008000;
+  --theme-font: #CCCCCC;
+  --theme-accent: #008000;
+}
+
+.sidebar,
+.sidebar_item,
+.sidebar_item:hover,
+.sidebar_item.selected,
+.switch,
+.switch_item,
+.switch_item.selected {
+  background-color: var(--theme-sidebar);
+}
+
+body,
+.header,
+.header_filters_input,
+.recommendations_card,
+.page_wrapper,
+.splash_screen,
+.progress_bar,
+.card_with_icon,
+.table_cell,
+.table_header_cell,
+.main_wrapper_white,
+.ui_kit_common,
+.ui_kit_button,
+.ui_kit_button:hover,
+.ui_kit_tags_item,
+.ui_kit_select_value,
+.modal_window,
+.pie_chart,
+.tempo_task_commits,
+.tempo_task_tag,
+.tempo_task_hours,
+.achievement,
+.get_list_container,
+.get_list,
+.get_list_title {
+  background-color: var(--theme-main);
+}
+
+.progress_bar_line {
+  background-color: var(--theme-progress);
+}
+
+.header_title,
+.header_filters_input,
+.switch_item_title,
+.sidebar_item_title,
+.paginator_text,
+.title,
+.table_cell,
+.table_header_cell,
+.ui_kit_common,
+.ui_kit_button,
+.ui_kit_tags_item,
+.ui_kit_select_value,
+.ui_kit_checkbox_title,
+.pie_chart_percent,
+.pie_chart_text,
+.tempo_author,
+.tempo_task_tag,
+.tempo_task_value,
+.card_with_icon_value,
+.description_title,
+.description_text,
+.description_text > span,
+.description_list,
+.recommendations_modal_title,
+.recommendations_modal_sub_title,
+.achievement_title,
+.achievement_description {
+  color: var(--theme-font);
+}
+
+.page_wrapper,
+.main_wrapper_white,
+.pie_chart,
+.table_row {
+  border-color: var(--theme-border);
+}
+
+.logo,
+.sidebar_title,
+.header_setting {
+  display: none;
+}
+
+/* Header */
+.header_print {
+  margin-right: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  padding-top: 8px;
+  padding-left: 0;
+  border-right: 1px solid var(--theme-border);
+}
+
+.sidebar_item:hover > .sidebar_item_title,
+.sidebar_item.selected > .sidebar_item_title {
+  text-decoration: underline;
+  color: var(--theme-accent);
+}
+
+/* Switch */
+.switch {
+  width: 100%;
+  padding: 0;
+}
+
+.switch_item,
+.switch_item.selected {
+  border-radius: 0;
+  border-bottom: 2px solid var(--theme-border);
+}
+
+.switch_item.selected {
+  border-color: var(--theme-accent);
+}
+
+.switch_item.selected > .switch_item_title {
+  font-weight: bold;
+  color: var(--theme-accent);
+}
+
+/* Main */
+.page_wrapper_main {
+  padding-top: 0;
+}
+
+.card_with_icon_icon {
+  filter: grayscale(1);
+}
+
+.pie_chart_icon,
+.pie_chart_color,
+.line_chart_item {
+  filter: grayscale(0.3);
+}
+
+.main_wrapper_white,
+.pie_chart {
+  border-radius: 0;
+}
+
+.ui_kit_button,
+.ui_kit_select_value,
+.tempo_task_tag,
+.tempo_task_commits,
+.tempo_task_hours {
+  border: 1px solid var(--theme-border);
+}

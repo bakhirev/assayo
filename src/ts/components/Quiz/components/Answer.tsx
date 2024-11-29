@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { getRandom } from 'ts/helpers/random';
 
@@ -16,6 +17,7 @@ function Answer({
   mode,
   onClick,
 }: IAnswerProps): React.ReactElement | null {
+  const { t } = useTranslation();
   const [iconIndex] = useState(getRandom(5));
   const className = [style.quiz_answer_wrapper];
   const textClasName = [style.quiz_answer_text];
@@ -38,7 +40,7 @@ function Answer({
           src={`./assets/games/quize/balloon_${iconIndex}.png`}
         />
         <figcaption className={textClasName.join(' ')}>
-          {answer.title}
+          {t(answer.title)}
         </figcaption>
       </figure>
     </div>

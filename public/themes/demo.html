@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="address=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="white"/>
+
+  <meta name="defaultLanguage" content="ru">
+  <link rel="icon" href="../favicon.svg"/>
+  <link rel="apple-touch-icon" href="../logo192.png"/>
+
+  <title>Code Scoring</title>
+  <style>
+      body {
+          width: 100vw;
+          height: 100vh;
+          padding: 0;
+          margin: 0;
+          border: none;
+          overflow: hidden;
+      }
+
+      header {
+          width: 100vw;
+          height: 40px;
+          background-color: #001529;
+          background-image: url(./jira/header.png);
+          background-position: top left;
+          background-size: auto 100%;
+          background-repeat: no-repeat;
+      }
+
+      main {
+          width: 100vw;
+          height: calc(100vh - 40px);
+          overflow: hidden;
+          white-space: nowrap;
+      }
+
+      aside {
+          display: inline-block;
+          width: 220px;
+          height: 100%;
+          vertical-align: top;
+          background-color: #001529;
+          background-image: url(./jira/sidebar.png);
+          background-position: top left;
+          background-size: 100% auto;
+          background-repeat: no-repeat;
+      }
+
+      iframe {
+          display: inline-block;
+          width: calc(100vw - 220px);
+          height: 100%;
+          padding: 0;
+          margin: 0;
+          border: none;
+          overflow: hidden;
+          vertical-align: top;
+      }
+  </style>
+</head>
+<body>
+
+<header id="header"></header>
+<main id="main">
+  <aside id="sidebar"></aside><iframe
+      id="frame"
+      width="100%"
+      height="100%"
+      src="/demo/?dump=./test.txt&theme=./themes/white.css"
+  ></iframe>
+</main>
+
+<script>
+  function getParametersFromString(text) {
+    return Object.fromEntries((text || '')
+      .substring(1, Infinity)
+      .split('&')
+      .map((token) => token.split('=')));
+  }
+
+  function getParametersFromURL() {
+    const parameters = {
+      ...getParametersFromString(location.search),
+      ...getParametersFromString(location.hash),
+    };
+    delete parameters[''];
+    return parameters;
+  }
+
+  function getStyleById(id) {
+    return document.getElementById(id).style;
+  }
+
+  function init() {
+    const parameters = getParametersFromURL();
+    const sidebar = getStyleById('sidebar');
+    const header = getStyleById('header');
+    if (parameters.sidebarImage) {
+      sidebar.backgroundImage = `url(${parameters.sidebarImage})`;
+    }
+    if (parameters.sidebarColor) {
+      sidebar.backgroundColor = `#${parameters.sidebarColor}`;
+    }
+    if (parameters.width) {
+      sidebar.width = `${parameters.width}px`;
+      getStyleById('frame').width = `calc(100vw - ${parameters.width}px)`;
+    }
+
+    if (parameters.headerImage) {
+      header.backgroundImage = `url(${parameters.headerImage})`;
+    }
+    if (parameters.headerColor) {
+      header.backgroundColor = `#${parameters.headerColor}`;
+    }
+    if (parameters.height) {
+      header.height = `${parameters.height}px`;
+      getStyleById('main').height = `calc(100vh - ${parameters.height}px)`;
+    }
+
+    if (parameters.title) {
+      document.title = parameters.title;
+    }
+  }
+
+  init();
+</script>
+</body>
+</html>

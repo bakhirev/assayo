@@ -5,8 +5,8 @@ import { observer } from 'mobx-react-lite';
 import Message from './components/Message';
 import IMessage from './interfaces/Message';
 import notificationsStore from './store/index';
-import style from './styles/index.module.scss';
 
+import style from './styles/index.module.scss';
 
 const Notifications = observer(() => {
   const items = notificationsStore.messages.map((message: IMessage) => (

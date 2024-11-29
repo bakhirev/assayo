@@ -32,7 +32,7 @@ function UiKitInputString({
         type="text"
         value={value}
         placeholder={placeholder}
-        className={`${className} ${style.ui_kit_common} }`}
+        className={`${className} ${style.ui_kit_common}`}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           if (onChange) onChange(event.target.value);
         }}
