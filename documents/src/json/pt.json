@@ -264,9 +264,12 @@
     {
         "li": [
             "**Cabeçalho**. Você pode especificar em um parâmetro da URL ```title```. Por exemplo: ```?title=You Company```",
-            "**CSS стили**. Para fazer isso, você precisa preparar um arquivo CSS e especificar o seu endereço no parâmetro da URL ```theme```. Por exemplo: ```?theme=//company.com/some.css```. Você pode usar os nomes das classes como seletores. A maioria deles não muda na saída de uma nova versão.",
+            "**Themes**. Para fazer isso, você precisa preparar um arquivo CSS e especificar o seu endereço no parâmetro da URL ```theme```. Por exemplo: ```?theme=//company.com/some.css```. Você pode usar os nomes das classes como seletores. A maioria deles não muda na saída de uma nova versão.",
             "**Idioma**. Você pode incluir em um parâmetro de URL. ```lang```. Por exemplo: ```?lang=es```"
         ]
+    },
+    {
+        "p": "**Example:** [demo](https://assayo.online/demo/themes/)"
     },
     {
         "h3": "Como faço para assinar commits?"

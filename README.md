@@ -183,7 +183,9 @@ You can create your own interface theme. Options:
 - **Title**. You can set default document title in the URL parameter ```title```. Example: ```?title=You Company```
 - **Visual theme**. To do this, you need to prepare a CSS file with new styles and specify its URL in the ```theme``` parameter. Example: ```?theme=//company.com/some.css```. You can use class names as selectors. Most of them do not change in new versions.
 - **Language**. You can set language in the URL parameter ```lang```. Example: ```?lang=es```
-  <a name="link-21"></a>
+
+**Example:** [page](https://assayo.online/demo/themes/)
+<a name="link-21"></a>
 ### 📝 How to sign commits?
 Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Example:
 ```
