@@ -241,7 +241,10 @@ export default `
 § page.team.department.totalAuthors: Количество сотрудников
 § page.team.building.races.title: Скорость закрытия задач
 § page.team.building.races.go: Поехали!
-§ page.team.building.swimmingPool.title: Максимальная длинна подписи коммита
+§ page.team.building.swimmingPool.title: Максимальная длина подписи коммита
+§ page.team.building.quiz.start: Начать квиз
+§ page.team.building.quiz.next: Далее
+§ page.team.building.quiz.replay: Ещё раз
 § page.team.building.quiz.question01: Кто сделал первый коммит?
 § page.team.building.quiz.question02: Кто закрыл больше задач?
 § page.team.building.quiz.question03: Кто быстрее всех делает задачи?
@@ -257,6 +260,13 @@ export default `
 § page.team.building.quiz.question13: Сколько максимум задач в день делал $1?
 § page.team.building.quiz.question14: Задач какого типа больше влили?
 § page.team.building.quiz.question15: Сколько в среднем дней работают на проекте?
+§ page.team.building.quiz.begin: Насколько хорошо ты знаешь команду?
+§ page.team.building.quiz.result1.title: Недостаточно
+§ page.team.building.quiz.result1.description: Правильных ответов меньше 40%. Ознакомьтесь с данными о вашей команде в соседних разделах и попробуйте снова!
+§ page.team.building.quiz.result2.title: Хорошо
+§ page.team.building.quiz.result2.description: Правильных ответов от 40% до 70%. Вы имеете хорошее представление о вашей команде, но можете узнать её лучше. Ознакомьтесь с данными в соседних разделах и попробуйте снова!
+§ page.team.building.quiz.result3.title: Отлично
+§ page.team.building.quiz.result3.description: Правильных ответов больше 70%. Вы отлично знаете статистику по вашей команде!
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

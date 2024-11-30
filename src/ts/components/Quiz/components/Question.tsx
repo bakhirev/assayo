@@ -85,7 +85,8 @@ function Question({
         </div>
         <div className={`${style.quiz_footer} ${hideClassName}`}>
           <UiKitButton
-            disabled={disabled}
+            mode="second"
+            disabled={disabled || !selected}
             onClick={() => {
               setDisabled(true);
               setTimeout(() => {
@@ -96,7 +97,7 @@ function Question({
               }, 3000);
             }}
           >
-            {question.button || 'Next question'}
+            {t('page.team.building.quiz.next')}
           </UiKitButton>
         </div>
       </div>

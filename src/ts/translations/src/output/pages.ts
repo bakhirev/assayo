@@ -219,26 +219,47 @@ export default `
 § page.team.release.prLength: Задач
 § page.team.release.delay: Дней работы
 § page.team.release.waiting: Дней до следующего релиза
-§ page.team.department.employments.title: The size of the current teams
-§ page.team.department.employments.item: of teams
-§ page.team.author.employments.less1: is one employee
-§ page.team.author.employments.less2: two employees
-§ page.team.author.employments.less3: three employees
-§ page.team.author.employments.less6: up to six employees
-§ page.team.author.employments.less9: up to nine employees
-§ page.team.author.employments.less12: up to 12 employees
-§ page.team.author.employments.less15: up to 15 employees
-§ page.team.author.employments.more: more than 15
-§ page.team.department.daysChart.title: Duration of the project
-§ page.team.department.daysChart.item: projects
-§ page.team.department.title: List of projects
-§ page.team.department.code: Code
-§ page.team.department.from: The first commit
-§ page.team.department.to: The last
-§ page.team.department.authors: man
-§ page.team.department.tasks: of the tasks
-§ page.team.department.totalDays: Working days
-§ page.team.department.totalAuthors: Number of employees
+§ page.team.department.employments.title: Размер текущих команд
+§ page.team.department.employments.item: команд
+§ page.team.author.employments.less1: один сотрудник
+§ page.team.author.employments.less2: два сотрудника
+§ page.team.author.employments.less3: три сотрудника
+§ page.team.author.employments.less6: до шести сотрудников
+§ page.team.author.employments.less9: до девяти сотрудников
+§ page.team.author.employments.less12: до 12 сотрудников
+§ page.team.author.employments.less15: до 15 сотрудников
+§ page.team.author.employments.more: больше 15
+§ page.team.department.daysChart.title: Продолжительность проектов
+§ page.team.department.daysChart.item: проекта
+§ page.team.department.title: Список проектов
+§ page.team.department.code: Код
+§ page.team.department.from: Первый коммит
+§ page.team.department.to: Последний
+§ page.team.department.authors: человек
+§ page.team.department.tasks: задач
+§ page.team.department.totalDays: Дней работы
+§ page.team.department.totalAuthors: Количество сотрудников
+§ page.team.building.races.title: The speed of closing tasks
+§ page.team.building.races.go: Let's go!
+§ page.team.building.swimmingPool.title: Maximum commit message length
+§ page.team.building.quiz.start: Start a quiz
+§ page.team.building.quiz.next: Next question
+§ page.team.building.quiz.replay: Re-play?
+§ page.team.building.quiz.question01: Who made the first commit?
+§ page.team.building.quiz.question02: Who closed more tasks?
+§ page.team.building.quiz.question03: Who is the fastest at completing tasks?
+§ page.team.building.quiz.question04: Who has been working on the project the longest?
+§ page.team.building.quiz.question05: Who worked the least on the project?
+§ page.team.building.quiz.question06: Who is the committee most often?
+§ page.team.building.quiz.question07: Who commits less often?
+§ page.team.building.quiz.question08: Who has the longest commit signatures?
+§ page.team.building.quiz.question09: Who has the shortest commit signatures?
+§ page.team.building.quiz.question10: Who has the most days without comments?
+§ page.team.building.quiz.question11: How many people have quit?
+§ page.team.building.quiz.question12: How many people helped the project?
+§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question14: What type of tasks have been added more?
+§ page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

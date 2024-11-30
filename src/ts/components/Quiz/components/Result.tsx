@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 
@@ -16,21 +17,23 @@ function Result({
   result,
   onClick,
 }: IResultProps): React.ReactElement | null {
+  const { t } = useTranslation();
   return (
     <section className={stylePage.quiz_result}>
       <h4 className={style.quiz_title}>
-        {result.title}
+        {t(result.title || '')}
       </h4>
       <p className={style.quiz_description}>
-        {result.description}
+        {t(result.description || '')}
       </p>
       <div className={style.quiz_footer}>
         <UiKitButton
+          mode="second"
           onClick={() => {
             onClick();
           }}
         >
-          Replay
+          {t('page.team.building.quiz.replay')}
         </UiKitButton>
       </div>
     </section>

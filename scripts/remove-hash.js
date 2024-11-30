@@ -8,6 +8,8 @@ exec([
   'rm -rf ../build/static/css',
   'rm ../build/asset-manifest.json',
   'rm ../build/test.txt',
+  'rm -rf ../build/social',
+  'rm -rf ../build/themes',
 ].join(' && '));
 
 const html = fs.readFileSync('../build/index.html', 'utf8');

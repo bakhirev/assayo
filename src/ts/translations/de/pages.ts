@@ -237,6 +237,34 @@ export default `
 § page.team.department.tasks: tasks
 § page.team.department.totalDays: Working days
 § page.team.department.totalAuthors: Number of employees
+§ page.team.building.races.title: The speed of closing tasks
+§ page.team.building.races.go: Let's go!
+§ page.team.building.swimmingPool.title: Maximum commit message length
+§ page.team.building.quiz.start: Start a quiz
+§ page.team.building.quiz.next: Next question
+§ page.team.building.quiz.replay: Re-play?
+§ page.team.building.quiz.question01: Who made the first commit?
+§ page.team.building.quiz.question02: Who closed more tasks?
+§ page.team.building.quiz.question03: Who is the fastest at completing tasks?
+§ page.team.building.quiz.question04: Who has been working on the project the longest?
+§ page.team.building.quiz.question05: Who worked the least on the project?
+§ page.team.building.quiz.question06: Who is the committee most often?
+§ page.team.building.quiz.question07: Who commits less often?
+§ page.team.building.quiz.question08: Who has the longest commit signatures?
+§ page.team.building.quiz.question09: Who has the shortest commit signatures?
+§ page.team.building.quiz.question10: Who has the most days without comments?
+§ page.team.building.quiz.question11: How many people have quit?
+§ page.team.building.quiz.question12: How many people helped the project?
+§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question14: What type of tasks have been added more?
+§ page.team.building.quiz.question15: How many days do they work on the project on average?
+§ page.team.building.quiz.begin: How well do you know the team?
+§ page.team.building.quiz.result1.title: Not enough
+§ page.team.building.quiz.result1.description: The correct answers are less than 40%. Check out the information about your team in the adjacent sections and try again!
+§ page.team.building.quiz.result2.title: Well
+§ page.team.building.quiz.result2.description: The correct answers range from 40% to 70%. You have a good idea of your team, but you can get to know it better. Check out the data in the adjacent sections and try again!
+§ page.team.building.quiz.result3.title: Great
+§ page.team.building.quiz.result3.description: There are more than 70% correct answers. You know the statistics on your team perfectly well!
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
 § page.person.total.title: Main characteristics

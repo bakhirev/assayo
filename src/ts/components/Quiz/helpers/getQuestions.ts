@@ -30,7 +30,7 @@ function getQuestionByNumber(question: string, rightAnswer: number) {
     b = rightAnswer + (getRandom(rightAnswer) * (Math.random() > 0.5 ? 1 : -1));
     if (a === b) return null;
   }
-  const answers = shuffle([rightAnswer, a, b]);
+  const answers = shuffle([rightAnswer || 1, a || 1, b || 1]);
   return getQuestion(question, answers, answers.indexOf(rightAnswer));
 }
 
@@ -104,25 +104,24 @@ export default function getQuizQuestions(): IQuiz {
     .map((question, i: number) => ({ ...question, index: i + 1 }));
 
   return {
-    title: '',
-    description: 'Насколько хорошо ты знаешь команду?',
+    description: 'page.team.building.quiz.begin',
     questions: shuffle(formattedQuestions),
     results: [
       {
-        title: 'Недостаточно',
-        description: 'Правильных ответов меньше 40%. Ознакомьтесь с данными о вашей команде в соседних разделах и попробуйте снова!',
+        title: 'page.team.building.quiz.result1.title',
+        description: 'page.team.building.quiz.result1.description',
         min: 0,
         max: 7,
       },
       {
-        title: 'Хорошо',
-        description: 'Правильных ответов от 40% до 70%. Вы имеете хорошее представление о вашей команде, но можете узнать её лучше. Ознакомьтесь с данными в соседних разделах и попробуйте снова!',
+        title: 'page.team.building.quiz.result2.title',
+        description: 'page.team.building.quiz.result2.description',
         min: 8,
         max: 13,
       },
       {
-        title: 'Отлично',
-        description: 'Правильных ответов больше 70%. Вы отлично знаете статистику по вашей команде. !',
+        title: 'page.team.building.quiz.result3.title',
+        description: 'page.team.building.quiz.result3.description',
         min: 14,
         max: 25,
       },

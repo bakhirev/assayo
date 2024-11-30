@@ -45,7 +45,7 @@ const TeamBuilding = observer((): React.ReactElement => {
           }}
         />
       )}
-      {Math.random() > 1 && (
+      {Math.random() < 1 && (
         <Quiz />
       )}
       <BillBoard
