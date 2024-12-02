@@ -62,5 +62,9 @@
       width: 71px;
       line-height: 64px;
     }
+
+    &_line {
+      width: calc(100% - 384px);
+    }
   }
 }

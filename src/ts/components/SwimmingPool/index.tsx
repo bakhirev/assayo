@@ -38,7 +38,11 @@ function SwimmingPool({
           backgroundImage: 'url(./assets/games/swimmingPool/block2.png)',
         }}
       />
-      {lines}
+      <div className="scroll_x">
+        <div style={{ minWidth: '900px' }}>
+          {lines}
+        </div>
+      </div>
       <div
         className={style.swimming_pool_bottom_border}
         style={{

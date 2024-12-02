@@ -133,7 +133,6 @@
 @media (max-width: 900px) {
   .quiz_answer {
     width: 100px;
-
     &_small {
       width: 68px;
     }
@@ -143,5 +142,8 @@
   }
   .quiz_answer_wrapper_small .quiz_answer {
     width: 68px;
+  }
+  .quiz_answer_wrapper + .quiz_answer_wrapper {
+    margin-left: var(--space-l);
   }
 }

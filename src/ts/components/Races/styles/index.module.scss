@@ -28,10 +28,6 @@
     background-repeat: repeat-x;
     background-size: auto 100%;
     background-position: top left;
-
-    &:first-child {
-      // border-top: var(--space-xxs) dashed var(--color-border);
-    }
   }
 
   &_button {

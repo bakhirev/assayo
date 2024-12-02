@@ -58,8 +58,10 @@ function Races({
           backgroundImage: 'url(./assets/games/races/greenTop.png)',
         }}
       />
-      <div className={style.races}>
-        {lines}
+      <div className={`${style.races} scroll_x`}>
+        <div style={{ minWidth: '900px' }}>
+          {lines}
+        </div>
       </div>
       <div
         className={style.races_green}
