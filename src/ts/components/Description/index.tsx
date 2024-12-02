@@ -21,7 +21,7 @@ function getTextWithLink(text: string, className?: string) {
           target="_blank"
           rel="noreferrer"
           className={className || ''}
-          to={link}
+          to={link || ''}
         >
           {title}
         </Link>
@@ -84,14 +84,15 @@ function Description({ text, style, className }: IDescriptionProps) {
     ? (text || '').trim().split(/\n+/gm)
     : text;
 
-  const items = paragraphs.map((paragraph) => {
+  const items = paragraphs.map((paragraph, index: number) => {
     const prefix = paragraph.substring(0, 2);
     const mainText = paragraph.substring(2);
+    const key = `${mainText}${index}`;
 
     if (prefix === '- ') {
       return (
         <List
-          key={mainText}
+          key={key}
           text={mainText}
           style={style}
           className={className}
@@ -102,7 +103,7 @@ function Description({ text, style, className }: IDescriptionProps) {
     if (prefix === '# ') {
       return (
         <Title
-          key={mainText}
+          key={key}
           text={mainText}
           style={style}
           className={className}
@@ -112,7 +113,7 @@ function Description({ text, style, className }: IDescriptionProps) {
 
     return (
       <SimpleText
-        key={mainText}
+        key={key}
         text={paragraph}
         style={style}
         className={className}
