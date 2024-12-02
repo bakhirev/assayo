@@ -53,3 +53,14 @@
 .swimming_pool_track + .swimming_pool_track .swimming_pool_track_line {
   border-top: 4px dashed red;
 }
+
+@media (max-width: 900px) {
+  .swimming_pool_track {
+    height: 70px;
+
+    &_value {
+      width: 71px;
+      line-height: 64px;
+    }
+  }
+}

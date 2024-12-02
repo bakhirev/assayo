@@ -20,10 +20,18 @@ interface IPageWrapper {
 function MobileView({
   children,
 }: IPageWrapper) {
+  const { type, page } = useParams<any>();
+  const padding = type === 'team' && page === 'building'
+    ? { padding: 0 }
+    : {};
+
   return (
     <>
       <div className={style.page_wrapper}>
-        <div className={style.page_wrapper_main_mobile}>
+        <div
+          className={style.page_wrapper_main_mobile}
+          style={padding}
+        >
           {children}
         </div>
         <HeaderWithTab/>

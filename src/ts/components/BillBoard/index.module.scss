@@ -55,3 +55,16 @@
   }
 }
 
+@media (max-width: 900px) {
+  .billboard {
+    &_box {
+      width: 300px;
+      height: 120px;
+    }
+    &_title {
+      font-size: var(--font-m);
+      height: 70px;
+      padding: var(--space-s);
+    }
+  }
+}

@@ -1,11 +1,8 @@
 @import 'src/styles/variables';
 
 .quiz_answer {
-  --temp-width: 160px;
-  --temp-small: calc(var(--temp-width) - 32px);
-
   position: relative;
-  width: var(--temp-width);
+  width: 160px;
   padding-bottom: var(--space-m);
 
   cursor: pointer;
@@ -26,7 +23,7 @@
   }
 
   &_small {
-    width: var(--temp-small);
+    width: 128px;
   }
 
   &_icon {
@@ -105,7 +102,7 @@
   padding: var(--space-s) var(--space-l);
 
   & .quiz_answer {
-    width: var(--temp-small);
+    width: 128px;
 
     animation-delay: 1s;
     animation-duration: 2s;
@@ -119,7 +116,6 @@
   }
 }
 
-
 @keyframes quiz_answer {
   from {
     top: 0;
@@ -131,5 +127,21 @@
   to {
     top: 800px;
     opacity: 0.3;
+  }
+}
+
+@media (max-width: 900px) {
+  .quiz_answer {
+    width: 100px;
+
+    &_small {
+      width: 68px;
+    }
+    &_text {
+      font-size: var(--font-s);
+    }
+  }
+  .quiz_answer_wrapper_small .quiz_answer {
+    width: 68px;
   }
 }

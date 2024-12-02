@@ -153,3 +153,16 @@
     background-position: -200px 0;
   }
 }
+
+@media (max-width: 900px) {
+  .quiz {
+    &_title,
+    &_description {
+      width: 100%;
+      padding: var(--space-l) var(--space-xs);
+    }
+    &_title {
+      font-size: var(--font-m);
+    }
+  }
+}

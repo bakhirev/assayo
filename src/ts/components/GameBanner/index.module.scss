@@ -32,3 +32,9 @@
     color: var(--color-white);
   }
 }
+
+@media (max-width: 900px) {
+  .game_banner {
+    height: 200px;
+  }
+}

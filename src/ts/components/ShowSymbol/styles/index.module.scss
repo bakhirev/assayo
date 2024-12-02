@@ -17,7 +17,16 @@
     --temp-width: 20px;
     --temp-height: 30px;
   }
+}
 
+@media (max-width: 900px) {
+  .show_symbol {
+    --temp-width: 24.5px;
+    --temp-height: 33px;
+  }
+}
+
+.show_symbol {
   font-size: var(--temp-font);
   position: relative;
 
