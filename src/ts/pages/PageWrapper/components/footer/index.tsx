@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import localization from 'ts/helpers/Localization';
 import dataGripStore from 'ts/store/DataGrip';
+import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 
 import Button from './Button';
@@ -47,8 +48,9 @@ function getMenu(navigate: Function): any[] {
         confirm.open({
           title: 'Вы уверены что хотите выйти?',
         }).then(() => {
-          dataGripStore.asyncSetCommits([]);
+          dataGripStore.exit();
           navigate('/');
+          viewNameStore.toggle(ViewNameEnum.WELCOME);
         });
       },
     },

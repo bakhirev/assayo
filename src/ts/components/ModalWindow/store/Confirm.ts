@@ -1,5 +1,7 @@
 import { makeObservable, observable, action } from 'mobx';
 
+import { t } from 'ts/helpers/Localization';
+
 export interface IConfirmStore {
   title: string;
   yes: string;
@@ -36,9 +38,9 @@ class ConfirmStore implements IConfirmStore {
   }
 
   open(options?: any) {
-    this.title = options?.title || options || 'Вы уверены что хотите удалить?';
-    this.yes = options?.yes || 'Да, уверен';
-    this.no = options?.no || 'Отмена';
+    this.title = options?.title || options || t('common.confirm.title');
+    this.yes = options?.yes || t('common.confirm.yes');
+    this.no = options?.no || t('common.confirm.no');
     this.isOpen = true;
     return new Promise((response: any, reject: any) => {
       this.successCallback = response;

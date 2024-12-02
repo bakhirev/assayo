@@ -26,4 +26,8 @@ export default `
 § common.notifications.save: Изменения сохранены
 § common.notifications.setting: Настройки сохранены
 § common.fileLoader.notification: Ошибка загрузки файла $1
+§ common.confirm.title: Вы уверены что хотите удалить?
+§ common.confirm.yes: Да, уверен
+§ common.confirm.no: Отмена
+§ common.confirm.abc: abc
 `;

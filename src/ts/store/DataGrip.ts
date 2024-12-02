@@ -41,6 +41,7 @@ class DataGripStore {
       processingDataAnalysis: action,
       depersonalized: action,
       updateStatistic: action,
+      exit: action,
     });
   }
 
@@ -146,6 +147,13 @@ class DataGripStore {
     this.fileGrip = null;
     this.fileGrip = fileGrip;
     this.hash = Math.random();
+  }
+
+  exit() {
+    dataGrip.clear();
+    fileGrip.clear();
+    this.commits = [];
+    this.#updateRender();
   }
 }
 
