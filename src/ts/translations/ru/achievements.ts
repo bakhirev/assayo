@@ -65,7 +65,7 @@ export default `
 § achievements.moreDaysInProject.description: больше всего дней на проекте
 § achievements.moreRefactoring.title: Выпускающий редактор
 § achievements.moreRefactoring.description: сделал больше всех меток «рефакторинг»
-§ achievements.longestMessage.title: "Языком болтать" не мешки ворочать
+§ achievements.longestMessage.title: «Языком болтать» не мешки ворочать
 § achievements.longestMessage.description: самая длинная подпись коммита за все время
 § achievements.moreTasksInDay.title: Спиди-гонщик
 § achievements.moreTasksInDay.description: рекорд по количеству закрытых задач в день
