@@ -5,6 +5,7 @@ export default `
 § sidebar.buttons.print: 인쇄
 § sidebar.buttons.share: 그것을 공유
 § sidebar.buttons.logout: 나가
+§ sidebar.buttons.logoutQuestion: Are you sure you want to clear data-set?
 § sidebar.filters.all: 항상
 § sidebar.filters.year: 년
 § sidebar.filters.halfYear: 반년

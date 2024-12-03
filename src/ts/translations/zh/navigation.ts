@@ -5,6 +5,7 @@ export default `
 § sidebar.buttons.print: 印刷业
 § sidebar.buttons.share: Share
 § sidebar.buttons.logout: Logout
+§ sidebar.buttons.logoutQuestion: Are you sure you want to clear data-set?
 § sidebar.filters.all: 一直
 § sidebar.filters.year: 年份
 § sidebar.filters.halfYear: 半年

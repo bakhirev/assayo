@@ -5,6 +5,7 @@ export default `
 § sidebar.buttons.print: 印刷
 § sidebar.buttons.share: Share
 § sidebar.buttons.logout: Logout
+§ sidebar.buttons.logoutQuestion: Are you sure you want to clear data-set?
 § sidebar.filters.all: すべての時間
 § sidebar.filters.year: 年
 § sidebar.filters.halfYear: 半年

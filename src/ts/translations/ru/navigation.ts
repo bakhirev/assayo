@@ -5,6 +5,7 @@ export default `
 § sidebar.buttons.print: Печать
 § sidebar.buttons.share: Расшарить
 § sidebar.buttons.logout: Выйти
+§ sidebar.buttons.logoutQuestion: Вы уверены что хотите выйти?
 § sidebar.filters.all: всё время
 § sidebar.filters.year: год
 § sidebar.filters.halfYear: пол года

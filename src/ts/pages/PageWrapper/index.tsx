@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
@@ -81,7 +81,17 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
 });
 
 function PageWrapper({ children }: IPageWrapper) {
-  return isMobile
+  const [localIsMobile, setLocalIsMobile] = useState<boolean>(isMobile);
+
+  useEffect(() => {
+    function handleResize() {
+      setLocalIsMobile(window.innerWidth < 700 || isMobile);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return localIsMobile
     ? (<MobileView>{children}</MobileView>)
     : (<DesktopView>{children}</DesktopView>);
 }

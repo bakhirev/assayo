@@ -5,6 +5,7 @@ export default `
 § sidebar.buttons.print: Impresión
 § sidebar.buttons.share: Share
 § sidebar.buttons.logout: Logout
+§ sidebar.buttons.logoutQuestion: Are you sure you want to clear data-set?
 § sidebar.filters.all: a todas horas
 § sidebar.filters.year: año
 § sidebar.filters.halfYear: medio año

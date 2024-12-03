@@ -26,4 +26,8 @@ export default `
 § common.notifications.save: 변경 사항이 저장됩니다
 § common.notifications.setting: 설정이 저장됩니다
 § common.fileLoader.notification: 파일 업로드 오류$1
+§ common.confirm.title: Are you sure you want to remove it?
+§ common.confirm.yes: Yes, I am sure.
+§ common.confirm.no: Cancel
+§ common.confirm.abc: abc
 `;

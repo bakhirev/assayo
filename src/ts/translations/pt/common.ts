@@ -26,4 +26,8 @@ Se este for um erro e a estatística para esse funcionário precisar ser levada 
 § common.notifications.save: Alterações salvas
 § common.notifications.setting: Configuração guardada
 § common.fileLoader.notification: Cant open file $1
+§ common.confirm.title: Are you sure you want to remove it?
+§ common.confirm.yes: Yes, I am sure.
+§ common.confirm.no: Cancel
+§ common.confirm.abc: abc
 `;

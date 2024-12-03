@@ -29,4 +29,8 @@ If this is an error and this employee needs to be calculated as usual, go to the
 § common.notifications.save: The changes have been saved
 § common.notifications.setting: The settings have been saved
 § common.fileLoader.notification: Cant open file $1
+§ common.confirm.title: Are you sure you want to remove it?
+§ common.confirm.yes: Yes, I am sure.
+§ common.confirm.no: Cancel
+§ common.confirm.abc: abc
 `;

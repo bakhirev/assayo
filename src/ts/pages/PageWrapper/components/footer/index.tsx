@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import localization from 'ts/helpers/Localization';
+import { t as _t } from 'ts/helpers/Localization';
 import dataGripStore from 'ts/store/DataGrip';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
@@ -34,7 +34,7 @@ function getMenu(navigate: Function): any[] {
       icon: './assets/menu/share.svg',
       onClick() {
         navigator.share({
-          title: localization.get('common.title'),
+          title: _t('common.title'),
           text: '',
           url: window.location.href,
         });
@@ -46,7 +46,7 @@ function getMenu(navigate: Function): any[] {
       icon: './assets/menu/logout.svg',
       onClick() {
         confirm.open({
-          title: 'Вы уверены что хотите выйти?',
+          title: _t('sidebar.buttons.logoutQuestion'),
         }).then(() => {
           dataGripStore.exit();
           navigate('/');

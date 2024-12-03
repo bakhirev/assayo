@@ -1,5 +1,5 @@
 import dataGripStore from 'ts/store/DataGrip';
-import { getRandom, shuffle } from 'ts/helpers/random';
+import { shuffle } from 'ts/helpers/random';
 import localization from 'ts/helpers/Localization';
 
 import IQuiz from '../interfaces/Quiz';
@@ -20,17 +20,23 @@ function getQuestionByList(
   return getQuestion(question, formattedAnswers, formattedAnswers.indexOf(rightAnswer));
 }
 
+function getRandomDiff(value: number) {
+  return Math.random() > 0.5 ? value : -value;
+}
+
 function getQuestionByNumber(question: string, rightAnswer: number) {
   let a, b;
   if (rightAnswer < 3) {
     a = rightAnswer + 1;
     b = rightAnswer + 2;
   } else {
-    a = rightAnswer + (getRandom(rightAnswer) * (Math.random() > 0.5 ? 1 : -1));
-    b = rightAnswer + (getRandom(rightAnswer) * (Math.random() > 0.5 ? 1 : -1));
-    if (a === b) return null;
+    const step = rightAnswer > 10
+      ? Math.ceil(rightAnswer * 0.15)
+      : 1;
+    a = rightAnswer + getRandomDiff(step);
+    b = rightAnswer + getRandomDiff(step * 2);
   }
-  const answers = shuffle([rightAnswer || 1, a || 1, b || 1]);
+  const answers = shuffle([rightAnswer, a, b]);
   return getQuestion(question, answers, answers.indexOf(rightAnswer));
 }
 
