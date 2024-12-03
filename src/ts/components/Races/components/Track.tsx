@@ -14,6 +14,7 @@ interface ITrackProps {
   title: string;
   position: string;
   speed: number;
+  taskInDay: number;
   type?: string;
   canStart?: boolean;
 }
@@ -22,6 +23,7 @@ function Track({
   title,
   position,
   speed,
+  taskInDay,
   type,
   canStart,
 }: ITrackProps): React.ReactElement | null {
@@ -39,6 +41,7 @@ function Track({
         <Info
           title={position}
           duration={duration}
+          taskInDay={taskInDay}
         />
       )}
       <Car

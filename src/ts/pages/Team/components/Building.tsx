@@ -21,6 +21,7 @@ const TeamBuilding = observer((): React.ReactElement => {
   const tracks = tracksAuth.map((statistic: any) => ({
     title: statistic.author,
     position: order.indexOf(statistic.taskInDay) + 1,
+    taskInDay: statistic.taskInDay,
     speed: statistic.taskInDay / order[0],
   }));
 

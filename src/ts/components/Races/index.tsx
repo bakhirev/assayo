@@ -33,6 +33,7 @@ function Races({
         title={track.title}
         position={track.position}
         speed={track.speed}
+        taskInDay={track.taskInDay}
         canStart={showAnimation}
       />
     );
