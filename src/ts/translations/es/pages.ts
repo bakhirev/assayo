@@ -250,16 +250,18 @@ export default `
 § page.team.building.quiz.question03: Who is the fastest at completing tasks?
 § page.team.building.quiz.question04: Who has been working on the project the longest?
 § page.team.building.quiz.question05: Who worked the least on the project?
-§ page.team.building.quiz.question06: Who is the committee most often?
-§ page.team.building.quiz.question07: Who commits less often?
 § page.team.building.quiz.question08: Who has the longest commit signatures?
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
-§ page.team.building.quiz.question10: Who has the most days without comments?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
 § page.team.building.quiz.question13: How many maximum tasks did $1 per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
+§ page.team.building.quiz.question16: Who created the most directories?
+§ page.team.building.quiz.question17: Who was the first to create the file with the deepest path?
+§ page.team.building.quiz.question18: Who clicks the "Merge" button for PR more often than others?
+§ page.team.building.quiz.question19: Who had the longest commit signature of all time?
+§ page.team.building.quiz.question20: Who created the PR that hung on the review for more than a month?
 § page.team.building.quiz.begin: How well do you know the team?
 § page.team.building.quiz.result1.title: Not enough
 § page.team.building.quiz.result1.description: The correct answers are less than 40%. Check out the information about your team in the adjacent sections and try again!

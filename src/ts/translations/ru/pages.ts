@@ -250,16 +250,18 @@ export default `
 § page.team.building.quiz.question03: Кто быстрее всех делает задачи?
 § page.team.building.quiz.question04: Кто дольше всех работал на проекте?
 § page.team.building.quiz.question05: Кто меньше всех работал на проекте?
-§ page.team.building.quiz.question06: Кто чаще коммитит?
-§ page.team.building.quiz.question07: Кто реже коммитит?
 § page.team.building.quiz.question08: У кого саммые длинные подписи коммитов?
 § page.team.building.quiz.question09: У кого саммые короткие подписи коммитов?
-§ page.team.building.quiz.question10: У кого больше всего дней без коммитов?
 § page.team.building.quiz.question11: Сколько человек уволилось?
 § page.team.building.quiz.question12: Сколько человек помогало проекту?
 § page.team.building.quiz.question13: Сколько максимум задач в день делал $1?
 § page.team.building.quiz.question14: Задач какого типа больше влили?
 § page.team.building.quiz.question15: Сколько в среднем дней работают на проекте?
+§ page.team.building.quiz.question16: Кто создал больше всех дирректорий?
+§ page.team.building.quiz.question17: Кто первый создал файл с самым глубоким вложением?
+§ page.team.building.quiz.question18: Кто чаще остальных нажимает кнопку «Влить» для PR?
+§ page.team.building.quiz.question19: У кого была самая длинная подпись коммита за все время?
+§ page.team.building.quiz.question20: Кто создал PR, который больше месяца провисел на ревью?
 § page.team.building.quiz.begin: Насколько хорошо ты знаешь команду?
 § page.team.building.quiz.result1.title: Недостаточно
 § page.team.building.quiz.result1.description: Правильных ответов меньше 40%. Ознакомьтесь с данными о вашей команде в соседних разделах и попробуйте снова!

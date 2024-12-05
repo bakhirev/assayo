@@ -1,6 +1,7 @@
 import dataGripStore from 'ts/store/DataGrip';
 import { shuffle } from 'ts/helpers/random';
 import localization from 'ts/helpers/Localization';
+import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
 
 import IQuiz from '../interfaces/Quiz';
 import getQuestion from './getQuestion';
@@ -74,16 +75,35 @@ function getHowDaysInProject(authors: any) {
   return getQuestionByNumber('page.team.building.quiz.question15', rightAnswer);
 }
 
+function getQuestionByAchievement(
+  authors: any[],
+  question: string,
+  achievements: Function,
+  achievement: string,
+) {
+  const rightAnswer = authors.find((author) => achievements?.[author]?.[achievement]);
+  if (!rightAnswer) return null;
+
+  const badAnswers = authors.filter((author) => author !== rightAnswer);
+  const shortList = shuffle(badAnswers).slice(0, 2);
+  const allAnswers = shuffle([...shortList, rightAnswer]);
+  return getQuestion(question, allAnswers, allAnswers.indexOf(rightAnswer));
+}
+
 export default function getQuizQuestions(): IQuiz {
   const authorsWithStaff = [...dataGripStore.dataGrip.author.statistic];
   const authors = authorsWithStaff.filter((data) => !data.isStaff);
+  const authorNames = authors.map((stat) => stat.author);
   const dismissed = dataGripStore.dataGrip.author.employment.dismissed.length;
   const staff = dataGripStore.dataGrip.author.employment.staff.length;
   const randomUsers = shuffle([...authors]).slice(0, 3);
 
-  // во сколько чаще всего комитят
-  // Кто устроился на работу в __Янаваре
-  // Кто первый стал коммитить ночью
+  const achievements = authors.reduce((byAuthor, author) => {
+    const list = achievementByAuthor.authors[author.author].flat(1);
+    const entries = list.map((key) => [key, true]);
+    byAuthor[author.author] = Object.fromEntries(entries);
+    return byAuthor;
+  }, {});
 
   const questions = [
     getQuestionByList(authorsWithStaff, 'page.team.building.quiz.question01', (s: any) => s.firstCommit.milliseconds),
@@ -91,11 +111,13 @@ export default function getQuizQuestions(): IQuiz {
     getQuestionByList(authors, 'page.team.building.quiz.question03', (s: any) => s.taskInDay),
     getQuestionByList(authors, 'page.team.building.quiz.question04', (s: any) => s.daysAll),
     getQuestionByList(authors, 'page.team.building.quiz.question05', (s: any) => s.daysAll, 2),
-    getQuestionByList(authors, 'page.team.building.quiz.question06', (s: any) => s.commits / s.daysWorked),
-    getQuestionByList(authors, 'page.team.building.quiz.question07', (s: any) => s.commits / s.daysWorked, 2),
+    getQuestionByAchievement(authorNames, 'page.team.building.quiz.question16', achievements, 'moreAddedFolders'),
+    getQuestionByAchievement(authorNames, 'page.team.building.quiz.question17', achievements, 'longFilePath'),
+    getQuestionByAchievement(authorNames, 'page.team.building.quiz.question18', achievements, 'morePRMerge'),
+    getQuestionByAchievement(authorNames, 'page.team.building.quiz.question19', achievements, 'longestMessage'),
+    getQuestionByAchievement(authorNames, 'page.team.building.quiz.question20', achievements, 'longWaitPR'),
     getQuestionByList(authors, 'page.team.building.quiz.question08', (s: any) => s.middleMessageLength),
     getQuestionByList(authors, 'page.team.building.quiz.question09', (s: any) => s.middleMessageLength, 2),
-    getQuestionByList(authors, 'page.team.building.quiz.question10', (s: any) => s.daysLosses / s.daysWorked, 2),
     getQuestionByNumber('page.team.building.quiz.question11', dismissed),
     getQuestionByNumber('page.team.building.quiz.question12', staff),
     getHowTaskInDay(randomUsers[0]),

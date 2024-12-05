@@ -8,6 +8,7 @@
   cursor: pointer;
   border: none;
   box-shadow: none;
+  outline-color: transparent;
   transition: width 0.5s;
 
   &_wrapper {
@@ -81,15 +82,15 @@
       content: ' ';
 
       position: absolute;
-      top: -6px;
-      left: 45%;
+      top: -8px;
+      left: 43%;
 
       display: block;
       transform: rotate(45deg);
 
-      border: 12px solid var(--temp-bg);
-      border-bottom: none;
-      border-right: none;
+      border: 8px solid #6E605E;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
     }
   }
 }
@@ -138,6 +139,9 @@
     }
     &_text {
       font-size: var(--font-s);
+      &:before {
+        left: 39%;
+      }
     }
   }
   .quiz_answer_wrapper_small .quiz_answer {
