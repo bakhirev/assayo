@@ -19,9 +19,9 @@ import CompanyCharts from './components/Charts';
 const Company = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
-  const companyRows = dataGripStore.dataGrip.company.statistic;
+  const content = dataGripStore.dataGrip.company.statistic;
 
-  if (!companyRows?.length) {
+  if (!content?.length) {
     return mode !== 'print' ? (<NothingFound />) : null;
   }
 
@@ -34,13 +34,13 @@ const Company = observer(({
       <DataLoader
         to="response"
         loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: companyRows, pagination, sort, mode,
+          content, pagination, sort, mode,
         })}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <Companies
           mode={mode}
-          rowsForExcel={companyRows}
+          rowsForExcel={content}
         />
         <Pagination />
       </DataLoader>

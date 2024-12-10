@@ -1,6 +1,6 @@
 > La [documentation principale](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) est en russe. C'est une traduction. Il peut contenir des erreurs. Si vous êtes un locuteur natif, vous pouvez aider à améliorer cette traduction. Merci!
 
-Visualisation et analyse des données de votre dépôt Git ([demo](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Visualisation et analyse des données de votre dépôt Git ([demo](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Un employé peut évaluer un nouveau lieu de travail
 - le rythme du travail;
@@ -61,8 +61,8 @@ La différence entre le format en ligne et le format hors ligne réside dans l�
 
 ### Comment voir le rapport en ligne?
 #### Online
-- Aller à [сайт](https://assayo.online/)
-- Appuyer sur le bouton “[Démo](https://assayo.online/demo)”
+- Aller à [сайт](https://bakhirev.github.io/)
+- Appuyer sur le bouton “[Démo](https://bakhirev.github.io/demo)”
 - Faites glisser le fichier `log.txt` dans la fenêtre du navigateur
 #### Offline
 - Télécharger ce dépôt
@@ -135,9 +135,9 @@ fi
 
 #### Serveur public
 
-Vous pouvez mettre à disposition le fichier avec les données pour construire le rapport sur l’URL publique. Et pour sa visualisation, utiliser l’interface web du site. [assayo](https://assayo.online/). Tout simplement, indiquez l’adresse où se trouvent les données dans le paramètre de l’URL ```dump```:
+Vous pouvez mettre à disposition le fichier avec les données pour construire le rapport sur l’URL publique. Et pour sa visualisation, utiliser l’interface web du site. [assayo](https://bakhirev.github.io/). Tout simplement, indiquez l’adresse où se trouvent les données dans le paramètre de l’URL ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Serveur privé
@@ -185,5 +185,5 @@ Vous pouvez ajouter une nouvelle traduction ou corriger la traduction existante 
 #### Souhaits, suggestions, commentaires
 - telegramm [@bakhirev](https://t.me/bakhirev) (voie de communication prioritaire)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- site [https://assayo.online/](https://assayo.online/?ref=github&lang=fr)
+- site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=fr)
 

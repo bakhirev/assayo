@@ -6,7 +6,7 @@
         "p": "对您的git仓库的数据进行可视化和分析 团队领导及资讯科技审核的表现工具"
     },
     {
-        "p": "**Links:** [示范表现](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+        "p": "**Links:** [示范表现](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
     },
     {
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
@@ -176,8 +176,8 @@
     },
     {
         "li": [
-            "切换到 [网站](https://assayo.online/)",
-            "按下按钮 “[示范](https://assayo.online/demo?lang=ru)”",
+            "切换到 [网站](https://bakhirev.github.io/)",
+            "按下按钮 “[示范](https://bakhirev.github.io/demo?lang=ru)”",
             "拖放文件 `log.txt` 在浏览器窗口中"
         ]
     },
@@ -269,7 +269,7 @@
         ]
     },
     {
-        "p": "**Example:** [demo](https://assayo.online/demo/themes/)"
+        "p": "**Example:** [demo](https://bakhirev.github.io/demo/themes/)"
     },
     {
         "h3": "如何签署提交？"
@@ -362,11 +362,11 @@
         "h4": "公共服务器"
     },
     {
-        "p": "您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://assayo.online/). 指定数据所在的地址作为URL参数 ```dump```:"
+        "p": "您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://bakhirev.github.io/). 指定数据所在的地址作为URL参数 ```dump```:"
     },
     {
         "pre": [
-            "https://assayo.online/demo/?dump=//you_site.com/some/log.txt"
+            "https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt"
         ]
     },
     {
@@ -441,7 +441,7 @@
         "li": [
             "telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)",
             "[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)",
-            "网站 [https://assayo.online/](https://assayo.online/?ref=github&lang=zh)"
+            "网站 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)"
         ]
     }
 ]

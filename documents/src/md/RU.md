@@ -1,4 +1,4 @@
-Визуализация и анализ данных вашего git-репозитория ([демо](https://assayo.online/demo/?dump=./test.txt), [установка](https://assayo.online/demo/?ref=github)).
+Визуализация и анализ данных вашего git-репозитория ([демо](https://bakhirev.github.io/demo/?dump=./test.txt), [установка](https://bakhirev.github.io/demo/?ref=github)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;
@@ -65,8 +65,8 @@ Git создаст файл `log.txt`.
 ### Как посмотреть отчёт? 
 #### Онлайн
 
-- Перейти на [сайт](https://assayo.online/)
-- Нажать кнопку «[Демо](https://assayo.online/demo)»
+- Перейти на [сайт](https://bakhirev.github.io/)
+- Нажать кнопку «[Демо](https://bakhirev.github.io/demo)»
 - Перетащить файл `log.txt` в окно браузера
 
 #### Офлайн
@@ -150,9 +150,9 @@ fi
 
 #### Публичный сервер
 
-Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://assayo.online/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
+Вы можете выкладывать файл с данными для построения отчёта на публичный URL. А для его визуализации использовать веб-интерфейс сайта [assayo](https://bakhirev.github.io/). Просто укажите адресс, где лежат данные, в URL-параметре ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Приватный сервер
@@ -200,5 +200,5 @@ you_url    - URL адресс вашего контейнера с логами 
 #### Пожелания, предложения, замечания
 - telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- сайт [https://assayo.online/](https://assayo.online/?ref=github&lang=ru)
+- сайт [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ru)
 

@@ -1,6 +1,6 @@
 > The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
 
-Visualization and analysis of git commit statistics. Team Lead performance tool. ([demo](https://assayo.online/demo/?ref=github&lang=en&dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Visualization and analysis of git commit statistics. Team Lead performance tool. ([demo](https://bakhirev.github.io/demo/?ref=github&lang=en&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Employee can evaluate new workplace
 - work speed;
@@ -64,8 +64,8 @@ The difference between the online and offline format is the presence of a wrappe
 
 ### How to view the report?
 #### Online
-- go to the [website](https://assayo.online/);
-- click the “[Demo](https://assayo.online/demo)” button;
+- go to the [website](https://bakhirev.github.io/);
+- click the “[Demo](https://bakhirev.github.io/demo)” button;
 - drop the `log.txt` file into the browser window;
 #### Offline
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
@@ -148,9 +148,9 @@ fi
 
 <a name="link-20"></a>
 #### Public server
-You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://assayo.online/?ref=github&lang=en) to visualize it.
+You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://bakhirev.github.io/?ref=github&lang=en) to visualize it.
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 <a name="link-21"></a>
@@ -203,4 +203,4 @@ Releases are planned approximately once every six months. What’s next:
 #### Feedback, comments
 - telegramm [@bakhirev](https://t.me/bakhirev) (priority method of communication)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- website [https://assayo.online/](https://assayo.online/?ref=github&lang=en)
+- website [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=en)

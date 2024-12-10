@@ -1,6 +1,6 @@
 > [主要文件是俄文。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) 这是一个翻译。 它可能包含错误。 如果您是母语人士，您可以帮助改进此翻译。 谢谢！
 
-对您的git仓库的数据进行可视化和分析 ([示范表现](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+对您的git仓库的数据进行可视化和分析 ([示范表现](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### 工作人员可以评估新工作场所
 - 工作节奏；
@@ -61,8 +61,8 @@ Git会创建一个文件 `log.txt`.
 
 ### 如何在线查看报告？
 
-- 切换到 [网站](https://assayo.online/)
-- 按下按钮 “[示范](https://assayo.online/demo?lang=ru)”
+- 切换到 [网站](https://bakhirev.github.io/)
+- 按下按钮 “[示范](https://bakhirev.github.io/demo?lang=ru)”
 - 拖放文件 `log.txt` 在浏览器窗口中
 
 ### 如何在没有网络环境下查看报告？
@@ -140,9 +140,9 @@ fi
 
 #### 公共服务器
 
-您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://assayo.online/). 指定数据所在的地址作为URL参数 ```dump```:
+您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://bakhirev.github.io/). 指定数据所在的地址作为URL参数 ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### 专用服务器
@@ -185,5 +185,5 @@ you_url    - git日志的容器的URL地址;
 #### 愿望，建议，意见
 - telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- 网站 [https://assayo.online/](https://assayo.online/?ref=github&lang=zh)
+- 网站 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)
 

@@ -6,7 +6,7 @@
         "p": "Visualización y análisis de los datos de su repositorio git. Performance tool for Team Lead and IT-audit"
     },
     {
-        "p": "**Links:** [demo](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+        "p": "**Links:** [demo](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
     },
     {
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
@@ -176,8 +176,8 @@
     },
     {
         "li": [
-            "ir a [sitio web](https://assayo.online/)",
-            "pulse el botón [Demo](https://assayo.online/demo)»",
+            "ir a [sitio web](https://bakhirev.github.io/)",
+            "pulse el botón [Demo](https://bakhirev.github.io/demo)»",
             "arrastrar y soltar archivo `log.txt` en la ventana del navegador"
         ]
     },
@@ -269,7 +269,7 @@
         ]
     },
     {
-        "p": "**Example:** [demo](https://assayo.online/demo/themes/)"
+        "p": "**Example:** [demo](https://bakhirev.github.io/demo/themes/)"
     },
     {
         "h3": "¿Cómo firmar los commits?"
@@ -365,11 +365,11 @@
         "h4": "Servidor público"
     },
     {
-        "p": "Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://assayo.online/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:"
+        "p": "Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://bakhirev.github.io/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:"
     },
     {
         "pre": [
-            "https://assayo.online/demo/?dump=//you_site.com/some/log.txt"
+            "https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt"
         ]
     },
     {
@@ -451,7 +451,7 @@
         "li": [
             "telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)",
             "[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)",
-            "sitio web [https://assayo.online/](https://assayo.online/?ref=github&lang=es)"
+            "sitio web [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=es)"
         ]
     }
 ]

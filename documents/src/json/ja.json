@@ -6,7 +6,7 @@
         "p": "データの可視化とGitレポジトリの分析"
     },
     {
-        "p": "**Links:** [デモ](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+        "p": "**Links:** [デモ](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
     },
     {
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
@@ -176,8 +176,8 @@
     },
     {
         "li": [
-            "に切り替える [ウェブサイト](https://assayo.online/)",
-            "ボタンを押す “[デモ](https://assayo.online/demo?lang=ru)”",
+            "に切り替える [ウェブサイト](https://bakhirev.github.io/)",
+            "ボタンを押す “[デモ](https://bakhirev.github.io/demo?lang=ru)”",
             "ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで"
         ]
     },
@@ -269,7 +269,7 @@
         ]
     },
     {
-        "p": "**Example:** [demo](https://assayo.online/demo/themes/)"
+        "p": "**Example:** [demo](https://bakhirev.github.io/demo/themes/)"
     },
     {
         "h3": "commit文の署名方法は？"
@@ -362,11 +362,11 @@
         "h4": "公開サーバ"
     },
     {
-        "p": "データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.online/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:"
+        "p": "データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://bakhirev.github.io/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:"
     },
     {
         "pre": [
-            "https://assayo.online/demo/?dump=//you_site.com/some/log.txt"
+            "https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt"
         ]
     },
     {
@@ -441,7 +441,7 @@
         "li": [
             "telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)",
             "[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)",
-            "ウェブサイト [https://assayo.online/](https://assayo.online/?ref=github&lang=ja)"
+            "ウェブサイト [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ja)"
         ]
     }
 ]

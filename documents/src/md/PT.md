@@ -1,6 +1,6 @@
 > [Documentação básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) em russo. É uma tradução. Pode conter erros. Se você é um falante nativo, você pode ajudar a melhorar esta tradução. Obrigado!
 
-Visualização e análise de dados do seu repositório git ([demonstração](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Visualização e análise de dados do seu repositório git ([demonstração](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Funcionario de avaliar o novo local de trabalho
 - ritmo de trabalho;
@@ -61,8 +61,8 @@ A diferença entre os formatos está na existência de uma envoltória para as l
 
 ### Como ver o relatório?
 #### Online
-- Ir para [site](https://assayo.online/)
-- Pressione o botão “[Demonstração](https://assayo.online/demo?lang=ru)”
+- Ir para [site](https://bakhirev.github.io/)
+- Pressione o botão “[Demonstração](https://bakhirev.github.io/demo?lang=ru)”
 - Arrastar e largar `log.txt` na janela do navegador
 #### Offline
 - Baixar este repositório
@@ -139,9 +139,9 @@ A cada reinício do computador, o script atualiza a estatística com todos os da
 
 #### Servidor Público
 
-Você pode disponibilizar o arquivo com os dados para construção do relatório em um URL público. Para visualizá-lo, você pode usar um site [assayo](https://assayo.online/). Especifique o endereço onde os dados estão localizados no parâmetro de URL ```dump```:
+Você pode disponibilizar o arquivo com os dados para construção do relatório em um URL público. Para visualizá-lo, você pode usar um site [assayo](https://bakhirev.github.io/). Especifique o endereço onde os dados estão localizados no parâmetro de URL ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Servidor Privado
@@ -184,5 +184,5 @@ Você pode adicionar uma nova tradução ou corrigir uma existente na seção ``
 #### Sugestões, sugestões, comentários
 - telegramm [@bakhirev](https://t.me/bakhirev) (método de comunicação prioritário)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- site [https://assayo.online/](https://assayo.online/?ref=github&lang=pt)
+- site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=pt)
 

@@ -3,9 +3,9 @@
 > - [Spanish](https://github.com/bakhirev/assayo/blob/main/documents/ES.md)
 > - [French](https://github.com/bakhirev/assayo/blob/main/documents/FR.md)
 
-# [Assayo](https://assayo.online/?ref=github&lang=ru)
+# [Assayo](https://bakhirev.github.io/?ref=github&lang=ru)
 
-Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+Визуализация и анализ данных вашего git-репозитория ([демонстрация](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### Сотрудник может оценить новое место работы
 - темп работы;
@@ -64,8 +64,8 @@ Git создаст файл `log.txt`.
 
 ### Как посмотреть отчёт с интеретом? 
 
-- Перейти на [сайт](https://assayo.online/)
-- Нажать кнопку “[Демонстрация](https://assayo.online/demo?lang=ru)”
+- Перейти на [сайт](https://bakhirev.github.io/)
+- Нажать кнопку “[Демонстрация](https://bakhirev.github.io/demo?lang=ru)”
 - Перетащить файл `log.txt` в окно браузера
 
 ### Как посмотреть отчёт без интернета?
@@ -118,9 +118,9 @@ JIRA-1234 feat(profile): Added avatar for user
 
 #### Публичный сервер
 
-Вы можете выкладывать файл с данными для построения отчёта на публичный URL. Для его визуализации можно использовать сайт [assayo](https://assayo.online/). Указывайте адресс, где лежат данные, в URL-параметре ```dump```:
+Вы можете выкладывать файл с данными для построения отчёта на публичный URL. Для его визуализации можно использовать сайт [assayo](https://bakhirev.github.io/). Указывайте адресс, где лежат данные, в URL-параметре ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### Приватный сервер
@@ -154,5 +154,5 @@ you_url    - URL адресс вашего контейнера с логами 
 ### Пожелания, предложения, замечания
 - telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- сайт [https://assayo.online/](https://assayo.online/)
+- сайт [https://bakhirev.github.io/](https://bakhirev.github.io/)
 

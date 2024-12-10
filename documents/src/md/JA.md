@@ -1,6 +1,6 @@
 > [主な文書はロシア語です。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) これは翻訳です。 エラーが含まれている可能性があります。 あなたがネイティブスピーカーであれば、この翻訳を改善するのに役立ちます。 ありがとう！
 
-データの可視化とGitレポジトリの分析 ([デモ](https://assayo.online/demo/?dump=./test.txt), [online version](https://assayo.online/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
+データの可視化とGitレポジトリの分析 ([デモ](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo)).
 
 ##### 従業員は新しい職場を評価することができます
 - 働きのペース;
@@ -61,8 +61,8 @@ Gitはファイルを作成します `log.txt`.
 
 ### レポートを表示するにはどうすればよいですか？ 
 #### Online
-- に切り替える [ウェブサイト](https://assayo.online/)
-- ボタンを押す “[デモ](https://assayo.online/demo?lang=ru)”
+- に切り替える [ウェブサイト](https://bakhirev.github.io/)
+- ボタンを押す “[デモ](https://bakhirev.github.io/demo?lang=ru)”
 - ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで
 #### Offline
 - このリポジトリをダウンロードする
@@ -139,9 +139,9 @@ fi
 
 #### 公開サーバ
 
-データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://assayo.online/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
+データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://bakhirev.github.io/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
 ```
-https://assayo.online/demo/?dump=//you_site.com/some/log.txt
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 
 #### プライベートサーバー
@@ -184,5 +184,5 @@ you_url    - gitのログのコンテナーのURLアドレス;
 #### 願い、提案、コメント
 - telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- ウェブサイト [https://assayo.online/](https://assayo.online/?ref=github&lang=ja)
+- ウェブサイト [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ja)
 
