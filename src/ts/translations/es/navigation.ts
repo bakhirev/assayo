@@ -36,6 +36,8 @@ export default `
 § sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: Ajustes
+§ sidebar.team.recommendations: Recommendations and facts
+§ sidebar.team.building: Games
 § sidebar.person.total: Información general
 § sidebar.person.money: Costo del trabajo
 § sidebar.person.speed: Velocidad

@@ -1,5 +1,10 @@
 import { getDateByTimestamp } from 'ts/helpers/formatter';
-import RECOMMENDATION_TYPES from '../contstants';
+import { getBuilder } from '../helpers';
+
+const {
+  getArgTitle,
+  getTitleArgDescription,
+} = getBuilder('timestamp');
 
 export default class RecommendationsPersonByTimestamp {
   getTotalInfo(dataGrip: any) {
@@ -10,35 +15,14 @@ export default class RecommendationsPersonByTimestamp {
       acc[name] = [];
 
       if (workInWeek) {
-        acc[name].push({
-          title: 'recommendations.timestamp.common.title',
-          description: 'recommendations.timestamp.weekendDays.description',
-          type: RECOMMENDATION_TYPES.ALERT,
-          arguments: {
-            title: [workInWeek],
-          },
-        });
+        acc[name].push(getArgTitle('weekendDays', [workInWeek]));
       }
 
       if (byAuthor.daysLosses) {
-        acc[name].push({
-          title: 'recommendations.timestamp.common.title',
-          description: 'recommendations.timestamp.lossesDays.description',
-          type: RECOMMENDATION_TYPES.WARNING,
-          arguments: {
-            title: [byAuthor.daysLosses],
-          },
-        });
+        acc[name].push(getArgTitle('lossesDays', [byAuthor.daysLosses]));
       }
 
-      acc[name].push({
-        title: 'recommendations.timestamp.common.title',
-        description: 'recommendations.timestamp.allDays.description',
-        type: RECOMMENDATION_TYPES.FACT,
-        arguments: {
-          title: [byAuthor.daysAll],
-        },
-      });
+      acc[name].push(getArgTitle('allDays', [byAuthor.daysAll]));
 
       acc[name].push(this.getFirstDay(byTimestamp));
 
@@ -51,28 +35,12 @@ export default class RecommendationsPersonByTimestamp {
   getFirstDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[0];
     const [date, day] = getDateByTimestamp(commit.timestamp);
-    return {
-      title: date,
-      description: 'recommendations.timestamp.firstCommit.description',
-      type: RECOMMENDATION_TYPES.FACT,
-      arguments: {
-        description: [day],
-      },
-    };
+    return getTitleArgDescription('firstCommit', date, [day]);
   }
 
   getLastDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[(byTimestamp.allCommitsByTimestamp.length - 1)];
     const [date, day] = getDateByTimestamp(commit.timestamp);
-    return {
-      title: date,
-      description: 'recommendations.timestamp.lastCommit.description',
-      type: RECOMMENDATION_TYPES.FACT,
-      arguments: {
-        description: [day],
-      },
-    };
+    return getTitleArgDescription('lastCommit', date, [day]);
   }
 }
-
-

@@ -28,6 +28,7 @@ import Print from './components/Print';
 import Release from './components/Release';
 import Refactor from './components/Refactor';
 import Department from './components/Department';
+import RecommendationsPage from './components/Recommendations';
 
 interface ViewProps {
   page?: string;
@@ -61,6 +62,7 @@ const View = observer(({ page }: ViewProps): React.ReactElement => {
   if (page === 'tasks') return <Tasks/>;
   if (page === 'refactor') return <Refactor/>;
   if (page === 'department') return <Department/>;
+  if (page === 'recommendations') return <RecommendationsPage/>;
   return <Total/>;
 });
 

@@ -1,4 +1,6 @@
-import RECOMMENDATION_TYPES from '../contstants';
+import { getBuilder } from '../helpers';
+
+const { getItem, getArgDescription } = getBuilder('type');
 
 export default class RecommendationsTeamByType {
   getTotalInfo(dataGrip: any) {
@@ -8,21 +10,9 @@ export default class RecommendationsTeamByType {
 
     return [
       this.getBusFactor(dataGrip),
-      (fewTypes ? {
-        title: 'recommendations.type.fewTypes.title',
-        description: 'recommendations.type.fewTypes.description',
-        type: RECOMMENDATION_TYPES.FACT,
-      } : null),
-      {
-        title: 'recommendations.type.diff.title',
-        description: 'recommendations.type.diff.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
-      {
-        title: 'recommendations.type.buddy.title',
-        description: 'recommendations.type.buddy.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
+      (fewTypes ? getItem('fewTypes') : null),
+      getItem('diff'),
+      getItem('buddy'),
     ].filter(item => item);
   }
 
@@ -39,27 +29,8 @@ export default class RecommendationsTeamByType {
     if (!oneMaintainer.length) return null;
     const everyHasOne = oneMaintainer.length > dataGrip.type.statistic.length * 0.6;
 
-    if (everyHasOne) return {
-      title: 'recommendations.type.everyHasOne.title',
-      description: [
-        'recommendations.type.everyHasOne.description',
-        'recommendations.type.common',
-      ],
-      type: RECOMMENDATION_TYPES.WARNING,
-    };
-
-    return {
-      title: 'recommendations.type.oneMaintainer.title',
-      description: [
-        'recommendations.type.oneMaintainer.description',
-        'recommendations.type.common',
-      ],
-      type: RECOMMENDATION_TYPES.ALERT,
-      arguments: {
-        description: [`- ${oneMaintainer.join(';\n- ')}`],
-      },
-    };
+    return everyHasOne
+      ? getItem('everyHasOne')
+      : getArgDescription('oneMaintainer', [`- ${oneMaintainer.join(';\n- ')}`]);
   }
 }
-
-

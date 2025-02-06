@@ -1,4 +1,6 @@
-import RECOMMENDATION_TYPES from '../contstants';
+import { getBuilder } from '../helpers';
+
+const { getItem, getTitle } = getBuilder('week');
 
 export default class RecommendationsTeamByWeek {
   getTotalInfo(dataGrip: any) {
@@ -14,45 +16,23 @@ export default class RecommendationsTeamByWeek {
 
   getLazyDays(dataGrip: any, lastWeek: any) {
     const lazyDays = lastWeek.map((statistic: any) => statistic.lazyDaysTotal / statistic.authorsLength);
-
     if (lazyDays[0] < lazyDays[1] && lazyDays[1] < lazyDays[2]) {
-      return {
-        title: 'recommendations.week.lazyDays.down.title',
-        description: 'recommendations.week.lazyDays.down.description',
-        type: RECOMMENDATION_TYPES.FACT,
-      };
+      return getItem('lazyDaysDown');
     }
-
     if (lazyDays[0] > lazyDays[1] && lazyDays[1] > lazyDays[2]) {
-      return {
-        title: 'recommendations.week.lazyDays.up.title',
-        description: 'recommendations.week.lazyDays.up.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-      };
+      return getItem('lazyDaysUp');
     }
-
     return null;
   }
 
   getTasks(dataGrip: any, lastWeek: any) { // TODO: спорно, это видно по количеству изменений
     const lazyDays = lastWeek.map((statistic: any) => statistic.tasks / statistic.authorsLength);
-
     if (lazyDays[0] < lazyDays[1] && lazyDays[1] < lazyDays[2]) {
-      return {
-        title: 'recommendations.week.task.up.title',
-        description: 'recommendations.week.task.up.description',
-        type: RECOMMENDATION_TYPES.FACT,
-      };
+      return getItem('taskUp');
     }
-
     if (lazyDays[0] > lazyDays[1] && lazyDays[1] > lazyDays[2]) {
-      return {
-        title: 'recommendations.week.task.down.title',
-        description: 'recommendations.week.task.down.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-      };
+      return getItem('taskDown');
     }
-
     return null;
   }
 
@@ -64,15 +44,9 @@ export default class RecommendationsTeamByWeek {
     // TODO: неверный расчет
     // нужен человек, который встречается в трех массивах лидеров прогула
     if (lazyMaintainer[0] === lazyMaintainer[1] === lazyMaintainer[2]) {
-      return {
-        title: lazyMaintainer[0],
-        description: 'recommendations.week.task.lazyMaintainer.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-      };
+      return getTitle('taskLazyMaintainer', lazyMaintainer[0]);
     }
 
     return null;
   }
 }
-
-

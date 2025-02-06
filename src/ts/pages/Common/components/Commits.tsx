@@ -9,7 +9,7 @@ import PageWrapper from 'ts/components/Page/wrapper';
 import BarChart from 'ts/components/BarChart';
 import DayInfo from 'ts/components/DayInfo';
 import Title from 'ts/components/Title';
-import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import localization from 'ts/helpers/Localization';
 
 interface ICommitsProps {

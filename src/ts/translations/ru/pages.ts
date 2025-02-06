@@ -269,6 +269,10 @@ export default `
 § page.team.building.quiz.result2.description: Правильных ответов от 40% до 70%. Вы имеете хорошее представление о вашей команде, но можете узнать её лучше. Ознакомьтесь с данными в соседних разделах и попробуйте снова!
 § page.team.building.quiz.result3.title: Отлично
 § page.team.building.quiz.result3.description: Правильных ответов больше 70%. Вы отлично знаете статистику по вашей команде!
+§ page.team.recommendations.alert: Проблемы
+§ page.team.recommendations.warning: Обратить внимание
+§ page.team.recommendations.fact: Факты о проекте
+§ page.team.recommendations.info: Общие советы 
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

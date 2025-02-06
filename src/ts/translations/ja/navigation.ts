@@ -35,6 +35,8 @@ export default `
 § sidebar.team.department: Departments
 § sidebar.team.country: Locations
 § sidebar.team.settings: 設定
+§ sidebar.team.recommendations: Recommendations and facts
+§ sidebar.team.building: Games
 § sidebar.person.total: 一般的な情報
 § sidebar.person.money: 仕事のコスト
 § sidebar.person.speed: スピード

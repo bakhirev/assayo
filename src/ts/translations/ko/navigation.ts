@@ -34,6 +34,8 @@ export default `
 § sidebar.team.department: Departments
 § sidebar.team.country: 위치
 § sidebar.team.settings: 설정
+§ sidebar.team.recommendations: 권장 사항 및 사실
+§ sidebar.team.building: Games
 § sidebar.person.total: 일반 정보
 § sidebar.person.money: 작업 비용
 § sidebar.person.speed: 속도

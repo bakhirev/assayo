@@ -1,5 +1,11 @@
 import { getDateByTimestamp } from 'ts/helpers/formatter';
-import RECOMMENDATION_TYPES from '../contstants';
+import { getBuilder } from '../helpers';
+
+const {
+  getItem,
+  getArgTitle,
+  getTitleArgDescription,
+} = getBuilder('timestamp');
 
 export default class RecommendationsTeamByTimestamp {
   getTotalInfo(dataGrip: any) {
@@ -11,26 +17,9 @@ export default class RecommendationsTeamByTimestamp {
     // TODO: all days не верный, я вывожу рабочие дни, а не выходные.
 
     return [
-      (workInWeek ? {
-        title: 'recommendations.timestamp.common.title',
-        description: 'recommendations.timestamp.weekendDays.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-        arguments: {
-          title: [workInWeek],
-        },
-      } : null),
-
+      (workInWeek ? getArgTitle('weekendDays', [workInWeek]) : null),
       this.getWorkOnWeek(byTimestamp.allCommitsByTimestamp.length, workInWeek),
-
-      {
-        title: 'recommendations.timestamp.common.title',
-        description: 'recommendations.timestamp.allDays.description',
-        type: RECOMMENDATION_TYPES.FACT,
-        arguments: {
-          title: [totalDays],
-        },
-      },
-
+      getArgTitle('allDays', [totalDays]),
       this.getFirstDay(byTimestamp),
       this.getLastDay(byTimestamp),
     ].filter(item => item);
@@ -38,61 +27,21 @@ export default class RecommendationsTeamByTimestamp {
 
   getWorkOnWeek(allWorkDays: number, workOnWeek: number) {
     const percent = (workOnWeek * 100) / allWorkDays;
-
-    if (percent > 13) {
-      return {
-        title: 'recommendations.timestamp.regularWeekendWord.title',
-        description: 'recommendations.timestamp.weekendWord.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-      };
-    }
-
-    if (percent > 7) {
-      return {
-        title: 'recommendations.timestamp.sometimeWeekendWord.title',
-        description: 'recommendations.timestamp.weekendWord.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-      };
-    }
-
-    if (percent > 2) {
-      return {
-        title: 'recommendations.timestamp.neverWeekendWord.title',
-        description: 'recommendations.timestamp.neverWeekendWord.description',
-        type: RECOMMENDATION_TYPES.FACT,
-      };
-    }
-
+    if (percent > 13) return getItem('regularWeekendWord');
+    if (percent > 7) return getItem('sometimeWeekendWord');
+    if (percent > 2) return getItem('neverWeekendWord');
     return null;
   }
 
   getFirstDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[0];
     const [ date, day ] = getDateByTimestamp(commit.timestamp);
-
-    return {
-      title: date,
-      description: 'recommendations.timestamp.firstCommit.description',
-      type: RECOMMENDATION_TYPES.FACT,
-      arguments: {
-        description: [day],
-      },
-    };
+    return getTitleArgDescription('firstCommit', date, [day]);
   }
 
   getLastDay(byTimestamp: any) {
     const commit = byTimestamp.allCommitsByTimestamp[(byTimestamp.allCommitsByTimestamp.length - 1)];
     const [ date, day ] = getDateByTimestamp(commit.timestamp);
-
-    return {
-      title: date,
-      description: 'recommendations.timestamp.lastCommit.description',
-      type: RECOMMENDATION_TYPES.FACT,
-      arguments: {
-        description: [day],
-      },
-    };
+    return getTitleArgDescription('lastCommit', date, [day]);
   }
 }
-
-

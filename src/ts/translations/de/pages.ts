@@ -267,6 +267,10 @@ export default `
 § page.team.building.quiz.result2.description: The correct answers range from 40% to 70%. You have a good idea of your team, but you can get to know it better. Check out the data in the adjacent sections and try again!
 § page.team.building.quiz.result3.title: Great
 § page.team.building.quiz.result3.description: There are more than 70% correct answers. You know the statistics on your team perfectly well!
+§ page.team.recommendations.alert: Warning
+§ page.team.recommendations.warning: Pay attention
+§ page.team.recommendations.fact: Facts about the project
+§ page.team.recommendations.info: General tips
 § page.person.print.photo.title: Photo
 § page.person.print.photo.description: space for a photo
 § page.person.total.title: Main characteristics

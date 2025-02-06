@@ -1,4 +1,10 @@
-import RECOMMENDATION_TYPES from '../contstants';
+import { getBuilder } from '../helpers';
+
+const {
+  getItem,
+  getTitle,
+  getArgTitleDescription,
+} = getBuilder('author');
 
 export default class RecommendationsTeamByAuthor {
   getTotalInfo(dataGrip: any) {
@@ -41,106 +47,27 @@ export default class RecommendationsTeamByAuthor {
     return [
       projectType,
 
-      (lotOfLazy.length ? {
-        title: 'recommendations.author.lotOfLazy.title',
-        description: 'recommendations.author.lotOfLazy.description',
-        type: RECOMMENDATION_TYPES.ALERT,
-        arguments: {
-          title: lotOfLazy.length,
-          description: lotOfLazy.join(';\n- '),
-        },
-      } : null),
-
-      (manyLazy.length ? {
-        title: 'recommendations.author.manyLazy.title',
-        description: 'recommendations.author.manyLazy.description',
-        type: RECOMMENDATION_TYPES.WARNING,
-        arguments: {
-          title: manyLazy.length,
-          description: manyLazy.join(';\n- '),
-        },
-      } : null),
-
-      (oneTypeMans.length ? {
-        title: oneTypeMans,
-        description: 'recommendations.author.oneTypeMans',
-        type: RECOMMENDATION_TYPES.WARNING,
-      } : null),
-
-      (worker.length ? {
-        title: 'recommendations.author.workToday.title',
-        description: 'recommendations.author.workToday.description',
-        type: RECOMMENDATION_TYPES.FACT,
-        arguments: {
-          title: worker.length,
-          description: worker.join(';\n- '),
-        },
-      } : null),
-
-      (dismissed.length ? {
-        title: 'recommendations.author.dismissed.title',
-        description: 'recommendations.author.dismissed.description',
-        type: RECOMMENDATION_TYPES.FACT,
-        arguments: {
-          title: dismissed.length,
-          description: dismissed.join(';\n- '),
-        },
-      } : null),
-
-      (staff.length ? {
-        title: 'recommendations.author.staff.title',
-        description: 'recommendations.author.staff.description',
-        type: RECOMMENDATION_TYPES.FACT,
-        arguments: {
-          title: staff.length,
-          description: staff.join(';\n- '),
-        },
-      } : null),
+      (lotOfLazy.length ? getArgTitleDescription('lotOfLazy', lotOfLazy.length, lotOfLazy.join(';\n- ')) : null),
+      (manyLazy.length ? getArgTitleDescription('manyLazy', manyLazy.length, manyLazy.join(';\n- ')) : null),
+      (oneTypeMans.length ? getTitle('oneTypeMans', oneTypeMans) : null),
+      (worker.length ? getArgTitleDescription('workToday', worker.length, worker.join(';\n- ')) : null),
+      (dismissed.length ? getArgTitleDescription('dismissed', dismissed.length, dismissed.join(';\n- ')) : null),
+      (staff.length ? getArgTitleDescription('staff', staff.length, staff.join(';\n- ')) : null),
 
       // ['Планирование', 'Задачи распределены довольно равномерно', 'info'],
-      {
-        title: 'recommendations.author.manager.title',
-        description: 'recommendations.author.manager.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
-      {
-        title: 'recommendations.author.shorTalk.title',
-        description: 'recommendations.author.shorTalk.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
-      {
-        title: 'recommendations.author.ipr.title',
-        description: 'recommendations.author.ipr.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
-      {
-        title: 'recommendations.author.oneToOne.title',
-        description: 'recommendations.author.oneToOne.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
-      {
-        title: 'recommendations.author.club.title',
-        description: 'recommendations.author.club.description',
-        type: RECOMMENDATION_TYPES.INFO,
-      },
+      getItem('manager'),
+      getItem('shorTalk'),
+      getItem('ipr'),
+      getItem('oneToOne'),
+      getItem('club'),
     ].filter(item => item);
   }
 
   getProjectType(workLazyTotal: number) {
-    if (workLazyTotal < 1) return {
-      title: 'recommendations.author.projectType.openSource.title',
-      description: 'recommendations.author.projectType.openSource.description',
-      type: RECOMMENDATION_TYPES.FACT,
-    };
+    if (workLazyTotal < 1) return getItem('projectTypeOpenSource');
 
-    if (workLazyTotal < 5) return {
-      title: 'recommendations.author.projectType.easy.title',
-      description: 'recommendations.author.projectType.easy.description',
-      type: RECOMMENDATION_TYPES.ALERT,
-    };
+    if (workLazyTotal < 5) return getItem('projectTypeEasy');
 
     return null;
   }
 }
-
-

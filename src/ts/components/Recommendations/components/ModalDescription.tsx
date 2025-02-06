@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
 import Description from 'ts/components/Description';
-import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import localization from 'ts/helpers/Localization';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';

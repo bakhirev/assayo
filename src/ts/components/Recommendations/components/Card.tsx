@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Description from 'ts/components/Description';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import localization from 'ts/helpers/Localization';
-import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import isMobile from 'ts/helpers/isMobile';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';

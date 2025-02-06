@@ -143,6 +143,12 @@ export const TEAM = [
     icon: './assets/menu/team_words.svg',
   },
   {
+    id: 'recommendations',
+    link: '/team/recommendations',
+    title: 'sidebar.team.recommendations',
+    icon: './assets/menu/building.svg',
+  },
+  {
     id: 'building',
     link: '/team/building',
     title: 'sidebar.team.building',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import dataGripStore from 'ts/store/DataGrip';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
-import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 
 import Recommendations from 'ts/components/Recommendations';
 import NothingFound from 'ts/components/NothingFound';

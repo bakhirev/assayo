@@ -2,7 +2,7 @@ import React from 'react';
 
 import Description from 'ts/components/Description';
 import localization from 'ts/helpers/Localization';
-import RECOMMENDATION_TYPES from 'ts/helpers/Recommendations/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
 import style from '../styles/card.module.scss';
