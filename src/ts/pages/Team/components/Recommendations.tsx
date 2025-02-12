@@ -35,14 +35,14 @@ function Block({
   title,
   recommendations,
 }: BlockProps): React.ReactElement | null {
-  const cards = recommendations.map((recommendation: any) => (
+  const cards = recommendations?.map((recommendation: any) => (
     <CardForPrint
       key={recommendation.description}
       recommendation={recommendation}
     />
   ));
 
-  if (!cards.length) return null;
+  if (!cards?.length) return null;
 
   return (
     <>

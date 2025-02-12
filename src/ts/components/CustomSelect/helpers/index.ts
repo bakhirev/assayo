@@ -48,7 +48,7 @@ export function getOption(value: any, index: number): IOption {
   return {
     id: getId(value, index),
     title,
-    _textForSearch: title?.toLowerCase() || '',
+    _textForSearch: title?.toLowerCase ? title?.toLowerCase() : '',
     source: value,
   };
 }

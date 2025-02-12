@@ -4,7 +4,7 @@
  */
 export function getGithubPrInfo(text: string) {
   const json = (text || '')
-    .replace(/["']+/gim, '')
+    .replace(/["'\r\n]+/gim, '')
     .replace('#', '#": "')
     .replace(' in ', '", "in": "')
     .replace(' from ', '", "from": "')

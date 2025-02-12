@@ -34,7 +34,7 @@ const Department = observer(({
     .filter((item: any) => item.totalDaysWorked > 10);
   const options = Object.keys(byMonths).map((id: string) => ({ id }));
 
-  const [taskCode, setTaskCode] = useState(options[0].id);
+  const [taskCode, setTaskCode] = useState(options?.[0]?.id);
 
   if (!content?.length) {
     return <NothingFound />;
@@ -56,32 +56,36 @@ const Department = observer(({
         <Pagination />
       </DataLoader>
 
-      <Title title="page.team.department.months.title"/>
-      <PageWrapper>
-        <div className={style.table_filters}>
-          <SelectWithButtons
-            title="page.team.tree.filters.author"
-            value={taskCode}
-            className={style.table_filters_item}
-            options={options}
-            onChange={(value: string) => {
-              console.log(value);
-              setTaskCode(value);
-            }}
-          />
-        </div>
-      </PageWrapper>
-      <DataLoader
-        to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: byMonths[taskCode], pagination, sort, mode,
-        })}
-        watch={taskCode}
-      >
-        <Months/>
-        <Pagination />
-      </DataLoader>
-      <Description text={t('page.team.department.months.description')} />
+      {taskCode ? (
+        <>
+          <Title title="page.team.department.months.title"/>
+          <PageWrapper>
+            <div className={style.table_filters}>
+              <SelectWithButtons
+                title="page.team.tree.filters.author"
+                value={taskCode}
+                className={style.table_filters_item}
+                options={options}
+                onChange={(value: string) => {
+                  console.log(value);
+                  setTaskCode(value);
+                }}
+              />
+            </div>
+          </PageWrapper>
+          <DataLoader
+            to="response"
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+              content: byMonths[taskCode], pagination, sort, mode,
+            })}
+            watch={taskCode}
+          >
+            <Months/>
+            <Pagination />
+          </DataLoader>
+          <Description text={t('page.team.department.months.description')} />
+        </>
+      ) : null}
     </>
   );
 });
