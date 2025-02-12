@@ -21,19 +21,38 @@ function Total() {
   const delayChart = DataGripByPR.getPRByGroups(allPR, 'daysReview');
   const delayChartOptions = getOptions({ order: delayChart.order, limit: 3, suffix: 'PR' });
 
+  const backlogChart = DataGripByPR.getPRByGroups(allPR, 'daysBacklog');
+  const backlogChartOptions = getOptions({ order: backlogChart.order, limit: 3, suffix: 'PR' });
+
   const workDaysWeightedAverage = Math.round(workChart.weightedAverage);
   const delayDaysWeightedAverage = Math.round(delayChart.weightedAverage);
-  const weightedAverage =  workDaysWeightedAverage + delayDaysWeightedAverage;
 
   const weightedAverageChart = getOptions({ // @ts-ignore
-    order: ['page.team.pr.word', 'page.team.pr.delay'],
+    order: [
+      'page.team.pr.word',
+      'page.team.pr.delay',
+    ],
     suffix: 'page.team.pr.days',
   });
 
-  console.log(weightedAverage.toFixed(1));
-
   return (
     <PageWrapper>
+      <PageColumn>
+        <PieChart
+          title="page.team.pr.backlogDays"
+          options={backlogChartOptions}
+          details={backlogChart.details}
+        />
+        <PieChart
+          title="page.team.pr.delayDays"
+          options={delayChartOptions}
+          details={delayChart.details}
+        />
+        <Description text={t('page.team.pr.description3')}/>
+        <Description text={t('page.team.pr.description2')}/>
+        <br/>
+        <br/>
+      </PageColumn>
       <PageColumn>
         <PieChart
           title="page.team.pr.workDays"
@@ -48,16 +67,7 @@ function Total() {
             'page.team.pr.delay': delayDaysWeightedAverage,
           }}
         />
-      </PageColumn>
-      <PageColumn>
-        <PieChart
-          title="page.team.pr.delayDays"
-          options={delayChartOptions}
-          details={delayChart.details}
-        />
-        <Description text={t('page.team.pr.description1')} />
-        <Description text={t('page.team.pr.description2')} />
-        <Description text={t('page.team.pr.description3')} />
+        <Description text={t('page.team.pr.description1')}/>
       </PageColumn>
     </PageWrapper>
   );

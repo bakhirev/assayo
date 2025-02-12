@@ -43,7 +43,3 @@ export function increment(object: Object, path: string) {
 export function createIncrement(key?: string, firstValue?: any) {
   return key ? { [key]: firstValue || 1 } : {};
 }
-
-export function createHashMap(key?: string) {
-  return createIncrement(key, true);
-}

@@ -176,6 +176,7 @@ export default `
 § page.team.pr.lastCommitTime: Последний
 § page.team.pr.workDays: Среднее время работы над задачей
 § page.team.pr.delayDays: Среднее время ревью PR
+§ page.team.pr.backlogDays: Время задачи в бэклоге до начала разработки
 § page.team.pr.all.workDays: Время работы над задачей
 § page.team.pr.all.delayDays: Время ревью PR
 § page.team.pr.middleTimeRelease: Отношение времени разработки к времени ревью
@@ -192,19 +193,27 @@ export default `
 § page.team.pr.delay: ожидание
 § page.team.pr.days: дней
 § page.team.pr.oneTaskDays: Время потраченное на одну задачу
-§ page.team.pr.description1: *Время разработки* это разница времени от первого до последнего коммита по задаче. Не важно были перерывы в несколько дней между коммитами или нет. Сам факт какого-либо коммита увеличивает время.
-§ page.team.pr.description2: *Время ожидания* это время между последним коммитом и влитием кода. Оно показывает фактический простой в ожидании чего-либо.
-§ page.team.pr.description3: *Зачем отображать время разработки* без разбивки на кодинг и код-ревью? Затем, чтобы показать бизнесу фактическое время поставки кода. Ожидание тестирования, замечания на ревью, проблемы DevOps и прочие несовершенства процесса, как раз уже заложены в этот срок.
+§ page.team.pr.description1: *Время работы над задачей* это разница времени от первого до последнего коммита по задаче. Не важно были перерывы в несколько дней между коммитами или нет. Сам факт какого-либо коммита увеличивает время.
+§ page.team.pr.description2: *Время ревью PR* это время между последним коммитом и влитием кода. Оно показывает фактический простой в ожидании чего-либо.
+§ page.team.pr.description3: *Дата создания задачи* в таск-трекере вычисляется по её порядковому номеру и минимальной дате любой следующей задачи в коде. Метод имеет погрешность и, как правило, задачи оказываются старше. Частые релизы, быстрые баг-фиксы и большое количество сотрудников, работающих над кодом, уменьшают эту погрешность.
 § page.team.pr.statByAuthors: Статистика по сотрудникам
 § page.team.pr.longDelay: Длительное ожидание влития
 § page.team.pr.anonymous: PR без номера задачи
 § page.team.pr.branch: Ветка
 § page.team.tasks.task: Задача
 § page.team.tasks.author: Автор первого коммита
+§ page.team.tasks.createdBefore: Создана до
 § page.team.tasks.from: Первый коммит
 § page.team.tasks.to: Последний коммит
+§ page.team.tasks.backlog: Ожидание разработки
 § page.team.tasks.daysInWork: Дней в работе
 § page.team.tasks.comments: Комментарии
+§ page.team.tasks.backlogTitle: Список задач, которые завели в таск-трекер и не брали в разработку больше четырех месяцев
+§ page.team.tasks.charts.authors.title: Кто его разбирает
+§ page.team.tasks.charts.authors.other: и другие
+§ page.team.tasks.charts.relative.title: Объем относительно других задач
+§ page.team.tasks.charts.relative.backlog: тех. долг
+§ page.team.tasks.charts.relative.all: другие задачи
 § page.team.extension.extension: Расширения файлов
 § page.team.extension.type: Подтип файлов
 § page.team.extension.name: Тип
@@ -239,6 +248,14 @@ export default `
 § page.team.department.tasks: задач
 § page.team.department.totalDays: Дней работы
 § page.team.department.totalAuthors: Количество сотрудников
+§ page.team.department.months.title: Возможное количество сотрудников в отделе
+§ page.team.department.months.description: Предполагается, что таск-трекер выдает серийные номера задач. Зная максимальный номер задачи в начале и конце месяца, мы можем узнать количество заведенных задач. Зная сколько задач за этот месяц закрыли известные нам авторы, мы можем интерполировать их скорость работы на все новые задачи и предположить общую численность сотрудников, работа которых не была отраженна в логе. 
+§ page.team.department.months.date: Дата
+§ page.team.department.months.tasks: Новых задач
+§ page.team.department.months.tasksInWeek: в неделю
+§ page.team.department.months.fixed: исправленно
+§ page.team.department.months.authors: Работало
+§ page.team.department.months.allAuthors: а всего сотрудников в отделе
 § page.team.building.races.title: Скорость закрытия задач
 § page.team.building.races.go: Поехали!
 § page.team.building.swimmingPool.title: Максимальная длина подписи коммита

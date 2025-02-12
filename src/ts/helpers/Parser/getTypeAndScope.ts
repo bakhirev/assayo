@@ -74,9 +74,24 @@ export function getTask(message: string) {
   return ((message || '').match(/(([A-Z]+[-_])|(#)|(gh-)|(GH-))([0-9]+)/gm) || [])[0] || '';
 }
 
-// ABC-123 => '123';
+// ABC-123 => 123;
+const stringToNumber = new Map();
+(new Array(100000)).fill(1).map((k, i) => {
+  stringToNumber.set(`${i}`, i);
+});
 export function getTaskNumber(task?: string) {
-  return (task || '').replace(/[^0-9]+/gim, '');
+  const onlyNumbers = (task || '').replace(/[^0-9]+/gim, '');
+  if (onlyNumbers === '0') {
+    return 0;
+  }
+  if (stringToNumber[onlyNumbers]) {
+    return stringToNumber[onlyNumbers];
+  }
+  const value = parseInt(onlyNumbers, 10);
+  if (value || value === 0) {
+    return value;
+  }
+  return onlyNumbers;
 }
 
 // ABC-123 => 'ABC';

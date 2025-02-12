@@ -79,6 +79,8 @@ export default class DataGripByTasks {
           commits: commits.length,
           timestamps: Array.from(timestamps),
           daysInWork,
+          daysInJira: 1, // заполняются в taskNumbersDate
+          createdBefore: from,
           comments,
           authors,
           types,

@@ -13,7 +13,7 @@ interface IGetItemProps {
 }
 
 function GetItem({ commit, mode }: IGetItemProps) {
-  const size = commit.taskNumber?.length || 1;
+  const size = `${commit.taskNumber}`.length || 1;
   const className = size > 5
     ? style.get_list_big_number
     : '';

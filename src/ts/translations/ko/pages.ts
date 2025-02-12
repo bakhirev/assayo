@@ -176,6 +176,7 @@ export default `
 § page.team.pr.lastCommitTime: 마지막
 § page.team.pr.workDays: 작업 작업에 소요된 평균 시간
 § page.team.pr.delayDays: 평균 홍보 검토 시간
+§ page.team.pr.backlogDays: The delay of the task in the backlog before the start of development
 § page.team.pr.all.workDays: 작업 작업에 소요된 시간
 § page.team.pr.all.delayDays: 홍보 검토 시간
 § page.team.pr.middleTimeRelease: 검토 할 개발 시간의 비율
@@ -194,17 +195,25 @@ export default `
 § page.team.pr.oneTaskDays: 한 작업에 소요 된 시간
 § page.team.pr.description1: *개발 시간*이 작업은 작업의 첫 번째 커밋에서 마지막 커밋까지의 시간 차이입니다. 커밋 사이에 며칠의 휴식 시간이 있었는지 여부는 중요하지 않습니다. 모든 커밋의 바로 그 사실은 시간을 증가시킵니다.
 § page.team.pr.description2: *대기 시간*마지막 커밋과 코드 주입 사이의 시간입니다. 그것은 무언가를 기다리는 실제 유휴 상태를 보여줍니다.
-§ page.team.pr.description3: *개발 시간을 표시하는 이유*코딩 및 코드 검토로 분해하지 않고? 그런 다음,비즈니스 코드의 실제 배달 시간을 표시합니다. 테스트의 기대,검토에 대한 의견,개발 운영 문제 및 프로세스의 다른 결함은 이미이 기간에 규정되어있다.
+§ page.team.pr.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
 § page.team.pr.statByAuthors: 직원 통계
 § page.team.pr.longDelay: 주입에 대한 긴 대기
 § page.team.pr.anonymous: 문제 번호가없는 홍보
 § page.team.pr.branch: 지점
 § page.team.tasks.task: 작업
 § page.team.tasks.author: 첫 번째 커밋의 저자
+§ page.team.tasks.createdBefore: Created before
+§ page.team.tasks.backlog: Development waiting
 § page.team.tasks.from: 첫 번째 커밋
 § page.team.tasks.to: 마지막 커밋
 § page.team.tasks.daysInWork: 일 의 날
 § page.team.tasks.comments: 댓글
+§ page.team.tasks.backlogTitle: Tasks undeveloped for over four months after being added to the task-tracker
+§ page.team.tasks.charts.authors.title: Who is doing these tasks?
+§ page.team.tasks.charts.authors.other: and etc.
+§ page.team.tasks.charts.relative.title: Count relative to other tasks
+§ page.team.tasks.charts.relative.backlog: backlog
+§ page.team.tasks.charts.relative.all: other tasks
 § page.team.extension.extension: 파일 확장자
 § page.team.extension.type: 파일 하위 유형
 § page.team.extension.name: 유형
@@ -239,6 +248,14 @@ export default `
 § page.team.department.tasks: tasks
 § page.team.department.totalDays: Working days
 § page.team.department.totalAuthors: Number of employees
+§ page.team.department.months.title: Possible number of employees in the department
+§ page.team.department.months.description: It is assumed that the task tracker issues the serial numbers of the tasks. Knowing the maximum task number at the beginning and end of the month, we can find out the number of completed tasks. Knowing how many tasks the authors we know have closed this month, we can interpolate their work speed to all new tasks and assume the total number of employees whose work was not reflected in the git log.
+§ page.team.department.months.date: Date
+§ page.team.department.months.tasks: New tasks
+§ page.team.department.months.tasksInWeek: in week
+§ page.team.department.months.fixed: was fixed
+§ page.team.department.months.authors: Worked
+§ page.team.department.months.allAuthors: total number of employees in the department
 § page.team.building.races.title: The speed of closing tasks
 § page.team.building.races.go: Let's go!
 § page.team.building.swimmingPool.title: Maximum commit message length

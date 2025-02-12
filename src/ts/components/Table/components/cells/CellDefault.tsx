@@ -36,7 +36,7 @@ function DefaultCell({
     : value;
 
   const content: any = typeof column.template === 'function'
-    ? column.template(formattedValue, row)
+    ? column.template(formattedValue, row, rowIndex)
     : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}`;
 
   const cellTitle = typeof content === 'string' && content.length > 20

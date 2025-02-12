@@ -8,6 +8,9 @@ import Column from 'ts/components/Table/components/Column';
 import { ColumnTypesEnum } from 'ts/components/Table/interfaces/Column';
 import UiKitTags from 'ts/components/UiKit/components/Tags';
 import { PRLink, TaskLink } from 'ts/components/ExternalLink';
+import LineChart from 'ts/components/LineChart';
+import getOptions from 'ts/components/LineChart/helpers/getOptions';
+import { getMax } from 'ts/pages/Common/helpers/getMax';
 
 import { getDate } from 'ts/helpers/formatter';
 
@@ -22,6 +25,8 @@ interface ViewProps {
 
 export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   if (!response) return null;
+
+  const backlogChart = getOptions({ max: getMax(response, 'daysInJira') });
 
   return (
     <DataView
@@ -100,6 +105,30 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         title="page.team.tasks.author"
         properties="author"
         width={170}
+      />
+      <Column
+        template={ColumnTypesEnum.STRING}
+        title="page.team.tasks.createdBefore"
+        properties="createdBefore"
+        width={150}
+        formatter={getDate}
+      />
+      <Column
+        template={ColumnTypesEnum.SHORT_NUMBER}
+        properties="daysInJira"
+        width={50}
+      />
+      <Column
+        isSortable
+        title="page.team.tasks.backlog"
+        properties="daysInJira"
+        minWidth={150}
+        template={(value: any) => (
+          <LineChart
+            options={backlogChart}
+            value={value}
+          />
+        )}
       />
       <Column
         template={ColumnTypesEnum.STRING}

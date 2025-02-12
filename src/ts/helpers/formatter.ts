@@ -56,10 +56,22 @@ export function get2Number(time: number) {
   return time < 10 ? `0${time}` : time;
 }
 
-export function getDate(timestamp: string) {
+export function getCustomDate(timestamp: string, options?: any) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
-  return date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long', year: 'numeric' });
+  return date.toLocaleString(getLangPrefix(), options || { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+export function getDate(timestamp: string) {
+  return getCustomDate(timestamp, { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+export function getShortDate(timestamp: string) {
+  return getCustomDate(timestamp, { day: 'numeric', month: 'long' });
+}
+
+export function getShortTime(timestamp: string) {
+  return getCustomDate(timestamp, { hour: 'numeric', minute: 'numeric' });
 }
 
 export function getDateForExcel(timestamp: string) {
@@ -67,19 +79,6 @@ export function getDateForExcel(timestamp: string) {
   const date = new Date(timestamp);
   return date.toISOString().substring(0, 10).split('-').reverse().join('.');
 }
-
-export function getShortDate(timestamp: string) {
-  if (!timestamp) return '';
-  const date = new Date(timestamp);
-  return date.toLocaleString(getLangPrefix(), { day: 'numeric', month: 'long' });
-}
-
-export function getShortTime(timestamp: string) {
-  if (!timestamp) return '';
-  const date = new Date(timestamp);
-  return date.toLocaleString(getLangPrefix(), { hour: 'numeric', minute: 'numeric' });
-}
-
 
 function getCurrencyFromUSD(money: number, currency: string) {
   if (currency === 'USD' || !money) return money;

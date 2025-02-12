@@ -171,6 +171,7 @@ export default `
 § page.team.pr.lastCommitTime: 最后一次
 § page.team.pr.workDays: 完成任务的平均时间
 § page.team.pr.delayDays: PR审查的平均时间
+§ page.team.pr.backlogDays: The delay of the task in the backlog before the start of development
 § page.team.pr.all.workDays: 任务完成时间
 § page.team.pr.all.delayDays: PR请求的审议时间
 § page.team.pr.middleTimeRelease: 开发时间与审查时间的比率
@@ -189,17 +190,25 @@ export default `
 § page.team.pr.oneTaskDays: 花在一项任务上的时间
 § page.team.pr.description1: *花在一项任务上的时间* 这是从第一个到最后一个的时间差 Commits 按任务划分. 如果之间有几天的休息时间也没关系 Commits 还是不是. 任何一个事实 Commits 增加时间.
 § page.team.pr.description2: *轮候时间* 这是最后一次之间的时间 Commits 通过输入代码. 它显示了实际的空闲等待的东西.
-§ page.team.pr.description3: *为什么显示开发时间* 无需拆分为编码和代码审查? 然后，向业务显示代码的实际交付时间。 测试的期望，对审查的评论，DevOps问题和流程的其他不完善之处已经在这一时期制定.
+§ page.team.pr.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
 § page.team.pr.statByAuthors: 雇员统计数字
 § page.team.pr.longDelay: 长时间等待输液
 § page.team.pr.anonymous: PR without task number
 § page.team.pr.branch: Branch
 § page.team.tasks.task: 任务
 § page.team.tasks.author: 第一篇的作者 Commits
+§ page.team.tasks.createdBefore: Created before
+§ page.team.tasks.backlog: Development waiting
 § page.team.tasks.from: 第一个 Commits
 § page.team.tasks.to: 最后一次 Commits
 § page.team.tasks.daysInWork: 工作中的日子
 § page.team.tasks.comments: 评论
+§ page.team.tasks.backlogTitle: Tasks undeveloped for over four months after being added to the task-tracker
+§ page.team.tasks.charts.authors.title: Who is doing these tasks?
+§ page.team.tasks.charts.authors.other: and etc.
+§ page.team.tasks.charts.relative.title: Count relative to other tasks
+§ page.team.tasks.charts.relative.backlog: backlog
+§ page.team.tasks.charts.relative.all: other tasks
 § page.team.extension.extension: File extensions
 § page.team.extension.type: File sub types
 § page.team.extension.name: Type
@@ -234,6 +243,14 @@ export default `
 § page.team.department.tasks: tasks
 § page.team.department.totalDays: Working days
 § page.team.department.totalAuthors: Number of employees
+§ page.team.department.months.title: Possible number of employees in the department
+§ page.team.department.months.description: It is assumed that the task tracker issues the serial numbers of the tasks. Knowing the maximum task number at the beginning and end of the month, we can find out the number of completed tasks. Knowing how many tasks the authors we know have closed this month, we can interpolate their work speed to all new tasks and assume the total number of employees whose work was not reflected in the git log.
+§ page.team.department.months.date: Date
+§ page.team.department.months.tasks: New tasks
+§ page.team.department.months.tasksInWeek: in week
+§ page.team.department.months.fixed: was fixed
+§ page.team.department.months.authors: Worked
+§ page.team.department.months.allAuthors: total number of employees in the department
 § page.team.building.races.title: The speed of closing tasks
 § page.team.building.races.go: Let's go!
 § page.team.building.swimmingPool.title: Maximum commit message length

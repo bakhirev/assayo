@@ -21,7 +21,7 @@ function LineChart({
   details,
   className,
 }: ILineChartProps): React.ReactElement | null {
-  if (value === 0) return null;
+  if (value === 0 || (!value && !details)) return null;
 
   let width = Math.round((value || 100) * (100 / options.max));
   if (width < 1) return null;

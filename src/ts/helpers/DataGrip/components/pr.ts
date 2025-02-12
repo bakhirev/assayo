@@ -37,8 +37,9 @@ export default class DataGripByPR {
       message: commit.message,
       dateCreate: commit.milliseconds, // last commit date before PR
       dateMerge: commit.milliseconds,
-      daysReview: 1,
+      daysBacklog: 1,
       daysInWork: 1,
+      daysReview: 1,
     });
   }
 
@@ -68,6 +69,7 @@ export default class DataGripByPR {
       // TODO он не мог быть пустым. Надо расследовать TASK-110 в тестовой выборке.
       pr.dateCreate = lastCommitDateBeforePR || pr.dateCreate;
       pr.daysReview = ((pr.dateMerge - pr.dateCreate) || ONE_DAY) / ONE_DAY;
+      pr.daysBacklog = ((pr.dateCreate - task.createdBefore) || ONE_DAY) / ONE_DAY;
 
       const list = byAuthor.get(pr.author);
       if (list) list.push(pr);
@@ -132,6 +134,9 @@ export default class DataGripByPR {
       const daysReview = DataGripByPR.getPRByGroups(prs, 'daysReview');
       const daysReviewWeightedAverage = parseInt(daysReview.weightedAverage.toFixed(1), 10);
 
+      const daysBacklog = DataGripByPR.getPRByGroups(prs, 'daysBacklog');
+      const daysBacklogWeightedAverage = parseInt(daysBacklog.weightedAverage.toFixed(1), 10);
+
       const daysInWork = DataGripByPR.getPRByGroups(prs, 'daysInWork');
       const daysInWorkWeightedAverage = parseInt(daysInWork.weightedAverage.toFixed(1), 10);
 
@@ -142,10 +147,12 @@ export default class DataGripByPR {
 
         workDays: daysInWork.details,
         delayDays: daysReview.details,
-        weightedAverage: daysInWorkWeightedAverage + daysReviewWeightedAverage,
+        daysBacklog: daysBacklog.details,
+        weightedAverage: daysInWorkWeightedAverage + daysReviewWeightedAverage + daysBacklogWeightedAverage,
         weightedAverageDetails: {
           workDays: daysInWorkWeightedAverage,
           delayDays: daysReviewWeightedAverage,
+          daysBacklog: daysBacklogWeightedAverage,
         },
       };
     });

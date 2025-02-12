@@ -13,6 +13,7 @@ import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageWrapper from 'ts/components/Page/wrapper';
 
+import BacklogCharts from './BacklogCharts';
 import Filters from './Filters';
 import View from './View';
 
@@ -46,21 +47,26 @@ const Tasks = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
   const rows = dataGripStore.dataGrip.tasks.statistic;
+  const backlogRows = rows
+    .filter((task: any) => task.daysInJira > 90);
+
   const [filters, setFilters] = useState<any>({ user: 0, company: 0 });
   const content = getContentByFilters(rows, filters);
+  const backlogContent = getContentByFilters(backlogRows, filters);
   const hash = [
     mode,
     dataGripStore.hash,
     filters.user,
     filters.company,
     content.length,
+    backlogContent.length,
   ].join('.');
 
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
 
   return (
     <>
-      <Title title="common.filters" />
+      <Title title="common.filters"/>
       <PageWrapper>
         <Filters
           filters={filters}
@@ -78,7 +84,30 @@ const Tasks = observer(({
           mode={mode}
           rowsForExcel={rows}
         />
-        <Pagination />
+        <Pagination/>
+      </DataLoader>
+
+      <Title title="page.team.tasks.backlogTitle"/>
+      <BacklogCharts
+        content={backlogContent}
+        allTaskNumber={content.length}
+        backlogTaskNumber={backlogContent.length}
+      />
+      <br/>
+      <br/>
+      <br/>
+      <DataLoader
+        to="response"
+        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+          content: backlogContent, pagination, sort, mode,
+        })}
+        watch={hash}
+      >
+        <View
+          mode={mode}
+          rowsForExcel={backlogContent}
+        />
+        <Pagination/>
       </DataLoader>
     </>
   );

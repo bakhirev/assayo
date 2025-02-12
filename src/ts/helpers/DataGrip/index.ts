@@ -15,6 +15,8 @@ import DataGripByTasks from './components/tasks';
 import DataGripByRelease from './components/release';
 import DataGripByScoring from './components/scoring';
 import DataGripByTaskCodes from './components/taskCodes';
+import DataGripByTaskNumbers from './components/taskNumbers';
+import DataGripByTaskNumbersDate from './components/taskNumbersDate';
 import DataGripByCompany from './components/company';
 import DataGripByCountry from './components/country';
 
@@ -51,6 +53,10 @@ class DataGrip {
 
   taskCodes: any = new DataGripByTaskCodes();
 
+  taskNumbers: any = new DataGripByTaskNumbers();
+
+  taskNumbersDate: any = new DataGripByTaskNumbersDate();
+
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -68,6 +74,8 @@ class DataGrip {
     this.release.clear();
     this.scoring.clear();
     this.taskCodes.clear();
+    this.taskNumbers.clear();
+    this.taskNumbersDate.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit, totalCommits: number) {
@@ -84,6 +92,8 @@ class DataGrip {
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
       this.taskCodes.addCommit(commit);
+      this.taskNumbers.addCommit(commit);
+      this.taskNumbersDate.addCommit(commit);
     }
   }
 
@@ -96,12 +106,14 @@ class DataGrip {
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
     this.tasks.updateTotalInfo();
+    this.taskNumbersDate.updateTotalInfo(this.tasks);
     this.pr.updateTotalInfo(this.tasks, this.author);
     this.release.updateTotalInfo(this.tasks, this.pr);
     this.scoring.updateTotalInfo(this.author, this.timestamp);
     this.company.updateTotalInfo(this.author);
     this.country.updateTotalInfo(this.author);
     this.taskCodes.updateTotalInfo(this.firstLastCommit.maxData, this.author);
+    this.taskNumbers.updateTotalInfo();
   }
 }
 
