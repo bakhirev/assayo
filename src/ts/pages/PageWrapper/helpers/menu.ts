@@ -146,7 +146,7 @@ export const TEAM = [
     id: 'recommendations',
     link: '/team/recommendations',
     title: 'sidebar.team.recommendations',
-    icon: './assets/menu/building.svg',
+    icon: './assets/menu/recommendations.svg',
   },
   {
     id: 'building',
