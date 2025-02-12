@@ -44,7 +44,6 @@ export function Months({ response, updateSort, rowsForExcel, mode }: MonthsProps
             ? (<b>{value}</b>)
             : value;
         }}
-        width={150}
       />
       <Column
         template={ColumnTypesEnum.NUMBER}
@@ -77,7 +76,7 @@ export function Months({ response, updateSort, rowsForExcel, mode }: MonthsProps
       />
       <Column
         isSortable
-        width={200}
+        minWidth={200}
         properties="allAuthors"
         title="page.team.department.months.allAuthors"
         template={(value: number) => (

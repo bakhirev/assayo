@@ -2,8 +2,6 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
-import ISort from 'ts/interfaces/Sort';
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
@@ -11,7 +9,7 @@ import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import Recommendations from 'ts/components/Recommendations';
@@ -47,9 +45,7 @@ const Author = observer(({
       <Title title="page.team.author.title"/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: rows, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(rows, mode)}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <View

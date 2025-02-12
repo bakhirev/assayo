@@ -39,7 +39,7 @@ interface IFakeLoader {
   sort?: ISort[],
 }
 
-export default function getFakeLoader({
+export default function sendFakeRequest({
   content,
   pagination,
   query,
@@ -83,4 +83,10 @@ export default function getFakeLoader({
   };
 
   return Promise.resolve(response);
+}
+
+export function getFakeLoader(content?: any, mode?: string) {
+  return (pagination?: IPaginationRequest, sort?: ISort[]) => sendFakeRequest({
+    content, pagination, sort, mode,
+  });
 }

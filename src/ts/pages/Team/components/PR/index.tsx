@@ -8,7 +8,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import sendFakeRequest, { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageBreak from 'ts/pages/Common/components/PageBreak';
@@ -60,9 +60,7 @@ const PR = observer(({
           <Title title="page.team.pr.statByAuthors"/>
           <DataLoader
             to="response"
-            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-              content: authorsStat, pagination, sort, mode,
-            })}
+            loader={getFakeLoader(authorsStat, mode)}
           >
             <Authors
               mode={mode}
@@ -74,7 +72,7 @@ const PR = observer(({
           <Title title="page.team.pr.longDelay"/>
           <DataLoader
             to="response"
-            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => sendFakeRequest({
               content: longReview,
               pagination: mode === 'print'
                 ? { size: 20 }
@@ -98,7 +96,7 @@ const PR = observer(({
           <Title title="page.team.pr.anonymous"/>
           <DataLoader
             to="response"
-            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
+            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => sendFakeRequest({
               content: withoutTask,
               pagination: mode === 'print'
                 ? { size: 20 }

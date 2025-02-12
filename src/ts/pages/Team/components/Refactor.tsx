@@ -1,16 +1,14 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import ICommit from 'ts/interfaces/Commit';
-import ISort from 'ts/interfaces/Sort';
 import { IPagination } from 'ts/interfaces/Pagination';
 import { getDate } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
@@ -152,9 +150,7 @@ const Refactor = observer(({
       <Title title="page.team.refactor.title"/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(content, mode)}
       >
         <View />
         <Pagination />

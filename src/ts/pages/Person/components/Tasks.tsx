@@ -1,13 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import ISort from 'ts/interfaces/Sort';
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 
 import TasksView from 'ts/pages/Team/components/Tasks/View';
@@ -27,9 +25,7 @@ const Tasks = observer(({
   return (
     <DataLoader
       to="response"
-      loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-        content: rows, pagination, sort, mode,
-      })}
+      loader={getFakeLoader(rows, mode)}
       watch={`${mode}${dataGripStore.hash}${user.author}`}
     >
       <TasksView

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
-import ISort from 'ts/interfaces/Sort';
 import dataGripStore from 'ts/store/DataGrip';
 import fullScreen from 'ts/store/FullScreen';
 
@@ -11,7 +9,7 @@ import Title from 'ts/components/Title';
 import Description from 'ts/components/Description';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import NothingFound from 'ts/components/NothingFound';
 
@@ -48,9 +46,7 @@ const Department = observer(({
       <Title title="page.team.department.title"/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(content, mode)}
       >
         <Departments />
         <Pagination />
@@ -67,7 +63,6 @@ const Department = observer(({
                 className={style.table_filters_item}
                 options={options}
                 onChange={(value: string) => {
-                  console.log(value);
                   setTaskCode(value);
                 }}
               />
@@ -75,9 +70,7 @@ const Department = observer(({
           </PageWrapper>
           <DataLoader
             to="response"
-            loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-              content: byMonths[taskCode], pagination, sort, mode,
-            })}
+            loader={getFakeLoader(byMonths[taskCode], mode)}
             watch={taskCode}
           >
             <Months/>

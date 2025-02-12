@@ -8,7 +8,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';
 import Title from 'ts/components/Title';
 import NothingFound from 'ts/components/NothingFound';
 
@@ -45,7 +45,7 @@ const Tree = observer(({ type }: ITreeProps): React.ReactElement => {
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={(pagination?: IPaginationRequest) => getFakeLoader({
+          loader={(pagination?: IPaginationRequest) => sendFakeRequest({
             content, pagination: { ...pagination, size: 2000 },
           })}
           watch={`${treeStore.hash}${type}`}

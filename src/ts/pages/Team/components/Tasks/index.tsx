@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import ISort from 'ts/interfaces/Sort';
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import PageWrapper from 'ts/components/Page/wrapper';
@@ -75,9 +73,7 @@ const Tasks = observer(({
       </PageWrapper>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(content, mode)}
         watch={hash}
       >
         <View
@@ -98,9 +94,7 @@ const Tasks = observer(({
       <br/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: backlogContent, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(backlogContent, mode)}
         watch={hash}
       >
         <View

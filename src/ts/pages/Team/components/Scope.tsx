@@ -1,14 +1,14 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
+import { IPagination } from 'ts/interfaces/Pagination';
 import { getMoney } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import DataView from 'ts/components/DataView';
@@ -53,6 +53,7 @@ function ScopeView({ response, updateSort, rowsForExcel, mode }: IScopeViewProps
         properties="days"
       />
       <Column
+        isSortable={false}
         template={ColumnTypesEnum.NUMBER}
         title="page.team.scope.authorsDays"
         properties="authors"
@@ -132,9 +133,7 @@ const Scope = observer(({
       <Title title="page.team.scope.title"/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest) => getFakeLoader({
-          content: rows, pagination, mode,
-        })}
+        loader={getFakeLoader(rows, mode)}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <ScopeView

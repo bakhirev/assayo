@@ -2,13 +2,13 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
+import { IPagination } from 'ts/interfaces/Pagination';
 import { getShortDateRange, getShortNumber } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import DataView from 'ts/components/DataView';
 import Column from 'ts/components/Table/components/Column';
@@ -19,7 +19,6 @@ import Recommendations from 'ts/components/Recommendations';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
-import ISort from 'ts/interfaces/Sort';
 
 interface IWeekViewProps {
   name: string;
@@ -138,9 +137,7 @@ const Week = observer(({
       />
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: rows, pagination, sort,
-        })}
+        loader={getFakeLoader(rows)}
       >
         <WeekView
           name={statistic.author}

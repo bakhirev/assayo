@@ -7,7 +7,7 @@ import dataGripStore from 'ts/store/DataGrip';
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import TempoChart from 'ts/components/Tempo';
 
@@ -49,7 +49,7 @@ const Tempo = observer(({ user, filters }: IPersonCommonProps): React.ReactEleme
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={() => getFakeLoader({ content: partOfData })}
+          loader={() => sendFakeRequest({ content: partOfData })}
           watch={JSON.stringify(filters)}
         >
           <TempoView user={user.author}/>

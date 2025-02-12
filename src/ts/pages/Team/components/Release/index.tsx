@@ -2,13 +2,12 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
-import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
@@ -40,9 +39,7 @@ const Release = observer(({
       )}
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest) => getFakeLoader({
-          content: rows, pagination, mode,
-        })}
+        loader={getFakeLoader(rows, mode)}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <View

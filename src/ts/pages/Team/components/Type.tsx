@@ -3,15 +3,14 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import ISort from 'ts/interfaces/Sort';
-import { IPaginationRequest, IPagination } from 'ts/interfaces/Pagination';
+import { IPagination } from 'ts/interfaces/Pagination';
 import dataGripStore from 'ts/store/DataGrip';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 import DataLoader from 'ts/components/DataLoader';
 import Pagination from 'ts/components/DataLoader/components/Pagination';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import Title from 'ts/components/Title';
 import DataView from 'ts/components/DataView';
@@ -140,9 +139,7 @@ const Type = observer(({
       <Title title="page.team.type.title"/>
       <DataLoader
         to="response"
-        loader={(pagination?: IPaginationRequest, sort?: ISort[]) => getFakeLoader({
-          content: rows, pagination, sort, mode,
-        })}
+        loader={getFakeLoader(rows, mode)}
         watch={`${mode}${dataGripStore.hash}`}
       >
         <TypeView

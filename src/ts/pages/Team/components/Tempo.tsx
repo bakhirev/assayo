@@ -6,7 +6,7 @@ import dataGripStore from 'ts/store/DataGrip';
 
 import PageWrapper from 'ts/components/Page/wrapper';
 import DataLoader from 'ts/components/DataLoader';
-import getFakeLoader from 'ts/components/DataLoader/helpers/formatter';
+import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import TempoChart from 'ts/components/Tempo';
 import Title from 'ts/components/Title';
@@ -67,7 +67,7 @@ const Tempo = observer((): React.ReactElement => {
       <PageWrapper template="table">
         <DataLoader
           to="response"
-          loader={() => getFakeLoader({ content: partOfData })}
+          loader={() => sendFakeRequest({ content: partOfData })}
           watch={JSON.stringify(filters)}
         >
           <TempoView
