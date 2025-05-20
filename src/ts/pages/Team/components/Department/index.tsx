@@ -48,7 +48,7 @@ const Department = observer(({
         to="response"
         loader={getFakeLoader(content, mode)}
       >
-        <Departments />
+        <Departments mode={mode} />
         <Pagination />
       </DataLoader>
 
@@ -73,7 +73,7 @@ const Department = observer(({
             loader={getFakeLoader(byMonths[taskCode], mode)}
             watch={taskCode}
           >
-            <Months/>
+            <Months mode={mode} />
             <Pagination />
           </DataLoader>
           <Description text={t('page.team.department.months.description')} />

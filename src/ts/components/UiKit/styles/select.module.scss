@@ -2,6 +2,11 @@
 
 .ui_kit_select {
   padding: 0 var(--space-xs) 0 var(--space-l);
+
+  &_value {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .ui_kit_select_with_buttons {

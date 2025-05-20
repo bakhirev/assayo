@@ -152,8 +152,7 @@ const Refactor = observer(({
         to="response"
         loader={getFakeLoader(content, mode)}
       >
-        <View />
-        <Pagination />
+        <View mode={mode} />
       </DataLoader>
     </>
   );

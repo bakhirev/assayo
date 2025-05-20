@@ -67,6 +67,8 @@
 
   &_text {
     max-width: calc(100% - 40px);
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
