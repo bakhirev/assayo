@@ -87,7 +87,6 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         isSortable
         title="page.team.release.delay"
         properties="delayInDays"
-        width={170}
         minWidth={170}
         template={(value: number) => (
           <LineChart
@@ -104,7 +103,6 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         isSortable
         title="page.team.release.waiting"
         properties="waitingInDays"
-        width={170}
         minWidth={170}
         template={(value: number) => (
           <LineChart

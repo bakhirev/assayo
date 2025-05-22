@@ -79,7 +79,6 @@ function TypeView({ response, updateSort, rowsForExcel, mode }: IFilesViewProps)
         isSortable
         title="page.team.extension.current.count"
         properties="count"
-        width={170}
         minWidth={170}
         template={(value: number) => (
           <LineChart
@@ -96,7 +95,6 @@ function TypeView({ response, updateSort, rowsForExcel, mode }: IFilesViewProps)
         isSortable
         title="page.team.extension.removed.count"
         properties="removedCount"
-        width={170}
         minWidth={170}
         template={(value: number) => (
           <LineChart

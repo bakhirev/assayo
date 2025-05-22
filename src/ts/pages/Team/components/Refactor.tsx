@@ -7,7 +7,6 @@ import { getDate } from 'ts/helpers/formatter';
 import dataGripStore from 'ts/store/DataGrip';
 
 import DataLoader from 'ts/components/DataLoader';
-import Pagination from 'ts/components/DataLoader/components/Pagination';
 import { getFakeLoader } from 'ts/components/DataLoader/helpers/formatter';
 import NothingFound from 'ts/components/NothingFound';
 import DataView from 'ts/components/DataView';
