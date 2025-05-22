@@ -51,7 +51,7 @@ export default class DataGripByRelease {
 
   #updatePRInRelease(branch: string, commit: ISystemCommit) {
     const statistic = this.release[branch];
-    statistic.prIds.push(commit);
+    statistic.prIds.push(commit.prId);
     statistic.prLength = statistic.prIds.length;
   }
 
