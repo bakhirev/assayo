@@ -14,23 +14,33 @@ function groupByType(prs: any[]) {
   }, {});
 }
 
-function getTaskDescription(pr: any) {
-  const message = pr.message.substring(pr.message.lastIndexOf(':') + 2)
+function getTaskDescription(pr: any, taskById: any) {
+  let message = pr.message.substring(pr.message.lastIndexOf(':') + 2)
     .replace(pr.task, '')
     .trim();
+
   const prefix = userSettings?.settings?.linksPrefix?.task || '/';
-  const formattedTask = pr.task?.[0] === '#'
+  const taskId = pr.task?.[0] === '#'
     ? pr.task.replace('#', '')
     : pr.task;
+  const task = taskById.get(taskId);
+  const formattedTask = task?.task || taskId;
+  message = message.indexOf('pull request') !== -1
+    ? (task?.comments || '')
+    : message;
+  if (!formattedTask && !message) return '';
   return `- [${formattedTask}](${prefix}${formattedTask}) ${message}`;
 }
 
-function getReleaseDescription(prs: any) {
+function getReleaseDescription(prs: any, taskById: any) {
   const types = groupByType(prs);
   return  Object.keys(types)
     .sort()
     .map((type: string) => {
-      const tasks = types[type].map(getTaskDescription).join('\n');
+      const tasks = types[type]
+        .map((pr: any) => getTaskDescription(pr, taskById))
+        .filter((v: string) => v)
+        .join('\n');
       if (!type) return `\n${tasks}`;
       return `\n### ${type}\n${tasks}`;
     }).join('\n');
@@ -40,10 +50,11 @@ function getChangeLogString() {
   const rows = dataGripStore.dataGrip.release.statistic;
   const list = rows.map((release: any) => {
     const date = getDateForExcel(release.lastCommit.date);
-    const prs = release.pr
+    const prs = release.prIds
       .map((prId: string) => dataGripStore.dataGrip.pr.pr.get(prId))
       .filter((v: any) => v);
-    const description = getReleaseDescription(prs);
+    const taskById = dataGripStore.dataGrip.tasks.statisticByName;
+    const description = getReleaseDescription(prs, taskById);
     return `
 ## [${release.title}] - ${date}
 ${description}`;

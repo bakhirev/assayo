@@ -13,6 +13,7 @@ const MASTER_BRANCH = {
   master: true,
   dev: true,
   develop: true,
+  release: true,
 };
 
 let prevDate = new Date();
@@ -105,6 +106,7 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
       commitType = COMMIT_TYPE.PR_GITHUB;
       [prId, repository, branch, toBranch] = getGithubPrInfo(message);
       task = getTask(branch);
+      [type] = getTypeAndScope(branch, task);
 
     } else if (isBitbucketPR) { // "Pull request #3: TASK-123 fix: Add profile"
       commitType = COMMIT_TYPE.PR_BITBUCKET;
@@ -124,11 +126,15 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
     } else if (isGitlabPR) {
       commitType = COMMIT_TYPE.PR_GITLAB;
       [branch, toBranch] = getGitlabPrInfo(message);
-      if (toBranch && MASTER_BRANCH[toBranch]) {
-        task = getTask(branch);
-        taskNumber = getTaskNumber(branch);
+      const branchToParse = toBranch && MASTER_BRANCH[toBranch]
+        ? (branch || toBranch)
+        : (toBranch || branch);
+      if (branchToParse) {
+        task = getTask(branchToParse);
+        taskNumber = getTaskNumber(branchToParse);
         prId = `#${taskNumber}-${Math.random()}`;
         if (!task && taskNumber) task = `#${taskNumber}`;
+        [type] = getTypeAndScope(branchToParse, task);
       }
     }
     taskNumber = getTaskNumber(task);

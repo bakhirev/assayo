@@ -15,10 +15,9 @@ export function getGithubPrInfo(text: string) {
 }
 
 /* "Merge branch 'J123456' into 'develop'" */
+/* "Merge branch 'J123456' into develop" */
 export function getGitlabPrInfo(text: string) {
-  const prefix = text.substring(14, text.length - 1);
-  const index = prefix.indexOf("'");
-  const branch = prefix.substring(0, index);
-  const toBranch = prefix.substring(index + 8);
-  return [branch, toBranch];
+  return text
+    .replace(/(["'\r\n]+)|(Merge\sbranch\s)/gim, '')
+    .split(' into ');
 }

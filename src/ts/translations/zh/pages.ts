@@ -216,7 +216,7 @@ export default `
 § page.team.extension.current.count: Number
 § page.team.extension.removed.count: Number of removed
 § page.team.extension.files: files
-§ page.team.release.download: Download
+§ page.team.release.download: CHANGELOG.md
 § page.team.release.title: Release
 § page.team.release.from: Created date
 § page.team.release.to: Delivery date

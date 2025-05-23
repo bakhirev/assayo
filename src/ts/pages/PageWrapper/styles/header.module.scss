@@ -3,10 +3,17 @@
 .header {
   grid-area: header;
   display: block;
-  padding: 20px 34px 20px 24px;
   box-sizing: border-box;
-  text-align: right;
+  text-align: left;
   background-color: var(--color-white);
+
+  &_wrapper {
+    display: block;
+    width: calc(100vw - 258px);
+    padding: 20px 47px 20px 24px;
+    box-sizing: border-box;
+    text-align: right;
+  }
 
   &_title {
     float: left;
@@ -53,6 +60,12 @@
 
     padding: 0;
     background-color: var(--color-white);
+  }
+}
+
+@media (max-width: 1000px) {
+  .header_wrapper {
+    width: calc(100vw - 78px);
   }
 }
 

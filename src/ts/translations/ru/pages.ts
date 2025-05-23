@@ -221,7 +221,7 @@ export default `
 § page.team.extension.current.count: Количество
 § page.team.extension.removed.count: Количество удалённых
 § page.team.extension.files: файлов
-§ page.team.release.download: Скачать
+§ page.team.release.download: CHANGELOG.md
 § page.team.release.title: Релиз
 § page.team.release.from: Дата создания
 § page.team.release.to: Дата завершения

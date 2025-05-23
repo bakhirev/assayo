@@ -95,6 +95,11 @@
 
   &_button {
     color: var(--color-temp-title);
+    background-color: var(--color-temp-bg);
+
+    &:hover {
+      background-color: var(--color-temp-bg);
+    }
   }
 
   background-color: var(--color-temp-bg);

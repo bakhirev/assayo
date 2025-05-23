@@ -18,57 +18,60 @@ const Header = observer((): React.ReactElement | null => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const options = [
+    { id: 'ru', title: 'RU' },
+    { id: 'en', title: 'EN' },
+    { id: 'zh', title: 'ZH' },
+    { id: 'es', title: 'ES' },
+    { id: 'fr', title: 'FR' },
+    { id: 'pt', title: 'PT' },
+    { id: 'de', title: 'DE' },
+    { id: 'ja', title: 'JA' },
+    { id: 'ko', title: 'KO' },
+  ];
 
   return (
     <header className={style.header}>
-      <Title/>
-      {settingsForm.isEdited ? (
-        <Buttons/>
-      ) : (
-        <>
-          <Filters/>
-          <Select
-            className={style.header_lang}
-            value={localization.language}
-            options={[
-              { id: 'ru', title: 'RU' },
-              { id: 'en', title: 'EN' },
-              { id: 'zh', title: 'ZH' },
-              { id: 'es', title: 'ES' },
-              { id: 'fr', title: 'FR' },
-              { id: 'pt', title: 'PT' },
-              { id: 'de', title: 'DE' },
-              { id: 'ja', title: 'JA' },
-              { id: 'ko', title: 'KO' },
-            ]}
-            onChange={(item: any, id: string) => {
-              localization.language = id;
-              i18n.changeLanguage(id);
-              if (id === BROWSER_LANGUAGE) {
-                localStorage.removeItem('language');
-              } else {
-                localStorage.setItem('language', id);
-              }
-            }}
-          />
-          <img
-            title={t('sidebar.buttons.print')}
-            className={style.header_print}
-            src="./assets/menu/print.svg"
-            onClick={() => {
-              printStore.open(navigate, location.pathname);
-            }}
-          />
-          <img
-            title={t('sidebar.buttons.settings')}
-            className={style.header_setting}
-            src="./assets/menu/setting.svg"
-            onClick={() => {
-              navigate('/settings');
-            }}
-          />
-        </>
-      )}
+      <div className={style.header_wrapper}>
+        <Title/>
+        {settingsForm.isEdited ? (
+          <Buttons/>
+        ) : (
+          <>
+            <Filters/>
+            <Select
+              className={style.header_lang}
+              value={localization.language}
+              options={options}
+              onChange={(item: any, id: string) => {
+                localization.language = id;
+                i18n.changeLanguage(id);
+                if (id === BROWSER_LANGUAGE) {
+                  localStorage.removeItem('language');
+                } else {
+                  localStorage.setItem('language', id);
+                }
+              }}
+            />
+            <img
+              title={t('sidebar.buttons.print')}
+              className={style.header_print}
+              src="./assets/menu/print.svg"
+              onClick={() => {
+                printStore.open(navigate, location.pathname);
+              }}
+            />
+            <img
+              title={t('sidebar.buttons.settings')}
+              className={style.header_setting}
+              src="./assets/menu/setting.svg"
+              onClick={() => {
+                navigate('/settings');
+              }}
+            />
+          </>
+        )}
+      </div>
     </header>
   );
 });

@@ -221,7 +221,7 @@ export default `
 § page.team.extension.current.count: 수량
 § page.team.extension.removed.count: 삭제된 수
 § page.team.extension.files: 파일
-§ page.team.release.download: 다운로드
+§ page.team.release.download: CHANGELOG.md
 § page.team.release.title: 릴리스
 § page.team.release.from: 생성 날짜
 § page.team.release.to: 완료 날짜
