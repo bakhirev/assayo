@@ -48,6 +48,7 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
   - [Use the library PHP](#link-14)
   - [Use the library Python](#link-15)
   - [Use the library Ruby](#link-16)
+  - [Use the library Goland](#link-165)
   - [Use source code](#link-17)
 - [How to rebuild the HTML report from source code?](#link-18)
 - [How to view a report on a group of microservices?](#link-19)
@@ -93,6 +94,12 @@ assayo
 Ruby:
 ```
 gem install assayo
+assayo
+```
+Goland:
+```
+go get github.com/bakhirev/assayo
+go install github.com/bakhirev/assayo
 assayo
 ```
 The script will create a folder `./assayo` with a report about repository:
