@@ -1,3 +1,3 @@
-module github.com/bakhirev/git-log
+module github.com/bakhirev/assayo
 
 go 1.23.1
