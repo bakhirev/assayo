@@ -92,6 +92,12 @@ Ruby:
 gem install assayo
 assayo
 ```
+Go:
+```
+go get github.com/bakhirev/assayo
+go install github.com/bakhirev/assayo
+assayo
+```
 The script will create a folder `./assayo` with a report about repository:
 ```
 ./assayo/index.html - report

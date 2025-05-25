@@ -97,6 +97,16 @@
         ]
     },
     {
+        "p": "Go:"
+    },
+    {
+        "pre": [
+            "go get github.com/bakhirev/assayo",
+            "go install github.com/bakhirev/assayo",
+            "assayo"
+        ]
+    },
+    {
         "p": "The script will create a folder `./assayo` with a report about repository:"
     },
     {

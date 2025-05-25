@@ -92,6 +92,12 @@ Ruby:
 gem install assayo
 assayo
 ```
+Go:
+```
+go get github.com/bakhirev/assayo
+go install github.com/bakhirev/assayo
+assayo
+```
 Скрипт создаст папку `./assayo` с отчётом по данному репозиторию:
 ```
 ./assayo/index.html - отчёт

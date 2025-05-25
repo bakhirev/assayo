@@ -98,6 +98,16 @@
         ]
     },
     {
+        "p": "Go:"
+    },
+    {
+        "pre": [
+            "go get github.com/bakhirev/assayo",
+            "go install github.com/bakhirev/assayo",
+            "assayo"
+        ]
+    },
+    {
         "p": "Скрипт создаст папку `./assayo` с отчётом по данному репозиторию:"
     },
     {
