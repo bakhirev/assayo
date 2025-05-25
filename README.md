@@ -48,7 +48,7 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
   - [Use the library PHP](#link-14)
   - [Use the library Python](#link-15)
   - [Use the library Ruby](#link-16)
-  - [Use the library Goland](#link-165)
+  - [Use the library Go](#link-165)
   - [Use source code](#link-17)
 - [How to rebuild the HTML report from source code?](#link-18)
 - [How to view a report on a group of microservices?](#link-19)
@@ -96,7 +96,7 @@ Ruby:
 gem install assayo
 assayo
 ```
-Goland:
+Go:
 ```
 go get github.com/bakhirev/assayo
 go install github.com/bakhirev/assayo
@@ -167,7 +167,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 - run `assayo`
 - open `./assayo/index.html`
   <a name="link-165"></a>
-####  Use the library Goland
+####  Use the library Go
 - run `go get github.com/bakhirev/assayo`
 - run `go install github.com/bakhirev/assayo`
 - run `assayo`
