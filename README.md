@@ -166,6 +166,12 @@ Or open a saved file and manually change the encoding to UTF-8.
 - run `gem install assayo`
 - run `assayo`
 - open `./assayo/index.html`
+  <a name="link-165"></a>
+####  Use the library Goland
+- run `go get github.com/bakhirev/assayo`
+- run `go install github.com/bakhirev/assayo`
+- run `assayo`
+- open `./assayo/index.html`
   <a name="link-17"></a>
 ####  Use source code
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
