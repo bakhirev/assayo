@@ -1,0 +1,24 @@
+@import 'src/styles/variables';
+
+.year_chart_month {
+  &_info {
+    display: block;
+
+    font-weight: 100;
+    font-size: var(--font-xs);
+    font-family: Arial, Verdana, sans-serif;
+
+    padding: 0;
+    margin: var(--space-s) 0 0;
+
+    line-height: var(--font-xs);
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
+    color: var(--color-11);
+  }
+}

@@ -57,6 +57,8 @@ export default `
 § page.team.month.title: 프로젝트 작업 일정
 § page.team.month.first: (첫 근무일)
 § page.team.month.last: (마지막 작업 일)
+§ page.team.month.authors: All employees
+§ page.team.month.types: All types
 § page.team.scope.title: 기능 통계
 § page.team.scope.scope: 특징
 § page.team.scope.days: 노예 일

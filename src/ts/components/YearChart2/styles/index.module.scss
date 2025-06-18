@@ -14,14 +14,6 @@
   margin: var(--day-size) calc(var(--day-size) / 2) 0;
   vertical-align: top;
 
-  &_icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin: -2px 2px 0 4px;
-    vertical-align: middle;
-  }
-
   &_header {
     display: block;
     height: 24px;
@@ -55,27 +47,13 @@
       width: var(--day-size);
       height: var(--day-size);
       margin: 0 1px 1px 0;
-
-      font-size: var(--font-m);
-      font-weight: bold;
       vertical-align: top;
-      line-height: var(--day-size);
-      overflow: hidden;
       cursor: pointer;
       text-align: center;
 
-      color: var(--color-black);
       background-color: var(--color-border);
       background-blend-mode: screen;
       -webkit-print-color-adjust: exact;
-
-      &_icon {
-        display: inline-block;
-        width: 96%;
-        height: 96%;
-        margin-top: 1px;
-        vertical-align: top;
-      }
 
       &_arrow {
         position: absolute;

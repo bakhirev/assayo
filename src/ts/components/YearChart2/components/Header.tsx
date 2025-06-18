@@ -1,22 +1,19 @@
 import React from 'react';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
-import { getCustomDate } from 'ts/helpers/formatter';
+import { getLangPrefix } from 'ts/helpers/formatter';
 
+import IMonth from '../interfaces/Month';
 import style from '../styles/index.module.scss';
 
 interface IHeaderProps {
-  showYear: boolean;
-  month: DataGripMonth;
+  month: IMonth;
 }
 
 function Header({
-  showYear,
   month,
 }: IHeaderProps): React.ReactElement | null {
-  const title = showYear
-    ? getCustomDate(month.milliseconds, { month: 'long', year: 'numeric' })
-    : getCustomDate(month.milliseconds, { month: 'long' });
+  const name = month.date.toLocaleString(getLangPrefix(), { month: 'long' });
+  const showYear = month.first || month.last || !month.month;
 
   return (
     <div className={style.year_chart_month_header}>
@@ -24,7 +21,7 @@ function Header({
         className={style.year_chart_month_header_title}
         style={{ fontWeight: showYear ? 'bold' : 100 }}
       >
-        {title}
+        {name} {showYear ? month.year : ''}
       </span>
     </div>
   );

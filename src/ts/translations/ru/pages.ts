@@ -57,6 +57,8 @@ export default `
 § page.team.month.title: Календарь работы по проекту
 § page.team.month.first: (первый рабочий день)
 § page.team.month.last: (последний рабочий день)
+§ page.team.month.authors: Все сотрудники
+§ page.team.month.types: Все типы
 § page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней

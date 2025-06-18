@@ -59,10 +59,7 @@ function Changes({ statistic }: IChangesProps) {
       <br/>
       <Title title={`${getDate(selected?.timestamp)} изменили ${selected?.addedAndChanges || '_'} строк`}/>
       <PageWrapper template="box">
-        <DayInfo
-          day={selected}
-          order={dataGripStore.dataGrip.author.list}
-        />
+        <DayInfo timestamp={selected?.timestamp} />
       </PageWrapper>
     </>
   );

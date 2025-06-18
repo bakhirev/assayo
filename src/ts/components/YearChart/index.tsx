@@ -1,37 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import MinMaxCounter from 'ts/helpers/DataGrip/components/counter';
+import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
 
-import getCommitsByMonth from './helpers/getCommitsByMonth';
-import getAuthorByDate from './helpers/getAuthorByDate';
+import { Filters } from './interfaces/Filters';
+import DayInfoHint from './components/DayInfo';
 import Month from './components/Month';
-import IMonth from './interfaces/Month';
+import type { DayEvents } from './helpers/events';
+import { getDayWidth } from './helpers/day';
+import dayInfoStore from './store/DayInfo';
 
 import style from './styles/index.module.scss';
 
-function getDayWidth(wrapperWidth: number, monthNumber: number) {
-  const step = 0.3;
-  const borders = 7;
-  for (let px = 16; px <= 24; px += step) {
-    const monthWidth = borders + 8 * px;
-    const size = monthWidth * monthNumber;
-    if (size > wrapperWidth) return (px - step);
-  }
-  return 24;
-}
-
 interface IYearChartProps {
-  maxCommits: number;
-  showEvents?: boolean;
-  wordDays: any[];
-  authors: any[];
+  max?: number;
+  events: DayEvents;
+  months: DataGripMonth[];
+  filters?: Filters;
 }
 
 function YearChart({
-  maxCommits = 100,
-  showEvents = true,
-  wordDays = [],
-  authors = [],
+  max = 100,
+  events,
+  months = [],
+  filters = {},
 }: IYearChartProps): React.ReactElement | null {
   const wrapper = useRef(null);
   const [dayWidth, setDayWidth] = useState<number>(16);
@@ -39,45 +30,29 @@ function YearChart({
   useEffect(() => {
     if (!wrapper.current) return; // @ts-ignore
     const size = wrapper.current?.getBoundingClientRect() || {};
-    const minMonthWidth = 7 + 8 * 16;
-    const newMonthNumber = Math.floor(size.width / minMonthWidth);
-    const width = getDayWidth(size.width, newMonthNumber);
-
+    const width = getDayWidth(size?.width);
     setDayWidth(width);
+    return () => dayInfoStore.close();
   }, []);
 
-  if (!wordDays || !wordDays.length) return null;
+  if (!months?.length) return null;
 
-  const authorsByDate = getAuthorByDate(authors);
-  const months = getCommitsByMonth(wordDays, authorsByDate);
-  const hideMoney = authors?.length === 1;
-
-  const max = {
-    tasks: new MinMaxCounter(),
-    money: new MinMaxCounter(),
-  };
-
-  months.forEach((month: IMonth) => {
-    max.tasks.update(month.tasks);
-    max.money.update(month.money);
+  const elements = months.map((month: DataGripMonth, index: number) => {
+    const prev = months[index - 1];
+    return (
+      <Month
+        key={month.id}
+        max={max}
+        events={events}
+        filters={filters}
+        showYear={prev?.year !== month?.year}
+        month={month}
+      />
+    );
   });
 
-  const elements = months.map((month: IMonth) => (
-    <Month
-      key={month.id}
-      max={{
-        tasks: max.tasks.max,
-        money: max.money.max,
-        commits: maxCommits,
-      }}
-      month={month}
-      showEvents={showEvents}
-      hideMoney={hideMoney}
-    />
-  ));
-
-
-  const customStyle = { '--day-size': `${dayWidth.toFixed(1)}px` } as React.CSSProperties;
+  const daySize = dayWidth.toFixed(1);
+  const customStyle = { '--day-size': `${daySize}px` } as React.CSSProperties;
 
   return (
     <div
@@ -86,12 +61,9 @@ function YearChart({
       className={style.year_chart}
     >
       {elements}
+      <DayInfoHint events={events} />
     </div>
   );
 }
-
-YearChart.defaultProps = {
-  showEvents: true,
-};
 
 export default YearChart;

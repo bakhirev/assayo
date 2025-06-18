@@ -1,60 +1,64 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import IHashMap from 'ts/interfaces/HashMap';
-import { getShortMoney } from 'ts/helpers/formatter';
+import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
 
-import IMonth from '../interfaces/Month';
+import { Filters } from '../interfaces/Filters';
 import Header from './Header';
 import Body from './Body';
+import { DayEvents } from '../helpers/events';
 
 import styleChart from '../styles/line.module.scss';
 import style from '../styles/index.module.scss';
 
-interface IMonthProps {
-  max: IHashMap<number>;
-  month: IMonth;
-  showEvents: boolean;
-  hideMoney?: boolean;
+interface MonthProps {
+  max: number;
+  showYear: boolean;
+  events: DayEvents;
+  filters: Filters;
+  month: DataGripMonth;
 }
 
 function Month({
   max,
+  showYear,
+  events,
+  filters,
   month,
-  showEvents,
-  hideMoney,
-}: IMonthProps): React.ReactElement | null {
-  let value = '';
-  if (month.tasks) {
-    value = `☑ ${month.tasks || 0}`;
-  }
-  if (!hideMoney && month.money) {
-    value = `☑ ${month.tasks || 0} — ${getShortMoney(month.money || 0, 0)}`;
-  }
-
-  const title = hideMoney
-    ? 'tasks'
-    : 'tasks and money';
-
+}: MonthProps): React.ReactElement | null {
+  const { t } = useTranslation();
   return (
     <div className={style.year_chart_month}>
-      <Header month={month}/>
-      <Body
+      <Header
         month={month}
-        maxCommits={max.commits}
-        showEvents={showEvents}
+        showYear={showYear}
       />
-      <div
-        title={title}
-        className={styleChart.year_chart_month_info}
-      >
-        {value}
+      <Body
+        max={max}
+        month={month}
+        events={events}
+        filters={filters}
+      />
+      <div className={styleChart.year_chart_month_info}>
+        <img
+          title={t('page.team.week.tasks')}
+          className={style.year_chart_month_icon}
+          src="./assets/chart/tasks.svg"
+        />
+        <span title={t('page.team.week.tasks')}>
+          {month.tasksNumber || 0}
+        </span>
+        <img
+          title={t('page.team.country.chart.item')}
+          className={style.year_chart_month_icon}
+          src="./assets/chart/person.svg"
+        />
+        <span title={t('page.team.country.chart.item')}>
+          {month.usersNumber || 0}
+        </span>
       </div>
     </div>
   );
 }
-
-Month.defaultProps = {
-  hideMoney: false,
-};
 
 export default Month;

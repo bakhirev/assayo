@@ -1,84 +1,40 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import IHashMap from 'ts/interfaces/HashMap';
-import { TaskLink, PRLink } from 'ts/components/ExternalLink';
-import { getShortTime } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
+
+import TaskInfo from './components/TaskInfo';
 
 import style from './index.module.scss';
 
-interface ICommit {
-  date: string;
-  message: string;
+interface DayEvent {
+  firstDay: Set<string> | undefined;
+  lastDay: Set<string> | undefined;
+  release: Set<string> | undefined;
 }
 
-type ITask = IHashMap<ICommit>;
-
-type IDayInfo = IHashMap<ITask>;
-
-function CommitInfo({ commits }: { commits: ICommit[] }): React.ReactElement {
-  const items = commits.map((commit: any) => {
-    return (
-      <div
-        key={commit.date}
-        className={style.day_info_row}
-      >
-        <span className={style.day_info_date}>
-          {getShortTime(commit.date)}
-        </span>
-        <span className={style.day_info_message}>
-          {commit.message}
-        </span>
-      </div>
-    );
-  });
-  return (<>{items}</>);
+interface DayInfoProps {
+  timestamp: string;
+  events?: DayEvent;
 }
 
-function TaskInfo({ tasks }: { tasks: ITask }): React.ReactElement {
-  const items = Object.entries(tasks)
-    .map(([task, commits]: [string, any]) => {
-      const taskInfo = dataGrip.tasks.statisticByName.get(task);
-      const milliseconds = commits[0].milliseconds;
-      const prId = taskInfo?.prIds?.find((id: string) => {
-        const pr = dataGrip.pr.pr.get(id);
-        return pr.dateMerge >= milliseconds;
-      });
-      return (
-        <div key={`${prId}${task}`}>
-          <div className={style.day_info_link}>
-            <TaskLink task={task}/>
-            <PRLink prId={prId}/>
-          </div>
-          <CommitInfo commits={commits}/>
-        </div>
-      );
-    });
-  return (<>{items}</>);
-}
-
-interface IDayInfoProps {
-  day: IDayInfo;
-  order: string[];
-  events?: any;
-  timestamp?: string;
-}
-
-function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactElement {
+function DayInfo({ timestamp, events }: DayInfoProps): React.ReactElement {
   const { t } = useTranslation();
-  const firstCommit = events?.firstCommit?.[timestamp || ''] || [];
-  const lastCommit = events?.lastCommit?.[timestamp || ''] || [];
   let taskNumber = 0;
 
-  const items = Object.entries(day?.tasksByAuthor)
+  const allCommitsByTimestamp = dataGrip.timestamp.statistic.allCommitsByTimestamp;
+  const commitsByTimestamp = allCommitsByTimestamp.find((item: any) => item.timestamp === timestamp);
+  const tasksByAuthor = commitsByTimestamp.tasksByAuthor || {};
+  const order = dataGrip.author.list;
+
+  const items = Object.entries(tasksByAuthor)
     .sort((a: any, b: any) => (order.indexOf(a[0]) - order.indexOf(b[0])))
     .map(([author, tasks]: [string, any]) => {
       taskNumber += Object.keys(tasks).length;
 
       let suffix = '';
-      if (firstCommit.includes(author)) suffix = t('page.team.month.first');
-      if (lastCommit.includes(author)) suffix = t('page.team.month.last');
+      if (events?.firstDay?.has(author)) suffix = t('page.team.month.first');
+      if (events?.lastDay?.has(author)) suffix = t('page.team.month.last');
 
       return (
         <div
@@ -105,7 +61,6 @@ function DayInfo({ day, order, events, timestamp }: IDayInfoProps): React.ReactE
 
 DayInfo.defaultProps = {
   events: undefined,
-  timestamp: undefined,
 };
 
 export default DayInfo;

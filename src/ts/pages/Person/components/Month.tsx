@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
-import YearChart from 'ts/components/YearChart';
+import YearChart from 'ts/components/YearChart2';
 import PageWrapper from 'ts/components/Page/wrapper';
 
 import IPersonCommonProps from '../interfaces/CommonProps';

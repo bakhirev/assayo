@@ -7,6 +7,7 @@ import DataGripByTeam from './components/team';
 import DataGripByScope from './components/scope';
 import DataGripByType from './components/type';
 import DataGripByTimestamp from './components/timestamp';
+import DataGripByMonth from './components/month';
 import DataGripByWeek from './components/week';
 import MinMaxCounter from './components/counter';
 import DataGripByGet from './components/get';
@@ -35,7 +36,9 @@ class DataGrip {
 
   type: any = new DataGripByType();
 
-  timestamp: any = new DataGripByTimestamp();
+  timestamp: any = new DataGripByTimestamp(); // deprecated
+
+  month: any = new DataGripByMonth();
 
   week: any = new DataGripByWeek();
 
@@ -66,6 +69,7 @@ class DataGrip {
     this.scope.clear();
     this.type.clear();
     this.timestamp.clear();
+    this.month.clear();
     this.week.clear();
     this.recommendations.clear();
     this.get.clear();
@@ -88,6 +92,7 @@ class DataGrip {
       this.scope.addCommit(commit);
       this.type.addCommit(commit);
       this.timestamp.addCommit(commit);
+      this.month.addCommit(commit);
       this.get.addCommit(commit);
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
@@ -103,6 +108,7 @@ class DataGrip {
     this.scope.updateTotalInfo();
     this.type.updateTotalInfo();
     this.timestamp.updateTotalInfo(this.author);
+    this.month.updateTotalInfo(this.author);
     this.week.updateTotalInfo(this.author);
     this.recommendations.updateTotalInfo(this);
     this.tasks.updateTotalInfo();

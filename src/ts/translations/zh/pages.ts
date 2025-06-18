@@ -52,6 +52,8 @@ export default `
 § page.team.month.title: 项目工作日历
 § page.team.month.first: (first work day)
 § page.team.month.last: (last work day)
+§ page.team.month.authors: All employees
+§ page.team.month.types: All types
 § page.team.scope.title: 按模块划分的统计数字
 § page.team.scope.scope: 修改
 § page.team.scope.days: 工作天

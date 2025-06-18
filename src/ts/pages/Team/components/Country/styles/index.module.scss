@@ -21,7 +21,9 @@
 
 @media (max-width: 900px) {
   .team_country_filter_select {
+    display: block;
     min-width: 100%;
+    margin-bottom: var(--space-xxl)
   }
 }
 

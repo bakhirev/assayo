@@ -57,6 +57,8 @@ export default `
 § page.team.month.title: Project work calendar
 § page.team.month.first: (first work day)
 § page.team.month.last: (last work day)
+§ page.team.month.authors: All employees
+§ page.team.month.types: All types
 § page.team.scope.title: Feature statistics
 § page.team.scope.scope: Feature
 § page.team.scope.days: Working Days

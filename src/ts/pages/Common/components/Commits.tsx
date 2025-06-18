@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import dataGripStore from 'ts/store/DataGrip';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
 
 import Recommendations from 'ts/components/Recommendations';
@@ -63,10 +62,7 @@ function Commits({ statistic }: ICommitsProps) {
         selected?.commits,
       )} />
       <PageWrapper template="box">
-        <DayInfo
-          day={selected}
-          order={dataGripStore.dataGrip.author.list}
-        />
+        <DayInfo timestamp={selected?.timestamp} />
       </PageWrapper>
     </>
   );

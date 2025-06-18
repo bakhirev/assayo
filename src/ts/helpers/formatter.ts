@@ -56,7 +56,7 @@ export function get2Number(time: number) {
   return time < 10 ? `0${time}` : time;
 }
 
-export function getCustomDate(timestamp: string, options?: any) {
+export function getCustomDate(timestamp: string | number, options?: any) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
   return date.toLocaleString(getLangPrefix(), options || { day: 'numeric', month: 'long', year: 'numeric' });

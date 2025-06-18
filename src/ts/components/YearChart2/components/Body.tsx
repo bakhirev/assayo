@@ -1,48 +1,43 @@
 import React from 'react';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
+import dataGripStore from 'ts/store/DataGrip';
 
-import { Filters } from '../interfaces/Filters';
 import Day from './Day';
-import { DayEvents } from '../helpers/events';
-
+import IMonth from '../interfaces/Month';
 import style from '../styles/index.module.scss';
+import { getEvents } from '../helpers/day';
 
 interface IBodyProps {
-  max: number;
-  month: DataGripMonth;
-  events: DayEvents;
-  filters: Filters;
+  month: IMonth;
+  maxCommits: number;
+  showEvents: boolean;
 }
 
-const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 function Body({
-  max,
   month,
-  events,
-  filters,
+  maxCommits,
+  showEvents,
 }: IBodyProps): React.ReactElement | null {
   const firstDay = month.date.getDay() - 1;
-  const lastDay = firstDay + DAYS_IN_MONTH[month.month];
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const lastDay = firstDay + daysInMonth[month.month];
   const allDays = (new Array(6 * 7)).fill(0);
   let currentDay = 0;
 
+  const events = showEvents ? getEvents(dataGripStore) : {};
   const days = allDays.map((v: any, index: number) => {
-    const dayInMonth = index - firstDay + 1;
-    const dayInfo = month.days[currentDay];
-    const eventsByDay = events.get(dayInfo?.timestamp);
+    const dayInfo = month.commits[currentDay];
 
-    if (dayInfo?.dayInMonth === dayInMonth) {
+    if (dayInfo?.dayInMonth === (index - firstDay + 1)) {
       currentDay += 1;
       return (
         <Day
           key={index}
-          max={max}
+          month={month}
+          maxCommits={maxCommits}
           dayNumber={index}
           dayInfo={dayInfo}
-          events={eventsByDay}
-          filters={filters}
+          events={events}
        />
       );
     }
