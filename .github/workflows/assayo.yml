@@ -1,6 +1,20 @@
+# Creates an HTML report
+# with analysis of commit statistics.
+# 
+# More information: https://github.com/bakhirev/assayo
 name: Assayo
+description: Report with analysis of commit statistics
 
 on:
+  # Run by time
+  # (if you have a lot of people and frequent commits)
+  # Remove this for small teams:
+  schedule:
+  - cron: '3 * * * *'
+
+  # Run by PR
+  # (if you have few people and commits are rarely made)
+  # Remove this for big teams:
   pull_request:
     types: [closed]
   push:
@@ -23,7 +37,6 @@ jobs:
 
     - name: Create report
       run: |
-        git fetch --unshallow || true
         git clone https://github.com/bakhirev/assayo.git
         git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
 

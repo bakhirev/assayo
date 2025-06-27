@@ -195,8 +195,8 @@ Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v
 JIRA-1234 feat(profile): Added avatar for user 
 ```
 - task number in the task tracker `(JIRA-1234)`
-- type of work `(feat, fix, style, refactor, test, doc и т.д.)`
-- feature `(profile - new page on site or new function, use one (two) short wordor an abbreviation)`
+- type of work `(feat, fix, style, refactor, test, doc and etc.)`
+- feature `(profile - new page on site or new function, use one (two) short word or an abbreviation)`
 - what problem were solved `(Added avatar for user)`
 <a name="link-22"></a>
 ### 👮 How to add checking for commit message?
