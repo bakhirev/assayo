@@ -11,6 +11,7 @@ function addListWithPrefix(list, markdown, prefix = '') {
 
 function addList(list, markdown) {
   addListWithPrefix(list, markdown, '- ');
+  markdown.push('');
 }
 
 function addBlockCode(list, markdown) {

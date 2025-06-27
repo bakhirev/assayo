@@ -366,16 +366,7 @@
         "h4": "Github Actions"
     },
     {
-        "p": "Use Github Actions to automatically create a report within your builds."
-    },
-    {
-        "li": [
-            "[example](https://github.com/marketplace/actions/assayo) action from the official marketplace;",
-            "[example](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) custom action;"
-        ]
-    },
-    {
-        "p": "I recommend using the first option. It is more stable and increases the statistics of installations."
+        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace."
     },
     {
         "h4": "Serveur public"

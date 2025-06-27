@@ -370,16 +370,7 @@
         "h4": "Github Actions"
     },
     {
-        "p": "Используйте Github Actions для автоматического создания отчёта в рамках ваших сборок."
-    },
-    {
-        "li": [
-            "[пример](https://github.com/marketplace/actions/assayo) action из официального магазина;",
-            "[пример](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) action собраного руками;"
-        ]
-    },
-    {
-        "p": "Рекомендуем использовать первый вариант. Он более стабильный и увеличивает нашу статистику установок."
+        "p": "Добавьте [скрипт](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) в папку `.github/workflows/` или используйте этот [action](https://github.com/marketplace/actions/assayo) из официального магазина."
     },
     {
         "h4": "Публичный сервер"

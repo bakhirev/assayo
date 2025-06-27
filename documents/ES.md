@@ -4,9 +4,7 @@
 
 # [Assayo](https://bakhirev.github.io/?ref=github&lang=es)
 Visualización y análisis de los datos de su repositorio git. Performance tool for Team Lead and IT-audit
-
 **Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
-
 **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
 
 <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/facebook.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/reddit.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&via=&hashtags=IT%2Cgit%2Cstatistics%2Caudit%2Cdata-visualization%2Creport" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/twitter.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/linkedin.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&caption=Check%20your%20git%20stats%21&tags=IT%2Cgit%2Cstatistics%2Caudit%2Cdata-visualization%2Creport" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/tumblr.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.blogger.com/blog-this.g?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&n=Visualization%20and%20analysis%20of%20git%20repository&t=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/blogger.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.evernote.com/clip.action?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/evernote.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.addthis.com/bookmark.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/add.this.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://getpocket.com/edit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/getpocket.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&t=Visualization%20and%20analysis%20of%20git%20repository" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/hacker.news.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://buffer.com/add?text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/buffer.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://share.flipboard.com/bookmarklet/popout?v=2&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/flipboard.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.instapaper.com/edit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&description=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/instapaper.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://share.diasporafoundation.org/?title=Visualization%20and%20analysis%20of%20git%20repository&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/diaspora.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/qzone.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://vk.com/share.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&comment=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/vk.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&appkey=&title=Visualization%20and%20analysis%20of%20git%20repository&pic=&ralateUid=" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/weibo.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/ok.ru.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.douban.com/recommend/?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/douban.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.xing.com/spi/shares/new?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/xing.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://widget.renren.com/dialog/share?resourceUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&srcUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&description=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/renren.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="threema://compose?text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&id=" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/threema.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://lineit.line.me/share/ui?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/line.me.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a>
@@ -19,6 +17,7 @@ Visualización y análisis de los datos de su repositorio git. Performance tool 
 - Las áreas de responsabilidad;
 - El volumen de características y errores;
 - El estilo de trabajo de los colegas;
+
 <a name="link-1"></a>
 ##### ‍👨‍💼 El jefe puede evaluar a los empleados
 - Identificar a los ociosos;
@@ -26,6 +25,7 @@ Visualización y análisis de los datos de su repositorio git. Performance tool 
 - Conocer la velocidad de trabajo;
 - Se han notado anomalías de comportamiento;
 - Ver el ritmo de trabajo por semanas;
+
 <a name="link-2"></a>
 ##### 👑 El inversor puede evaluar el producto
 - El costo del producto;
@@ -33,6 +33,7 @@ Visualización y análisis de los datos de su repositorio git. Performance tool 
 - El tiempo de desarrollo;
 - La predicción del tiempo de mejoras;
 - La predicción del costo;
+
 <a name="link-3"></a>
 ###  Table of contents
 - [Cómo puedo rápidamente ver el número de commits?](#link-4)
@@ -146,31 +147,37 @@ Or open a saved file and manually change the encoding to UTF-8.
 - ir a [sitio web](https://bakhirev.github.io/)
 - pulse el botón [Demo](https://bakhirev.github.io/demo)»
 - arrastrar y soltar archivo `log.txt` en la ventana del navegador
+
 <a name="link-13"></a>
 ####  Use the library NodeJS
 - run `npx assayo`
 - open `./assayo/index.html`
+
 <a name="link-14"></a>
 ####  Use the library PHP
 - run `composer require bakhirev/assayo`
 - run `vendor/bin/assayo`
 - open `./assayo/index.html`
+
 <a name="link-15"></a>
 ####  Use the library Python
 - run `pipx install assayo`
 - run `assayo`
 - open `./assayo/index.html`
+
 <a name="link-16"></a>
 ####  Use the library Ruby
 - run `gem install assayo`
 - run `assayo`
 - open `./assayo/index.html`
+
 <a name="link-17"></a>
 ####  Use source code
 - descargar este repositorio
 - arrastrar y soltar archivo `log.txt` en la carpeta `/build`
 - lanzar `/build/index.html`
 - o arrastrar una carpeta `/build` a su repositorio (donde se encuentra ' log.txt`). Puede cambiar el nombre. Por ejemplo `/build` contra `/report`
+
 En este caso, es importante que el archivo ' log.txt ' fue generado por el equipo para ver sin conexión.
 <a name="link-18"></a>
 ### 🏭 Como recompilar el build de un informe?
@@ -178,17 +185,20 @@ En este caso, es importante que el archivo ' log.txt ' fue generado por el equip
 - Ejecutar `npm install`
 - Ejecutar `npm run build:local`
 - La nueva compilación estará en el directorio `/build`
+
 <a name="link-19"></a>
 ### 🗃️ Como mirar el reporte de un grupo de microservicios?
 - Generar para cada microservicio el archivo `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Ver “Cómo ver el informe en línea?”. En el último paso, arrastrar todos los archivos al navegador.
 - Ver “Cómo ver informe fuera de línea?”. En el segundo paso, arrastrar los archivos de todos los microservicios al navegador (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) la carpeta informe (`/build`).
+
 <a name="link-20"></a>
 ### 🎨 ¿Cómo puedo personalizar la interfaz de usuario?
 Puedes crear tu propio tema para la interfaz. Puedes cambiar:
 - **El título**. Puedes especificarlo en el parámetro de la URL ```title```. Por ejemplo: ```?title=You Company```
 - **El tema visual**. Para esto, debes preparar un archivo CSS con los nuevos estilos y especificar su dirección en el parámetro de URL ```theme```. Por ejemplo: ```?theme=//company.com/some.css```. Puedes usar los nombres de clases como selectores. La mayoría de ellos no cambia con el lanzamiento de nuevas versiones.
 - **La lengua**. Puedes especificarla en el parámetro de la URL ```lang```. Por ejemplo: ```?lang=es```
+
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-21"></a>
 ### 📝 ¿Cómo firmar los commits?
@@ -200,6 +210,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - tipo de trabajo `(feat, fix, style, refactor, test, doc etc.)`
 - ficha `(profile - La sección del sitio, la página o la nueva funcionalidad, en una palabra)`
 - ¿qué problema resolvieron? `(Added avatar for user)`
+
 <a name="link-22"></a>
 ### 👮 How to add checking for commit message?
 <a name="link-23"></a>
@@ -230,22 +241,21 @@ fi
 <a name="link-26"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
+
 <a name="link-27"></a>
 ####  Sin backend
 - clone del repositorio que desea;
 - copiar a la carpeta raíz `build`;
 - abridlo `build/index.html` añadir a favoritos;
 - agregue un icono de `build/assets/ci-cd.sh` a su carpeta de inicio automático
+
  (Windows);
 Cada vez que reinicie su computadora, el script actualizará la estadística de todos los datos que se hayan incorporado automáticamente a la rama principal.
 <a name="link-28"></a>
 ### 🛠️ DevOps (CI/CD)
 <a name="link-29"></a>
 ####  Github Actions
-Use Github Actions to automatically create a report within your builds.
-- [example](https://github.com/marketplace/actions/assayo) action from the official marketplace;
-- [example](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) custom action;
-I recommend using the first option. It is more stable and increases the statistics of installations.
+Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
 <a name="link-30"></a>
 ####  Servidor público
 Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://bakhirev.github.io/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:
@@ -257,6 +267,7 @@ https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 - descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);
 - recogerlo en la red local;
 - Para ver los informes, use la interfaz web indicándole la dirección de los datos en el parámetro URL ```dump```:
+
 ```
 http://assayo_url/?dump=//you_url/some/log.txt
 assayo_url - URL dirección del contenedor assayo, Él está escuchando el puerto 80;
@@ -280,6 +291,7 @@ Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.
 - análisis de archivos;
 - diferentes roles para estadísticas (ocultación de finanzas);
 - desarrollo de la parte de atrás, integraciones con otros sistemas;
+
 <a name="link-35"></a>
 #### 🗺️ ¿Cómo añadir o editar una traducción?
 Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```.
@@ -289,4 +301,5 @@ Puede agregar una nueva traducción o corregir la actual en la sección ```ts/tr
 - telegramm [@bakhirev](https://t.me/bakhirev) (La forma preferencial de contacto)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - sitio web [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=es)
+
 
