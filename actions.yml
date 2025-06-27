@@ -1,44 +1,42 @@
 # Creates an HTML report
 # with analysis of commit statistics.
-# 
+#
 # More information: https://github.com/bakhirev/assayo
 name: Assayo
 description: Report with analysis of commit statistics
+author: bakhirev
 
-on:
-  # Run by time
-  # (if you have a lot of people and frequent commits)
-  # Remove this for small teams:
-  schedule:
-  - cron: '0 0 */5 * *'
+branding:
+  icon: 'info'
+  color: 'blue'
 
-  # Run by PR
-  # (if you have few people and commits are rarely made)
-  # Remove this for big teams:
-  pull_request:
-    types: [closed]
-  push:
-    tags:
-      - '*'
-    branches:
-      - main
-      - develop
-      - 'release/**'
+inputs:
+  add_file_info:
+    description: "Add information about files in report?"
+    default: "true"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
+runs:
+  using: composite
+  steps:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Create report
+    - name: Download report template
       run: |
         git clone https://github.com/bakhirev/assayo.git
+      shell: bash
+
+    - if: ${{ env.add_file_info }}
+      run: |
         git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
+      shell: bash
+
+    - if: ${{ !env.add_file_info }}
+      run: |
+        git --no-pager log --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
+      shell: bash
 
     - name: Archive the report as an artifact
       uses: actions/upload-artifact@v4
