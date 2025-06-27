@@ -3,7 +3,7 @@
 #
 # More information: https://github.com/bakhirev/assayo
 name: Assayo
-description: Report with analysis of commit statistics
+description: Create HTML-report with analysis of commit statistics
 author: bakhirev
 
 branding:
