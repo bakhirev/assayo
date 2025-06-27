@@ -23,4 +23,4 @@ jobs:
 
     steps:
     - name: Create git log report
-      uses: bakhirev/assayo
+      uses: bakhirev/assayo@4293c232ae24d353d634548fde92b52685ba082e
