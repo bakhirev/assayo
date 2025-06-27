@@ -1,0 +1,30 @@
+name: Update git log
+
+on:
+  pull_request:
+    types: [closed]
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Create log file
+      run: |
+        git fetch --unshallow || true
+        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+
+    - name: Archive logs as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: git-log
+        path: log.txt
