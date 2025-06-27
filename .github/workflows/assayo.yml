@@ -1,4 +1,4 @@
-name: Update git log
+name: Assayo
 
 on:
   pull_request:
@@ -21,10 +21,11 @@ jobs:
     - name: Create log file
       run: |
         git fetch --unshallow || true
-        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+        git clone https://github.com/bakhirev/assayo.git
+        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > ./assayo/log.txt
 
     - name: Archive logs as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: git-log
-        path: log.txt
+        name: Assayo
+        path: ./assayo
