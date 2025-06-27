@@ -23,17 +23,19 @@ runs:
       with:
         fetch-depth: 0
 
-    - name: Download report template
+    - name: Clone report generator
       run: |
         git clone https://github.com/bakhirev/assayo.git
       shell: bash
 
-    - if: ${{ env.add_file_info }}
+      # Full log.txt
+    - if: ${{ inputs.add_file_info == 'true' }}
       run: |
         git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
       shell: bash
 
-    - if: ${{ !env.add_file_info }}
+      # Small log.txt, without information about files
+    - if: ${{ inputs.add_file_info != 'true' }}
       run: |
         git --no-pager log --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
       shell: bash
