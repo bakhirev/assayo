@@ -6,7 +6,7 @@
         "p": "Visualisation et analyse des données de votre dépôt git. Performance tool for Team Lead and IT-audit"
     },
     {
-        "p": "**Links:** [demo](https://bakhirev.github.io/demo/?dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+        "p": "**Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
     },
     {
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
@@ -363,6 +363,21 @@
         "h3": "DevOps (CI/CD)"
     },
     {
+        "h4": "Github Actions"
+    },
+    {
+        "p": "Use Github Actions to automatically create a report within your builds."
+    },
+    {
+        "li": [
+            "[example](https://github.com/marketplace/actions/assayo) action from the official marketplace;",
+            "[example](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) custom action;"
+        ]
+    },
+    {
+        "p": "I recommend using the first option. It is more stable and increases the statistics of installations."
+    },
+    {
         "h4": "Serveur public"
     },
     {
@@ -392,18 +407,6 @@
     },
     {
         "p": "Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne fonctionne pas, vérifiez si le port 80 est disponible."
-    },
-    {
-        "h4": "Mise à jour de l’image-Docker"
-    },
-    {
-        "li": [
-            "constuire la build ```npm run build:docker```",
-            "assembler l'image ```docker build -t assayo .```",
-            "vérifier visuellement l'image ```docker run --name assayo -p 80:80 -d assayo```;",
-            "mettre la balise ```docker tag assayo bakhirev/assayo:latest```;",
-            "Envoyer le code au référentiel d'images dans Docker Hub ```docker push bakhirev/assayo:latest```;"
-        ]
     },
     {
         "h3": "️ About application"
