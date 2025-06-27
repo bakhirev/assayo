@@ -22,10 +22,10 @@ jobs:
       run: |
         git fetch --unshallow || true
         git clone https://github.com/bakhirev/assayo.git
-        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > ./assayo/log.txt
+        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > ./assayo/build/log.txt
 
     - name: Archive logs as artifact
       uses: actions/upload-artifact@v4
       with:
         name: Assayo
-        path: ./assayo
+        path: ./assayo/build/
