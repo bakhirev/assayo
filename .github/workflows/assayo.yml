@@ -1,20 +1,12 @@
-# Creates an HTML report
-# with analysis of commit statistics.
-#
-# More information: https://github.com/bakhirev/assayo
 name: Assayo
 
 on:
-  # Run by PR
-  # (if you have few people and commits are rarely made)
-  # Remove this for big teams:
   pull_request:
     types: [closed]
   push:
     tags:
       - '*'
     branches:
-      - main
       - develop
       - 'release/**'
 
@@ -25,3 +17,5 @@ jobs:
     steps:
     - name: Create git log report
       uses: bakhirev/assayo@4293c232ae24d353d634548fde92b52685ba082e
+      with:
+        add_file_info: true

@@ -7,8 +7,8 @@ description: Report with analysis of commit statistics
 author: bakhirev
 
 branding:
-  icon: 'info'
-  color: 'blue'
+  icon: "info"
+  color: "blue"
 
 inputs:
   add_file_info:
@@ -17,6 +17,7 @@ inputs:
 
 runs:
   using: composite
+  runs-on: ubuntu-latest
   steps:
     - name: Checkout code
       uses: actions/checkout@v4
