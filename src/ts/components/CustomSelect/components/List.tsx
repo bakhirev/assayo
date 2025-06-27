@@ -6,7 +6,7 @@ import IOption from '../interfaces/Option';
 import style from '../styles/index.module.scss';
 
 interface UiKitSelectListProps {
-  value: any;
+  value: any; // TODO: remove me
   options: IOption[];
   search?: string;
   keyCode?: string;
@@ -16,7 +16,6 @@ interface UiKitSelectListProps {
 }
 
 function UiKitSelectList({
-  value,
   options,
   search,
   keyCode,
@@ -26,7 +25,6 @@ function UiKitSelectList({
 }: UiKitSelectListProps) {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
-  console.log(value);
   const searchText = search ? search.toLowerCase() : '';
   const searchResult = searchText
     ? options?.filter((option: any) => option?._textForSearch?.indexOf(searchText) !== -1)

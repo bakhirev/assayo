@@ -11,7 +11,7 @@ export function getGithubPrInfo(text: string) {
     .replace(' to ', '", "to": "')
     .replace(' into ', '", "to": "');
   const data = JSON.parse(`{"${json}"}`);
-  return [data['Merge pull request #'], data.in, data.from, data.to];
+  return [data['Merge pull request #'], data.in || '', data.from || '', data.to || ''];
 }
 
 /* "Merge branch 'J123456' into 'develop'" */

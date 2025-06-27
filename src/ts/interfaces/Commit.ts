@@ -19,7 +19,7 @@ export interface ILog {
   dayInMonth: number; // 9,
   hours: number; // 12,
   minutes: number; // 59,
-  month: number; // 1,
+  month: number; // 1 (февраль, нумерация начинается от 0)
   year: number; // 2021,
   timezone: string; //  "+03:00",
   timestamp: string; //  "2021-02-09",

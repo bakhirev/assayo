@@ -16,6 +16,8 @@ import getOptions from 'ts/components/LineChart/helpers/getOptions';
 
 import { getMax, getMaxByLength } from 'ts/pages/Common/helpers/getMax';
 
+import AbsenceDetails from './AbsenceDetails';
+
 interface ViewProps {
   response?: IPagination<any>;
   updateSort?: Function;
@@ -40,16 +42,33 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   const commitsChart = getOptions({ max: getMax(response, 'commits') });
   const typeChart = getOptions({ order: dataGripStore.dataGrip.type.list });
 
+  const formattedRows = response.content.map((row: any) => {
+    const content = dataGripStore.dataGrip.absence.statisticByName.get(row.author) || [];
+    return { ...row, absence: content.length };
+  });
+
   return (
     <DataView
       rowsForExcel={rowsForExcel}
-      rows={response.content}
+      rows={formattedRows}
       sort={response.sort}
       updateSort={updateSort}
       mode={mode}
       type={mode === 'print' ? 'cards' : undefined}
       columnCount={mode === 'print' ? 3 : undefined}
     >
+      <Column
+        isFixed
+        template={ColumnTypesEnum.DETAILS}
+        width={40}
+        properties="absence"
+        formatter={(row: any) => {
+          const content = dataGripStore.dataGrip.absence.statisticByName.get(row.author) || [];
+          return (
+            <AbsenceDetails rows={content} />
+          );
+        }}
+      />
       <Column
         isFixed
         template={ColumnTypesEnum.STRING}

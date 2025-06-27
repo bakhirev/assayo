@@ -4,6 +4,9 @@ export interface DayEvent {
   firstDay: Set<string> | undefined;
   lastDay: Set<string> | undefined;
   release: Set<string> | undefined;
+  vacationStart: Set<string> | undefined;
+  vacationEnd: Set<string> | undefined;
+  travel: Set<string> | undefined;
 }
 
 export type DayEvents = HashMap<DayEvent>;
@@ -13,6 +16,9 @@ function getDayEvent(): DayEvent {
     firstDay: undefined,
     lastDay: undefined,
     release: undefined,
+    vacationStart: undefined,
+    vacationEnd: undefined,
+    travel: undefined,
   };
 }
 
@@ -34,6 +40,10 @@ function getCallback(property: string, name: string) {
 
 function addByAuthor(events: DayEvents, authors: any[]) {
   authors.forEach((user: any) => {
+    user?.country?.forEach((travel: any) => {
+      updateEvent(events, travel.timestamp, getCallback('travel', user.author));
+    });
+
     if (user.isStaff) return;
 
     updateEvent(events, user.firstCommit.timestamp, getCallback('firstDay', user.author));
@@ -50,9 +60,21 @@ function addByRelease(events: DayEvents, releases: any[]) {
   });
 }
 
-export function getEvents(statisticByAuthors: any[], statisticByRelease: any[]) {
+function addByAbsence(events: DayEvents, absence: any[]) {
+  absence.forEach((item: any) => {
+    if (item.duration > 30) return;
+    updateEvent(events, item.timestamp.from, getCallback('vacationStart', item.author));
+    updateEvent(events, item.timestamp.to, getCallback('vacationEnd', item.author));
+  });
+}
+
+export function getEvents(
+  statisticByAuthors: any[],
+  dataGrip: any,
+) {
   const events = new Map();
   addByAuthor(events, statisticByAuthors);
-  addByRelease(events, statisticByRelease);
+  addByRelease(events, dataGrip.release.statistic);
+  addByAbsence(events, dataGrip.absence.statistic);
   return events;
 }

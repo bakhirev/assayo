@@ -66,7 +66,12 @@ export default class DataGripByAuthor {
     if (commit.timezone && statistic.lastCountry !== commit.timezone) {
       statistic.lastTimezone = commit.timezone;
       statistic.lastCountry = commit.country;
-      statistic.country.push({ country: commit.country, timezone: commit.timezone, from: commit.milliseconds });
+      statistic.country.push({
+        country: commit.country,
+        timezone: commit.timezone,
+        from: commit.milliseconds,
+        timestamp: commit.timestamp,
+      });
     }
   }
 
@@ -116,8 +121,8 @@ export default class DataGripByAuthor {
 
   #updateMoneyByMonth(commit: ICommit, key: string) {
     const statistic = this.commits.get(commit.author).moneyByMonth[key];
-    if (statistic.alreadyAdded[commit.milliseconds]) return;
-    statistic.alreadyAdded[commit.milliseconds] = true;
+    if (statistic.alreadyAdded.has(commit.milliseconds)) return;
+    statistic.alreadyAdded.add(commit.milliseconds);
 
     const isWorkDay = statistic.contract.workDaysInWeek[commit.day];
     if (isWorkDay) {
@@ -133,9 +138,7 @@ export default class DataGripByAuthor {
     this.commits.get(commit.author).moneyByMonth[key] = {
       workDay: isWorkDay ? 1 : 0,
       weekDay: isWorkDay ? 0 : 1,
-      alreadyAdded: {
-        [commit.milliseconds]: true,
-      },
+      alreadyAdded: new Set([commit.milliseconds]),
       contract,
     };
   }

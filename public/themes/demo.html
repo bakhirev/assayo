@@ -98,8 +98,12 @@
     return parameters;
   }
 
+  function getElementById(id) {
+    return document.getElementById(id);
+  }
+
   function getStyleById(id) {
-    return document.getElementById(id).style;
+    return getElementById(id).style;
   }
 
   function init() {
@@ -112,6 +116,7 @@
     if (parameters.sidebarColor) {
       sidebar.backgroundColor = `#${parameters.sidebarColor}`;
     }
+
     if (parameters.width) {
       sidebar.width = `${parameters.width}px`;
       getStyleById('frame').width = `calc(100vw - ${parameters.width}px)`;
@@ -131,6 +136,10 @@
     if (parameters.title) {
       document.title = parameters.title;
     }
+
+    const mode = parameters.mode || 'white';
+    const url = `http://localhost:3006/?dump=./test.txt&theme=./themes/${mode}.css`;
+    getElementById('frame').setAttribute('src', url);
   }
 
   init();

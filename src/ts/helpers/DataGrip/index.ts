@@ -20,6 +20,7 @@ import DataGripByTaskNumbers from './components/taskNumbers';
 import DataGripByTaskNumbersDate from './components/taskNumbersDate';
 import DataGripByCompany from './components/company';
 import DataGripByCountry from './components/country';
+import DataGripByAbsence from './components/absence';
 
 class DataGrip {
   firstLastCommit: any = new MinMaxCounter();
@@ -60,6 +61,8 @@ class DataGrip {
 
   taskNumbersDate: any = new DataGripByTaskNumbersDate();
 
+  absence: any = new DataGripByAbsence();
+
   clear() {
     this.firstLastCommit.clear();
     this.author.clear();
@@ -80,6 +83,7 @@ class DataGrip {
     this.taskCodes.clear();
     this.taskNumbers.clear();
     this.taskNumbersDate.clear();
+    this.absence.clear();
   }
 
   addCommit(commit: ICommit | ISystemCommit, totalCommits: number) {
@@ -99,6 +103,7 @@ class DataGrip {
       this.taskCodes.addCommit(commit);
       this.taskNumbers.addCommit(commit);
       this.taskNumbersDate.addCommit(commit);
+      this.absence.addCommit(commit);
     }
   }
 
@@ -120,6 +125,7 @@ class DataGrip {
     this.country.updateTotalInfo(this.author);
     this.taskCodes.updateTotalInfo(this.firstLastCommit.maxData, this.author);
     this.taskNumbers.updateTotalInfo();
+    this.absence.updateTotalInfo(this.author);
   }
 }
 

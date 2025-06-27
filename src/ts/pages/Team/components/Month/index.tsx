@@ -18,9 +18,8 @@ const Month = observer(({
 }: ICommonPageProps): React.ReactElement => {
   const statistic = dataGripStore.dataGrip.month;
   const statisticByAuthor = dataGripStore.dataGrip.author.statistic;
-  const statisticByRelease = dataGripStore.dataGrip.release.statistic;
   const recommendations = dataGripStore.dataGrip.recommendations.team?.byTimestamp;
-  const events = getEvents(statisticByAuthor, statisticByRelease);
+  const events = getEvents(statisticByAuthor, dataGripStore.dataGrip);
   const defaultFilters = { release: false, firstLastDays: true };
   const [filters, setFilters] = useState<Filters>(defaultFilters);
 

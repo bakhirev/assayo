@@ -11,6 +11,9 @@ interface DayEvent {
   firstDay: Set<string> | undefined;
   lastDay: Set<string> | undefined;
   release: Set<string> | undefined;
+  vacationStart: Set<string> | undefined;
+  vacationEnd: Set<string> | undefined;
+  travel: Set<string> | undefined;
 }
 
 interface DayInfoProps {
@@ -33,8 +36,11 @@ function DayInfo({ timestamp, events }: DayInfoProps): React.ReactElement {
       taskNumber += Object.keys(tasks).length;
 
       let suffix = '';
-      if (events?.firstDay?.has(author)) suffix = t('page.team.month.first');
-      if (events?.lastDay?.has(author)) suffix = t('page.team.month.last');
+      if (events?.vacationStart?.has(author)) suffix = t('page.team.month.vacation.first');
+      if (events?.vacationEnd?.has(author)) suffix = t('page.team.month.vacation.last');
+      if (events?.firstDay?.has(author)) suffix = t('page.team.month.work.first');
+      if (events?.lastDay?.has(author)) suffix = t('page.team.month.work.last');
+      if (events?.travel?.has(author)) suffix = t('page.team.month.travel');
 
       return (
         <div

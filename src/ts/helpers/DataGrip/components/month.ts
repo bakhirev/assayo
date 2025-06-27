@@ -106,7 +106,6 @@ export default class DataGripByMonth {
       .map((dot: any) => {
         dot.days = Array.from(dot.days.values());
         dot.tasksNumber = Array.from(dot.tasksNumber).length;
-        console.log(Array.from(dot.usersNumber));
         dot.usersNumber = Array
           .from(dot.usersNumber) // @ts-ignore
           .filter((name) => !dataGripByAuthor.statisticByName[name]?.isStaff)

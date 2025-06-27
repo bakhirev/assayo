@@ -25,6 +25,7 @@ body,
 .splash_screen,
 .progress_bar,
 .card_with_icon,
+.card_with_icon_scoring,
 .table_cell,
 .table_header_cell,
 .main_wrapper_white,
@@ -35,6 +36,7 @@ body,
 .ui_kit_select_value,
 .modal_window,
 .pie_chart,
+.line_chart_item,
 .tempo_task_commits,
 .tempo_task_tag,
 .tempo_task_hours,
@@ -51,6 +53,10 @@ body,
 
 .header_title,
 .header_filters_input,
+.header_filters,
+.hours_chart_day_time,
+.hours_chart_day_name,
+.hours_chart_legend_title,
 .switch_item_title,
 .sidebar_item_title,
 .paginator_text,
@@ -72,17 +78,31 @@ body,
 .description_text,
 .description_text > span,
 .description_list,
+.tempo_header_title,
+.tempo_header_day,
+.tempo_task_title,
+.modal_window_title,
+.nothing_found_text,
 .recommendations_modal_title,
 .recommendations_modal_sub_title,
+.nothing_found_title,
 .achievement_title,
 .achievement_description {
   color: var(--theme-font);
 }
 
-.page_wrapper,
+.ui_kit_tags_item,
+.card_with_icon,
 .main_wrapper_white,
+.hours_chart_hour,
+.page_wrapper,
 .pie_chart,
-.table_row {
+.table_row,
+.tempo_header,
+.tempo_author,
+.tempo_column,
+.tempo_task,
+.tempo_task_header {
   border-color: var(--theme-border);
 }
 
@@ -141,11 +161,14 @@ body,
 }
 
 .pie_chart_icon,
-.pie_chart_color,
-.line_chart_item {
+.pie_chart_color {
   filter: grayscale(0.3);
 }
 
+.line_chart,
+.line_chart_item,
+.line_chart_item:last-child,
+.hours_chart_hour,
 .main_wrapper_white,
 .pie_chart {
   border-radius: 0;
@@ -153,8 +176,22 @@ body,
 
 .ui_kit_button,
 .ui_kit_select_value,
+.line_chart_item,
 .tempo_task_tag,
 .tempo_task_commits,
 .tempo_task_hours {
   border: 1px solid var(--theme-border);
+}
+
+.hours_chart_legend_work,
+.hours_chart_legend_weekend,
+.hours_chart_legend_count,
+.ui_kit_button_link,
+.line_chart_item:has(.line_chart_sub_item) {
+  border: none;
+}
+
+.tempo_task_icon {
+  background-color: var(--theme-font);
+  border-radius: 8px;
 }

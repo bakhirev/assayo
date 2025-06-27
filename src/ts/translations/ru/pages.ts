@@ -53,12 +53,24 @@ export default `
 § page.team.author.type.work: работает
 § page.team.author.type.dismissed: уволен
 § page.team.author.type.staff: помощник
+§ page.team.author.absence.title: График отпусков
+§ page.team.author.absence.vacation: Отпуск
+§ page.team.author.absence.transfer: Перевод в другой отдел
+§ page.team.author.absence.from: с
+§ page.team.author.absence.to: по
+§ page.team.author.absence.duration: дней
 § page.team.hours.title: Распределение коммитов в течении каждого дня недели
+§ page.team.month.filters.release: Релизы
+§ page.team.month.filters.absence: Отпуска и переезды
+§ page.team.month.filters.firstLastDays: Первый и последний день
+§ page.team.month.filters.authors: Все сотрудники
+§ page.team.month.filters.types: Все типы
 § page.team.month.title: Календарь работы по проекту
-§ page.team.month.first: (первый рабочий день)
-§ page.team.month.last: (последний рабочий день)
-§ page.team.month.authors: Все сотрудники
-§ page.team.month.types: Все типы
+§ page.team.month.travel: (изменил местоположение)
+§ page.team.month.vacation.first: (уходит в отпуск)
+§ page.team.month.vacation.last: (вернулся из отпуска)
+§ page.team.month.work.first: (первый рабочий день)
+§ page.team.month.work.last: (последний рабочий день)
 § page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней

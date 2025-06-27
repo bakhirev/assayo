@@ -17,12 +17,14 @@ import Recommendations from 'ts/components/Recommendations';
 import Description from 'ts/components/Description';
 import PieCharts from './components/PieCharts';
 import View from './components/View';
+import Absence from './components/Absence';
 
 const Author = observer(({
   mode,
 }: ICommonPageProps): React.ReactElement | null => {
   const { t } = useTranslation();
   const rows = dataGripStore.dataGrip.author.statistic;
+  const absence = dataGripStore.dataGrip.absence.statistic;
 
   if (!rows?.length) {
     return mode !== 'print' ? (<NothingFound />) : null;
@@ -38,9 +40,9 @@ const Author = observer(({
         />
       )}
 
-      <br />
-      <br />
-      <PieCharts />
+      <br/>
+      <br/>
+      <PieCharts/>
 
       <Title title="page.team.author.title"/>
       <DataLoader
@@ -52,7 +54,7 @@ const Author = observer(({
           mode={mode}
           rowsForExcel={rows}
         />
-        <Pagination />
+        <Pagination/>
       </DataLoader>
 
       <PageWrapper>
@@ -67,6 +69,21 @@ const Author = observer(({
           />
         </PageColumn>
       </PageWrapper>
+
+      <br/>
+      <br/>
+      <Title title="page.team.author.absence.title"/>
+      <DataLoader
+        to="response"
+        loader={getFakeLoader(absence, mode)}
+        watch={`${mode}${dataGripStore.hash}`}
+      >
+        <Absence
+          mode={mode}
+          rowsForExcel={absence}
+        />
+        <Pagination/>
+      </DataLoader>
     </>
   );
 });

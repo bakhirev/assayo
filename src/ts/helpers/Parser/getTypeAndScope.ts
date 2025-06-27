@@ -47,6 +47,10 @@ export function getTypeAndScope(message: string, task: string) {
   let type = '';
   let scope = '';
 
+  if (!message) {
+    return [type, scope];
+  }
+
   let formattedMessage = message.replace(task, '').toLowerCase();
   const messageParts = formattedMessage.split(':');
 

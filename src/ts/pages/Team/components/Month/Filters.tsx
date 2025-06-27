@@ -7,7 +7,7 @@ import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons'
 import { Filters } from 'ts/components/YearChart/interfaces/Filters';
 import dataGripStore from 'ts/store/DataGrip';
 
-import style from '../Country/styles/index.module.scss';
+import style from './index.module.scss';
 
 function getFormattedUsers(rows: any[], titleForAll: string) {
   const options = rows.map((title: string, id: number) => ({ id: id + 1, title }));
@@ -28,8 +28,8 @@ const MonthFilters = observer(({
 
   const authors = dataGripStore.dataGrip.author.list;
   const types = dataGripStore.dataGrip.type.list;
-  const authorsOptions = useMemo(() => getFormattedUsers(authors, t('page.team.month.authors')), [authors]);
-  const typesOptions = useMemo(() => getFormattedUsers(types, t('page.team.month.types')), [types]);
+  const authorsOptions = useMemo(() => getFormattedUsers(authors, t('page.team.month.filters.authors')), [authors]);
+  const typesOptions = useMemo(() => getFormattedUsers(types, t('page.team.month.filters.types')), [types]);
   const update = (property: string, value: any) => {
     onChange({
       ...filters,
@@ -38,30 +38,34 @@ const MonthFilters = observer(({
   };
 
   return (
-    <div className={style.team_country_filter}>
+    <div className={style.team_month_filter}>
       <SelectWithButtons
-        title="page.team.tree.filters.author"
-        className={style.team_country_filter_select}
+        className={style.team_month_filter_select}
         value={filters?.authors?.[0] || authorsOptions[0]}
         options={authorsOptions}
         onChange={(id: number) => update('authors', [authorsOptions[id]])}
       />
       <SelectWithButtons
-        title="page.team.tree.filters.author"
-        className={style.team_country_filter_select}
+        className={style.team_month_filter_select}
         value={filters?.types?.[0] || typesOptions[0]}
         options={typesOptions}
         onChange={(id: number) => update('types', [typesOptions[id]])}
       />
       <UiKitCheckbox
-        title="Релизы"
-        className={style.team_country_filter_checkbox}
+        title="page.team.month.filters.release"
+        className={style.team_month_filter_checkbox}
         value={filters.release}
         onChange={() => update('release', !filters.release)}
       />
       <UiKitCheckbox
-        title="Первый и последний день"
-        className={style.team_country_filter_checkbox}
+        title="page.team.month.filters.absence"
+        className={style.team_month_filter_checkbox}
+        value={filters.absence}
+        onChange={() => update('absence', !filters.absence)}
+      />
+      <UiKitCheckbox
+        title="page.team.month.filters.firstLastDays"
+        className={style.team_month_filter_checkbox}
         value={filters.firstLastDays}
         onChange={() => update('firstLastDays', !filters.firstLastDays)}
       />

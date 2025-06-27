@@ -1,9 +1,9 @@
 import ICommit from 'ts/interfaces/Commit';
-import IHashMap from 'ts/interfaces/HashMap';
+import HashMap from 'ts/interfaces/HashMap';
 import { increment } from 'ts/helpers/Math';
 
 export default class DataGripByWeek {
-  commits: IHashMap<any> = {};
+  commits: HashMap<any> = new Map;
 
   statistic: any = [];
 
@@ -12,23 +12,23 @@ export default class DataGripByWeek {
   }
 
   clear() {
-    this.commits = {};
+    this.commits.clear();
     this.statistic = [];
   }
 
   addCommit(commit: ICommit) {
-    if (this.commits.hasOwnProperty(commit.week)) {
-      this.#updateCommitByWeek(commit);
+    const statistic = this.commits.get(commit.week);
+    if (statistic) {
+      this.#updateCommitByWeek(statistic, commit);
     } else {
       this.#addCommitByWeek(commit);
     }
   }
 
-  #updateCommitByWeek(commit: ICommit) {
-    const statistic = this.commits[commit.week];
+  #updateCommitByWeek(statistic: any, commit: ICommit) {
     statistic.commits += 1;
-    statistic.tasks[commit.task] = true;
     statistic.timestamp.to = commit.timestamp;
+    if (commit.task) statistic.tasks.add(commit.task);
 
     const setDefault = (s: any, v: string) => {
       if (!s[v]) s[v] = {};
@@ -46,21 +46,21 @@ export default class DataGripByWeek {
   }
 
   #addCommitByWeek(commit: ICommit) {
-    this.commits[commit.week] = {
+    this.commits.set(commit.week, {
       commits: 1,
       timestamp: { from: commit.timestamp },
-      tasks: { [commit.task]: true },
+      tasks: commit.task ? new Set([commit.task]) : new Set(),
 
       types: { [commit.type]: 1 },
       changes: { added: commit.added, changes: commit.changes, removed: commit.removed },
       authors: { [commit.author]: { [commit.task]: true } },
       workDays: { [commit.author]: { [commit.day]: true } },
       typeByAuthor: { [commit.author]: { [commit.type]: 1 } },
-    };
+    });
   }
 
   updateTotalInfo(dataGripByAuthor: any) {
-    this.statistic = Object.values(this.commits)
+    this.statistic = Array.from(this.commits.values())
       .map((dot: any) => {
         const authors = {};
         for (let name in dot.authors) authors[name] = Object.keys(dot.authors[name]).filter(v => v).length;
@@ -95,7 +95,7 @@ export default class DataGripByWeek {
 
         return {
           ...dot,
-          tasks: Object.keys(dot.tasks).filter(n => n).length,
+          tasks: dot.tasks.size,
           authors,
           workDays,
           lazyDays,

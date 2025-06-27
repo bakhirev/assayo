@@ -53,12 +53,24 @@ export default `
 § page.team.author.type.work: works
 § page.team.author.type.dismissed: dismissed
 § page.team.author.type.staff: staff
+§ page.team.author.absence.title: Vacation schedule
+§ page.team.author.absence.vacation: Vacation
+§ page.team.author.absence.transfer: Department change
+§ page.team.author.absence.from: from
+§ page.team.author.absence.to: to
+§ page.team.author.absence.duration: days
 § page.team.hours.title: Distribución del trabajo cada día de la semana
+§ page.team.month.filters.release: Releases
+§ page.team.month.filters.absence: Vacations and relocations
+§ page.team.month.filters.firstLastDays: First and last days
+§ page.team.month.filters.authors: All employees
+§ page.team.month.filters.types: All types
 § page.team.month.title: Calendario del proyecto
-§ page.team.month.first: (first work day)
-§ page.team.month.last: (last work day)
-§ page.team.month.authors: All employees
-§ page.team.month.types: All types
+§ page.team.month.travel: (changed time zone)
+§ page.team.month.vacation.first: (goes on vacation)
+§ page.team.month.vacation.last: (returned from vacation)
+§ page.team.month.work.first: (first work day)
+§ page.team.month.work.last: (last work day)
 § page.team.scope.title: Estadísticas de módulos
 § page.team.scope.scope: Elaboración definitiva
 § page.team.scope.days: Siervo. día

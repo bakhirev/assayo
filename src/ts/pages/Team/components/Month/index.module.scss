@@ -1,0 +1,28 @@
+@import 'src/styles/variables';
+
+.team_month_filter {
+  margin: 0 0 var(--space-xxl);
+
+  &_checkbox,
+  &_select {
+    display: inline-block;
+    margin-right: var(--space-xxl);
+    vertical-align: middle;
+  }
+
+  &_select {
+    min-width: 350px;
+  }
+
+  &_checkbox {
+    margin-top: var(--space-l);
+  }
+}
+
+@media (max-width: 1540px) {
+  .team_month_filter_select {
+    display: block;
+    min-width: 100%;
+    margin-bottom: var(--space-xxl)
+  }
+}
