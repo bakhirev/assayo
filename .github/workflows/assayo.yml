@@ -1,17 +1,10 @@
 # Creates an HTML report
 # with analysis of commit statistics.
-# 
+#
 # More information: https://github.com/bakhirev/assayo
 name: Assayo
-description: Report with analysis of commit statistics
 
 on:
-  # Run by time
-  # (if you have a lot of people and frequent commits)
-  # Remove this for small teams:
-  schedule:
-  - cron: '0 0 */5 * *'
-
   # Run by PR
   # (if you have few people and commits are rarely made)
   # Remove this for big teams:
@@ -21,7 +14,6 @@ on:
     tags:
       - '*'
     branches:
-      - main
       - develop
       - 'release/**'
 
@@ -30,18 +22,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
-    - name: Create report
-      run: |
-        git clone https://github.com/bakhirev/assayo.git
-        git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > ./assayo/build/log.txt
-
-    - name: Archive the report as an artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Commit statistics report
-        path: ./assayo/build/
+    - name: Create git log report
+      uses: bakhirev/assayo
