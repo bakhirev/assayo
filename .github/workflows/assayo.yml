@@ -17,6 +17,6 @@ jobs:
 
     steps:
     - name: Create git log report
-      uses: bakhirev/assayo@5cf15d1b396427d6b7a48a2d0de424a0758d5b81
+      uses: bakhirev/assayo@546e2214bf3e2b79492ccd95148b7004d5422c54
       with:
         add_file_info: true
