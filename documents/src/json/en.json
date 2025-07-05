@@ -27,30 +27,6 @@
         ]
     },
     {
-        "h5": "Team lead can evaluate employees"
-    },
-    {
-        "li": [
-            "identify slackers;",
-            "estimate the amount of code;",
-            "learn the work speed;",
-            "notice behavioral anomalies;",
-            "see the dynamics of work by week;"
-        ]
-    },
-    {
-        "h5": "Founder can evaluate product"
-    },
-    {
-        "li": [
-            "product cost;",
-            "cost of features;",
-            "development time;",
-            "forecast of rework time;",
-            "forecast cost;"
-        ]
-    },
-    {
         "h3": "Table of contents"
     },
     {

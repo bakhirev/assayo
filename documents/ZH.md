@@ -135,7 +135,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 - open `./assayo/index.html`
 
 <a name="link-15"></a>
-#### 🏭 Use source code
+####  Use source code
 - 下载这个存储库
 - 拖放文件 `log.txt` 到文件夹 `/build`
 - 要运行 `/build/index.html`
@@ -143,20 +143,20 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 重要的事情是，必须让log.txt这个文件是通过命令创建出来的，这样它就可以在没有网的时候查看了。
 <a name="link-16"></a>
-### 🗃️ 如何重打包报告文件？
+### 🏭 如何重打包报告文件？
 - 下载这个储存库
 - 要执行 `npm install`
 - 要执行 `npm run build:local`
 - 最新的构建将在文件夹 `/build`
 
 <a name="link-17"></a>
-### 🎨 如何查看微服务组的报告？
+### 🗃️ 如何查看微服务组的报告？
 - 为每个微服务生成文件 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等)
 - 参见“如何在有网络环境下查看报告”。在最后一步，将所有文件同时拖入浏览器窗口。
 - 参见“如何在没有网络环境下查看报告”。第二步将所有微服务文件拖动到 (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等) 到报表文件夹 (`/build`).
 
 <a name="link-18"></a>
-### 📝 如何将界面重新配色为公司专有颜色？
+### 🎨 如何将界面重新配色为公司专有颜色？
 您可以为界面创建自己的主题。可以修改：
 - **标题**. 你可以在网址参数中指定它 ```title```. 例如: ```?title=You Company```
 - **Themes**. 为了做到这一点，你需要准备一个CSS文件并在网址参数中指明其地址 ```theme```. 例如: ```?theme=//company.com/some.css```. 你可以使用类名作为选择器。大多数情况下，他们在新版本发布时不会发生变化。
@@ -165,7 +165,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 👮 如何签署提交？
+### 📝 如何签署提交？
 遵循实践 [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例如:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -176,7 +176,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - 职位描述 `(Added avatar for user)`
 
 <a name="link-20"></a>
-###  How to add checking for commit message?
+### 👮 How to add checking for commit message?
 <a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -189,7 +189,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
 fi
 ```
 <a name="link-22"></a>
-#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -201,13 +201,13 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-23"></a>
-###  如何自动化数据采集？
+### 📚 如何自动化数据采集？
 <a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 <a name="link-25"></a>
-#### 🛠️ 没有后端
+####  没有后端
 - 克隆您的仓库;
 - 复制文件夹 `build` 从当前仓库;
 - 打开 `build/index.html` 在浏览器中添加书签;
@@ -215,7 +215,7 @@ fi
 
 每次重启计算机，该脚本将更新统计数据，这些数据自动添加到主分支中。
 <a name="link-26"></a>
-###  DevOps (CI/CD)
+### 🛠️ DevOps (CI/CD)
 <a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
@@ -226,7 +226,7 @@ Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExampl
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-29"></a>
-#### 🛠️ 专用服务器
+####  专用服务器
 - 下载 [docker镜像](https://hub.docker.com/r/bakhirev/assayo);
 - 在本地网络中运行它;
 - 使用web界面查看报告，并指定数据所在地址作为URL参数 ```dump```:
@@ -238,23 +238,23 @@ you_url    - git日志的容器的URL地址;
 ```
 默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
 <a name="link-30"></a>
-### 📐 ️ About application
+### 🛠️ ️ About application
 <a name="link-31"></a>
-#### 🈯 Architecture
+#### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-32"></a>
-#### 🗺️ 释出版本大约每半年一次。接下来发生什么情况：
+#### 🈯 释出版本大约每半年一次。接下来发生什么情况：
 看 [主要文件](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 <a name="link-33"></a>
-#### 📧 如何添加或编辑翻译？
+#### 🗺️ 如何添加或编辑翻译？
 您可以在“翻译”部分添加新翻译或更正当前翻译。 ```ts/translations/```.
 [指示手册](https://github.com/firstcontributions/first-contributions)
 <a name="link-34"></a>
-####  愿望，建议，意见
+#### 📧 愿望，建议，意见
 - telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 网站 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)

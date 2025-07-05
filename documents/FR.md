@@ -135,27 +135,27 @@ Or open a saved file and manually change the encoding to UTF-8.
 - open `./assayo/index.html`
 
 <a name="link-15"></a>
-#### 🏭 Use source code
+####  Use source code
 - Télécharger ce dépôt
 - Glisser le fichier `log.txt` dans le dossier `/build`
 - Démarrer `/build/index.html`
 - Ou coller le dossier `/build` Sur votre dépôt (là où se trouve `log.txt`). Vous pouvez changer le nom. Par exemple avec `/build` sur `/report`. Dans cette cas, il est important que le fichier log.txt ait été généré par le commande pour la visualisation hors ligne.
 
 <a name="link-16"></a>
-### 🗃️ Comment recompiler la build du rapport?
+### 🏭 Comment recompiler la build du rapport?
 - Télécharger ce dépôt
 - Exécuter `npm install`
 - Exécuter `npm run build:local`
 - La dernière build sera dans le dossier `/build`
 
 <a name="link-17"></a>
-### 🎨 Comment voir le compte rendu pour un groupe de microservices?
+### 🗃️ Comment voir le compte rendu pour un groupe de microservices?
 - générer un fichier pour chaque microservice `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Voir “Comment voir le rapport en ligne?”. Au dernier pas, glisser tous les fichiers dans la fenêtre du navigateur.
 - Voir “Comment regarder le rapport hors-ligne?”. Au deuxième pas, coller tous les fichier de microservices (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) dans le dossier du rapport (`/build`).
 
 <a name="link-18"></a>
-### 📝 Comment apposer une marque sur l’interface?
+### 🎨 Comment apposer une marque sur l’interface?
 Vous pouvez écrire votre propre thème pour l’interface. Vous pouvez changer :
 - **En-tête**. Vous pouvez le spécifier dans le paramètre de l’URL ```title```. Par exemple: ```?title=You Company```
 - **Thème visuel**.Pour cela, vous devez préparer un fichier CSS avec de nouveaux styles et indiquer son adresse dans le paramètre de l’URL ```theme```. Par exemple: ```?theme=//company.com/some.css```. Vous pouvez utiliser les noms de classes comme sélecteurs. La plupart d’entre elles ne changent pas lors de la sortie de nouvelles versions.
@@ -164,7 +164,7 @@ Vous pouvez écrire votre propre thème pour l’interface. Vous pouvez changer 
 
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 👮 Comment signer les commits ?
+### 📝 Comment signer les commits ?
 Suivez la pratique [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Par exemple:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -175,7 +175,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - quel problème ont-ils résolu `(Added avatar for user)`
 
 <a name="link-20"></a>
-###  How to add checking for commit message?
+### 👮 How to add checking for commit message?
 <a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -188,7 +188,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
 fi
 ```
 <a name="link-22"></a>
-#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -200,20 +200,20 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-23"></a>
-###  Comment automatiser la collecte de données?
+### 📚 Comment automatiser la collecte de données?
 <a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 <a name="link-25"></a>
-#### 🛠️ Sans back-end
+####  Sans back-end
 - clonez le dépôt que vous voulez ;
 - copiez le dossier `build`;
 - Ouvrez `build/index.html` dans le navigateur et ajoutez-le aux favoris;
 - ajoutez un raccourci sur `build/assets/ci-cd.sh` dans le dossier de démarrage automatique (Windows); Chaque fois que votre ordinateur se recharge, le script mettra à jour les statistiques sur toutes les données qui se sont automatiquement insérées dans la branche principale.
 
 <a name="link-26"></a>
-###  DevOps (CI/CD)
+### 🛠️ DevOps (CI/CD)
 <a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
@@ -224,7 +224,7 @@ Vous pouvez mettre à disposition le fichier avec les données pour construire l
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-29"></a>
-#### 🛠️ Serveur privé
+####  Serveur privé
 - télécharger [docker образ](https://hub.docker.com/r/bakhirev/assayo);
 - Soulevez-le sur le réseau local;
 - Pour consulter les rapports, utilisez l’interface web en lui indiquant l’adresse où les données se trouvent, sous forme de paramètre dans l’URL ```dump```:
@@ -236,16 +236,16 @@ you_url    - URL адресс Adresse de votre conteneur de logs git;
 ```
 Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne fonctionne pas, vérifiez si le port 80 est disponible.
 <a name="link-30"></a>
-### 📐 ️ About application
+### 🛠️ ️ About application
 <a name="link-31"></a>
-#### 🈯 Architecture
+#### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-32"></a>
-#### 🗺️ Les versions sont publiées environ tous les six mois. Quoi de neuf:
+#### 🈯 Les versions sont publiées environ tous les six mois. Quoi de neuf:
 - plus de conseils et de succès;
 - résultats de l’année / du mois, impression des rapports;
 - localisation et internationalisation;
@@ -254,11 +254,11 @@ Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne foncti
 - développement du backend, intégrations avec d’autres systèmes;
 
 <a name="link-33"></a>
-#### 📧 Comment ajouter ou modifier une traduction?
+#### 🗺️ Comment ajouter ou modifier une traduction?
 Vous pouvez ajouter une nouvelle traduction ou corriger la traduction existante dans le section ```ts/translations/```.
 [Instruction](https://github.com/firstcontributions/first-contributions)
 <a name="link-34"></a>
-####  Souhaits, suggestions, commentaires
+#### 📧 Souhaits, suggestions, commentaires
 - telegramm [@bakhirev](https://t.me/bakhirev) (voie de communication prioritaire)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=fr)

@@ -135,7 +135,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 - open `./assayo/index.html`
 
 <a name="link-15"></a>
-#### 🏭 Use source code
+####  Use source code
 - Baixar este repositório
 - Arraste o arquivo `log.txt` para a pasta `/build`
 - Lançar `/build/index.html`
@@ -143,20 +143,20 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 É importante que o arquivo `log.txt` foi criado por uma equipe para navegar sem internet.
 <a name="link-16"></a>
-### 🗃️ Como recompilar o arquivo do relatório?
+### 🏭 Como recompilar o arquivo do relatório?
 - Baixar este repositório
 - Executar `npm install`
 - Executar `npm run build:local`
 - A compilação mais recente estará na pasta `/build`
 
 <a name="link-17"></a>
-### 🎨 Como visualizar o relatório do grupo de microserviços?
+### 🗃️ Como visualizar o relatório do grupo de microserviços?
 - Gerar um arquivo para cada microserviço `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Veja “Como visualizar o relatório com a internet?”. No último passo, arraste todos os arquivos para a janela do navegador.
 - Veja “Como visualizar o relatório sem a internet?”. No segundo passo, arraste todos os microserviços (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) na pasta relatório (`/build`).
 
 <a name="link-18"></a>
-### 📝 Como alterar as cores da interface para as cores da sua marca?
+### 🎨 Como alterar as cores da interface para as cores da sua marca?
 Você pode escrever seu próprio tema de interface. Pode mudar:
 - **Cabeçalho**. Você pode especificar em um parâmetro da URL ```title```. Por exemplo: ```?title=You Company```
 - **Themes**. Para fazer isso, você precisa preparar um arquivo CSS e especificar o seu endereço no parâmetro da URL ```theme```. Por exemplo: ```?theme=//company.com/some.css```. Você pode usar os nomes das classes como seletores. A maioria deles não muda na saída de uma nova versão.
@@ -165,7 +165,7 @@ Você pode escrever seu próprio tema de interface. Pode mudar:
 
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 👮 Como faço para assinar commits?
+### 📝 Como faço para assinar commits?
 Siga a prática [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Por exemplo:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -176,7 +176,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - descrição do trabalho `(Added avatar for user)`
 
 <a name="link-20"></a>
-###  How to add checking for commit message?
+### 👮 How to add checking for commit message?
 <a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -189,7 +189,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
 fi
 ```
 <a name="link-22"></a>
-#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -201,13 +201,13 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-23"></a>
-###  Como automatizar a coleta de dados?
+### 📚 Como automatizar a coleta de dados?
 <a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 <a name="link-25"></a>
-#### 🛠️ Sem backend
+####  Sem backend
 - criar um clone do seu repositório;
 - copie a pasta `build` do repositório atual;
 - abrir `build/index.html` no navegador e adicionar aos favoritos;
@@ -215,7 +215,7 @@ fi
 
 A cada reinício do computador, o script atualiza a estatística com todos os dados que sejam automaticamente incorporados na branch principal.
 <a name="link-26"></a>
-###  DevOps (CI/CD)
+### 🛠️ DevOps (CI/CD)
 <a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
@@ -226,7 +226,7 @@ Você pode disponibilizar o arquivo com os dados para construção do relatório
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-29"></a>
-#### 🛠️ Servidor Privado
+####  Servidor Privado
 - baixar [docker imagem](https://hub.docker.com/r/bakhirev/assayo);
 - execute-o na rede local;
 - Para visualizar os relatórios, utilize a interface web, indicando-lhe o endereço em que os dados se encontram localizados através do parâmetro URL ```dump```:
@@ -238,23 +238,23 @@ you_url    - O URL do seu container com os logs do git;
 ```
 Por padrão, a imagem será iniciada no endereço ```http://127.0.0.1:80/```. Se você não conseguiu, verifique se a porta 80 está disponível no seu computador.
 <a name="link-30"></a>
-### 📐 ️ About application
+### 🛠️ ️ About application
 <a name="link-31"></a>
-#### 🈯 Architecture
+#### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-32"></a>
-#### 🗺️ Liberações, aproximadamente, uma vez por semestre. O que vem a seguir:
+#### 🈯 Liberações, aproximadamente, uma vez por semestre. O que vem a seguir:
 Vide [documentação básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 <a name="link-33"></a>
-#### 📧 Como adicionar ou editar uma tradução?
+#### 🗺️ Como adicionar ou editar uma tradução?
 Você pode adicionar uma nova tradução ou corrigir uma existente na seção ```ts/translations/```.
 [Instrução](https://github.com/firstcontributions/first-contributions)
 <a name="link-34"></a>
-####  Sugestões, sugestões, comentários
+#### 📧 Sugestões, sugestões, comentários
 - telegramm [@bakhirev](https://t.me/bakhirev) (método de comunicação prioritário)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=pt)

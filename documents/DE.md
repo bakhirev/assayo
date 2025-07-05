@@ -134,7 +134,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 - open `./assayo/index.html`
 
 <a name="link-15"></a>
-#### 🏭 Use source code
+####  Use source code
 - laden sie dieses repository herunter
 - datei ziehen `log.txt` in den ordner`/build`
 - starten `/build/index.html`
@@ -142,20 +142,20 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 Es ist wichtig, dass die log.txt datei vom befehl für die offlineansicht erstellt wird.
 <a name="link-16"></a>
-### 🗃️ Wie kann ich die berichtsdatei neu erstellen?
+### 🏭 Wie kann ich die berichtsdatei neu erstellen?
 - Laden sie dieses repository herunter
 - Erfüllen `npm install`
 - Erfüllen `npm run build:local`
 - Der neue build wird im ordner sein `/build`
 
 <a name="link-17"></a>
-### 🎨 Wie kann ich den bericht zur microservices-gruppe anzeigen?
+### 🗃️ Wie kann ich den bericht zur microservices-gruppe anzeigen?
 - Datei für jeden microservice generieren `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` usw.)
 - Siehe “Wie kann ich den bericht mit internet ansehen?”. Im letzten schritt ziehen sie alle dateien gleichzeitig in das browserfenster.
 - Siehe “Wie kann man den bericht ohne internet ansehen?” Im zweiten schritt ziehen sie die microservice-dateien alle (`log-1.txt`, `log-2.txt`, `log-3.txt` usw.) in den berichtsordner (`/build`).
 
 <a name="link-18"></a>
-### 📝 Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?
+### 🎨 Wie kann ich die benutzeroberfläche in ihren markenfarben neu streichen?
 Sie können ihr skin für die schnittstelle schreiben. Kann geändert werden:
 - **Überschrift**. Sie können es im URL-parameter angeben ```title```. Zum beispiel: ```?title=you company```
 - **CSS stile**. Um dies zu tun, müssen sie die CSS-datei vorbereiten und ihre adresse im URL-parameter angeben ```theme```. Zum beispiel: ```?theme=//company.com/some.css```. Sie können klassennamen als selektoren verwenden. Die meisten von ihnen ändern sich nicht, wenn eine neue version veröffentlicht wird.
@@ -164,7 +164,7 @@ Sie können ihr skin für die schnittstelle schreiben. Kann geändert werden:
 
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 👮 Wie signiere ich commits?
+### 📝 Wie signiere ich commits?
 Folge der praxis [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Zum beispiel:
 ```
 JIRA-1234 feat(profile): added avatar for user 
@@ -175,7 +175,7 @@ JIRA-1234 feat(profile): added avatar for user
 - beschreibung der arbeit `(added avatar for user)`
 
 <a name="link-20"></a>
-###  How to add checking for commit message?
+### 👮 How to add checking for commit message?
 <a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -188,7 +188,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
 fi
 ```
 <a name="link-22"></a>
-#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -200,13 +200,13 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-23"></a>
-###  Wie kann ich die datenerfassung automatisieren?
+### 📚 Wie kann ich die datenerfassung automatisieren?
 <a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 <a name="link-25"></a>
-#### 🛠️ Kein bekend
+####  Kein bekend
 - erstellen sie einen klon ihres repositorys;
 - kopieren sie den ordner `build` aus dem aktuellen repository;
 - öffnen `build/index.html` im browser und zu lesezeichen hinzufügen;
@@ -214,7 +214,7 @@ fi
 
 Jedes mal, wenn der computer neu gestartet wird, aktualisiert das skript die statistiken für alle daten, die automatisch in den hauptzweig aufgenommen wurden.
 <a name="link-26"></a>
-###  DevOps (CI/CD)
+### 🛠️ DevOps (CI/CD)
 <a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
@@ -225,7 +225,7 @@ Sie können eine datendatei zum erstellen eines berichts auf eine öffentliche U
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-29"></a>
-#### 🛠️ Privater server
+####  Privater server
 - herunterladen [docker das bild](https://hub.docker.com/r/bakhirev/assayo);
 - führen Sie es im lokalen netzwerk aus;
 - um berichte anzuzeigen, verwenden sie die webschnittstelle, um die adresse anzugeben, an der sich die daten befinden, im URL-parameter ```dump```:
@@ -237,23 +237,23 @@ you_url    - URL die adresse ihres containers mit git-logs;
 ```
 Standardmäßig wird das abbild an der folgenden adresse ausgeführt ```http://127.0.0.1:80/```. Wenn es nicht funktioniert, überprüfen sie, ob der port 80 frei ist.
 <a name="link-30"></a>
-### 📐 ️ About application
+### 🛠️ ️ About application
 <a name="link-31"></a>
-#### 🈯 Architecture
+#### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-32"></a>
-#### 🗺️ Veröffentlichungen, ungefähr alle sechs monate. Was weiter:
+#### 🈯 Veröffentlichungen, ungefähr alle sechs monate. Was weiter:
 Schau [haupt dokumentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 <a name="link-33"></a>
-#### 📧 Wie kann ich eine übersetzung hinzufügen oder bearbeiten?
+#### 🗺️ Wie kann ich eine übersetzung hinzufügen oder bearbeiten?
 Sie können eine neue übersetzung hinzufügen oder die aktuelle im abschnitt korrigieren ```ts/translations/```.
 [Anleitung](https://github.com/firstcontributions/first-contributions)
 <a name="link-34"></a>
-####  Wünsche, Anregungen, Kommentare
+#### 📧 Wünsche, Anregungen, Kommentare
 - telegramm [@bakhirev](https://t.me/bakhirev) (vorrangiger kommunikationsweg)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - web site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=de)

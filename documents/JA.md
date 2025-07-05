@@ -135,7 +135,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 - open `./assayo/index.html`
 
 <a name="link-15"></a>
-#### 🏭 Use source code
+####  Use source code
 - このリポジトリをダウンロードする
 - ファイルをドラッグ＆ドロップする `log.txt` フォルダへ `/build`
 - 実行するには `/build/index.html`
@@ -143,20 +143,20 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 重要なのは、ファイル `log.txt` インターネットが利用できない環境で、レポートを表示するために作成されたコマンドである必要があります。
 <a name="link-16"></a>
-### 🗃️ レポートファイルを再構成する方法は？
+### 🏭 レポートファイルを再構成する方法は？
 - このリポジトリをダウンロードしてください
 - 実行するには `npm install`
 - 実行するには `npm run build:local`
 - 最新のビルドは、フォルダに含まれるでしょう `/build`
 
 <a name="link-17"></a>
-### 🎨 マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。
+### 🗃️ マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。
 - マイクロサービスごとにファイルを作成します。 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` など。)
 - "インターネット上でレポートを見る方法"を参照してください。最後の手順では、すべてのファイルをブラウザのウィンドウに一度にドラッグ＆ドロップします。
 - “インターネットなしでレポートを見る方法” を参照してください。第二段階では、マイクロサービスのすべてのファイルをドラッグしてドロップする必要があります。(`log-1.txt`, `log-2.txt`, `log-3.txt` など。) レポートフォルダへ (`/build`).
 
 <a name="link-18"></a>
-### 📝 自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。
+### 🎨 自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。
 インターフェースのテーマを独自に作成することができます。下記の項目は変更できます。
 - **見出し**. それはURLパラメータで指定することができます ```title```. 例えば: ```?title=You Company```
 - **CSS スタイル**. そのためにはCSSファイルを用意し、そのアドレスをURLパラメーターに指定する必要があります ```theme```. 例えば: ```?theme=//company.com/some.css```. クラス名をセレクターとして使用することができます。ほとんどの場合、新しいバージョンがリリースされると変更されません
@@ -165,7 +165,7 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 👮 commit文の署名方法は？
+### 📝 commit文の署名方法は？
 練習に従ってください [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例えば:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -176,7 +176,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - ジョブの説明 `(Added avatar for user)`
 
 <a name="link-20"></a>
-###  How to add checking for commit message?
+### 👮 How to add checking for commit message?
 <a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -189,7 +189,7 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
 fi
 ```
 <a name="link-22"></a>
-#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -201,13 +201,13 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-23"></a>
-###  データの自動収集方法は？
+### 📚 データの自動収集方法は？
 <a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
 <a name="link-25"></a>
-#### 🛠️ バックエンドなし
+####  バックエンドなし
 - リポジトリのクローンを作成します。;
 - フォルダをコピーする `build` 現在のリポジトリから;
 - オープン `build/index.html` ブラウザでブックマークに追加します。;
@@ -215,7 +215,7 @@ fi
 
 コンピューターを再起動するとき、スクリプトはメインブランチに自動的に挿入されたすべてのデータについての統計を更新します。
 <a name="link-26"></a>
-###  DevOps (CI/CD)
+### 🛠️ DevOps (CI/CD)
 <a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
@@ -226,7 +226,7 @@ Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExampl
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-29"></a>
-#### 🛠️ プライベートサーバー
+####  プライベートサーバー
 - ダウンロード [dockerイメージ](https://hub.docker.com/r/bakhirev/assayo);
 - ローカルネットワーク内で実行します。;
 - レポートの表示には、データが置かれている場所のアドレスがURLパラメータに入っていることを指定したウェブインターフェイスを使用します。 ```dump```:
@@ -238,23 +238,23 @@ you_url    - gitのログのコンテナーのURLアドレス;
 ```
 デフォルトではイメージは以下のアドレスで起動します ```http://127.0.0.1:80/```. 問題が解決しない場合は、ポート80が開いているか確認してみてください。
 <a name="link-30"></a>
-### 📐 ️ About application
+### 🛠️ ️ About application
 <a name="link-31"></a>
-#### 🈯 Architecture
+#### 📐 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-32"></a>
-#### 🗺️ 半年ごとにリリースを行います。次は何でしょうか。
+#### 🈯 半年ごとにリリースを行います。次は何でしょうか。
 見て！ [主なドキュメント](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 <a name="link-33"></a>
-#### 📧 翻訳を追加または編集するにはどうすればいいでしょうか。
+#### 🗺️ 翻訳を追加または編集するにはどうすればいいでしょうか。
 新しい翻訳を追加するか、現在の翻訳を修正するために、以下のセクションでそれを行うことができます: ```ts/translations/```.
 [取扱説明書](https://github.com/firstcontributions/first-contributions)
 <a name="link-34"></a>
-####  願い、提案、コメント
+#### 📧 願い、提案、コメント
 - telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - ウェブサイト [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ja)
