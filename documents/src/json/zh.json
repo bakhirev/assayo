@@ -12,39 +12,18 @@
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
     },
     {
-        "h5": "工作人员可以评估新工作场所"
+        "h5": "在你的新工作场所，你可以立即了解到以下信息："
     },
     {
         "li": [
-            "工作节奏；",
-            "加班数量；",
-            "责任范围；",
-            "新功能和错误量；",
-            "同事工作方式。；"
-        ]
-    },
-    {
-        "h5": "管理者可以评估员工"
-    },
-    {
-        "li": [
-            "发现闲置工作者；",
-            "估算代码量；",
-            "了解工作速度；",
-            "注意行为异常；",
-            "查看工作周期动态。;"
-        ]
-    },
-    {
-        "h5": "投资者可以评估产品"
-    },
-    {
-        "li": [
-            "产品的成本;",
-            "新功能的成本;",
-            "开发时间;",
-            "修改时间预测;",
-            "成本预测;"
+            "工作节奏和加班时间数量；",
+            "职责范围、功能及错误的数量；",
+            "同事们的工作风格；",
+            "员工流动率以及团队组成；",
+            "开发人员的位置；",
+            "发布计划与假期日历；",
+            "特性和整体项目的成本；",
+            "需要重构的地方、已删除的文件等。"
         ]
     },
     {
@@ -60,66 +39,6 @@
         "pre": [
             "git shortlog -s -n -e"
         ]
-    },
-    {
-        "h3": "How to create a local report with using library?"
-    },
-    {
-        "p": "NodeJS:"
-    },
-    {
-        "pre": [
-            "npx assayo"
-        ]
-    },
-    {
-        "p": "PHP:"
-    },
-    {
-        "pre": [
-            "composer require bakhirev/assayo",
-            "vendor/bin/assayo"
-        ]
-    },
-    {
-        "p": "Python:"
-    },
-    {
-        "pre": [
-            "pipx install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Ruby:"
-    },
-    {
-        "pre": [
-            "gem install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Go:"
-    },
-    {
-        "pre": [
-            "go get github.com/bakhirev/assayo",
-            "go install github.com/bakhirev/assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "The script will create a folder `./assayo` with a report about repository:"
-    },
-    {
-        "pre": [
-            "./assayo/index.html - report",
-            "./assayo/log.txt    - information from git"
-        ]
-    },
-    {
-        "p": "If you do not have NodeJS , see the items \"How to download data from git?\" and \"How to view the report?\""
     },
     {
         "h3": "如何 combine 作者？"
@@ -226,6 +145,17 @@
     {
         "li": [
             "run `gem install assayo`",
+            "run `assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use the library Go"
+    },
+    {
+        "li": [
+            "run `go get github.com/bakhirev/assayo`",
+            "run `go install github.com/bakhirev/assayo`",
             "run `assayo`",
             "open `./assayo/index.html`"
         ]

@@ -3,7 +3,7 @@
 > The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!
 
 # [Assayo](https://bakhirev.github.io/?ref=github&lang=en)
-Visualization and analysis of git commit statistics. Performance tool for Team Lead and IT-audit
+Creates an HTML-report with analysis of commit statistics. A tool for team leaders.
 
 **Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
 
@@ -13,15 +13,18 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
 <a href="https://bakhirev.github.io/demo/?ref=github&dump=./test.txt" target="_blank"><img src="https://bakhirev.github.io/assets/images/index.gif" width="100%" /></a>
 
 <a name="link-0"></a>
-##### 👨‍💻 Employee can evaluate new workplace
-- work speed;
-- number of extra hours worked;
-- areas of competence;
-- volume of features and bugs;
-- working style of colleagues;
+##### 👨‍💻 At your new workplace, you can instantly find out:
+- the work pace and number of overtime hours;
+- zones of responsibility, number of features and bugs;
+- colleagues working style;
+- the rate of employee turnover and the makeup of the team;
+- location of developers;
+- release schedule and vacation calendar;
+- cost of features and project as a whole;
+- places for refactoring, deleted files, etc.
 
 <a name="link-1"></a>
-##### ‍👨‍💼 Team lead can evaluate employees
+#####  Team lead can evaluate employees
 - identify slackers;
 - estimate the amount of code;
 - learn the work speed;
@@ -29,7 +32,7 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
 - see the dynamics of work by week;
 
 <a name="link-2"></a>
-##### 👑 Founder can evaluate product
+##### 🚀 Founder can evaluate product
 - product cost;
 - cost of features;
 - development time;
@@ -37,20 +40,20 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
 - forecast cost;
 
 <a name="link-3"></a>
-###  Table of contents
+### ‍🎭 Table of contents
 - [How to quickly view the number of commits?](#link-4)
-- [How to create a local report with using library?](#link-5)
-- [How to concat authors?](#link-6)
-- [How to export data from git?](#link-7)
-  - [For online viewing](#link-8)
-  - [For offline viewing](#link-9)
-  - [If you use PowerShell in Windows](#link-10)
-- [How to view the report?](#link-11)
-  - [Using website](#link-12)
-  - [Use the library NodeJS](#link-13)
-  - [Use the library PHP](#link-14)
-  - [Use the library Python](#link-15)
-  - [Use the library Ruby](#link-16)
+- [How to concat authors?](#link-5)
+- [How to export data from git?](#link-6)
+  - [For online viewing](#link-7)
+  - [For offline viewing](#link-8)
+  - [If you use PowerShell in Windows](#link-9)
+- [How to create and view the report?](#link-10)
+  - [Using website](#link-11)
+  - [Use the library NodeJS](#link-12)
+  - [Use the library PHP](#link-13)
+  - [Use the library Python](#link-14)
+  - [Use the library Ruby](#link-15)
+  - [Use the library Go](#link-16)
   - [Use source code](#link-17)
 - [How to rebuild the HTML report from source code?](#link-18)
 - [How to view a report on a group of microservices?](#link-19)
@@ -72,46 +75,13 @@ Visualization and analysis of git commit statistics. Performance tool for Team L
   - [RoadMap:](#link-35)
   - [Feedback, comments](#link-36)
 <a name="link-4"></a>
-### 🚀 How to quickly view the number of commits?
+### 📤 How to quickly view the number of commits?
 In the root directory of your project, run:
 ```
 git shortlog -s -n -e
 ```
 <a name="link-5"></a>
-### 🏭 How to create a local report with using library?
-NodeJS:
-```
-npx assayo
-```
-PHP:
-```
-composer require bakhirev/assayo
-vendor/bin/assayo
-```
-Python:
-```
-pipx install assayo
-assayo
-```
-Ruby:
-```
-gem install assayo
-assayo
-```
-Go:
-```
-go get github.com/bakhirev/assayo
-go install github.com/bakhirev/assayo
-assayo
-```
-The script will create a folder `./assayo` with a report about repository:
-```
-./assayo/index.html - report
-./assayo/log.txt    - information from git
-```
-If you do not have NodeJS/PHP , see the items "How to download data from git?" and "How to view the report?"
-<a name="link-6"></a>
-### ‍🎭 How to concat authors?
+###  How to concat authors?
 In the root directory of your project, you need to create a `.mailmap` file.
 Example of the contents of the file:
 ```
@@ -121,60 +91,67 @@ Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
 Read more about the format of this file you can [here](https://git-scm.com/docs/gitmailmap).
+<a name="link-6"></a>
+###  How to export data from git?
 <a name="link-7"></a>
-### 📤 How to export data from git?
-<a name="link-8"></a>
 ####  For online viewing
 In the root directory of your project run:
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
 ```
-<a name="link-9"></a>
-####  For offline viewing
+<a name="link-8"></a>
+#### 📈 For offline viewing
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
 ```
 Git will create a file `log.txt`. This file contains data for show a report. The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html `
-<a name="link-10"></a>
+<a name="link-9"></a>
 ####  If you use PowerShell in Windows
 By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 Or open a saved file and manually change the encoding to UTF-8.
+<a name="link-10"></a>
+###  How to create and view the report?
 <a name="link-11"></a>
-### 📈 How to view the report?
-<a name="link-12"></a>
 ####  Using website
 - go to the [website](https://bakhirev.github.io/);
 - click the “[Demo](https://bakhirev.github.io/demo)” button;
 - drop the `log.txt` file into the browser window;
 
-<a name="link-13"></a>
+<a name="link-12"></a>
 ####  Use the library NodeJS
 - run `npx assayo`
 - open `./assayo/index.html`
 
-<a name="link-14"></a>
+<a name="link-13"></a>
 ####  Use the library PHP
 - run `composer require bakhirev/assayo`
 - run `vendor/bin/assayo`
 - open `./assayo/index.html`
 
-<a name="link-15"></a>
+<a name="link-14"></a>
 ####  Use the library Python
 - run `pipx install assayo`
 - run `assayo`
 - open `./assayo/index.html`
 
-<a name="link-16"></a>
-####  Use the library Ruby
+<a name="link-15"></a>
+#### 🏭 Use the library Ruby
 - run `gem install assayo`
 - run `assayo`
 - open `./assayo/index.html`
 
+<a name="link-16"></a>
+#### 🗃️ Use the library Go
+- run `go get github.com/bakhirev/assayo`
+- run `go install github.com/bakhirev/assayo`
+- run `assayo`
+- open `./assayo/index.html`
+
 <a name="link-17"></a>
-####  Use source code
+#### 🎨 Use source code
 - download this repository `git clone https://github.com/bakhirev/assayo.git`;
 - drop the `log.txt` file to the `/build` folder;
 - run `/build/index.html`;
@@ -182,28 +159,29 @@ Or open a saved file and manually change the encoding to UTF-8.
 
   In this case, it is important that the `log.txt` file is generated by the command for offline viewing.
 <a name="link-18"></a>
-### 🏭 How to rebuild the HTML report from source code?
+### 📝 How to rebuild the HTML report from source code?
 - download this repository `git clone https://github.com/bakhirev/assayo.git`
 - run `npm install`
 - run `npm run build:local`
 - the new HTML build will be in the `/build` folder
 
 <a name="link-19"></a>
-### 🗃️ How to view a report on a group of microservices?
+### 👮 How to view a report on a group of microservices?
 - generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection;
 - see “How to view an online report?”. At the last step, drag all the files at once into the browser window.
 - see “How to see a report offline?”. At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt` and etc.) to the report folder (`/build`).
 
 <a name="link-20"></a>
-### 🎨 How to brand the interface?
+###  How to brand the interface?
 You can create your own interface theme. Options:
 - **Title**. You can set default document title in the URL parameter ```title```. Example: ```?title=You Company```
 - **Visual theme**. To do this, you need to prepare a CSS file with new styles and specify its URL in the ```theme``` parameter. Example: ```?theme=//company.com/some.css```. You can use class names as selectors. Most of them do not change in new versions.
 - **Language**. You can set language in the URL parameter ```lang```. Example: ```?lang=es```
 
+
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-21"></a>
-### 📝 How to sign commits?
+###  How to sign commits?
 Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Example:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -214,7 +192,7 @@ JIRA-1234 feat(profile): Added avatar for user
 - what problem were solved `(Added avatar for user)`
 
 <a name="link-22"></a>
-### 👮 How to add checking for commit message?
+### 📚 How to add checking for commit message?
 <a name="link-23"></a>
 ####  Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
@@ -239,7 +217,7 @@ fi
 ```
 2. Run command `npm install pre-commit`
 <a name="link-25"></a>
-### 📚 How to automate data collection?
+### 🛠️ How to automate data collection?
 <a name="link-26"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
@@ -253,18 +231,18 @@ fi
 
   Every time you restart the computer, the script will update statistics on all the data that automatically merged into the main branch.
 <a name="link-28"></a>
-### 🛠️ DevOps (CI/CD)
+###  DevOps (CI/CD)
 <a name="link-29"></a>
-####  Github Actions
+#### 🛠️ Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
 <a name="link-30"></a>
-####  Public server
+#### 📐 Public server
 You can upload the data file for report construction to a public URL. And use the website’s [assayo](https://bakhirev.github.io/?ref=github&lang=en) to visualize it.
 ```
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
 <a name="link-31"></a>
-####  Private server
+#### 🈯 Private server
 - download the [docker image](https://hub.docker.com/r/bakhirev/assayo);
 - run it on your local network;
 - use the web interface to view the reports, set the URL of the data in the URL parameter ```dump```:
@@ -276,20 +254,20 @@ you_url    - URL of your container with git logs;
 ```
 By default, the image will run at ```http://127.0.0.1:80/```. If it doesn't work, check if port 80 is free.
 <a name="link-32"></a>
-### 🛠️ ️ About application
+### 🗺️ ️ About application
 <a name="link-33"></a>
-#### 📐 Architecture
+#### 📧 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 <a name="link-34"></a>
-#### 🈯 How to add or edit a translation?
+####  How to add or edit a translation?
 You can add a new translation or correct an existing one in the ```ts/translations/``` folder.
 [Instruction](https://github.com/firstcontributions/first-contributions)
 <a name="link-35"></a>
-#### 🗺️ RoadMap:
+####  RoadMap:
 Releases are planned approximately once every six months. What’s next:
 - more recommendations and achievements;
 - annual/monthly summaries, report printing;
@@ -299,7 +277,7 @@ Releases are planned approximately once every six months. What’s next:
 - development of the backend, integration with other systems;
 
 <a name="link-36"></a>
-#### 📧 Feedback, comments
+####  Feedback, comments
 - 📱 [https://t.me/bakhirev](https://t.me/bakhirev) (priority method of communication)
 - 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 🌐 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=en)

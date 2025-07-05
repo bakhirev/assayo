@@ -9,39 +9,18 @@
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
     },
     {
-        "h5": "Mitarbeiter können den neuen arbeitsplatz bewerten"
+        "h5": "An deinem neuen arbeitsplatz kannst du sofort herausfinden:"
     },
     {
         "li": [
-            "arbeitsgeschwindigkeit;",
-            "anzahl der überstunden;",
-            "verantwortungsbereiche;",
-            "umfang des neuen funktionsweise und fehlerbestandes;",
-            "arbeitsstil der kollegen;"
-        ]
-    },
-    {
-        "h5": "Der vorgesetzte kann die mitarbeiter bewerten"
-    },
-    {
-        "li": [
-            "ermitteln sie die untätigen;",
-            "schätzen sie den codeumfang ab;",
-            "erfahren sie die arbeitsgeschwindigkeit;",
-            "merken sie verhaltensanomalien;",
-            "beobachten sie das arbeitsgeschehen nach wochen;"
-        ]
-    },
-    {
-        "h5": "Der Investor kann das produkt bewerten"
-    },
-    {
-        "li": [
-            "produktpreis;",
-            "preis des neuen funktionsumfanges;",
-            "entwicklungszeit;",
-            "vorhersage der zeit für überarbeitungen;",
-            "preiskostenprognose;"
+            "das arbeitstempo und die anzahl der überstunden;",
+            "verantwortungsbereiche, anzahl von features und bugs;",
+            "den arbeitsstil deiner kollegen;",
+            "die mitarbeiterfluktuation und zusammensetzung des teams;",
+            "den aufenthaltsort der entwickler;",
+            "den releaseplan und urlaubsverlauf;",
+            "kosten für features und projekt insgesamt;",
+            "stellen für refactoring, gelöschte dateien usw."
         ]
     },
     {
@@ -57,66 +36,6 @@
         "pre": [
             "git shortlog -s -n -e"
         ]
-    },
-    {
-        "h3": "How to create a local report with using library?"
-    },
-    {
-        "p": "NodeJS:"
-    },
-    {
-        "pre": [
-            "npx assayo"
-        ]
-    },
-    {
-        "p": "PHP:"
-    },
-    {
-        "pre": [
-            "composer require bakhirev/assayo",
-            "vendor/bin/assayo"
-        ]
-    },
-    {
-        "p": "Python:"
-    },
-    {
-        "pre": [
-            "pipx install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Ruby:"
-    },
-    {
-        "pre": [
-            "gem install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Go:"
-    },
-    {
-        "pre": [
-            "go get github.com/bakhirev/assayo",
-            "go install github.com/bakhirev/assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "The script will create a folder `./assayo` with a report about repository:"
-    },
-    {
-        "pre": [
-            "./assayo/index.html - report",
-            "./assayo/log.txt    - information from git"
-        ]
-    },
-    {
-        "p": "If you do not have NodeJS , see the items \"How to download data from git?\" and \"How to view the report?\""
     },
     {
         "h3": "Wie kann ich autoren zusammenbringen?"
@@ -223,6 +142,17 @@
     {
         "li": [
             "run `gem install assayo`",
+            "run `assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use the library Go"
+    },
+    {
+        "li": [
+            "run `go get github.com/bakhirev/assayo`",
+            "run `go install github.com/bakhirev/assayo`",
             "run `assayo`",
             "open `./assayo/index.html`"
         ]

@@ -13,104 +13,58 @@ Visualisation et analyse des données de votre dépôt git. Performance tool for
 <a href="https://bakhirev.github.io/demo/?ref=github&dump=./test.txt" target="_blank"><img src="https://bakhirev.github.io/assets/images/index.gif" width="100%" /></a>
 
 <a name="link-0"></a>
-##### 👨‍💻 Un employé peut évaluer un nouveau lieu de travail
-- le rythme du travail;
-- le nombre de heures supplémentaires;
-- les zones de responsabilité;
-- la taille des fonctionnalités et bogues;
-- le style de travail des collègues;
+##### 👨‍💻 À votre nouveau lieu de travail, vous pouvez instantanément découvrir:
+- le rythme de travail et le nombre d'heures supplémentaires;
+- les zones de responsabilité, le nombre de fonctionnalités et de bogues;
+- le style de travail de vos collègues;
+- le taux de rotation du personnel et la composition de l'équipe;
+- l'emplacement des développeurs;
+- le calendrier des publications et des vacances;
+- le coût des fonctionnalités et du projet dans son ensemble;
+- les endroits pour le refactoring, les fichiers supprimés, etc.
 
 <a name="link-1"></a>
-##### ‍👨‍💼 Un chef peut évaluer les employés
-- détecter les fainéants;
-- estimer la taille du code;
-- connaître la vitesse de travail;
-- remarquer les anomalies du comportement;
-- remarquer les anomalies du comportement;
-
-<a name="link-2"></a>
-##### 👑 L’investisseur peut évaluer le produit
-- le coût du produit;
-- le coût des fonctionnalités;
-- la durée de développement;
-- la projection de la durée des mises à niveau;
-- la projection du coût;
-
-<a name="link-3"></a>
 ###  Table of contents
-- [De combien de commits avez-vous besoin?](#link-4)
-- [How to create a local report with using library?](#link-5)
-- [Comment pouvez-vous combiner les auteurs ?](#link-6)
-- [Comment télécharger des données depuis git ?](#link-7)
-  - [Pour une visualisation en ligne](#link-8)
-  - [Pour la navigation hors ligne](#link-9)
-  - [If you use PowerShell in Windows](#link-10)
-- [Comment voir le rapport en ligne?](#link-11)
-  - [Using website](#link-12)
-  - [Use the library NodeJS](#link-13)
-  - [Use the library PHP](#link-14)
-  - [Use the library Python](#link-15)
-  - [Use the library Ruby](#link-16)
-  - [Use source code](#link-17)
-- [Comment recompiler la build du rapport?](#link-18)
-- [Comment voir le compte rendu pour un groupe de microservices?](#link-19)
-- [Comment apposer une marque sur l’interface?](#link-20)
-- [Comment signer les commits ?](#link-21)
-- [How to add checking for commit message?](#link-22)
-  - [ Use file commit-msg](#link-23)
-  - [ Use package pre-commit](#link-24)
-- [Comment automatiser la collecte de données?](#link-25)
-  - [With backend](#link-26)
-  - [Sans back-end](#link-27)
-- [DevOps ](#link-28)
-  - [Github Actions](#link-29)
-  - [Serveur public](#link-30)
-  - [Serveur privé](#link-31)
-- [️ About application](#link-32)
-  - [Architecture](#link-33)
-  - [Les versions sont publiées environ tous les six mois. Quoi de neuf:](#link-34)
-  - [Comment ajouter ou modifier une traduction?](#link-35)
-  - [Souhaits, suggestions, commentaires](#link-36)
-<a name="link-4"></a>
+- [Table of contents](#link-1)
+- [De combien de commits avez-vous besoin?](#link-2)
+- [Comment télécharger des données depuis git ?](#link-4)
+  - [Pour une visualisation en ligne](#link-5)
+  - [Pour la navigation hors ligne](#link-6)
+  - [If you use PowerShell in Windows](#link-7)
+- [Comment voir le rapport en ligne?](#link-8)
+  - [Using website](#link-9)
+  - [Use the library NodeJS](#link-10)
+  - [Use the library PHP](#link-11)
+  - [Use the library Python](#link-12)
+  - [Use the library Ruby](#link-13)
+  - [Use the library Go](#link-14)
+  - [Use source code](#link-15)
+- [Comment recompiler la build du rapport?](#link-16)
+- [Comment voir le compte rendu pour un groupe de microservices?](#link-17)
+- [Comment apposer une marque sur l’interface?](#link-18)
+- [Comment signer les commits ?](#link-19)
+- [How to add checking for commit message?](#link-20)
+  - [ Use file commit-msg](#link-21)
+  - [ Use package pre-commit](#link-22)
+- [Comment automatiser la collecte de données?](#link-23)
+  - [With backend](#link-24)
+  - [Sans back-end](#link-25)
+- [DevOps ](#link-26)
+  - [Github Actions](#link-27)
+  - [Serveur public](#link-28)
+  - [Serveur privé](#link-29)
+- [️ About application](#link-30)
+  - [Architecture](#link-31)
+  - [Les versions sont publiées environ tous les six mois. Quoi de neuf:](#link-32)
+  - [Comment ajouter ou modifier une traduction?](#link-33)
+  - [Souhaits, suggestions, commentaires](#link-34)
+<a name="link-2"></a>
 ### 🚀 De combien de commits avez-vous besoin?
 Dans le répertoire racine de votre projet, exécutez les commandes suivantes:
 ```
 git shortlog -s -n -e
 ```
-<a name="link-5"></a>
-### 🏭 How to create a local report with using library?
-NodeJS:
-```
-npx assayo
-```
-PHP:
-```
-composer require bakhirev/assayo
-vendor/bin/assayo
-```
-Python:
-```
-pipx install assayo
-assayo
-```
-Ruby:
-```
-gem install assayo
-assayo
-```
-Go:
-```
-go get github.com/bakhirev/assayo
-go install github.com/bakhirev/assayo
-assayo
-```
-The script will create a folder `./assayo` with a report about repository:
-```
-./assayo/index.html - report
-./assayo/log.txt    - information from git
-```
-If you do not have NodeJS , see the items "How to download data from git?" and "How to view the report?"
-<a name="link-6"></a>
+<a name="link-3"></a>
 ### ‍🎭 Comment pouvez-vous combiner les auteurs ?
 Dans le répertoire racine de votre projet, créez le fichier suivant: `.mailmap`.
 L’exemple de la ligne de fichier est le suivant:
@@ -121,88 +75,96 @@ Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
 Vous pouvez en savoir plus sur le format de ce fichier en lisant la documentation officielle. [ici](https://git-scm.com/docs/gitmailmap).
-<a name="link-7"></a>
+<a name="link-4"></a>
 ### 📤 Comment télécharger des données depuis git ?
-<a name="link-8"></a>
+<a name="link-5"></a>
 ####  Pour une visualisation en ligne
 Dans le répertoire racine de votre projet, exécutez:
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
 ```
-<a name="link-9"></a>
+<a name="link-6"></a>
 ####  Pour la navigation hors ligne
 ```
 git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
 ```
 Git va créer le fichier `log.txt`. Son contenu est destiné à la création de rapports. La différence entre le format en ligne et le format hors ligne réside dans l’enveloppe des lignes. Le format hors ligne sera chargé comme un fichier js si vous avez simplement ouvert `/build/index.html`
-<a name="link-10"></a>
+<a name="link-7"></a>
 ####  If you use PowerShell in Windows
 By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 Or open a saved file and manually change the encoding to UTF-8.
-<a name="link-11"></a>
+<a name="link-8"></a>
 ### 📈 Comment voir le rapport en ligne?
-<a name="link-12"></a>
+<a name="link-9"></a>
 ####  Using website
 - Aller à [сайт](https://bakhirev.github.io/)
 - Appuyer sur le bouton “[Démo](https://bakhirev.github.io/demo)”
 - Faites glisser le fichier `log.txt` dans la fenêtre du navigateur
 
-<a name="link-13"></a>
+<a name="link-10"></a>
 ####  Use the library NodeJS
 - run `npx assayo`
 - open `./assayo/index.html`
 
-<a name="link-14"></a>
+<a name="link-11"></a>
 ####  Use the library PHP
 - run `composer require bakhirev/assayo`
 - run `vendor/bin/assayo`
 - open `./assayo/index.html`
 
-<a name="link-15"></a>
+<a name="link-12"></a>
 ####  Use the library Python
 - run `pipx install assayo`
 - run `assayo`
 - open `./assayo/index.html`
 
-<a name="link-16"></a>
+<a name="link-13"></a>
 ####  Use the library Ruby
 - run `gem install assayo`
 - run `assayo`
 - open `./assayo/index.html`
 
-<a name="link-17"></a>
-####  Use source code
+<a name="link-14"></a>
+####  Use the library Go
+- run `go get github.com/bakhirev/assayo`
+- run `go install github.com/bakhirev/assayo`
+- run `assayo`
+- open `./assayo/index.html`
+
+<a name="link-15"></a>
+#### 🏭 Use source code
 - Télécharger ce dépôt
 - Glisser le fichier `log.txt` dans le dossier `/build`
 - Démarrer `/build/index.html`
 - Ou coller le dossier `/build` Sur votre dépôt (là où se trouve `log.txt`). Vous pouvez changer le nom. Par exemple avec `/build` sur `/report`. Dans cette cas, il est important que le fichier log.txt ait été généré par le commande pour la visualisation hors ligne.
 
-<a name="link-18"></a>
-### 🏭 Comment recompiler la build du rapport?
+<a name="link-16"></a>
+### 🗃️ Comment recompiler la build du rapport?
 - Télécharger ce dépôt
 - Exécuter `npm install`
 - Exécuter `npm run build:local`
 - La dernière build sera dans le dossier `/build`
 
-<a name="link-19"></a>
-### 🗃️ Comment voir le compte rendu pour un groupe de microservices?
+<a name="link-17"></a>
+### 🎨 Comment voir le compte rendu pour un groupe de microservices?
 - générer un fichier pour chaque microservice `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
 - Voir “Comment voir le rapport en ligne?”. Au dernier pas, glisser tous les fichiers dans la fenêtre du navigateur.
 - Voir “Comment regarder le rapport hors-ligne?”. Au deuxième pas, coller tous les fichier de microservices (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) dans le dossier du rapport (`/build`).
 
-<a name="link-20"></a>
-### 🎨 Comment apposer une marque sur l’interface?
+<a name="link-18"></a>
+### 📝 Comment apposer une marque sur l’interface?
 Vous pouvez écrire votre propre thème pour l’interface. Vous pouvez changer :
 - **En-tête**. Vous pouvez le spécifier dans le paramètre de l’URL ```title```. Par exemple: ```?title=You Company```
 - **Thème visuel**.Pour cela, vous devez préparer un fichier CSS avec de nouveaux styles et indiquer son adresse dans le paramètre de l’URL ```theme```. Par exemple: ```?theme=//company.com/some.css```. Vous pouvez utiliser les noms de classes comme sélecteurs. La plupart d’entre elles ne changent pas lors de la sortie de nouvelles versions.
 - **Langue**. Vous pouvez l’indiquer dans le paramètre d’URL ```lang```. Par exemple: ```?lang=es```
 
+
 **Example:** [demo](https://bakhirev.github.io/demo/themes/)
-<a name="link-21"></a>
-### 📝 Comment signer les commits ?
+<a name="link-19"></a>
+### 👮 Comment signer les commits ?
 Suivez la pratique [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Par exemple:
 ```
 JIRA-1234 feat(profile): Added avatar for user 
@@ -212,9 +174,9 @@ JIRA-1234 feat(profile): Added avatar for user
 - ficha `(profile - la section du site, la page ou la nouvelle fonctionnalité, en un mot)`
 - quel problème ont-ils résolu `(Added avatar for user)`
 
-<a name="link-22"></a>
-### 👮 How to add checking for commit message?
-<a name="link-23"></a>
+<a name="link-20"></a>
+###  How to add checking for commit message?
+<a name="link-21"></a>
 ####   Use file `commit-msg`
 1. Create file `commit-msg` in folder `.git/hooks/`
 2. Add this text in file:
@@ -225,8 +187,8 @@ if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((
    exit 1
 fi
 ```
-<a name="link-24"></a>
-####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+<a name="link-22"></a>
+#### 📚  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
 1. Add in file `package.json` property `commit-msg`:
 ```
   ...
@@ -237,32 +199,32 @@ fi
   ...
 ```
 2. Run command `npm install pre-commit`
-<a name="link-25"></a>
-### 📚 Comment automatiser la collecte de données?
-<a name="link-26"></a>
+<a name="link-23"></a>
+###  Comment automatiser la collecte de données?
+<a name="link-24"></a>
 ####  With backend
 - use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
 
-<a name="link-27"></a>
-####  Sans back-end
+<a name="link-25"></a>
+#### 🛠️ Sans back-end
 - clonez le dépôt que vous voulez ;
 - copiez le dossier `build`;
 - Ouvrez `build/index.html` dans le navigateur et ajoutez-le aux favoris;
 - ajoutez un raccourci sur `build/assets/ci-cd.sh` dans le dossier de démarrage automatique (Windows); Chaque fois que votre ordinateur se recharge, le script mettra à jour les statistiques sur toutes les données qui se sont automatiquement insérées dans la branche principale.
 
-<a name="link-28"></a>
-### 🛠️ DevOps (CI/CD)
-<a name="link-29"></a>
+<a name="link-26"></a>
+###  DevOps (CI/CD)
+<a name="link-27"></a>
 ####  Github Actions
 Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
-<a name="link-30"></a>
+<a name="link-28"></a>
 ####  Serveur public
 Vous pouvez mettre à disposition le fichier avec les données pour construire le rapport sur l’URL publique. Et pour sa visualisation, utiliser l’interface web du site. [assayo](https://bakhirev.github.io/). Tout simplement, indiquez l’adresse où se trouvent les données dans le paramètre de l’URL ```dump```:
 ```
 https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
 ```
-<a name="link-31"></a>
-####  Serveur privé
+<a name="link-29"></a>
+#### 🛠️ Serveur privé
 - télécharger [docker образ](https://hub.docker.com/r/bakhirev/assayo);
 - Soulevez-le sur le réseau local;
 - Pour consulter les rapports, utilisez l’interface web en lui indiquant l’adresse où les données se trouvent, sous forme de paramètre dans l’URL ```dump```:
@@ -273,17 +235,17 @@ assayo_url - URL Conteneur assayo, écoute le port 80;
 you_url    - URL адресс Adresse de votre conteneur de logs git;
 ```
 Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne fonctionne pas, vérifiez si le port 80 est disponible.
-<a name="link-32"></a>
-### 🛠️ ️ About application
-<a name="link-33"></a>
-#### 📐 Architecture
+<a name="link-30"></a>
+### 📐 ️ About application
+<a name="link-31"></a>
+#### 🈯 Architecture
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-34"></a>
-#### 🈯 Les versions sont publiées environ tous les six mois. Quoi de neuf:
+<a name="link-32"></a>
+#### 🗺️ Les versions sont publiées environ tous les six mois. Quoi de neuf:
 - plus de conseils et de succès;
 - résultats de l’année / du mois, impression des rapports;
 - localisation et internationalisation;
@@ -291,12 +253,12 @@ Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne foncti
 - différents rôles pour la statistique (cacher la finance);
 - développement du backend, intégrations avec d’autres systèmes;
 
-<a name="link-35"></a>
-#### 🗺️ Comment ajouter ou modifier une traduction?
+<a name="link-33"></a>
+#### 📧 Comment ajouter ou modifier une traduction?
 Vous pouvez ajouter une nouvelle traduction ou corriger la traduction existante dans le section ```ts/translations/```.
 [Instruction](https://github.com/firstcontributions/first-contributions)
-<a name="link-36"></a>
-#### 📧 Souhaits, suggestions, commentaires
+<a name="link-34"></a>
+####  Souhaits, suggestions, commentaires
 - telegramm [@bakhirev](https://t.me/bakhirev) (voie de communication prioritaire)
 - [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=fr)

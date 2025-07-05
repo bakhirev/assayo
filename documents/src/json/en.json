@@ -3,7 +3,7 @@
         "warning": "The [main documentation](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) is in russian. This is a translation. It may contain errors. If you a native speaker, you can help improve this translation. Thanks!"
     },
     {
-        "p": "Visualization and analysis of git commit statistics. Performance tool for Team Lead and IT-audit"
+        "p": "Creates an HTML-report with analysis of commit statistics. A tool for team leaders."
     },
     {
         "p": "**Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
@@ -12,15 +12,18 @@
         "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
     },
     {
-        "h5": "Employee can evaluate new workplace"
+        "h5": "At your new workplace, you can instantly find out:"
     },
     {
         "li": [
-            "work speed;",
-            "number of extra hours worked;",
-            "areas of competence;",
-            "volume of features and bugs;",
-            "working style of colleagues;"
+            "the work pace and number of overtime hours;",
+            "zones of responsibility, number of features and bugs;",
+            "colleagues working style;",
+            "the rate of employee turnover and the makeup of the team;",
+            "location of developers;",
+            "release schedule and vacation calendar;",
+            "cost of features and project as a whole;",
+            "places for refactoring, deleted files, etc."
         ]
     },
     {
@@ -60,66 +63,6 @@
         "pre": [
             "git shortlog -s -n -e"
         ]
-    },
-    {
-        "h3": "How to create a local report with using library?"
-    },
-    {
-        "p": "NodeJS:"
-    },
-    {
-        "pre": [
-            "npx assayo"
-        ]
-    },
-    {
-        "p": "PHP:"
-    },
-    {
-        "pre": [
-            "composer require bakhirev/assayo",
-            "vendor/bin/assayo"
-        ]
-    },
-    {
-        "p": "Python:"
-    },
-    {
-        "pre": [
-            "pipx install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Ruby:"
-    },
-    {
-        "pre": [
-            "gem install assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "Go:"
-    },
-    {
-        "pre": [
-            "go get github.com/bakhirev/assayo",
-            "go install github.com/bakhirev/assayo",
-            "assayo"
-        ]
-    },
-    {
-        "p": "The script will create a folder `./assayo` with a report about repository:"
-    },
-    {
-        "pre": [
-            "./assayo/index.html - report",
-            "./assayo/log.txt    - information from git"
-        ]
-    },
-    {
-        "p": "If you do not have NodeJS/PHP , see the items \"How to download data from git?\" and \"How to view the report?\""
     },
     {
         "h3": "How to concat authors?"
@@ -179,7 +122,7 @@
         "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
-        "h3": "How to view the report?"
+        "h3": "How to create and view the report?"
     },
     {
         "h4": "Using website"
@@ -226,6 +169,17 @@
     {
         "li": [
             "run `gem install assayo`",
+            "run `assayo`",
+            "open `./assayo/index.html`"
+        ]
+    },
+    {
+        "h4": "Use the library Go"
+    },
+    {
+        "li": [
+            "run `go get github.com/bakhirev/assayo`",
+            "run `go install github.com/bakhirev/assayo`",
             "run `assayo`",
             "open `./assayo/index.html`"
         ]

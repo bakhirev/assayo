@@ -1,7 +1,3 @@
-# Creates an HTML report
-# with analysis of commit statistics.
-#
-# More information: https://github.com/bakhirev/assayo
 name: Assayo
 
 on:

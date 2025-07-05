@@ -56,6 +56,7 @@ function getMarkdownFromJson(json, languages, language) {
 
   markdownText = markdown
     .join('\n')
+    .replace(/\n\*\*/gim, '\n\n**')
     .replace('demo/?dump=./test.txt', 'demo/?ref=github&dump=./test.txt')
     .replace('online/demo)', 'online/demo?ref=github)');
 
