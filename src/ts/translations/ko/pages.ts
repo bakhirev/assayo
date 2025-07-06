@@ -305,6 +305,7 @@ export default `
 § page.person.achievement.positive: 긍정적 인
 § page.person.achievement.normal: 중립
 § page.person.achievement.negative: 부정
+§ page.person.achievement.publicity: Special
 § page.person.achievement.description: 직원이 더 많은 부정적인 업적을 달성할수록 상황이 비표준일 가능성이 높아집니다. 작동 모드,작업 또는보고 모드를 변경할 가치가 있습니다. 당신은 그에게 이야기하고 그의 일을 방해하는 문제가 무엇인지 알아 내야합니다.
 § page.person.gets.title: 작업 번호 메달:
 § page.person.gets.description: 메달은 사용자가"아름다운"번호로 작업에 대한 약속을 가장 먼저 남기면 수여됩니다.

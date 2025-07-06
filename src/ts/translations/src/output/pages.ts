@@ -275,6 +275,7 @@ export default `
 § page.person.achievement.positive: Позитивные
 § page.person.achievement.normal: Нейтральные
 § page.person.achievement.negative: Негативные
+§ page.person.achievement.publicity: Специальные
 § page.person.achievement.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
 § page.person.gets.title: Медали за номера задач:
 § page.person.gets.description: Медаль выдается, если пользователь первым оставляет коммит к задаче с  «красивым» номером.

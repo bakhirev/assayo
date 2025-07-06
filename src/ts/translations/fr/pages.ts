@@ -317,6 +317,7 @@ export default `
 § page.person.achievement.positive: Positifs
 § page.person.achievement.normal: Neutres
 § page.person.achievement.negative: Négatifs
+§ page.person.achievement.publicity: Special
 § page.person.achievement.description: Plus un collaborateur a accumulé d’achievements négatifs, plus il est probable qu’il y ait une situation inhabituelle. Il se peut que vous deviez changer son mode de travail, ses tâches ou ses rapports. Vous devriez parler avec lui et découvrir quels problèmes entravent son travail.
 § page.person.gets.title: Les gètes prises:
 § page.person.gets.description: «Prendre geth» dans ce cas, cela signifie d'abord laisser le commit à la tâche avec un numéro «beau».

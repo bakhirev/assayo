@@ -317,6 +317,7 @@ export default `
 § page.person.achievement.positive: Positive
 § page.person.achievement.normal: Neutral
 § page.person.achievement.negative: Negative
+§ page.person.achievement.publicity: Special
 § page.person.achievement.description: Cuantos más logros negativos tenga un empleado, más probable es que la situación no sea estándar. Puede que valga la pena cambiar su modo de trabajo, tareas o informes. Debe hablar con él y averiguar qué problemas interfieren con su trabajo.
 § page.person.gets.title: Geta Capturado:
 § page.person.gets.description: «Geta Capturado» in this case, it means leaving commits to the task with the "beautiful" number first.

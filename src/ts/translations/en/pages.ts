@@ -317,6 +317,7 @@ export default `
 § page.person.achievement.positive: Positive
 § page.person.achievement.normal: Neutral
 § page.person.achievement.negative: Negative
+§ page.person.achievement.publicity: Special
 § page.person.achievement.description: The more negative achievements an employee accumulates, the higher the likelihood that the situation is unusual. It may be necessary to change their work mode, tasks, or reporting. A discussion with them to understand what problems are hindering their work is advisable.
 § page.person.gets.title: Gets taken:
 § page.person.gets.description: "Taking a get" in this context means being the first to leave a commit on a task with a "nice" number.

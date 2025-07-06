@@ -77,7 +77,7 @@ class AchievementsByCompetition {
     byAuthor.add(total.moreLongWaitPR, 'moreLongWaitPR');
 
     // Авиасейлс
-    // byAuthor.add(total.manyTimeZone, 'moreChangeTimeZone');
+    byAuthor.add(total.manyTimeZone, 'moreChangeTimeZone');
 
     // Первый и последний коммит
     const lastAuthor = dataGrip.firstLastCommit.maxData.author;

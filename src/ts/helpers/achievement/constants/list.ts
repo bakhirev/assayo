@@ -70,7 +70,7 @@ export default {
 
   // Паблисити ачивки
   moreChangeTimeZone: ACHIEVEMENT_TYPE.PUBLICITY, // Aaaaaa-viasales
-  firstCssInJs: ACHIEVEMENT_TYPE.PUBLICITY, // Ситник
+  publicitySitnik: ACHIEVEMENT_TYPE.PUBLICITY, // Ситник
 
   // нет картинки
   longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...

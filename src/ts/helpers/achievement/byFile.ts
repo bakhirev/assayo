@@ -1,22 +1,14 @@
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
 import IHashMap from 'ts/interfaces/HashMap';
-
-function getHashMap(list: string[]) {
-  return new Map(list.map((code: string) => [code, true]));
-}
-
-const IS_LINT_HINT = getHashMap(['.eslintrc', '.stylelintrc.json']);
-const IS_DOC = getHashMap(['md', 'doc', 'docx', 'txt']);
-const IS_CSS = getHashMap(['css', 'scss', 'less', 'style']);
-const IS_CSS_NAME = getHashMap(['style', 'styles']);
-const IS_TEST = getHashMap(['test', 'mock', 'snap']);
-const IS_CI_CD = getHashMap([
-  'Dockerfile',
-  'gradlew',
-  'gradlew.bat',
-  'gradle.properties',
-  'docker-compose.yml',
-]);
+import {
+  IS_ACHIEVEMENT_SITNIK,
+  IS_CSS,
+  IS_CSS_NAME,
+  IS_CI_CD,
+  IS_DOC,
+  IS_LINT_HINT,
+  IS_TEST,
+} from './constants/is';
 
 function getAddedChangedLines(file: IDirtyFile) {
   return [
@@ -47,16 +39,14 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   const firstFileNameStyle: any = { author: '', milliseconds: Infinity };
   const fileRush: IHashMap<number> = {};
 
-  console.log('file name');
   fileGrip.files.list.forEach((file: IDirtyFile) => {
     if (IS_LINT_HINT.has(file.name)) {
       moreLintHint.push(getAddedChangedLines(file));
     } else if (IS_DOC.has(file.extension)) {
       moreReadMe.push(getAddedChangedLines(file));
-    } else if (IS_CSS.has(file.extension)) {
+    } else if (IS_CSS.has(file.extension) || IS_CSS_NAME.has(file.name)) {
       moreStyle.push(getAddedChangedLines(file));
-    } else if (IS_CSS_NAME.has(file.name)) {
-      moreStyle.push(getAddedChangedLines(file));
+    } else if (IS_ACHIEVEMENT_SITNIK.has(file.name)) {
       if (file?.firstCommit?.milliseconds && file?.firstCommit?.milliseconds < firstFileNameStyle.milliseconds) {
         firstFileNameStyle.author = file.firstCommit?.author;
         firstFileNameStyle.milliseconds = file.firstCommit?.milliseconds;
@@ -96,7 +86,7 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   byAuthor.add(getTopUser(moreDevOps.flat(2)), 'moreDevOps');
   byAuthor.authors[longFilePath.author].push('longFilePath');
   byAuthor.authors[longFileName.author].push('longFileName');
-  // if (firstFileNameStyle.author) {
-  //   byAuthor.authors[firstFileNameStyle.author].push('firstCssInJs');
-  // }
+  if (firstFileNameStyle.author) {
+    byAuthor.authors[firstFileNameStyle.author].push('publicitySitnik');
+  }
 }

@@ -157,5 +157,9 @@ export default `
 § achievements.horoscope10.description: 첫 번째 약속의 달까지
 § achievements.horoscope11.description: 첫 번째 약속의 달까지
 § achievements.horoscope12.description: 첫 번째 약속의 달까지
+§ achievements.moreChangeTimeZone.title: Aaaaa-viasales
+§ achievements.moreChangeTimeZone.description: changed location more often than anyone else
+§ achievements.publicitySitnik.title: Sitnik approves
+§ achievements.publicitySitnik.description: the first who added the PostCSS or Browserslist config
 § achievements.111.description: 시험
 `;

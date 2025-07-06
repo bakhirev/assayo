@@ -312,6 +312,7 @@ export default `
 § page.person.achievement.positive: 积极
 § page.person.achievement.normal: 中立
 § page.person.achievement.negative: 负面
+§ page.person.achievement.publicity: Special
 § page.person.achievement.description: 员工取得的负面成绩越多，情况就越有可能非标准。 可能值得改变其操作模式，任务或报告。 你应该和他谈谈，看看有什么问题妨碍了他的工作.
 § page.person.gets.title: 被带走的木屐:
 § page.person.gets.description: «被带走的木屐» 在这种情况下，它意味着第一个离开 Commits 到"美丽"数字的问题.

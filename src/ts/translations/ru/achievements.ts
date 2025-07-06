@@ -109,8 +109,6 @@ export default `
 § achievements.moreDevOps.description: больше всех создал или изменил файлов для CI/CD
 § achievements.moreTests.title: Тестировщик
 § achievements.moreTests.description: больше всех создал или изменил файлов для тестирования
-§ achievements.moreChangeTimeZone.title: Aaaaa-viasales
-§ achievements.moreChangeTimeZone.description: больше всех менял местоположение
 § achievements.allRelease.title: Фулл хаус
 § achievements.allRelease.description: есть релиз, собранный только из его задач
 § achievements.firstCommit.title: Кто первый, того и тапки
@@ -119,8 +117,6 @@ export default `
 § achievements.lastCommit.description: последний коммит на проекте
 § achievements.firstLastCommit.title: От начала и до конца
 § achievements.firstLastCommit.description: первый и последний коммит на проекте
-§ achievements.firstCssInJs.title: От начала и до конца
-§ achievements.firstCssInJs.description: первый добавил CSS-in-JS файл
 § achievements.longFilePath.title: Закрома родины
 § achievements.longFilePath.description: первый создал файл с самым глубоким вложением
 § achievements.longFileName.title: Размер имеет значение
@@ -161,5 +157,9 @@ export default `
 § achievements.horoscope10.description: по месяцу первого коммита
 § achievements.horoscope11.description: по месяцу первого коммита
 § achievements.horoscope12.description: по месяцу первого коммита
+§ achievements.moreChangeTimeZone.title: Aaaaa-viasales
+§ achievements.moreChangeTimeZone.description: больше всех менял местоположение
+§ achievements.publicitySitnik.title: Ситник одобряет
+§ achievements.publicitySitnik.description: первый добавил PostCSS или Browserslist конфиг
 § achievements.111.description: test
 `;

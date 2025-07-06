@@ -153,5 +153,9 @@ export default `
 § achievements.horoscope10.description: by the month of the first commit
 § achievements.horoscope11.description: by the month of the first commit
 § achievements.horoscope12.description: by the month of the first commit
+§ achievements.moreChangeTimeZone.title: Aaaaa-viasales
+§ achievements.moreChangeTimeZone.description: changed location more often than anyone else
+§ achievements.publicitySitnik.title: Sitnik approves
+§ achievements.publicitySitnik.description: the first who added the PostCSS or Browserslist config
 § achievements.111.description: test
 `;
