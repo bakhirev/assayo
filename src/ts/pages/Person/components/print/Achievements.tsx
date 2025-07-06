@@ -57,6 +57,10 @@ const Total = observer(({
           title="page.person.achievement.negative"
           achievements={achievements[ACHIEVEMENT_TYPE.BAD - 1]}
         />
+        <AchievementBlock
+          title="page.person.achievement.publicity"
+          achievements={achievements[ACHIEVEMENT_TYPE.PUBLICITY - 1]}
+        />
         <br />
         <br />
         {commitsWithGet?.length ? (

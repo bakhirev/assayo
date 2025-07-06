@@ -99,5 +99,5 @@ export default function getAchievementByAuthor(list: string[], dataGrip: any, au
     const index = ALL_ACHIEVEMENTS[type] - 1;
     acc[index].push(type);
     return acc;
-  }, [[], [], []]);
+  }, [[], [], [], []]);
 }

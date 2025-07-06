@@ -6,7 +6,9 @@ function getHashMap(list: string[]) {
 }
 
 const IS_LINT_HINT = getHashMap(['.eslintrc', '.stylelintrc.json']);
+const IS_DOC = getHashMap(['md', 'doc', 'docx', 'txt']);
 const IS_CSS = getHashMap(['css', 'scss', 'less', 'style']);
+const IS_CSS_NAME = getHashMap(['style', 'styles']);
 const IS_TEST = getHashMap(['test', 'mock', 'snap']);
 const IS_CI_CD = getHashMap([
   'Dockerfile',
@@ -42,14 +44,28 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   const moreDevOps: any = [];
   const longFilePath: any = { author: '', length: 0 };
   const longFileName: any = { author: '', length: 0 };
+  const firstFileNameStyle: any = { author: '', milliseconds: Infinity };
   const fileRush: IHashMap<number> = {};
 
+  console.log('file name');
   fileGrip.files.list.forEach((file: IDirtyFile) => {
-    if (IS_LINT_HINT.has[file.name]) moreLintHint.push(getAddedChangedLines(file));
-    if (file.extension === 'md') moreReadMe.push(getAddedChangedLines(file));
-    if (IS_CSS.has[file.extension]) moreStyle.push(getAddedChangedLines(file));
-    if (IS_TEST.has[file.extension] || IS_TEST.has[file.type]) moreTests.push(getAddedChangedLines(file));
-    if (IS_CI_CD.has[file.name]) moreDevOps.push(getAddedChangedLines(file));
+    if (IS_LINT_HINT.has(file.name)) {
+      moreLintHint.push(getAddedChangedLines(file));
+    } else if (IS_DOC.has(file.extension)) {
+      moreReadMe.push(getAddedChangedLines(file));
+    } else if (IS_CSS.has(file.extension)) {
+      moreStyle.push(getAddedChangedLines(file));
+    } else if (IS_CSS_NAME.has(file.name)) {
+      moreStyle.push(getAddedChangedLines(file));
+      if (file?.firstCommit?.milliseconds && file?.firstCommit?.milliseconds < firstFileNameStyle.milliseconds) {
+        firstFileNameStyle.author = file.firstCommit?.author;
+        firstFileNameStyle.milliseconds = file.firstCommit?.milliseconds;
+      }
+    } else if (IS_TEST.has(file.extension) || IS_TEST.has(file.type)) {
+      moreTests.push(getAddedChangedLines(file));
+    } else if (IS_CI_CD.has(file.name)) {
+      moreDevOps.push(getAddedChangedLines(file));
+    }
 
     fileRush[file.firstCommit?.author || ''] = fileRush[file.firstCommit?.author || '']
       ? (fileRush[file.firstCommit?.author || ''] + 1)
@@ -80,4 +96,7 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   byAuthor.add(getTopUser(moreDevOps.flat(2)), 'moreDevOps');
   byAuthor.authors[longFilePath.author].push('longFilePath');
   byAuthor.authors[longFileName.author].push('longFileName');
+  // if (firstFileNameStyle.author) {
+  //   byAuthor.authors[firstFileNameStyle.author].push('firstCssInJs');
+  // }
 }

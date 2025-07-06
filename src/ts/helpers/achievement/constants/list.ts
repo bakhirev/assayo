@@ -68,6 +68,10 @@ export default {
   horoscope11: ACHIEVEMENT_TYPE.NORMAL, // скорп
   horoscope12: ACHIEVEMENT_TYPE.NORMAL, // стрелец
 
+  // Паблисити ачивки
+  moreChangeTimeZone: ACHIEVEMENT_TYPE.PUBLICITY, // Aaaaaa-viasales
+  firstCssInJs: ACHIEVEMENT_TYPE.PUBLICITY, // Ситник
+
   // нет картинки
   longestMessage: ACHIEVEMENT_TYPE.NORMAL, // А разговоров то было...
   commitsAfter1800: ACHIEVEMENT_TYPE.GOOD, // Делу время

@@ -21,6 +21,7 @@ function Achievement({ code }: IAchievementProps) {
     style.achievement_good,
     style.achievement_middle,
     style.achievement_bad,
+    style.achievement_publicity,
   ][statusIndex - 1];
 
   return (

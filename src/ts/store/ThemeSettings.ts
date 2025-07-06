@@ -9,16 +9,16 @@ const LOGO: IBanner = {
 };
 
 const EXTERNAL_LOGO: IHashMap<IBanner> = {
-  vk_frontend_du2: {
-    logo: './social/vk/frontend_du2.png',
-    banner: './social/vk/frontend_du2.jpg',
-    link: 'https://vk.com/frontend_du2',
-  },
-  vk_take_off_staff: {
-    logo: './social/vk/take_off_staff.png',
-    banner: './social/vk/take_off_staff.jpg',
-    link: 'https://vk.com/takeoff_staff',
-  },
+  // vk_frontend_du2: {
+  //   logo: './social/vk/frontend_du2.png',
+  //   banner: './social/vk/frontend_du2.jpg',
+  //   link: 'https://vk.com/frontend_du2',
+  // },
+  // vk_take_off_staff: {
+  //   logo: './social/vk/take_off_staff.png',
+  //   banner: './social/vk/take_off_staff.jpg',
+  //   link: 'https://vk.com/takeoff_staff',
+  // },
 };
 
 function getDefaultBanner(ref: string): IBanner | null {

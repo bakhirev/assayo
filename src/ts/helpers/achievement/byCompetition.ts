@@ -76,6 +76,9 @@ class AchievementsByCompetition {
     // Давным давно, в далёкой галактике
     byAuthor.add(total.moreLongWaitPR, 'moreLongWaitPR');
 
+    // Авиасейлс
+    // byAuthor.add(total.manyTimeZone, 'moreChangeTimeZone');
+
     // Первый и последний коммит
     const lastAuthor = dataGrip.firstLastCommit.maxData.author;
     const firstAuthor = dataGrip.firstLastCommit.minData.author;
@@ -111,6 +114,12 @@ class AchievementsByCompetition {
       addData('tasks', statistic.tasks.length);
       addData('days', statistic.days);
       addData('moreRefactoring', statistic.types.refactor);
+
+      if (statistic.country) {
+        const notBritish = statistic.country
+          .filter((country: any) => country.timezone !== '+00:00');
+        addData('manyTimeZone', notBritish.length);
+      }
 
       const byTimestamp = dataGrip.timestamp.statisticByAuthor[statistic.author];
       addData('tasksInDay', byTimestamp.tasksByTimestampCounter.max);
