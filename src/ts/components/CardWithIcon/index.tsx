@@ -28,6 +28,7 @@ function CardWithIcon({
 
   if (!value && value !== 0) return null;
 
+  const formattedTitle = t(title || '');
   const className = [style.card_with_icon];
   if (size === 's') className.push(style.card_with_icon_small);
   if (size === 'l') className.push(style.card_with_icon_long);
@@ -37,6 +38,7 @@ function CardWithIcon({
       {icon && (
         <img
           className={style.card_with_icon_icon}
+          alt={formattedTitle}
           src={icon}
         />
       )}
@@ -47,7 +49,7 @@ function CardWithIcon({
       </p>
 
       <h4 className={style.card_with_icon_title}>
-        {t(title || '')}
+        {formattedTitle}
       </h4>
 
       <figcaption className={style.card_with_icon_description}>

@@ -3,16 +3,7 @@
         "warning": "[Documentación básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) en ruso. Es una traducción. Puede contener errores. Si usted es un hablante nativo, puede ayudar a mejorar esta traducción. ¡Gracias!"
     },
     {
-        "p": "Visualización y análisis de los datos de su repositorio git. Performance tool for Team Lead and IT-audit"
-    },
-    {
-        "p": "**Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
-    },
-    {
-        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
-    },
-    {
-        "h5": "En tu nuevo lugar de trabajo puedes averiguar al instante:"
+        "p": "Visualización y análisis de los datos de su repositorio git:"
     },
     {
         "li": [
@@ -27,18 +18,16 @@
         ]
     },
     {
+        "p": "**Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+    },
+    {
+        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
+    },
+    {
         "h3": "Table of contents"
     },
     {
-        "h3": "Cómo puedo rápidamente ver el número de commits?"
-    },
-    {
-        "p": "En la carpeta raíz de su proyecto, ejecute:"
-    },
-    {
-        "pre": [
-            "git shortlog -s -n -e"
-        ]
+        "h2": "COMMIT STATISTICS REPORT"
     },
     {
         "h3": "Cómo combinar a los autores?"

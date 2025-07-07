@@ -19,15 +19,15 @@ const Header = observer((): React.ReactElement | null => {
   const navigate = useNavigate();
   const location = useLocation();
   const options = [
-    { id: 'ru', title: 'RU' },
-    { id: 'en', title: 'EN' },
-    { id: 'zh', title: 'ZH' },
-    { id: 'es', title: 'ES' },
-    { id: 'fr', title: 'FR' },
-    { id: 'pt', title: 'PT' },
-    { id: 'de', title: 'DE' },
-    { id: 'ja', title: 'JA' },
-    { id: 'ko', title: 'KO' },
+    { id: 'ru', title: 'Русский' },
+    { id: 'en', title: 'English' },
+    { id: 'zh', title: '中文' },
+    { id: 'es', title: 'Español' },
+    { id: 'fr', title: 'Français' },
+    { id: 'pt', title: 'Português' },
+    { id: 'de', title: 'Deutsch' },
+    { id: 'ja', title: '日本語' },
+    { id: 'ko', title: '한국어' },
   ];
 
   return (
@@ -45,6 +45,7 @@ const Header = observer((): React.ReactElement | null => {
               options={options}
               onChange={(item: any, id: string) => {
                 localization.language = id;
+                localization.updateLangAttribute();
                 i18n.changeLanguage(id);
                 if (id === BROWSER_LANGUAGE) {
                   localStorage.removeItem('language');
@@ -55,6 +56,7 @@ const Header = observer((): React.ReactElement | null => {
             />
             <img
               title={t('sidebar.buttons.print')}
+              alt={t('sidebar.buttons.print')}
               className={style.header_print}
               src="./assets/menu/print.svg"
               onClick={() => {
@@ -63,6 +65,7 @@ const Header = observer((): React.ReactElement | null => {
             />
             <img
               title={t('sidebar.buttons.settings')}
+              alt={t('sidebar.buttons.settings')}
               className={style.header_setting}
               src="./assets/menu/setting.svg"
               onClick={() => {

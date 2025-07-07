@@ -6,15 +6,6 @@
         "p": "对您的git仓库的数据进行可视化和分析 团队领导及资讯科技审核的表现工具"
     },
     {
-        "p": "**Links:** [示范表现](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
-    },
-    {
-        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
-    },
-    {
-        "h5": "在你的新工作场所，你可以立即了解到以下信息："
-    },
-    {
         "li": [
             "工作节奏和加班时间数量；",
             "职责范围、功能及错误的数量；",
@@ -27,18 +18,16 @@
         ]
     },
     {
+        "p": "**Links:** [示范表现](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+    },
+    {
+        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
+    },
+    {
         "h3": "Table of contents"
     },
     {
-        "h3": "如何 quickly 查阅 commit 的 次数？"
-    },
-    {
-        "p": "在项目的根目录中执行以下命令："
-    },
-    {
-        "pre": [
-            "git shortlog -s -n -e"
-        ]
+        "h2": "COMMIT STATISTICS REPORT"
     },
     {
         "h3": "如何 combine 作者？"

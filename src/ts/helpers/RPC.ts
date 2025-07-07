@@ -82,6 +82,7 @@ export default function applyUrlCommands(callback: Function) {
   const language = parameters.lang || parameters.language;
   if (language) {
     localization.language = language;
+    localization.updateLangAttribute();
   }
 
   const jsUrl = parameters.dump || parameters.log;

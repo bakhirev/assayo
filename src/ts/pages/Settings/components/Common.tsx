@@ -49,6 +49,7 @@ const Common = observer((): React.ReactElement | null => {
           ]}
           onChange={(item: any, id: string) => {
             localization.language = id;
+            localization.updateLangAttribute();
             setLanguage(id);
           }}
         />

@@ -78,6 +78,13 @@ class Localization {
       }
     }
   }
+
+  updateLangAttribute() {
+    try {
+      // @ts-ignore
+      document.body.parentNode.setAttribute('lang', this.language);
+    } catch (e) {}
+  }
 }
 
 const localization = new Localization();

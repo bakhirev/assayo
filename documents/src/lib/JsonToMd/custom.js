@@ -31,7 +31,7 @@ function getSocialLinks() {
 }
 
 function getSreenshot() {
-  return '<a href="https://bakhirev.github.io/demo/?dump=./test.txt" target="_blank"><img src="https://bakhirev.github.io/assets/images/index.gif" width="100%" /></a>\n';
+  return '\n<a href="https://bakhirev.github.io/demo/?dump=./test.txt" target="_blank"><img src="https://bakhirev.github.io/assets/images/index.gif" width="100%" /></a>\n';
 }
 
 function getYandexMetrika() {

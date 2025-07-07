@@ -95,7 +95,7 @@
   &_pr {
     display: block;
     margin: var(--space-m) auto 0;
-    color: var(--color-grey);
+    color: var(--color-black);
   }
 
   &_date {
@@ -104,7 +104,7 @@
     padding: var(--space-s) 0 0 0;
 
     text-align: center;
-    color: var(--color-grey);
+    color: var(--color-black);
     border-top: 1px solid var(--color-border);
   }
 }

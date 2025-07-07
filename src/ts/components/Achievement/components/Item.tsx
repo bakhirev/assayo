@@ -29,6 +29,7 @@ function Achievement({ code }: IAchievementProps) {
       <div className={style.achievement_icon_container}>
         <div className={`${style.achievement_icon} ${className || ''}`}>
           <img
+            alt={title}
             className={style.achievement_icon_svg}
             src={`./assets/achievements/${code}.svg`}
           />

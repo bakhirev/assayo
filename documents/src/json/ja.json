@@ -3,16 +3,7 @@
         "warning": "[主な文書はロシア語です。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) これは翻訳です。 エラーが含まれている可能性があります。 あなたがネイティブスピーカーであれば、この翻訳を改善するのに役立ちます。 ありがとう！"
     },
     {
-        "p": "データの可視化とGitレポジトリの分析"
-    },
-    {
-        "p": "**Links:** [デモ](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
-    },
-    {
-        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
-    },
-    {
-        "h5": "新しい職場では、すぐに次のことを知ることができます："
+        "p": "コミット統計の分析を使用してHTMLレポートを作成します:"
     },
     {
         "li": [
@@ -27,18 +18,16 @@
         ]
     },
     {
+        "p": "**Links:** [デモ](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)."
+    },
+    {
+        "p": "**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)."
+    },
+    {
         "h3": "Table of contents"
     },
     {
-        "h3": "コミット数を素早く確認するにはどうすればよいでしょうか。"
-    },
-    {
-        "p": "プロジェクトのルートディレクトリで以下のコマンドを実行します:"
-    },
-    {
-        "pre": [
-            "git shortlog -s -n -e"
-        ]
+        "h2": "COMMIT STATISTICS REPORT"
     },
     {
         "h3": "作者をまとめるにはどうすればいいですか？"

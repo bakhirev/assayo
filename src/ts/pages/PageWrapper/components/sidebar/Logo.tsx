@@ -29,6 +29,7 @@ function Logo({ center }: ILogoProps) {
         className={style.logo_link}
       >
         <img
+          alt="logo"
           src={logo || ''}
           title={title || ''}
           className={isDefault

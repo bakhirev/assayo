@@ -62,6 +62,7 @@
 
   &_title {
     font-size: var(--font-m);
+    font-weight: 500;
     line-height: 14px;
     margin: 0 0 var(--space-xxs) 0;
   }
@@ -70,9 +71,14 @@
   &_scoring {
     font-size: var(--font-xs);
     line-height: 16px;
-    color: var(--color-grey);
+    color: var(--color-black);
   }
 
+  &_description {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-s);
+    margin-top: var(--space-m);
+  }
 
   &_scoring {
     display: inline-block;

@@ -22,23 +22,23 @@ function addBlockCode(list, markdown) {
 
 function getMarkdownFromJson(json, languages, language) {
   const tableOfContent = new TableOfContent();
-  const firstTag = (json || [])?.[0]?.warning ? json.shift() : null;
+  // const firstTag = (json || [])?.[0]?.warning ? json.shift() : null;
   let markdown = [
     custom.getLanguageLinks(languages, language),
-    firstTag ? `> ${firstTag.warning}\n` : '',
+    // firstTag ? `> ${firstTag.warning}\n` : '',
     custom.getTitle(language),
   ];
 
   (json || []).forEach((tag, index) => {
     if (!tag) return;
 
-    if (index === 3) {
-      markdown.push(custom.getSocialLinks());
+    if (index === 4) {
+      // markdown.push(custom.getSocialLinks());
       markdown.push(custom.getSreenshot());
     }
 
     if (tag.p) markdown.push(tag.p);
-    else if (tag.warning) markdown.push(`> ${tag.warning}\n`);
+    // else if (tag.warning) markdown.push(`> ${tag.warning}\n`);
     else if (tag.tableOfContent) markdown.push('tableOfContent');
     else if (tag.li) addList(tag.li, markdown);
     else if (tag.pre) addBlockCode(tag.pre, markdown);

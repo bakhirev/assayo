@@ -58,6 +58,7 @@ export default function initializationI18n(userLanguage?: string) {
     || 'en';
 
   localization.language = language;
+  localization.updateLangAttribute();
 
   i18next.use(initReactI18next).init({
     lng: language, // if you're using a language detector, do not define the lng option
