@@ -18,6 +18,7 @@ import GetList from 'ts/components/GetList';
 
 import dataGripStore from 'ts/store/DataGrip';
 import IPersonCommonProps from '../interfaces/CommonProps';
+import style from '../styles/index.module.scss';
 
 interface IAchievementBlockProps {
   title: string;
@@ -29,7 +30,9 @@ function AchievementBlock({ title, achievements }: IAchievementBlockProps) {
   if (!achievements?.length) return null;
   return (
     <>
-      <Description text={`# ${t(title)}`}/>
+      <h3 className={style.total_achievements_title}>
+        {t(title)}
+      </h3>
       <Achievements list={achievements} />
     </>
   );

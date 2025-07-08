@@ -1,8 +1,5 @@
 [
     {
-        "warning": "[Documentación básica](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) en ruso. Es una traducción. Puede contener errores. Si usted es un hablante nativo, puede ayudar a mejorar esta traducción. ¡Gracias!"
-    },
-    {
         "p": "Visualización y análisis de los datos de su repositorio git:"
     },
     {
@@ -30,63 +27,6 @@
         "h2": "COMMIT STATISTICS REPORT"
     },
     {
-        "h3": "Cómo combinar a los autores?"
-    },
-    {
-        "p": "En la carpeta raíz de su proyecto debe crear un archivo `.mailmap`."
-    },
-    {
-        "p": "Un ejemplo del contenido del archivo:"
-    },
-    {
-        "pre": [
-            "Alex B <alex@mail.uk>",
-            "Alex B <alex@mail.uk> <alex@gov.tk>",
-            "Alex B <alex@mail.uk> <bakhirev@ya.kz>",
-            "Alex B <alex@mail.uk> <man64@yahoo.com>"
-        ]
-    },
-    {
-        "p": "Más información sobre el formato de este archivo se puede leer en [aquí](https://git-scm.com/docs/gitmailmap)."
-    },
-    {
-        "h3": "Cómo descargar los datos desde git?"
-    },
-    {
-        "h4": "Para la visualización en línea"
-    },
-    {
-        "p": "En el directorio raíz de su proyecto ejecutar:"
-    },
-    {
-        "pre": [
-            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" > log.txt"
-        ]
-    },
-    {
-        "h4": "Para ver sin conexión"
-    },
-    {
-        "pre": [
-            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/\\$/S/g' | sed -e '1s/^/R(f\\`/' | sed -e '$s/$/\\`\\);/' > log.txt"
-        ]
-    },
-    {
-        "p": "Git creará un archivo `log.txt`. contiene los datos para construir el informe. La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`"
-    },
-    {
-        "h4": "If you use PowerShell in Windows"
-    },
-    {
-        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
-    },
-    {
-        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
-    },
-    {
-        "p": "Or open a saved file and manually change the encoding to UTF-8."
-    },
-    {
         "h3": "¿Cómo ver el informe?"
     },
     {
@@ -94,9 +34,8 @@
     },
     {
         "li": [
-            "ir a [sitio web](https://bakhirev.github.io/)",
-            "pulse el botón [Demo](https://bakhirev.github.io/demo)»",
-            "arrastrar y soltar archivo `log.txt` en la ventana del navegador"
+            "ir a [sitio web](https://bakhirev.github.io/demo/)",
+            "follow the instructions"
         ]
     },
     {
@@ -164,41 +103,101 @@
         "p": "En este caso, es importante que el archivo ' log.txt ' fue generado por el equipo para ver sin conexión."
     },
     {
-        "h3": "Como recompilar el build de un informe?"
+        "h4": "Use github actions"
+    },
+    {
+        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace."
+    },
+    {
+        "h4": "Servidor privado"
     },
     {
         "li": [
-            "Descargar este repositorio",
-            "Ejecutar `npm install`",
-            "Ejecutar `npm run build:local`",
-            "La nueva compilación estará en el directorio `/build`"
+            "descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);",
+            "recogerlo en la red local;",
+            "Para ver los informes, use la interfaz web indicándole la dirección de los datos en el parámetro URL ```dump```:"
         ]
+    },
+    {
+        "pre": [
+            "http://assayo_url/?dump=//you_url/some/log.txt",
+            "assayo_url - URL dirección del contenedor assayo, Él está escuchando el puerto 80;",
+            "you_url    - URL la dirección de su contenedor con registros git;"
+        ]
+    },
+    {
+        "p": "Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.0.1:80/```. Si no funciona, compruebe si tiene el puerto 80 disponible"
+    },
+    {
+        "h3": "Cómo combinar a los autores?"
+    },
+    {
+        "p": "En la carpeta raíz de su proyecto debe crear un archivo `.mailmap`."
+    },
+    {
+        "p": "Un ejemplo del contenido del archivo:"
+    },
+    {
+        "pre": [
+            "Alex B <alex@mail.uk>",
+            "Alex B <alex@mail.uk> <alex@gov.tk>",
+            "Alex B <alex@mail.uk> <bakhirev@ya.kz>",
+            "Alex B <alex@mail.uk> <man64@yahoo.com>"
+        ]
+    },
+    {
+        "p": "Más información sobre el formato de este archivo se puede leer en [aquí](https://git-scm.com/docs/gitmailmap)."
+    },
+    {
+        "h3": "Cómo descargar los datos desde git?"
+    },
+    {
+        "h4": "Para la visualización en línea"
+    },
+    {
+        "p": "En el directorio raíz de su proyecto ejecutar:"
+    },
+    {
+        "pre": [
+            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" > log.txt"
+        ]
+    },
+    {
+        "h4": "Para ver sin conexión"
+    },
+    {
+        "pre": [
+            "git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:\"%ad>%aN>%aE>%s\" | sed -e 's/\\\\/\\\\\\\\/g' | sed -e 's/`/\"/g' | sed -e 's/\\$/S/g' | sed -e '1s/^/R(f\\`/' | sed -e '$s/$/\\`\\);/' > log.txt"
+        ]
+    },
+    {
+        "p": "Git creará un archivo `log.txt`. contiene los datos para construir el informe. La diferencia entre los formatos en línea y fuera de línea está en la existencia de una envoltura para las cadenas. El formato fuera de línea se cargará como un archivo`js` si usted simplemente lo abrió. `/build/index.html`"
+    },
+    {
+        "h4": "If you use PowerShell in Windows"
+    },
+    {
+        "p": "By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command."
+    },
+    {
+        "pre": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+    },
+    {
+        "p": "Or open a saved file and manually change the encoding to UTF-8."
     },
     {
         "h3": "Como mirar el reporte de un grupo de microservicios?"
     },
     {
         "li": [
-            "Generar para cada microservicio el archivo `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)",
+            "Generar para cada microservicio el archivo `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.). You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection.",
             "Ver “Cómo ver el informe en línea?”. En el último paso, arrastrar todos los archivos al navegador.",
             "Ver “Cómo ver informe fuera de línea?”. En el segundo paso, arrastrar los archivos de todos los microservicios al navegador (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) la carpeta informe (`/build`)."
         ]
     },
+
     {
-        "h3": "¿Cómo puedo personalizar la interfaz de usuario?"
-    },
-    {
-        "p": "Puedes crear tu propio tema para la interfaz. Puedes cambiar:"
-    },
-    {
-        "li": [
-            "**El título**. Puedes especificarlo en el parámetro de la URL ```title```. Por ejemplo: ```?title=You Company```",
-            "**El tema visual**. Para esto, debes preparar un archivo CSS con los nuevos estilos y especificar su dirección en el parámetro de URL ```theme```. Por ejemplo: ```?theme=//company.com/some.css```. Puedes usar los nombres de clases como selectores. La mayoría de ellos no cambia con el lanzamiento de nuevas versiones.",
-            "**La lengua**. Puedes especificarla en el parámetro de la URL ```lang```. Por ejemplo: ```?lang=es```"
-        ]
-    },
-    {
-        "p": "**Example:** [demo](https://bakhirev.github.io/demo/themes/)"
+        "h2": "THE BEST PRACTICES IN THE PROJECT"
     },
     {
         "h3": "¿Cómo firmar los commits?"
@@ -259,79 +258,70 @@
     {
         "p": "2. Run command `npm install pre-commit`"
     },
+
     {
-        "h3": "¿Cómo automatizar el recolección de datos?"
+        "h2": "ABOUT THIS APP"
     },
     {
-        "h4": "With backend"
+        "h3": "¿Cómo puedo personalizar la interfaz de usuario?"
     },
     {
-        "li": [
-            "use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);"
-        ]
-    },
-    {
-        "h4": "Sin backend"
+        "p": "Puedes crear tu propio tema para la interfaz. Puedes cambiar:"
     },
     {
         "li": [
-            "clone del repositorio que desea;",
-            "copiar a la carpeta raíz `build`;",
-            "abridlo `build/index.html` añadir a favoritos;",
-            "agregue un icono de `build/assets/ci-cd.sh` a su carpeta de inicio automático"
+            "**El título**. Puedes especificarlo en el parámetro de la URL ```title```. Por ejemplo: ```?title=You Company```",
+            "**El tema visual**. Para esto, debes preparar un archivo CSS con los nuevos estilos y especificar su dirección en el parámetro de URL ```theme```. Por ejemplo: ```?theme=//company.com/some.css```. Puedes usar los nombres de clases como selectores. La mayoría de ellos no cambia con el lanzamiento de nuevas versiones.",
+            "**La lengua**. Puedes especificarla en el parámetro de la URL ```lang```. Por ejemplo: ```?lang=es```"
         ]
     },
     {
-        "p": " (Windows);"
+        "p": "**Example:** [demo](https://bakhirev.github.io/demo/themes/)"
     },
     {
-        "p": "Cada vez que reinicie su computadora, el script actualizará la estadística de todos los datos que se hayan incorporado automáticamente a la rama principal."
+        "h3": "Como recompilar el build de un informe?"
     },
     {
-        "h3": "DevOps (CI/CD)"
+        "li": [
+            "Descargar este repositorio",
+            "Ejecutar `npm install`",
+            "Ejecutar `npm run build:local`",
+            "La nueva compilación estará en el directorio `/build`"
+        ]
     },
     {
-        "h4": "Github Actions"
+        "h3": "¿Cómo añadir o editar una traducción?"
     },
     {
-        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace."
+        "p": "Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```."
     },
     {
-        "h4": "Servidor público"
+        "p": "[Instrucciones](https://github.com/firstcontributions/first-contributions)"
     },
     {
-        "p": "Puede publicar el archivo con los datos para generar el informe en una URL pública. Para visualizarlo, puede usar la interfaz web del sitio [assayo](https://bakhirev.github.io/). Simplemente indique la dirección donde están los datos en el parámetro URL ```dump```:"
+        "h3": "️Architecture"
+    },
+    {
+        "h4": "The structure of this module"
     },
     {
         "pre": [
-            "https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt"
+            "src",
+            " |- pages",
+            "    |- Person // all personal dashboards",
+            "    |- Team   // all dashboards about team",
+            " |",
+            " |- helpers",
+            "    |- Parser          // parse text from git log to JS objects",
+            "    |- DataGrip        // data grouping and counting values",
+            "    |- achievement     // the logic that gives out personal achievements",
+            "    |- Recommendations // the logic that gives out common recommendations",
+            " |",
+            " |- translations // translations into other languages"
         ]
     },
     {
-        "h4": "Servidor privado"
-    },
-    {
-        "li": [
-            "descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);",
-            "recogerlo en la red local;",
-            "Para ver los informes, use la interfaz web indicándole la dirección de los datos en el parámetro URL ```dump```:"
-        ]
-    },
-    {
-        "pre": [
-            "http://assayo_url/?dump=//you_url/some/log.txt",
-            "assayo_url - URL dirección del contenedor assayo, Él está escuchando el puerto 80;",
-            "you_url    - URL la dirección de su contenedor con registros git;"
-        ]
-    },
-    {
-        "p": "Por defecto, la imagen se ejecutará en la siguiente dirección ```http://127.0.0.1:80/```. Si no funciona, compruebe si tiene el puerto 80 disponible"
-    },
-    {
-        "h3": "️ About application"
-    },
-    {
-        "h4": "Architecture"
+        "h4": "General architecture of microservices"
     },
     {
         "img": "<img src=\"https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg\" width=\"70%\" />"
@@ -346,29 +336,7 @@
         "p": "3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work."
     },
     {
-        "h4": "Los lanzamientos son aproximadamente una vez cada seis meses. Lo siguiente será:"
-    },
-    {
-        "li": [
-            "más consejos y logros;",
-            "resultados del año / mes, impresión de informes;",
-            "localización e internacionalización;",
-            "análisis de archivos;",
-            "diferentes roles para estadísticas (ocultación de finanzas);",
-            "desarrollo de la parte de atrás, integraciones con otros sistemas;"
-        ]
-    },
-    {
-        "h4": "¿Cómo añadir o editar una traducción?"
-    },
-    {
-        "p": "Puede agregar una nueva traducción o corregir la actual en la sección ```ts/translations/```."
-    },
-    {
-        "p": "[Instrucciones](https://github.com/firstcontributions/first-contributions)"
-    },
-    {
-        "h4": "Deseos, comentarios"
+        "h3": "Deseos, comentarios"
     },
     {
         "li": [

@@ -2,6 +2,7 @@
 
 .team_month_filter {
   margin: 0 0 var(--space-xxl);
+  white-space: normal;
 
   &_checkbox,
   &_select {
@@ -19,10 +20,17 @@
   }
 }
 
-@media (max-width: 1540px) {
+@media (max-width: 1100px) {
+  .team_month_filter_br {
+    min-width: 45%;
+    margin-bottom: var(--space-xxl);
+  }
+}
+
+@media (max-width: 900px) {
   .team_month_filter_select {
     display: block;
     min-width: 100%;
-    margin-bottom: var(--space-xxl)
+    margin-bottom: var(--space-xxl);
   }
 }

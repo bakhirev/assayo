@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import themeSettings from 'ts/store/ThemeSettings';
@@ -16,6 +16,16 @@ function Logo({ center }: ILogoProps) {
     title,
   } = themeSettings.getLogo() || {};
   const isDefault = logo === './assets/logo.svg';
+  const [formattedLogo, setLogo] = useState<string>(logo || '');
+  const offsetWidth = document.body.offsetWidth;
+
+  useLayoutEffect(() => {
+    if (!isDefault || center) return;
+    const url = offsetWidth < 1000
+      ? './assets/logo/middle.svg'
+      : './assets/logo.svg';
+    setLogo(url);
+  }, [offsetWidth]);
 
   return (
     <figure
@@ -30,7 +40,7 @@ function Logo({ center }: ILogoProps) {
       >
         <img
           alt="logo"
-          src={logo || ''}
+          src={formattedLogo}
           title={title || ''}
           className={isDefault
             ? `${style.logo_icon} ${style.logo_default}`

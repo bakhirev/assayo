@@ -62,7 +62,7 @@ Creates an HTML-report with analysis of commit statistics:
 ### 📈 How to create and view the report?
 <a name="link-3"></a>
 ####  Using public server
-- go to the [website](https://bakhirev.github.io/)
+- go to the [website](https://bakhirev.github.io/demo/)
 - follow the instructions
 
 <a name="link-4"></a>
