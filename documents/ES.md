@@ -105,7 +105,7 @@ Visualización y análisis de los datos de su repositorio git:
 En este caso, es importante que el archivo ' log.txt ' fue generado por el equipo para ver sin conexión.
 <a name="link-10"></a>
 ####  Use github actions
-Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
+Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace. Se guardará un informe nuevo y listo en los artefactos.
 <a name="link-11"></a>
 ####  Servidor privado
 - descargar [docker образ](https://hub.docker.com/r/bakhirev/assayo);

@@ -106,7 +106,7 @@
         "h4": "Use github actions"
     },
     {
-        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace."
+        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace. A ready, fresh report will be saved in the artifacts."
     },
     {
         "h4": "Use private server"

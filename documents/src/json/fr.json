@@ -34,9 +34,8 @@
     },
     {
         "li": [
-            "Aller à [сайт](https://bakhirev.github.io/)",
-            "Appuyer sur le bouton “[Démo](https://bakhirev.github.io/demo)”",
-            "Faites glisser le fichier `log.txt` dans la fenêtre du navigateur"
+            "Aller à [website](https://bakhirev.github.io/demo/)",
+            "follow the instructions"
         ]
     },
     {
@@ -104,7 +103,7 @@
         "h4": "Use github actions"
     },
     {
-        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace."
+        "p": "Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace. A ready, fresh report will be saved in the artifacts."
     },
     {
         "h4": "Serveur privé"
