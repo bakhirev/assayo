@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import dataGripStore from 'ts/store/DataGrip';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import DropZone from 'ts/components/DropZone';
-import Sponsor from 'ts/components/Sponsor';
+// import Sponsor from 'ts/components/Sponsor';
 import SplashScreen from 'ts/components/SplashScreen';
 import Confirm from 'ts/components/ModalWindow/Confirm';
 
@@ -20,7 +20,7 @@ import DebugPage from './Debug/index';
 function ViewWithCharts() {
   return (
     <>
-      <Sponsor />
+      {/*<Sponsor />*/}
       <Confirm />
       <Routes>
         <Route

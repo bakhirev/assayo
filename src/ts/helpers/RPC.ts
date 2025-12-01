@@ -29,13 +29,13 @@ function loadJsLocal(url: string, callback: Function) {
   document.body.appendChild(script);
 }
 
-function loadJsLGlobal(url: string, callback: Function) {
+function loadJsGlobal(url: string, callback: Function) {
   fetch(url)
     .then((response) => response.text())
     .then((text) => {
       if (!text) return callback();
       if (text[0] === 'r') {
-        eval(text);
+        // eval(text);
         return callback();
       } else { // @ts-ignore
         window.report = text.split('\n');
@@ -48,7 +48,7 @@ function loadJsDump(url: string, callback: Function) {
   if (url?.[0] === '.') {
     loadJsLocal(url, callback);
   } else {
-    loadJsLGlobal(url, callback);
+    loadJsGlobal(url, callback);
   }
 }
 
