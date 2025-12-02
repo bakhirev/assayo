@@ -2,7 +2,6 @@ import React from 'react';
 
 import Console from 'ts/components/Console';
 import Description from 'ts/components/Description';
-import splashScreenStore from 'ts/components/SplashScreen/store';
 import {
   getStringFromFileList,
   getStringsForParser,
@@ -61,7 +60,6 @@ function Welcome() {
                   const files = Array.from(event.target.files);
                   const text = await getStringFromFileList(files);
                   const report = getStringsForParser(text);
-                  splashScreenStore.show();
                   dataGripStore.asyncSetCommits(report);
                 }}
               />
