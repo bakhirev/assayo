@@ -3,26 +3,15 @@ import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 import dataGripStore from 'ts/store/DataGrip';
 import fullScreen from 'ts/store/FullScreen';
+import plugins from 'ts/helpers/Plugins';
 
 import SectionSlider from 'ts/pages/PageWrapper/components/SectionSlider';
-import printStore from 'ts/pages/PageWrapper/store/Print';
+import printStore from 'ts/plugins/Print/components/store';
 
 import UserSelect from './components/UserSelect';
-import Changes from './components/Changes';
-import Commits from './components/Commits';
-import Hours from './components/Hours';
-import Money from './components/Money';
-import PopularWords from './components/PopularWords';
-import Speed from './components/Speed';
-import Total from './components/Total';
-import Week from './components/Week';
-import Month from './components/Month';
-import Tasks from './components/Tasks';
-import Tempo from './components/Tempo';
-import Print from './components/Print';
 
 interface IPersonProps {
   userId?: string | number;
@@ -33,35 +22,11 @@ function getViewByIdByUser(user: any, filters: any) {
     let mode = undefined;
     if (fullScreen.isOpen) mode = 'fullscreen';
     if (printStore.processing) mode = 'print';
-
-    if (page === 'total') return <Total user={user}/>;
-    if (page === 'money') return <Money user={user}/>;
-    if (page === 'week') return (
-      <Week
-        user={user}
-        mode={mode}
-      />
-    );
-    if (page === 'month') return <Month user={user}/>;
-    if (page === 'hours') return <Hours user={user}/>;
-    if (page === 'commits') return <Commits user={user}/>;
-    if (page === 'changes') return <Changes user={user}/>;
-    if (page === 'words') return (
-      <PopularWords
-        user={user}
-        mode={mode}
-      />
-    );
-    if (page === 'speed') return <Speed user={user}/>;
-    if (page === 'day') return (
-      <Tempo
-        user={user}
-        filters={filters}
-      />
-    );
-    if (page === 'print') return <Print user={user}/>;
-    if (page === 'tasks') return <Tasks user={user}/>;
-    return <Total user={user}/>;
+    return plugins.getPage(`/person/${page}`, {
+      user,
+      mode,
+      filters,
+    });
   };
 }
 

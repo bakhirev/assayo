@@ -15,6 +15,8 @@ export const POPULAR_TYPES = [
   'optimize',
   'rename',
   'eslint',
+  'revert',
+  'merge',
   'fix',
 ];
 

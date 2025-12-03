@@ -2,7 +2,7 @@ import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
 
-import { ColumnTypesEnum, IColumn, IRowsConfig } from '../interfaces/Column';
+import { ColumnTypes, IColumn, IRowsConfig } from '../interfaces/Column';
 import DefaultCell from './cells/CellDefault';
 import DetailsCell from './cells/CellDetails';
 
@@ -28,7 +28,7 @@ function Body({
 }: IBodyProps) {
   const formattedRows: any = [];
   const getSubRow = columns
-    .find((column: IColumn) => column.template === ColumnTypesEnum.DETAILS)
+    .find((column: IColumn) => column.template === ColumnTypes.DETAILS)
     ?.formatter;
 
   rows?.forEach((row: any, rowIndex: number) => {
@@ -38,7 +38,7 @@ function Body({
       const key = `${column.title}_${columnIndex}`;
       marginLeft += columns[columnIndex - 1]?.width || 0;
 
-      if (column.template === ColumnTypesEnum.DETAILS) {
+      if (column.template === ColumnTypes.DETAILS) {
         return (
           <DetailsCell
             key={key}

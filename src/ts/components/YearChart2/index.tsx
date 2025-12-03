@@ -42,7 +42,6 @@ function YearChart({
     const minMonthWidth = 7 + 8 * 16;
     const newMonthNumber = Math.floor(size.width / minMonthWidth);
     const width = getDayWidth(size.width, newMonthNumber);
-    console.log(width);
     setDayWidth(width);
   }, []);
 

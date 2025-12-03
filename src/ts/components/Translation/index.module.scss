@@ -1,0 +1,15 @@
+@import 'src/styles/variables';
+
+.translation_input {
+  font-size: var(--font-s);
+  height: 14px;
+  width: 100%;
+
+  line-height: 16px;
+  text-align: left;
+  vertical-align: middle;
+
+  border: none;
+  resize: none;
+  background-color: var(--color-21);
+}

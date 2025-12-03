@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Console from 'ts/components/Console';
-import Description from 'ts/components/Description';
+import { Console, Description } from 'ts/components/Layout';
 import {
   getStringFromFileList,
   getStringsForParser,
@@ -9,17 +8,17 @@ import {
 import { t } from 'ts/helpers/Localization';
 import dataGripStore from 'ts/store/DataGrip';
 
-import style from './styles/index.module.scss';
+import style from './index.module.scss';
 
 function WarningInfo() {
   return (
     <h4 className={style.welcome_warning}>
       <Description
-        text={t('page.welcome.warning1')}
+        translationId="page.welcome.warning1"
         className={style.welcome_warning_text}
       />
       <Description
-        text={t('page.welcome.warning2')}
+        translationId="page.welcome.warning2"
         className={style.welcome_warning_text}
       />
     </h4>
@@ -43,8 +42,8 @@ function Welcome() {
             textForCopy={command}
           />
           <Description
-            text={t('page.welcome.description')}
-            className={`${style.welcome_description}`}
+            translationId="page.welcome.description"
+            className={style.welcome_description}
           />
           <h2 className={style.welcome_last_title}>
             {t('page.welcome.step2') === 'page.welcome.step2'

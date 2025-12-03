@@ -29,5 +29,19 @@ export default `
 § common.confirm.title: Вы уверены что хотите удалить?
 § common.confirm.yes: Да, уверен
 § common.confirm.no: Отмена
+§ translation.tooltip.clear: Очистить
+§ translation.tooltip.list: Переводы
+§ translation.tooltip.export: Экспорт
+§ translation.tooltip.import: Импорт
+§ popular.statistic.days: дней
+§ popular.statistic.Days: Дней
+§ popular.statistic.tasks: задач
+§ popular.statistic.Tasks: Задач
+§ popular.statistic.commits: коммитов
+§ popular.statistic.employees: сотрудников
+§ popular.statistic.date: дата
+§ popular.statistic.Date: Дата
+§ popular.statistic.firstCommit: Первый коммит
+§ popular.statistic.lastCommit: Последний
 § common.confirm.abc: abc
 `;

@@ -1,0 +1,46 @@
+@import 'src/styles/variables';
+
+.logo {
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+
+  &_link {
+    display: block;
+    text-decoration: none;
+  }
+
+  &_icon {
+    display: block;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 150px;
+    max-height: 40px;
+    margin: 0 auto;
+    text-decoration: none;
+  }
+
+  &_text {
+    font-size: var(--font-xs);
+    font-weight: 100;
+
+    display: block;
+    margin: var(--space-xs) auto 0;
+
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #4E5463;
+
+    &:hover {
+      color: var(--color-grey);
+      text-decoration: underline;
+    }
+  }
+}

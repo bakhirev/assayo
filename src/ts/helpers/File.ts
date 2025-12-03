@@ -2,7 +2,7 @@ import React from 'react';
 import { utils, writeFile } from 'xlsx';
 
 import { t } from 'ts/helpers/Localization';
-import { ColumnTypesEnum, IColumn } from '../components/Table/interfaces/Column';
+import { ColumnTypes, IColumn } from '../components/Table/interfaces/Column';
 import { getDate, getDateForExcel } from './formatter';
 
 export function downloadFile(file: Blob, fileName: string) {
@@ -18,7 +18,7 @@ export function downloadFile(file: Blob, fileName: string) {
 function getColumnsFromChildren(children: React.ReactNode) {
   const columns = React.Children.map(children, (child: React.ReactNode) => {
     if (!React.isValidElement(child)) return null;
-    const template = child?.props?.template || ColumnTypesEnum.STRING;
+    const template = child?.props?.template || ColumnTypes.STRING;
     return {
       ...child.props as object,
       template,

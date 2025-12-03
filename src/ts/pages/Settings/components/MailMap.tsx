@@ -1,7 +1,7 @@
 import React from 'react';
 
 import dataGripStore from 'ts/store/DataGrip';
-import Console from 'ts/components/Console';
+import { Console } from 'ts/components/Layout';
 
 import style from '../styles/index.module.scss';
 

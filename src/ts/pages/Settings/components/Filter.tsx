@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import UiKitInputNumber from 'ts/components/UiKit/components/InputNumber';
 import UiKitDate from 'ts/components/UiKit/components/Date';
 import PageBox from 'ts/components/Page/Box';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 
 import formStore from '../store/Form';
 

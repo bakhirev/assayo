@@ -1,9 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
+import { useTranslation } from 'ts/components/Translation';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
-import Description from 'ts/components/Description';
+import { Description } from 'ts/components/Layout';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import localization from 'ts/helpers/Localization';
 
@@ -23,6 +24,7 @@ function getClassName(recommendation?: any) {
 }
 
 const RecommendationDescription = observer(() => {
+  const { t } = useTranslation();
   const { recommendation } = recommendationStore;
   if (!recommendation) return null;
 
@@ -41,7 +43,7 @@ const RecommendationDescription = observer(() => {
     >
       <Header className={style.recommendations_modal_header}>
         <span className={style.recommendations_modal_title}>
-          {localization.get(title, titleArgs)}
+          {t(title, titleArgs)}
         </span>
         <p className={style.recommendations_modal_sub_title}>
           {subTitle}
@@ -50,7 +52,8 @@ const RecommendationDescription = observer(() => {
       <Body>
         <Description
           className={style.recommendations_modal_description}
-          text={parts}
+          text={parts.join('\n')}
+          translationId={recommendation.description}
         />
       </Body>
       <Footer className={style.recommendations_modal_footer}>

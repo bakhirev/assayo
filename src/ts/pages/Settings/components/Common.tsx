@@ -6,7 +6,7 @@ import InputString from 'ts/components/UiKit/components/InputString';
 import UiKitSelect from 'ts/components/UiKit/components/Select';
 import UiKitCheckbox from 'ts/components/UiKit/components/Checkbox';
 import PageBox from 'ts/components/Page/Box';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 import dataGripStore from 'ts/store/DataGrip';
 import localization from 'ts/helpers/Localization';
 import { applicationHasCustom } from 'ts/helpers/RPC';

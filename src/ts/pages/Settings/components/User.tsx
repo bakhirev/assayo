@@ -4,7 +4,7 @@ import { IEmployees, IEmployeesSalary } from 'ts/interfaces/UserSetting';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 import PageBox from 'ts/components/Page/Box';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 import localization from 'ts/helpers/Localization';
 
 import { getNewEmploymentContract } from '../helpers/getEmptySettings';

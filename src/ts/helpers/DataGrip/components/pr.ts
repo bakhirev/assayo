@@ -119,7 +119,7 @@ export default class DataGripByPR {
       else details[TITLES.MORE]++;
     });
 
-    const order = Object.keys(details);
+    const order = Object.keys(details) as string[];
 
     return { details, order, weightedAverage: weightedAverage.get(), max };
   }

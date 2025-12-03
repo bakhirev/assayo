@@ -1,7 +1,17 @@
+import { HashMap } from 'ts/interfaces/HashMap';
+
 class Localization {
   language:string = 'ru';
 
-  translations: any = {};
+  translations: HashMap<HashMap<string>> = new Map();
+
+  get(key: string | undefined = '', ...args: any) {
+    const translations = this.translations.get(this.language);
+    const message = translations?.get(key || '');
+    return message
+      ? this.insertArguments(message, args)
+      : key || '';
+  }
 
   insertArguments(message: string, args?: any) {
     if (!args) return message;
@@ -12,71 +22,18 @@ class Localization {
     return message;
   }
 
-  get(key = '', ...args: any) {
-    const dictionary = this.translations[this.language];
-    if (!dictionary) return key || '';
-
-    let message = dictionary[key];
-    if (message) return this.insertArguments(message, args);
-
-    const keys = key.split('.');
-    message = dictionary;
-    for (let i = 0, l = keys.length; i < l; i++) {
-      message = message[keys[i]];
-      if (!message) return key || '';
-    }
-
-    return this.insertArguments(message, args);
-  }
-
   parse(langId: string, text: string) {
+    const translations = new Map();
     text.split('§ ').slice(1).forEach((part: string) => {
       let index = part.indexOf('\n');
       if (index === (part.length - 1)) {
         index = part.indexOf(':');
       }
-      const key = langId + '.' + part.slice(0, index);
+      const key = part.slice(0, index);
       const value = part.slice(index + 1).trim();
-      this.#addInTranslate(key, value);
+      translations.set(key, value);
     });
-  }
-
-  #addInTranslate(key: string, value: string) {
-    const keys = key.split('.');
-    let link = this.translations;
-    for (let i = 0, l = keys.length; i < l; i++) {
-      link[keys[i]] = i === (l - 1) ? value  : (link[keys[i]] || {});
-      link = link[keys[i]];
-    }
-  }
-
-  add(key: string, json: any) {
-    if (json) {
-      this.#addInObject(this.#createPathByKey(key), json);
-    } else {
-      this.#addInObject(this.translations, key);
-    }
-  }
-
-  #createPathByKey(key: string) {
-    const keys = key.split('.');
-    let link = this.translations;
-    for (let i = 0, l = keys.length; i < l; i++) {
-      link[keys[i]] = link[keys[i]] || {};
-      link = link[keys[i]];
-    }
-    return link;
-  }
-
-  #addInObject(source: any, target: any) {
-    for (let key in target) {
-      if (!source[key]) source[key] = {};
-      if (typeof target[key] === 'object') {
-        this.#addInObject(source[key], target[key]);
-      } else {
-        source[key] = target[key];
-      }
-    }
+    this.translations.set(langId, translations);
   }
 
   updateLangAttribute() {
@@ -84,6 +41,11 @@ class Localization {
       // @ts-ignore
       document.body.parentNode.setAttribute('lang', this.language);
     } catch (e) {}
+  }
+
+  updateTranslation(key: string, value: string) {
+    const translations = this.translations.get(this.language);
+    translations?.set?.(key, value);
   }
 }
 

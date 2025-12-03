@@ -8,10 +8,10 @@ import Buttons from 'ts/pages/Settings/components/Buttons';
 import settingsForm from 'ts/pages/Settings/store/Form';
 import localization from 'ts/helpers/Localization';
 import { BROWSER_LANGUAGE } from 'ts/helpers/i18n';
+import plugins from 'ts/helpers/Plugins';
 
 import Title from './Title';
 import Filters from './Filters';
-import printStore from '../../store/Print';
 import style from '../../styles/header.module.scss';
 
 const Header = observer((): React.ReactElement | null => {
@@ -29,6 +29,19 @@ const Header = observer((): React.ReactElement | null => {
     { id: 'ja', title: '日本語' },
     { id: 'ko', title: '한국어' },
   ];
+
+  const items = plugins.getHeaderItems()
+    .filter((button) => button.title)
+    .map((button) => (
+      <img
+        key={button.id}
+        alt={t(button.title || '')}
+        title={t(button.title || '')}
+        className={style.header_print}
+        src={button.icon}
+        onClick={button?.onClick?.(navigate, location)}
+      />
+    ));
 
   return (
     <header className={style.header}>
@@ -54,15 +67,7 @@ const Header = observer((): React.ReactElement | null => {
                 }
               }}
             />
-            <img
-              title={t('sidebar.buttons.print')}
-              alt={t('sidebar.buttons.print')}
-              className={style.header_print}
-              src="./assets/menu/print.svg"
-              onClick={() => {
-                printStore.open(navigate, location.pathname);
-              }}
-            />
+            {items}
             <img
               title={t('sidebar.buttons.settings')}
               alt={t('sidebar.buttons.settings')}

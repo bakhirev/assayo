@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { IPagination } from 'ts/interfaces/Pagination';
+import { getMaxByLength } from 'ts/helpers/getMax';
 import { getGroupsByTimeZone } from './helpers';
 import Point from './components/Point';
 import style from './styles/index.module.scss';
-import { getMaxByLength } from 'ts/pages/Common/helpers/getMax';
 
 interface TimeZoneMapProps {
   authors: any[]

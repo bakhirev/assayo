@@ -1,0 +1,15 @@
+@import 'src/styles/variables';
+
+.translation_tooltip {
+  position: fixed;
+  top: 0;
+  left: calc(50vw - 120px);
+
+  display: inline-block;
+  text-align: center;
+
+  border-radius: 0 0 var(--border-radius-m) var(--border-radius-m);
+  border: 1px solid var(--color-black);
+  border-top: none;
+  box-shadow: 0 0 5px var(--color-grey);
+}

@@ -1,16 +1,18 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
 import Recommendations from 'ts/components/Recommendations/components/ModalDescription';
 import fullScreen from 'ts/store/FullScreen';
 import isMobile from 'ts/helpers/isMobile';
+import plugins from 'ts/helpers/Plugins';
+import { TRANSLATION_MODE } from 'ts/components/Translation';
+import TranslationTooltip from 'ts/components/Translation/components/Tooltip';
 
 import SideBar from './components/sidebar';
 import Header from './components/header';
 import HeaderWithTab from './components/header/WithTab';
 import Footer from './components/footer';
-import Print from './components/Print';
 import style from './styles/index.module.scss';
 
 interface IPageWrapper {
@@ -21,6 +23,7 @@ function MobileView({
   children,
 }: IPageWrapper) {
   const { type, page } = useParams<any>();
+  const commonItems = useMemo(() => plugins.getPages('global'), [plugins]);
   const padding = type === 'team' && page === 'building'
     ? { padding: 0 }
     : {};
@@ -35,7 +38,7 @@ function MobileView({
           {children}
         </div>
         <HeaderWithTab/>
-        <Print/>
+        {commonItems}
         <Recommendations/>
         <Footer/>
       </div>
@@ -46,6 +49,7 @@ function MobileView({
 
 const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement => {
   const { type, page } = useParams<any>();
+  const commonItems = useMemo(() => plugins.getPages('global'), [plugins]);
   const padding = type === 'team' && page === 'building'
     ? { padding: 0 }
     : {};
@@ -74,8 +78,9 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
       >
         {children}
       </div>
-      <Print/>
+      {commonItems}
       <Recommendations/>
+      {TRANSLATION_MODE && <TranslationTooltip/>}
     </div>
   );
 });

@@ -1,0 +1,60 @@
+@import 'src/styles/variables';
+
+.translation_tooltip_button {
+  font-size: var(--font-size-s);
+  font-weight: 100;
+
+  display: inline-block;
+  width: 60px;
+  padding: 0;
+
+  line-height: 30px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  cursor: pointer;
+
+  color: var(--color-white);
+  border-radius: 0;
+  background-color: var(--color-white);
+
+  &:first-child {
+    border-radius: 0 0 0 var(--border-radius-m);
+  }
+
+  &:last-child {
+    border-radius: 0 0 var(--border-radius-m) 0;
+  }
+
+  &:hover {
+    background-color: #252735;
+  }
+
+  &_icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: var(--space-s) auto 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  &_text {
+    font-size: var(--font-xxs);
+    font-weight: 100;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+
+    color: var(--color-black);
+  }
+}

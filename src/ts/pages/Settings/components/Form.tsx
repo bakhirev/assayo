@@ -5,8 +5,7 @@ import { IEmployees } from 'ts/interfaces/UserSetting';
 import UiKitButtonMenu from 'ts/components/UiKit/components/ButtonMenu';
 import PageWrapper from 'ts/components/Page/wrapper';
 import PageColumn from 'ts/components/Page/column';
-import NothingFound from 'ts/components/NothingFound';
-import Title from 'ts/components/Title';
+import { Title, NothingFound } from 'ts/components/Layout';
 
 import dataGripStore from 'ts/store/DataGrip';
 import localization from 'ts/helpers/Localization';

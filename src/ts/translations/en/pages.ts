@@ -312,7 +312,6 @@ export default `
 § page.person.total.tasks.title: tasks
 § page.person.total.tasks.description: If commits are properly signed
 § page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
-§ page.person.character.title: Character
 § page.person.achievement.title: Achievements
 § page.person.achievement.positive: Positive
 § page.person.achievement.normal: Neutral
@@ -379,5 +378,4 @@ will be marked as a jump in "deleted" and "added" lines.
 § page.sponsor.share.button: Copy the link
 § page.sponsor.money.description: We will be glad if you support us with any amount! All funds will be used for the further development of the project.
 § page.sponsor.money.qr: One-time payment (only Russia)
-§ page.sponsor.money.github: GitHub Sponsor
 `;

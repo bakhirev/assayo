@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import { PRLink, TaskLink } from 'ts/components/ExternalLink';
+import { PRLink, TaskLink } from 'ts/components/Layout';
 import { get2Number } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
 

@@ -1,0 +1,163 @@
+§ main.title: Crée un rapport HTML avec analyse des statistiques de validation:
+§ main.features:
+le rythme de travail et le nombre d'heures supplémentaires;
+les zones de responsabilité, le nombre de fonctionnalités et de bogues;
+le style de travail de vos collègues;
+le taux de rotation du personnel et la composition de l'équipe;
+l'emplacement des développeurs;
+le calendrier des publications et des vacances;
+le coût des fonctionnalités et du projet dans son ensemble;
+les endroits pour le refactoring, les fichiers supprimés, etc.
+§ main.links: **Links:** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
+§ main.videos: **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
+§ main.tableOfContents: Table of contents
+§ report.title: COMMIT STATISTICS REPORT
+§ report.create.title: Comment voir le rapport en ligne?
+§ report.create.public.title: Using website
+§ report.create.public.description:
+Aller à [website](https://bakhirev.github.io/demo/)
+follow the instructions
+§ report.create.js.title: Use the library NodeJS
+§ report.create.js.steps:
+run `npx assayo`
+open `./assayo/index.html`
+§ report.create.php.title: Use the library PHP
+§ report.create.php.steps:
+run `composer require bakhirev/assayo`
+run `vendor/bin/assayo`
+open `./assayo/index.html`
+§ report.create.python.title: Use the library Python
+§ report.create.python.steps:
+run `pipx install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.create.ruby.title: Use the library Ruby
+§ report.create.ruby.steps:
+run `gem install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.create.go.title: Use the library Go
+§ report.create.go.steps:
+run `go get github.com/bakhirev/assayo`
+run `go install github.com/bakhirev/assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.create.git.title: Use source code
+§ report.create.git.description1:
+Télécharger ce dépôt
+Glisser le fichier `log.txt` dans le dossier `/build`
+Démarrer `/build/index.html`
+Ou coller le dossier `/build` Sur votre dépôt (là où se trouve `log.txt`). Vous pouvez changer le nom. Par exemple avec `/build` sur `/report`. Dans cette cas, il est important que le fichier log.txt ait été généré par le commande pour la visualisation hors ligne.
+§ report.create.git.description2: Use github actions
+§ report.create.github.title: Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace. A ready, fresh report will be saved in the artifacts.
+§ report.create.github.steps: Serveur privé
+§ report.create.private.title:
+télécharger [docker образ](https://hub.docker.com/r/bakhirev/assayo);
+Soulevez-le sur le réseau local;
+Pour consulter les rapports, utilisez l’interface web en lui indiquant l’adresse où les données se trouvent, sous forme de paramètre dans l’URL ```dump```:
+§ report.create.private.description1:
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - URL Conteneur assayo, écoute le port 80;
+you_url    - URL адресс Adresse de votre conteneur de logs git;
+§ report.create.private.log: Par défaut, l'image s'exécute à ```http://127.0.0.1:80/```. Si cela ne fonctionne pas, vérifiez si le port 80 est disponible.
+§ 27: Comment pouvez-vous combiner les auteurs ?
+§ report.create.private.description2: Dans le répertoire racine de votre projet, créez le fichier suivant: `.mailmap`.
+§ report.concat.title: L’exemple de la ligne de fichier est le suivant:
+§ report.concat.example:
+Alex B <alex@mail.uk>
+Alex B <alex@mail.uk> <alex@gov.tk>
+Alex B <alex@mail.uk> <bakhirev@ya.kz>
+Alex B <alex@mail.uk> <man64@yahoo.com>
+§ 31: Vous pouvez en savoir plus sur le format de ce fichier en lisant la documentation officielle. [ici](https://git-scm.com/docs/gitmailmap).
+§ report.concat.description: Comment télécharger des données depuis git ?
+§ report.logFile.title: Pour une visualisation en ligne
+§ report.logFile.online.title: Dans le répertoire racine de votre projet, exécutez:
+§ report.logFile.online.description:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+§ 36: Pour la navigation hors ligne
+§ report.logFile.offline.title:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+§ 38: Git va créer le fichier `log.txt`. Son contenu est destiné à la création de rapports. La différence entre le format en ligne et le format hors ligne réside dans l’enveloppe des lignes. Le format hors ligne sera chargé comme un fichier js si vous avez simplement ouvert `/build/index.html`
+§ report.logFile.offline.description: If you use PowerShell in Windows
+§ report.logFile.powerShell.title: By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+§ report.logFile.powerShell.description: [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+§ 42: Or open a saved file and manually change the encoding to UTF-8.
+§ 43: Comment voir le compte rendu pour un groupe de microservices?
+§ 44:
+générer un fichier pour chaque microservice `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.)
+Voir “Comment voir le rapport en ligne?”. Au dernier pas, glisser tous les fichiers dans la fenêtre du navigateur.
+Voir “Comment regarder le rapport hors-ligne?”. Au deuxième pas, coller tous les fichier de microservices (`log-1.txt`, `log-2.txt`, `log-3.txt` etc.) dans le dossier du rapport (`/build`).
+§ 45: THE BEST PRACTICES IN THE PROJECT
+§ 46: Comment signer les commits ?
+§ 47: Suivez la pratique [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Par exemple:
+§ 48:
+JIRA-1234 feat(profile): Added avatar for user 
+§ 49:
+numéro de tâche dans task Tracker `(JIRA-1234)`
+type de travail `(feat, fix, style, refactor, test, doc etc.)`
+ficha `(profile - la section du site, la page ou la nouvelle fonctionnalité, en un mot)`
+quel problème ont-ils résolu `(Added avatar for user)`
+§ 50: How to add checking for commit message?
+§ 51:  Use file `commit-msg`
+§ 52: 1. Create file `commit-msg` in folder `.git/hooks/`
+§ 53: 2. Add this text in file:
+§ 54:
+#!/usr/bin/env bash
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+§ 55:  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+§ 56: 1. Add in file `package.json` property `commit-msg`:
+§ 57:
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+§ 58: 2. Run command `npm install pre-commit`
+§ 59: ABOUT THIS APP
+§ 60: Comment apposer une marque sur l’interface?
+§ 61: Vous pouvez écrire votre propre thème pour l’interface. Vous pouvez changer :
+§ 62:
+
+**En-tête**. Vous pouvez le spécifier dans le paramètre de l’URL ```title```. Par exemple: ```?title=You Company```
+
+**Thème visuel**.Pour cela, vous devez préparer un fichier CSS avec de nouveaux styles et indiquer son adresse dans le paramètre de l’URL ```theme```. Par exemple: ```?theme=//company.com/some.css```. Vous pouvez utiliser les noms de classes comme sélecteurs. La plupart d’entre elles ne changent pas lors de la sortie de nouvelles versions.
+
+**Langue**. Vous pouvez l’indiquer dans le paramètre d’URL ```lang```. Par exemple: ```?lang=es```
+§ 63: **Example:** [demo](https://bakhirev.github.io/demo/themes/)
+§ 64: Comment recompiler la build du rapport?
+§ 65:
+Télécharger ce dépôt
+Exécuter `npm install`
+Exécuter `npm run build:local`
+La dernière build sera dans le dossier `/build`
+§ 66: Comment ajouter ou modifier une traduction?
+§ 67: Vous pouvez ajouter une nouvelle traduction ou corriger la traduction existante dans le section ```ts/translations/```.
+§ 68: [Instruction](https://github.com/firstcontributions/first-contributions)
+§ 69: ️Architecture
+§ 70: The structure of this module
+§ 71:
+src
+ |- pages
+    |- Person // all personal dashboards
+    |- Team   // all dashboards about team
+ |
+ |- helpers
+    |- Parser          // parse text from git log to JS objects
+    |- DataGrip        // data grouping and counting values
+    |- achievement     // the logic that gives out personal achievements
+    |- Recommendations // the logic that gives out common recommendations
+ |
+ |- translations // translations into other languages
+§ 72: General architecture of microservices
+§ 74: 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
+§ 75: 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
+§ 76: 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
+§ 77: Souhaits, suggestions, commentaires
+§ 78:
+telegramm [@bakhirev](https://t.me/bakhirev) (voie de communication prioritaire)
+[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+site [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=fr)

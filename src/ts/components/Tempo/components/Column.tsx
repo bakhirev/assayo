@@ -2,7 +2,7 @@ import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ICommit from 'ts/interfaces/Commit';
-import NothingFound from 'ts/components/NothingFound';
+import { NothingFound } from 'ts/components/Layout';
 
 import Header from './Header';
 import Author from './Author';

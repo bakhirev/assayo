@@ -7,7 +7,7 @@ import UiKitSwitch from 'ts/components/UiKit/components/Switch';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import UiKitDate from 'ts/components/UiKit/components/Date';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 import localization from 'ts/helpers/Localization';
 
 import style from '../styles/index.module.scss';

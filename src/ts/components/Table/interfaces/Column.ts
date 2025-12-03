@@ -1,7 +1,7 @@
 export type ColumnType = 'STRING' | 'NUMBER' | 'SHORT_NUMBER' | 'DETAILS';
 
 /** Тип столбца определяет тип содержимого всех ячеек столбца */
-export enum ColumnTypesEnum {
+export enum ColumnTypes {
   STRING = 'STRING',
   NUMBER = 'NUMBER',
   SHORT_NUMBER = 'SHORT_NUMBER',
@@ -10,7 +10,7 @@ export enum ColumnTypesEnum {
 
 export interface IColumn {
   /** Тип столбца */
-  template?: ColumnTypesEnum | Function;
+  template?: ColumnTypes | Function;
   /** Уникальный ключ столбца */
   properties?: string;
   /** Заголовок столбца */

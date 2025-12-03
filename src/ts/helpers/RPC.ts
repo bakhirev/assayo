@@ -1,21 +1,17 @@
 import IHashMap from 'ts/interfaces/HashMap';
 import localization from 'ts/helpers/Localization';
 import notificationsStore from 'ts/components/Notifications/store';
+import { getStringsForParser } from 'ts/components/DropZone/helpers';
 
 function getParametersFromString(text: string): IHashMap<string> {
-  return Object.fromEntries((text || '')
-    .substring(1, Infinity)
-    .split('&')
-    .map((token: string) => token.split('=')));
+  return Object.fromEntries((new URLSearchParams(text || '')).entries());
 }
 
 function getParametersFromURL(): IHashMap<string> {
-  const parameters = {
+  return {
     ...getParametersFromString(location.search),
     ...getParametersFromString(location.hash),
   };
-  delete parameters[''];
-  return parameters;
 }
 
 function loadJsLocal(url: string, callback: Function) {
@@ -33,13 +29,7 @@ function loadJsGlobal(url: string, callback: Function) {
   fetch(url)
     .then((response) => response.text())
     .then((text) => {
-      if (!text) return callback();
-      if (text[0] === 'r') {
-        // eval(text);
-        return callback();
-      } else { // @ts-ignore
-        window.report = text.split('\n');
-      }
+      getStringsForParser(text || '');
       callback();
     });
 }
@@ -65,7 +55,7 @@ export let applicationHasCustom = {
 };
 
 export default function applyUrlCommands(callback: Function) {
-  const parameters: IHashMap<string> = getParametersFromURL();
+  const parameters = getParametersFromURL();
 
   const cssUrl = parameters.style || parameters.theme;
   if (cssUrl) {

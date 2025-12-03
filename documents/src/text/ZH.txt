@@ -1,0 +1,167 @@
+§ main.features: 对您的git仓库的数据进行可视化和分析 团队领导及资讯科技审核的表现工具
+§ main.links:
+工作节奏和加班时间数量；
+职责范围、功能及错误的数量；
+同事们的工作风格；
+员工流动率以及团队组成；
+开发人员的位置；
+发布计划与假期日历；
+特性和整体项目的成本；
+需要重构的地方、已删除的文件等。
+§ main.videos: **Links:** [示范表现](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
+§ main.tableOfContents: **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
+§ report.title: Table of contents
+§ report.create.title: COMMIT STATISTICS REPORT
+§ report.create.public.title: 如何 combine 作者？
+§ report.create.public.description: 在项目的 根目录 创建一个文件 `.mailmap`.
+§ report.create.js.title: 文件内容示例:
+§ report.create.js.steps:
+Alex B <alex@mail.uk>
+Alex B <alex@mail.uk> <alex@gov.tk>
+Alex B <alex@mail.uk> <bakhirev@ya.kz>
+Alex B <alex@mail.uk> <man64@yahoo.com>
+§ report.create.php.title: 关于这个文件格式的 详情 可以 参考 [这里](https://git-scm.com/docs/gitmailmap).
+§ report.create.php.steps: 如何从 git 导出数据？
+§ report.create.python.title: 供网上浏览
+§ report.create.python.steps: 在项目的根目录执行：
+§ report.create.ruby.title:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+§ report.create.ruby.steps: 在没有互联网的情况下观看
+§ report.create.go.title:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+§ report.create.go.steps: Git会创建一个文件 `log.txt`. 这个文件包含了构建报告的数据。 字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`
+§ report.create.git.title: If you use PowerShell in Windows
+§ report.create.git.description1: By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+§ report.create.git.description2: [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+§ report.create.github.title: Or open a saved file and manually change the encoding to UTF-8.
+§ report.create.github.steps: 如何在线查看报告？
+§ report.create.private.title: Using website
+§ report.create.private.description1:
+切换到 [网站](https://bakhirev.github.io/)
+按下按钮 “[示范](https://bakhirev.github.io/demo?lang=ru)”
+拖放文件 `log.txt` 在浏览器窗口中
+§ report.create.private.log: Use the library NodeJS
+§ 27:
+run `npx assayo`
+open `./assayo/index.html`
+§ report.create.private.description2: Use the library PHP
+§ report.concat.title:
+run `composer require bakhirev/assayo`
+run `vendor/bin/assayo`
+open `./assayo/index.html`
+§ report.concat.example: Use the library Python
+§ 31:
+run `pipx install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.concat.description: Use the library Ruby
+§ report.logFile.title:
+run `gem install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.logFile.online.title: Use the library Go
+§ report.logFile.online.description:
+run `go get github.com/bakhirev/assayo`
+run `go install github.com/bakhirev/assayo`
+run `assayo`
+open `./assayo/index.html`
+§ 36: Use source code
+§ report.logFile.offline.title:
+下载这个存储库
+拖放文件 `log.txt` 到文件夹 `/build`
+要运行 `/build/index.html`
+或是拖放文件夹 `/build` 到我的仓库 (它所在的地方 `log.txt`). 可以改变名称。比如，从名称 `/build` 到名称 `/report`
+§ 38: 重要的事情是，必须让log.txt这个文件是通过命令创建出来的，这样它就可以在没有网的时候查看了。
+§ report.logFile.offline.description: 如何重打包报告文件？
+§ report.logFile.powerShell.title:
+下载这个储存库
+要执行 `npm install`
+要执行 `npm run build:local`
+最新的构建将在文件夹 `/build`
+§ report.logFile.powerShell.description: 如何查看微服务组的报告？
+§ 42:
+为每个微服务生成文件 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等)
+参见“如何在有网络环境下查看报告”。在最后一步，将所有文件同时拖入浏览器窗口。
+参见“如何在没有网络环境下查看报告”。第二步将所有微服务文件拖动到 (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等) 到报表文件夹 (`/build`).
+§ 43: 如何将界面重新配色为公司专有颜色？
+§ 44: 您可以为界面创建自己的主题。可以修改：
+§ 45:
+
+**标题**. 你可以在网址参数中指定它 ```title```. 例如: ```?title=You Company```
+
+**Themes**. 为了做到这一点，你需要准备一个CSS文件并在网址参数中指明其地址 ```theme```. 例如: ```?theme=//company.com/some.css```. 你可以使用类名作为选择器。大多数情况下，他们在新版本发布时不会发生变化。
+
+**语言**. 你可以把它放在网址的参数中。 ```lang```. 例如: ```?lang=es```
+§ 46: **Example:** [demo](https://bakhirev.github.io/demo/themes/)
+§ 47: 如何签署提交？
+§ 48: 遵循实践 [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例如:
+§ 49:
+JIRA-1234 feat(profile): Added avatar for user 
+§ 50:
+任务号 `(JIRA-1234)`
+工作类别 `(feat, fix, style, refactor, test, doc 等等)`
+工作领域 `(profile - 地盘组, 网页 或新功能, 一句话)`
+职位描述 `(Added avatar for user)`
+§ 51: How to add checking for commit message?
+§ 52:  Use file `commit-msg`
+§ 53: 1. Create file `commit-msg` in folder `.git/hooks/`
+§ 54: 2. Add this text in file:
+§ 55:
+#!/usr/bin/env bash
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+§ 56:  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+§ 57: 1. Add in file `package.json` property `commit-msg`:
+§ 58:
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+§ 59: 2. Run command `npm install pre-commit`
+§ 60: 如何自动化数据采集？
+§ 61: With backend
+§ 62:
+use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
+§ 63: 没有后端
+§ 64:
+克隆您的仓库;
+复制文件夹 `build` 从当前仓库;
+打开 `build/index.html` 在浏览器中添加书签;
+添加一个快捷方式 `build/assets/ci-cd.sh` 自动启动文件夹 (Windows);
+§ 65: 每次重启计算机，该脚本将更新统计数据，这些数据自动添加到主分支中。
+§ 66: DevOps (CI/CD)
+§ 67: Github Actions
+§ 68: Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
+§ 69: 公共服务器
+§ 70: 您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://bakhirev.github.io/). 指定数据所在的地址作为URL参数 ```dump```:
+§ 71:
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
+§ 72: 专用服务器
+§ 73:
+下载 [docker镜像](https://hub.docker.com/r/bakhirev/assayo);
+在本地网络中运行它;
+使用web界面查看报告，并指定数据所在地址作为URL参数 ```dump```:
+§ 74:
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - assayo容器的URL地址，它监听80端口;
+you_url    - git日志的容器的URL地址;
+§ 75: 默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
+§ 76: ️ About application
+§ 77: Architecture
+§ 79: 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
+§ 80: 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
+§ 81: 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
+§ 82: 释出版本大约每半年一次。接下来发生什么情况：
+§ 83: 看 [主要文件](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
+§ 84: 如何添加或编辑翻译？
+§ 85: 您可以在“翻译”部分添加新翻译或更正当前翻译。 ```ts/translations/```.
+§ 86: [指示手册](https://github.com/firstcontributions/first-contributions)
+§ 87: 愿望，建议，意见
+§ 88:
+telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
+[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+网站 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)

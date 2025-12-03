@@ -312,7 +312,6 @@ export default `
 § page.person.total.tasks.title: задач
 § page.person.total.tasks.description: Если коммиты правильно подписаны
 § page.person.scoring.toolbar: Позиция по этой метрике, относительно других. Два сотрудника могут занять одно место, если значение совпало. Поэтому, общее число мест может быть меньше, чем количество сотрудников.
-§ page.person.character.title: Персонаж
 § page.person.achievement.title: Достижения
 § page.person.achievement.positive: Позитивные
 § page.person.achievement.normal: Нейтральные
@@ -379,5 +378,4 @@ git может показать малое количество изменени
 § page.sponsor.share.button: Копировать ссылку
 § page.sponsor.money.description: Мы будем рады, если вы поддержите нас любой суммой! Все средства пойдут на дальнейшее развитие проекта.
 § page.sponsor.money.qr: Разовый платёж (СБП)
-§ page.sponsor.money.github: Подписка GitHub Sponsor
 `;

@@ -5,14 +5,13 @@ import { observer } from 'mobx-react-lite';
 import dataGripStore from 'ts/store/DataGrip';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import DropZone from 'ts/components/DropZone';
-// import Sponsor from 'ts/components/Sponsor';
-import SplashScreen from 'ts/components/SplashScreen';
+import { SplashScreen } from 'ts/components/Layout';
 import Confirm from 'ts/components/ModalWindow/Confirm';
+import plugins from 'ts/helpers/Plugins';
 
 import PageWrapper from './PageWrapper';
 import Team from './Team/index';
 import Person from './Person/index';
-import PrintAll from './PrintAll/index';
 import Welcome from './Welcome/index';
 import Settings from './Settings/index';
 import DebugPage from './Debug/index';
@@ -20,7 +19,6 @@ import DebugPage from './Debug/index';
 function ViewWithCharts() {
   return (
     <>
-      {/*<Sponsor />*/}
       <Confirm />
       <Routes>
         <Route
@@ -43,7 +41,7 @@ function ViewWithCharts() {
           path="/print"
           element={(
             <PageWrapper>
-              <PrintAll />
+              {plugins.getPage('/print')}
             </PageWrapper>
           )}
         />

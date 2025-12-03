@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import InputString from 'ts/components/UiKit/components/InputString';
 import PageBox from 'ts/components/Page/Box';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 
 import formStore from '../store/Form';
 

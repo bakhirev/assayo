@@ -1,0 +1,25 @@
+@import 'src/styles/variables';
+
+.sidebar_banner {
+  font-size: var(--space-m);
+  font-weight: 100;
+
+  display: block;
+  width: calc(100% - 24px);
+  padding: var(--space-l) var(--space-m);
+  margin: var(--space-l) 0 0;
+
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-align: center;
+  border-radius: var(--border-radius-s);
+  border: 1px solid #84858D;
+
+  color: #84858D;
+
+  &:hover {
+    color: var(--color-white);
+    background-color: #252735;
+  }
+}
+

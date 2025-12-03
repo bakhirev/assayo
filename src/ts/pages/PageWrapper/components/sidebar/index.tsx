@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import Logo from './Logo';
+import LogoWrapper from './LogoWrapper';
 import Switch from './Switch';
 import SideBarButtons from './Buttons';
 import SideBarScrollUp from './ScrollUp';
+import SideBarBanner from './Banner';
 
 import style from '../../styles/sidebar.module.scss';
 import { TYPES } from '../../helpers/menu';
@@ -16,7 +17,7 @@ function SideBar() {
 
   return (
     <aside className={style.sidebar}>
-      <Logo/>
+      <LogoWrapper/>
       <Switch
         value={formattedType}
         options={TYPES}
@@ -30,6 +31,7 @@ function SideBar() {
         }}
       />
       <SideBarButtons type={formattedType} />
+      <SideBarBanner />
       <SideBarScrollUp />
     </aside>
   );

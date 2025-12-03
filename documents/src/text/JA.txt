@@ -1,0 +1,167 @@
+§ main.features: コミット統計の分析を使用してHTMLレポートを作成します:
+§ main.links:
+仕事のペースと残業時間数；
+責任領域、機能やバグの数；
+同僚の働き方スタイル；
+従業員の流出率とチーム構成；
+デベロッパーの所在地；
+リリーススケジュールと休暇カレンダー；
+機能およびプロジェクト全体のコスト；
+リファクタリングの対象箇所、削除されたファイルなど。
+§ main.videos: **Links:** [デモ](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
+§ main.tableOfContents: **Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
+§ report.title: Table of contents
+§ report.create.title: COMMIT STATISTICS REPORT
+§ report.create.public.title: 作者をまとめるにはどうすればいいですか？
+§ report.create.public.description: プロジェクトのルートディレクトリ内に.mailmapファイルを作成する必要があります。
+§ report.create.js.title: ファイルの内容の例:
+§ report.create.js.steps:
+Alex B <alex@mail.uk>
+Alex B <alex@mail.uk> <alex@gov.tk>
+Alex B <alex@mail.uk> <bakhirev@ya.kz>
+Alex B <alex@mail.uk> <man64@yahoo.com>
+§ report.create.php.title: このファイルの形式について詳しく読むことができます [ここに](https://git-scm.com/docs/gitmailmap).
+§ report.create.php.steps: Gitからデータをダウンロードするにはどうすればよろしいでしょうか。
+§ report.create.python.title: Дオンラインで見るため
+§ report.create.python.steps: プロジェクトのルートディレクトリに次のコマンドを入力します:
+§ report.create.ruby.title:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+§ report.create.ruby.steps: インターネットなしで見るために
+§ report.create.go.title:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+§ report.create.go.steps: Gitはファイルを作成します `log.txt`. このファイルには、レポートを構築するためのデータが含まれています。 インターネットのない形式とインターネットのある形式は、文字列が埋め込まれているという点で異なります。インターネットを持たない形式でファイルを開くと、単に「js」ファイルとして読み込まれます。 `/build/index.html`
+§ report.create.git.title: If you use PowerShell in Windows
+§ report.create.git.description1: By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+§ report.create.git.description2: [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+§ report.create.github.title: Or open a saved file and manually change the encoding to UTF-8.
+§ report.create.github.steps: レポートを表示するにはどうすればよいですか？ 
+§ report.create.private.title: Using website
+§ report.create.private.description1:
+に切り替える [ウェブサイト](https://bakhirev.github.io/)
+ボタンを押す “[デモ](https://bakhirev.github.io/demo?lang=ru)”
+ファイルをドラッグ＆ドロップする `log.txt` ブラウザウィンドウで
+§ report.create.private.log: Use the library NodeJS
+§ 27:
+run `npx assayo`
+open `./assayo/index.html`
+§ report.create.private.description2: Use the library PHP
+§ report.concat.title:
+run `composer require bakhirev/assayo`
+run `vendor/bin/assayo`
+open `./assayo/index.html`
+§ report.concat.example: Use the library Python
+§ 31:
+run `pipx install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.concat.description: Use the library Ruby
+§ report.logFile.title:
+run `gem install assayo`
+run `assayo`
+open `./assayo/index.html`
+§ report.logFile.online.title: Use the library Go
+§ report.logFile.online.description:
+run `go get github.com/bakhirev/assayo`
+run `go install github.com/bakhirev/assayo`
+run `assayo`
+open `./assayo/index.html`
+§ 36: Use source code
+§ report.logFile.offline.title:
+このリポジトリをダウンロードする
+ファイルをドラッグ＆ドロップする `log.txt` フォルダへ `/build`
+実行するには `/build/index.html`
+フォルダをドラッグして下さい `/build` 自分のリポジトリーにフォルダを置いてください (それがある場所 `log.txt`). 名前を変更することができます。例えば名前 `/build` を `/report`
+§ 38: 重要なのは、ファイル `log.txt` インターネットが利用できない環境で、レポートを表示するために作成されたコマンドである必要があります。
+§ report.logFile.offline.description: レポートファイルを再構成する方法は？
+§ report.logFile.powerShell.title:
+このリポジトリをダウンロードしてください
+実行するには `npm install`
+実行するには `npm run build:local`
+最新のビルドは、フォルダに含まれるでしょう `/build`
+§ report.logFile.powerShell.description: マイクロサービス群のレポートを表示するにはどうすればよいでしょうか。
+§ 42:
+マイクロサービスごとにファイルを作成します。 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` など。)
+"インターネット上でレポートを見る方法"を参照してください。最後の手順では、すべてのファイルをブラウザのウィンドウに一度にドラッグ＆ドロップします。
+“インターネットなしでレポートを見る方法” を参照してください。第二段階では、マイクロサービスのすべてのファイルをドラッグしてドロップする必要があります。(`log-1.txt`, `log-2.txt`, `log-3.txt` など。) レポートフォルダへ (`/build`).
+§ 43: 自社のブランドカラーでインターフェースをリニュアルカラーに変えるにはどうすればよろしいでしょうか。
+§ 44: インターフェースのテーマを独自に作成することができます。下記の項目は変更できます。
+§ 45:
+
+**見出し**. それはURLパラメータで指定することができます ```title```. 例えば: ```?title=You Company```
+
+**CSS スタイル**. そのためにはCSSファイルを用意し、そのアドレスをURLパラメーターに指定する必要があります ```theme```. 例えば: ```?theme=//company.com/some.css```. クラス名をセレクターとして使用することができます。ほとんどの場合、新しいバージョンがリリースされると変更されません
+
+**言語**. URLパラメータに指定することができます ```lang```. 例えば: ```?lang=es```
+§ 46: **Example:** [demo](https://bakhirev.github.io/demo/themes/)
+§ 47: commit文の署名方法は？
+§ 48: 練習に従ってください [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例えば:
+§ 49:
+JIRA-1234 feat(profile): Added avatar for user 
+§ 50:
+発行番号 `(JIRA-1234)`
+仕事の種類 `(feat, fix, style, refactor, test, doc など。)`
+仕事の分野 `(profile - サイトのセクション、ページ、新機能、簡単に)`
+ジョブの説明 `(Added avatar for user)`
+§ 51: How to add checking for commit message?
+§ 52:  Use file `commit-msg`
+§ 53: 1. Create file `commit-msg` in folder `.git/hooks/`
+§ 54: 2. Add this text in file:
+§ 55:
+#!/usr/bin/env bash
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+§ 56:  Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
+§ 57: 1. Add in file `package.json` property `commit-msg`:
+§ 58:
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+§ 59: 2. Run command `npm install pre-commit`
+§ 60: データの自動収集方法は？
+§ 61: With backend
+§ 62:
+use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
+§ 63: バックエンドなし
+§ 64:
+リポジトリのクローンを作成します。;
+フォルダをコピーする `build` 現在のリポジトリから;
+オープン `build/index.html` ブラウザでブックマークに追加します。;
+にショートカットを追加する `build/assets/ci-cd.sh` 自動起動フォルダーに (Windows);
+§ 65: コンピューターを再起動するとき、スクリプトはメインブランチに自動的に挿入されたすべてのデータについての統計を更新します。
+§ 66: DevOps (CI/CD)
+§ 67: Github Actions
+§ 68: Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
+§ 69: 公開サーバ
+§ 70: データをレポートビルド用に公開するファイルをURLで公開することができます。その視覚化は、サイト上で利用可能なツールを使用することで行うことができます。 [assayo](https://bakhirev.github.io/). データがある場所のアドレスを、URLパラメータに入力してください。 ```dump```:
+§ 71:
+https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
+§ 72: プライベートサーバー
+§ 73:
+ダウンロード [dockerイメージ](https://hub.docker.com/r/bakhirev/assayo);
+ローカルネットワーク内で実行します。;
+レポートの表示には、データが置かれている場所のアドレスがURLパラメータに入っていることを指定したウェブインターフェイスを使用します。 ```dump```:
+§ 74:
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - ポート80でリッスンしているassayoコンテナのURL;
+you_url    - gitのログのコンテナーのURLアドレス;
+§ 75: デフォルトではイメージは以下のアドレスで起動します ```http://127.0.0.1:80/```. 問題が解決しない場合は、ポート80が開いているか確認してみてください。
+§ 76: ️ About application
+§ 77: Architecture
+§ 79: 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
+§ 80: 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
+§ 81: 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
+§ 82: 半年ごとにリリースを行います。次は何でしょうか。
+§ 83: 見て！ [主なドキュメント](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
+§ 84: 翻訳を追加または編集するにはどうすればいいでしょうか。
+§ 85: 新しい翻訳を追加するか、現在の翻訳を修正するために、以下のセクションでそれを行うことができます: ```ts/translations/```.
+§ 86: [取扱説明書](https://github.com/firstcontributions/first-contributions)
+§ 87: 願い、提案、コメント
+§ 88:
+telegramm [@bakhirev](https://t.me/bakhirev) (優先通信方式)
+[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+ウェブサイト [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ja)

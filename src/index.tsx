@@ -19,7 +19,7 @@ import Main from 'ts/pages/index';
 import userSettings from 'ts/store/UserSettings';
 import themeSettings from 'ts/store/ThemeSettings';
 import Notifications from 'ts/components/Notifications';
-import printStore from 'ts/pages/PageWrapper/store/Print';
+import printStore from 'ts/plugins/Print/components/store';
 import applyUrlCommands from 'ts/helpers/RPC';
 
 import './styles/index.scss';

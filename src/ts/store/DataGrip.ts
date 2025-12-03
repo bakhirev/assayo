@@ -9,7 +9,7 @@ import Parser from 'ts/helpers/Parser';
 import getTitle from 'ts/helpers/Title';
 
 import { setDefaultValues } from 'ts/pages/Settings/helpers/getEmptySettings';
-import splashScreenStore from 'ts/components/SplashScreen/store';
+import { splashScreenStore } from 'ts/components/Layout';
 import { applicationHasCustom } from 'ts/helpers/RPC';
 import Depersonalized from 'ts/helpers/Depersonalized';
 

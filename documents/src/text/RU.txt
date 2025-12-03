@@ -1,0 +1,164 @@
+§ main.title: Создаёт HTML-отчёт с анализом статистики коммитов:
+§ main.features:
+текучка кадров и состав команд;
+местоположение разработчиков;
+график релизов и отпусков;
+темп работы и количество переработок;
+зоны ответственности, объем фичей и багов;
+стоимость фичей и проекта в целом;
+стиль работы коллег;
+места для рефакторинга, удалённые файлы и т.п.
+§ main.links: **Ссылки:** [демо](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
+§ main.videos: **Видео:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
+§ main.tableOfContents: Содержание
+§ report.title: ОТЧЁТ ПО СТАТИСТИКЕ КОММИТОВ
+§ report.create.title: Как создать и посмотреть отчёт?
+§ report.create.public.title: Через публичный сервер
+§ report.create.public.description:
+перейдите на [сайт](https://bakhirev.github.io/demo)
+следуйте инструкциям
+§ report.create.js.title: Используя библиотеку NodeJS
+§ report.create.js.steps:
+выполнить `npx assayo`
+открыть `./assayo/index.html`
+§ report.create.php.title: Используя библиотеку PHP
+§ report.create.php.steps:
+выполнить `composer require bakhirev/assayo`
+выполнить `vendor/bin/assayo`
+открыть `./assayo/index.html`
+§ report.create.python.title: Используя библиотеку Python
+§ report.create.python.steps:
+выполнить `pipx install assayo`
+выполнить `assayo`
+открыть `./assayo/index.html`
+§ report.create.ruby.title: Используя библиотеку Ruby
+§ report.create.ruby.steps:
+выполнить `gem install assayo`
+выполнить `assayo`
+открыть `./assayo/index.html`
+§ report.create.go.title: Используя библиотеку Go
+§ report.create.go.steps:
+выполнить `go get github.com/bakhirev/assayo`
+выполнить `go install github.com/bakhirev/assayo`
+выполнить `assayo`
+открыть `./assayo/index.html`
+§ report.create.git.title: Без установки библиотек
+§ report.create.git.description1:
+скачать этот репозиторий
+перетащить файл `log.txt` в папку `/build`
+запустить `/build/index.html`
+или перетащить папку `/build` к себе в репозиторий (туда, где лежит `log.txt`). Можно сменить название. Например с `/build` на `/report`
+§ report.create.git.description2: В этом случае важно, чтобы файл `log.txt` был сгенерирован командой для офлайн просмотра.
+§ report.create.github.title: Через github actions
+§ report.create.github.steps: Добавьте [скрипт](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) в папку `.github/workflows/` или используйте этот [action](https://github.com/marketplace/actions/assayo) из официального магазина. Готовый свежий отчёт по проекту будет лежать в артефактах.
+§ report.create.private.title: С помощью приватного сервера
+§ report.create.private.description1:
+скачайте [docker образ](https://hub.docker.com/r/bakhirev/assayo);
+поднимите его в локальной сети;
+для просмотра отчётов используйте веб-интерфейс указывая ему адресс, где лежат данные, в URL-параметре ```dump```:
+§ report.create.private.log:
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - URL адресс контейнера assayo, он слушает 80 порт;
+you_url    - URL адресс вашего контейнера с логами git;
+§ 27: По умолчанию образ запустится по адресу ```http://127.0.0.1:80/```. Если не получилось проверьте свободен ли у вас 80 порт.
+§ report.create.private.description2: Как объединить авторов коммитов в отчёте?
+§ report.concat.title: В корневой директории вашего проекта нужно создать файл `.mailmap`.
+§ report.concat.example: Пример содержания файла:
+§ 31:
+Alex B <alex@mail.uk>
+Alex B <alex@mail.uk> <alex@gov.tk>
+Alex B <alex@mail.uk> <bakhirev@ya.kz>
+Alex B <alex@mail.uk> <man64@yahoo.com>
+§ report.concat.description: Подробнее про формат этого файла можно прочитать [тут](https://git-scm.com/docs/gitmailmap).
+§ report.logFile.title: Как выгрузить данные из git в txt файл?
+§ report.logFile.online.title: Для онлайн просмотра
+§ report.logFile.online.description: В корневой директории вашего проекта выполнить:
+§ 36:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+§ report.logFile.offline.title: Для офлайн просмотра
+§ 38:
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+§ report.logFile.offline.description: Git создаст файл `log.txt`. Он содержит данные для построения отчёта. Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
+§ report.logFile.powerShell.title: Если вы используете PowerShell в Windows
+§ report.logFile.powerShell.description: По умолчанию, поток вывода не совпадает с UTF-8 и итоговый файл становится нечитаемым. Перед сохранением файла с логом вы можете изменить кодировку командой:
+§ 42: [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+§ 43: Или откройте сохраненный файл и вручную измените кодировку на UTF-8.
+§ 44: Как посмотреть отчёт по группе микросервисов?
+§ 45:
+Сгенерировать для каждого микросервиса файл `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.). Вы можете сделать это в ручную, или использовать модуль [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) для автоматического сбора логов;
+См. «Как посмотреть отчёт онлайн?». На последнем шаге перетащить сразу все файлы в окно браузера.
+См. «Как посмотреть отчёт офлайн?». На втором шаге перетащить все файлы микросервисов (`log-1.txt`, `log-2.txt`, `log-3.txt` и т.д.) в папку отчета (`/build`).
+§ 46: ЕЖЕДНЕВНЫЕ ПРАКТИКИ В ПРОЕКТЕ
+§ 47: Как подписывать коммиты?
+§ 48: Следуйте практике [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Например:
+§ 49:
+JIRA-1234 feat(profile): Added avatar for user 
+§ 50:
+номер задачи в таск трекере `(JIRA-1234)`
+тип работы `(feat, fix, style, refactor, test, doc и т.д.)`
+фича `(profile - раздел сайта, страница или новый функционал, одним словом)`
+какую проблему решали `(Added avatar for user)`
+§ 51: Как добавить автоматическую проверку подписи коммита?
+§ 52: Используя файл `commit-msg`
+§ 53: 1. Создайте файл `commit-msg` в папке `.git/hooks/`
+§ 54: 2. Добавьте в файл следующий текст:
+§ 55:
+#!/usr/bin/env bash
+if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+   echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
+   exit 1
+fi
+§ 56: Используя пакет [pre-commit](https://www.npmjs.com/package/pre-commit)
+§ 57: 1. Добавьте в файл `package.json` блок `commit-msg`:
+§ 58:
+  ...
+  "commit-msg": {
+    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+    "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
+  },
+  ...
+§ 59: 2. Выполните команду `npm install pre-commit`
+§ 60: ОБ ЭТОМ ПРИЛОЖЕНИИ
+§ 61: Как брендировать отчёт?
+§ 62: Вы можете написать свою тему для отчёта. Можно менять:
+§ 63:
+
+**Заголовок**. Вы можете указать его в URL-параметре ```title```. Например: ```?title=You Company```
+
+**Визуальную тему**. Для этого нужно подготовить CSS файл с новыми стилями и указать его адрес в URL-параметре ```theme```. Например: ```?theme=//company.com/some.css```. Вы можете использовать имена классов в качестве селекторов. Большинство из них не меняется в при выходе новой версий.
+
+**Язык**. Вы можете указать его в URL-параметре ```lang```. Например: ```?lang=es```
+§ 64: **Например:** [демо](https://bakhirev.github.io/demo/themes/)
+§ 65: Как пересобрать файл отчёта из исходного кода?
+§ 66:
+Скачать этот репозиторий
+Выполнить `npm install`
+Выполнить `npm run build:local`
+Свежая сборка будет в папке `/build`
+§ 67: Как добавить или отредактировать перевод?
+§ 68: Вы можете добавить новый перевод или поправить текущий в разделе ```ts/translations/```.
+§ 69: [Инструкция](https://github.com/firstcontributions/first-contributions)
+§ 70: Архитектура
+§ 71: Структура этого модуля
+§ 72:
+src
+ |- pages
+    |- Person // all personal dashboards
+    |- Team   // all dashboards about team
+ |
+ |- helpers
+    |- Parser          // parse text from git log to JS objects
+    |- DataGrip        // data grouping and counting values
+    |- achievement     // the logic that gives out personal achievements
+    |- Recommendations // the logic that gives out common recommendations
+ |
+ |- translations // translations into other languages
+§ 73: Общая архитектура микросервисов
+§ 75: 1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) отображение списка отчётов. Каждый отчёт имеет название, описание и список репозиториев.
+§ 76: 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) сборка, склейка, обработка логов из репозиториев для отчётов.
+§ 77: 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(вы тут)** отображение отчётов. Для работы ему нужен log файл с данными.
+§ 78: Пожелания, предложения, замечания
+§ 79:
+telegramm [@bakhirev](https://t.me/bakhirev) (приоритетный способ связи)
+[alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+сайт [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=ru)

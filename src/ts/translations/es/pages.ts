@@ -312,7 +312,6 @@ export default `
 § page.person.total.tasks.title: tasks
 § page.person.total.tasks.description: If the commits are signed correctly
 § page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
-§ page.person.character.title: Character
 § page.person.achievement.title: Progress
 § page.person.achievement.positive: Positive
 § page.person.achievement.normal: Neutral
@@ -377,5 +376,4 @@ git puede Mostrar una pequeña cantidad de cambios en las estadísticas, y el re
 § page.sponsor.share.button: Copy the link
 § page.sponsor.money.description: We will be glad if you support us with any amount! All funds will be used for the further development of the project.
 § page.sponsor.money.qr: One-time payment (only Russia)
-§ page.sponsor.money.github: GitHub Sponsor
 `;

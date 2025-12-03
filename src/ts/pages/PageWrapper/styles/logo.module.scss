@@ -1,38 +1,14 @@
 @import 'src/styles/variables';
 
-.logo {
+.sidebar_logo {
   display: block;
   padding: 0 var(--space-xxl) 0 0;
-  margin: 0 0 var(--space-m) 0;
-
+  margin: 0 0 var(--space-xxl) 0;
   text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  border: none;
-
-  &_center {
-    padding: 0;
-  }
-
-  &_link {
-    display: inline-block;
-    text-decoration: none;
-  }
-
-  &_icon {
-    margin: 0 auto;
-    text-decoration: none;
-  }
-
-  &_default {
-    height: var(--space-xxl);
-    margin-bottom: var(--space-m);
-  }
 }
 
 @media (max-width: 1000px) {
-  .logo {
+  .sidebar_logo {
     padding: 0;
-    text-align: center;
   }
 }

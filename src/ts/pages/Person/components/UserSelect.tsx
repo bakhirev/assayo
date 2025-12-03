@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import dataGripStore from 'ts/store/DataGrip';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import style from 'ts/pages/Team/styles/filters.module.scss';
-import { getFormattedWeeks } from 'ts/pages/Team/components/TempoFilters';
+import { getFormattedWeeks } from 'ts/plugins/PageTeamDay/components/Filters';
 
 interface IUserSelectProps {
   filters: any,

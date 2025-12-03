@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import { IColumn } from '../interfaces/Column';
 import getClassName from '../helpers/getClassName';
@@ -24,7 +24,6 @@ function Header({
     marginLeft += columns[columnIndex - 1]?.width || 0;
 
     const localClassName = getClassName(style.table_header_cell, column, ['header', columnIndex], className);
-    const formattedTitle = t(column.title || '');
 
     return (
       <div
@@ -33,7 +32,6 @@ function Header({
         style={{ width: column.width, left: marginLeft }}
       >
         <span
-          title={formattedTitle}
           onClick={() => {
             if (!column.isSortable || !updateSort) return;
             updateSort([{
@@ -42,7 +40,7 @@ function Header({
             }]);
           }}
         >
-          {formattedTitle}
+          {t(column.title)}
         </span>
         {column.title && column.sortDirection === -1 && (
           <div className={headerStyle.table_sort_down} />

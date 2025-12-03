@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ICommit from 'ts/interfaces/Commit';
-import { PRLink, TaskLink } from 'ts/components/ExternalLink';
+import { PRLink, TaskLink } from 'ts/components/Layout';
 import { getDate } from 'ts/helpers/formatter';
 import dataGrip from 'ts/helpers/DataGrip';
 

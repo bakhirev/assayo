@@ -307,7 +307,6 @@ export default `
 § page.person.total.tasks.title: 任务
 § page.person.total.tasks.description: 如果 Commits 正确签名
 § page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
-§ page.person.character.title: 性格
 § page.person.achievement.title: 进展情况
 § page.person.achievement.positive: 积极
 § page.person.achievement.normal: 中立

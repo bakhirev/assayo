@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import DayInfo from 'ts/components/DayInfo';
-import Title from 'ts/components/Title';
+import { DayInfo, Title } from 'ts/components/Layout';
 
 import { getDate } from 'ts/helpers/formatter';
 

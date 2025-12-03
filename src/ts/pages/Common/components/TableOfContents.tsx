@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 
 import style from '../styles/table-of-contents.module.scss';
 

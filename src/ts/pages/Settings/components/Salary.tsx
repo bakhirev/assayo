@@ -5,7 +5,7 @@ import UiKitInputNumber from 'ts/components/UiKit/components/InputNumber';
 import UiKitColumns from 'ts/components/UiKit/components/Columns';
 import UiKitSwitch from 'ts/components/UiKit/components/Switch';
 import PageBox from 'ts/components/Page/Box';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 
 import localization from 'ts/helpers/Localization';
 import { getDayName } from 'ts/helpers/formatter';

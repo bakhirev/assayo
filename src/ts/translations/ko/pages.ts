@@ -300,7 +300,6 @@ export default `
 § page.person.total.tasks.title: 고려되었다
 § page.person.total.tasks.description: 커밋이 올바르게 서명 된 경우
 § page.person.scoring.toolbar: 이 메트릭에 따른 위치,다른 메트릭에 대한 상대. 값이 동일한 경우 두 명의 직원이 한 자리를 차지할 수 있습니다. 따라서 총 장소 수는 직원 수보다 적을 수 있습니다.
-§ page.person.character.title: 캐릭터
 § page.person.achievement.title: 진행
 § page.person.achievement.positive: 긍정적 인
 § page.person.achievement.normal: 중립
@@ -367,5 +366,4 @@ export default `
 § page.sponsor.share.button: 링크 복사
 § page.sponsor.money.description: 당신이 어떤 금액으로 우리를 지원하는 경우 우리는 기쁠 것이다! 모든 자금은 프로젝트의 추가 개발에 사용될 것입니다.
 § page.sponsor.money.qr: 1 회 결제
-§ page.sponsor.money.github: 깃 허브 스폰서 구독
 `;

@@ -3,11 +3,9 @@ import React, { useState } from 'react';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
 
 import Recommendations from 'ts/components/Recommendations';
-import NothingFound from 'ts/components/NothingFound';
 import PageWrapper from 'ts/components/Page/wrapper';
-import BarChart from 'ts/components/BarChart';
-import DayInfo from 'ts/components/DayInfo';
-import Title from 'ts/components/Title';
+import { BarChart } from 'ts/components/Charts';
+import { Title, NothingFound, DayInfo } from 'ts/components/Layout';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import localization from 'ts/helpers/Localization';
 

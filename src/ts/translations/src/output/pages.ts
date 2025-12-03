@@ -270,7 +270,6 @@ export default `
 § page.person.total.tasks.title: задач
 § page.person.total.tasks.description: Если коммиты правильно подписаны
 § page.person.scoring.toolbar: Позиция по этой метрике, относительно других. Два сотрудника могут занять одно место, если значение совпало. Поэтому, общее число мест может быть меньше, чем количество сотрудников.
-§ page.person.character.title: Персонаж
 § page.person.achievement.title: Достижения
 § page.person.achievement.positive: Позитивные
 § page.person.achievement.normal: Нейтральные
