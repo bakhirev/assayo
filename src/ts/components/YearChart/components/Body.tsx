@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsMonth } from 'ts/helpers/StatisticsByCommits/components/month';
 
 import { Filters } from '../interfaces/Filters';
 import Day from './Day';
@@ -10,7 +10,7 @@ import style from '../styles/index.module.scss';
 
 interface IBodyProps {
   max: number;
-  month: DataGripMonth;
+  month: StatisticsMonth;
   events: DayEvents;
   filters: Filters;
 }

@@ -12,6 +12,16 @@ export interface IFileChange {
   changedLines: number;
 }
 
+export enum EmailType {
+  UNKNOWN = 0,
+  ACCOUNT = 1,
+  GITHUB = 2,
+  MAIL = 3,
+  COMPANY = 4,
+  NETWORK = 5,
+  DEVICE = 6,
+}
+
 export interface ILog {
   // date
   date: string; // "2021-02-09T12:59:17+03:00",
@@ -29,6 +39,7 @@ export interface ILog {
   // user
   author: string; // "Dart Vader",
   email: string; // "d.vader@emap.ru",
+  emailType: EmailType; // 1
   company: string; // "emap",
   country: string; // "ru",
   device: string; // "Macbook",
@@ -40,7 +51,10 @@ export interface ILog {
   taskNumber: number; // "0000",
   taskCode: string; // "JIRA",
   type: string; // feat|fix|docs|style|refactor|test|chore
-  scope: string; //  table, sale, profile and etc.
+  scope: string; // table, sale, profile , etc.
+
+  // system
+  server: string; // "https://github.com"
 
   fileChanges: IFileChange[];
 }
@@ -54,11 +68,13 @@ export const COMMIT_TYPE = {
 };
 
 export interface ISystemCommit extends ILog {
-  prId: string; // "59"
+  prId: number; // "59"
+  prExternalId: string; // "59"
   repository: string; // "ASSA/jira-frontend"
   branch: string; // "feature/JIRA-151-create-MainPage-without-Banners-slider"
   toBranch: string; // "master"
   commitType: string; // 'PR' | 'MERGE' | 'AUTO_MERGE';
+  server: string; // 'https://github.com' | 'ssh://prod.com:80';
 }
 
 export default interface ICommit extends ILog {

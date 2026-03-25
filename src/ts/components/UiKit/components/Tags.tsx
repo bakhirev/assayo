@@ -15,19 +15,19 @@ function UiKitTags({
   const formattedValues = values.filter((v) => v);
   if (!formattedValues?.length) return null;
 
-  const items = formattedValues
-    .map((tagValue: any) => (
-      <UiKitTag
-        key={tagValue}
-        value={tagValue}
-      />
-    ));
-
-  if (!items?.length) return null;
+  const firstItem = formattedValues[0];
+  const moreItems = formattedValues.slice(1);
 
   return (
     <div className={style.ui_kit_tags}>
-      {items}
+      <UiKitTag value={firstItem} />
+      {moreItems.length > 0 ? (
+        <UiKitTag
+          title={moreItems.join(', ')}
+          mode="empty"
+          value={`+${moreItems.length}`}
+        />
+      ) : null}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import MinMaxCounter from 'ts/helpers/DataGrip/components/counter';
+import MinMaxCounter from 'ts/helpers/StatisticsByCommits/helpers/MinMaxCounter';
 
 import getCommitsByMonth from './helpers/getCommitsByMonth';
 import getAuthorByDate from './helpers/getAuthorByDate';
@@ -42,7 +42,6 @@ function YearChart({
     const minMonthWidth = 7 + 8 * 16;
     const newMonthNumber = Math.floor(size.width / minMonthWidth);
     const width = getDayWidth(size.width, newMonthNumber);
-    console.log(width);
     setDayWidth(width);
   }, []);
 

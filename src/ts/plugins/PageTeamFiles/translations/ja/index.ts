@@ -1,0 +1,19 @@
+export default `
+§ plugin.team_files.sidebar.files: ファイル
+§ plugin.team_files.sidebar.removedFiles: 削除されたファイル
+§ plugin.team_files.title: 選択したフィルターを反映したプロジェクトツリー
+§ plugin.team_files.filters.commits: コミット数
+§ plugin.team_files.filters.help: 従業員がファイルに対して行った最小コミット数
+§ plugin.team_files.table.lines: 行数
+§ plugin.team_files.table.tasks: タスク
+§ plugin.team_files.table.days: 日数
+§ plugin.team_files.table.workedDays: 人日
+§ plugin.team_files.table.money: コスト
+§ plugin.team_files.table.add: 追加担当者
+§ plugin.team_files.table.change: 変更担当者
+§ plugin.team_files.table.remove: 削除担当者
+§ plugin.team_files.table.chart.line: 行
+§ plugin.team_files.table.chart.linesAdded: 追加
+§ plugin.team_files.table.chart.linesChanged: 変更
+§ plugin.team_files.table.chart.linesRemoved: 削除
+`;

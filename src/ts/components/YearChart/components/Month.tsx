@@ -1,7 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsMonth } from 'ts/helpers/StatisticsByCommits/components/month';
 
 import { Filters } from '../interfaces/Filters';
 import Header from './Header';
@@ -16,7 +15,7 @@ interface MonthProps {
   showYear: boolean;
   events: DayEvents;
   filters: Filters;
-  month: DataGripMonth;
+  month: StatisticsMonth;
 }
 
 function Month({
@@ -26,7 +25,6 @@ function Month({
   filters,
   month,
 }: MonthProps): React.ReactElement | null {
-  const { t } = useTranslation();
   return (
     <div className={style.year_chart_month}>
       <Header
@@ -41,19 +39,17 @@ function Month({
       />
       <div className={styleChart.year_chart_month_info}>
         <img
-          title={t('page.team.week.tasks')}
           className={style.year_chart_month_icon}
           src="./assets/chart/tasks.svg"
         />
-        <span title={t('page.team.week.tasks')}>
+        <span>
           {month.tasksNumber || 0}
         </span>
         <img
-          title={t('page.team.country.chart.item')}
           className={style.year_chart_month_icon}
           src="./assets/chart/person.svg"
         />
-        <span title={t('page.team.country.chart.item')}>
+        <span>
           {month.usersNumber || 0}
         </span>
       </div>

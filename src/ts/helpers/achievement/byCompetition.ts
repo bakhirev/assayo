@@ -30,10 +30,10 @@ class AchievementsByAuthor {
 class AchievementsByCompetition {
   authors: IHashMap<Array<string[]>> = {};
 
-  updateByGrip(dataGrip: any, fileGrip: any) {
-    const statisticByAuthor = dataGrip.author.statistic;
+  updateByGrip(statisticsByCommits: any, statisticsByFiles: any) {
+    const statisticByAuthor = statisticsByCommits.author.totalInfo;
     const byAuthor: any = new AchievementsByAuthor();
-    const total  = this.#getMinMaxValue(statisticByAuthor, dataGrip, (statistic: any) => {
+    const total  = this.#getMinMaxValue(statisticByAuthor, statisticsByCommits, (statistic: any) => {
       byAuthor.addAuthor(statistic.author);
     });
 
@@ -80,8 +80,8 @@ class AchievementsByCompetition {
     byAuthor.add(total.manyTimeZone, 'moreChangeTimeZone');
 
     // Первый и последний коммит
-    const lastAuthor = dataGrip.firstLastCommit.maxData.author;
-    const firstAuthor = dataGrip.firstLastCommit.minData.author;
+    const lastAuthor = statisticsByCommits.firstLastCommit.maxData.author;
+    const firstAuthor = statisticsByCommits.firstLastCommit.minData.author;
     if (firstAuthor === lastAuthor) {
       byAuthor.authors[firstAuthor].push('firstLastCommit');
     } else {
@@ -89,15 +89,15 @@ class AchievementsByCompetition {
       byAuthor.authors[lastAuthor].push('lastCommit');
     }
 
-    getAchievementByFile(fileGrip, byAuthor);
+    getAchievementByFile(statisticsByFiles, byAuthor);
 
     statisticByAuthor.forEach((statistic: any) => {
       const achievements = byAuthor.authors[statistic.author];
-      this.authors[statistic.author] = getAchievementByAuthor(achievements, dataGrip, statistic.author);
+      this.authors[statistic.author] = getAchievementByAuthor(achievements, statisticsByCommits, statistic.author);
     });
   }
 
-  #getMinMaxValue(statisticByAuthor: any, dataGrip: any, callback: Function) {
+  #getMinMaxValue(statisticByAuthor: any, statisticsByCommits: any, callback: Function) {
     const total: IHashMap<any> = {};
 
     statisticByAuthor.forEach((statistic: any) => {
@@ -109,30 +109,30 @@ class AchievementsByCompetition {
       };
 
       addData('nameLength', statistic.author.length);
-      addData('messageLength', statistic.messageLength[statistic.messageLength.length - 1]);
+      addData('messageLength', statistic.maxMessageLength);
       addData('midMessageLength', statistic.middleMessageLength);
-      addData('tasks', statistic.tasks.length);
-      addData('days', statistic.days);
+      addData('tasks', statistic.totalTasks);
+      addData('days', statistic.totalDaysWithCommits);
       addData('moreRefactoring', statistic.types.refactor);
 
-      if (statistic.country) {
-        const notBritish = statistic.country
+      if (statistic.countries) {
+        const notBritish = statistic.countries
           .filter((country: any) => country.timezone !== '+00:00');
         addData('manyTimeZone', notBritish.length);
       }
 
-      const byTimestamp = dataGrip.timestamp.statisticByAuthor[statistic.author];
+      const byTimestamp = statisticsByCommits.timestamp.totalInfoByName[statistic.author];
       addData('tasksInDay', byTimestamp.tasksByTimestampCounter.max);
       addData('commitsInDay', byTimestamp.commitsByTimestampCounter.max);
 
-      const byPr = dataGrip.pr.statisticByName[statistic.author] || {};
+      const byPr = statisticsByCommits.pr.totalInfoByName[statistic.author] || {};
       addData('moreLongWaitPR', byPr?.maxDelayDays);
       addData('morePRMerge', byPr?.numberMergedPr);
 
       if (statistic.isStaff) return;
-      addData('allDaysInProject', statistic.allDaysInProject);
-      addData('lazyDays', statistic.lazyDays);
-      addData('firstCommit', statistic.firstCommit.milliseconds);
+      addData('allDaysInProject', statistic.totalDays);
+      addData('lazyDays', statistic.totalDaysWithoutCommits);
+      addData('firstCommit', statistic.firstCommit);
     });
 
     Object.keys(total).forEach(achievement => {

@@ -1,24 +1,26 @@
-import IHashMap from 'ts/interfaces/HashMap';
+import { HashMap } from 'ts/interfaces/HashMap';
 
 export default class FakeName {
-  refOldNewName: IHashMap<string> = {};
+  cache: HashMap<string> = new Map();
 
   dictionary: string[] = [];
 
   index: number = 0;
 
-  newNamePrefix: string = '';
+  prefix: string = '';
 
-  constructor(newNamePrefix: string, dictionary: string[]) {
+  constructor(prefix: string, dictionary: string[]) {
     this.dictionary = dictionary;
-    this.newNamePrefix = newNamePrefix;
+    this.prefix = prefix;
   }
 
-  get(name: string) {
-    if (!this.refOldNewName[name]) {
-      this.refOldNewName[name] = this.dictionary[this.index] || `${this.newNamePrefix}${this.index}`;
-      this.index += 1;
-    }
-    return this.refOldNewName[name];
+  get(key: string) {
+    let value = this.cache.get(key);
+    if (value) return value;
+
+    value = this.dictionary[this.index] || `${this.prefix}${this.index}`;
+    this.cache.set(key, value);
+    this.index += 1;
+    return value;
   }
 }

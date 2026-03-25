@@ -2,7 +2,6 @@ import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ICommit from 'ts/interfaces/Commit';
-import NothingFound from 'ts/components/NothingFound';
 
 import Header from './Header';
 import Author from './Author';
@@ -37,10 +36,11 @@ function Column({ dayInfo, order, author }: IColumnProps) {
         {authors.length ? (
           authors
         ) : (
-          <NothingFound
-            icon="./assets/cards/commits.png"
-            message="В этот день у этого сотрудника не было ни одного коммита."
-          />
+          null
+          // <NothingFound
+          //   icon="./assets/cards/commits.svg"
+          //   message="В этот день у этого сотрудника не было ни одного коммита."
+          // />
         )}
       </div>
     </div>

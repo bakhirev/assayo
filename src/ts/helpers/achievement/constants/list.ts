@@ -46,7 +46,7 @@ export default {
   moreLongWaitPR: ACHIEVEMENT_TYPE.BAD, // Давным давно, в далёкой галактике
   morePRMerge: ACHIEVEMENT_TYPE.NORMAL, // Таможня даёт добро,
   firstLastCommit: ACHIEVEMENT_TYPE.NORMAL, // От начала и до конца. первый и последний коммит на проекте
-  haveNotEmail: ACHIEVEMENT_TYPE.NORMAL, // Почтальон Печкин. Не заполнил поле e-mail
+  haveNotEmail: ACHIEVEMENT_TYPE.NORMAL, // Почтальон Печкин. Хоть раз не заполнил поле e-mail
   hasCommitFrom0to7: ACHIEVEMENT_TYPE.BAD, // Ночной дозор
   longWaitPR: ACHIEVEMENT_TYPE.BAD, // Обещать не значит жениться, ожидание PR больше месяца
   lastCommit: ACHIEVEMENT_TYPE.NORMAL, // Я закончил. последний коммит на проекте
@@ -87,6 +87,12 @@ export default {
   moreCreateCode: ACHIEVEMENT_TYPE.NORMAL, // Созидатель -- переименовать?
   moreRemoveCode: ACHIEVEMENT_TYPE.NORMAL, // Разрушитель
   moreChangeCode: ACHIEVEMENT_TYPE.NORMAL, // Реформатор
+
+  github: ACHIEVEMENT_TYPE.NORMAL, // Домработница
+  mackBook: ACHIEVEMENT_TYPE.NORMAL, // Ванильный раф
+  moreCommitsBeforeRelease: ACHIEVEMENT_TYPE.NORMAL, // Суетолог, Чайка
+  ipInEmail: ACHIEVEMENT_TYPE.NORMAL, // Сетевик? Спайдер мен? LAN-man?
+  languageErrors: ACHIEVEMENT_TYPE.NORMAL, // Смотря какой fabric, смотря сколько details
 
   oneExtension: ACHIEVEMENT_TYPE.NORMAL, // Один в поле воин. Только он работает с файлами определенного расширения
   allRelease: ACHIEVEMENT_TYPE.NORMAL, // Фулл хаус. есть релиз, собранный только из его задач

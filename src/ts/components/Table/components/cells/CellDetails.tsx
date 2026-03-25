@@ -47,7 +47,7 @@ function DetailsCell({
 
   return (
     <div
-      key={column.title}
+      key={String(column.title)}
       className={localClassName}
       style={{
         left,

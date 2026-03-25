@@ -1,9 +1,12 @@
+import { EmailType } from 'ts/interfaces/Commit';
 import ALL_ACHIEVEMENTS from './constants/list';
-import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
-function getHoroscope(firstCommit: ICommit | ISystemCommit) {
-  const month = firstCommit.month + 1;
-  const dayInMonth = firstCommit.month;
+function getHoroscope(timestamp: string) {
+  const [month, dayInMonth] = timestamp
+    .substring(5, 10)
+    .split('-')
+    .map((value) => parseInt(value, 10));
+
   const horoscopeRange = [
     { from: [22, 12], to: [20, 1] },
     { from: [20, 1], to: [18, 2] },
@@ -30,15 +33,26 @@ function getHoroscope(firstCommit: ICommit | ISystemCommit) {
 }
 
 
-export default function getAchievementByAuthor(list: string[], dataGrip: any, author: string) {
-  const statistic = dataGrip.author.statisticByName[author];
+export default function getAchievementByAuthor(
+  list: string[],
+  statisticsByCommits: any,
+  author: string,
+) {
+  const statistic = statisticsByCommits.author.totalInfoByName.get(author);
   const commitByHours = statistic.commitsByHour;
 
   if (statistic.commits > 20) {
+    let totalCommitsAfter15 = 0;
+    let totalCommitsBefore13 = 0;
+    const totalCommitsLimit = statistic.commits * 0.7;
+    commitByHours.forEach((commits: number, hour: number) => {
+      if (hour >= 15) totalCommitsAfter15 += commits;
+      if (hour <= 13) totalCommitsBefore13 += commits;
+    });
     // Сова - 70% коммитов после 15:00
-    if (statistic.hours.filter((hour: number) => hour >= 15).length > (statistic.commits * 0.7)) list.push('commitsAfter1500');
+    if (totalCommitsAfter15 > totalCommitsLimit) list.push('commitsAfter1500');
     // Раняя пташка - 70% коммитов до обеда
-    if (statistic.hours.filter((hour: number) => hour <= 13).length > (statistic.commits * 0.7)) list.push('commitsBefore1500');
+    if (totalCommitsBefore13 > totalCommitsLimit) list.push('commitsBefore1500');
   }
 
   if (statistic.isStaff) {
@@ -60,44 +74,62 @@ export default function getAchievementByAuthor(list: string[], dataGrip: any, au
     // Мёртвая душа - работал, но уволился
     if (statistic.isDismissed) list.push('userIsDied');
     // Скорострел - меньше дня на задачу
-    if (statistic.daysForTask < 1) list.push('lessDaysForTask');
+    if (statistic.totalTaskInDay < 1) list.push('lessDaysForTask');
     // Со слоу - больше двух дней на задачу (?)
-    if (statistic.daysForTask > 2) list.push('more2DaysForTask');
+    if (statistic.totalTaskInDay > 2) list.push('more2DaysForTask');
     // Добро пожаловать - не уволили в течении трех месяцев с начала работы
-    if (statistic.allDaysInProject > 90) list.push('more90DaysInProject');
+    if (statistic.totalDays > 90) list.push('more90DaysInProject');
     // Годовасик - отработал 365 дней на проекте
-    if (statistic.allDaysInProject >= 365) list.push('more365DaysInProject');
+    if (statistic.totalDays >= 365) list.push('more365DaysInProject');
     // Чёрт - отработал 666 дней на проекте
-    if (statistic.allDaysInProject >= 666) list.push('more666DaysInProject');
+    if (statistic.totalDays >= 666) list.push('more666DaysInProject');
     // Азино - отработал 777 дней на проекте
-    if (statistic.allDaysInProject >= 777) list.push('more777DaysInProject');
+    if (statistic.totalDays >= 777) list.push('more777DaysInProject');
     // Старожил - отработал 3 года на проекте
-    if (statistic.allDaysInProject >= (3 * 365)) list.push('more3YearsInProject');
+    if (statistic.totalDays >= (3 * 365)) list.push('more3YearsInProject');
     // хоть раз работал на выходных
-    if (statistic.commitsByDayAndHourTotal[5]
-      || statistic.commitsByDayAndHourTotal[6]) list.push('workOnWeekends');
+    if (statistic.totalWeekendsDaysWithCommits) list.push('workOnWeekends');
 
     // работал над задачей больше трех месяцев
-    const daysInWork = dataGrip.tasks.longTaskByAuthor[author] || {};
+    const daysInWork = statisticsByCommits.tasks.longTaskByAuthor[author] || {};
     if (daysInWork > 92) list.push('longTask');
   }
-  // Почтальон Печкин. Не заполнил поле e-mail
-  if (!statistic.lastCommit.email) list.push('haveNotEmail');
   // Ни единого разрыва - 0 дней без коммитов
-  if (statistic.lazyDays === 0) list.push('zeroLazyDays');
+  if (statistic.totalDaysWithoutCommits === 0) list.push('zeroLazyDays');
   // Стрельба холостыми - коммиты есть, а закрытых задач нет
-  if (statistic.commits > 0 && statistic.tasks === 0) list.push('workNotWork');
+  if (statistic.commits > 0 && statistic.totalTasks === 0) list.push('workNotWork');
   // Точно в цель - в среднем 1 коммит на таск
-  if (statistic.tasks / statistic.commits) list.push('oneCommitOneTask');
+  if (statistic.totalTaskInCommits < 2) list.push('oneCommitOneTask');
 
-  list.push(getHoroscope(statistic.firstCommit));
+  // Ванильный раф
+  if (statistic.device) list.push('mackBook');
 
-  const statisticByPr = dataGrip.pr.statisticByName[author] || {};
+  if (statistic.emails) {
+    // Почтальон Печкин. Не заполнил поле e-mail
+    // if (!statistic.emails) list.push('haveNotEmail');
+    statistic.emails.forEach((email: string) => {
+      const emailInfo = statisticsByCommits.email.totalInfoByName.get(email);
+      if (emailInfo?.type === EmailType.GITHUB) {
+        // Домработница
+        list.push('github');
+      } else if (emailInfo?.type === EmailType.NETWORK) {
+        // LAN-man
+        list.push('ipInEmail');
+      }
+    });
+  }
+
+  list.push(getHoroscope(statistic.firstCommitTimestamp));
+
+  const statisticByPr = statisticsByCommits.pr.totalInfoByName[author] || {};
   if (statisticByPr?.maxDelayDays > 31) list.push('longWaitPR');
+
+  list = Array.from(new Set(list));
 
   return list.reduce((acc: any, type: string) => {
     const index = ALL_ACHIEVEMENTS[type] - 1;
-    acc[index].push(type);
+    if (acc[index]) acc[index].push(type);
+    else console.log(`Achievement ${type} not found.`);
     return acc;
   }, [[], [], [], []]);
 }

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
-import { t as _t } from 'ts/helpers/Localization';
-import dataGripStore from 'ts/store/DataGrip';
+import statisticStore from 'ts/store/Statistics';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 
 import Button from './Button';
-import style from '../../styles/footer.module.scss';
+import style from './index.module.scss';
 
 function getMenu(navigate: Function): any[] {
+  const { text } = useTranslation();
   return [
     {
       id: 'team',
@@ -34,7 +34,7 @@ function getMenu(navigate: Function): any[] {
       icon: './assets/menu/share.svg',
       onClick() {
         navigator.share({
-          title: _t('common.title'),
+          title: text('common.title'),
           text: '',
           url: window.location.href,
         });
@@ -46,9 +46,9 @@ function getMenu(navigate: Function): any[] {
       icon: './assets/menu/logout.svg',
       onClick() {
         confirm.open({
-          title: _t('sidebar.buttons.logoutQuestion'),
+          title: text('sidebar.buttons.logoutQuestion'),
         }).then(() => {
-          dataGripStore.exit();
+          statisticStore.exit();
           navigate('/');
           viewNameStore.toggle(ViewNameEnum.WELCOME);
         });
@@ -80,7 +80,7 @@ function Footer() {
   const navigate = useNavigate();
   const { type, page } = useParams<any>();
   const [show, setShow] = useState<boolean>(true);
-  const { t } = useTranslation();
+  const { text } = useTranslation();
 
   useEffect(() => {
     return onScrollEvent(show, setShow);
@@ -94,7 +94,7 @@ function Footer() {
     <Button
       key={config.id}
       icon={config.icon}
-      title={t(config.title)}
+      title={text(config.title)}
       isSelected={selected?.id === config.id}
       onClick={config.onClick}
     />

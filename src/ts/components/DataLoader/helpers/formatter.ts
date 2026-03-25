@@ -46,13 +46,13 @@ export default function sendFakeRequest({
   mode,
   sort,
 }: IFakeLoader) {
-  const formattedContent = content || [];
+  const formattedContent = Array.isArray(content) ? content : [];
   const filteredContent = query
     ? formattedContent.filter((item:any) => item.name.toLowerCase().includes(query?.toLowerCase()))
     : formattedContent;
 
-  const sortedContent = sort
-    ? getSortedContent(filteredContent, sort || [])
+  const sortedContent = sort && sort?.length
+    ? getSortedContent(filteredContent, sort)
     : filteredContent;
 
   if (!pagination || mode === 'print') {

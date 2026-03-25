@@ -8,10 +8,10 @@ const {
 } = getBuilder('timestamp');
 
 export default class RecommendationsTeamByTimestamp {
-  getTotalInfo(dataGrip: any) {
-    if (dataGrip.author.list.length < 2) return [];
+  getTotalInfo(statisticsByCommits: any) {
+    if (statisticsByCommits.author.list.length < 2) return [];
 
-    const byTimestamp = dataGrip.timestamp.statistic;
+    const byTimestamp = statisticsByCommits.timestamp.totalInfo;
     const workInWeek = byTimestamp.workByDay[5] + byTimestamp.workByDay[6];
     const totalDays = byTimestamp.allCommitsByTimestamp.length;
     // TODO: all days не верный, я вывожу рабочие дни, а не выходные.

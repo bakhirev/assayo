@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getDate } from 'ts/helpers/formatter';
-import { DataGripDay } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsDay } from 'ts/helpers/StatisticsByCommits/components/month';
 
 import { Filters } from '../interfaces/Filters';
 import { getPercentByMax, getColor, COLORS } from '../helpers/day';
@@ -13,7 +13,7 @@ import style from '../styles/index.module.scss';
 interface DayProps {
   max: number;
   dayNumber: number;
-  dayInfo: DataGripDay;
+  dayInfo: StatisticsDay;
   events?: DayEvent;
   filters: Filters;
 }
@@ -73,7 +73,7 @@ function getContent(filters: Filters, events?: DayEvent) {
   return [title, icon];
 }
 
-function getColorList(dayNumber: number, filters: Filters, dayInfo: DataGripDay) {
+function getColorList(dayNumber: number, filters: Filters, dayInfo: StatisticsDay) {
   // @ts-ignore
   const author = filters?.authors?.[0]?.title;
   if (author && dayInfo.userCommitNumbers.has(author)) {

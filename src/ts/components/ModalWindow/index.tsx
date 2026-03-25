@@ -37,9 +37,9 @@ function Modal({
       { onClose, delay, setCanClose },
     ) : child));
 
-  const customClass = isMobile
-    ? style.modal_window_fullscreen
-    : style.modal_window;
+  let customClass = style.modal_window;
+  if (mode === 'big') customClass = style.modal_window_big;
+  if (isMobile) customClass = style.modal_window_fullscreen;
 
   return ReactDOM.createPortal((
     <div
@@ -58,12 +58,6 @@ function Modal({
           event.stopPropagation();
         }}
       >
-        {mode === 'halo' ? (
-          <img
-            className={style.modal_window_halo}
-            src="./assets/sponsor/halo.png"
-          />
-        ) : null}
         {childrenWithProps}
       </div>
     </div>

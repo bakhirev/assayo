@@ -4,29 +4,25 @@ import { getBuilder } from '../helpers';
 const { getItem, getTitle } = getBuilder('scope');
 
 export default class RecommendationsTeamByScope {
-  getTotalInfo(dataGrip: any) {
-    const money = getMoney(dataGrip.team.statistic.moneyWorked);
+  getTotalInfo(statisticsByCommits: any) {
+    const money = getMoney(statisticsByCommits.team.totalInfo.moneyWorked);
     return [
-      this.getBusFactor(dataGrip),
-      this.getManyTypes(dataGrip),
-      this.getParallelism(dataGrip),
+      this.getBusFactor(statisticsByCommits),
+      this.getManyTypes(statisticsByCommits),
+      this.getParallelism(statisticsByCommits),
       getTitle('money', money),
       getItem('plan'),
       getItem('cost'),
     ].filter(item => item);
   }
 
-  getParallelism(dataGrip: any) {
-    if (dataGrip.author.list.length < 3
-      || dataGrip.scope.list.length < 3) return null;
+  getParallelism(statisticsByCommits: any) {
+    if (statisticsByCommits.author.list.length < 3
+      || statisticsByCommits.scope.list.length < 3) return null;
 
     const data: number[] = [];
-    dataGrip.scope.statistic.forEach((statistic: any) => {
-      let total = 0;
-      dataGrip.author.list.forEach((name: string) => {
-        total += statistic.authors[name]?.days || 0;
-      });
-      data.push(total / statistic.days);
+    statisticsByCommits.scope.totalInfo.forEach((statistic: any) => {
+      data.push(statistic.totalDaysWorkedByAuthor / statistic.totalDaysWorked);
     });
 
     const total = data.reduce((sum, value) => sum + value, 0);
@@ -38,32 +34,33 @@ export default class RecommendationsTeamByScope {
     return getItem('parallelismEvery');
   }
 
-  getBusFactor(dataGrip: any) {
-    if (dataGrip.author.list.length < 3
-      || dataGrip.scope.list.length < 3) return null;
+  getBusFactor(statisticsByCommits: any) {
+    if (statisticsByCommits.author.list.length < 3
+      || statisticsByCommits.scope.list.length < 3) return null;
 
-    const oneMaintainer = dataGrip.scope.statistic.filter((statistic: any) => {
+    const oneMaintainer = statisticsByCommits.scope.totalInfo.filter((statistic: any) => {
       const limit = statistic.commits * 0.8;
-      return dataGrip.author.list.some((name: string) => statistic.authors[name]?.commits >= limit);
+      const commitsByAuthor = Object.values(statistic.commitsByAuthor) as number[];
+      return commitsByAuthor.some((commits: number) => commits >= limit);
     }).map((statistic: any) => statistic.scope);
 
     if (!oneMaintainer.length) return null;
-    const everyHasOne = oneMaintainer.length > dataGrip.scope.statistic.length * 0.6;
+    const everyHasOne = oneMaintainer.length > statisticsByCommits.scope.totalInfo.length * 0.6;
 
     return everyHasOne
       ? getItem('busEveryHasOne')
       : getTitle('busOneMaintainer', oneMaintainer);
   }
 
-  getManyTypes(dataGrip: any) {
-    if (dataGrip.scope.list.length < 3) return null;
+  getManyTypes(statisticsByCommits: any) {
+    if (statisticsByCommits.scope.list.length < 3) return null;
 
-    const oneType = dataGrip.scope.statistic.filter((statistic: any) => {
+    const oneType = statisticsByCommits.scope.totalInfo.filter((statistic: any) => {
       const limit = statistic.commits * 0.8;
-      return dataGrip.type.list.some((type: string) => statistic.types[type] >= limit);
+      return statisticsByCommits.type.list.some((type: string) => statistic.types[type] >= limit);
     }).map((statistic: any) => statistic.scope);
 
-    const everyHasOne = oneType.length > dataGrip.scope.statistic.length * 0.6;
+    const everyHasOne = oneType.length > statisticsByCommits.scope.totalInfo.length * 0.6;
 
     return everyHasOne
       ? getItem('typesProcess')

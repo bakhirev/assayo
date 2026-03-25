@@ -60,17 +60,17 @@ export default `
 § page.team.author.absence.to: to
 § page.team.author.absence.duration: days
 § page.team.hours.title: Répartition du travail pour chaque jour de la semaine
-§ page.team.month.filters.release: Releases
-§ page.team.month.filters.absence: Vacations and relocations
-§ page.team.month.filters.firstLastDays: First and last days
-§ page.team.month.filters.authors: All employees
-§ page.team.month.filters.types: All types
-§ page.team.month.title: Calendrier du projet
-§ page.team.month.travel: (changed time zone)
-§ page.team.month.vacation.first: (goes on vacation)
-§ page.team.month.vacation.last: (returned from vacation)
-§ page.team.month.work.first: (first work day)
-§ page.team.month.work.last: (last work day)
+§ plugin.team_month.filters.release: Releases
+§ plugin.team_month.filters.absence: Vacations and relocations
+§ plugin.team_month.filters.firstLastDays: First and last days
+§ plugin.team_month.filters.authors: All employees
+§ plugin.team_month.filters.types: All types
+§ plugin.team_month.title: Calendrier du projet
+§ plugin.team_month.travel: (changed time zone)
+§ plugin.team_month.vacation.first: (goes on vacation)
+§ plugin.team_month.vacation.last: (returned from vacation)
+§ plugin.team_month.work.first: (first work day)
+§ plugin.team_month.work.last: (last work day)
 § page.team.scope.title: Statistiques par module
 § page.team.scope.scope: Mise au point
 § page.team.scope.days: Esclave. jours
@@ -224,7 +224,7 @@ export default `
 § page.team.tasks.comments: Commentaires
 § page.team.tasks.backlogTitle: Tasks undeveloped for over four months after being added to the task-tracker
 § page.team.tasks.charts.authors.title: Who is doing these tasks?
-§ page.team.tasks.charts.authors.other: and etc.
+§ page.team.tasks.charts.authors.other: , etc.
 § page.team.tasks.charts.relative.title: Count relative to other tasks
 § page.team.tasks.charts.relative.backlog: backlog
 § page.team.tasks.charts.relative.all: other tasks
@@ -312,7 +312,6 @@ export default `
 § page.person.total.tasks.title: tâches
 § page.person.total.tasks.description: Si les commits sont correctement signés
 § page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
-§ page.person.character.title: Personnage
 § page.person.achievement.title: Les progrès
 § page.person.achievement.positive: Positifs
 § page.person.achievement.normal: Neutres
@@ -376,5 +375,4 @@ export default `
 § page.sponsor.share.button: Copy the link
 § page.sponsor.money.description: We will be glad if you support us with any amount! All funds will be used for the further development of the project.
 § page.sponsor.money.qr: One-time payment (only Russia)
-§ page.sponsor.money.github: GitHub Sponsor
 `;

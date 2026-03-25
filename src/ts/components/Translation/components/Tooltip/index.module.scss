@@ -1,0 +1,14 @@
+.translation_tooltip {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+
+  display: inline-block;
+  padding: var(--space-s);
+  text-align: center;
+
+  border-radius: var(--border-radius-m);
+  border: 2px solid var(--color-black);
+  box-shadow: 0 0 5px var(--color-grey);
+  background-color: var(--color-white);
+}

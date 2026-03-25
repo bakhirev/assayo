@@ -26,8 +26,12 @@ function DropZone({
   if (!isLoading) return (<></>);
 
   return (
-    <div className={style.dropzone}>
-      {/*<Dropzone className={style.dropzone_icon}/>*/}
+    <div
+      className={style.dropzone}
+      onClick={() => {
+        setLoading(false);
+      }}
+    >
       <p className={style.dropzone_title}>
         Drop file here
       </p>

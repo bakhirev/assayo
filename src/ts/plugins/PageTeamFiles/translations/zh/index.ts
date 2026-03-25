@@ -1,0 +1,19 @@
+export default `
+§ plugin.team_files.sidebar.files: 文件
+§ plugin.team_files.sidebar.removedFiles: 已删除的文件
+§ plugin.team_files.title: 考虑所选过滤条件的项目树
+§ plugin.team_files.filters.commits: 提交次数
+§ plugin.team_files.filters.help: 员工在文件中至少执行的最少提交次数
+§ plugin.team_files.table.lines: 行数
+§ plugin.team_files.table.tasks: 任务
+§ plugin.team_files.table.days: 天数
+§ plugin.team_files.table.workedDays: 人天
+§ plugin.team_files.table.money: 成本
+§ plugin.team_files.table.add: 首次添加人
+§ plugin.team_files.table.change: 修改负责人
+§ plugin.team_files.table.remove: 删除负责人
+§ plugin.team_files.table.chart.line: 行
+§ plugin.team_files.table.chart.linesAdded: 新增
+§ plugin.team_files.table.chart.linesChanged: 修改
+§ plugin.team_files.table.chart.linesRemoved: 删除
+`;

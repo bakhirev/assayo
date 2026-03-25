@@ -33,6 +33,7 @@ export default `
 § sidebar.team.company: Компании
 § sidebar.team.department: Отделы
 § sidebar.team.country: Местоположение
+§ sidebar.team.server: Сервера
 § sidebar.team.settings: Настройки
 § sidebar.team.recommendations: Рекомендации и факты
 § sidebar.team.building: Мини игры

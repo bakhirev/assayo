@@ -1,4 +1,5 @@
 .modal_window,
+.modal_window_big,
 .modal_window_fullscreen {
   display: block;
   width: 400px;
@@ -8,6 +9,12 @@
   box-shadow: 0 0 5px gray;
   background-color: var(--color-white);
   border-radius: var(--border-radius-m);
+}
+
+.modal_window_big {
+  width: 80%;
+  height: 80%;
+  max-height: 70vh;
 }
 
 .modal_window_fullscreen {
@@ -46,16 +53,6 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
-
-  &_halo {
-    position: absolute;
-    top: -50px;
-    left: -80px;
-    z-index: -1;
-    display: block;
-    width: 560px;
-    animation: modal_window_halo 40s linear 0s infinite normal none running;
   }
 
   &_title,
@@ -112,21 +109,4 @@
 
 .modal_window_fullscreen .modal_window_close {
   display: none;
-}
-
-@keyframes modal_window_halo {
-  from {
-    transform: rotateZ(0deg);
-    opacity: 0.4;
-  }
-  11% {
-    opacity: 0.7;
-  }
-  89% {
-    opacity: 0.7;
-  }
-  to {
-    transform: rotateZ(360deg);
-    opacity: 0.4;
-  }
 }

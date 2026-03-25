@@ -1,4 +1,4 @@
-import dataGripStore from 'ts/store/DataGrip';
+import statisticStore from 'ts/store/Statistics';
 
 import style from '../styles/index.module.scss';
 
@@ -41,7 +41,7 @@ const REF_TIMEZONE_CLASS = {
 
 export function getGroupsByTimeZone(authors: any[]) {
   return authors.reduce((acc: any, author: any) => {
-    const key = author.lastCommit.timezone;
+    const key = author.lastCommitTimezone;
     if (!acc[key]) acc[key] = [];
     acc[key].push(author.author);
     return acc;
@@ -58,11 +58,12 @@ export function getPositionForTimeZone(timezone?: string) {
 
 export function getColorForTimeZone(authors: string[]) {
   let isDismissed = false;
-  for (let i = 0, l = authors.length; i < l; i++) {
-    const item = dataGripStore.dataGrip.author.statisticByName[authors[i]];
-    if (item?.isStaff) continue;
-    if (!item?.isDismissed) return style.time_zone_map_point_active;
-    if (item?.isDismissed) isDismissed = true;
+  const getAuthor = statisticStore.statisticsByCommits.author.totalInfoByName;
+  for (let i = 0; i < authors.length; i++) {
+    const author = getAuthor.get(authors[i]);
+    if (author?.isStaff) continue;
+    if (!author?.isDismissed) return style.time_zone_map_point_active;
+    if (author?.isDismissed) isDismissed = true;
   }
   return isDismissed
     ? style.time_zone_map_point_dismissed

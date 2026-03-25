@@ -1,11 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
-import { PRLink, TaskLink } from 'ts/components/ExternalLink';
+import { PRLink, TaskLink } from 'ts/components/Layout';
 import { get2Number } from 'ts/helpers/formatter';
-import dataGrip from 'ts/helpers/DataGrip';
+import statisticsByCommits from 'ts/helpers/StatisticsByCommits';
 
 import style from '../styles/task.module.scss';
 
@@ -43,10 +43,10 @@ interface ITaskProps {
 
 function Task({ title, commits }: ITaskProps) {
   const { t } = useTranslation();
-  const task = dataGrip.tasks.statisticByName.get(title);
+  const task = statisticsByCommits.tasks.totalInfoByName.get(title);
   const milliseconds = commits[0].milliseconds;
   const prId = task?.prIds?.find((id: string) => {
-    const pr = dataGrip.pr.pr.get(id);
+    const pr = statisticsByCommits.pr.totalInfoByName.get(id);
     return pr.dateMerge >= milliseconds;
   });
 

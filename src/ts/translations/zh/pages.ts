@@ -55,17 +55,17 @@ export default `
 § page.team.author.absence.to: to
 § page.team.author.absence.duration: days
 § page.team.hours.title: Distribution of commits during each day of the week
-§ page.team.month.filters.release: Releases
-§ page.team.month.filters.absence: Vacations and relocations
-§ page.team.month.filters.firstLastDays: First and last days
-§ page.team.month.filters.authors: All employees
-§ page.team.month.filters.types: All types
-§ page.team.month.title: Project work calendar
-§ page.team.month.travel: (changed time zone)
-§ page.team.month.vacation.first: (goes on vacation)
-§ page.team.month.vacation.last: (returned from vacation)
-§ page.team.month.work.first: (first work day)
-§ page.team.month.work.last: (last work day)
+§ plugin.team_month.filters.release: Releases
+§ plugin.team_month.filters.absence: Vacations and relocations
+§ plugin.team_month.filters.firstLastDays: First and last days
+§ plugin.team_month.filters.authors: All employees
+§ plugin.team_month.filters.types: All types
+§ plugin.team_month.title: Project work calendar
+§ plugin.team_month.travel: (changed time zone)
+§ plugin.team_month.vacation.first: (goes on vacation)
+§ plugin.team_month.vacation.last: (returned from vacation)
+§ plugin.team_month.work.first: (first work day)
+§ plugin.team_month.work.last: (last work day)
 § page.team.scope.title: 按模块划分的统计数字
 § page.team.scope.scope: 修改
 § page.team.scope.days: 工作天
@@ -219,7 +219,7 @@ export default `
 § page.team.tasks.comments: 评论
 § page.team.tasks.backlogTitle: Tasks undeveloped for over four months after being added to the task-tracker
 § page.team.tasks.charts.authors.title: Who is doing these tasks?
-§ page.team.tasks.charts.authors.other: and etc.
+§ page.team.tasks.charts.authors.other: , etc.
 § page.team.tasks.charts.relative.title: Count relative to other tasks
 § page.team.tasks.charts.relative.backlog: backlog
 § page.team.tasks.charts.relative.all: other tasks
@@ -307,7 +307,6 @@ export default `
 § page.person.total.tasks.title: 任务
 § page.person.total.tasks.description: 如果 Commits 正确签名
 § page.person.scoring.toolbar: The position according to this metric, relative to others. Two employees can take the same position if the values matches. Therefore, the total number of positions may be less than the number of employees.
-§ page.person.character.title: 性格
 § page.person.achievement.title: 进展情况
 § page.person.achievement.positive: 积极
 § page.person.achievement.normal: 中立

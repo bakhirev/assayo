@@ -161,5 +161,15 @@ export default `
 § achievements.moreChangeTimeZone.description: больше всех менял местоположение
 § achievements.publicitySitnik.title: Ситник одобряет
 § achievements.publicitySitnik.description: первый добавил PostCSS или Browserslist конфиг
+§ achievements.github.title: Домработница
+§ achievements.github.description: кроме основной работы пишет домашний проект
+§ achievements.mackBook.title: Ванильный раф на кокосовом молоке
+§ achievements.mackBook.description: использует MackBook для работы
+§ achievements.moreCommitsBeforeRelease.title: Суетолог
+§ achievements.moreCommitsBeforeRelease.description: максимальное увеличение числа коммитов перед релизом
+§ achievements.ipInEmail.title: LAN-man
+§ achievements.ipInEmail.description: вместо email использовал локальный IP адрес
+§ achievements.languageErrors.title: Смотря какой fabric, смотря сколько details
+§ achievements.languageErrors.description: использовал правила орфографии или пунктуации от другого языка
 § achievements.111.description: test
 `;

@@ -1,5 +1,3 @@
-@import 'src/styles/variables';
-
 .table_wrapper {
   display: block;
 }
@@ -22,7 +20,7 @@
     display: block;
     white-space: nowrap;
     border-bottom: 1px solid #EEEEEE;
-    break-inside: auto;
+    break-inside: avoid;
 
     &:last-child {
       border-bottom: none;
@@ -100,6 +98,7 @@
       height: 32px;
       margin-top: 8px;
       cursor: pointer;
+      user-select: none;
       transition: transform 0.5s;
       transform: rotate(-90deg);
     }

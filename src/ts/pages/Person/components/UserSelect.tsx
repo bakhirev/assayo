@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
-import dataGripStore from 'ts/store/DataGrip';
+import statisticStore from 'ts/store/Statistics';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import style from 'ts/pages/Team/styles/filters.module.scss';
-import { getFormattedWeeks } from 'ts/pages/Team/components/TempoFilters';
+import { getFormattedWeeks } from 'ts/plugins/PageTeamDay/components/Filters';
 
 interface IUserSelectProps {
   filters: any,
@@ -20,10 +20,10 @@ const UserSelect = observer(({
   const navigate = useNavigate();
 
   const formattedUserId = parseInt(userId || '0', 10) || 0;
-  const authors = dataGripStore.dataGrip.author.list;
+  const authors = statisticStore.statisticsByCommits.author.list;
   const options = authors.map((title: string, id: number) => ({ id, title }));
 
-  const rows = dataGripStore.dataGrip.timestamp.statistic.allCommitsByTimestamp || [];
+  const rows = statisticStore.statisticsByCommits.timestamp.totalInfo.allCommitsByTimestamp || [];
   const weeks = useMemo(() => getFormattedWeeks(rows), [rows]);
 
   return (

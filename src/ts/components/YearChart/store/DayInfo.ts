@@ -1,11 +1,11 @@
 import { observable, action, makeObservable } from 'mobx';
 
-import { DataGripDay } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsDay } from 'ts/helpers/StatisticsByCommits/components/month';
 
 type IPosition = [number, number];
 
 class DayInfoStore {
-  info: DataGripDay | undefined = undefined;
+  info: StatisticsDay | undefined = undefined;
 
   position: IPosition = [0, 0];
 
@@ -17,7 +17,7 @@ class DayInfoStore {
     });
   }
 
-  toggle(dayInfo: DataGripDay, position: IPosition) {
+  toggle(dayInfo: StatisticsDay, position: IPosition) {
     if (this.info?.timestamp === dayInfo?.timestamp) {
       this.close();
     } else {
@@ -26,7 +26,7 @@ class DayInfoStore {
     }
   }
 
-  open(dayInfo: DataGripDay) {
+  open(dayInfo: StatisticsDay) {
     this.info = dayInfo;
   }
 

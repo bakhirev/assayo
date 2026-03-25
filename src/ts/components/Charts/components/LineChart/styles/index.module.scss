@@ -1,0 +1,47 @@
+.line_chart {
+  --line_chart-height: 24px;
+
+  display: block;
+  height: var(--line_chart-height);
+  margin-top: 12px;
+  text-align: left;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 4px;
+
+  &_item,
+  &_sub_item {
+    font-size: var(--font-xs);
+    display: inline-block;
+    height: var(--line_chart-height);
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+    white-space: nowrap;
+    vertical-align: top;
+    overflow: hidden;
+    line-height: var(--line_chart-height);
+    text-align: left;
+
+    color: var(--color-white);
+    background-color: #D0D1D2;
+    -webkit-print-color-adjust: exact;
+  }
+
+  &_item {
+    min-width: var(--space-xxxs);
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+  }
+
+  &_sub_item {
+    text-overflow: ellipsis;
+  }
+}

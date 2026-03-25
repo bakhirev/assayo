@@ -7,7 +7,7 @@ const {
 } = getBuilder('author');
 
 export default class RecommendationsTeamByAuthor {
-  getTotalInfo(dataGrip: any) {
+  getTotalInfo(statisticsByCommits: any) {
     const worker: string[] = [];
     const dismissed: string[] = [];
     const staff: string[] = [];
@@ -16,8 +16,8 @@ export default class RecommendationsTeamByAuthor {
     const oneTypeMans: string[] = [];
     let workLazyTotal = 1;
 
-    dataGrip.author.list.forEach((name: string) => {
-      const author = dataGrip.author.statisticByName[name];
+    statisticsByCommits.author.list.forEach((name: string) => {
+      const author = statisticsByCommits.author.totalInfoByName.get(name);
       if (author.isStaff) {
         staff.push(name);
         return;
@@ -30,7 +30,7 @@ export default class RecommendationsTeamByAuthor {
 
       worker.push(name);
 
-      const workLazy = author.daysWorked / author.daysLosses;
+      const workLazy = author.totalDaysWithCommits / author.totalDaysWithoutCommits;
       if (workLazy >= 0 && workLazy < 3) lotOfLazy.unshift(name);
       if (workLazy >= 3 && workLazy < 5) manyLazy.unshift(name);
       workLazyTotal = workLazyTotal * workLazy;

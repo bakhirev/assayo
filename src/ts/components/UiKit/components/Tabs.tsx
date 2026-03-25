@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/tabs.module.scss';

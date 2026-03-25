@@ -1,5 +1,3 @@
-@import 'src/styles/variables';
-
 .ui_kit_button {
   --temp-size: 42px;
   --button-color-bg: var(--color-button);
@@ -141,5 +139,11 @@
 
   &:hover {
     background-color: var(--button-color-hover);
+  }
+}
+
+@media print {
+  .ui_kit_button {
+    display: none;
   }
 }

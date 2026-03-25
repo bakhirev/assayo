@@ -10,6 +10,7 @@ exec([
   'rm ../build/test.txt',
   'rm -rf ../build/social',
   'rm -rf ../build/themes',
+  'rm -rf ../build/config.json',
 ].join(' && '));
 
 const html = fs.readFileSync('../build/index.html', 'utf8');

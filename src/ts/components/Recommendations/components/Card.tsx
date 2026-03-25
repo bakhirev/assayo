@@ -1,11 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
-import Description from 'ts/components/Description';
+import { Description } from 'ts/components/Layout';
 import UiKitButton from 'ts/components/UiKit/components/Button';
-import localization from 'ts/helpers/Localization';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import isMobile from 'ts/helpers/isMobile';
+import { MARKER } from 'ts/helpers/copyPasteFormatter';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
 import style from '../styles/card.module.scss';
@@ -59,7 +59,7 @@ function Card({
           className={style.recommendations_card_icon}
           src={getImageUrl(recommendation)}
         />
-        {localization.get(title, titleArgs)}
+        {MARKER}{t(title, titleArgs)}{MARKER}
       </h5>
       <Description
         style={{ color: '#12131B' }}

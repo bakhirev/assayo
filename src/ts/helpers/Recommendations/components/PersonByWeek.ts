@@ -3,9 +3,9 @@ import { getBuilder } from '../helpers';
 const { getItem } = getBuilder('week');
 
 export default class RecommendationsPersonByWeek {
-  getTotalInfo(dataGrip: any) {
-    const lastWeeks = dataGrip.week.statistic.slice(0, 3);
-    return dataGrip.author.list.reduce((acc: any, name: string) => {
+  getTotalInfo(statisticsByCommits: any) {
+    const lastWeeks = statisticsByCommits.week.totalInfo.slice(0, 3);
+    return statisticsByCommits.author.list.reduce((acc: any, name: string) => {
       acc[name] = [
         this.getLazyDays(lastWeeks, name),
         this.getNotWork(lastWeeks, name),

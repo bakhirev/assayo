@@ -1,14 +1,4 @@
-// function evalCsvFile(text: string, onChange: Function) {
-//   const byTaskId = {};
-//   text.split('\n').forEach(row => {
-//     const [taskId, type, scopeOrTitle, title] = row.split('|');
-//     const scope = title ? scopeOrTitle : '';
-//     byTaskId[taskId] = { type, scope };
-//   });
-//   onChange('meta', { byTaskId });
-// }
-
-import splashScreenStore from 'ts/components/SplashScreen/store';
+import { splashScreenStore } from 'ts/components/Layout';
 
 function getGlobalValue() { // @ts-ignore
   return window.report;

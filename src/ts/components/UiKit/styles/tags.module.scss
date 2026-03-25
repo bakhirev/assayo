@@ -1,7 +1,5 @@
-@import 'src/styles/variables';
-
 .ui_kit_tags {
-  display: block;
+  display: inline;
   white-space: normal;
 
   &_item {
@@ -23,6 +21,10 @@
     border: 1px solid var(--color-border);
     background-color: var(--color-border);
     color: var(--color-black);
+
+    &_empty {
+      background-color: transparent;
+    }
   }
 }
 

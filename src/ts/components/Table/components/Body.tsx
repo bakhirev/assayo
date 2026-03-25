@@ -2,7 +2,7 @@ import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
 
-import { ColumnTypesEnum, IColumn, IRowsConfig } from '../interfaces/Column';
+import { ColumnTypes, IColumn, IRowsConfig } from '../interfaces/Column';
 import DefaultCell from './cells/CellDefault';
 import DetailsCell from './cells/CellDetails';
 
@@ -14,6 +14,7 @@ interface IBodyProps {
   columns: IColumn[];
   disabledRow?: (row: any) => boolean;
   className?: string;
+  tableWidth?: number;
   rowsConfig?: IHashMap<IRowsConfig>;
   updateRowsConfig?: (config: IRowsConfig) => void;
 }
@@ -22,13 +23,14 @@ function Body({
   rows,
   disabledRow,
   columns,
+  tableWidth,
   className,
   rowsConfig,
   updateRowsConfig,
 }: IBodyProps) {
   const formattedRows: any = [];
   const getSubRow = columns
-    .find((column: IColumn) => column.template === ColumnTypesEnum.DETAILS)
+    .find((column: IColumn) => column.template === ColumnTypes.DETAILS)
     ?.formatter;
 
   rows?.forEach((row: any, rowIndex: number) => {
@@ -38,7 +40,7 @@ function Body({
       const key = `${column.title}_${columnIndex}`;
       marginLeft += columns[columnIndex - 1]?.width || 0;
 
-      if (column.template === ColumnTypesEnum.DETAILS) {
+      if (column.template === ColumnTypes.DETAILS) {
         return (
           <DetailsCell
             key={key}
@@ -88,6 +90,7 @@ function Body({
     formattedRows.push(
       <div
         key={`${rowIndex}-detail`}
+        style={{ width: `${tableWidth}px` }}
         className={`${style.table_sub_row} ${className}`}
       >
         {getSubRow(row) || null}

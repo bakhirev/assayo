@@ -1,5 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
+import { MARKER } from 'ts/helpers/copyPasteFormatter';
 
 import { IColumn } from '../interfaces/Column';
 import getClassName from '../helpers/getClassName';
@@ -24,7 +25,25 @@ function Header({
     marginLeft += columns[columnIndex - 1]?.width || 0;
 
     const localClassName = getClassName(style.table_header_cell, column, ['header', columnIndex], className);
-    const formattedTitle = t(column.title || '');
+    const onClick = () => {
+      if (!column.isSortable || !updateSort) return;
+      updateSort([{
+        property: typeof column.isSortable === 'string' ? column.isSortable : column.properties,
+        direction: [1, -1][column.sortDirection || 0] || 0,
+      }]);
+    };
+
+    if (typeof column.title === 'function') {
+      return (
+        <div
+          key={`${column.title}_${columnIndex}`}
+          className={localClassName}
+          style={{ width: column.width, left: marginLeft }}
+        >
+          {column.title()}
+        </div>
+      );
+    }
 
     return (
       <div
@@ -32,17 +51,8 @@ function Header({
         className={localClassName}
         style={{ width: column.width, left: marginLeft }}
       >
-        <span
-          title={formattedTitle}
-          onClick={() => {
-            if (!column.isSortable || !updateSort) return;
-            updateSort([{
-              property: typeof column.isSortable === 'string' ? column.isSortable : column.properties,
-              direction: [1, -1][column.sortDirection || 0] || 0,
-            }]);
-          }}
-        >
-          {formattedTitle}
+        <span onClick={onClick}>
+          {t(column.title)}
         </span>
         {column.title && column.sortDirection === -1 && (
           <div className={headerStyle.table_sort_down} />
@@ -56,6 +66,7 @@ function Header({
 
   return (
     <div className={`${style.table_row} ${className}`}>
+      {MARKER}
       {cells}
     </div>
   );

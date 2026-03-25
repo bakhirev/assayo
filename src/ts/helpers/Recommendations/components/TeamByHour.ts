@@ -3,10 +3,10 @@ import { getBuilder } from '../helpers';
 const { getItem } = getBuilder('hour');
 
 export default class RecommendationsTeamByHour {
-  getTotalInfo(dataGrip: any) {
-    if (dataGrip.author.list.length < 2) return [];
+  getTotalInfo(statisticsByCommits: any) {
+    if (statisticsByCommits.author.list.length < 2) return [];
 
-    const statistic = dataGrip.team.statistic;
+    const statistic = statisticsByCommits.team.totalInfo;
 
     return [
       this.getWeekIsWork(statistic),
@@ -14,8 +14,8 @@ export default class RecommendationsTeamByHour {
   }
 
   getWeekIsWork(statistic: any) {
-    const weekday = Math.min(...statistic.commitsByDayAndHourTotal.slice(0, 5));
-    const weekends = Math.max(...statistic.commitsByDayAndHourTotal.slice(5, 7));
+    const weekday = Math.min(...statistic.commitsByDay.slice(0, 5));
+    const weekends = Math.max(...statistic.commitsByDay.slice(5, 7));
     const workAndWeekends = weekends / weekday;
 
     if (workAndWeekends > 0.45) return getItem('onlyWork');

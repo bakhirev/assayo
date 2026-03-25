@@ -1,8 +1,10 @@
-@import 'src/styles/variables';
-
 .ui_kit_select_with_buttons_wrapper + .ui_kit_wrapper,
 .ui_kit_wrapper + .ui_kit_wrapper {
   vertical-align: top;
+}
+
+.ui_kit_wrapper + .ui_kit_wrapper {
+  margin-top: var(--space-xl);
 }
 
 .ui_kit_title,

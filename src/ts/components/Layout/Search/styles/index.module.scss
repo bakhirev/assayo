@@ -1,0 +1,31 @@
+.layout_search {
+  margin: 0 0 var(--space-xxl);
+  user-select: none;
+
+  &_query,
+  &_selects {
+    margin: 0 0 var(--space-xs);
+  }
+
+  &_selects {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  &_select {
+    flex-basis: calc((100% / 3) - var(--space-xxl));
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout_search_select {
+    display: block;
+    min-width: 100%;
+    margin-bottom: var(--space-xxl)
+  }
+}

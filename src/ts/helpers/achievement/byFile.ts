@@ -26,8 +26,8 @@ function getTopUser(listOfChanges: any) {
   return Object.entries(total).sort((a: any, b: any) => b[1] - a[1]);
 }
 
-export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
-  if (!fileGrip.files.list.length) return;
+export default function getAchievementByFile(statisticsByFiles: any, byAuthor: any) {
+  if (!statisticsByFiles.files.list.length) return;
 
   const moreLintHint: any = [];
   const moreReadMe: any = [];
@@ -39,7 +39,7 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   const firstFileNameStyle: any = { author: '', milliseconds: Infinity };
   const fileRush: IHashMap<number> = {};
 
-  fileGrip.files.list.forEach((file: IDirtyFile) => {
+  statisticsByFiles.files.list.forEach((file: IDirtyFile) => {
     if (IS_LINT_HINT.has(file.name)) {
       moreLintHint.push(getAddedChangedLines(file));
     } else if (IS_DOC.has(file.extension)) {
@@ -47,9 +47,9 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
     } else if (IS_CSS.has(file.extension) || IS_CSS_NAME.has(file.name)) {
       moreStyle.push(getAddedChangedLines(file));
     } else if (IS_ACHIEVEMENT_SITNIK.has(file.name)) {
-      if (file?.firstCommit?.milliseconds && file?.firstCommit?.milliseconds < firstFileNameStyle.milliseconds) {
-        firstFileNameStyle.author = file.firstCommit?.author;
-        firstFileNameStyle.milliseconds = file.firstCommit?.milliseconds;
+      if (file?.firstCommit && file?.firstCommit < firstFileNameStyle.milliseconds) {
+        firstFileNameStyle.author = file.createAuthor;
+        firstFileNameStyle.milliseconds = file.firstCommit;
       }
     } else if (IS_TEST.has(file.extension) || IS_TEST.has(file.type)) {
       moreTests.push(getAddedChangedLines(file));
@@ -57,16 +57,16 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
       moreDevOps.push(getAddedChangedLines(file));
     }
 
-    fileRush[file.firstCommit?.author || ''] = fileRush[file.firstCommit?.author || '']
-      ? (fileRush[file.firstCommit?.author || ''] + 1)
+    fileRush[file.createAuthor || ''] = fileRush[file.createAuthor || '']
+      ? (fileRush[file.createAuthor || ''] + 1)
       : 1;
 
     if (file.name.length > longFileName.length) {
-      longFileName.author = file.firstCommit?.author;
+      longFileName.author = file.createAuthor;
       longFileName.length = file.name.length;
     }
     if (file.path.length > longFilePath.length) {
-      longFilePath.author = file.firstCommit?.author;
+      longFilePath.author = file.createAuthor;
       longFilePath.length = file.name.length;
     }
   });
@@ -74,7 +74,7 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   const userFileRush = Object.entries(fileRush).sort((a: any, b: any) => b[1] - a[1]);
 
   const addedFoldersByAuthor = Object
-    .entries(fileGrip.tree.addedFoldersByAuthor)
+    .entries(statisticsByFiles.tree.addedFoldersByAuthor)
     .map((item: any) => [item[0], item[1].length]);
 
   byAuthor.add(getTopUser(userFileRush), 'fileRush');
@@ -84,8 +84,12 @@ export default function getAchievementByFile(fileGrip: any, byAuthor: any) {
   byAuthor.add(getTopUser(moreStyle.flat(2)), 'moreStyle');
   byAuthor.add(getTopUser(moreTests.flat(2)), 'moreTests');
   byAuthor.add(getTopUser(moreDevOps.flat(2)), 'moreDevOps');
-  byAuthor.authors[longFilePath.author].push('longFilePath');
-  byAuthor.authors[longFileName.author].push('longFileName');
+  if (byAuthor.authors[longFilePath.author]) {
+    byAuthor.authors[longFilePath.author].push('longFilePath');
+  }
+  if (byAuthor.authors[longFileName.author]) {
+    byAuthor.authors[longFileName.author].push('longFileName');
+  }
   if (firstFileNameStyle.author) {
     byAuthor.authors[firstFileNameStyle.author].push('publicitySitnik');
   }

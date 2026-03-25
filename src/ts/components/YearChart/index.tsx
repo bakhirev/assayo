@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsMonth } from 'ts/helpers/StatisticsByCommits/components/month';
 
 import { Filters } from './interfaces/Filters';
 import DayInfoHint from './components/DayInfo';
@@ -14,7 +14,7 @@ import style from './styles/index.module.scss';
 interface IYearChartProps {
   max?: number;
   events: DayEvents;
-  months: DataGripMonth[];
+  months: StatisticsMonth[];
   filters?: Filters;
 }
 
@@ -37,7 +37,7 @@ function YearChart({
 
   if (!months?.length) return null;
 
-  const elements = months.map((month: DataGripMonth, index: number) => {
+  const elements = months.map((month: StatisticsMonth, index: number) => {
     const prev = months[index - 1];
     return (
       <Month

@@ -1,21 +1,21 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import dataGripStore from 'ts/store/DataGrip';
+import statisticStore from 'ts/store/Statistics';
 import UiKitSelect from 'ts/components/UiKit/components/Select';
 import UiKitButton from 'ts/components/UiKit/components/Button';
+import localization from 'ts/helpers/Localization';
 
 import style from '../styles/user.module.scss';
-import localization from "../../../helpers/Localization";
 
-interface IUserSelectProps {
+interface UserSelectProps {
   required?: boolean;
   userId: number;
   onChange: Function;
 }
 
-const UserSelect = observer(({ required, userId, onChange }: IUserSelectProps): React.ReactElement => {
-  const authors = dataGripStore.dataGrip.author.list;
+const UserSelect = observer(({ required, userId, onChange }: UserSelectProps): React.ReactElement => {
+  const authors = statisticStore.statisticsByCommits.author.list;
   const options = authors.map((title: string, id: number) => ({ id, title }));
   if (!required) {
     options.unshift({ id: '', title: localization.get('page.common.filter.allUsers') });

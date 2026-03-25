@@ -1,0 +1,18 @@
+.infinite_scroll_border {
+  &_top,
+  &_bottom {
+    position: sticky;
+    z-index: 3;
+    background-color: var(--color-white);
+  }
+
+  &_top {
+    top: 0;
+    height: var(--space-s);
+  }
+
+  &_bottom {
+    bottom: -2px;
+    height: var(--space-s);
+  }
+}

@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { observer } from 'mobx-react-lite';
 
-import Title from 'ts/components/Title';
 import { getDate } from 'ts/helpers/formatter';
-import DayInfo from 'ts/components/DayInfo';
-import Description from 'ts/components/Description';
+import { DayInfo, Description, Title } from 'ts/components/Layout';
 
 import type { DayEvents, DayEvent } from '../helpers/events';
 import dayInfoStore from '../store/DayInfo';

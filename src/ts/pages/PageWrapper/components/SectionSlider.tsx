@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import isMobile from 'ts/helpers/isMobile';
+import plugins from 'ts/helpers/Plugins';
 
-import { TEAM, PERSON } from '../helpers/menu';
 import PageSwiper from './Swiper';
 import style from '../styles/slider.module.scss';
 
@@ -43,7 +43,9 @@ function MobileView({ getViewById }: ISectionSliderProps) {
   const formattedPage = page || 'total';
   const [prevPage, setPrevPage] = useState<string>(formattedPage);
   const [currentView, setCurrentView] = useState<string[]>([]);
-  const list  = type === 'team' ? TEAM : PERSON;
+  const list  = type === 'team'
+    ? plugins.getMenuItems('t')
+    : plugins.getMenuItems('p');
 
   useEffect(() => {
     addSlider(

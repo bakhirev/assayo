@@ -62,8 +62,8 @@ function getRefAuthorByTime(list: any[], property: string) {
   }, {});
 }
 
-export function getEvents(dataGripStore: any) {
-  const list = dataGripStore.dataGrip.author.statistic;
+export function getEvents(statisticStore: any) {
+  const list = statisticStore.statisticsByCommits.author.totalInfo;
   return {
     firstCommit: getRefAuthorByTime(list, 'firstCommit'),
     lastCommit: getRefAuthorByTime(list, 'lastCommit'),

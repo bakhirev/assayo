@@ -24,7 +24,7 @@ export default class Depersonalized {
     this.fakeCompany = new FakeName('Company', FAKE_COMPANIES);
   }
 
-  getCommit(commit: ICommit | ISystemCommit): ICommit | ISystemCommit {
+  getDepersonalizedCommit(commit: ICommit | ISystemCommit): ICommit | ISystemCommit {
     const author = this.fakeName.get(commit.author);
     const email = this.fakeEmail.get(commit.author);
     const company = this.fakeCompany.get(commit.company);
@@ -49,7 +49,7 @@ export default class Depersonalized {
       : undefined;
 
     // @ts-ignore
-    const toBranch = commit.toBranch// @ts-ignore
+    const toBranch = commit.toBranch // @ts-ignore
       ? commit.toBranch.replace(taskPrefix, newTaskPrefix)
       : undefined;
 

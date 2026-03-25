@@ -1,0 +1,69 @@
+import ICommit from 'ts/interfaces/Commit';
+import IHashMap from 'ts/interfaces/HashMap';
+import { createIncrement, increment } from 'ts/helpers/Math';
+// import { POPULAR_TYPES } from 'ts/helpers/getCommitObjectsFromText/getTypeAndScope';
+
+export default class StatisticsByType {
+  list: string[] = [];
+
+  commits: IHashMap<any> = {};
+
+  totalInfo: any = [];
+
+  clear() {
+    this.list = [];
+    this.commits = {};
+    this.totalInfo = [];
+  }
+
+  addCommit(commit: ICommit) {
+    if (this.commits.hasOwnProperty(commit.type)) {
+      this.#updateCommitByType(commit);
+    } else {
+      this.#addCommitByType(commit);
+    }
+  }
+
+  #updateCommitByType(commit: ICommit) {
+    const statistic = this.commits[commit.type];
+    statistic.commits += 1;
+    statistic.days.set(commit.timestamp, true);
+    statistic.tasks.set(commit.task, true);
+
+    increment(statistic.commitsByAuthors, commit.author);
+    if (!statistic.daysByAuthors[commit.author]) statistic.daysByAuthors[commit.author] = {};
+    increment(statistic.daysByAuthors[commit.author], commit.timestamp);
+  }
+
+  #addCommitByType(commit: ICommit) {
+    this.commits[commit.type] = {
+      type: commit.type,
+      commits: 1,
+      days: new Map([[commit.timestamp, true]]),
+      tasks: new Map([[commit.task, true]]),
+      commitsByAuthors: createIncrement(commit.author, true),
+      daysByAuthors: {
+        [commit.author]: createIncrement(commit.timestamp, true),
+      },
+    };
+  }
+
+  updateTotalInfo() {
+    // const types = [...POPULAR_TYPES, 'ci'];
+    // const isCorrectType = Object.fromEntries(types.map(type => [type, true]));
+
+    this.totalInfo = Object.values(this.commits)
+      .filter((dot: any) => dot?.type)
+      // .filter((dot: any) => dot.commits > 5 || isCorrectType[dot?.type || ''])
+      .map((dot: any) => ({
+        ...dot,
+        tasks: dot.tasks.size,
+        days: dot.days.size,
+        daysByAuthorsTotal: Object.values(dot.daysByAuthors)
+          .reduce((t: number, v: any) => (t + Object.keys(v).length), 0),
+      }))
+      .sort((dotA, dotB) => dotB.days - dotA.days);
+
+    this.list = this.totalInfo.map((dot: any) => dot.type);
+  }
+}

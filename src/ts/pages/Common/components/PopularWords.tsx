@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Recommendations from 'ts/components/Recommendations';
-import NothingFound from 'ts/components/NothingFound';
+import { Title, NothingFound } from 'ts/components/Layout';
 import PageWrapper from 'ts/components/Page/wrapper';
-import CandyChart from 'ts/components/CandyChart';
-import Title from 'ts/components/Title';
+import { CandyChart } from 'ts/components/Charts';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 
 interface IPopularWordsProps {

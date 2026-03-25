@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import Wrapper, { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/checkbox.module.scss';

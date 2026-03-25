@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from '../../styles/footer.module.scss';
+import style from './index.module.scss';
 
 interface IButtonProps {
   icon: string;

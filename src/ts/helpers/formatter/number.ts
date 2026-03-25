@@ -1,0 +1,10 @@
+export function get2Number(time: number) {
+  return time < 10 ? `0${time}` : time;
+}
+
+export function getShortNumber(value: number) {
+  if (value === Infinity || value === -Infinity) return '—';
+  const module = value < 0 ? (value * -1) : value;
+  const fractionDigits = module < 15 ? 1 : 0;
+  return (value || 0).toFixed(fractionDigits);
+}

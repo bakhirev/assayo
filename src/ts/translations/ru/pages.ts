@@ -32,7 +32,7 @@ export default `
 § page.team.author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § page.team.author.description2: *Сортировка по умолчанию* — это сортировка по количеству задач и группам (текущие, уволенные, помогающие  сотрудники).
 § page.team.author.status: Статус
-§ page.team.author.company: Компания
+§ page.team.author.company: Субподрядчик
 § page.team.author.firstCommit: Первый коммит
 § page.team.author.lastCommit: Последний
 § page.team.author.daysAll: Всего дней
@@ -60,17 +60,17 @@ export default `
 § page.team.author.absence.to: по
 § page.team.author.absence.duration: дней
 § page.team.hours.title: Распределение коммитов в течении каждого дня недели
-§ page.team.month.filters.release: Релизы
-§ page.team.month.filters.absence: Отпуска и переезды
-§ page.team.month.filters.firstLastDays: Первый и последний день
-§ page.team.month.filters.authors: Все сотрудники
-§ page.team.month.filters.types: Все типы
-§ page.team.month.title: Календарь работы по проекту
-§ page.team.month.travel: (изменил местоположение)
-§ page.team.month.vacation.first: (уходит в отпуск)
-§ page.team.month.vacation.last: (вернулся из отпуска)
-§ page.team.month.work.first: (первый рабочий день)
-§ page.team.month.work.last: (последний рабочий день)
+§ plugin.team_month.filters.release: Релизы
+§ plugin.team_month.filters.absence: Отпуска и переезды
+§ plugin.team_month.filters.firstLastDays: Первый и последний день
+§ plugin.team_month.filters.authors: Все сотрудники
+§ plugin.team_month.filters.types: Все типы
+§ plugin.team_month.title: Календарь работы по проекту
+§ plugin.team_month.travel: (изменил местоположение)
+§ plugin.team_month.vacation.first: (уходит в отпуск)
+§ plugin.team_month.vacation.last: (вернулся из отпуска)
+§ plugin.team_month.work.first: (первый рабочий день)
+§ plugin.team_month.work.last: (последний рабочий день)
 § page.team.scope.title: Статистика по фичам
 § page.team.scope.scope: Фича
 § page.team.scope.days: Раб. дней
@@ -263,13 +263,14 @@ export default `
 § page.team.department.totalDays: Дней работы
 § page.team.department.totalAuthors: Количество сотрудников
 § page.team.department.months.title: Возможное количество сотрудников в отделе
-§ page.team.department.months.description: Предполагается, что таск-трекер выдает серийные номера задач. Зная максимальный номер задачи в начале и конце месяца, мы можем узнать количество заведенных задач. Зная сколько задач за этот месяц закрыли известные нам авторы, мы можем интерполировать их скорость работы на все новые задачи и предположить общую численность сотрудников, работа которых не была отраженна в логе. 
+§ page.team.department.months.description: Таск-трекер выдает серийные номера задач. Зная максимальный номер задачи в начале и конце месяца, мы можем узнать количество *новых задач*. Количество задач *исправленных* в этом месяце видим в логах. Кто их правил (*работало*) так же видим. Количество задач исправленных позже (*беклог*) так же считаем по логам следующих месяцев. Экстраполируем скорость программитов, которых мы видим, на общее количество задач, чтобы прикинуть сколько *всего программистов* должно быть в отделе. По количеству "программистов" прикидываем количество тестировщиков, аналитиков и менеджеров.
 § page.team.department.months.date: Дата
-§ page.team.department.months.tasks: Новых задач
-§ page.team.department.months.tasksInWeek: в неделю
-§ page.team.department.months.fixed: исправленно
-§ page.team.department.months.authors: Работало
-§ page.team.department.months.allAuthors: а всего сотрудников в отделе
+§ page.team.department.months.newTaskInMonth: Новых задач
+§ page.team.department.months.tasksFixedThisGroup: Исправленно
+§ page.team.department.months.tasksInBacklog: Беклог
+§ page.team.department.months.programmistInThisGroup: Работало
+§ page.team.department.months.allProgrammistInDepartment: Должно работать
+§ page.team.department.months.allUsersInDepartment: Всего сотрудников
 § page.team.building.races.title: Скорость закрытия задач
 § page.team.building.races.go: Поехали!
 § page.team.building.swimmingPool.title: Максимальная длина подписи коммита
@@ -303,7 +304,17 @@ export default `
 § page.team.recommendations.alert: Проблемы
 § page.team.recommendations.warning: Обратить внимание
 § page.team.recommendations.fact: Факты о проекте
-§ page.team.recommendations.info: Общие советы 
+§ page.team.recommendations.info: Общие советы
+§ page.team.server.title: Адреса серверов в логах
+§ page.team.server.domain: Домен
+§ page.team.server.from: с
+§ page.team.server.to: по
+§ page.team.server.protocol: Протокол
+§ page.team.server.port: Порт
+§ page.team.server.url: URL
+§ page.team.server.service: Инструмент для хостинга кода
+§ page.team.server.type.title: Сервис
+§ page.team.server.type.description: $1 или что-то похожее
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики
@@ -312,7 +323,6 @@ export default `
 § page.person.total.tasks.title: задач
 § page.person.total.tasks.description: Если коммиты правильно подписаны
 § page.person.scoring.toolbar: Позиция по этой метрике, относительно других. Два сотрудника могут занять одно место, если значение совпало. Поэтому, общее число мест может быть меньше, чем количество сотрудников.
-§ page.person.character.title: Персонаж
 § page.person.achievement.title: Достижения
 § page.person.achievement.positive: Позитивные
 § page.person.achievement.normal: Нейтральные
@@ -379,5 +389,4 @@ git может показать малое количество изменени
 § page.sponsor.share.button: Копировать ссылку
 § page.sponsor.money.description: Мы будем рады, если вы поддержите нас любой суммой! Все средства пойдут на дальнейшее развитие проекта.
 § page.sponsor.money.qr: Разовый платёж (СБП)
-§ page.sponsor.money.github: Подписка GitHub Sponsor
 `;

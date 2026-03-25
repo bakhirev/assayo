@@ -1,6 +1,3 @@
-import i18next from 'i18next';
-import { initReactI18next } from 'react-i18next';
-
 import de from '../translations/de';
 import en from '../translations/en';
 import es from '../translations/es';
@@ -52,21 +49,10 @@ export const BROWSER_LANGUAGE = navigator.languages
   .shift() || 'en';
 
 export default function initializationI18n(userLanguage?: string) {
-  const language = userLanguage
+  localization.language = userLanguage
     || localStorage.getItem('language')
     || BROWSER_LANGUAGE
     || 'en';
-
-  localization.language = language;
   localization.updateLangAttribute();
-
-  i18next.use(initReactI18next).init({
-    lng: language, // if you're using a language detector, do not define the lng option
-    debug: false,
-    resources: translations,
-    // if you see an error like: "Argument of type 'DefaultTFuncReturn' is not assignable to parameter of type xyz"
-    // set returnNull to false (and also in the i18next.d.ts options)
-    // returnNull: false,
-  });
 }
 

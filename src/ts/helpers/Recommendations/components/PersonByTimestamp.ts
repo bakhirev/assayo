@@ -7,22 +7,22 @@ const {
 } = getBuilder('timestamp');
 
 export default class RecommendationsPersonByTimestamp {
-  getTotalInfo(dataGrip: any) {
-    return dataGrip.author.list.reduce((acc: any, name: string) => {
-      const byTimestamp = dataGrip.timestamp.statisticByAuthor[name];
-      const byAuthor = dataGrip.author.statisticByName[name];
+  getTotalInfo(statisticsByCommits: any) {
+    return statisticsByCommits.author.list.reduce((acc: any, name: string) => {
+      const byTimestamp = statisticsByCommits.timestamp.totalInfoByName[name];
+      const byAuthor = statisticsByCommits.author.totalInfoByName.get(name);
       const workInWeek = byTimestamp.workByDay[5] + byTimestamp.workByDay[6];
       acc[name] = [];
 
       if (workInWeek) {
-        acc[name].push(getArgTitle('weekendDays', [workInWeek]));
+        acc[name].push(getArgTitle('totalDaysWithCommits', [workInWeek]));
       }
 
       if (byAuthor.daysLosses) {
-        acc[name].push(getArgTitle('lossesDays', [byAuthor.daysLosses]));
+        acc[name].push(getArgTitle('totalDaysWithoutCommits', [byAuthor.daysLosses]));
       }
 
-      acc[name].push(getArgTitle('allDays', [byAuthor.daysAll]));
+      acc[name].push(getArgTitle('totalDays', [byAuthor.daysAll]));
 
       acc[name].push(this.getFirstDay(byTimestamp));
 

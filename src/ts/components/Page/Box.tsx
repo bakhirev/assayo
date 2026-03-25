@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import UiKitButton from 'ts/components/UiKit/components/Button';
 

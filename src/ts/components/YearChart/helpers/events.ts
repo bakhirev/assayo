@@ -40,41 +40,41 @@ function getCallback(property: string, name: string) {
 
 function addByAuthor(events: DayEvents, authors: any[]) {
   authors.forEach((user: any) => {
-    user?.country?.forEach((travel: any) => {
-      updateEvent(events, travel.timestamp, getCallback('travel', user.author));
+    user?.countries?.forEach((travel: any) => {
+      updateEvent(events, travel.fromTimestamp, getCallback('travel', user.author));
     });
 
     if (user.isStaff) return;
 
-    updateEvent(events, user.firstCommit.timestamp, getCallback('firstDay', user.author));
+    updateEvent(events, user.firstCommitTimestamp, getCallback('firstDay', user.author));
 
     if (user.isDismissed) {
-      updateEvent(events, user.lastCommit.timestamp, getCallback('lastDay', user.author));
+      updateEvent(events, user.lastCommitTimestamp, getCallback('lastDay', user.author));
     }
   });
 }
 
 function addByRelease(events: DayEvents, releases: any[]) {
   releases.forEach((release: any) => {
-    updateEvent(events, release.lastCommit.timestamp, getCallback('release', release.title));
+    updateEvent(events, release.to.timestamp, getCallback('release', release.title));
   });
 }
 
 function addByAbsence(events: DayEvents, absence: any[]) {
   absence.forEach((item: any) => {
     if (item.duration > 30) return;
-    updateEvent(events, item.timestamp.from, getCallback('vacationStart', item.author));
-    updateEvent(events, item.timestamp.to, getCallback('vacationEnd', item.author));
+    updateEvent(events, item.from.timestamp, getCallback('vacationStart', item.author));
+    updateEvent(events, item.to.timestamp, getCallback('vacationEnd', item.author));
   });
 }
 
 export function getEvents(
   statisticByAuthors: any[],
-  dataGrip: any,
+  statisticsByCommits: any,
 ) {
   const events = new Map();
   addByAuthor(events, statisticByAuthors);
-  addByRelease(events, dataGrip.release.statistic);
-  addByAbsence(events, dataGrip.absence.statistic);
+  addByRelease(events, statisticsByCommits.release.totalInfo);
+  addByAbsence(events, statisticsByCommits.absence.totalInfo);
   return events;
 }

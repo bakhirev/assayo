@@ -1,0 +1,33 @@
+.quiz_question {
+  &_title {
+    font-size: var(--font-l);
+    font-weight: 100;
+
+    margin: 0 auto var(--space-xxl);
+    text-align: center;
+
+    color: var(--color-black);
+    background-color: var(--color-white);
+  }
+
+  &_answer {
+    display: block;
+    text-align: center;
+  }
+
+  &_hide {
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-name: quiz_question_hide;
+  }
+}
+
+@keyframes quiz_question_hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

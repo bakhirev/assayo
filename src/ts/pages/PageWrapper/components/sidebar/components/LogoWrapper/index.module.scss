@@ -1,0 +1,12 @@
+.sidebar_logo {
+  display: block;
+  padding: 0 var(--space-xxl) 0 0;
+  margin: 0 0 var(--space-xxl) 0;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .sidebar_logo {
+    padding: 0;
+  }
+}

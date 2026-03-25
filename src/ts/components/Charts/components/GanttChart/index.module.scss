@@ -1,0 +1,57 @@
+.gantt_chart {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  &_circle,
+  &_line {
+    position: absolute;
+    top: 35%;
+    bottom: 35%;
+
+    font-size: var(--font-xs);
+
+    display: block;
+    min-width: 2px;
+    padding: 0;
+
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    line-height: 1.2;
+
+    border: none;
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-14);
+    color: var(--color-black);
+  }
+
+  &_circle {
+    width: var(--border-radius-m);
+    height: var(--border-radius-m);
+    margin-top: 5px;
+    border-radius: var(--border-radius-m);
+  }
+
+  &_marker_bg,
+  &_marker_line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    line-height: 100%;
+    vertical-align: top;
+  }
+
+  &_marker_line {
+    width: 1px;
+    border-left: 1px solid var(--color-grey);
+  }
+}

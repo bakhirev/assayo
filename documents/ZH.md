@@ -1,262 +1,244 @@
-> [English](https://github.com/bakhirev/assayo) | [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md) | __[中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)__ | [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md) | [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md) | [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md) | [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md) | [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 
-> [主要文件是俄文。](https://github.com/bakhirev/assayo/blob/main/documents/RU.md) 这是一个翻译。 它可能包含错误。 如果您是母语人士，您可以帮助改进此翻译。 谢谢！
+> [English](https://github.com/bakhirev/assayo) | [Español](https://github.com/bakhirev/assayo/blob/main/documents/ES.md) | [Français](https://github.com/bakhirev/assayo/blob/main/documents/FR.md) | [Português](https://github.com/bakhirev/assayo/blob/main/documents/PT.md) | [Deutsch](https://github.com/bakhirev/assayo/blob/main/documents/DE.md) | __[中文](https://github.com/bakhirev/assayo/blob/main/documents/ZH.md)__ | [日本語](https://github.com/bakhirev/assayo/blob/main/documents/JA.md) | [한국어](https://github.com/bakhirev/assayo/blob/main/documents/KO.md) | [العربية](https://github.com/bakhirev/assayo/blob/main/documents/AR.md) | [हिन्दी](https://github.com/bakhirev/assayo/blob/main/documents/HI.md) | [Русский](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
 
 # [Assayo](https://bakhirev.github.io/?ref=github&lang=zh)
-对您的git仓库的数据进行可视化和分析 团队领导及资讯科技审核的表现工具
+创建HTML报告以分析提交的统计数据：
+- 工作节奏和加班时间数量；
+- 责任区域、功能数量和错误；
+- 同事的工作风格；
+- 员工流动率和团队构成；
+- 开发人员的位置；
+- 发布日程和假期日程；
+- 功能和项目整体的成本；
+- 需要重构的地方、已删除的文件等。
 
-**Links:** [示范表现](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/).
+**链接：** [demo](https://bakhirev.github.io/demo/?ref=github&dump=./test.txt), [online version](https://bakhirev.github.io/demo/?ref=github), [docker](https://hub.docker.com/r/bakhirev/assayo), [reddit](https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/), [habr](https://habr.com/ru/articles/852782/)
 
-**Video:** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ).
+**视频：** [english](https://www.youtube.com/watch?v=uMbhrrd25t4), [español](https://www.youtube.com/watch?v=skmctb_2rZ0), [русский](https://www.youtube.com/watch?v=jwCp_-bhrCQ)
 
-<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/facebook.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/reddit.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&via=&hashtags=IT%2Cgit%2Cstatistics%2Caudit%2Cdata-visualization%2Creport" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/twitter.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/linkedin.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&caption=Check%20your%20git%20stats%21&tags=IT%2Cgit%2Cstatistics%2Caudit%2Cdata-visualization%2Creport" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/tumblr.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.blogger.com/blog-this.g?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&n=Visualization%20and%20analysis%20of%20git%20repository&t=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/blogger.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.evernote.com/clip.action?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/evernote.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.addthis.com/bookmark.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/add.this.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://getpocket.com/edit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/getpocket.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&t=Visualization%20and%20analysis%20of%20git%20repository" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/hacker.news.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://buffer.com/add?text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/buffer.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://share.flipboard.com/bookmarklet/popout?v=2&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/flipboard.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.instapaper.com/edit?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&description=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/instapaper.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://share.diasporafoundation.org/?title=Visualization%20and%20analysis%20of%20git%20repository&url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/diaspora.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/qzone.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://vk.com/share.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository&comment=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/vk.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&appkey=&title=Visualization%20and%20analysis%20of%20git%20repository&pic=&ralateUid=" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/weibo.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/ok.ru.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://www.douban.com/recommend/?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/douban.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://www.xing.com/spi/shares/new?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/xing.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="http://widget.renren.com/dialog/share?resourceUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&srcUrl=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&title=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&description=Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/renren.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="threema://compose?text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21&id=" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/threema.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a><a href="https://lineit.line.me/share/ui?url=https%3A%2F%2Fgithub.com%2Fbakhirev%2Fassayo&text=Visualization%20and%20analysis%20of%20git%20repository%20%3A%20Check%20your%20git%20stats%21" target="_blank"><img src="https://bakhirev.github.io/assets/seo/social/line.me.jpg" title="Visualization and analysis of git repository" width="24px" height="24px"/></a>
 <a href="https://bakhirev.github.io/demo/?ref=github&dump=./test.txt" target="_blank"><img src="https://bakhirev.github.io/assets/images/index.gif" width="100%" /></a>
 
 <a name="link-0"></a>
-##### 👨‍💻 在你的新工作场所，你可以立即了解到以下信息：
-- 工作节奏和加班时间数量；
-- 职责范围、功能及错误的数量；
-- 同事们的工作风格；
-- 员工流动率以及团队组成；
-- 开发人员的位置；
-- 发布计划与假期日历；
-- 特性和整体项目的成本；
-- 需要重构的地方、已删除的文件等。
+### 目录
+- [提交统计报告](#link-1)
+  - [如何创建和查看报告？](#link-2)
+    - [使用公共服务器](#link-3)
+    - [使用NodeJS库](#link-4)
+    - [使用PHP库](#link-5)
+    - [使用Python库](#link-6)
+    - [使用Ruby库](#link-7)
+    - [使用Go库](#link-8)
+    - [使用源代码](#link-9)
+    - [使用GitHub动作](#link-10)
+    - [使用私有服务器](#link-11)
+  - [如何连接作者？](#link-12)
+  - [如何将Git数据导出到txt文件？](#link-13)
+    - [在线查看](#link-14)
+    - [离线查看](#link-15)
+    - [如果您在Windows上使用PowerShell](#link-16)
+  - [如何查看微服务组的报告？](#link-17)
+
+
+- [项目中的最佳实践](#link-18)
+  - [如何签名提交？](#link-19)
+  - [如何为提交消息添加检查？](#link-20)
+    - [使用文件commit-msg](#link-21)
+    - [使用包pre-commit](#link-22)
+
+
+- [关于此应用程序](#link-23)
+  - [如何定制界面？](#link-24)
+  - [如何从源代码重新构建HTML报告？](#link-25)
+  - [如何添加或编辑翻译？](#link-26)
+  - [架构](#link-27)
+    - [微服务的总体架构](#link-29)
+  - [反馈，评论](#link-30)
 
 <a name="link-1"></a>
-###  Table of contents
-- [Table of contents](#link-1)
-- [如何 quickly 查阅 commit 的 次数？](#link-2)
-- [如何从 git 导出数据？](#link-4)
-  - [供网上浏览](#link-5)
-  - [在没有互联网的情况下观看](#link-6)
-  - [If you use PowerShell in Windows](#link-7)
-- [如何在线查看报告？](#link-8)
-  - [Using website](#link-9)
-  - [Use the library NodeJS](#link-10)
-  - [Use the library PHP](#link-11)
-  - [Use the library Python](#link-12)
-  - [Use the library Ruby](#link-13)
-  - [Use the library Go](#link-14)
-  - [Use source code](#link-15)
-- [如何重打包报告文件？](#link-16)
-- [如何查看微服务组的报告？](#link-17)
-- [如何将界面重新配色为公司专有颜色？](#link-18)
-- [如何签署提交？](#link-19)
-- [How to add checking for commit message?](#link-20)
-  - [ Use file commit-msg](#link-21)
-  - [ Use package pre-commit](#link-22)
-- [如何自动化数据采集？](#link-23)
-  - [With backend](#link-24)
-  - [没有后端](#link-25)
-- [DevOps ](#link-26)
-  - [Github Actions](#link-27)
-  - [公共服务器](#link-28)
-  - [专用服务器](#link-29)
-- [️ About application](#link-30)
-  - [Architecture](#link-31)
-  - [释出版本大约每半年一次。接下来发生什么情况：](#link-32)
-  - [如何添加或编辑翻译？](#link-33)
-  - [愿望，建议，意见](#link-34)
+##  提交统计报告
+
 <a name="link-2"></a>
-### 🚀 如何 quickly 查阅 commit 的 次数？
-在项目的根目录中执行以下命令：
-```
-git shortlog -s -n -e
-```
+### 📈 如何创建和查看报告？
+
 <a name="link-3"></a>
-### ‍🎭 如何 combine 作者？
-在项目的 根目录 创建一个文件 `.mailmap`.
-文件内容示例:
+#### 使用公共服务器
+- 访问[网站](https://bakhirev.github.io/)
+- 按照说明
+
+<a name="link-4"></a>
+#### 使用NodeJS库
+- 执行`npx assayo`
+- 打开`./assayo/index.html`
+
+<a name="link-5"></a>
+#### 使用PHP库
+- 执行`composer require bakhirev/assayo`
+- 执行`vendor/bin/assayo`
+- 打开`./assayo/index.html`
+
+<a name="link-6"></a>
+#### 使用Python库
+- 执行`pipx install assayo`
+- 执行`assayo`
+- 打开`./assayo/index.html`
+
+<a name="link-7"></a>
+#### 使用Ruby库
+- 执行`gem install assayo`
+- 执行`assayo`
+- 打开`./assayo/index.html`
+
+<a name="link-8"></a>
+#### 使用Go库
+- 执行`go get github.com/bakhirev/assayo`
+- 执行`go install github.com/bakhirev/assayo`
+- 执行`assayo`
+- 打开`./assayo/index.html`
+
+<a name="link-9"></a>
+#### 使用源代码
+- 下载此存储库
+- 将文件`log.txt`放在`/build`中
+- 打开`/build/index.html`
+- 或将文件夹`/build`放在您的存储库中（`log.txt`所在的位置）。您可以更改名称。例如，从`/build`更改为`/report`。
+
+在这种情况下，重要的是文件`log.txt`通过命令生成以进行离线查看。
+
+<a name="link-10"></a>
+####  使用GitHub动作
+在文件夹`.github/workflows/`中添加[脚本](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml)或使用市场上的此[动作](https://github.com/marketplace/actions/assayo)。一个准备好的和更新的报告将保存在artifact中。
+
+<a name="link-11"></a>
+#### 使用私有服务器
+- 下载[docker](https://hub.docker.com/r/bakhirev/assayo)镜像；
+- 在本地网络中运行；
+- 使用Web界面查看报告，在URL参数中设置数据URL`dump`：
+
+```
+http://assayo_url/?dump=//you_url/some/log.txt
+assayo_url - 容器assayo的URL，监听端口80；
+you_url    - Git日志的容器URL；
+```
+默认情况下，镜像将在`http://127.0.0.1:80/`中运行。如果不起作用，请检查端口80是否可用。
+
+<a name="link-12"></a>
+### ‍🎭 如何连接作者？
+在项目的根目录中，您需要创建一个文件`.mailmap`。
+
+文件内容示例：
 ```
 Alex B <alex@mail.uk>
 Alex B <alex@mail.uk> <alex@gov.tk>
 Alex B <alex@mail.uk> <bakhirev@ya.kz>
 Alex B <alex@mail.uk> <man64@yahoo.com>
 ```
-关于这个文件格式的 详情 可以 参考 [这里](https://git-scm.com/docs/gitmailmap).
-<a name="link-4"></a>
-### 📤 如何从 git 导出数据？
-<a name="link-5"></a>
-####  供网上浏览
-在项目的根目录执行：
-```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
-```
-<a name="link-6"></a>
-####  在没有互联网的情况下观看
-```
-git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
-```
-Git会创建一个文件 `log.txt`. 这个文件包含了构建报告的数据。 字符串格式的区别在于它们具有的包装。无网络格式将会像您只是简单地打开了js文件一样被加载。 `/build/index.html`
-<a name="link-7"></a>
-####  If you use PowerShell in Windows
-By default, the output encoding may not match UTF-8 and the resulting log file will be unreadable. Before saving the log, you can change the encoding with the command.
+了解有关此文件格式的更多信息[这里](https://git-scm.com/docs/gitmailmap)。
+
+<a name="link-13"></a>
+### 📤 如何将Git数据导出到txt文件？
+
+<a name="link-14"></a>
+####  在线查看
+在项目的根目录中执行：
+
+<a name="link-15"></a>
+####  离线查看
+Git将创建一个文件`log.txt`。此文件包含显示报告的数据。在线和离线格式之间的区别是字符串的包装。离线格式将作为文件`js`加载，如果您只打开`/build/index.html`
+
+<a name="link-16"></a>
+#### 如果您在Windows上使用PowerShell
+默认情况下，输出编码可能不符合UTF-8，并且生成的日志文件将无法读取。在保存日志之前，您可以使用命令更改编码。
 ```
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
-Or open a saved file and manually change the encoding to UTF-8.
-<a name="link-8"></a>
-### 📈 如何在线查看报告？
-<a name="link-9"></a>
-####  Using website
-- 切换到 [网站](https://bakhirev.github.io/)
-- 按下按钮 “[示范](https://bakhirev.github.io/demo?lang=ru)”
-- 拖放文件 `log.txt` 在浏览器窗口中
-
-<a name="link-10"></a>
-####  Use the library NodeJS
-- run `npx assayo`
-- open `./assayo/index.html`
-
-<a name="link-11"></a>
-####  Use the library PHP
-- run `composer require bakhirev/assayo`
-- run `vendor/bin/assayo`
-- open `./assayo/index.html`
-
-<a name="link-12"></a>
-####  Use the library Python
-- run `pipx install assayo`
-- run `assayo`
-- open `./assayo/index.html`
-
-<a name="link-13"></a>
-####  Use the library Ruby
-- run `gem install assayo`
-- run `assayo`
-- open `./assayo/index.html`
-
-<a name="link-14"></a>
-####  Use the library Go
-- run `go get github.com/bakhirev/assayo`
-- run `go install github.com/bakhirev/assayo`
-- run `assayo`
-- open `./assayo/index.html`
-
-<a name="link-15"></a>
-####  Use source code
-- 下载这个存储库
-- 拖放文件 `log.txt` 到文件夹 `/build`
-- 要运行 `/build/index.html`
-- 或是拖放文件夹 `/build` 到我的仓库 (它所在的地方 `log.txt`). 可以改变名称。比如，从名称 `/build` 到名称 `/report`
-
-重要的事情是，必须让log.txt这个文件是通过命令创建出来的，这样它就可以在没有网的时候查看了。
-<a name="link-16"></a>
-### 🏭 如何重打包报告文件？
-- 下载这个储存库
-- 要执行 `npm install`
-- 要执行 `npm run build:local`
-- 最新的构建将在文件夹 `/build`
+或者打开保存的文件并手动将编码更改为UTF-8。
 
 <a name="link-17"></a>
 ### 🗃️ 如何查看微服务组的报告？
-- 为每个微服务生成文件 `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等)
-- 参见“如何在有网络环境下查看报告”。在最后一步，将所有文件同时拖入浏览器窗口。
-- 参见“如何在没有网络环境下查看报告”。第二步将所有微服务文件拖动到 (`log-1.txt`, `log-2.txt`, `log-3.txt` 等等) 到报表文件夹 (`/build`).
+- 为每个微服务文件`log.txt`（`log-1.txt`, `log-2.txt`, `log-3.txt`等）生成。您可以手动执行，或者使用[Assayo Crawler](https://github.com/bakhirev/assayo-crawler)模块进行自动日志收集；
+- 查看“如何查看在线报告？”。在最后一步，将所有文件一次性拖放到浏览器窗口中。
+- 查看“如何查看离线报告？”。在第二步，将所有微服务文件（`log-1.txt`, `log-2.txt`, `log-3.txt`等）拖放到报告文件夹(`/build`)中。
 
 <a name="link-18"></a>
-### 🎨 如何将界面重新配色为公司专有颜色？
-您可以为界面创建自己的主题。可以修改：
-- **标题**. 你可以在网址参数中指定它 ```title```. 例如: ```?title=You Company```
-- **Themes**. 为了做到这一点，你需要准备一个CSS文件并在网址参数中指明其地址 ```theme```. 例如: ```?theme=//company.com/some.css```. 你可以使用类名作为选择器。大多数情况下，他们在新版本发布时不会发生变化。
-- **语言**. 你可以把它放在网址的参数中。 ```lang```. 例如: ```?lang=es```
+## 项目中的最佳实践
 
-
-**Example:** [demo](https://bakhirev.github.io/demo/themes/)
 <a name="link-19"></a>
-### 📝 如何签署提交？
-遵循实践 [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). 例如:
+### 📝 如何签名提交？
+遵循[Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)。示例：
 ```
-JIRA-1234 feat(profile): Added avatar for user 
+JIRA-1234 feat(profile): Added avatar for user
 ```
-- 任务号 `(JIRA-1234)`
-- 工作类别 `(feat, fix, style, refactor, test, doc 等等)`
-- 工作领域 `(profile - 地盘组, 网页 或新功能, 一句话)`
-- 职位描述 `(Added avatar for user)`
+- 任务跟踪器中的任务编号`(JIRA-1234)`
+- 工作类型`(feat, fix, style, refactor, test, doc等)`
+- 功能`(profile - 网站上的新页面或新功能，使用一个（两个）短词或缩写)`
+- 解决了什么问题`(Added avatar for user)`
 
 <a name="link-20"></a>
-### 👮 How to add checking for commit message?
+### 👮 如何为提交消息添加检查？
+
 <a name="link-21"></a>
-####   Use file `commit-msg`
-1. Create file `commit-msg` in folder `.git/hooks/`
-2. Add this text in file:
+####  使用文件commit-msg
+1. 在文件夹.git/hooks/中创建文件`commit-msg`
+2. 在文件中添加此文本：
 ```
 #!/usr/bin/env bash
-if ! grep -iqE "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})" "$1"; then
+if ! grep -iqE "(JIRA-[0-9]{1,5})(s)(feat|fix|docs|style|refactor|test|chore)((([a-z0-9_-]{1,})){0,})(:s)([a-z]{1,})" "$1"; then
    echo "Need commit message like: JIRA-12 fix(profile): some text. Read Semantic Commit Messages" >&2
    exit 1
 fi
 ```
+
 <a name="link-22"></a>
-####   Use package [pre-commit](https://www.npmjs.com/package/pre-commit)
-1. Add in file `package.json` property `commit-msg`:
+#### 使用包[pre-commit](https://www.npmjs.com/package/pre-commit)
+1. 在文件`package.json`中添加属性`commit-msg`：
 ```
-  ...
-  "commit-msg": {
-    "regex": "(JIRA-[0-9]{1,5})(\\s)(feat|fix|docs|style|refactor|test|chore)((\\([a-z0-9_-]{1,}\\)){0,})(:\\s)([a-z]{1,})",
+...
+"commit-msg": {
+  "regex": "(JIRA-[0-9]{1,5})(\s)(feat|fix|docs|style|refactor|test|chore)((\([a-z0-9_-]{1,}\)){0,})(:\s)([a-z]{1,})",
     "error-message": "Need commit message like: JIRA-12 fix(profile): some text Read Semantic Commit Messages"
-  },
-  ...
+},
+...
 ```
-2. Run command `npm install pre-commit`
+2. 运行命令`npm install pre-commit`
+
 <a name="link-23"></a>
-### 📚 如何自动化数据采集？
+##  关于此应用程序
+
 <a name="link-24"></a>
-####  With backend
-- use module [Assayo Crawler](https://github.com/bakhirev/assayo-crawler);
+### 🎨 如何定制界面？
+您可以创建自己的界面主题。选项：
+- **标题**。您可以在URL参数`title`中设置默认文档标题。示例：`?title=You Company`
+- **可视化主题**。为此，您需要准备一个包含新样式的CSS文件，并在参数`theme`中指定其URL。示例：`?theme=//company.com/some.css`。您可以使用类名作为选择器。大多数在新版本中不会改变。
+- **语言**。您可以在URL参数`lang`中设置语言。示例：`?lang=es`
+
+**示例**：[demo](https://bakhirev.github.io/demo/themes/)
 
 <a name="link-25"></a>
-####  没有后端
-- 克隆您的仓库;
-- 复制文件夹 `build` 从当前仓库;
-- 打开 `build/index.html` 在浏览器中添加书签;
-- 添加一个快捷方式 `build/assets/ci-cd.sh` 自动启动文件夹 (Windows);
+### 🛠️ 如何从源代码重新构建HTML报告？
+- 下载此存储库`git clone https://github.com/bakhirev/assayo.git`
+- 执行`npm install`
+- 执行`npm run build:local`
+- 新的HTML构建将在`/build`文件夹中
 
-每次重启计算机，该脚本将更新统计数据，这些数据自动添加到主分支中。
 <a name="link-26"></a>
-### 🛠️ DevOps (CI/CD)
-<a name="link-27"></a>
-####  Github Actions
-Add [script](https://github.com/bakhirev/assayo/blob/main/documents/ActionExample.yml) in folder `.github/workflows/` or use this [action](https://github.com/marketplace/actions/assayo) from the marketplace.
-<a name="link-28"></a>
-####  公共服务器
-您可以将数据构建报告文件发布到公共URL，可以使用网站来显示它。 [assayo](https://bakhirev.github.io/). 指定数据所在的地址作为URL参数 ```dump```:
-```
-https://bakhirev.github.io/demo/?dump=//you_site.com/some/log.txt
-```
-<a name="link-29"></a>
-####  专用服务器
-- 下载 [docker镜像](https://hub.docker.com/r/bakhirev/assayo);
-- 在本地网络中运行它;
-- 使用web界面查看报告，并指定数据所在地址作为URL参数 ```dump```:
+### 🈯 如何添加或编辑翻译？
+您可以在`ts/translations/`文件夹中添加新翻译或更正现有翻译。
+[指南](https://github.com/firstcontributions/first-contributions)
 
-```
-http://assayo_url/?dump=//you_url/some/log.txt
-assayo_url - assayo容器的URL地址，它监听80端口;
-you_url    - git日志的容器的URL地址;
-```
-默认情况下，镜像会被启动在地址 ```http://127.0.0.1:80/```. 如果没有成功，请检查你的80端口是否可用.
-<a name="link-30"></a>
-### 🛠️ ️ About application
-<a name="link-31"></a>
-#### 📐 Architecture
+<a name="link-27"></a>
+### 📐 架构
+
+<a name="link-29"></a>
+#### 微服务的总体架构
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
-1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) displays a list of available reports. Each report consists of a title, description, and a list of repositories.
-2. [Crawler service](https://github.com/bakhirev/assayo-crawler) collects repository logs for the report.
-3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
-<a name="link-32"></a>
-#### 🈯 释出版本大约每半年一次。接下来发生什么情况：
-看 [主要文件](https://github.com/bakhirev/assayo/blob/main/documents/RU.md)
-<a name="link-33"></a>
-#### 🗺️ 如何添加或编辑翻译？
-您可以在“翻译”部分添加新翻译或更正当前翻译。 ```ts/translations/```.
-[指示手册](https://github.com/firstcontributions/first-contributions)
-<a name="link-34"></a>
-#### 📧 愿望，建议，意见
-- telegramm [@bakhirev](https://t.me/bakhirev) (优先通信方法)
-- [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
-- 网站 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)
+1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase)显示可用报告列表。每个报告包括标题、描述和存储库列表。
+2. [Crawler service](https://github.com/bakhirev/assayo-crawler)为报告收集存储库日志。
+3. [Log visualization UI](https://github.com/bakhirev/assayo)（**您在这里**）显示报告。需要日志文件才能工作。
 
+<a name="link-30"></a>
+### 📧 反馈，评论
+- 📱 [https://t.me/bakhirev](https://t.me/bakhirev) (优先通信方法)
+- 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
+- 🌐 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=zh)
 

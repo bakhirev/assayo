@@ -1,6 +1,6 @@
 import React from 'react';
 
-import dataGripStore from 'ts/store/DataGrip';
+import statisticStore from 'ts/store/Statistics';
 
 import Day from './Day';
 import IMonth from '../interfaces/Month';
@@ -24,7 +24,7 @@ function Body({
   const allDays = (new Array(6 * 7)).fill(0);
   let currentDay = 0;
 
-  const events = showEvents ? getEvents(dataGripStore) : {};
+  const events = showEvents ? getEvents(statisticStore) : {};
   const days = allDays.map((v: any, index: number) => {
     const dayInfo = month.commits[currentDay];
 

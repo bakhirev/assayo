@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Title from 'ts/components/Title';
 import { t } from 'ts/helpers/Localization';
-import Banner from 'ts/components/Banner';
+import { Banner, Title } from 'ts/components/Layout';
 
 import Card from './components/Card';
 import CardForPrint from './components/CardForPrint';

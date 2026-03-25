@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'ts/components/Translation';
 
 import style from '../styles/wrapper.module.scss';
 
@@ -23,11 +23,11 @@ function UiKitWrapper({
   className,
   children,
 }: IUiKitWrapperProps) {
-  const { t } = useTranslation();
+  const { t, text } = useTranslation();
   return (
     <div
       className={`${style.ui_kit_wrapper} ${className || ''}`}
-      title={t(help || '')}
+      title={text(help || '')}
     >
       {title && (
         <h6 className={style.ui_kit_title}>
@@ -40,7 +40,7 @@ function UiKitWrapper({
         </p>
       )}
       {children}
-      {help && (
+      {example && (
         <p className={style.ui_kit_help}>
           {t(example || '')}
         </p>

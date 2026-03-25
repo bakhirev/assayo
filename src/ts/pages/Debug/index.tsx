@@ -5,7 +5,7 @@ import CardForPrint from 'ts/components/Recommendations/components/CardForPrint'
 import ACHIEVEMENT_LIST from 'ts/helpers/achievement/constants/list';
 
 import Achievement from 'ts/components/Achievement/components/Item';
-import Title from 'ts/components/Title';
+import { Title } from 'ts/components/Layout';
 
 function getFlatRecommendations(translations: any, list: any[] = []) {
   if (!translations) return list;
@@ -25,8 +25,8 @@ function getFlatRecommendations(translations: any, list: any[] = []) {
 }
 
 function DebugPage() {
-  const translations = localization.translations[localization.language];
-  const recommendations = getFlatRecommendations(translations.recommendations)
+  const translations = localization.translations.get(localization.language) as any;
+  const recommendations = getFlatRecommendations(translations?.recommendations)
     .map((recommendation: any) => (
       <CardForPrint
         key={recommendation[1]}

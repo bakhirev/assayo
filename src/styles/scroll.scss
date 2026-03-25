@@ -3,10 +3,12 @@
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
+    border-radius: 4px;
     background-color: #DDDDDD;
   }
 
   &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
     background: #AAAAAA;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Description from 'ts/components/Description';
+import { Description } from 'ts/components/Layout';
 import localization from 'ts/helpers/Localization';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 

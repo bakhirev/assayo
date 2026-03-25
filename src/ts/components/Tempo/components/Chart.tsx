@@ -25,7 +25,7 @@ function Chart({ tasks }: IChartProps) {
     return (
       <div
         key={hours}
-        className={`${style.tempo_chart_dot}`}
+        className={style.tempo_chart_dot}
         title={`${size} строк с ${get2Number(hours)}:00 до ${get2Number(hours + 1)}:00`}
         style={{ left: `${left}%`, height: `${height}%` }}
       />

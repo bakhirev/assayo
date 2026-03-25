@@ -28,19 +28,19 @@ export default class Recommendations {
 
   person:any = {};
 
-  updateTotalInfo(dataGrip: any) {
+  updateTotalInfo(statisticsByCommits: any) {
     this.team = {
-      byScope: this.byScope.getTotalInfo(dataGrip),
-      byAuthor: this.byAuthor.getTotalInfo(dataGrip),
-      byType: this.byType.getTotalInfo(dataGrip),
-      byWeek: this.byWeek.getTotalInfo(dataGrip),
-      byTimestamp: this.byTimestamp.getTotalInfo(dataGrip),
-      byHour: this.byHour.getTotalInfo(dataGrip),
+      byScope: this.byScope.getTotalInfo(statisticsByCommits),
+      byAuthor: this.byAuthor.getTotalInfo(statisticsByCommits),
+      byType: this.byType.getTotalInfo(statisticsByCommits),
+      byWeek: this.byWeek.getTotalInfo(statisticsByCommits),
+      byTimestamp: this.byTimestamp.getTotalInfo(statisticsByCommits),
+      byHour: this.byHour.getTotalInfo(statisticsByCommits),
     };
 
     this.person = {
-      byWeek: this.personByWeek.getTotalInfo(dataGrip),
-      byTimestamp: this.personByTimestamp.getTotalInfo(dataGrip),
+      byWeek: this.personByWeek.getTotalInfo(statisticsByCommits),
+      byTimestamp: this.personByTimestamp.getTotalInfo(statisticsByCommits),
     };
   }
 

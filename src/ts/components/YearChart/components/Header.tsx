@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { DataGripMonth } from 'ts/helpers/DataGrip/components/month';
+import { StatisticsMonth } from 'ts/helpers/StatisticsByCommits/components/month';
 import { getCustomDate } from 'ts/helpers/formatter';
 
 import style from '../styles/index.module.scss';
 
 interface IHeaderProps {
   showYear: boolean;
-  month: DataGripMonth;
+  month: StatisticsMonth;
 }
 
 function Header({

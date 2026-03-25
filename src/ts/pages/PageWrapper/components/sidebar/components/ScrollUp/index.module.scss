@@ -1,0 +1,70 @@
+.scroll_up_button {
+  position: relative;
+
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 240px;
+  margin-left: -24px;
+
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &_wrapper {
+    position: sticky;
+    top: calc(50vh - 15px);
+
+    display: inline-block;
+    height: 150px;
+
+    text-align: center;
+  }
+
+  &_icon {
+    position: relative;
+    top: 118px;
+
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+
+    transform: rotate(180deg);
+    animation: scroll_up_button_icon linear 2s backwards infinite;
+  }
+}
+
+@keyframes scroll_up_button_icon {
+  from {
+    opacity: 0;
+    top: 118px;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    top: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .scroll_up_button {
+    width: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .scroll_up_button {
+    display: none;
+  }
+}

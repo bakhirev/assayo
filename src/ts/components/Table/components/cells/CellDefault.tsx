@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { MARKER } from 'ts/helpers/copyPasteFormatter';
 import { IColumn } from '../../interfaces/Column';
 import getClassName from '../../helpers/getClassName';
 import style from '../../styles/index.module.scss';
@@ -37,7 +38,7 @@ function DefaultCell({
 
   const content: any = typeof column.template === 'function'
     ? column.template(formattedValue, row, rowIndex)
-    : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}`;
+    : `${column.prefixes ?? ''}${formattedValue ?? ''}${column.suffixes ?? ''}${MARKER}`;
 
   const cellTitle = typeof content === 'string' && content.length > 20
     ? content
@@ -45,7 +46,7 @@ function DefaultCell({
 
   return (
     <div
-      key={column.title} // @ts-ignore
+      key={String(column.title)} // @ts-ignore
       title={cellTitle}
       className={localClassName}
       style={{

@@ -1,0 +1,9 @@
+.plugin_team_files_table{
+  &_select {
+    display: inline;
+    opacity: 1;
+  }
+  &_not_select {
+    opacity: 0.3;
+  }
+}
