@@ -12,7 +12,7 @@ import style from './index.module.scss';
 
 function WarningInfo() {
   return (
-    <h4 className={style.welcome_warning}>
+    <div className={style.welcome_warning}>
       <Description
         translationId="page.welcome.warning1"
         className={style.welcome_warning_text}
@@ -21,14 +21,14 @@ function WarningInfo() {
         translationId="page.welcome.warning2"
         className={style.welcome_warning_text}
       />
-    </h4>
+    </div>
   );
 }
 
 function Welcome() {
   const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt\n';
   // @ts-ignore
-  const hasYandexMetrika = window.ym;
+  const hasYandexMetrika = true || window.ym;
   return (
     <>
       {hasYandexMetrika && (<WarningInfo />)}
