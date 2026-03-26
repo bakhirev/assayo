@@ -56,7 +56,11 @@ export default class StatisticsByEmail {
       statisticsByAuthor.list.map((name: string, index: number) => ([name, index])),
     );
     this.totalInfo = Array.from(this.commits.values())
-      .sort((a: any, b: any) => indexByAuthor[a.author] - indexByAuthor[b.author]);
+      .sort((a: any, b: any) => {
+        const order = indexByAuthor[a.author] - indexByAuthor[b.author];
+        if (order) return order;
+        return a.type - b.type;
+      });
     this.totalInfoByName = this.commits;
     this.commits = new Map();
   }

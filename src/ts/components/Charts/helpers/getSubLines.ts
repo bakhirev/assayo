@@ -37,9 +37,9 @@ export default function getSubLines(
   }
 
   const currentMax = list.reduce((a, c) => a + c[1], 0);
-  const allItems: ISubLine[] = [];
-  const normal: ISubLine[] = [];
-  const other: ISubLine[] = [];
+  let allItems: ISubLine[] = [];
+  let normal: ISubLine[] = [];
+  let other: ISubLine[] = [];
 
   let normalWidth = 0;
   list.forEach(([title, value]: any) => {
@@ -55,12 +55,18 @@ export default function getSubLines(
     }
   });
 
-  if (other.length === 0) return normal;
-  if (other.length === 1) {
-    return other[0].width > 1
-      ? allItems
-      : normal;
+  allItems = allItems.filter((item: any) => item.width >= 1);
+  normal = normal.filter((item: any) => item.width >= 1);
+
+  if (other.length === 0) {
+    return normal;
   }
-  return [...normal, getFormattedOther(other, normalWidth, otherTitle || '...')]
-    .filter((item: any) => item.width >= 1);
+  if (other.length === 1) {
+    return allItems;
+  }
+
+  const totalOther = getFormattedOther(other, normalWidth, otherTitle || '...');
+  return totalOther.width > 1
+    ? [...normal, totalOther]
+    : normal;
 }

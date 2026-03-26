@@ -13,13 +13,13 @@ export interface IFileChange {
 }
 
 export enum EmailType {
-  UNKNOWN = 0,
-  ACCOUNT = 1,
-  GITHUB = 2,
-  MAIL = 3,
-  COMPANY = 4,
+  MAIL = 1,
+  COMPANY = 2,
+  ACCOUNT = 3,
+  GITHUB = 4,
   NETWORK = 5,
   DEVICE = 6,
+  UNKNOWN = 7,
 }
 
 export interface ILog {

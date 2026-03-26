@@ -53,7 +53,7 @@ function SmallCards({ user }: PageOptions): React.ReactElement {
           title="plugin.person_total.small.country"
         />
         <SmallCardWithIcon
-          value={user.emails[user.emails.length - 1]}
+          value={user.emails[0]}
           icon="./assets/cards/mail.svg"
           title="plugin.person_total.small.email"
         />

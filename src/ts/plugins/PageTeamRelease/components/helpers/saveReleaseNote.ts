@@ -21,7 +21,8 @@ function getTextBeginningWithCapitalLetter(text?: string) {
 }
 
 function getTaskDescription(pr: any, taskById: any) {
-  let message = pr.message.substring(pr.message.lastIndexOf(':') + 2)
+  const formattedMessage = pr.message || '';
+  let message = formattedMessage.substring(formattedMessage.lastIndexOf(':') + 2)
     .replace(pr.task, '')
     .trim();
 

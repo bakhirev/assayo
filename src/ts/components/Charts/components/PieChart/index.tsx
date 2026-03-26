@@ -39,15 +39,18 @@ function PieChart({
   center,
   className,
 }: IPieChartProps): React.ReactElement | null {
+  if (!details) return null;
+
   const { t } = useTranslation();
   const formattedMax = max || 100;
-  const defaultLimit = (order && order?.length > 7)
+  const formattedOrder = order || Object.keys(details);
+  const defaultLimit = formattedOrder?.length > 7
     ? formattedMax * 0.2
     : 1;
   const formattedLimit = limit || defaultLimit;
-  const parts = getSubLines(details, order, formattedLimit, other);
+  const parts = getSubLines(details, formattedOrder, formattedLimit, other);
   const alignItems = parts.length > 6 ? 'flex-start' : 'center';
-  const color = new ColorGenerator(order || Object.keys(details));
+  const color = new ColorGenerator(formattedOrder);
 
   return (
     <div className={`${style.pie_chart} ${className || ''}`}>

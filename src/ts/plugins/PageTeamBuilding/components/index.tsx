@@ -15,13 +15,13 @@ import style from './styles/quiz.module.scss';
 const TeamBuilding = observer((): React.ReactElement => {
   const tracksAuth = statisticStore.statisticsByCommits.author.totalInfo
     .filter((item: any) => !item.isStaff);
-  const order = tracksAuth.map((statistic: any) => statistic.taskInDay);
+  const order = tracksAuth.map((statistic: any) => statistic.totalTaskInDay);
   order.sort((a:number, b:number) => b - a);
   const tracks = tracksAuth.map((statistic: any) => ({
     title: statistic.author,
-    position: order.indexOf(statistic.taskInDay) + 1,
-    taskInDay: statistic.taskInDay,
-    speed: statistic.taskInDay / order[0],
+    position: order.indexOf(statistic.totalTaskInDay) + 1,
+    taskInDay: statistic.totalTaskInDay,
+    speed: statistic.totalTaskInDay / order[0],
   }));
 
   const maxMessageLength = [...tracksAuth]
