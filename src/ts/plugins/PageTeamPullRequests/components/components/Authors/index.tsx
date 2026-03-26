@@ -5,6 +5,7 @@ import { Pagination, FakeDataLoader } from 'ts/components/DataLoader';
 import { Title } from 'ts/components/Layout';
 import statisticStore from 'ts/store/Statistics';
 import { getGroupsBy } from 'ts/helpers/charts';
+import { getShortNumber } from 'ts/helpers/formatter';
 
 import View from './View';
 import { getGroupsByAuthors } from './helpers';
@@ -31,8 +32,8 @@ const Authors = observer(({
         daysWorkOnTask: daysWorkOnTask.details,
         daysTotalValue,
         daysTotalDetails: {
-          'plugin.team_pull_requests.author.work': daysWorkOnTask.weightedAverage,
-          'plugin.team_pull_requests.author.review': daysInReview.weightedAverage,
+          'plugin.team_pull_requests.author.work': getShortNumber(daysWorkOnTask.weightedAverage),
+          'plugin.team_pull_requests.author.review': getShortNumber(daysInReview.weightedAverage),
         },
       };
     })

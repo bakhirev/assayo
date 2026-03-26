@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         order: 50,
         link: '/person/week/',
         title: 'sidebar.person.week',
-        icon: './assets/menu/team_week.svg',
+        icon: './assets/menu/week.svg',
       },
     ];
   }

@@ -1,49 +1,49 @@
 export default `
-§ plugin.team_tasks.sidebar: Task list
-§ plugin.team_tasks.task.title: Task list
-§ plugin.team_tasks.task.author: Author of the first commit
-§ plugin.team_tasks.task.task: Task
-§ plugin.team_tasks.task.description: Description
-§ plugin.team_tasks.task.totalAuthors: Staff members
-§ plugin.team_tasks.task.totalDaysInBacklog: In backlog
-§ plugin.team_tasks.task.totalDaysWorked: In development
-§ plugin.team_tasks.details.facts: Task information
-§ plugin.team_tasks.details.release: List of releases this task likely landed in
-§ plugin.team_tasks.release.title: Release
-§ plugin.team_tasks.release.releaseDateMerge: Published
-§ plugin.team_tasks.release.prDateMerge: Merged
-§ plugin.team_tasks.info.createdBefore: created before
+§ plugin.team_tasks.sidebar: Lista de tareas
+§ plugin.team_tasks.task.title: Lista de tareas
+§ plugin.team_tasks.task.author: Autor del primer commit
+§ plugin.team_tasks.task.task: Tarea
+§ plugin.team_tasks.task.description: Descripción
+§ plugin.team_tasks.task.totalAuthors: Miembros del Personal
+§ plugin.team_tasks.task.totalDaysInBacklog: En lista pendiente
+§ plugin.team_tasks.task.totalDaysWorked: En desarrollo
+§ plugin.team_tasks.details.facts: Información de la tarea
+§ plugin.team_tasks.details.release: Lista de versiones en las que probablemente se incluyó esta tarea
+§ plugin.team_tasks.release.title: Versión
+§ plugin.team_tasks.release.releaseDateMerge: Publicado
+§ plugin.team_tasks.release.prDateMerge: Combinado
+§ plugin.team_tasks.info.createdBefore: creado antes
 § plugin.team_tasks.info.totalDaysInBacklog: days in backlog
-§ plugin.team_tasks.info.totalAuthors: staff members worked
-§ plugin.team_tasks.info.totalDaysWorked: days in work
-§ plugin.team_tasks.info.authors: Staff members
-§ plugin.team_tasks.info.types: Commit types
-§ plugin.team_tasks.info.scope: Feature list
+§ plugin.team_tasks.info.totalAuthors: staff worked
+§ plugin.team_tasks.info.totalDaysWorked: days in progress
+§ plugin.team_tasks.info.authors: Staff
+§ plugin.team_tasks.info.types: Tipos de commit
+§ plugin.team_tasks.info.scope: Lista de características
 § plugin.team_tasks.info.commits: Commits
-§ plugin.team_tasks.charts.all: Analytics across all tasks
-§ plugin.team_tasks.charts.cardTotal.title: tasks in this category
-§ plugin.team_tasks.charts.cardTotal.description: Considering the current search filters.
-§ plugin.team_tasks.charts.cardFromCommit.title: days from commit to release
-§ plugin.team_tasks.charts.cardFromCommit.description: Average time for tasks that were in backlog for less than three months.
-§ plugin.team_tasks.charts.timeToMarket.title: Time to market (time-to-market)
-§ plugin.team_tasks.charts.timeToMarket.backlog: in backlog
-§ plugin.team_tasks.charts.timeToMarket.worked: in work
-§ plugin.team_tasks.charts.timeToMarket.review: in review
-§ plugin.team_tasks.charts.timeToMarket.release: release waiting
-§ plugin.team_tasks.charts.timeToMarket.improvements: improvements
-§ plugin.team_tasks.charts.relative.title: Days from creation to the first commit
-§ plugin.team_tasks.charts.relative.fast: up to 2 weeks
-§ plugin.team_tasks.charts.relative.normal: up to 3 months
-§ plugin.team_tasks.charts.relative.backlog: more
-§ plugin.team_tasks.charts.normal: Regular tasks
-§ plugin.team_tasks.charts.totalDays.title: Calendar days in work
-§ plugin.team_tasks.charts.totalDays.description: If the first commit is made on Friday evening and the last one on Monday morning, then the total time spent working on the task will be counted as 4 days (Fri, Sat, Sun, Mon).
-§ plugin.team_tasks.charts.workedDays.title: Actual days in work
-§ plugin.team_tasks.charts.workedDays.description: If the first commit is made on Friday evening and the last one on Monday morning, then the time spent working on the task will be counted as 2 days (Fri, Mon).
-§ plugin.team_tasks.charts.backlog: Technical debt (tasks that were added to the task tracker and not taken into development for more than three months)
-§ plugin.team_tasks.charts.authors.title: Who picked it up
-§ plugin.team_tasks.charts.authors.other: and others
-§ plugin.team_tasks.charts.await.title: How long the task stayed in backlog
-§ plugin.team_tasks.charts.worked.title: How many (calendar) days it was then worked on
-§ plugin.team_tasks.charts.other: more
+§ plugin.team_tasks.charts.all: Análisis de todas las tareas
+§ plugin.team_tasks.charts.cardTotal.title: tareas en esta categoría
+§ plugin.team_tasks.charts.cardTotal.description: Teniendo en cuenta los filtros de búsqueda actuales.
+§ plugin.team_tasks.charts.cardFromCommit.title: días desde el commit hasta la publicación
+§ plugin.team_tasks.charts.cardFromCommit.description: Tiempo promedio para tareas que estuvieron en la lista pendiente por menos de tres meses.
+§ plugin.team_tasks.charts.timeToMarket.title: Tiempo de comercialización (time-to-market)
+§ plugin.team_tasks.charts.timeToMarket.backlog: en lista pendiente
+§ plugin.team_tasks.charts.timeToMarket.worked: en desarrollo
+§ plugin.team_tasks.charts.timeToMarket.review: en revisión
+§ plugin.team_tasks.charts.timeToMarket.release: espera de lanzamiento
+§ plugin.team_tasks.charts.timeToMarket.improvements: mejoras
+§ plugin.team_tasks.charts.relative.title: Días desde la creación hasta el primer commit
+§ plugin.team_tasks.charts.relative.fast: hasta 2 semanas
+§ plugin.team_tasks.charts.relative.normal: hasta 3 meses
+§ plugin.team_tasks.charts.relative.backlog: más
+§ plugin.team_tasks.charts.normal: Tareas regulares
+§ plugin.team_tasks.charts.totalDays.title: Días calendarioio en desarrollo
+§ plugin.team_tasks.charts.totalDays.description: Si el primer commit se realiza el viernes por la noche y el último el lunes por la mañana, entonces el tiempo total dedicado al trabajo en la tarea se contará como 4 días (vie, sáb, dom, lun).
+§ plugin.team_tasks.charts.workedDays.title: Días reales en desarrollo
+§ plugin.team_tasks.charts.workedDays.description: Si el primer commit se realiza el viernes por la noche y el último el lunes por la mañana, entonces el tiempo dedicado al trabajo en la tarea se contará como 2 días (vie, lun).
+§ plugin.team_tasks.charts.backlog: Deuda técnica (tareas que se agregaron al rastreador de tareas y no se tomaron en desarrollo por más de tres meses)
+§ plugin.team_tasks.charts.authors.title: Quién la tomó
+§ plugin.team_tasks.charts.authors.other: y otros
+§ plugin.team_tasks.charts.await.title: Cuánto tiempo permaneció la tarea en la lista pendiente
+§ plugin.team_tasks.charts.worked.title: Cuántos días (calendarioio) se trabajó después
+§ plugin.team_tasks.charts.other: más
 `;

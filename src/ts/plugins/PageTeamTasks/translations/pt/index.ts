@@ -4,7 +4,7 @@ export default `
 § plugin.team_tasks.task.author: Author of the first commit
 § plugin.team_tasks.task.task: Task
 § plugin.team_tasks.task.description: Description
-§ plugin.team_tasks.task.totalAuthors: Staff members
+§ plugin.team_tasks.task.totalAuthors: Staff
 § plugin.team_tasks.task.totalDaysInBacklog: In backlog
 § plugin.team_tasks.task.totalDaysWorked: In development
 § plugin.team_tasks.details.facts: Task information
@@ -14,9 +14,9 @@ export default `
 § plugin.team_tasks.release.prDateMerge: Merged
 § plugin.team_tasks.info.createdBefore: created before
 § plugin.team_tasks.info.totalDaysInBacklog: days in backlog
-§ plugin.team_tasks.info.totalAuthors: staff members worked
-§ plugin.team_tasks.info.totalDaysWorked: days in work
-§ plugin.team_tasks.info.authors: Staff members
+§ plugin.team_tasks.info.totalAuthors: staff worked
+§ plugin.team_tasks.info.totalDaysWorked: days in progress
+§ plugin.team_tasks.info.authors: Staff
 § plugin.team_tasks.info.types: Commit types
 § plugin.team_tasks.info.scope: Feature list
 § plugin.team_tasks.info.commits: Commits

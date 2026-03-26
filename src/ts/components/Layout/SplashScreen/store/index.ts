@@ -1,5 +1,5 @@
 import { observable, action, makeObservable } from 'mobx';
-import globalScroll from 'ts/helpers/globalScroll';
+import { globalScroll } from 'ts/helpers/DOMEvents';
 
 const DEFAULT_DELAY = 3400;
 

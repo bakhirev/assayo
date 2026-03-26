@@ -74,7 +74,7 @@ export default function getDefaultConfig(): ApplicationConfig {
       'team_refactor',
       'team_release',
       'team_scope',
-      'team_server',
+      'team_emails',
       'team_tasks',
       'team_total',
       'team_types',

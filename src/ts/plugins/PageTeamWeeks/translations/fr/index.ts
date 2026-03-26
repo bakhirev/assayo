@@ -1,13 +1,13 @@
 export default `
-§ plugin.team_weeks.sidebar: By weeks
-§ plugin.team_weeks.title: Weekly statistics
-§ plugin.team_weeks.numberTasks: Number of tasks
-§ plugin.team_weeks.people: Number of people
-§ plugin.team_weeks.line: Line changes
-§ plugin.team_weeks.lossesDetails: Who did not commit
-§ plugin.team_weeks.add: added
-§ plugin.team_weeks.change: changed
-§ plugin.team_weeks.remove: removed
-§ plugin.team_weeks.hasCommits: had commits
-§ plugin.team_weeks.hasNotCommits: had no commits
+§ plugin.team_weeks.sidebar: Par semaines
+§ plugin.team_weeks.title: Statistiques hebdomadaires
+§ plugin.team_weeks.numberTasks: Nombre de tâches
+§ plugin.team_weeks.people: Nombre de personnes
+§ plugin.team_weeks.line: Changements de lignes
+§ plugin.team_weeks.lossesDetails: Qui n'a pas fait de commit
+§ plugin.team_weeks.add: ajouté
+§ plugin.team_weeks.change: modifié
+§ plugin.team_weeks.remove: supprimé
+§ plugin.team_weeks.hasCommits: a eu des commits
+§ plugin.team_weeks.hasNotCommits: n'a pas eu de commits
 `;

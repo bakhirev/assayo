@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 40,
         link: '/team/types',
         title: 'sidebar.team.type',
-        icon: './assets/menu/team_type.svg',
+        icon: './assets/menu/type.svg',
       },
     ];
   }

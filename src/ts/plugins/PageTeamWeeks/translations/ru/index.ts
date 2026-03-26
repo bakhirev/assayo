@@ -2,7 +2,7 @@ export default `
 § plugin.team_weeks.sidebar: По неделям
 § plugin.team_weeks.title: Статистика по неделям
 § plugin.team_weeks.numberTasks: Количество задач
-§ plugin.team_weeks.people: Количество человек
+§ plugin.team_weeks.people: Количество сотрудников
 § plugin.team_weeks.line: Изменение строк
 § plugin.team_weeks.lossesDetails: Кто не коммитил
 § plugin.team_weeks.add: добавили

@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 10,
         link: '/person/total/',
         title: 'plugin.person_total.sidebar',
-        icon: './assets/menu/team_common.svg',
+        icon: './assets/menu/common.svg',
       },
     ];
   }

@@ -21,7 +21,7 @@ import PageTeamRecommendations from './PageTeamRecommendations';
 import PageTeamRefactor from './PageTeamRefactor';
 import PageTeamRelease from './PageTeamRelease';
 import PageTeamScope from './PageTeamScope';
-import PageTeamServer from './PageTeamServer';
+import PageTeamEmails from './PageTeamEmails';
 import PageTeamTasks from './PageTeamTasks';
 import PageTeamDay from './PageTeamDay';
 import PageTeamTotal from './PageTeamTotal';
@@ -47,7 +47,7 @@ export default [
   PageTeamDepartments,
   PageTeamCountry,
   PageTeamVacation,
-  PageTeamServer,
+  PageTeamEmails,
   PageTeamDay,
   PageTeamWeeks,
   PageTeamMonth,

@@ -1,42 +1,42 @@
 export default `
-§ plugin.team_scope.sidebar: Features
-§ plugin.team_scope.title: Feature statistics
-§ plugin.team_scope.scope: Feature
-§ plugin.team_scope.unknown: (feature is not labeled)
-§ plugin.team_scope.days: Work days
-§ plugin.team_scope.authorsDays: Person days
-§ plugin.team_scope.tasks: Tasks
-§ plugin.team_scope.lastCommit: Last commit
-§ plugin.team_scope.commits: Commits
-§ plugin.team_scope.authors: Personal contribution
-§ plugin.team_scope.cost: Cost
-§ plugin.team_scope.details.cards: General feature information
-§ plugin.team_scope.details.charts: Who contributed
-§ plugin.team_scope.details.tasks: List of tasks within which changes were made
-§ plugin.team_scope.details.commits: List of commits matching the search filters
-§ plugin.team_scope.cards.firstCommit: first commit
-§ plugin.team_scope.cards.lastCommit: last commit
-§ plugin.team_scope.cards.totalDays.title: total work duration
-§ plugin.team_scope.cards.totalDays.description: Total development time from the first to the last commit.
-§ plugin.team_scope.cards.totalDaysWorked.title: actual days worked
-§ plugin.team_scope.cards.totalDaysWorked.description: Days when the found commits were made.
-§ plugin.team_scope.cards.totalCommits.title: commits found
-§ plugin.team_scope.cards.totalCommits.description: Commits that match the search filter specified above. Further calculations are based on them.
-§ plugin.team_scope.cards.totalTasks.title: tasks affected
-§ plugin.team_scope.cards.totalTasks.description: Unique task IDs found in commit messages.
-§ plugin.team_scope.cards.authorsDays.title: person days
-§ plugin.team_scope.cards.authorsDays.description: A unit of working time equal to one day of work by one staff member.
-§ plugin.team_scope.cards.cost.title: estimated cost
-§ plugin.team_scope.cards.cost.description: Person days spent are multiplied by the average salary.
-§ plugin.team_commits.chart.commits.title: Who made commits
-§ plugin.team_commits.chart.tasks.title: Who did tasks
-§ plugin.team_commits.chart.types.title: Commit types
-§ plugin.team_commits.chart.companies.title: Companies on whose behalf commits were made
-§ plugin.team_scope.calculator.title: Feature estimation calculator
-§ plugin.team_scope.calculator.description: Filter the required commits using search. The statistics module will group them into a feature and show its data.
-§ plugin.team_scope.tasks.task: Task
-§ plugin.team_scope.tasks.types: Types
-§ plugin.team_scope.tasks.description: Description
-§ plugin.team_scope.commits.author: Staff member
-§ plugin.team_scope.commits.message: Commit message
+§ plugin.team_scope.sidebar: 機能
+§ plugin.team_scope.title: 機能の統計情報
+§ plugin.team_scope.scope: 機能
+§ plugin.team_scope.unknown: (機能がラベル付けされていません)
+§ plugin.team_scope.days: 営業日
+§ plugin.team_scope.authorsDays: 人日
+§ plugin.team_scope.tasks: タスク
+§ plugin.team_scope.lastCommit: 最後のコミット
+§ plugin.team_scope.commits: コミット
+§ plugin.team_scope.authors: 個人の貢献度
+§ plugin.team_scope.cost: コスト
+§ plugin.team_scope.details.cards: 機能の一般的な情報
+§ plugin.team_scope.details.charts: 誰が貢献したか
+§ plugin.team_scope.details.tasks: 変更が加えられたタスクの一覧
+§ plugin.team_scope.details.commits: 検索フィルターに一致するコミットの一覧
+§ plugin.team_scope.cards.firstCommit: 最初のコミット
+§ plugin.team_scope.cards.lastCommit: 最後のコミット
+§ plugin.team_scope.cards.totalDays.title: 作業期間合計
+§ plugin.team_scope.cards.totalDays.description: 最初から最後のコミットまでの開発期間合計。
+§ plugin.team_scope.cards.totalDaysWorked.title: 実際に作業した日数
+§ plugin.team_scope.cards.totalDaysWorked.description: 見つかったコミットが作成された日。
+§ plugin.team_scope.cards.totalCommits.title: 見つかったコミット
+§ plugin.team_scope.cards.totalCommits.description: 上記で指定された検索フィルターに一致するコミット。これに基づいてさらなる計算を行います。
+§ plugin.team_scope.cards.totalTasks.title: 影響を受けるタスク
+§ plugin.team_scope.cards.totalTasks.description: コミットメッセージで見つかった一意のタスクID。
+§ plugin.team_scope.cards.authorsDays.title: 人日
+§ plugin.team_scope.cards.authorsDays.description: 1人のスタッフが1日働く作業時間の単位。
+§ plugin.team_scope.cards.cost.title: 推定コスト
+§ plugin.team_scope.cards.cost.description: 消費された人日数に平均給与を掛け合わせます。
+§ plugin.team_commits.chart.commits.title: 誰がコミットを行ったか
+§ plugin.team_commits.chart.tasks.title: 誰がタスクを実行したか
+§ plugin.team_commits.chart.types.title: コミットの種類
+§ plugin.team_commits.chart.companies.title: コミットが行われた会社
+§ plugin.team_scope.calculator.title: 機能見積もり計算機
+§ plugin.team_scope.calculator.description: 検索を使用して必要なコミットをフィルタリングします。統計モジュールがそれらを1つの機能にグループ化し、そのデータを表示します。
+§ plugin.team_scope.tasks.task: タスク
+§ plugin.team_scope.tasks.types: 種類
+§ plugin.team_scope.tasks.description: 説明
+§ plugin.team_scope.commits.author: スタッフメンバー
+§ plugin.team_scope.commits.message: コミットメッセージ
 `;

@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         order: 30,
         link: '/team/author',
         title: 'sidebar.team.author',
-        icon: './assets/menu/team_work.svg',
+        icon: './assets/menu/work.svg',
       },
     ];
   }

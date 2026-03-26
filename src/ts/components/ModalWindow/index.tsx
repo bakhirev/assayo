@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import isMobile from 'ts/helpers/isMobile';
-import globalScroll from 'ts/helpers/globalScroll';
+import { globalScroll } from 'ts/helpers/DOMEvents';
 
 import Header from './components/Header';
 import Body from './components/Body';

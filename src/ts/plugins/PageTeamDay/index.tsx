@@ -15,7 +15,7 @@ export default class Plugin implements IPlugin {
         order: 90,
         link: '/team/day',
         title: 'sidebar.team.day',
-        icon: './assets/menu/team_day.svg',
+        icon: './assets/menu/day.svg',
       },
     ];
   }

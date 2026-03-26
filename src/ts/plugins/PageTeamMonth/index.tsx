@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 110,
         link: '/team/month',
         title: 'plugin.team_month.sidebar',
-        icon: './assets/menu/team_month.svg',
+        icon: './assets/menu/month.svg',
       },
     ];
   }

@@ -16,7 +16,7 @@ export default class Plugin implements IPlugin {
         order: 130,
         link: '/team/files',
         title: 'plugin.team_files.sidebar.files',
-        icon: './assets/menu/team_files.svg',
+        icon: './assets/menu/files.svg',
       },
       {
         id: 'removedFiles',
@@ -24,7 +24,7 @@ export default class Plugin implements IPlugin {
         order: 131,
         link: '/team/removedFiles',
         title: 'plugin.team_files.sidebar.removedFiles',
-        icon: './assets/menu/team_files_remove.svg',
+        icon: './assets/menu/files_remove.svg',
       },
     ];
   }
