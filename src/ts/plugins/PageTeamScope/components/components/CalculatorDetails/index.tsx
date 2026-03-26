@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ICommit from 'ts/interfaces/Commit';
-import { Gap, Title } from 'ts/components/Layout';
+import { If, Gap, Title } from 'ts/components/Layout';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import statisticStore from 'ts/store/Statistics';
 
@@ -44,23 +44,27 @@ function CalculatorDetails({
       <Title title="plugin.team_scope.details.charts" />
       <PieCharts scope={scope} />
 
-      <Title title="plugin.team_scope.details.tasks" />
-      <FakeDataLoader
-        content={tasks}
-        watch={hash}
-      >
-        <Tasks />
-        <Pagination/>
-      </FakeDataLoader>
+      <If value={tasks}>
+        <Title title="plugin.team_scope.details.tasks" />
+        <FakeDataLoader
+          content={tasks}
+          watch={hash}
+        >
+          <Tasks />
+          <Pagination/>
+        </FakeDataLoader>
+      </If>
 
-      <Title title="plugin.team_scope.details.commits" />
-      <FakeDataLoader
-        content={commits}
-        watch={hash}
-      >
-        <Commits />
-        <Pagination/>
-      </FakeDataLoader>
+      <If value={commits}>
+        <Title title="plugin.team_scope.details.commits" />
+        <FakeDataLoader
+          content={commits}
+          watch={hash}
+        >
+          <Commits />
+          <Pagination/>
+        </FakeDataLoader>
+      </If>
     </>
   );
 }

@@ -2,8 +2,8 @@ export default `
 § plugin.team_server.sidebar: Почтовые адреса
 § plugin.team_server.title: Адреса серверов в логах
 § plugin.team_server.domain: Домен
-§ plugin.team_server.from: с
-§ plugin.team_server.to: по
+§ plugin.team_server.from: Первый коммит
+§ plugin.team_server.to: Последний коммит
 § plugin.team_server.protocol: Протокол
 § plugin.team_server.port: Порт
 § plugin.team_server.url: URL

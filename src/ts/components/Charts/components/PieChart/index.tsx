@@ -52,6 +52,8 @@ function PieChart({
   const alignItems = parts.length > 6 ? 'flex-start' : 'center';
   const color = new ColorGenerator(formattedOrder);
 
+  if (!parts.length) return null;
+
   return (
     <div className={`${style.pie_chart} ${className || ''}`}>
       <Title title={title || ''} />
