@@ -1,33 +1,37 @@
 export default `
-§ plugin.team_pull_requests.sidebar: Introdução do código
-§ plugin.team_pull_requests.task: Task
-§ plugin.team_pull_requests.tasks: tasks
-§ plugin.team_pull_requests.firstCommitTime: First commit
-§ plugin.team_pull_requests.lastCommitTime: Last
-§ plugin.team_pull_requests.workDays: Average time spent working on a task
-§ plugin.team_pull_requests.delayDays: Average time of the PR review
-§ plugin.team_pull_requests.backlogDays: The delay of the task in the backlog before the start of development
-§ plugin.team_pull_requests.all.workDays: Time spent working on a task
-§ plugin.team_pull_requests.all.delayDays: Time of the PR review
-§ plugin.team_pull_requests.middleTimeRelease: The ratio of development time to review time
-§ plugin.team_pull_requests.chart.1day: day
-§ plugin.team_pull_requests.chart.3day: three days
-§ plugin.team_pull_requests.chart.7day: week
-§ plugin.team_pull_requests.chart.14day: two weeks
-§ plugin.team_pull_requests.chart.30day: month
-§ plugin.team_pull_requests.chart.more: more
-§ plugin.team_pull_requests.date: Merge Date
-§ plugin.team_pull_requests.mergeAuthor: Merged by
-§ plugin.team_pull_requests.author: Employee
-§ plugin.team_pull_requests.work: development
-§ plugin.team_pull_requests.delay: waiting
-§ plugin.team_pull_requests.days: days
-§ plugin.team_pull_requests.oneTaskDays: Time spent on one task
-§ plugin.team_pull_requests.description1: *Development time* is the time difference from the first to the last commit on a task. It does not matter if there were breaks of several days between commits or not. Any commit increases the time.
-§ plugin.team_pull_requests.description2: *Waiting time* is the time between the last commit and the code merge. It shows the actual downtime while waiting for something.
-§ plugin.team_pull_requests.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
-§ plugin.team_pull_requests.statByAuthors: Statistics by employees
-§ plugin.team_pull_requests.longDelay: Prolonged Waiting for merge
-§ plugin.team_pull_requests.anonymous: PR without task number
-§ plugin.team_pull_requests.branch: Branch
+§ plugin.team_pull_requests.sidebar: Mesclar código
+§ plugin.team_pull_requests.total.title: Estatísticas gerais em todos os PRs
+§ plugin.team_pull_requests.total.daysWorkOnTask: Tempo médio gasto trabalhando antes de criar um PR
+§ plugin.team_pull_requests.total.daysInReview: Tempo médio de revisão de PR
+§ plugin.team_pull_requests.total.description1: *Tempo de trabalho* é o tempo entre o primeiro e o último commit de uma tarefa. Se uma tarefa tiver vários PRs, então o *tempo de trabalho* para o próximo é contado a partir da data de merge do PR anterior.
+§ plugin.team_pull_requests.total.description11: Por exemplo: se você trabalha em uma tarefa durante uma semana e no final de cada dia cria e mergeia um PR, então o tempo de trabalho para cada um desses PRs será de um dia. Mas o "tempo total gasto trabalhando na tarefa" (veja na seção "Lista de tarefas") será de uma semana.
+§ plugin.team_pull_requests.total.description2: *Tempo de revisão* é o tempo entre o último commit e a mesclagem do código. Mostra o tempo ocioso real enquanto se espera por algo.
+§ plugin.team_pull_requests.author.title: Estatísticas por membros da equipe
+§ plugin.team_pull_requests.author.author: Membro da equipe
+§ plugin.team_pull_requests.author.daysWorkOnTask: Tempo médio gasto trabalhando antes do PR
+§ plugin.team_pull_requests.author.daysInReview: Tempo médio de revisão de PR
+§ plugin.team_pull_requests.author.middleTimeRelease: Tempo de desenvolvimento para tempo de revisão
+§ plugin.team_pull_requests.author.work: trabalho
+§ plugin.team_pull_requests.author.review: revisão
+§ plugin.team_pull_requests.yearChart.title: Divisão por anos
+§ plugin.team_pull_requests.authorChart.title: Divisão por membros da equipe
+§ plugin.team_pull_requests.chart.suffix: pull requests
+§ plugin.team_pull_requests.all.title: PRs vinculados a tarefas
+§ plugin.team_pull_requests.all.task: Tarefa
+§ plugin.team_pull_requests.all.pr: PR
+§ plugin.team_pull_requests.all.message: Mensagem de commit ou branch
+§ plugin.team_pull_requests.all.dateCreate: Criado
+§ plugin.team_pull_requests.all.dateMerge: Mesclado
+§ plugin.team_pull_requests.all.daysWorkOnTask: Dias em desenvolvimento
+§ plugin.team_pull_requests.all.daysInReview: Dias em revisão
+§ plugin.team_pull_requests.anonymous.title: PRs sem IDs de tarefa
+§ plugin.team_pull_requests.anonymous.date: Data de merge
+§ plugin.team_pull_requests.anonymous.author: Mesclado por
+§ plugin.team_pull_requests.anonymous.message: Mensagem de commit ou branch
+§ plugin.team_pull_requests.chart.1day: dia
+§ plugin.team_pull_requests.chart.3day: três dias
+§ plugin.team_pull_requests.chart.7day: semana
+§ plugin.team_pull_requests.chart.14day: duas semanas
+§ plugin.team_pull_requests.chart.30day: mês
+§ plugin.team_pull_requests.chart.more: mais de
 `;

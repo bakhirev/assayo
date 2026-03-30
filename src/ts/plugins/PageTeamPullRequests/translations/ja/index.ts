@@ -1,33 +1,37 @@
 export default `
-§ plugin.team_pull_requests.sidebar: コード注入
-§ plugin.team_pull_requests.task: Task
-§ plugin.team_pull_requests.tasks: tasks
-§ plugin.team_pull_requests.firstCommitTime: First commit
-§ plugin.team_pull_requests.lastCommitTime: Last
-§ plugin.team_pull_requests.workDays: Average time spent working on a task
-§ plugin.team_pull_requests.delayDays: Average time of the PR review
-§ plugin.team_pull_requests.backlogDays: The delay of the task in the backlog before the start of development
-§ plugin.team_pull_requests.all.workDays: Time spent working on a task
-§ plugin.team_pull_requests.all.delayDays: Time of the PR review
-§ plugin.team_pull_requests.middleTimeRelease: The ratio of development time to review time
-§ plugin.team_pull_requests.chart.1day: day
-§ plugin.team_pull_requests.chart.3day: three days
-§ plugin.team_pull_requests.chart.7day: week
-§ plugin.team_pull_requests.chart.14day: two weeks
-§ plugin.team_pull_requests.chart.30day: month
-§ plugin.team_pull_requests.chart.more: more
-§ plugin.team_pull_requests.date: Merge Date
-§ plugin.team_pull_requests.mergeAuthor: Merged by
-§ plugin.team_pull_requests.author: Employee
-§ plugin.team_pull_requests.work: development
-§ plugin.team_pull_requests.delay: waiting
-§ plugin.team_pull_requests.days: days
-§ plugin.team_pull_requests.oneTaskDays: Time spent on one task
-§ plugin.team_pull_requests.description1: *Development time* is the time difference from the first to the last commit on a task. It does not matter if there were breaks of several days between commits or not. Any commit increases the time.
-§ plugin.team_pull_requests.description2: *Waiting time* is the time between the last commit and the code merge. It shows the actual downtime while waiting for something.
-§ plugin.team_pull_requests.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
-§ plugin.team_pull_requests.statByAuthors: Statistics by employees
-§ plugin.team_pull_requests.longDelay: Prolonged Waiting for merge
-§ plugin.team_pull_requests.anonymous: PR without task number
-§ plugin.team_pull_requests.branch: Branch
+§ plugin.team_pull_requests.sidebar: コードマージ
+§ plugin.team_pull_requests.total.title: すべてのプルリクエストにわたる全体の統計
+§ plugin.team_pull_requests.total.daysWorkOnTask: プルリクエスト作成前に費やされた平均作業時間
+§ plugin.team_pull_requests.total.daysInReview: プルリクエストの平均レビュー時間
+§ plugin.team_pull_requests.total.description1: *作業時間*とは、タスクに対する最初と最後のコミットの間の時間です。タスクに複数のプルリクエストがある場合、次のプルリクエストの*作業時間*は、前のプルリクエストがマージされた日からカウントされます。
+§ plugin.team_pull_requests.total.description11: たとえば、1週間タスクに取り組み、毎日の終わりにプルリクエストを作成してマージする場合、これらの各プルリクエストの作業時間は1日になります。しかし、「タスクに費やされた合計作業時間」（「タスクリスト」セクションを参照）は1週間になります。
+§ plugin.team_pull_requests.total.description2: *レビュー時間*とは、最後のコミットとコードマージの間の時間です。これは、何かを待っている間の実際の停止時間を示します。
+§ plugin.team_pull_requests.author.title: スタッフメンバー別の統計
+§ plugin.team_pull_requests.author.author: スタッフメンバー
+§ plugin.team_pull_requests.author.daysWorkOnTask: プルリクエスト前の平均作業時間
+§ plugin.team_pull_requests.author.daysInReview: プルリクエストの平均レビュー時間
+§ plugin.team_pull_requests.author.middleTimeRelease: 開発時間とレビュー時間の比率
+§ plugin.team_pull_requests.author.work: 作業
+§ plugin.team_pull_requests.author.review: レビュー
+§ plugin.team_pull_requests.yearChart.title: 年ごとの内訳
+§ plugin.team_pull_requests.authorChart.title: スタッフメンバーごとの内訳
+§ plugin.team_pull_requests.chart.suffix: プルリクエスト
+§ plugin.team_pull_requests.all.title: タスクに関連付けられたプルリクエスト
+§ plugin.team_pull_requests.all.task: タスク
+§ plugin.team_pull_requests.all.pr: プルリクエスト
+§ plugin.team_pull_requests.all.message: コミットメッセージまたはブランチ
+§ plugin.team_pull_requests.all.dateCreate: 作成日
+§ plugin.team_pull_requests.all.dateMerge: マージ日
+§ plugin.team_pull_requests.all.daysWorkOnTask: 開発日数
+§ plugin.team_pull_requests.all.daysInReview: レビュー日数
+§ plugin.team_pull_requests.anonymous.title: タスクIDのないプルリクエスト
+§ plugin.team_pull_requests.anonymous.date: マージ日
+§ plugin.team_pull_requests.anonymous.author: マージ者
+§ plugin.team_pull_requests.anonymous.message: コミットメッセージまたはブランチ
+§ plugin.team_pull_requests.chart.1day: 日
+§ plugin.team_pull_requests.chart.3day: 三日
+§ plugin.team_pull_requests.chart.7day: 一週間
+§ plugin.team_pull_requests.chart.14day: 二週間
+§ plugin.team_pull_requests.chart.30day: 一ヶ月
+§ plugin.team_pull_requests.chart.more: 以上
 `;
