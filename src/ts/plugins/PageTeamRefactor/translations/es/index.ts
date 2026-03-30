@@ -1,13 +1,13 @@
 export default `
-§ plugin.team_refactor.sidebar: Refactoring
-§ plugin.team_refactor.title: List of files that may need refactoring
-§ plugin.team_refactor.view.path: Path
-§ plugin.team_refactor.view.lines: Lines in file
-§ plugin.team_refactor.view.totalDays: Days in development
-§ plugin.team_refactor.view.totalTasks: Tasks
-§ plugin.team_refactor.tasks.task: Task
-§ plugin.team_refactor.tasks.description: Description
-§ plugin.team_refactor.charts.title: File analytics
-§ plugin.team_refactor.charts.yearChart.title: When these files were created
-§ plugin.team_refactor.charts.authorChart.title: Who works with them
+§ plugin.team_refactor.sidebar: Reestructuración
+§ plugin.team_refactor.title: Lista de archivos que pueden necesitar reestructuración
+§ plugin.team_refactor.view.path: Ruta
+§ plugin.team_refactor.view.lines: Líneas en el archivo
+§ plugin.team_refactor.view.totalDays: Días en desarrollo
+§ plugin.team_refactor.view.totalTasks: Tareas
+§ plugin.team_refactor.tasks.task: Tarea
+§ plugin.team_refactor.tasks.description: Descripción
+§ plugin.team_refactor.charts.title: Análisis de archivos
+§ plugin.team_refactor.charts.yearChart.title: Cuándo se crearon estos archivos
+§ plugin.team_refactor.charts.authorChart.title: Quién trabaja con ellos
 `;

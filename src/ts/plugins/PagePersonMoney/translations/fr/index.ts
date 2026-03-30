@@ -1,15 +1,17 @@
 export default `
-§ plugin.person_money.sidebar: Coût des travaux
-§ plugin.person_money.title.total: Pour tous les temps
-§ plugin.person_money.title.middle: Valeur moyenne
-§ plugin.person_money.moneyAll.title: reçut
-§ plugin.person_money.moneyAll.description: Montant estimatif des dépenses d & apos; appui au projet (voir paramètres)
-§ plugin.person_money.moneyWorked.title: travaillas
-§ plugin.person_money.moneyWorked.description: Jours effectivement travaillés multipliés par le nombre moyen de jours travaillés
-§ plugin.person_money.moneyLosses.title: trop-perçu possible
-§ plugin.person_money.moneyLosses.description: Jours sans commits multipliés par la moyenne SN
+§ plugin.person_money.sidebar: Coût du travail
+§ plugin.person_money.title.total: Total dans le temps
+§ plugin.person_money.title.middle: Coût moyen
+§ plugin.person_money.moneyAll.title: reçu
+§ plugin.person_money.moneyAll.description: Salaire (voir paramètres) multiplié par le nombre de mois travaillés.
+§ plugin.person_money.moneyWorked.title: travaillé
+§ plugin.person_money.moneyWorked.description: Jours avec des commits multipliés par le coût d'une journée de travail.
+§ plugin.person_money.moneyLosses.title: surpaiement possible
+§ plugin.person_money.moneyLosses.description: Jours sans commits multipliés par le coût d'une journée de travail.
+§ plugin.person_money.weekendPayment.title: travail le week-end
+§ plugin.person_money.weekendPayment.description: Surpaiement total pour le travail le week-end
 § plugin.person_money.tasks.title: tâche
-§ plugin.person_money.tasks.description: Nombre de tâches fermées au coût de la journée
+§ plugin.person_money.tasks.description: Nombre de tâches touchées par le membre du personnel divisé par le coût du travail (jours avec commits multipliés par le coût d'une journée de travail).
 § plugin.person_money.commits.title: commit
-§ plugin.person_money.commits.description: Nombre de commits par jour ouvrable
+§ plugin.person_money.commits.description: Nombre total de commits dans le temps divisé par le coût du travail (jours avec commits multipliés par le coût d'une journée de travail).
 `;

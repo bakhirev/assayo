@@ -1,13 +1,13 @@
 export default `
-§ plugin.team_refactor.sidebar: Refactoring
-§ plugin.team_refactor.title: List of files that may need refactoring
-§ plugin.team_refactor.view.path: Path
-§ plugin.team_refactor.view.lines: Lines in file
-§ plugin.team_refactor.view.totalDays: Days in development
-§ plugin.team_refactor.view.totalTasks: Tasks
-§ plugin.team_refactor.tasks.task: Task
-§ plugin.team_refactor.tasks.description: Description
-§ plugin.team_refactor.charts.title: File analytics
-§ plugin.team_refactor.charts.yearChart.title: When these files were created
-§ plugin.team_refactor.charts.authorChart.title: Who works with them
+§ plugin.team_refactor.sidebar: リファクタリング
+§ plugin.team_refactor.title: リファクタリングが必要な可能性があるファイルのリスト
+§ plugin.team_refactor.view.path: パス
+§ plugin.team_refactor.view.lines: ファイルの行数
+§ plugin.team_refactor.view.totalDays: 開発日数
+§ plugin.team_refactor.view.totalTasks: タスク
+§ plugin.team_refactor.tasks.task: タスク
+§ plugin.team_refactor.tasks.description: 説明
+§ plugin.team_refactor.charts.title: ファイル分析
+§ plugin.team_refactor.charts.yearChart.title: これらのファイルが作成された時期
+§ plugin.team_refactor.charts.authorChart.title: 誰がこれらを扱っているか
 `;

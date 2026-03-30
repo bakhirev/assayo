@@ -1,49 +1,57 @@
 export default `
-§ plugin.team_tasks.sidebar: Task list
-§ plugin.team_tasks.task.title: Task list
-§ plugin.team_tasks.task.author: Author of the first commit
-§ plugin.team_tasks.task.task: Task
-§ plugin.team_tasks.task.description: Description
-§ plugin.team_tasks.task.totalAuthors: Staff
-§ plugin.team_tasks.task.totalDaysInBacklog: In backlog
-§ plugin.team_tasks.task.totalDaysWorked: In development
-§ plugin.team_tasks.details.facts: Task information
-§ plugin.team_tasks.details.release: List of releases this task likely landed in
-§ plugin.team_tasks.release.title: Release
-§ plugin.team_tasks.release.releaseDateMerge: Published
-§ plugin.team_tasks.release.prDateMerge: Merged
+§ plugin.team_tasks.sidebar: רשימת משימות
+§ plugin.team_tasks.task.title: רשימת משימות
+§ plugin.team_tasks.task.author: מחבר הקומיט הראשון
+§ plugin.team_tasks.task.task: משימה
+§ plugin.team_tasks.task.description: תיאור
+§ plugin.team_tasks.task.totalAuthors: צוות
+§ plugin.team_tasks.task.totalDaysInBacklog: בבקר-לור
+§ plugin.team_tasks.task.totalDaysWorked: בפיתוח
+§ plugin.team_tasks.task.createdBefore: נוצר לפני
+§ plugin.team_tasks.task.from: קומיט ראשון
+§ plugin.team_tasks.task.to: קומיט אחרון
+§ plugin.team_tasks.details.facts: מידע על המשימה
+§ plugin.team_tasks.details.release: רשימת הוצאות בהן המשימה ככל הנראה נכללה
+§ plugin.team_tasks.release.title: הוצאה
+§ plugin.team_tasks.release.releaseDateMerge: פורסם
+§ plugin.team_tasks.release.prDateMerge: ממוזג
 § plugin.team_tasks.info.createdBefore: created before
-§ plugin.team_tasks.info.totalDaysInBacklog: days in backlog
-§ plugin.team_tasks.info.totalAuthors: staff worked
-§ plugin.team_tasks.info.totalDaysWorked: days in work
-§ plugin.team_tasks.info.authors: Staff
-§ plugin.team_tasks.info.types: Commit types
-§ plugin.team_tasks.info.scope: Feature list
-§ plugin.team_tasks.info.commits: Commits
-§ plugin.team_tasks.charts.all: Analytics across all tasks
-§ plugin.team_tasks.charts.cardTotal.title: tasks in this category
-§ plugin.team_tasks.charts.cardTotal.description: Considering the current search filters.
-§ plugin.team_tasks.charts.cardFromCommit.title: days from commit to release
-§ plugin.team_tasks.charts.cardFromCommit.description: Average time for tasks that were in backlog for less than three months.
-§ plugin.team_tasks.charts.timeToMarket.title: Time to market (time-to-market)
-§ plugin.team_tasks.charts.timeToMarket.backlog: in backlog
-§ plugin.team_tasks.charts.timeToMarket.worked: in work
-§ plugin.team_tasks.charts.timeToMarket.review: in review
-§ plugin.team_tasks.charts.timeToMarket.release: release waiting
-§ plugin.team_tasks.charts.timeToMarket.improvements: improvements
-§ plugin.team_tasks.charts.relative.title: Days from creation to the first commit
-§ plugin.team_tasks.charts.relative.fast: up to 2 weeks
-§ plugin.team_tasks.charts.relative.normal: up to 3 months
-§ plugin.team_tasks.charts.relative.backlog: more
-§ plugin.team_tasks.charts.normal: Regular tasks
-§ plugin.team_tasks.charts.totalDays.title: Calendar days in work
-§ plugin.team_tasks.charts.totalDays.description: If the first commit is made on Friday evening and the last one on Monday morning, then the total time spent working on the task will be counted as 4 days (Fri, Sat, Sun, Mon).
-§ plugin.team_tasks.charts.workedDays.title: Actual days in work
-§ plugin.team_tasks.charts.workedDays.description: If the first commit is made on Friday evening and the last one on Monday morning, then the time spent working on the task will be counted as 2 days (Fri, Mon).
-§ plugin.team_tasks.charts.backlog: Technical debt (tasks that were added to the task tracker and not taken into development for more than three months)
-§ plugin.team_tasks.charts.authors.title: Who picked it up
-§ plugin.team_tasks.charts.authors.other: and others
-§ plugin.team_tasks.charts.await.title: How long the task stayed in backlog
-§ plugin.team_tasks.charts.worked.title: How many (calendar) days it was then worked on
-§ plugin.team_tasks.charts.other: more
+§ plugin.team_tasks.info.totalDaysInBacklog: ימים בבקר-לור
+§ plugin.team_tasks.info.totalAuthors: צוות שעבד
+§ plugin.team_tasks.info.totalDaysWorked: ימים בתהליך
+§ plugin.team_tasks.info.authors: צוות
+§ plugin.team_tasks.info.types: סוגי קומיטים
+§ plugin.team_tasks.info.scope: רשימת תכונות
+§ plugin.team_tasks.info.commits: קומיטים
+§ plugin.team_tasks.charts.all: ניתוח לכל המשימות
+§ plugin.team_tasks.charts.totalTask.title: משימה אחת בממוצע היא
+§ plugin.team_tasks.charts.totalTaskInDay.title: ימים
+§ plugin.team_tasks.charts.totalTaskInFiles.title: קבצים
+§ plugin.team_tasks.charts.totalTaskInChanges.title: שורות קוד
+§ plugin.team_tasks.charts.totalTaskInCommits.title: קומיטים
+§ plugin.team_tasks.charts.cardFromCommit.title: ימים מקומיט להוצאה
+§ plugin.team_tasks.charts.cardFromCommit.description: זמן ממוצע למשימות שנמצאו בבקר-לור פחות משלושה חודשים.
+§ plugin.team_tasks.charts.timeToMarket.title: זמן לשווק משימה
+§ plugin.team_tasks.charts.timeToMarket.backlog: בבקר-לור
+§ plugin.team_tasks.charts.timeToMarket.worked: בתהליך
+§ plugin.team_tasks.charts.timeToMarket.review: בסקירה
+§ plugin.team_tasks.charts.timeToMarket.release: ממתין להוצאה
+§ plugin.team_tasks.charts.timeToMarket.improvements: שיפורים
+§ plugin.team_tasks.charts.relative.title: ימים מהיצירת לקומיט הראשון
+§ plugin.team_tasks.charts.relative.fast: עד שבועיים
+§ plugin.team_tasks.charts.relative.normal: עד שלושה חודשים
+§ plugin.team_tasks.charts.relative.backlog: יותר
+§ plugin.team_tasks.charts.normal: משימות רגילות (המוכנסות לפיתוח תוך שלושה חודשים מהיצירת)
+§ plugin.team_tasks.charts.cardTotal.title: משימות בקטגוריה זו
+§ plugin.team_tasks.charts.cardTotal.description: בהתחשב בסינוני החיפוש הנוכחיים.
+§ plugin.team_tasks.charts.totalDays.title: ימי קלנדריה בתהליך
+§ plugin.team_tasks.charts.totalDays.description: אם הקומיט הראשון נעשה בערב יום שישי והאחרון בוקר יום שני, הזמן הכולל שעובד על המשימה יחושב כ-4 ימים (שישי, שבת, ראשון, שני).
+§ plugin.team_tasks.charts.workedDays.title: ימים אמיתיים בתהליך
+§ plugin.team_tasks.charts.workedDays.description: אם הקומיט הראשון נעשה בערב יום שישי והאחרון בוקר יום שני, הזמן שעובד על המשימה יחושב כ-2 ימים (שישי, שני).
+§ plugin.team_tasks.charts.backlog: חוב טכני (משימות שנוצרו במעקב אחר המשימות ולא נלקחו לפיתוח יותר משלושה חודשים)
+§ plugin.team_tasks.charts.authors.title: מי לקח לעבודה
+§ plugin.team_tasks.charts.authors.other: ועוד
+§ plugin.team_tasks.charts.await.title: כמה זמן הייתה המשימה בבקר-לור
+§ plugin.team_tasks.charts.worked.title: כמה ימי קלנדריה בוזלו עליה לאחר מכן
+§ plugin.team_tasks.charts.other: יותר
 `;

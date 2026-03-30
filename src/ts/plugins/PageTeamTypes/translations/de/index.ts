@@ -1,14 +1,14 @@
 export default `
 § plugin.team_types.sidebar: Aufgabentypen
-§ plugin.team_types.title: Task type statistics
-§ plugin.team_types.description: *Personal contribution* is counted by the number of commits, not the volume of changed lines or files. Therefore, the "File Analysis" section should also be consulted to assess the scale of changes.
-§ plugin.team_types.type: Type of work
-§ plugin.team_types.unknown: unknown
-§ plugin.team_types.tasks: Tasks
-§ plugin.team_types.tasksSmall: tasks
-§ plugin.team_types.days: Days
-§ plugin.team_types.daysSmall: days
-§ plugin.team_types.authorsDays: Person-days
+§ plugin.team_types.title: Statistiken zu Aufgabentypen
+§ plugin.team_types.description: *Persönlicher Beitrag* wird anhand der Anzahl der Commits gezählt, nicht am Umfang geänderter Zeilen oder Dateien. Daher sollte auch der Abschnitt "Dateianalyse" konsultiert werden, um den Umfang der Änderungen einzuschätzen.
+§ plugin.team_types.type: Art der Arbeit
+§ plugin.team_types.unknown: unbekannt
+§ plugin.team_types.tasks: Aufgaben
+§ plugin.team_types.tasksSmall: Aufgaben
+§ plugin.team_types.days: Tage
+§ plugin.team_types.daysSmall: Tage
+§ plugin.team_types.authorsDays: Personentage
 § plugin.team_types.commits: Commits
-§ plugin.team_types.authors: Personal contribution
+§ plugin.team_types.authors: Persönlicher Beitrag
 `;
