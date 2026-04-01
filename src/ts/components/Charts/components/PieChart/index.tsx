@@ -1,7 +1,7 @@
 import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import { Title } from 'ts/components/Layout';
+import { If, Title } from 'ts/components/Layout';
 import { useTranslation } from 'ts/components/Translation';
 
 import { IOptions } from '../../interfaces';
@@ -68,16 +68,18 @@ function PieChart({
             suffix={suffix}
             center={center}
           />
-          {value ? (
-            <div className={style.pie_chart_value}>
-              {value}
-            </div>
-          ) : null}
-          {value && suffix ? (
-            <div className={style.pie_chart_description}>
-              {t(description) || t(suffix)}
-            </div>
-          ) : null}
+          <div className={style.pie_chart_value}>
+            <If value={value}>
+              <div className={style.pie_chart_value_title}>
+                {value}
+              </div>
+            </If>
+            <If value={value && suffix}>
+              <div className={style.pie_chart_value_description}>
+                {t(description) || t(suffix)}
+              </div>
+            </If>
+          </div>
         </div>
         <Legend
           parts={parts}

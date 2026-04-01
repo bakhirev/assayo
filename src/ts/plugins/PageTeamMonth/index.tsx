@@ -6,7 +6,8 @@ import {
 } from 'ts/helpers/Plugins/interfaces/Plugin';
 
 import translations from './translations';
-import Page from './components';
+import TeamPage from './components/Team';
+import PersonPage from './components/Person';
 
 export default class Plugin implements IPlugin {
   static id = 'team_month';
@@ -21,11 +22,24 @@ export default class Plugin implements IPlugin {
         title: 'plugin.team_month.sidebar',
         icon: './assets/menu/month.svg',
       },
+      {
+        id: 'month',
+        group: 20,
+        order: 60,
+        link: '/person/month/',
+        title: 'plugin.team_month.sidebar',
+        icon: './assets/menu/month.svg',
+      },
     ];
   }
 
   getPage(path: string, props?: PageOptions) {
-    return path === '/team/month' ? <Page mode={props?.mode}/> : undefined;
+    if (path === '/person/month') {
+      return <PersonPage user={props?.user}/>;
+    }
+    if (path === '/team/month') {
+      return <TeamPage mode={props?.mode}/>;
+    }
   }
 
   getTranslations() {

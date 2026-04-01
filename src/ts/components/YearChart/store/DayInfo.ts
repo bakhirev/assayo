@@ -1,6 +1,6 @@
 import { observable, action, makeObservable } from 'mobx';
 
-import { StatisticsDay } from 'ts/helpers/StatisticsByCommits/components/month';
+import { StatisticsDay } from 'ts/helpers/StatisticsByCommits/components/month/day';
 
 type IPosition = [number, number];
 

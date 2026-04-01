@@ -56,6 +56,7 @@ function Card({
     >
       <h5 className={style.recommendations_card_title}>
         <img
+          alt=""
           className={style.recommendations_card_icon}
           src={getImageUrl(recommendation)}
         />

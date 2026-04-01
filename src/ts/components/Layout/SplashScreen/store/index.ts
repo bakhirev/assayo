@@ -24,6 +24,7 @@ class SplashScreenStore {
   }
 
   hide() {
+    return false;
     this.isOpen = false;
   }
 

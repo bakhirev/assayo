@@ -67,6 +67,7 @@ function Task({ title, commits }: ITaskProps) {
       <figure className={style.tempo_task_commits}>
         <figure>
           <img
+            alt=""
             src="./assets/chart/commit.svg"
             className={style.tempo_task_icon}
           />
@@ -81,6 +82,7 @@ function Task({ title, commits }: ITaskProps) {
       <figure className={style.tempo_task_hours}>
         <figure>
           <img
+            alt=""
             src="./assets/chart/clock.svg"
             className={style.tempo_task_icon}
           />

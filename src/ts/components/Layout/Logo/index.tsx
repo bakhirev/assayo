@@ -1,46 +1,39 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 
 import referenceStore from 'ts/store/ReferenceStore';
+import applicationConfig from 'ts/store/ApplicationConfig';
 
 import style from './index.module.scss';
 
 interface LogoProps {
   showDescription?: boolean;
+  className?: string;
 }
 
-function Logo({
+const Logo = observer(({
   showDescription,
-}: LogoProps) {
+  className,
+}: LogoProps) => {
   const {
-    logo,
     link,
     text,
     isOpenInNewTab,
   } = referenceStore.getBanner() || {};
 
-  const [formattedLogo, setLogo] = useState<string>(logo || '');
-  const offsetWidth = document.body.offsetWidth;
-
-  useLayoutEffect(() => {
-    if (isOpenInNewTab) return;
-    const url = offsetWidth < 1000
-      ? './assets/logo/middle.svg'
-      : './assets/logo.svg';
-    setLogo(url);
-  }, [offsetWidth]);
+  const logo = applicationConfig.config?.logo;
 
   return (
-    <figure className={style.logo}>
+    <figure className={`${style.logo} ${className || ''}`}>
       <Link
         to={link || ''}
         target={isOpenInNewTab ? '_blank' : ''}
         className={style.logo_icon_link}
       >
         <img
-          alt="assayo"
-          src={formattedLogo}
-          title="assayo"
+          alt=""
+          src={logo}
           className={style.logo_icon}
         />
       </Link>
@@ -51,10 +44,6 @@ function Logo({
       ) : null}
     </figure>
   );
-}
-
-Logo.defaultProps = {
-  showDescription: false,
-};
+});
 
 export default Logo;

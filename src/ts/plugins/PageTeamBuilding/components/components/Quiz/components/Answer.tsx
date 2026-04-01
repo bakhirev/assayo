@@ -36,6 +36,7 @@ function Answer({
         }}
       >
         <img
+          alt=""
           className={style.quiz_answer_icon}
           src={`./assets/games/quize/balloon_${iconIndex}.png`}
         />

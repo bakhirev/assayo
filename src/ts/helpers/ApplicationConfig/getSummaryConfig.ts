@@ -19,6 +19,10 @@ export default function getSummaryConfig(
       || defaultConfig?.title
       || '',
 
+    logo: configFromBackend?.logo
+      || defaultConfig?.logo
+      || '',
+
     ref: parameters?.ref
       || configFromBackend?.ref
       || defaultConfig?.ref

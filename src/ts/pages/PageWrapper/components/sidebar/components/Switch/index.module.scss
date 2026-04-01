@@ -1,8 +1,8 @@
 .switch {
   display: block;
-  width: calc(100% - 24px);
+  width: calc(100% - 32px);
   padding: 4px;
-  margin: 0 0 28px 0;
+  margin: 0 auto var(--space-xxl) auto;
   text-align: center;
   white-space: nowrap;
   box-sizing: border-box;
@@ -52,7 +52,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .switch {
     width: 100%;
     border-radius: 0;

@@ -65,6 +65,7 @@ function DataView({
           <div className={style.data_view_buttons}>
             {!isMobile && (
               <img
+                alt=""
                 src="./assets/icons/Download.svg"
                 className={style.data_view_icon}
                 onClick={() => {
@@ -77,6 +78,7 @@ function DataView({
             )}
             {false && !isMobile && (
               <img
+                alt=""
                 src={fullScreen.isOpen
                   ? './assets/icons/CloseFullscreen.svg'
                   : './assets/icons/OpenFullscreen.svg'}
@@ -88,6 +90,7 @@ function DataView({
             )}
             {false && !isMobile && (
               <img
+                alt=""
                 title={titleForType}
                 src={icon}
                 className={style.data_view_icon}

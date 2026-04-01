@@ -1,5 +1,7 @@
 export default interface ApplicationConfig {
   title: string;
+  logo: string;
+
   language: string;
   languages: {
     id: string;

@@ -99,6 +99,7 @@ function WeekView({ response, updateSort, name, mode }: IWeekViewProps) {
           <LineChart
             max={taskInDayMax}
             value={taskInDay[name]}
+            suffix="common.statistic.tasks"
           />
         )}
       />

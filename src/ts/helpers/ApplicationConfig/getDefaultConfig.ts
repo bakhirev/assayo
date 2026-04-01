@@ -3,6 +3,8 @@ import ApplicationConfig from 'ts/interfaces/ApplicationConfig';
 export default function getDefaultConfig(): ApplicationConfig {
   return {
     title: '',
+    logo: './assets/logo.svg',
+
     language: '',
     languages: [
       { id: 'ar', currency: 'AED', title: 'العَرَبِيَّة' },
@@ -50,7 +52,6 @@ export default function getDefaultConfig(): ApplicationConfig {
       'person_achievements',
       // 'person_commits',
       'person_money',
-      'person_month',
       'person_vacation',
       'person_speed',
       'person_total',

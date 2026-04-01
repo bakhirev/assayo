@@ -45,6 +45,7 @@ function UiKitSelect({
       className={className}
     >
       <select
+        aria-label={title || description}
         value={value}
         className={`${style.ui_kit_common} ${styleSelect.ui_kit_select} ${className || ''}`}
         onChange={(event: ChangeEvent<HTMLSelectElement>) => {

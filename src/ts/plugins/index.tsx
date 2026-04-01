@@ -32,7 +32,6 @@ import PagePersonAchievements from './PagePersonAchievements';
 import PagePersonChanges from './PagePersonChanges';
 import PagePersonCommits from './PagePersonCommits';
 import PagePersonMoney from './PagePersonMoney';
-import PagePersonMonth from './PagePersonMonth';
 import PagePersonSpeed from './PagePersonSpeed';
 import PagePersonTotal from './PagePersonTotal';
 import PagePersonWeek from './PagePersonWeek';
@@ -68,7 +67,6 @@ export default [
   PagePersonMoney,
   PagePersonSpeed,
   PagePersonWeek,
-  PagePersonMonth,
   PagePersonVacation,
   PagePersonCommits,
   PagePersonChanges,

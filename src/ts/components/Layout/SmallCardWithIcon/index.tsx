@@ -47,6 +47,7 @@ function SmallCardWithIcon({
       <div className={style.card_with_icon_small2}>
         {icon && (
           <img
+            alt=""
             className={style.card_with_icon_small_icon}
             src={icon}
           />

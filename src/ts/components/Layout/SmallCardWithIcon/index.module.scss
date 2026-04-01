@@ -71,3 +71,10 @@
     box-shadow: 0 5px 15px white;
   }
 }
+
+
+@media (min-width: 900px) and (max-width: 1400px) {
+  .card_with_icon_small {
+    height: 133px;
+  }
+}

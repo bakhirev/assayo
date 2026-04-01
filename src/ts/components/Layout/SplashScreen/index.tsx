@@ -26,7 +26,10 @@ const SplashScreen = observer((): React.ReactElement | null  => {
         className={style.splash_screen_container}
         style={{ animationDelay: splashScreenStore.getDelay(-1400) }}
       >
-        <Logo showDescription />
+        <Logo
+          showDescription
+          className={style.splash_screen_logo}
+        />
         <div className={progress.progress_bar}>
           <div
             className={progress.progress_bar_line}

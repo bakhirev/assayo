@@ -22,6 +22,10 @@
 
     animation: splash_screen_container 1s linear 4s forwards;
   }
+
+  &_logo {
+    max-width: 60%;
+  }
 }
 
 @keyframes splash_screen {

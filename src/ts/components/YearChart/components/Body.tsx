@@ -10,6 +10,7 @@ import style from '../styles/index.module.scss';
 
 interface IBodyProps {
   max: number;
+  author?: string;
   month: StatisticsMonth;
   events: DayEvents;
   filters: Filters;
@@ -19,6 +20,7 @@ const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function Body({
   max,
+  author,
   month,
   events,
   filters,
@@ -35,16 +37,24 @@ function Body({
 
     if (dayInfo?.dayInMonth === dayInMonth) {
       currentDay += 1;
-      return (
-        <Day
-          key={index}
-          max={max}
-          dayNumber={index}
-          dayInfo={dayInfo}
-          events={eventsByDay}
-          filters={filters}
-       />
-      );
+
+      const commitsNumber = author
+        ? dayInfo.commitsNumberByAuthor.get(author)
+        : dayInfo.commitsNumber;
+
+      if (commitsNumber) {
+        return (
+          <Day
+            key={index}
+            max={max}
+            author={author}
+            dayNumber={index}
+            dayInfo={dayInfo}
+            events={eventsByDay}
+            filters={filters}
+          />
+        );
+      }
     }
 
     return (

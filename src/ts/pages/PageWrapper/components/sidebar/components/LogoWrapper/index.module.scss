@@ -1,12 +1,13 @@
 .sidebar_logo {
   display: block;
-  padding: 0 var(--space-xxl) 0 0;
-  margin: 0 0 var(--space-xxl) 0;
+  width: 60%;
+  padding: 0;
+  margin: 0 auto var(--space-xxl);
   text-align: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .sidebar_logo {
-    padding: 0;
+    display: none;
   }
 }

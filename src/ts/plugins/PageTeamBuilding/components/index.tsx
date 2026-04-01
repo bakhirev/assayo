@@ -36,6 +36,7 @@ const TeamBuilding = observer((): React.ReactElement => {
     <>
       {!isMobile && (
         <img
+          alt=""
           src={fullScreen.isOpen
             ? './assets/icons/CloseFullscreen.svg'
             : './assets/icons/OpenFullscreen.svg'}

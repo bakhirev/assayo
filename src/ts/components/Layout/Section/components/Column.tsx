@@ -5,7 +5,7 @@ import style from '../index.module.scss';
 
 function SectionColumn({ children }: SectionProps) {
   return (
-    <div className={style.main_wrapper_item}>
+    <div className={style.components_section_column}>
       {children}
     </div>
   );

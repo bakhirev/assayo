@@ -17,6 +17,7 @@ function NothingFound({
     <div className={style.nothing_found_wrapper}>
       <div className={style.nothing_found}>
         <img
+          alt=""
           src="./assets/cards/nothing_found.svg"
           className={style.nothing_found_icon}
         />

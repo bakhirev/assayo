@@ -60,6 +60,7 @@ function Banner({ className }: IBannerProps) {
       >
         {textIcon ? (
           <img
+            alt=""
             src={textIcon}
             className={style.banner_icon}
           />

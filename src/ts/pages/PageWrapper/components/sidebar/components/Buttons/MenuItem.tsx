@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'ts/components/Translation';
 
-import style from '../../index.module.scss';
+import style from './index.module.scss';
 
 interface ISideBarMenuItemProps {
   id: string;
@@ -28,6 +28,7 @@ function SideBarMenuItem({
       id={`sidebar-menu-${id}`}
     >
       <img
+        alt=""
         className={style.sidebar_item_icon}
         src={icon}
       />

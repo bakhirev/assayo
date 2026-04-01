@@ -8,7 +8,7 @@ function Section({
   className,
 }: SectionProps) {
   return (
-    <section className={`${style.main_wrapper} ${className || ''}`}>
+    <section className={`${style.components_section} ${className || ''}`}>
       {children}
     </section>
   );

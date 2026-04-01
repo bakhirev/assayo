@@ -3,10 +3,6 @@ interface IBanner {
   link?: string;
   isOpenInNewTab?: boolean;
 
-  /* Логотип */
-  logo?: string;
-  title?: string;
-
   /* Картинка баннера */
   banner?: string;
 

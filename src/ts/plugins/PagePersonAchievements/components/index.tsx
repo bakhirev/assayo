@@ -13,7 +13,7 @@ import Achievements from 'ts/components/Achievement';
 
 const Page = observer(({ user }: PageOptions): React.ReactElement => {
   const statistic = user;
-  const commitsWithBeautifulTaskNumbers = statisticStore.statisticsByCommits.get.getsByAuthor[user.author];
+  const commitsWithBeautifulTaskNumbers = statisticStore.statisticsByCommits.beautifulTaskNumbers.totalInfoByName.get(user.author);
   const achievements = achievementByAuthor.authors[statistic.author];
   const [
     positive,

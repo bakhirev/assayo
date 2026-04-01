@@ -13,7 +13,7 @@ import { If, Title } from 'ts/components/Layout';
 
 import MonthFilters from './components';
 
-const Month = observer(({
+const MonthTeam = observer(({
   mode,
 }: PageOptions): React.ReactElement => {
   const statistic = statisticStore.statisticsByCommits.month;
@@ -55,4 +55,4 @@ const Month = observer(({
   );
 });
 
-export default Month;
+export default MonthTeam;

@@ -1,22 +1,22 @@
 export default `
-§ plugin.team_emails.sidebar: Email addresses
-§ plugin.team_emails.title: Server addresses in logs
-§ plugin.team_emails.domain: Domain
-§ plugin.team_emails.from: from
-§ plugin.team_emails.to: to
-§ plugin.team_emails.protocol: Protocol
-§ plugin.team_emails.port: Port
-§ plugin.team_emails.url: URL
-§ plugin.team_emails.service: Code hosting tool
-§ plugin.team_emails.type.title: Service
-§ plugin.team_emails.type.description: $1 or something similar
-§ plugin.team_emails.email.title: Email address list
-§ plugin.team_emails.email.typeChart.title: Address types
-§ plugin.team_emails.email.typeChart.suffix: email addresses
-§ plugin.team_emails.email.authorChart.title: Number of addresses per staff member
-§ plugin.team_emails.email.authorChart.suffix: email addresses
-§ plugin.team_emails.email.type: Type
-§ plugin.team_emails.email.company: Company
-§ plugin.team_emails.email.email: Email address
-§ plugin.team_emails.email.author: Staff member
+§ plugin.team_emails.sidebar: عناوين البريد الإلكتروني
+§ plugin.team_emails.title: عناوين الخادم في السجلات
+§ plugin.team_emails.domain: النطاق
+§ plugin.team_emails.from: من
+§ plugin.team_emails.to: إلى
+§ plugin.team_emails.protocol: البروتوكول
+§ plugin.team_emails.port: المنفذ
+§ plugin.team_emails.url: الرابط
+§ plugin.team_emails.service: أداة استضافة الكود
+§ plugin.team_emails.type.title: الخدمة
+§ plugin.team_emails.type.description: $1 أو شيء مشابه
+§ plugin.team_emails.email.title: قائمة عناوين البريد الإلكتروني
+§ plugin.team_emails.email.typeChart.title: أنواع العناوين
+§ plugin.team_emails.email.typeChart.suffix: عناوين بريد إلكتروني
+§ plugin.team_emails.email.authorChart.title: عدد العناوين لكل موظف
+§ plugin.team_emails.email.authorChart.suffix: عناوين بريد إلكتروني
+§ plugin.team_emails.email.type: النوع
+§ plugin.team_emails.email.company: الشركة
+§ plugin.team_emails.email.email: عنوان البريد الإلكتروني
+§ plugin.team_emails.email.author: عضو الموظفين
 `;

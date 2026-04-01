@@ -46,6 +46,7 @@ function Track({
           style={{ width: `${width}%` }}
         >
           <img
+            alt=""
             className={style.swimming_pool_track_man}
             src="./assets/games/swimmingPool/man.png"
           />

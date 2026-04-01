@@ -1,22 +1,22 @@
 export default `
-§ plugin.team_emails.sidebar: Email addresses
-§ plugin.team_emails.title: Server addresses in logs
-§ plugin.team_emails.domain: Domain
-§ plugin.team_emails.from: from
-§ plugin.team_emails.to: to
-§ plugin.team_emails.protocol: Protocol
-§ plugin.team_emails.port: Port
+§ plugin.team_emails.sidebar: Endereços de e-mail
+§ plugin.team_emails.title: Endereços de servidor nos registros
+§ plugin.team_emails.domain: Domínio
+§ plugin.team_emails.from: de
+§ plugin.team_emails.to: para
+§ plugin.team_emails.protocol: Protocolo
+§ plugin.team_emails.port: Porta
 § plugin.team_emails.url: URL
-§ plugin.team_emails.service: Code hosting tool
-§ plugin.team_emails.type.title: Service
-§ plugin.team_emails.type.description: $1 or something similar
-§ plugin.team_emails.email.title: Email address list
-§ plugin.team_emails.email.typeChart.title: Address types
-§ plugin.team_emails.email.typeChart.suffix: email addresses
-§ plugin.team_emails.email.authorChart.title: Number of addresses per staff member
-§ plugin.team_emails.email.authorChart.suffix: email addresses
-§ plugin.team_emails.email.type: Type
-§ plugin.team_emails.email.company: Company
-§ plugin.team_emails.email.email: Email address
-§ plugin.team_emails.email.author: Staff member
+§ plugin.team_emails.service: Ferramenta de hospedagem de código
+§ plugin.team_emails.type.title: Serviço
+§ plugin.team_emails.type.description: $1 ou algo semelhante
+§ plugin.team_emails.email.title: Lista de endereços de e-mail
+§ plugin.team_emails.email.typeChart.title: Tipos de endereços
+§ plugin.team_emails.email.typeChart.suffix: endereços de e-mail
+§ plugin.team_emails.email.authorChart.title: Número de endereços por funcionário
+§ plugin.team_emails.email.authorChart.suffix: endereços de e-mail
+§ plugin.team_emails.email.type: Tipo
+§ plugin.team_emails.email.company: Empresa
+§ plugin.team_emails.email.email: Endereço de e-mail
+§ plugin.team_emails.email.author: Funcionário
 `;

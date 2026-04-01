@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'ts/components/Translation';
 
-import style from '../../index.module.scss';
+import style from './index.module.scss';
 
 interface ISideBarMenuGapProps {
   title?: string;

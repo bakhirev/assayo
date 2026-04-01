@@ -34,6 +34,7 @@ function SideBarScrollUp() {
     >
       <div className={style.scroll_up_button_wrapper}>
         <img
+          alt=""
           className={style.scroll_up_button_icon}
           src="./assets/list/arrow.svg"
         />
