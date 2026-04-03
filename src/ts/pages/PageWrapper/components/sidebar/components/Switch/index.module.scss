@@ -52,27 +52,25 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .switch {
+.sidebar_small .switch {
+  width: 100%;
+  border-radius: 0;
+
+  &_item {
+    display: block;
     width: 100%;
-    border-radius: 0;
+    max-width: none;
+    padding: 6px 0;
+    margin: 0 0 6px 0;
+    text-align: center;
+    border-radius: 4px;
 
-    &_item {
-      display: block;
-      width: 100%;
-      max-width: none;
-      padding: 6px 0;
-      margin: 0 0 6px 0;
-      text-align: center;
-      border-radius: 4px;
+    &_title {
+      display: none;
+    }
 
-      &_title {
-        display: none;
-      }
-
-      &_icon {
-        display: inline-block;
-      }
+    &_icon {
+      display: inline-block;
     }
   }
 }

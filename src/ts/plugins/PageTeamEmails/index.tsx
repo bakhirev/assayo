@@ -25,7 +25,7 @@ export default class Plugin implements IPlugin {
   }
 
   getPage(path: string, props?: PageOptions) {
-    return path === '/team/server' ? <Page mode={props?.mode}/> : undefined;
+    return path === '/team/emails' ? <Page mode={props?.mode}/> : undefined;
   }
 
   getTranslations() {

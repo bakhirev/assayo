@@ -50,6 +50,7 @@ function MobileView({
 
 const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement => {
   const { type, page } = useParams<any>();
+  const [sideBarWidth, setSideBarWidth] = useState<number>(240);
   const commonItems = useMemo(() => plugins.getPages('global'), [plugins]);
   const padding = type === 'team' && page === 'building'
     ? { padding: 0 }
@@ -70,12 +71,20 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
   }
 
   return (
-    <div className={style.page_wrapper}>
-      <SideBar/>
-      <Header/>
+    <div
+      className={style.page_wrapper}
+      style={{
+        gridTemplateColumns: `${sideBarWidth}px 1fr`,
+      }}
+    >
+      <SideBar onResize={setSideBarWidth} />
+      <Header sideBarWidth={sideBarWidth} />
       <div
         className={style.page_wrapper_main}
-        style={padding}
+        style={{
+          width: `calc(100vw - ${sideBarWidth}px - 18px)`,
+          ...padding,
+        }}
       >
         {children}
       </div>

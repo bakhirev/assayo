@@ -6,8 +6,6 @@
   text-align: center;
 }
 
-@media (max-width: 1200px) {
-  .sidebar_logo {
-    display: none;
-  }
+.sidebar_small .sidebar_logo {
+  display: none;
 }

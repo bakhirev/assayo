@@ -14,7 +14,13 @@ import Title from './components/Title';
 import Filters from './components/Filters';
 import style from './index.module.scss';
 
-const Header = observer((): React.ReactElement | null => {
+interface HeaderProps {
+  sideBarWidth?: number;
+}
+
+const Header = observer(({
+  sideBarWidth,
+}: HeaderProps): React.ReactElement | null => {
   const { text } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,7 +44,12 @@ const Header = observer((): React.ReactElement | null => {
 
   return (
     <header className={style.header}>
-      <div className={style.header_wrapper}>
+      <div
+        className={style.header_wrapper}
+        style={{
+          width: `calc(100vw - ${sideBarWidth}px - 18px)`,
+        }}
+      >
         <Title text={selectedPage?.title}/>
         <Filters/>
         <Select
