@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import { useTranslation } from 'ts/components/Translation';
+import { MARKER } from 'ts/helpers/copyPasteFormatter';
 
 import Scoring, { type IScoringProps } from '../CardWithIcon/components/Scoring';
 import style from './index.module.scss';
@@ -40,7 +41,7 @@ function SmallCardWithIcon({
         {item}
       </p>
     ))
-    : <p className={className}>{value}</p>;
+    : <p className={className}>{MARKER}{value}</p>;
 
   return (
     <figure className={style.card_with_icon_small}>

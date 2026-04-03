@@ -16,9 +16,14 @@ function getDraft(lines: string[]): string[] {
     const [first, last] = getFirstAndLastSymbol(line);
 
     if (line && !nextLine) {
-      if (first === MARKER) { // card with icon
+      if (first !== MARKER) continue;
+      if (lines[i + 3]) { // card with icon
         draft.push(`— ${line} ${lines[i + 2]} (${lines[i + 3]});`);
-        i += 3;
+        i +=  lines[i + 4] ? 4 : 3;
+        continue;
+      } else { // card with small icon
+        draft.push(`— ${line} ${lines[i + 2]};`);
+        i += 2;
         continue;
       }
     } else if (line && nextLine) {
