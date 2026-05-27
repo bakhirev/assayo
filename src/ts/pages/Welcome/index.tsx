@@ -28,7 +28,7 @@ function WarningInfo() {
 function Welcome() {
   const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt\n';
   // @ts-ignore
-  const hasYandexMetrika = true || window.ym;
+  const hasYandexMetrika = window.ym;
   return (
     <>
       {hasYandexMetrika && (<WarningInfo />)}
