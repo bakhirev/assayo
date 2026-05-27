@@ -16,7 +16,7 @@ function getDraft(lines: string[]): string[] {
     const [first, last] = getFirstAndLastSymbol(line);
 
     if (line && !nextLine) {
-      if (first !== MARKER) continue;
+      if (first !== MARKER) continue; // убивает копирование
       if (lines[i + 3]) { // card with icon
         draft.push(`— ${line} ${lines[i + 2]} (${lines[i + 3]});`);
         i +=  lines[i + 4] ? 4 : 3;
