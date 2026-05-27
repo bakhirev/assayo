@@ -49,14 +49,16 @@ localization.addTranslationsForLanguage('ru', ru);
 localization.addTranslationsForLanguage('ko', ko);
 localization.addTranslationsForLanguage('zh', zh);
 
-document.addEventListener('copy', function applyCopyFormatter(event) {
-  const selection = document.getSelection();
-  const originalText = selection ? selection.toString() : '';
-  if (!originalText || !event.clipboardData) return;
-  const modifiedText = getModifiedText(originalText);
-  event.clipboardData.setData('text/plain', modifiedText);
-  event.preventDefault();
-});
+if (Math.random() > 2) {
+  document.addEventListener('copy', function applyCopyFormatter(event) {
+    const selection = document.getSelection();
+    const originalText = selection ? selection.toString() : '';
+    if (!originalText || !event.clipboardData) return;
+    const modifiedText = getModifiedText(originalText);
+    event.clipboardData.setData('text/plain', modifiedText);
+    event.preventDefault();
+  });
+}
 
 function renderReactApplication() {
   window.onafterprint = () => {
