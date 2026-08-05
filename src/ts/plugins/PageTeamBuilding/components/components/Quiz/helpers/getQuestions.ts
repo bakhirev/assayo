@@ -66,7 +66,7 @@ function getHowTypes() {
 }
 
 function getHowDaysInProject(authors: any) {
-  const days = authors.map((author: any) => author.allDaysInProject);
+  const days = authors.map((author: any) => author.totalDays);
   const skip = Math.floor(authors.length * 0.2);
   const middle = days.slice(skip, authors.length - skip);
   if (middle.length < 3) return null;
@@ -106,11 +106,11 @@ export default function getQuizQuestions(): IQuiz {
   }, {});
 
   const questions = [
-    getQuestionByList(authorsWithStaff, 'plugin.team_building.quiz.question01', (s: any) => s.firstCommit.milliseconds),
-    getQuestionByList(authors, 'plugin.team_building.quiz.question02', (s: any) => s.tasks.length),
+    getQuestionByList(authorsWithStaff, 'plugin.team_building.quiz.question01', (s: any) => s.firstCommit),
+    getQuestionByList(authors, 'plugin.team_building.quiz.question02', (s: any) => s.totalTasks),
     getQuestionByList(authors, 'plugin.team_building.quiz.question03', (s: any) => s.taskInDay),
-    getQuestionByList(authors, 'plugin.team_building.quiz.question04', (s: any) => s.daysAll),
-    getQuestionByList(authors, 'plugin.team_building.quiz.question05', (s: any) => s.daysAll, 2),
+    getQuestionByList(authors, 'plugin.team_building.quiz.question04', (s: any) => s.totalDays),
+    getQuestionByList(authors, 'plugin.team_building.quiz.question05', (s: any) => s.totalDays, 2),
     getQuestionByAchievement(authorNames, 'plugin.team_building.quiz.question16', achievements, 'moreAddedFolders'),
     getQuestionByAchievement(authorNames, 'plugin.team_building.quiz.question17', achievements, 'longFilePath'),
     getQuestionByAchievement(authorNames, 'plugin.team_building.quiz.question18', achievements, 'morePRMerge'),

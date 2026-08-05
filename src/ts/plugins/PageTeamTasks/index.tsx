@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 170,
         link: '/team/tasks',
         title: 'plugin.team_tasks.sidebar',
-        icon: './assets/menu/team_tasks.svg',
+        icon: './assets/menu/tasks.svg',
       },
     ];
   }

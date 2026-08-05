@@ -23,6 +23,7 @@ const Print = observer(() => {
       </Header>
       <Body>
         <img
+          alt=""
           src="./assets/cards/print.svg"
           className={style.page_wrapper_print_icon}
         />

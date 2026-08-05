@@ -64,31 +64,35 @@ const Company = observer(({
       <If value={selectedCompany}>
         <ShortInformation company={selectedCompany} />
 
-        <Title title="plugin.team_companies.taskCodes.title"/>
-        <FakeDataLoader
-          content={selectedCompany?.taskCodes}
-          watch={`${mode}${company}${statisticStore.hash}`}
-        >
-          <TaskCodes
-            mode={mode}
-            rowsForExcel={selectedCompany?.taskCodes}
-          />
-          <NothingFound />
-          <Pagination />
-        </FakeDataLoader>
+        <If value={selectedCompany?.taskCodes}>
+          <Title title="plugin.team_companies.taskCodes.title"/>
+          <FakeDataLoader
+            content={selectedCompany?.taskCodes}
+            watch={`${mode}${company}${statisticStore.hash}`}
+          >
+            <TaskCodes
+              mode={mode}
+              rowsForExcel={selectedCompany?.taskCodes}
+            />
+            <NothingFound />
+            <Pagination />
+          </FakeDataLoader>
+        </If>
 
-        <Title title="plugin.team_companies.employments.title"/>
-        <FakeDataLoader
-          content={selectedCompany?.authors}
-          watch={`${mode}${company}${statisticStore.hash}`}
-        >
-          <Employments
-            mode={mode}
-            rowsForExcel={selectedCompany?.authors}
-          />
-          <NothingFound />
-          <Pagination />
-        </FakeDataLoader>
+        <If value={selectedCompany?.authors}>
+          <Title title="plugin.team_companies.employments.title"/>
+          <FakeDataLoader
+            content={selectedCompany?.authors}
+            watch={`${mode}${company}${statisticStore.hash}`}
+          >
+            <Employments
+              mode={mode}
+              rowsForExcel={selectedCompany?.authors}
+            />
+            <NothingFound />
+            <Pagination />
+          </FakeDataLoader>
+        </If>
       </If>
     </>
   );

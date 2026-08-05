@@ -20,10 +20,12 @@ function getRelease(event?: DayEvent) {
 
 interface DayInfoHintProps {
   events: DayEvents;
+  author?: string;
 }
 
 const DayInfoHint = observer(({
   events,
+  author,
 }: DayInfoHintProps): React.ReactElement | null => {
   if (!dayInfoStore.info) return null;
 
@@ -55,6 +57,7 @@ const DayInfoHint = observer(({
 
         <DayInfo
           timestamp={dayInfoStore.info.timestamp}
+          author={author}
           events={event}
         />
       </div>

@@ -1,50 +1,50 @@
 export default `
 § plugin.team_author.sidebar: Mitarbeiter
-§ plugin.team_author.statusChart.title: Status
-§ plugin.team_author.daysChart.title: Days of work
-§ plugin.team_author.daysChart.item: days
-§ plugin.team_author.days.half: half year
-§ plugin.team_author.days.one: year
-§ plugin.team_author.days.15: year and a half
-§ plugin.team_author.days.two: two years
-§ plugin.team_author.days.more: more than two years
+§ plugin.team_author.statusChart.title: Aktueller Status
+§ plugin.team_author.daysChart.title: Arbeitszeit
+§ plugin.team_author.daysChart.item: Tage
+§ plugin.team_author.days.half: ein halbes Jahr
+§ plugin.team_author.days.one: ein Jahr
+§ plugin.team_author.days.15: ein Jahr und ein halbes
+§ plugin.team_author.days.two: zwei Jahre
+§ plugin.team_author.days.more: mehr als zwei Jahre
 § plugin.team_author.title: Details
-§ plugin.team_author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
-§ plugin.team_author.description2: *Default sorting* is by the number of tasks and groups (current, fired, assisting employees).
+§ plugin.team_author.description1: *Ein Teil der Statistiken* (Arbeitsgeschwindigkeit, Kosten, etc.) *für Mitarbeiter mit dem Typ 'Assistent' wird nicht gezählt*, da dies eine episodische Rolle im Projekt ist. Es wird angenommen, dass sie das Projekt nicht beeinflussen und ihre Bearbeitungen im Kontext des gesamten Arbeitsumfangs vernachlässigt werden können.
+§ plugin.team_author.description2: *Die Standardreihenfolge* erfolgt nach Anzahl der Aufgaben und Gruppen (aktuelle, entlassene, assistierende Mitarbeiter).
 § plugin.team_author.status: Status
-§ plugin.team_author.company: Company
-§ plugin.team_author.firstCommit: First commit
-§ plugin.team_author.lastCommit: Last
-§ plugin.team_author.daysAll: Total days
-§ plugin.team_author.types: Types of work
+§ plugin.team_author.company: Unternehmen
+§ plugin.team_author.firstCommit: Erster Commit
+§ plugin.team_author.lastCommit: Letzter
+§ plugin.team_author.daysAll: Gesamttage
+§ plugin.team_author.types: Typ
 § plugin.team_author.commits: Commits
-§ plugin.team_author.commitsSmall: commits
-§ plugin.team_author.tasks: Tasks
-§ plugin.team_author.tasksSmall: tasks
-§ plugin.team_author.workedLosses: Days with and without commits
-§ plugin.team_author.worked: work
-§ plugin.team_author.losses: days without commits
-§ plugin.team_author.days: days
-§ plugin.team_author.daysForTask: Days per task
-§ plugin.team_author.scopes: Features
-§ plugin.team_author.moneyAll: Received
-§ plugin.team_author.moneyWorked: Worked for
-§ plugin.team_author.moneyLosses: Overpayment
-§ plugin.team_author.type.work: works
-§ plugin.team_author.type.dismissed: dismissed
-§ plugin.team_author.type.staff: staff
-§ plugin.team_author.absence.title: Vacation schedule
-§ plugin.team_author.absence.vacation: Vacation
-§ plugin.team_author.absence.transfer: Department change
-§ plugin.team_author.absence.from: from
-§ plugin.team_author.absence.to: to
-§ plugin.team_author.absence.duration: days
-§ plugin.team_author.employments.less1: one employee
-§ plugin.team_author.employments.less2: two employees
-§ plugin.team_author.employments.less3: three employees
-§ plugin.team_author.employments.less6: up to six employees
-§ plugin.team_author.employments.less9: up to nine employees
-§ plugin.team_author.employments.less12: up to 12 employees
-§ plugin.team_author.employments.less15: up to 15 employees
-§ plugin.team_author.employments.more: more than 15
+§ plugin.team_author.commitsSmall: Commits
+§ plugin.team_author.tasks: Aufgaben
+§ plugin.team_author.tasksSmall: Aufgaben
+§ plugin.team_author.workedLosses: Tage mit und ohne Commits
+§ plugin.team_author.worked: Arbeit
+§ plugin.team_author.losses: Tage ohne Commits
+§ plugin.team_author.days: Tage
+§ plugin.team_author.daysForTask: Tage pro Aufgabe
+§ plugin.team_author.scopes: Funktionen
+§ plugin.team_author.moneyAll: Erhalten
+§ plugin.team_author.moneyWorked: Bearbeitet
+§ plugin.team_author.moneyLosses: Überzahlung
+§ plugin.team_author.type.work: arbeitet
+§ plugin.team_author.type.dismissed: verlassen
+§ plugin.team_author.type.staff: Personal
+§ plugin.team_author.absence.title: Urlaubsplan
+§ plugin.team_author.absence.vacation: Urlaub
+§ plugin.team_author.absence.transfer: Versetzung in eine andere Abteilung
+§ plugin.team_author.absence.from: von
+§ plugin.team_author.absence.to: bis
+§ plugin.team_author.absence.duration: Dauer
+§ plugin.team_author.employments.less1: ein Mitarbeiter
+§ plugin.team_author.employments.less2: zwei Mitarbeiter
+§ plugin.team_author.employments.less3: drei Mitarbeiter
+§ plugin.team_author.employments.less6: bis zu sechs Mitarbeitern
+§ plugin.team_author.employments.less9: bis zu neun Mitarbeitern
+§ plugin.team_author.employments.less12: bis zu 12 Mitarbeitern
+§ plugin.team_author.employments.less15: bis zu 15 Mitarbeitern
+§ plugin.team_author.employments.more: mehr als 15
 `;

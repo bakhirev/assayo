@@ -12,7 +12,7 @@ export default `
 § plugin.team_author.description1: *Part of the statistics* (work speed, costs, etc.) *for employees with the 'Assistant' type is not counted*, as it is an episodic role in the project. It is assumed that they do not affect the project, and their edits can be disregarded in the context of the overall volume of work.
 § plugin.team_author.author: Staff member
 § plugin.team_author.status: Status
-§ plugin.team_author.company: Subcontractor
+§ plugin.team_author.company: Company
 § plugin.team_author.firstCommit: First commit
 § plugin.team_author.lastCommit: Last
 § plugin.team_author.daysAll: Total days

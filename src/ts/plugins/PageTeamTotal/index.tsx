@@ -16,7 +16,7 @@ export default class Plugin implements IPlugin {
         order: 10,
         link: '/team/total',
         title: 'plugin.team_total.sidebar',
-        icon: './assets/menu/team_common.svg',
+        icon: './assets/menu/common.svg',
       },
     ];
   }

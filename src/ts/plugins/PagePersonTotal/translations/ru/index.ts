@@ -24,6 +24,6 @@ export default `
 § plugin.person_total.email.company: Компания
 § plugin.person_total.email.email: Почта
 § plugin.person_total.company.title: Список компаний, от лица которых сотрудник делал коммиты
-§ plugin.person_total.from: с 
-§ plugin.person_total.to: по
+§ plugin.person_total.from: Первый коммит 
+§ plugin.person_total.to: Последний коммит
 `;

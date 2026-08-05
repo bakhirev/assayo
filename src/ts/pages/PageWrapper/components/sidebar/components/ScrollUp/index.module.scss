@@ -5,8 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 240px;
-  margin-left: -24px;
 
   cursor: pointer;
   text-align: center;
@@ -54,12 +52,6 @@
   to {
     opacity: 0;
     top: 0;
-  }
-}
-
-@media (max-width: 1000px) {
-  .scroll_up_button {
-    width: 60px;
   }
 }
 

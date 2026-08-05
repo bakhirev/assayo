@@ -10,6 +10,7 @@ import getAdaptiveColumnWidth from './helpers/getAdaptiveColumnWidth';
 import getColumnConfigs from './helpers/getColumnConfigs';
 import getDefaultProps from './helpers/getDefaultProps';
 import getRowsConfig from './helpers/getRowsConfig';
+import { useWindowResize } from 'ts/helpers/DOMEvents';
 
 import style from './styles/index.module.scss';
 
@@ -46,6 +47,10 @@ function Table({
     const newRowsConfig = getRowsConfig(rows, rowsConfig);
     setRowsConfig(newRowsConfig);
   }, [rows]);
+
+  useWindowResize(() => {
+    setOffsetWidth(refTable?.current?.offsetWidth);
+  }, [refTable?.current]);
 
   const defaultColumns = getDefaultProps(children) as IColumn[];
   const adaptiveWidth = getAdaptiveColumnWidth(defaultColumns, offsetWidth);

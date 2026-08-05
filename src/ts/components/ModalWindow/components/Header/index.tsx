@@ -25,6 +25,7 @@ const Header = observer(({
 
       {onClose ? (
         <img
+          alt=""
           src="./assets/close.svg"
           className={style.modal_window_close}
           onClick={(event: any) => {

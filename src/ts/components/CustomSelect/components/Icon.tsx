@@ -19,6 +19,7 @@ function UiKitSelectIcon({
   return (
     <div className={style.ui_kit_select_icon}>
       <img
+        alt=""
         src="./assets/list/arrow.svg"
         className={className.join(' ')}
         onClick={() => setOpenSearch(!openSearch)}

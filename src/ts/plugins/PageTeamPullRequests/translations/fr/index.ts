@@ -1,33 +1,37 @@
 export default `
-§ plugin.team_pull_requests.sidebar: injection de code
-§ plugin.team_pull_requests.task: tâches
-§ plugin.team_pull_requests.tasks: tâches
-§ plugin.team_pull_requests.firstCommitTime: Premier commit
-§ plugin.team_pull_requests.lastCommitTime: Dernier
-§ plugin.team_pull_requests.workDays: Average time spent working on a task
-§ plugin.team_pull_requests.delayDays: Average time of the PR review
-§ plugin.team_pull_requests.backlogDays: The delay of the task in the backlog before the start of development
-§ plugin.team_pull_requests.all.workDays: Time spent working on a task
-§ plugin.team_pull_requests.all.delayDays: Time of the PR review
-§ plugin.team_pull_requests.middleTimeRelease: The ratio of development time to review time
-§ plugin.team_pull_requests.chart.1day: day
-§ plugin.team_pull_requests.chart.3day: three days
-§ plugin.team_pull_requests.chart.7day: week
-§ plugin.team_pull_requests.chart.14day: two weeks
-§ plugin.team_pull_requests.chart.30day: month
-§ plugin.team_pull_requests.chart.more: more
-§ plugin.team_pull_requests.date: Date de diffusion
-§ plugin.team_pull_requests.mergeAuthor: Versai
-§ plugin.team_pull_requests.author: Employé
-§ plugin.team_pull_requests.work: développement
-§ plugin.team_pull_requests.delay: attente
-§ plugin.team_pull_requests.days: jours
-§ plugin.team_pull_requests.oneTaskDays: Temps passé sur une tâche
-§ plugin.team_pull_requests.description1: *Temps de développement* c’est la différence de temps entre le premier et le dernier commit pour un problème donné. Il n’importe pas si il y avait des pauses pendant plusieurs jours entre les commits, ou non. Le fait même d’avoir fait un quelconque commit augmente le temps.
-§ plugin.team_pull_requests.description2: *Délai d'attente* c'est le temps entre le dernier commit et l'injection de code. Il montre le réel simple en attendant quoi que ce soit.
-§ plugin.team_pull_requests.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
-§ plugin.team_pull_requests.statByAuthors: Statistiques du personnel
-§ plugin.team_pull_requests.longDelay: Longue attente pour l'injection
-§ plugin.team_pull_requests.anonymous: PR without task number
-§ plugin.team_pull_requests.branch: Branch
+§ plugin.team_pull_requests.sidebar: Fusion de code
+§ plugin.team_pull_requests.total.title: Statistiques générales sur toutes les PR
+§ plugin.team_pull_requests.total.daysWorkOnTask: Temps moyen passé à travailler avant de créer une PR
+§ plugin.team_pull_requests.total.daysInReview: Temps moyen de révision des PR
+§ plugin.team_pull_requests.total.description1: Le *temps de travail* est le délai entre le premier et le dernier commit pour une tâche. Si une tâche a plusieurs PR, alors le *temps de travail* pour la suivante est compté à partir de la date de fusion de la PR précédente.
+§ plugin.team_pull_requests.total.description11: Par exemple : si vous travaillez sur une tâche pendant une semaine et que vous créez et fusionnez une PR à la fin de chaque journée, le temps de travail pour chacune de ces PR sera d'un jour. Mais le "temps total passé à travailler sur la tâche" (voir dans la section "Liste des tâches") sera d'une semaine.
+§ plugin.team_pull_requests.total.description2: Le *temps de révision* est le délai entre le dernier commit et la fusion du code. Il indique le temps d'arrêt réel pendant l'attente de quelque chose.
+§ plugin.team_pull_requests.author.title: Statistiques par membres du personnel
+§ plugin.team_pull_requests.author.author: Membre du personnel
+§ plugin.team_pull_requests.author.daysWorkOnTask: Temps moyen passé à travailler avant la PR
+§ plugin.team_pull_requests.author.daysInReview: Temps moyen de révision des PR
+§ plugin.team_pull_requests.author.middleTimeRelease: Temps de développement sur temps de révision
+§ plugin.team_pull_requests.author.work: travail
+§ plugin.team_pull_requests.author.review: révision
+§ plugin.team_pull_requests.yearChart.title: Répartition par années
+§ plugin.team_pull_requests.authorChart.title: Répartition par membres du personnel
+§ plugin.team_pull_requests.chart.suffix: demandes de tirage
+§ plugin.team_pull_requests.all.title: PR liées aux tâches
+§ plugin.team_pull_requests.all.task: Tâche
+§ plugin.team_pull_requests.all.pr: PR
+§ plugin.team_pull_requests.all.message: Message de commit ou branche
+§ plugin.team_pull_requests.all.dateCreate: Créé
+§ plugin.team_pull_requests.all.dateMerge: Fusionné
+§ plugin.team_pull_requests.all.daysWorkOnTask: Jours en développement
+§ plugin.team_pull_requests.all.daysInReview: Jours en révision
+§ plugin.team_pull_requests.anonymous.title: PR sans identifiants de tâche
+§ plugin.team_pull_requests.anonymous.date: Date de fusion
+§ plugin.team_pull_requests.anonymous.author: Fusionné par
+§ plugin.team_pull_requests.anonymous.message: Message de commit ou branche
+§ plugin.team_pull_requests.chart.1day: jour
+§ plugin.team_pull_requests.chart.3day: trois jours
+§ plugin.team_pull_requests.chart.7day: semaine
+§ plugin.team_pull_requests.chart.14day: deux semaines
+§ plugin.team_pull_requests.chart.30day: mois
+§ plugin.team_pull_requests.chart.more: plus de
 `;

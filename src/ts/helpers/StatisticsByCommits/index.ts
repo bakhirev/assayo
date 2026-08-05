@@ -7,10 +7,10 @@ import StatisticsByTeam from './components/team';
 import StatisticsByScope from './components/scope/index';
 import StatisticsByType from './components/type';
 import StatisticsByTimestamp from './components/timestamp';
-import StatisticsByMonth from './components/month';
+import StatisticsByMonth from './components/month/index';
 import StatisticsByWeek from './components/week';
 import MinMaxCounter from './helpers/MinMaxCounter';
-import StatisticsByGet from './components/get';
+import StatisticsByBeautifulTaskNumbers from './components/beautifulTaskNumbers';
 import StatisticsByPR from './components/pr';
 import StatisticsByTasks from './components/tasks';
 import StatisticsByRelease from './components/release';
@@ -47,7 +47,7 @@ class StatisticsByCommits {
 
   recommendations: any = new Recommendations();
 
-  get: any = new StatisticsByGet();
+  beautifulTaskNumbers: any = new StatisticsByBeautifulTaskNumbers();
 
   pr: any = new StatisticsByPR();
 
@@ -81,7 +81,7 @@ class StatisticsByCommits {
     this.month.clear();
     this.week.clear();
     this.recommendations.clear();
-    this.get.clear();
+    this.beautifulTaskNumbers.clear();
     this.pr.clear();
     this.tasks.clear();
     this.release.clear();
@@ -107,7 +107,7 @@ class StatisticsByCommits {
       this.type.addCommit(commit);
       this.timestamp.addCommit(commit);
       this.month.addCommit(commit);
-      this.get.addCommit(commit);
+      this.beautifulTaskNumbers.addCommit(commit);
       this.week.addCommit(commit);
       this.tasks.addCommit(commit);
       this.taskCodes.addCommit(commit);

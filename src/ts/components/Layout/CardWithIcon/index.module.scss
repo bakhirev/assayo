@@ -139,6 +139,12 @@
   margin-right: 0;
 }
 
+@media (min-width: 900px) and (max-width: 1400px) {
+  .card_with_icon {
+    min-height: 290px;
+  }
+}
+
 @media (max-width: 900px) {
   .card_with_icon {
     min-height: 220px;

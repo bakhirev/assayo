@@ -18,9 +18,10 @@ interface DayEvent {
 interface DayInfoProps {
   timestamp: string;
   events?: DayEvent;
+  author?: string;
 }
 
-function DayInfo({ timestamp, events }: DayInfoProps): React.ReactElement {
+function DayInfo({ timestamp, events, author }: DayInfoProps): React.ReactElement {
   const { text } = useTranslation();
   let taskNumber = 0;
 
@@ -31,23 +32,25 @@ function DayInfo({ timestamp, events }: DayInfoProps): React.ReactElement {
 
   const items = Object.entries(tasksByAuthor)
     .sort((a: any, b: any) => (order.indexOf(a[0]) - order.indexOf(b[0])))
-    .map(([author, tasks]: [string, any]) => {
+    .map(([authorFromStat, tasks]: [string, any]) => {
+      if (author && authorFromStat !== author) return null;
+
       taskNumber += Object.keys(tasks).length;
 
       let suffix = '';
-      if (events?.vacationStart?.has(author)) suffix = text('plugin.team_month.vacation.first');
-      if (events?.vacationEnd?.has(author)) suffix = text('plugin.team_month.vacation.last');
-      if (events?.firstDay?.has(author)) suffix = text('plugin.team_month.work.first');
-      if (events?.lastDay?.has(author)) suffix = text('plugin.team_month.work.last');
-      if (events?.travel?.has(author)) suffix = text('plugin.team_month.travel');
+      if (events?.vacationStart?.has(authorFromStat)) suffix = text('plugin.team_month.vacation.first');
+      if (events?.vacationEnd?.has(authorFromStat)) suffix = text('plugin.team_month.vacation.last');
+      if (events?.firstDay?.has(authorFromStat)) suffix = text('plugin.team_month.work.first');
+      if (events?.lastDay?.has(authorFromStat)) suffix = text('plugin.team_month.work.last');
+      if (events?.travel?.has(authorFromStat)) suffix = text('plugin.team_month.travel');
 
       return (
         <div
-          key={author}
+          key={authorFromStat}
           className={style.day_info}
         >
           <h3 className={style.day_info_author}>
-            {`${author} ${suffix}`}
+            {`${authorFromStat} ${suffix}`}
           </h3>
           <TaskInfo tasks={tasks}/>
         </div>

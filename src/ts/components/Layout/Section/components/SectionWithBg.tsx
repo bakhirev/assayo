@@ -9,7 +9,7 @@ function SectionWithBg({
 }: SectionProps) {
   return (
     <section
-      className={`${style.main_wrapper} ${style.main_wrapper_white} ${className || ''}`}
+      className={`${style.components_section} ${style.components_section_white} ${className || ''}`}
       style={{ paddingTop: 0 }}
     >
       {children}

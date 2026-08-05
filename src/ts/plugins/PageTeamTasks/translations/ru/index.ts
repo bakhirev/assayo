@@ -15,7 +15,6 @@ export default `
 § plugin.team_tasks.release.title: Релиз
 § plugin.team_tasks.release.releaseDateMerge: Опубликован
 § plugin.team_tasks.release.prDateMerge: Влит
-§ plugin.team_tasks.info.timetoMarket: создана до
 § plugin.team_tasks.info.createdBefore: создана до
 § plugin.team_tasks.info.totalDaysInBacklog: дней в беклоге
 § plugin.team_tasks.info.totalAuthors: сотрудников работало

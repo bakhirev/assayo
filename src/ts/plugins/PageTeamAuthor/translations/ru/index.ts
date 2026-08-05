@@ -12,7 +12,7 @@ export default `
 § plugin.team_author.description1: *Часть статистики* (скорость работы, затраченные деньги и т.п.) *по сотрудникам с типом «Помощник» не считается*, т.к. это эпизодическая роль в проекте. Предполагаем, что они не влияют на проект, а их правками можно пренебречь на фоне общего объема работы.
 § plugin.team_author.author: Сотрудник
 § plugin.team_author.status: Статус
-§ plugin.team_author.company: Субподрядчик
+§ plugin.team_author.company: Компания
 § plugin.team_author.firstCommit: Первый коммит
 § plugin.team_author.lastCommit: Последний
 § plugin.team_author.daysAll: Всего дней

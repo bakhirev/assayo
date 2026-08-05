@@ -10,8 +10,8 @@ export default `
 § plugin.person_money.moneyLosses.description: الأيام بدون commits مضروبة في تكلفة يوم عمل واحد.
 § plugin.person_money.weekendPayment.title: العمل في عطلات نهاية الأسبوع
 § plugin.person_money.weekendPayment.description: إجمالي الزيادة في الدفع مقابل العمل في عطلات نهاية الأسبوع
-§ plugin.person_money.tasks.title: task
-§ plugin.person_money.tasks.description: عدد tasks التي عمل عليها عضو الطاقم مقسومًا على تكلفة العمل (الأيام مع commits مضروبة في تكلفة يوم عمل واحد).
+§ plugin.person_money.tasks.title: المهمة
+§ plugin.person_money.tasks.description: عدد المهام التي تمت معالجتها بواسطة الموظف مقسومًا على تكلفة العمل (الأيام مع commits مضروبة في تكلفة يوم عمل واحد).
 § plugin.person_money.commits.title: commit
 § plugin.person_money.commits.description: إجمالي عدد commits عبر الفترة مقسومًا على تكلفة العمل (الأيام مع commits مضروبة في تكلفة يوم عمل واحد).
 `;

@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 120,
         link: '/team/hours',
         title: 'sidebar.team.hours',
-        icon: './assets/menu/team_hours.svg',
+        icon: './assets/menu/hours.svg',
       },
       {
         id: 'hours',
@@ -27,7 +27,7 @@ export default class Plugin implements IPlugin {
         order: 70,
         link: '/person/hours/',
         title: 'sidebar.person.hours',
-        icon: './assets/menu/team_hours.svg',
+        icon: './assets/menu/hours.svg',
       },
     ];
   }
