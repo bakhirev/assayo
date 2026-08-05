@@ -44,21 +44,23 @@ function SideBar({ onResize }: SideBarProps) {
           setInFocus(false);
         }}
       >
-        <LogoWrapper/>
-        <Switch
-          value={formattedType}
-          options={TYPES}
-          onChange={(newType: string) => {
-            if (newType === type) return;
-            if (newType === 'person') {
-              navigate(`/${newType}/total/0`);
-            } else {
-              navigate(`/${newType}/total`);
-            }
-          }}
-        />
-        <SideBarButtons type={formattedType} />
-        <SideBarBanner />
+        <div>
+          <LogoWrapper/>
+          <Switch
+            value={formattedType}
+            options={TYPES}
+            onChange={(newType: string) => {
+              if (newType === type) return;
+              if (newType === 'person') {
+                navigate(`/${newType}/total/0`);
+              } else {
+                navigate(`/${newType}/total`);
+              }
+            }}
+          />
+          <SideBarButtons type={formattedType} />
+          <SideBarBanner />
+        </div>
         <SideBarScrollUp />
       </div>
       <div

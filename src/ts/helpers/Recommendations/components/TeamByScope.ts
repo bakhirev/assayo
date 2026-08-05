@@ -5,7 +5,8 @@ const { getItem, getTitle } = getBuilder('scope');
 
 export default class RecommendationsTeamByScope {
   getTotalInfo(statisticsByCommits: any) {
-    const money = getMoney(statisticsByCommits.team.totalInfo.moneyWorked);
+    const totalInfo = statisticsByCommits.team.totalInfo;
+    const money = getMoney(totalInfo.totalMoneyWorked + totalInfo.totalMoneyInWeekend);
     return [
       this.getBusFactor(statisticsByCommits),
       this.getManyTypes(statisticsByCommits),

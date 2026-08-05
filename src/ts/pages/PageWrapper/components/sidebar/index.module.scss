@@ -5,8 +5,10 @@
   bottom: 0;
   z-index: 2;
 
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 240px;
+  height: 100%;
   min-height: 100vh;
   padding: 24px 0 0 0;
 
