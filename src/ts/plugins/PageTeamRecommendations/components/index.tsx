@@ -5,7 +5,7 @@ import CardForPrint from 'ts/components/Recommendations/components/CardForPrint'
 import { Title, NothingFound } from 'ts/components/Layout';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 import style from './index.module.scss';
 

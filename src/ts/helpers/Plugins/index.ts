@@ -1,5 +1,8 @@
-import { IPlugin, MenuItem } from './interfaces/Plugin';
 import { HashMap } from 'ts/interfaces/HashMap';
+import sourceData from 'ts/store/SourceData';
+
+import { IPlugin, MenuItem } from './interfaces/Plugin';
+
 export { default as getEnabledPlugins } from './helpers/getEnabledPlugins';
 
 class Plugins {
@@ -20,7 +23,7 @@ class Plugins {
 
   #getItems(method: string, prefix?: string) {
     const allMenuItems = this.plugins
-      .map((plugin) => plugin?.[method]?.())
+      .map((plugin) => plugin?.[method]?.(sourceData.data))
       .flat()
       .filter((item) => item)
       .sort((a, b) => ((a.order || 0) - (b.order || 0)));

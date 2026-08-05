@@ -2,7 +2,7 @@ import React from 'react';
 
 import { If, Gap, Title } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import Cards from './Cards';

@@ -108,7 +108,7 @@ export default class StatisticsByMonth {
         dot.tasksNumber = Array.from(dot.tasksNumber).length;
         dot.usersNumber = Array
           .from(dot.usersNumber) // @ts-ignore
-          .filter((name) => !statisticsByAuthor.totalInfoByName[name]?.isStaff)
+          .filter((name) => !statisticsByAuthor.totalInfoByName.get(name)?.isStaff)
           .length;
         return dot;
       })

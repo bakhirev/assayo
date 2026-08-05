@@ -7,7 +7,7 @@ import { getMaxValues } from 'ts/helpers/charts';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { DataView } from 'ts/components/Layout';
 import { LineChart } from 'ts/components/Charts';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 interface EmploymentsProps {
   response?: IPagination<any>;

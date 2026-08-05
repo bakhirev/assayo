@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { Title } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import CommonInfo from './components/CommonInfo';
 import Release from './components/Release';

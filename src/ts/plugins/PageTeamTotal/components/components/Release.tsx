@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { If, Title, CardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PieChart } from 'ts/components/Charts';
 import { getMiddleTimeToMarketForTasks } from 'ts/helpers/StatisticsByCommits/helpers/timeToMarket';
 

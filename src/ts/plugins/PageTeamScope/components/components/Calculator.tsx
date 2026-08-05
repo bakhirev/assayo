@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import sourceData from 'ts/store/SourceData';
 
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 import { If, Description, Gap, NothingFound, Search as LayoutSearch, Title } from 'ts/components/Layout';
@@ -24,7 +25,7 @@ interface CalculatorProps {
 
 function Calculator({ mode }: CalculatorProps) {
   const commits = useMemo(() => (
-    [...statisticStore.commits]
+    [...sourceData.get('commits')]
       .reverse()
       .filter((commit: any) => !commit?.commitType) as ICommit[]
   ), [statisticStore.hash]);

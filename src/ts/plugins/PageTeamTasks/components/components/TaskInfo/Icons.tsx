@@ -7,7 +7,7 @@ import { getDate } from 'ts/helpers/formatter';
 import { getTimeToMarketForTask } from 'ts/helpers/StatisticsByCommits/helpers/timeToMarket';
 import { Table, Column, ColumnTypes } from 'ts/components/Table';
 import { PieChart } from 'ts/components/Charts';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 interface IconsProps {
   task: any;

@@ -1,5 +1,6 @@
 import React from 'react';
 import IHashMap from 'ts/interfaces/HashMap';
+import { ISourceData } from 'ts/interfaces/SourceData';
 
 export interface PageOptions {
   id?: string;
@@ -19,8 +20,8 @@ export interface MenuItem {
 
 export interface IPlugin {
   id?: string;
-  getHeaderItems?: () => MenuItem[];
-  getMenuItems?: () => MenuItem[];
+  getHeaderItems?: (sourceData?: ISourceData) => MenuItem[];
+  getMenuItems?: (sourceData?: ISourceData) => MenuItem[];
   getTranslations?: () => IHashMap<string>;
   getPage?: (path: string, props?: PageOptions) => React.ReactElement | null | undefined | void;
 }

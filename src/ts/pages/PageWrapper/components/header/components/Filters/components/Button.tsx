@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'ts/components/Translation';
 
 import filtersInHeaderStore from 'ts/store/FiltersInHeader';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import style from '../index.module.scss';
 

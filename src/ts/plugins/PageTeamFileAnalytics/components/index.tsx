@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { If, NothingFound, Title } from 'ts/components/Layout';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 

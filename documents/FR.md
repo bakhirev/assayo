@@ -140,9 +140,16 @@ Lisez plus sur le format de ce fichier [ici](https://git-scm.com/docs/gitmailmap
 <a name="link-14"></a>
 ####  Pour la visualisation en ligne
 Dans le répertoire racine de votre projet exécutez:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  Pour la visualisation hors ligne
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git créera un fichier `log.txt`. Ce fichier contient les données pour afficher un rapport. La différence entre le format en ligne et hors ligne est la présence d'un enveloppement pour les chaînes. Le format hors ligne sera chargé comme un fichier `js` si vous avez ouvert uniquement `/build/index.html`
 
 <a name="link-16"></a>

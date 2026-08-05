@@ -2,6 +2,7 @@ import { action, makeObservable, observable } from 'mobx';
 
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
+import sourceData from 'ts/store/SourceData';
 import achievements from 'ts/helpers/achievement/byCompetition';
 import statisticsByCommits from 'ts/helpers/StatisticsByCommits';
 import statisticsByFiles from 'ts/helpers/StatisticsByFiles';
@@ -16,9 +17,7 @@ import viewNameStore, { ViewNameEnum } from './ViewName';
 
 const PROCESSING_DELAY = 300;
 
-class StatisticsStore {
-  commits: any[] = [];
-
+class StatisticsByCommitsStore {
   statisticsByCommits: any = null;
 
   statisticsByFiles: any = null;
@@ -82,7 +81,7 @@ class StatisticsStore {
 
   processingDataAnalysis(commits: (ICommit | ISystemCommit)[]) {
     statisticsByFiles.updateTotalInfo();
-    this.commits = commits;
+    sourceData.add('commits', commits);
 
     filtersInHeaderStore.updateByCommits(
       statisticsByCommits.firstLastCommit.minData,
@@ -98,7 +97,7 @@ class StatisticsStore {
     console.dir(this.statisticsByCommits);
     console.dir(this.statisticsByFiles);
 
-    document.title = getTitle(this.statisticsByCommits, this.statisticsByFiles, this.commits);
+    document.title = getTitle(this.statisticsByCommits, this.statisticsByFiles, sourceData.get('commits'));
   }
 
   depersonalized(status?: boolean) {
@@ -113,7 +112,7 @@ class StatisticsStore {
     statisticsByFiles.clear();
 
     const depersonalized = new Depersonalized();
-    this.commits.forEach((commit: ICommit | ISystemCommit) => {
+    sourceData.get('commits').forEach((commit: ICommit | ISystemCommit) => {
       if (commit.timestamp < filtersInHeaderStore.from
         || commit.timestamp > filtersInHeaderStore.to) return;
 
@@ -142,11 +141,11 @@ class StatisticsStore {
   exit() {
     statisticsByCommits.clear();
     statisticsByFiles.clear();
-    this.commits = [];
+    sourceData.add('commits', []);
     this.#updateRender();
   }
 }
 
-const statisticStore = new StatisticsStore();
+const statisticsByCommitsStore = new StatisticsByCommitsStore();
 
-export default statisticStore;
+export default statisticsByCommitsStore;

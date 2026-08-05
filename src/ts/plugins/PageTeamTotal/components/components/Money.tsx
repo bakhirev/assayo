@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { CardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import { getShortMoney } from 'ts/helpers/formatter';
 

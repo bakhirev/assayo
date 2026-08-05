@@ -15,7 +15,7 @@ export function getIsStaff(
 ) {
   const percentWork = totalDaysWithCommits * 100 / (totalDaysWithCommits + totalDaysWithoutCommits);
   const isBot = (/[^a-z]bot[^a-z]/gim).test(name);
-  return totalDays < 20 || percentWork < 15 || isBot;
+  return totalDays < 20 || percentWork < 15 || totalDaysWithCommits < 10 || isBot;
 }
 
 export function getListByType(list: any[]) {

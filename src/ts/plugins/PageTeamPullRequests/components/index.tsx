@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { Pagination, FakeDataLoader } from 'ts/components/DataLoader';

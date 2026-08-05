@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ICommit from 'ts/interfaces/Commit';
 import { Gap, Title } from 'ts/components/Layout';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Icons from './Icons';
 import IconsSmall from '../Details/Icons';

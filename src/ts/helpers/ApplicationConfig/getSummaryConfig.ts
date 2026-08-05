@@ -63,6 +63,11 @@ export default function getSummaryConfig(
       || defaultConfig?.urlForGitLog
       || '',
 
+    urlForPackageJson: parameters?.urlForPackageJson
+      || configFromBackend?.urlForPackageJson
+      || defaultConfig?.urlForPackageJson
+      || '',
+
     permissions: getNotEmptyArray(configFromBackend?.permissions)
       || getNotEmptyArray(defaultConfig?.permissions)
       || [],

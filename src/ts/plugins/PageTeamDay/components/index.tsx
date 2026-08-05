@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { IPagination } from 'ts/interfaces/Pagination';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { DataLoader } from 'ts/components/DataLoader';
 import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';

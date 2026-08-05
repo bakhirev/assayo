@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
 import { Title } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import fullScreen from 'ts/store/FullScreen';
 import plugins from 'ts/helpers/Plugins';
 

@@ -1,4 +1,4 @@
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { shuffle } from 'ts/helpers/random';
 import localization from 'ts/helpers/Localization';
 import achievementByAuthor from 'ts/helpers/achievement/byCompetition';

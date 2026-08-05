@@ -5,7 +5,7 @@ import ICommit from 'ts/interfaces/Commit';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import { Gap, If, Title } from 'ts/components/Layout';
 import getReleaseAndPR from 'ts/helpers/StatisticsByCommits/helpers/getReleaseAndPR';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Icons from './Icons';
 import Release from './Release';

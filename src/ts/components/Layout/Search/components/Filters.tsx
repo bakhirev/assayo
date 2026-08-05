@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 
 import Filter from '../interfaces/Filter';

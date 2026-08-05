@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 
 import isMobile from 'ts/helpers/isMobile';
 import fullScreen from 'ts/store/FullScreen';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Quiz from './components/Quiz';
 import Races from './components/Races';

@@ -77,7 +77,7 @@ export default class StatisticsByAbsence {
 
   updateTotalInfo(statisticsByAuthor: any) {
     this.totalInfo = this.totalInfo
-      .filter((absence: StatisticsAbsence) => !statisticsByAuthor.totalInfoByName[absence.author]?.isStaff)
+      .filter((absence: StatisticsAbsence) => !statisticsByAuthor.totalInfoByName.get(absence.author)?.isStaff)
       .sort((a: StatisticsAbsence, b: StatisticsAbsence) => b.to.milliseconds - a.to.milliseconds);
 
     this.totalInfo.forEach((absence: StatisticsAbsence) => {

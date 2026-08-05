@@ -5,7 +5,7 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { IPagination } from 'ts/interfaces/Pagination';
 import { getShortDateRange, getShortNumber } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import { NothingFound, DataView } from 'ts/components/Layout';

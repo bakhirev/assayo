@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { CardWithIcon, NothingFound, Title, Section, SectionColumn } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { getShortMoney } from 'ts/helpers/formatter';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';

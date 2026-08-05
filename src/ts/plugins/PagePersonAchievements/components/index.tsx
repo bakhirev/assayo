@@ -7,7 +7,7 @@ import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
 import { Description, Gap, If, Title } from 'ts/components/Layout';
 import BeautifulTaskNumbers from 'ts/components/BeautifulTaskNumbers';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import Achievements from 'ts/components/Achievement';
 

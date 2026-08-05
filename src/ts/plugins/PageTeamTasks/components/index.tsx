@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import ICommit from 'ts/interfaces/Commit';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';

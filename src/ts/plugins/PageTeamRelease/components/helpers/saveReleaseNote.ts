@@ -1,6 +1,6 @@
 import { downloadFile } from 'ts/helpers/File';
 import { getDateForExcel } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import applicationConfig from 'ts/store/ApplicationConfig';
 
 function groupByType(prs: any[]) {

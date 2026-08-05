@@ -21,38 +21,38 @@ Creates an HTML-report with analysis of commit statistics:
 <a name="link-0"></a>
 ### Table of contents
 - [COMMIT STATISTICS REPORT](#link-1)
-  - [How to create and view the report?](#link-2)
-    - [Using public server](#link-3)
-    - [Use the library NodeJS](#link-4)
-    - [Use the library PHP](#link-5)
-    - [Use the library Python](#link-6)
-    - [Use the library Ruby](#link-7)
-    - [Use the library Go](#link-8)
-    - [Use source code](#link-9)
-    - [Use github actions](#link-10)
-    - [Use private server](#link-11)
-  - [How to concat authors?](#link-12)
-  - [How to export data from git to txt file?](#link-13)
-    - [For online viewing](#link-14)
-    - [For offline viewing](#link-15)
-    - [If you use PowerShell in Windows](#link-16)
-  - [How to view a report on a group of microservices?](#link-17)
+    - [How to create and view the report?](#link-2)
+        - [Using public server](#link-3)
+        - [Use the library NodeJS](#link-4)
+        - [Use the library PHP](#link-5)
+        - [Use the library Python](#link-6)
+        - [Use the library Ruby](#link-7)
+        - [Use the library Go](#link-8)
+        - [Use source code](#link-9)
+        - [Use github actions](#link-10)
+        - [Use private server](#link-11)
+    - [How to concat authors?](#link-12)
+    - [How to export data from git to txt file?](#link-13)
+        - [For online viewing](#link-14)
+        - [For offline viewing](#link-15)
+        - [If you use PowerShell in Windows](#link-16)
+    - [How to view a report on a group of microservices?](#link-17)
 
 
 - [THE BEST PRACTICES IN THE PROJECT](#link-18)
-  - [How to sign commits?](#link-19)
-  - [How to add checking for commit message?](#link-20)
-    - [Use file commit-msg](#link-21)
-    - [Use package pre-commit](#link-22)
+    - [How to sign commits?](#link-19)
+    - [How to add checking for commit message?](#link-20)
+        - [Use file commit-msg](#link-21)
+        - [Use package pre-commit](#link-22)
 
 
 - [ABOUT THIS APP](#link-23)
-  - [How to brand the interface?](#link-24)
-  - [How to rebuild the HTML report from source code?](#link-25)
-  - [How to add or edit a translation?](#link-26)
-  - [️Architecture](#link-27)
-    - [General architecture of microservices](#link-29)
-  - [Feedback, comments](#link-30)
+    - [How to brand the interface?](#link-24)
+    - [How to rebuild the HTML report from source code?](#link-25)
+    - [How to add or edit a translation?](#link-26)
+    - [️Architecture](#link-27)
+        - [General architecture of microservices](#link-29)
+    - [Feedback, comments](#link-30)
 
 <a name="link-1"></a>
 ##  COMMIT STATISTICS REPORT
@@ -140,9 +140,16 @@ Read more about the format of this file you can [here](https://git-scm.com/docs/
 <a name="link-14"></a>
 ####  For online viewing
 In the root directory of your project run:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  For offline viewing
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git will create a file `log.txt`. This file contains data for show a report. The difference between the online and offline format is the presence of a wrapper for strings. The offline format will be pulled up like a `js` file if you just opened `/build/index.html`
 
 <a name="link-16"></a>

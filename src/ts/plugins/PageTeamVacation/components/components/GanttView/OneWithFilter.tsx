@@ -15,7 +15,7 @@ function OneWithFilter({ mode, rowsByYear }: OneWithFilterProps): React.ReactEle
   const [selectedYear, setSelectedYear] = useState<any>(rowsByYear?.[0]);
 
   const options = useMemo(() => (
-    rowsByYear.map((item) => ({ id: item.year, title: item.year }))
+    rowsByYear.map((item) => ({ id: item.year, title: item.year })).reverse()
   ), [selectedYear?.year]);
 
   return (

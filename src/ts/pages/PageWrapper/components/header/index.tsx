@@ -24,17 +24,18 @@ const Header = observer((): React.ReactElement | null => {
     .find((button) => button?.link === location?.pathname) || {};
 
   const buttons = plugins.getHeaderItems()
-    .filter((button) => button.title)
-    .map((button) => (
-      <img
-        key={button.id}
-        alt={text(button.title || '')}
-        title={text(button.title || '')}
-        className={style.header_icon}
-        src={button.icon}
-        onClick={button?.onClick?.(navigate, location)}
-      />
-    ));
+    .filter((button) => button.title);
+
+  const buttonsElements = buttons.map((button) => (
+    <img
+      key={button.id}
+      alt={text(button.title || '')}
+      title={text(button.title || '')}
+      className={style.header_icon}
+      src={button.icon}
+      onClick={button?.onClick?.(navigate, location)}
+    />
+  ));
 
   return (
     <header className={style.header}>
@@ -77,7 +78,7 @@ const Header = observer((): React.ReactElement | null => {
             applicationConfig.updateConfigProperty('currency', currency);
           }}
         />
-        {buttons}
+        {buttonsElements}
       </div>
     </header>
   );

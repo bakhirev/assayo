@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { SmallCardWithIcon, CardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 import { getDuration, getShortMoney } from 'ts/helpers/formatter';
 import { increment } from 'ts/helpers/Math';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import applicationConfig from 'ts/store/ApplicationConfig';
 
 interface ShortInformationProps {

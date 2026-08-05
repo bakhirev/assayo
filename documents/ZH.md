@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  在线查看
 在项目的根目录中执行：
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  离线查看
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git将创建一个文件`log.txt`。此文件包含显示报告的数据。在线和离线格式之间的区别是字符串的包装。离线格式将作为文件`js`加载，如果您只打开`/build/index.html`
 
 <a name="link-16"></a>

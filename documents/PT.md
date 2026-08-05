@@ -140,9 +140,16 @@ Leia mais sobre o formato deste arquivo [aqui](https://git-scm.com/docs/gitmailm
 <a name="link-14"></a>
 ####  Para visualização online
 No diretório raiz do seu projeto execute:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  Para visualização offline
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 O Git criará um arquivo `log.txt`. Este arquivo contém dados para exibir um relatório. A diferença entre o formato online e offline é a presença de uma envoltória para as strings. O formato offline será carregado como um arquivo `js` se você apenas abriu `/build/index.html`
 
 <a name="link-16"></a>

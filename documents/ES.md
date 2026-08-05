@@ -140,9 +140,16 @@ Lea más sobre el formato de este archivo [aquí](https://git-scm.com/docs/gitma
 <a name="link-14"></a>
 ####  Para la visualización en línea
 En el directorio raíz de su proyecto ejecute:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  Para la visualización ofline
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git creará un archivo `log.txt`. Este archivo contiene datos para mostrar un informe. La diferencia entre el formato en línea y ofline es la presencia de una envoltura para las cadenas. El formato ofline se arrastrará como un archivo `js` si solo abrió `/build/index.html`
 
 <a name="link-16"></a>

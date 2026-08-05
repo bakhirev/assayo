@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  Для онлайн просмотра
 В корневой директории вашего проекта выполнить:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  Для офлайн просмотра
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git создаст файл `log.txt`. Он содержит данные для построения отчёта. Разница между онлайн и офлайн форматом в наличие обёртки для строк. Оффлайн формат будет подтягиваться, как `js` файл если вы просто открыли `/build/index.html`
 
 <a name="link-16"></a>

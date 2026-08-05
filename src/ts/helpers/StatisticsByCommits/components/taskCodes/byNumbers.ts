@@ -61,7 +61,7 @@ export default class StatisticsByTaskNumbers {
       const tasksFixedThisGroup = month.tasks.size;
       const programmistInCommits = (Array.from(month.authors.values()) as string[]);
       const programmistInThisGroup = programmistInCommits
-        .filter((name) => !statisticsByAuthor.totalInfoByName[name]?.isStaff)
+        .filter((name) => !statisticsByAuthor.totalInfoByName.get(name)?.isStaff)
         .length;
 
       if (newTaskInMonth < 10

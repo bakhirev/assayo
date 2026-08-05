@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ViewProps from 'ts/interfaces/ViewProps';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';

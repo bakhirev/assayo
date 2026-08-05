@@ -6,7 +6,7 @@ import { Section, SectionColumn } from 'ts/components/Layout';
 import { PieChart } from 'ts/components/Charts';
 import { Email } from 'ts/helpers/StatisticsByCommits/components/email';
 import { increment } from 'ts/helpers/Math';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 const REF_TYPE_TITLE = {
   [EmailType.UNKNOWN]: '',

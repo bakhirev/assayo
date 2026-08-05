@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { getShortNumber } from 'ts/helpers/formatter';
 
 import { CardWithIcon, CardWithBanner, NothingFound, Title, Section, SectionColumn } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 

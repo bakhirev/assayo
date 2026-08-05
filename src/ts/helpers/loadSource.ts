@@ -1,5 +1,5 @@
 import notificationsStore from 'ts/components/Notifications/store';
-import { getStringsForParser } from 'ts/components/DropZone/helpers';
+// import { getStringsForParser } from 'ts/components/DropZone/helpers';
 
 function loadGitLogFromFile(url: string, callback: Function) {
   const script = document.createElement('script');
@@ -15,9 +15,17 @@ function loadGitLogFromFile(url: string, callback: Function) {
 function loadGitLogFromUrl(url: string, callback: Function) {
   fetch(url)
     .then((response) => response.text())
-    .then((text) => {
-      getStringsForParser(text || '');
+    .then(() => {
+      // getStringsForParser(text || '');
       callback();
+    });
+}
+
+function loadJsonFromUrl(url: string, callback: Function) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => {
+      callback(json);
     });
 }
 
@@ -26,6 +34,14 @@ export function loadGitLog(url: string, callback: Function) {
     loadGitLogFromFile(url, callback);
   } else {
     loadGitLogFromUrl(url, callback);
+  }
+}
+
+export function loadJson(url: string, callback: Function) {
+  if (url?.[0] === '.') {
+    loadGitLogFromFile(url, callback);
+  } else {
+    loadJsonFromUrl(url, callback);
   }
 }
 

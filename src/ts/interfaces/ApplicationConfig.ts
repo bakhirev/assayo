@@ -10,6 +10,7 @@ export default interface ApplicationConfig {
 
   urlForCss: string;
   urlForGitLog: string;
+  urlForPackageJson: string;
 
   prefixForTask: string;
   prefixForPR: string;

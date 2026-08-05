@@ -1,6 +1,6 @@
 import React from 'react';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PRLink, TaskLink } from 'ts/components/Layout';
 import UiKitTags from 'ts/components/UiKit/components/Tags';
 import UiKitTag from 'ts/components/UiKit/components/Tag';

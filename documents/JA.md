@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  オンラインで表示
 プロジェクトのルートディレクトリで実行：
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  オフラインで表示
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Gitはファイル`log.txt`を作成します。このファイルには、レポートを表示するためのデータが含まれています。オンラインとオフラインの形式の違いは、文字列のラッピングです。オフライン形式は、ファイル`js`としてロードされます（`/build/index.html`のみ開く場合）
 
 <a name="link-16"></a>

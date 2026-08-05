@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { SmallCardWithIcon, CardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { getDuration, getShortNumber } from 'ts/helpers/formatter';
 import { increment } from 'ts/helpers/Math';
 import { getDaysBetween } from 'ts/helpers/StatisticsByCommits/helpers';

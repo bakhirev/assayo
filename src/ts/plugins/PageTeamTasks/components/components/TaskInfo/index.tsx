@@ -3,7 +3,7 @@ import React from 'react';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import { If, Gap, Title } from 'ts/components/Layout';
 import getReleaseAndPR from 'ts/helpers/StatisticsByCommits/helpers/getReleaseAndPR';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Icons from './Icons';
 import Release from './Release';

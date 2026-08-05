@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
 

@@ -2,7 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { Title, Search as LayoutSearch, If, NothingFound } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import sourceData from 'ts/store/SourceData';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
@@ -12,7 +13,7 @@ import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 
 const Page = observer(({ mode }: PageOptions): React.ReactElement => {
   const commits = useMemo(() => (
-    statisticStore.commits
+    sourceData.get('commits')
       .filter((commit: ISystemCommit) => !commit.commitType)
       .reverse()
   ), [statisticStore.hash]);

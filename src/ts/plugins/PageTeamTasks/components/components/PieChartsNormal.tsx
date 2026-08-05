@@ -5,7 +5,7 @@ import { If, CardWithIcon, Description, Section, SectionColumn } from 'ts/compon
 import { PieChart } from 'ts/components/Charts';
 import { getGroupsBy } from 'ts/helpers/charts';
 import { getMiddleTimeToMarketForTasks } from 'ts/helpers/StatisticsByCommits/helpers/timeToMarket';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 interface PieChartsProps {
   content: any[],

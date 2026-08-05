@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { Section, SectionColumn, CardWithIcon } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 const Cards = observer(({ user }: PageOptions): React.ReactElement => {
   const statistic = user;

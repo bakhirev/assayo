@@ -37,7 +37,7 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
             : 'plugin.team_vacation.details.vacation';
         }}
         template={ColumnTypes.TAGS}
-        minWidth={200}
+        width={200}
       />
       <Column
         template={ColumnTypes.STRING}

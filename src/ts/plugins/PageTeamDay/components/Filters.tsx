@@ -4,7 +4,7 @@ import { useTranslation } from 'ts/components/Translation';
 
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import { getShortDateRange } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import style from 'ts/pages/Team/styles/filters.module.scss';
 

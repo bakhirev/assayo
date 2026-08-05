@@ -5,7 +5,7 @@ import { useTranslation } from 'ts/components/Translation';
 import UiKitCheckbox from 'ts/components/UiKit/components/Checkbox';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import { Filters } from 'ts/components/YearChart/interfaces/Filters';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import style from './index.module.scss';
 

@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  لعرضه على الإنترنت
 في مجلد الجذر للعمل الذي تقوم به، أدري:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  لعرضه خارج الإنترنت
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git سيقوم بإنشاء ملف `log.txt`. يحتوي هذا الملف على البيانات لعرض التقرير. الفرق بين الشكل على الإنترنت وخارج الإنترنت هو وجود حزمة للسلاسل. سيتم تحميل الشكل خارج الإنترنت كملف `js` إذا فتحت `/build/index.html` فقط
 
 <a name="link-16"></a>

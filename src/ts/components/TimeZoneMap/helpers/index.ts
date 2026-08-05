@@ -1,4 +1,4 @@
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import style from '../styles/index.module.scss';
 

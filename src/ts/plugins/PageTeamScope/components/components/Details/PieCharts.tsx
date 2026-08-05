@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { Section, SectionColumn } from 'ts/components/Layout';
 import { PieChart } from 'ts/components/Charts';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 interface PieChartsProps {
   scope: any;

@@ -1,5 +1,5 @@
 import type Filter from 'ts/components/Layout/Search/interfaces/Filter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 export function getDefaultFilters(): Filter {
   return {

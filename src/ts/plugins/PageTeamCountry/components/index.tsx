@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import type Filter from 'ts/components/Layout/Search/interfaces/Filter';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';

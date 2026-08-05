@@ -1,0 +1,105 @@
+.component_dependencies_chart {
+  position: relative;
+
+  display: block;
+  padding: var(--space-l);
+  margin: 0 auto var(--space-xxl);
+
+  border-radius: var(--border-radius-m);
+  background-color: var(--color-white);
+
+  &_arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    pointer-events: none;
+  }
+
+  &_level {
+    display: block;
+    padding-bottom: var(--space-xl);
+    margin: 0 auto var(--space-xl);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &_library {
+    font-size: var(--font-size-xs);
+
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 7px;
+
+    cursor: pointer;
+    text-align: center;
+    line-height: var(--space-m);
+    vertical-align: middle;
+
+    color: var(--color-grey);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--color-button-2);
+    background-color: var(--color-white);
+
+    &:hover {
+      border-color: var(--color-black);
+      background-color: var(--color-second);
+    }
+
+    &_parent {
+      border-color: transparent;
+      background-color: #22C220;
+    }
+
+    &_children {
+      border-color: transparent;
+      background-color: var(--color-second);
+    }
+
+    &_selected {
+      border-color: var(--color-black);
+      background-color: var(--color-black);
+    }
+
+    &_size_m {
+      margin: 6px;
+      border-width: 2px;
+    }
+
+    &_size_l {
+      margin: 4px;
+      border-width: 4px;
+    }
+
+    &_title {
+      font-size: var(--font-xxs);
+
+      position: absolute;
+      bottom: 150%;
+      left: -46px;
+      z-index: 1;
+
+      display: block;
+      width: 100px;
+      max-width: 100px;
+      padding: var(--space-xxxs) var(--space-xxs);
+      margin: 0;
+
+      line-height: 1.3;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      border-radius: var(--border-radius-s);
+      border: 1px solid var(--color-border);
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+  }
+}
+

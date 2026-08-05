@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
 import { MenuItem } from 'ts/helpers/Plugins/interfaces/Plugin';
 import plugins from 'ts/helpers/Plugins';
+import sourceData from 'ts/store/SourceData';
 
 import SideBarMenuItem from './MenuItem';
 import MenuGap from './MenuGap';
@@ -11,13 +13,14 @@ interface SideBarButtonsProps {
   type: string;
 }
 
-function SideBarButtons({ type }: SideBarButtonsProps) {
+const SideBarButtons = observer(({ type }: SideBarButtonsProps): React.ReactElement | null => {
   const { page, userId } = useParams<any>();
 
-  // @ts-ignore
-  const list: MenuItem[] = type === 'team'
-    ? plugins.getMenuItems('t')
-    : plugins.getMenuItems('p');
+  const list: MenuItem[] = useMemo(() => {
+    return type === 'team'
+      ? plugins.getMenuItems('t')
+      : plugins.getMenuItems('p');
+  }, [type, sourceData.hash]);
 
   const linkSuffix = type === 'team' ? '' : (userId || 0);
   const buttons = list.map((config, index: number) => {
@@ -45,6 +48,6 @@ function SideBarButtons({ type }: SideBarButtonsProps) {
       {buttons}
     </>
   );
-}
+});
 
 export default SideBarButtons;

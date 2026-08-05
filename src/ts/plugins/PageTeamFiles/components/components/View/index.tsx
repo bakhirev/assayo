@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IPagination } from 'ts/interfaces/Pagination';
 import { IDirtyFile } from 'ts/interfaces/FileInfo';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import type Filter from 'ts/components/Layout/Search/interfaces/Filter';
 import { LineChart } from 'ts/components/Charts';

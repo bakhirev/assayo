@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'ts/components/Translation';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import confirm from 'ts/components/ModalWindow/store/Confirm';
 

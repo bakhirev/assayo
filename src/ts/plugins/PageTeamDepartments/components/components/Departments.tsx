@@ -8,7 +8,7 @@ import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Employments from './Employments';
 

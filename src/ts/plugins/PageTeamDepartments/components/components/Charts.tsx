@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { Section, SectionColumn } from 'ts/components/Layout';
 import { PieChart } from 'ts/components/Charts';

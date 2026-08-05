@@ -4,7 +4,7 @@ import { useTranslation } from 'ts/components/Translation';
 import { SmallCardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { getDuration } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 function SmallCards({ user }: PageOptions): React.ReactElement {
   const { t } = useTranslation();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Day from './Day';
 import IMonth from '../interfaces/Month';

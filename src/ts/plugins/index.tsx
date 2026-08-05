@@ -27,6 +27,8 @@ import PageTeamDay from './PageTeamDay';
 import PageTeamTotal from './PageTeamTotal';
 import PageTeamTypes from './PageTeamTypes';
 import PageTeamWeeks from './PageTeamWeeks';
+import PageTeamLicenses from './PageTeamLicenses';
+import PageTeamDependencies from './PageTeamPackages';
 
 import PagePersonAchievements from './PagePersonAchievements';
 import PagePersonChanges from './PagePersonChanges';
@@ -62,6 +64,8 @@ export default [
   PageTeamChanges,
   PageTeamRecommendations,
   PageTeamBuilding,
+  PageTeamLicenses,
+  PageTeamDependencies,
 
   PagePersonTotal,
   PagePersonAchievements,

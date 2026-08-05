@@ -22,6 +22,7 @@ export default function getDefaultConfig(): ApplicationConfig {
 
     urlForCss: '',
     urlForGitLog: '',
+    urlForPackageJson: '',
 
     prefixForTask: 'https://jira.com/secure/RapidBoard.jspa?task=',
     prefixForPR: 'https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/',
@@ -79,6 +80,9 @@ export default function getDefaultConfig(): ApplicationConfig {
       'team_total',
       'team_types',
       'team_weeks',
+
+      'team_licenses',
+      'team_dependencies',
 
       'print',
       'sponsor',

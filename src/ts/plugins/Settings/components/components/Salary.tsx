@@ -5,7 +5,7 @@ import InputNumber from 'ts/components/UiKit/components/InputNumber';
 import PageBox from 'ts/components/Page/Box';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import getDefaultConfig from 'ts/helpers/ApplicationConfig/getDefaultConfig';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 const DEFAULT_CONFIG = getDefaultConfig();
 

@@ -5,7 +5,7 @@ import UiKitSwitch from 'ts/components/UiKit/components/Switch';
 import PageBox from 'ts/components/Page/Box';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import { getDayName } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 const Days = observer((): React.ReactElement | null => {
   const value = applicationConfig.config?.workDays

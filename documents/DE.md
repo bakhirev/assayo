@@ -140,9 +140,16 @@ Mehr über das Format dieser Datei erfahren Sie [hier](https://git-scm.com/docs/
 <a name="link-14"></a>
 ####  Für die Online-Ansicht
 Führen Sie im Stammverzeichnis Ihres Projekts aus:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  Für die Offline-Ansicht
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git erstellt eine Datei `log.txt`. Diese Datei enthält Daten zur Anzeige eines Berichts. Der Unterschied zwischen dem Online- und dem Offline-Format besteht in der vorhandenen String-Hülle. Das Offline-Format wird wie eine `js`-Datei geladen, wenn Sie `/build/index.html` einfach öffnen.
 
 <a name="link-16"></a>

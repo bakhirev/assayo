@@ -1,4 +1,4 @@
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 export function getGroupsByAuthors(list: any[]) {
   const authors = statisticStore.statisticsByCommits.author.totalInfo;

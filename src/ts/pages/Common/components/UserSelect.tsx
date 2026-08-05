@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import UiKitSelect from 'ts/components/UiKit/components/Select';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import localization from 'ts/helpers/Localization';

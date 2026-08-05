@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Console, Description } from 'ts/components/Layout';
-import {
-  getStringFromFileList,
-  getStringsForParser,
-} from 'ts/components/DropZone/helpers';
+import { Console, Description, splashScreenStore } from 'ts/components/Layout';
+import getDataFromFiles from 'ts/helpers/getDataFromFiles';
 import { t } from 'ts/helpers/Localization';
-import statisticStore from 'ts/store/Statistics';
+
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import sourceData from 'ts/store/SourceData';
 
 import style from './index.module.scss';
 
@@ -31,7 +30,7 @@ function Welcome() {
   const hasYandexMetrika = window.ym;
   return (
     <>
-      {hasYandexMetrika && (<WarningInfo />)}
+      {hasYandexMetrika && (<WarningInfo/>)}
       <section className={style.welcome}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>
@@ -57,9 +56,12 @@ function Welcome() {
                 style={{ display: 'none' }}
                 onChange={async (event: any) => {
                   const files = Array.from(event.target.files);
-                  const text = await getStringFromFileList(files);
-                  const report = getStringsForParser(text);
-                  statisticStore.asyncSetCommits(report);
+                  const fileGroups = await getDataFromFiles(files);
+                  sourceData.addGroups(fileGroups);
+                  if (fileGroups.gitLog) {
+                    splashScreenStore.setDelay(fileGroups.gitLog.length);
+                    statisticStore.asyncSetCommits(fileGroups.gitLog);
+                  }
                 }}
               />
             </label>

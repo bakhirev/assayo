@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PieChart } from 'ts/components/Charts';
 import { Title, SmallCardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { WeightedAverage } from 'ts/helpers/Math';
 import { getShortNumber } from 'ts/helpers/formatter';
 

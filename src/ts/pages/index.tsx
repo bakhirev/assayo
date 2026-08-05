@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
-import statisticStore from 'ts/store/Statistics';
+import IHashMap from 'ts/interfaces/HashMap';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import sourceData from 'ts/store/SourceData';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import DropZone from 'ts/components/DropZone';
-import { SplashScreen } from 'ts/components/Layout';
+import { SplashScreen, splashScreenStore } from 'ts/components/Layout';
 import Confirm from 'ts/components/ModalWindow/Confirm';
 import plugins from 'ts/helpers/Plugins';
 
@@ -91,15 +93,18 @@ const Main = observer(() => {
   const view = viewNameStore.view;
 
   useEffect(() => {
-    // @ts-ignore
-    const list = window?.report || [];
-    if (list?.length && bugInReactWithDoubleInit !== list?.length) {
-      bugInReactWithDoubleInit = list?.length;
-      statisticStore.asyncSetCommits(list);
+    const gitLog = sourceData.get('gitLog');
+    if (gitLog?.length && bugInReactWithDoubleInit !== gitLog?.length) {
+      bugInReactWithDoubleInit = gitLog?.length;
+      statisticStore.asyncSetCommits(gitLog);
     } else {
       viewNameStore.toggle(ViewNameEnum.WELCOME);
     }
   }, []);
+
+  useEffect(() => { // @ts-ignore
+    sourceData.add('gitLog', window.report); // @ts-ignore
+  }, [window.report]);
 
   useEffect(() => {
     if (view !== ViewNameEnum.INFO || window.location.hash) return;
@@ -117,11 +122,13 @@ const Main = observer(() => {
         <ViewWithCharts />
       )}
       <SplashScreen />
-      <DropZone
-        onChange={(type: string, data: any[]) => {
-          if (type !== 'dump') return;
-          statisticStore.asyncSetCommits(data);
-        }}
+      <DropZone onChange={(fileGroups: IHashMap<any>) => {
+        sourceData.addGroups(fileGroups);
+        if (fileGroups.gitLog) {
+          splashScreenStore.setDelay(fileGroups.gitLog.length);
+          statisticStore.asyncSetCommits(fileGroups.gitLog);
+        }
+      }}
       />
     </>
   );

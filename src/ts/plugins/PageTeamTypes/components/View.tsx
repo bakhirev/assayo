@@ -3,7 +3,7 @@ import { useTranslation } from 'ts/components/Translation';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ViewProps from 'ts/interfaces/ViewProps';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';

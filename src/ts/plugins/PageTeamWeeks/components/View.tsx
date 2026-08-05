@@ -3,7 +3,7 @@ import React from 'react';
 import IHashMap from 'ts/interfaces/HashMap';
 import ViewProps from 'ts/interfaces/ViewProps';
 import { getShortDateRange } from 'ts/helpers/formatter';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';

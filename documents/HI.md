@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  ऑनलाइन डेखने के लिए
 आपके प्रोजेक्ट की मूल डायरेक्टरी में रन करें:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  ऑफलाइन डेखने के लिए
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 गिट एक फाइल `log.txt` बनाएगा। यह फाइल में रिपोर्ट शो के लिए डाटा होता है। ऑनलाइन और ऑफलाइन फॉर्मेट के बीच का अंतर स्ट्रिंग्स के लिए वैपर की उपस्थिति है। ऑफलाइन फॉर्मेट `js` फाइल के रूप में पुल अप होगा अगर आप केवल `/build/index.html` खोलते हैं
 
 <a name="link-16"></a>
@@ -232,7 +239,7 @@ fi
 #### माइक्रोसर्विस का सामान्य आर्किटेक्चर
 <img src="https://raw.githubusercontent.com/bakhirev/assayo-crawler/12af4410fc93384cafb108a4429e43f9a874dbaa/schema.svg" width="70%" />
 
-1. [Reports showcase UI](https://github.com/bakhirev/assayo-showcase) उपलब्ध रिपोर्ट्स की सूची दिखाता है। प्रत्येक रिपोर्ट का शीर्षक, विवरण और रिपोजिटोरी की सूची होती है।
+1. [Reports showcase UI(https://github.com/bakhirev/assayo-showcase) उपलब्ध रिपोर्ट्स की सूची दिखाता है। प्रत्येक रिपोर्ट का शीर्षक, विवरण और रिपोजिटोरी की सूची होती है।
 2. [Crawler service](https://github.com/bakhirev/assayo-crawler) रिपोर्ट के लिए रिपोजिटोरी लॉग्स को संग्रहित करता है।
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(यहां आप हैं)** रिपोर्ट दिखाता है। काम करने के लिए लॉग फाइल की आवश्यकता होती है।
 

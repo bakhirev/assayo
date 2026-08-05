@@ -5,7 +5,7 @@ import InputString from 'ts/components/UiKit/components/InputString';
 import UiKitCheckbox from 'ts/components/UiKit/components/Checkbox';
 import PageBox from 'ts/components/Page/Box';
 import { Gap } from 'ts/components/Layout';
-import statisticStore from 'ts/store/Statistics';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import translationStore from 'ts/components/Translation/store';
 import applicationConfig from 'ts/store/ApplicationConfig';
 

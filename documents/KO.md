@@ -140,9 +140,16 @@ Alex B <alex@mail.uk> <man64@yahoo.com>
 <a name="link-14"></a>
 ####  온라인 보기용
 프로젝트 루트 디렉터리에서 실행:
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt
+```
 
 <a name="link-15"></a>
 ####  오프라인 보기용
+```
+git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" | sed -e 's/\\/\\\\/g' | sed -e 's/`/"/g' | sed -e 's/\$/S/g' | sed -e '1s/^/R(f\`/' | sed -e '$s/$/\`\);/' > log.txt
+```
+
 Git은 `log.txt` 파일을 생성합니다. 이 파일에는 보고서를 표시하기 위한 데이터가 포함됩니다. 온라인 형식과 오프라인 형식의 차이점은 문자열 래퍼의 존재 여부입니다. 오프라인 형식은 `/build/index.html`를 열면 `js` 파일처럼 로드됩니다.
 
 <a name="link-16"></a>
