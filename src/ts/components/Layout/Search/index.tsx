@@ -89,9 +89,7 @@ function Search({
           onChange={setFilters}
         />
         <If value={childrenWithProps}>
-          <div className={style.layout_search_select}>
-            {childrenWithProps}
-          </div>
+          {childrenWithProps}
         </If>
       </div>
     </div>
