@@ -21,7 +21,7 @@ import PageTeamRecommendations from './PageTeamRecommendations';
 import PageTeamRefactor from './PageTeamRefactor';
 import PageTeamRelease from './PageTeamRelease';
 import PageTeamScope from './PageTeamScope';
-import PageTeamServer from './PageTeamServer';
+import PageTeamEmails from './PageTeamEmails';
 import PageTeamTasks from './PageTeamTasks';
 import PageTeamDay from './PageTeamDay';
 import PageTeamTotal from './PageTeamTotal';
@@ -34,7 +34,6 @@ import PagePersonAchievements from './PagePersonAchievements';
 import PagePersonChanges from './PagePersonChanges';
 import PagePersonCommits from './PagePersonCommits';
 import PagePersonMoney from './PagePersonMoney';
-import PagePersonMonth from './PagePersonMonth';
 import PagePersonSpeed from './PagePersonSpeed';
 import PagePersonTotal from './PagePersonTotal';
 import PagePersonWeek from './PagePersonWeek';
@@ -49,7 +48,7 @@ export default [
   PageTeamDepartments,
   PageTeamCountry,
   PageTeamVacation,
-  PageTeamServer,
+  PageTeamEmails,
   PageTeamDay,
   PageTeamWeeks,
   PageTeamMonth,
@@ -72,7 +71,6 @@ export default [
   PagePersonMoney,
   PagePersonSpeed,
   PagePersonWeek,
-  PagePersonMonth,
   PagePersonVacation,
   PagePersonCommits,
   PagePersonChanges,

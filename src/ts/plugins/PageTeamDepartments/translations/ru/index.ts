@@ -21,7 +21,7 @@ export default `
 § plugin.team_departments.author.staff: помощник
 § plugin.team_departments.code: Код
 § plugin.team_departments.from: Первый коммит
-§ plugin.team_departments.to: Последний
+§ plugin.team_departments.to: Последний коммит
 § plugin.team_departments.authors: человек
 § plugin.team_departments.tasks: задач
 § plugin.team_departments.totalDays: Продолжительность

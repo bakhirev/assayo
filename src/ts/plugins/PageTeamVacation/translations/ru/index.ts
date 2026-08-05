@@ -12,7 +12,7 @@ export default `
 § plugin.team_vacation.details.transfer: Перевод в другой отдел
 § plugin.team_vacation.details.vacation: Отпуск
 § plugin.team_vacation.details.author: Сотрудник
-§ plugin.team_vacation.details.from: c
-§ plugin.team_vacation.details.to: по
+§ plugin.team_vacation.details.from: Первый коммит
+§ plugin.team_vacation.details.to: Последний коммит
 § plugin.team_vacation.details.duration: Продолжительность
 `;

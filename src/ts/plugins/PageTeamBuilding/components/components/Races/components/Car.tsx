@@ -47,6 +47,7 @@ function Car({
         {title}
       </div>
       <img
+        alt=""
         className={style.races_track_car_cover}
         src="./assets/games/races/car.png"
       />

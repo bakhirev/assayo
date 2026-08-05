@@ -31,7 +31,11 @@ export function View({ rows, max, year }: ViewProps) {
             : 'plugin.team_author.absence.vacation';
         }}
         template={ColumnTypes.TAGS}
-        minWidth={200}
+        minWidth={300}
+      />
+      <Column
+        properties="empty2"
+        template={ColumnTypes.STRING}
       />
       <Column
         template={ColumnTypes.STRING}
@@ -54,7 +58,7 @@ export function View({ rows, max, year }: ViewProps) {
         isSortable
         properties="duration"
         title="plugin.team_author.absence.duration"
-        width={300}
+        width={290}
         template={(value: number) => (
           <LineChart
             value={value}

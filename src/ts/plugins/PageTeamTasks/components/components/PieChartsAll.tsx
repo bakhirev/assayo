@@ -84,7 +84,7 @@ function PieChartsAll({
         <Title title="plugin.team_tasks.charts.totalTask.title" />
         <SmallCardWithIcon
           value={getShortNumber(totalTaskInDay)}
-          icon="./assets/cards/month.svg"
+          icon="./assets/cards/day.svg"
           title="plugin.team_tasks.charts.totalTaskInDay.title"
         />
         <SmallCardWithIcon

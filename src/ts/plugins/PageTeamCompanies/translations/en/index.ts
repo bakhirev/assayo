@@ -11,7 +11,7 @@ export default `
 § plugin.team_companies.companies.active.no: contract expired
 § plugin.team_companies.companies.active.none: outstaff (?)
 § plugin.team_companies.companies.from: First commit
-§ plugin.team_companies.companies.to: last
+§ plugin.team_companies.companies.to: Last commit
 § plugin.team_companies.companies.totalDays: Working days
 § plugin.team_companies.companies.totalTasks: Tasks
 § plugin.team_companies.companies.totalTaskCodes: Departments

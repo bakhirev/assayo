@@ -1,33 +1,37 @@
 export default `
-§ plugin.team_pull_requests.sidebar: 코드 삽입
-§ plugin.team_pull_requests.task: 작업
-§ plugin.team_pull_requests.tasks: 작업
-§ plugin.team_pull_requests.firstCommitTime: 첫 번째 커밋
-§ plugin.team_pull_requests.lastCommitTime: 마지막
-§ plugin.team_pull_requests.workDays: 작업 작업에 소요된 평균 시간
-§ plugin.team_pull_requests.delayDays: 평균 홍보 검토 시간
-§ plugin.team_pull_requests.backlogDays: The delay of the task in the backlog before the start of development
-§ plugin.team_pull_requests.all.workDays: 작업 작업에 소요된 시간
-§ plugin.team_pull_requests.all.delayDays: 홍보 검토 시간
-§ plugin.team_pull_requests.middleTimeRelease: 검토 할 개발 시간의 비율
-§ plugin.team_pull_requests.chart.1day: 시간은 하루
-§ plugin.team_pull_requests.chart.3day: 3 일
-§ plugin.team_pull_requests.chart.7day: 한 주
-§ plugin.team_pull_requests.chart.14day: 2 주
+§ plugin.team_pull_requests.sidebar: 코드 병합
+§ plugin.team_pull_requests.total.title: 모든 PR에 대한 전체 통계
+§ plugin.team_pull_requests.total.daysWorkOnTask: PR 생성 전에 작업하는 데 걸린 평균 시간
+§ plugin.team_pull_requests.total.daysInReview: PR 평균 검토 시간
+§ plugin.team_pull_requests.total.description1: *작업 시간*은 작업에 대한 첫 번째 및 마지막 커밋 사이의 시간입니다. 작업에 여러 개의 PR이 있는 경우 다음 PR의 *작업 시간*은 이전 PR이 병합된 날짜부터 계산됩니다.
+§ plugin.team_pull_requests.total.description11: 예를 들어, 일주일 동안 작업을 진행하고 매일 끝에 PR을 생성하고 병합하는 경우 이러한 각 PR의 작업 시간은 하루가 됩니다. 그러나 "작업에 소요된 총 시간"("작업 목록" 섹션 참조)은 일주일이 됩니다.
+§ plugin.team_pull_requests.total.description2: *검토 시간*은 마지막 커밋과 코드 병합 사이의 시간입니다. 이것은 무언가를 기다리는 동안의 실제 중단 시간을 보여줍니다.
+§ plugin.team_pull_requests.author.title: 직원별 통계
+§ plugin.team_pull_requests.author.author: 직원
+§ plugin.team_pull_requests.author.daysWorkOnTask: PR 전의 평균 작업 시간
+§ plugin.team_pull_requests.author.daysInReview: PR 평균 검토 시간
+§ plugin.team_pull_requests.author.middleTimeRelease: 개발 시간 대 검토 시간 비율
+§ plugin.team_pull_requests.author.work: 작업
+§ plugin.team_pull_requests.author.review: 검토
+§ plugin.team_pull_requests.yearChart.title: 연도별 분류
+§ plugin.team_pull_requests.authorChart.title: 직원별 분류
+§ plugin.team_pull_requests.chart.suffix: 풀 리퀘스트
+§ plugin.team_pull_requests.all.title: 작업에 연결된 PR
+§ plugin.team_pull_requests.all.task: 작업
+§ plugin.team_pull_requests.all.pr: PR
+§ plugin.team_pull_requests.all.message: 커밋 메시지 또는 브랜치
+§ plugin.team_pull_requests.all.dateCreate: 생성됨
+§ plugin.team_pull_requests.all.dateMerge: 병합됨
+§ plugin.team_pull_requests.all.daysWorkOnTask: 개발 기간
+§ plugin.team_pull_requests.all.daysInReview: 검토 기간
+§ plugin.team_pull_requests.anonymous.title: 작업 ID가 없는 PR
+§ plugin.team_pull_requests.anonymous.date: 병합 날짜
+§ plugin.team_pull_requests.anonymous.author: 병합한 사람
+§ plugin.team_pull_requests.anonymous.message: 커밋 메시지 또는 브랜치
+§ plugin.team_pull_requests.chart.1day: 일
+§ plugin.team_pull_requests.chart.3day: 삼일
+§ plugin.team_pull_requests.chart.7day: 일주일
+§ plugin.team_pull_requests.chart.14day: 이주
 § plugin.team_pull_requests.chart.30day: 한 달
-§ plugin.team_pull_requests.chart.more: 더 보기
-§ plugin.team_pull_requests.date: 주입 날짜
-§ plugin.team_pull_requests.mergeAuthor: 나는 그것을 부어
-§ plugin.team_pull_requests.author: 직원
-§ plugin.team_pull_requests.work: 개발
-§ plugin.team_pull_requests.delay: 대기 중
-§ plugin.team_pull_requests.days: 일
-§ plugin.team_pull_requests.oneTaskDays: 한 작업에 소요 된 시간
-§ plugin.team_pull_requests.description1: *개발 시간*이 작업은 작업의 첫 번째 커밋에서 마지막 커밋까지의 시간 차이입니다. 커밋 사이에 며칠의 휴식 시간이 있었는지 여부는 중요하지 않습니다. 모든 커밋의 바로 그 사실은 시간을 증가시킵니다.
-§ plugin.team_pull_requests.description2: *대기 시간*마지막 커밋과 코드 주입 사이의 시간입니다. 그것은 무언가를 기다리는 실제 유휴 상태를 보여줍니다.
-§ plugin.team_pull_requests.description3: *Task creation date* in the task tracker is calculated by its sequential number and the minimum date of any next Issue in the code. The method has a margin of error and, as a rule, the tasks turn out to be older. Frequent releases, fast bugfixes, and a large number of employees working on the code reduce this margin of error.
-§ plugin.team_pull_requests.statByAuthors: 직원 통계
-§ plugin.team_pull_requests.longDelay: 주입에 대한 긴 대기
-§ plugin.team_pull_requests.anonymous: 문제 번호가없는 홍보
-§ plugin.team_pull_requests.branch: 지점
+§ plugin.team_pull_requests.chart.more: 이상
 `;

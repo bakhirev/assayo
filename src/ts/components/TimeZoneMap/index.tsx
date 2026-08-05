@@ -28,6 +28,7 @@ function TimeZoneMap({
   return (
     <div className={style.time_zone_map}>
       <img
+        alt=""
         src="./assets/map/2x1.png"
         className={style.time_zone_map_gap}
       />

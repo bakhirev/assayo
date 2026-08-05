@@ -9,7 +9,6 @@ function getBannerByRef(ref?: string): IBanner {
 
   return {
     isOpenInNewTab: Boolean(type && name),
-    logo: './assets/logo.svg',
     link: {
       vk: `https://vk.com/${name}`,
       yt: `https://www.youtube.com/@${name}`,

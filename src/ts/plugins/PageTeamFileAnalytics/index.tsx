@@ -19,7 +19,7 @@ export default class Plugin implements IPlugin {
         order: 140,
         link: '/team/extension',
         title: 'plugin.team_file_analytics.sidebar',
-        icon: './assets/menu/team_files_ext.svg',
+        icon: './assets/menu/files_ext.svg',
       },
     ];
   }

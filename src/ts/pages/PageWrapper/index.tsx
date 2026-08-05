@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect, useMemo } from 'react';
+import React, { ReactNode, useState, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ import isMobile from 'ts/helpers/isMobile';
 import plugins from 'ts/helpers/Plugins';
 import TranslationTooltip from 'ts/components/Translation/components/Tooltip';
 import TranslationList from 'ts/components/Translation/components/Modal';
+import { useWindowResize } from 'ts/helpers/DOMEvents';
 
 import SideBar from './components/sidebar';
 import Header from './components/header';
@@ -49,6 +50,7 @@ function MobileView({
 
 const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement => {
   const { type, page } = useParams<any>();
+  const [sideBarWidth, setSideBarWidth] = useState<number>(240);
   const commonItems = useMemo(() => plugins.getPages('global'), [plugins]);
   const padding = type === 'team' && page === 'building'
     ? { padding: 0 }
@@ -69,12 +71,20 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
   }
 
   return (
-    <div className={style.page_wrapper}>
-      <SideBar/>
-      <Header/>
+    <div
+      className={style.page_wrapper}
+      style={{
+        gridTemplateColumns: `${sideBarWidth}px 1fr`,
+      }}
+    >
+      <SideBar onResize={setSideBarWidth} />
+      <Header sideBarWidth={sideBarWidth} />
       <div
         className={style.page_wrapper_main}
-        style={padding}
+        style={{
+          width: `calc(100vw - ${sideBarWidth}px - 18px)`,
+          ...padding,
+        }}
       >
         {children}
       </div>
@@ -89,13 +99,9 @@ const DesktopView = observer(({ children }: IPageWrapper): React.ReactElement =>
 function PageWrapper({ children }: IPageWrapper) {
   const [localIsMobile, setLocalIsMobile] = useState<boolean>(isMobile);
 
-  useEffect(() => {
-    function handleResize() {
-      setLocalIsMobile(window.innerWidth < 700 || isMobile);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  useWindowResize(() => {
+    setLocalIsMobile(window.innerWidth < 700 || isMobile);
+  });
 
   return localIsMobile
     ? (<MobileView>{children}</MobileView>)

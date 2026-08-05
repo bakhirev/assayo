@@ -1,42 +1,42 @@
 export default `
-§ plugin.team_scope.sidebar: Features
-§ plugin.team_scope.title: Feature statistics
-§ plugin.team_scope.scope: Feature
-§ plugin.team_scope.unknown: (feature is not labeled)
-§ plugin.team_scope.days: Work days
-§ plugin.team_scope.authorsDays: Person days
-§ plugin.team_scope.tasks: Tasks
-§ plugin.team_scope.lastCommit: Last commit
+§ plugin.team_scope.sidebar: Fonctionnalités
+§ plugin.team_scope.title: Statistiques des fonctionnalités
+§ plugin.team_scope.scope: Fonctionnalité
+§ plugin.team_scope.unknown: (fonctionnalité non étiquetée)
+§ plugin.team_scope.days: Jours ouvrés
+§ plugin.team_scope.authorsDays: Jours-homme
+§ plugin.team_scope.tasks: Tâches
+§ plugin.team_scope.lastCommit: Dernier commit
 § plugin.team_scope.commits: Commits
-§ plugin.team_scope.authors: Personal contribution
-§ plugin.team_scope.cost: Cost
-§ plugin.team_scope.details.cards: General feature information
-§ plugin.team_scope.details.charts: Who contributed
-§ plugin.team_scope.details.tasks: List of tasks within which changes were made
-§ plugin.team_scope.details.commits: List of commits matching the search filters
-§ plugin.team_scope.cards.firstCommit: first commit
-§ plugin.team_scope.cards.lastCommit: last commit
-§ plugin.team_scope.cards.totalDays.title: total work duration
-§ plugin.team_scope.cards.totalDays.description: Total development time from the first to the last commit.
-§ plugin.team_scope.cards.totalDaysWorked.title: actual days worked
-§ plugin.team_scope.cards.totalDaysWorked.description: Days when the found commits were made.
-§ plugin.team_scope.cards.totalCommits.title: commits found
-§ plugin.team_scope.cards.totalCommits.description: Commits that match the search filter specified above. Further calculations are based on them.
-§ plugin.team_scope.cards.totalTasks.title: tasks affected
-§ plugin.team_scope.cards.totalTasks.description: Unique task IDs found in commit messages.
-§ plugin.team_scope.cards.authorsDays.title: person days
-§ plugin.team_scope.cards.authorsDays.description: A unit of working time equal to one day of work by one staff member.
-§ plugin.team_scope.cards.cost.title: estimated cost
-§ plugin.team_scope.cards.cost.description: Person days spent are multiplied by the average salary.
-§ plugin.team_commits.chart.commits.title: Who made commits
-§ plugin.team_commits.chart.tasks.title: Who did tasks
-§ plugin.team_commits.chart.types.title: Commit types
-§ plugin.team_commits.chart.companies.title: Companies on whose behalf commits were made
-§ plugin.team_scope.calculator.title: Feature estimation calculator
-§ plugin.team_scope.calculator.description: Filter the required commits using search. The statistics module will group them into a feature and show its data.
-§ plugin.team_scope.tasks.task: Task
+§ plugin.team_scope.authors: Contribution personnelle
+§ plugin.team_scope.cost: Coût
+§ plugin.team_scope.details.cards: Informations générales sur la fonctionnalité
+§ plugin.team_scope.details.charts: Qui a contribué
+§ plugin.team_scope.details.tasks: Liste des tâches dans lesquelles des modifications ont été apportées
+§ plugin.team_scope.details.commits: Liste des commits correspondant aux filtres de recherche
+§ plugin.team_scope.cards.firstCommit: premier commit
+§ plugin.team_scope.cards.lastCommit: dernier commit
+§ plugin.team_scope.cards.totalDays.title: durée totale du travail
+§ plugin.team_scope.cards.totalDays.description: Temps de développement total du premier au dernier commit.
+§ plugin.team_scope.cards.totalDaysWorked.title: jours travaillés réels
+§ plugin.team_scope.cards.totalDaysWorked.description: Jours où les commits trouvés ont été effectués.
+§ plugin.team_scope.cards.totalCommits.title: commits trouvés
+§ plugin.team_scope.cards.totalCommits.description: Commits correspondant au filtre de recherche spécifié ci-dessus. Les calculs ultérieurs s'appuient sur ceux-ci.
+§ plugin.team_scope.cards.totalTasks.title: tâches concernées
+§ plugin.team_scope.cards.totalTasks.description: Identifiants uniques de tâches trouvés dans les messages de commit.
+§ plugin.team_scope.cards.authorsDays.title: jours-homme
+§ plugin.team_scope.cards.authorsDays.description: Unité de temps de travail équivalente à une journée de travail par un membre du personnel.
+§ plugin.team_scope.cards.cost.title: coût estimé
+§ plugin.team_scope.cards.cost.description: Les jours-homme passés sont multipliés par le salaire moyen.
+§ plugin.team_commits.chart.commits.title: Qui a fait les commits
+§ plugin.team_commits.chart.tasks.title: Qui a fait les tâches
+§ plugin.team_commits.chart.types.title: Types de commit
+§ plugin.team_commits.chart.companies.title: Entreprises pour lesquelles des commits ont été effectués
+§ plugin.team_scope.calculator.title: Calculateur d'estimation des fonctionnalités
+§ plugin.team_scope.calculator.description: Filtrez les commits requis à l'aide de la recherche. Le module de statistiques les regroupera en une fonctionnalité et affichera ses données.
+§ plugin.team_scope.tasks.task: Tâche
 § plugin.team_scope.tasks.types: Types
 § plugin.team_scope.tasks.description: Description
-§ plugin.team_scope.commits.author: Staff member
-§ plugin.team_scope.commits.message: Commit message
+§ plugin.team_scope.commits.author: Membre du personnel
+§ plugin.team_scope.commits.message: Message du commit
 `;

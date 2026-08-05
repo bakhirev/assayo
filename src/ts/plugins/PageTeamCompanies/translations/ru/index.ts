@@ -11,7 +11,7 @@ export default `
 § plugin.team_companies.companies.active.no: контракт истёк
 § plugin.team_companies.companies.active.none: аутстафф (?)
 § plugin.team_companies.companies.from: Первый коммит
-§ plugin.team_companies.companies.to: последний
+§ plugin.team_companies.companies.to: Последний коммит
 § plugin.team_companies.companies.totalDays: Рабочих дней
 § plugin.team_companies.companies.totalTasks: Задач
 § plugin.team_companies.companies.totalTaskCodes: Отделов

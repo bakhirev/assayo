@@ -37,6 +37,7 @@
     height: 50px;
     margin: 0 auto 8px;
     vertical-align: top;
+    user-select: none;
   }
 
   &_value,
@@ -69,5 +70,12 @@
     font-size: var(--font-s);
     color: var(--color-black);
     box-shadow: 0 5px 15px white;
+  }
+}
+
+
+@media (min-width: 900px) and (max-width: 1400px) {
+  .card_with_icon_small {
+    height: 133px;
   }
 }

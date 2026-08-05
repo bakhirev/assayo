@@ -11,7 +11,7 @@ import style from './index.module.scss';
 
 function WarningInfo() {
   return (
-    <h4 className={style.welcome_warning}>
+    <div className={style.welcome_warning}>
       <Description
         translationId="page.welcome.warning1"
         className={style.welcome_warning_text}
@@ -20,7 +20,7 @@ function WarningInfo() {
         translationId="page.welcome.warning2"
         className={style.welcome_warning_text}
       />
-    </h4>
+    </div>
   );
 }
 

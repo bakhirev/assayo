@@ -1,42 +1,42 @@
 export default `
-§ plugin.team_scope.sidebar: Features
-§ plugin.team_scope.title: Feature statistics
-§ plugin.team_scope.scope: Feature
-§ plugin.team_scope.unknown: (feature is not labeled)
-§ plugin.team_scope.days: Work days
-§ plugin.team_scope.authorsDays: Person days
-§ plugin.team_scope.tasks: Tasks
-§ plugin.team_scope.lastCommit: Last commit
-§ plugin.team_scope.commits: Commits
-§ plugin.team_scope.authors: Personal contribution
-§ plugin.team_scope.cost: Cost
-§ plugin.team_scope.details.cards: General feature information
-§ plugin.team_scope.details.charts: Who contributed
-§ plugin.team_scope.details.tasks: List of tasks within which changes were made
-§ plugin.team_scope.details.commits: List of commits matching the search filters
-§ plugin.team_scope.cards.firstCommit: first commit
-§ plugin.team_scope.cards.lastCommit: last commit
-§ plugin.team_scope.cards.totalDays.title: total work duration
-§ plugin.team_scope.cards.totalDays.description: Total development time from the first to the last commit.
-§ plugin.team_scope.cards.totalDaysWorked.title: actual days worked
-§ plugin.team_scope.cards.totalDaysWorked.description: Days when the found commits were made.
-§ plugin.team_scope.cards.totalCommits.title: commits found
-§ plugin.team_scope.cards.totalCommits.description: Commits that match the search filter specified above. Further calculations are based on them.
-§ plugin.team_scope.cards.totalTasks.title: tasks affected
-§ plugin.team_scope.cards.totalTasks.description: Unique task IDs found in commit messages.
-§ plugin.team_scope.cards.authorsDays.title: person days
-§ plugin.team_scope.cards.authorsDays.description: A unit of working time equal to one day of work by one staff member.
-§ plugin.team_scope.cards.cost.title: estimated cost
-§ plugin.team_scope.cards.cost.description: Person days spent are multiplied by the average salary.
-§ plugin.team_commits.chart.commits.title: Who made commits
-§ plugin.team_commits.chart.tasks.title: Who did tasks
-§ plugin.team_commits.chart.types.title: Commit types
-§ plugin.team_commits.chart.companies.title: Companies on whose behalf commits were made
-§ plugin.team_scope.calculator.title: Feature estimation calculator
-§ plugin.team_scope.calculator.description: Filter the required commits using search. The statistics module will group them into a feature and show its data.
-§ plugin.team_scope.tasks.task: Task
-§ plugin.team_scope.tasks.types: Types
-§ plugin.team_scope.tasks.description: Description
-§ plugin.team_scope.commits.author: Staff member
-§ plugin.team_scope.commits.message: Commit message
+§ plugin.team_scope.sidebar: 功能
+§ plugin.team_scope.title: 功能统计
+§ plugin.team_scope.scope: 功能
+§ plugin.team_scope.unknown: (功能未标记)
+§ plugin.team_scope.days: 工作日
+§ plugin.team_scope.authorsDays: 人日
+§ plugin.team_scope.tasks: 任务
+§ plugin.team_scope.lastCommit: 最后一次提交
+§ plugin.team_scope.commits: 提交
+§ plugin.team_scope.authors: 个人贡献
+§ plugin.team_scope.cost: 成本
+§ plugin.team_scope.details.cards: 功能一般信息
+§ plugin.team_scope.details.charts: 谁做出了贡献
+§ plugin.team_scope.details.tasks: 进行更改的任务列表
+§ plugin.team_scope.details.commits: 与搜索条件匹配的提交列表
+§ plugin.team_scope.cards.firstCommit: 首次提交
+§ plugin.team_scope.cards.lastCommit: 最后一次提交
+§ plugin.team_scope.cards.totalDays.title: 总工作时长
+§ plugin.team_scope.cards.totalDays.description: 从第一次到最后一次提交的总开发时间。
+§ plugin.team_scope.cards.totalDaysWorked.title: 实际工作日数
+§ plugin.team_scope.cards.totalDaysWorked.description: 找到的提交发生的日子。
+§ plugin.team_scope.cards.totalCommits.title: 找到的提交
+§ plugin.team_scope.cards.totalCommits.description: 与上述指定搜索条件匹配的提交。后续计算将基于这些提交进行。
+§ plugin.team_scope.cards.totalTasks.title: 受影响的任务
+§ plugin.team_scope.cards.totalTasks.description: 在提交消息中找到的唯一任务ID。
+§ plugin.team_scope.cards.authorsDays.title: 人日
+§ plugin.team_scope.cards.authorsDays.description: 等于一名员工工作一天的工时单位。
+§ plugin.team_scope.cards.cost.title: 预计成本
+§ plugin.team_scope.cards.cost.description: 所花费的人日乘以平均工资。
+§ plugin.team_commits.chart.commits.title: 谁提交了
+§ plugin.team_commits.chart.tasks.title: 谁完成了任务
+§ plugin.team_commits.chart.types.title: 提交类型
+§ plugin.team_commits.chart.companies.title: 代表哪些公司进行了提交
+§ plugin.team_scope.calculator.title: 功能估算计算器
+§ plugin.team_scope.calculator.description: 使用搜索过滤所需的提交。统计模块将它们归为一个功能并显示其数据。
+§ plugin.team_scope.tasks.task: 任务
+§ plugin.team_scope.tasks.types: 类型
+§ plugin.team_scope.tasks.description: 描述
+§ plugin.team_scope.commits.author: 员工
+§ plugin.team_scope.commits.message: 提交信息
 `;

@@ -1,10 +1,42 @@
 export default `
-§ plugin.team_companies.sidebar: Companies
-§ plugin.team_companies.title: Details
-§ plugin.team_companies.employments.title: By number of employees
-§ plugin.team_companies.employments.item: employments
-§ plugin.team_companies.daysChart.title: By duration of the contract
-§ plugin.team_companies.daysChart.item: companies
-§ plugin.team_companies.active.yes: active
-§ plugin.team_companies.active.no: contract has expired
+§ plugin.team_companies.sidebar: 公司
+§ plugin.team_companies.title: 详细信息
+§ plugin.team_companies.charts.employments.title: 按员工人数
+§ plugin.team_companies.charts.employments.item: 员工
+§ plugin.team_companies.charts.daysChart.title: 按合同期限
+§ plugin.team_companies.charts.daysChart.item: 公司
+§ plugin.team_companies.companies.company: 公司
+§ plugin.team_companies.companies.status: 状态
+§ plugin.team_companies.companies.active.yes: 活跃
+§ plugin.team_companies.companies.active.no: 合同已过期
+§ plugin.team_companies.companies.active.none: 外包 (?)
+§ plugin.team_companies.companies.from: 首次提���
+§ plugin.team_companies.companies.to: 最后提交
+§ plugin.team_companies.companies.totalDays: 工作日
+§ plugin.team_companies.companies.totalTasks: 任务
+§ plugin.team_companies.companies.totalTaskCodes: 部门
+§ plugin.team_companies.companies.totalAuthors: 员工人数
+§ plugin.team_companies.details.activeAuthors.title: 在职 / 离职
+§ plugin.team_companies.details.activeAuthors.description: 如果员工在一个自然月内没有任何一次提交，则视为已离职。此状态的显示不局限于该公司：他们可能正在为其他公司工作，或已完全从项目中移除。
+§ plugin.team_companies.details.linesInTask.title: 每个任务的代码行数
+§ plugin.team_companies.details.linesInTask.description: 每个任务代码行数的加权平均值。有助于估算任务的粒度。
+§ plugin.team_companies.details.totalTasks.title: 处理中的任务数量
+§ plugin.team_companies.details.totalTasks.description: 任何提及唯一任务ID的记录都会被计算在内。该任务可能尚未在任务跟踪系统中关闭。
+§ plugin.team_companies.details.moneyInMonth.title: 月开发成本
+§ plugin.team_companies.details.moneyAll.title: 总成本
+§ plugin.team_companies.details.totalDays.title: 合同期限
+§ plugin.team_companies.details.mainLocation.title: 总部
+§ plugin.team_companies.taskCodes.title: 该公司员工有提交记录的部门
+§ plugin.team_companies.taskCodes.taskCode: 部门
+§ plugin.team_companies.taskCodes.status: 状态
+§ plugin.team_companies.taskCodes.totalAuthors: 员工人数
+§ plugin.team_companies.taskCodes.totalDays: 工作日
+§ plugin.team_companies.taskCodes.totalTasks: 任务数
+§ plugin.team_companies.taskCodes.active.yes: 开发进行中
+§ plugin.team_companies.taskCodes.active.no: 无新任务
+§ plugin.team_companies.employments.title: 该公司员工的提交记录
+§ plugin.team_companies.employments.author: 员工
+§ plugin.team_companies.employments.status: 状态
+§ plugin.team_companies.employments.totalDays: 工作日
+§ plugin.team_companies.employments.totalTasks: 任务数
 `;
