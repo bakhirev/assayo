@@ -2,7 +2,7 @@ import ICommit from 'ts/interfaces/Commit';
 import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 import { getDaysFromTo } from 'ts/helpers/Math';
-import { getClearTaskMessages } from '../helpers/getClearTaskMessage';
+import { getClearTaskMessage } from '../helpers/getClearTaskMessage';
 
 export default class StatisticsByTasks {
   commits: HashMap<any> = new Map();
@@ -32,7 +32,7 @@ export default class StatisticsByTasks {
   }
 
   #updateCommit(statistic: any, commit: ICommit) {
-    statistic.commits += 1;
+    statistic.commits.push(commit);
     statistic.messages.add(commit.message);
     statistic.authors.add(commit.author);
     statistic.days.add(commit.timestamp);
@@ -46,7 +46,7 @@ export default class StatisticsByTasks {
       task: commit.task,
       taskCode: commit.taskCode,
       taskNumber: commit.taskNumber,
-      commits: 1,
+      commits: [commit],
       firstAuthor: commit.author,
       messages: new Set([commit.message]),
       authors: new Set([commit.author]),
@@ -65,12 +65,23 @@ export default class StatisticsByTasks {
         const lastCommit = milliseconds[milliseconds.length - 1] as number;
         const scope = Array.from(item.scope.values()) as string[];
         const types = Array.from(item.types.values()) as string[];
+        const taskDescription: string[] = [];
+        const commits = item.commits.map((commit: ICommit) => {
+          const description = getClearTaskMessage(commit.message, item.task, types, scope);
+          taskDescription.push(description);
+          return {
+            milliseconds: commit.milliseconds,
+            author: commit.author,
+            description,
+          };
+        });
+
         const data = {
           task: item.task,
           taskCode: item.taskCode,
           taskNumber: item.taskNumber,
-          commits: item.commits,
-          description: getClearTaskMessages(item.messages, item.task, types, scope),
+          commits,
+          description: Array.from(new Set(taskDescription)).join(', '),
           firstAuthor: item.firstAuthor,
           authors: item.authors,
           totalAuthors: item.authors.size,

@@ -57,6 +57,10 @@
     border-radius: 0;
     border: none;
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     &_focus,
     &:hover {
       background-color: var(--color-border);

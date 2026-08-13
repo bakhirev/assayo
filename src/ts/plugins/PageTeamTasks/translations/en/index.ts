@@ -12,9 +12,13 @@ export default `
 § plugin.team_tasks.task.to: Last commit
 § plugin.team_tasks.details.facts: Task information
 § plugin.team_tasks.details.release: List of releases the task likely entered
+§ plugin.team_tasks.details.commits: List of commits, with this task in commit message
 § plugin.team_tasks.release.title: Release
 § plugin.team_tasks.release.releaseDateMerge: Published
 § plugin.team_tasks.release.prDateMerge: Merged
+§ plugin.team_tasks.commits.date: Date
+§ plugin.team_tasks.commits.author: Author
+§ plugin.team_tasks.commits.description: Description
 § plugin.team_tasks.info.createdBefore: created before
 § plugin.team_tasks.info.totalDaysInBacklog: days in backlog
 § plugin.team_tasks.info.totalAuthors: staff worked

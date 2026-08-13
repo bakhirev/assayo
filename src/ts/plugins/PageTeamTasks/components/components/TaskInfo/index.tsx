@@ -7,6 +7,7 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Icons from './Icons';
 import Release from './Release';
+import Commits from './Commits';
 
 interface TaskInfoProps {
   task?: any;
@@ -29,6 +30,15 @@ function TaskInfo({ task }: TaskInfoProps) {
       </If>
       <FakeDataLoader content={content}>
         <Release mode="details" />
+        <Pagination />
+      </FakeDataLoader>
+
+      <If value={task?.commits}>
+        <Gap height="xxl" />
+        <Title title="plugin.team_tasks.details.commits" />
+      </If>
+      <FakeDataLoader content={task?.commits}>
+        <Commits mode="details" />
         <Pagination />
       </FakeDataLoader>
     </>

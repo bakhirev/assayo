@@ -5,9 +5,23 @@ type TimeToMarket = {
   details: Record<string, number>;
 };
 
+function getDetailsOnlyByTask(task: any) {
+  const backlog = task?.totalDaysInBacklog;
+  const worked = task?.totalDaysWorked || 0;
+  const review = 0;
+  const release = 0;
+
+  return  {
+    total: backlog + worked,
+    details: { backlog, worked, review, release, improvements: 0 },
+  };
+}
+
 export function getTimeToMarketForTask(task: any, prByName: any): TimeToMarket | undefined {
   const lastIndex = task.prIds.length - 1;
-  if (lastIndex < 0) return;
+  if (lastIndex < 0) {
+    return getDetailsOnlyByTask(task);
+  }
 
   const firstPR = prByName.get(task.prIds[0]);
   const backlog = task.totalDaysInBacklog;

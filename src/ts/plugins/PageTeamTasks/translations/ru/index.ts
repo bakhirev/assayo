@@ -12,9 +12,13 @@ export default `
 § plugin.team_tasks.task.to: Последний коммит
 § plugin.team_tasks.details.facts: Информация по задаче
 § plugin.team_tasks.details.release: Список релизов, в которые, вероятно, попала эта задача
+§ plugin.team_tasks.details.commits: Список коммитов, в которых был номер этой задачи
 § plugin.team_tasks.release.title: Релиз
 § plugin.team_tasks.release.releaseDateMerge: Опубликован
 § plugin.team_tasks.release.prDateMerge: Влит
+§ plugin.team_tasks.commits.date: Дата
+§ plugin.team_tasks.commits.author: Сотрудник
+§ plugin.team_tasks.commits.description: Что было сделано
 § plugin.team_tasks.info.createdBefore: создана до
 § plugin.team_tasks.info.totalDaysInBacklog: дней в беклоге
 § plugin.team_tasks.info.totalAuthors: сотрудников работало

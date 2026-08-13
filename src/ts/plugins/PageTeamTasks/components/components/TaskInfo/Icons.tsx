@@ -31,7 +31,7 @@ const Icons = observer(({ task }: IconsProps): React.ReactElement | null => {
     },
     {
       title: text('plugin.team_tasks.info.commits'),
-      value: task?.commits,
+      value: task?.commits?.length,
     },
   ];
 

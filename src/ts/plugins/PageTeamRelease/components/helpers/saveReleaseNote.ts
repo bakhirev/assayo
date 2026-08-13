@@ -1,5 +1,5 @@
 import { downloadFile } from 'ts/helpers/File';
-import { getDateForExcel } from 'ts/helpers/formatter';
+import { getDateForExcel, getStringWithCapitalLetter } from 'ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import applicationConfig from 'ts/store/ApplicationConfig';
 
@@ -14,29 +14,24 @@ function groupByType(prs: any[]) {
   }, {});
 }
 
-function getTextBeginningWithCapitalLetter(text?: string) {
-  const formattedText = text || '';
-  const firstSymbol = formattedText?.[0]?.toUpperCase() || '';
-  return `${firstSymbol}${formattedText?.slice(1) || ''}`;
-}
-
 function getTaskDescription(pr: any, taskById: any) {
-  const formattedMessage = pr.message || '';
-  let message = formattedMessage.substring(formattedMessage.lastIndexOf(':') + 2)
-    .replace(pr.task, '')
-    .trim();
-
-  const prefix = applicationConfig?.config?.prefixForTask || '/';
   const taskId = pr.task?.[0] === '#'
     ? pr.task.replace('#', '')
     : pr.task;
   const task = taskById.get(taskId);
+
+  const formattedMessage = pr.message || '';
+  let message = formattedMessage.substring(formattedMessage.lastIndexOf(':') + 2)
+    .replace(pr.task, '')
+    .trim() || task?.description || '';
+
+  const prefix = applicationConfig?.config?.prefixForTask || '/';
   const formattedTask = task?.task || taskId;
   message = message.indexOf('pull request') !== -1
     ? (task?.comments || '')
     : message;
   if (!formattedTask && !message) return '';
-  return `- [${formattedTask}](${prefix}${formattedTask}) ${getTextBeginningWithCapitalLetter(message)}`;
+  return `- [${formattedTask}](${prefix}${formattedTask}) ${getStringWithCapitalLetter(message)}`;
 }
 
 function getReleaseDescription(prs: any, taskById: any) {
@@ -46,10 +41,10 @@ function getReleaseDescription(prs: any, taskById: any) {
     .map((type: string) => {
       const tasks = types[type]
         .map((pr: any) => getTaskDescription(pr, taskById))
-        .filter((v: string) => v)
-        .join('\n');
-      if (!type) return `\n${tasks}`;
-      return `\n### ${type}\n${tasks}`;
+        .filter((v: string) => v);
+      const formattedTasks = Array.from(new Set(tasks)).join('\n');
+      if (!type) return `\n${formattedTasks}`;
+      return `\n### ${type}\n${formattedTasks}`;
     }).join('\n');
 }
 
