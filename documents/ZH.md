@@ -50,6 +50,7 @@
   - [如何定制界面？](#link-24)
   - [如何从源代码重新构建HTML报告？](#link-25)
   - [如何添加或编辑翻译？](#link-26)
+  - [配置](#link-31)
   - [架构](#link-27)
     - [微服务的总体架构](#link-29)
   - [反馈，评论](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  关于此应用程序
 
-<a name="link-24"></a>
-### 🎨 如何定制界面？
-您可以创建自己的界面主题。选项：
-- **标题**。您可以在URL参数`title`中设置默认文档标题。示例：`?title=You Company`
-- **可视化主题**。为此，您需要准备一个包含新样式的CSS文件，并在参数`theme`中指定其URL。示例：`?theme=//company.com/some.css`。您可以使用类名作为选择器。大多数在新版本中不会改变。
-- **语言**。您可以在URL参数`lang`中设置语言。示例：`?lang=es`
-
-**示例**：[demo](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ 如何从源代码重新构建HTML报告？
 - 下载此存储库`git clone https://github.com/bakhirev/assayo.git`
@@ -227,10 +219,79 @@ fi
 - 执行`npm run build:local`
 - 新的HTML构建将在`/build`文件夹中
 
+<a name="link-24"></a>
+### 🎨 如何定制界面？
+您可以为报告编写自己的主题。**示例：** [demo](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 如何添加或编辑翻译？
-您可以在`ts/translations/`文件夹中添加新翻译或更正现有翻译。
+您可以在`**/translations/**`文件夹中添加新翻译或更正现有翻译。
 [指南](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ 配置
+
+可以通过配置文件自定义应用程序。您可以在页面 URL 中指定实际使用的配置文件。例如：
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### 参数
+
+| 代码 | 类型 | 默认值 | 说明 |
+|-|-|-|-|
+| title | string | | 浏览器标签页名称（`document.title`） |
+| logo | string | `"./assets/logo.svg"` | 徽标路径 |
+| language | string | | 界面语言 |
+| languages | object[] | | 可用语言 |
+| languages[].id | string | | 语言 ID |
+| languages[].currency | string | | 货币 |
+| languages[].title | string | | 界面中的语言名称（右上角） |
+| urlForCss | string | | 用于覆盖样式的 CSS 文件路径。您可以创建自己的视觉主题。示例：[demo](https://bakhirev.github.io/demo/themes/) |
+| urlForGitLog | string | `"./log.txt"` | GIT 日志文件路径 |
+| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | 任务链接前缀 |
+| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request 链接前缀 |
+| middleSalaryInMonth | number | 3000 | 月平均工资（美元） |
+| workDays | boolean[] | `[true, true, true, true, true, false, false]` | 哪些天视为“工作日”，其中 0 为星期一，6 为星期日 |
+| currency | string | `"RUB"` | 当前货币 |
+| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | 汇率，格式为“键: 值”，相对于美元。示例：`{example}` |
+| permissions | string[] | [] | 可用权限数组 |
+| disabledPermissions | string[] | [] | 不可用权限数组 |
+| plugins | string[] | [] | 已启用插件数组 |
+| disabledPlugins | string[] | [] | 已禁用插件数组 |
+
+#### URL 参数
+
+有些参数比其他参数更常用。因此可以在 URL 中设置，无需配置文件。
+
+| 代码 | 说明 | 示例 |
+|-|-|-|
+| title | 浏览器标签页名称（`document.title`） | `?title=Company_Name` |
+| lang | 界面语言 | `?lang=es` |
+| theme | 用于覆盖样式的 CSS 文件路径。您可以创建自己的视觉主题。示例：[demo](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### 默认配置文件
+
+参见 `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### 配置文件示例
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 架构

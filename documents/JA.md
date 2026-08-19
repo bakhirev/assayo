@@ -50,6 +50,7 @@ HTMLレポートを作成してコミットの統計を分析します：
   - [インターフェースをブランディングする方法](#link-24)
   - [ソースコードからHTMLレポートを再構築する方法](#link-25)
   - [翻訳を追加または編集する方法](#link-26)
+  - [設定](#link-31)
   - [アーキテクチャ](#link-27)
     - [マイクロサービスの全体的なアーキテクチャ](#link-29)
   - [フィードバック、コメント](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  このアプリについて
 
-<a name="link-24"></a>
-### 🎨 インターフェースをブランディングする方法
-独自のインターフェーステーマを作成できます。オプション：
-- **タイトル**。URLパラメータ`title`でデフォルトのドキュメントタイトルを設定できます。例：`?title=You Company`
-- **ビジュアルテーマ**。新しいスタイルのCSSファイルを準備し、そのURLをパラメータ`theme`に指定する必要があります。例：`?theme=//company.com/some.css`。セレクターとしてクラス名を使用できます。ほとんどは新しいバージョンで変更されません。
-- **言語**。URLパラメータ`lang`で言語を設定できます。例：`?lang=es`
-
-**例**：[デモ](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ ソースコードからHTMLレポートを再構築する方法
 - このリポジトリ`git clone https://github.com/bakhirev/assayo.git`をダウンロード
@@ -227,10 +219,79 @@ fi
 - `npm run build:local`を実行
 - 新しいHTMLビルドは、フォルダ`/build`にあります
 
+<a name="link-24"></a>
+### 🎨 インターフェースをブランディングする方法
+レポート用に独自のテーマを作成できます。**例：** [デモ](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 翻訳を追加または編集する方法
-新しい翻訳を追加したり、フォルダ`ts/translations/`にある既存の翻訳を修正できます。
+新しい翻訳を追加したり、フォルダ`**/translations/**`にある既存の翻訳を修正できます。
 [指示](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ 設定
+
+アプリケーションは設定ファイルでカスタマイズできます。実際の設定ファイルはページの URL で指定できます。例：
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### パラメータ
+
+| コード | 型 | デフォルト値 | 説明 |
+|-|-|-|-|
+| title | string | | ブラウザタブ名（`document.title`） |
+| logo | string | `"./assets/logo.svg"` | ロゴへのパス |
+| language | string | | インターフェース言語 |
+| languages | object[] | | 利用可能な言語 |
+| languages[].id | string | | 言語 ID |
+| languages[].currency | string | | 通貨 |
+| languages[].title | string | | インターフェース上の言語名（右上） |
+| urlForCss | string | | スタイルを上書きする CSS ファイルへのパス。独自のビジュアルテーマを作成できます。例：[デモ](https://bakhirev.github.io/demo/themes/) |
+| urlForGitLog | string | `"./log.txt"` | GIT ログファイルへのパス |
+| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | タスクリンクのプレフィックス |
+| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request リンクのプレフィックス |
+| middleSalaryInMonth | number | 3000 | 月平均給与（USD） |
+| workDays | boolean[] | `[true, true, true, true, true, false, false]` | 「稼働日」とみなす曜日。0 が月曜日、6 が日曜日 |
+| currency | string | `"RUB"` | 現在の通貨 |
+| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | USD に対する為替レート。「キー: 値」形式。例：`{example}` |
+| permissions | string[] | [] | 利用可能な権限の配列 |
+| disabledPermissions | string[] | [] | 利用できない権限の配列 |
+| plugins | string[] | [] | 有効なプラグインの配列 |
+| disabledPlugins | string[] | [] | 無効なプラグインの配列 |
+
+#### URL パラメータ
+
+一部のパラメータは他より頻繁に使われます。そのため、設定ファイルなしで URL に指定できます。
+
+| コード | 説明 | 例 |
+|-|-|-|
+| title | ブラウザタブ名（`document.title`） | `?title=Company_Name` |
+| lang | インターフェース言語 | `?lang=es` |
+| theme | スタイルを上書きする CSS ファイルへのパス。独自のビジュアルテーマを作成できます。例：[デモ](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### デフォルトの設定ファイル
+
+`src\ts\helpers\ApplicationConfig\getDefaultConfig.ts` を参照
+
+#### 設定ファイルの例
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 アーキテクチャ

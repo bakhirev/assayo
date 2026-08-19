@@ -47,9 +47,10 @@
 
 
 - [ОБ ЭТОМ ПРИЛОЖЕНИИ](#link-23)
-  - [Как брендировать отчёт?](#link-24)
+  - [Как брендировать интерфейс?](#link-24)
   - [Как пересобрать файл отчёта из исходного кода?](#link-25)
   - [Как добавить или отредактировать перевод?](#link-26)
+  - [Конфигурация](#link-31)
   - [Архитектура](#link-27)
     - [Общая архитектура микросервисов](#link-29)
   - [Пожелания, предложения, замечания](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  ОБ ЭТОМ ПРИЛОЖЕНИИ
 
-<a name="link-24"></a>
-### 🎨 Как брендировать отчёт?
-Вы можете написать свою тему для отчёта. Можно менять:
-- **Заголовок**. Вы можете указать его в URL-параметре `title`. Например: `?title=You Company`
-- **Визуальную тему**. Для этого нужно подготовить CSS файл с новыми стилями и указать его адрес в URL-параметре `theme`. Например: `?theme=//company.com/some.css`. Вы можете использовать имена классов в качестве селекторов. Большинство из них не меняется в при выходе новой версий.
-- **Язык**. Вы можете указать его в URL-параметре `lang`. Например: `?lang=es`
-
-**Например:** [демо](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ Как пересобрать файл отчёта из исходного кода?
 - скачать этот репозиторий `git clone https://github.com/bakhirev/assayo.git`
@@ -227,10 +219,79 @@ fi
 - выполнить `npm run build:local`
 - свежая сборка будет в папке `/build`
 
+<a name="link-24"></a>
+### 🎨 Как брендировать интерфейс?
+Вы можете написать свою тему для отчёта. **Например:** [демо](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 Как добавить или отредактировать перевод?
-Вы можете добавить новый перевод или поправить текущий в разделе `ts/translations/`.
+Вы можете добавить новый перевод или поправить текущий в разделе `**/translations/**`.
 [Инструкция](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ Конфигурация
+
+Приложение можно кастомизировать через файл конфигурации. Вы можете задать актуальный файл конфигурации в URL адресе страницы. Например:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### Параметры
+
+| Код | Тип | Значение по умолчанию | Описание |
+|-|-|-|-|
+| title | string | | Название вкладки браузера (`document.title`) |
+| logo | string | `"./assets/logo.svg"` | путь к логотипу |
+| language | string | | язык интерфейса |
+| languages | object[] | | доступные языки |
+| languages[].id | string | | ID языка |
+| languages[].currency | string | | валюта |
+| languages[].title | string | | название языка в интерфейсе (левый правый угол) |
+| urlForCss | string | | путь к CSS файлу для переопределения стилей. Вы можете создать свою визуальную тему. Например: [демо](https://bakhirev.github.io/demo/themes/) |
+| urlForGitLog | string | `"./log.txt"` | путь к файлу с логами GIT |
+| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | префикс для ссылок на задачи |
+| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | префикс для ссылок на Pull Request |
+| middleSalaryInMonth | number | 3000 | средняя зарплата в месяц в у.е. |
+| workDays | boolean[] | `[true, true, true, true, true, false, false]` | какие дни считать "рабочими", где 0 - понедельник, а 6 - воскресенье |
+| currency | string | `"RUB"` | текущая валюта |
+| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | курс валют в формате "ключ: значение", к у.е. Например: `{example}` |
+| permissions | string[] | [] | массив доступных разрешений |
+| disabledPermissions | string[] | [] | массив недоступных разрешений |
+| plugins | string[] | [] | массив включенных плагинов |
+| disabledPlugins | string[] | [] | массив выключенных плагинов |
+
+#### URL-параметры
+
+Некоторые параметры используются чаще других. Поэтому их можно задать в URL, без файла конфигурации.
+
+| Код | Описание | Пример |
+|-|-|-|
+| title | Название вкладки браузера (`document.title`) | `?title=Company_Name` |
+| lang | язык интерфейса | `?lang=es` |
+| theme | путь к CSS файлу для переопределения стилей. Вы можете создать свою визуальную тему. Например: [демо](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### Файл конфигурации по умолчанию
+
+См. `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### Пример файла конфигурации
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 Архитектура
