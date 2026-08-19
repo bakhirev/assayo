@@ -239,27 +239,27 @@ fi
 
 #### المعاملات
 
-| الرمز | النوع | القيمة الافتراضية | الوصف |
+| الرمز | النوع | الوصف | القيمة الافتراضية |
 |-|-|-|-|
-| title | string | | اسم تبويب المتصفح (`document.title`) |
-| logo | string | `"./assets/logo.svg"` | مسار الشعار |
-| language | string | | لغة الواجهة |
-| languages | object[] | | اللغات المتاحة |
-| languages[].id | string | | معرّف اللغة |
-| languages[].currency | string | | العملة |
-| languages[].title | string | | اسم اللغة في الواجهة (الزاوية العلوية اليمنى) |
-| urlForCss | string | | مسار ملف CSS لتجاوز الأنماط. يمكنك إنشاء سمة بصرية خاصة بك. مثال: [تجربة](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | مسار ملف سجلات GIT |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | بادئة روابط المهام |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | بادئة روابط Pull Request |
-| middleSalaryInMonth | number | 3000 | متوسط الراتب الشهري بالدولار الأمريكي |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | الأيام التي تُعد «عملًا»، حيث 0 هو الاثنين و6 هو الأحد |
-| currency | string | `"RUB"` | العملة الحالية |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | سعر الصرف بتنسيق «مفتاح: قيمة»، بالنسبة للدولار الأمريكي. مثال: `{example}` |
-| permissions | string[] | [] | مصفوفة الصلاحيات المتاحة |
-| disabledPermissions | string[] | [] | مصفوفة الصلاحيات غير المتاحة |
-| plugins | string[] | [] | مصفوفة الإضافات المفعّلة |
-| disabledPlugins | string[] | [] | مصفوفة الإضافات المعطّلة |
+| title | string | اسم تبويب المتصفح (`document.title`) | |
+| logo | string | مسار الشعار | `"./assets/logo.svg"` |
+| language | string | لغة الواجهة | |
+| languages | object[] | اللغات المتاحة | |
+| languages[].id | string | معرّف اللغة | |
+| languages[].currency | string | العملة | |
+| languages[].title | string | اسم اللغة في الواجهة (الزاوية العلوية اليمنى) | |
+| urlForCss | string | مسار ملف CSS لتجاوز الأنماط. يمكنك إنشاء سمة بصرية خاصة بك. مثال: [تجربة](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | مسار ملف سجلات GIT | `"./log.txt"` |
+| prefixForTask | string | بادئة روابط المهام | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | بادئة روابط Pull Request | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | متوسط الراتب الشهري بالدولار الأمريكي | 3000 |
+| workDays | boolean[] | الأيام التي تُعد «عملًا»، حيث 0 هو الاثنين و6 هو الأحد | `[true, true, true, true, true, false, false]` |
+| currency | string | العملة الحالية | `"RUB"` |
+| exchangeRate | object<string, number> | سعر الصرف بتنسيق «مفتاح: قيمة»، بالنسبة للدولار الأمريكي. مثال: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | مصفوفة الصلاحيات المتاحة | | []
+| disabledPermissions | string[] | مصفوفة الصلاحيات غير المتاحة | | []
+| plugins | string[] | مصفوفة الإضافات المفعّلة | | []
+| disabledPlugins | string[] | مصفوفة الإضافات المعطّلة | | []
 
 #### معاملات URL
 

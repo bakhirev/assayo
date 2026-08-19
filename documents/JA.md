@@ -239,27 +239,27 @@ fi
 
 #### パラメータ
 
-| コード | 型 | デフォルト値 | 説明 |
+| コード | 型 | 説明 | デフォルト値 |
 |-|-|-|-|
-| title | string | | ブラウザタブ名（`document.title`） |
-| logo | string | `"./assets/logo.svg"` | ロゴへのパス |
-| language | string | | インターフェース言語 |
-| languages | object[] | | 利用可能な言語 |
-| languages[].id | string | | 言語 ID |
-| languages[].currency | string | | 通貨 |
-| languages[].title | string | | インターフェース上の言語名（右上） |
-| urlForCss | string | | スタイルを上書きする CSS ファイルへのパス。独自のビジュアルテーマを作成できます。例：[デモ](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | GIT ログファイルへのパス |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | タスクリンクのプレフィックス |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request リンクのプレフィックス |
-| middleSalaryInMonth | number | 3000 | 月平均給与（USD） |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | 「稼働日」とみなす曜日。0 が月曜日、6 が日曜日 |
-| currency | string | `"RUB"` | 現在の通貨 |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | USD に対する為替レート。「キー: 値」形式。例：`{example}` |
-| permissions | string[] | [] | 利用可能な権限の配列 |
-| disabledPermissions | string[] | [] | 利用できない権限の配列 |
-| plugins | string[] | [] | 有効なプラグインの配列 |
-| disabledPlugins | string[] | [] | 無効なプラグインの配列 |
+| title | string | ブラウザタブ名（`document.title`） | |
+| logo | string | ロゴへのパス | `"./assets/logo.svg"` |
+| language | string | インターフェース言語 | |
+| languages | object[] | 利用可能な言語 | |
+| languages[].id | string | 言語 ID | |
+| languages[].currency | string | 通貨 | |
+| languages[].title | string | インターフェース上の言語名（右上） | |
+| urlForCss | string | スタイルを上書きする CSS ファイルへのパス。独自のビジュアルテーマを作成できます。例：[デモ](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT ログファイルへのパス | `"./log.txt"` |
+| prefixForTask | string | タスクリンクのプレフィックス | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request リンクのプレフィックス | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | 月平均給与（USD） | 3000 |
+| workDays | boolean[] | 「稼働日」とみなす曜日。0 が月曜日、6 が日曜日 | `[true, true, true, true, true, false, false]` |
+| currency | string | 現在の通貨 | `"RUB"` |
+| exchangeRate | object<string, number> | USD に対する為替レート。「キー: 値」形式。例：`{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | 利用可能な権限の配列 | | []
+| disabledPermissions | string[] | 利用できない権限の配列 | | []
+| plugins | string[] | 有効なプラグインの配列 | | []
+| disabledPlugins | string[] | 無効なプラグインの配列 | | []
 
 #### URL パラメータ
 

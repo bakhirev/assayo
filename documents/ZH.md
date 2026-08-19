@@ -239,27 +239,27 @@ fi
 
 #### 参数
 
-| 代码 | 类型 | 默认值 | 说明 |
+| 代码 | 类型 | 说明 | 默认值 |
 |-|-|-|-|
-| title | string | | 浏览器标签页名称（`document.title`） |
-| logo | string | `"./assets/logo.svg"` | 徽标路径 |
-| language | string | | 界面语言 |
-| languages | object[] | | 可用语言 |
-| languages[].id | string | | 语言 ID |
-| languages[].currency | string | | 货币 |
-| languages[].title | string | | 界面中的语言名称（右上角） |
-| urlForCss | string | | 用于覆盖样式的 CSS 文件路径。您可以创建自己的视觉主题。示例：[demo](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | GIT 日志文件路径 |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | 任务链接前缀 |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request 链接前缀 |
-| middleSalaryInMonth | number | 3000 | 月平均工资（美元） |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | 哪些天视为“工作日”，其中 0 为星期一，6 为星期日 |
-| currency | string | `"RUB"` | 当前货币 |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | 汇率，格式为“键: 值”，相对于美元。示例：`{example}` |
-| permissions | string[] | [] | 可用权限数组 |
-| disabledPermissions | string[] | [] | 不可用权限数组 |
-| plugins | string[] | [] | 已启用插件数组 |
-| disabledPlugins | string[] | [] | 已禁用插件数组 |
+| title | string | 浏览器标签页名称（`document.title`） | |
+| logo | string | 徽标路径 | `"./assets/logo.svg"` |
+| language | string | 界面语言 | |
+| languages | object[] | 可用语言 | |
+| languages[].id | string | 语言 ID | |
+| languages[].currency | string | 货币 | |
+| languages[].title | string | 界面中的语言名称（右上角） | |
+| urlForCss | string | 用于覆盖样式的 CSS 文件路径。您可以创建自己的视觉主题。示例：[demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT 日志文件路径 | `"./log.txt"` |
+| prefixForTask | string | 任务链接前缀 | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request 链接前缀 | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | 月平均工资（美元） | 3000 |
+| workDays | boolean[] | 哪些天视为“工作日”，其中 0 为星期一，6 为星期日 | `[true, true, true, true, true, false, false]` |
+| currency | string | 当前货币 | `"RUB"` |
+| exchangeRate | object<string, number> | 汇率，格式为“键: 值”，相对于美元。示例：`{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | 可用权限数组 | | []
+| disabledPermissions | string[] | 不可用权限数组 | | []
+| plugins | string[] | 已启用插件数组 | | []
+| disabledPlugins | string[] | 已禁用插件数组 | | []
 
 #### URL 参数
 

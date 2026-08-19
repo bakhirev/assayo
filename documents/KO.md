@@ -239,27 +239,27 @@ fi
 
 #### 매개변수
 
-| 코드 | 유형 | 기본값 | 설명 |
+| 코드 | 유형 | 설명 | 기본값 |
 |-|-|-|-|
-| title | string | | 브라우저 탭 이름 (`document.title`) |
-| logo | string | `"./assets/logo.svg"` | 로고 경로 |
-| language | string | | 인터페이스 언어 |
-| languages | object[] | | 사용 가능한 언어 |
-| languages[].id | string | | 언어 ID |
-| languages[].currency | string | | 통화 |
-| languages[].title | string | | 인터페이스의 언어 이름(오른쪽 상단) |
-| urlForCss | string | | 스타일을 재정의할 CSS 파일 경로. 자체 시각 테마를 만들 수 있습니다. 예: [데모](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | GIT 로그 파일 경로 |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | 작업 링크 접두사 |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request 링크 접두사 |
-| middleSalaryInMonth | number | 3000 | 월 평균 급여(USD) |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | "근무일"로 간주할 요일. 0은 월요일, 6은 일요일 |
-| currency | string | `"RUB"` | 현재 통화 |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | USD 대비 환율. 형식은 "키: 값". 예: `{example}` |
-| permissions | string[] | [] | 사용 가능한 권한 배열 |
-| disabledPermissions | string[] | [] | 사용할 수 없는 권한 배열 |
-| plugins | string[] | [] | 활성화된 플러그인 배열 |
-| disabledPlugins | string[] | [] | 비활성화된 플러그인 배열 |
+| title | string | 브라우저 탭 이름 (`document.title`) | |
+| logo | string | 로고 경로 | `"./assets/logo.svg"` |
+| language | string | 인터페이스 언어 | |
+| languages | object[] | 사용 가능한 언어 | |
+| languages[].id | string | 언어 ID | |
+| languages[].currency | string | 통화 | |
+| languages[].title | string | 인터페이스의 언어 이름(오른쪽 상단) | |
+| urlForCss | string | 스타일을 재정의할 CSS 파일 경로. 자체 시각 테마를 만들 수 있습니다. 예: [데모](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT 로그 파일 경로 | `"./log.txt"` |
+| prefixForTask | string | 작업 링크 접두사 | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request 링크 접두사 | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | 월 평균 급여(USD) | 3000 |
+| workDays | boolean[] | "근무일"로 간주할 요일. 0은 월요일, 6은 일요일 | `[true, true, true, true, true, false, false]` |
+| currency | string | 현재 통화 | `"RUB"` |
+| exchangeRate | object<string, number> | USD 대비 환율. 형식은 "키: 값". 예: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | 사용 가능한 권한 배열 | | []
+| disabledPermissions | string[] | 사용할 수 없는 권한 배열 | | []
+| plugins | string[] | 활성화된 플러그인 배열 | | []
+| disabledPlugins | string[] | 비활성화된 플러그인 배열 | | []
 
 #### URL 매개변수
 

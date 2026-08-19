@@ -239,27 +239,27 @@ fi
 
 #### पैरामीटर
 
-| कोड | प्रकार | डिफ़ॉल्ट मान | विवरण |
+| कोड | प्रकार | विवरण | डिफ़ॉल्ट मान |
 |-|-|-|-|
-| title | string | | ब्राउज़र टैब का नाम (`document.title`) |
-| logo | string | `"./assets/logo.svg"` | लोगो का पथ |
-| language | string | | इंटरफ़ेस भाषा |
-| languages | object[] | | उपलब्ध भाषाएँ |
-| languages[].id | string | | भाषा ID |
-| languages[].currency | string | | मुद्रा |
-| languages[].title | string | | इंटरफ़ेस में भाषा का नाम (ऊपरी दायाँ कोना) |
-| urlForCss | string | | स्टाइल ओवरराइड करने के लिए CSS फ़ाइल का पथ। आप अपनी विज़ुअल थीम बना सकते हैं। उदाहरण: [demo](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | GIT लॉग फ़ाइल का पथ |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | टास्क लिंक का उपसर्ग |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | Pull Request लिंक का उपसर्ग |
-| middleSalaryInMonth | number | 3000 | औसत मासिक वेतन USD में |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | किन दिनों को "कार्य दिवस" माना जाए, जहाँ 0 सोमवार है और 6 रविवार |
-| currency | string | `"RUB"` | वर्तमान मुद्रा |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | विनिमय दर "कुंजी: मान" प्रारूप में, USD के सापेक्ष। उदाहरण: `{example}` |
-| permissions | string[] | [] | उपलब्ध अनुमतियों की सरणी |
-| disabledPermissions | string[] | [] | अनुपलब्ध अनुमतियों की सरणी |
-| plugins | string[] | [] | सक्षम प्लगइनों की सरणी |
-| disabledPlugins | string[] | [] | अक्षम प्लगइनों की सरणी |
+| title | string | ब्राउज़र टैब का नाम (`document.title`) | |
+| logo | string | लोगो का पथ | `"./assets/logo.svg"` |
+| language | string | इंटरफ़ेस भाषा | |
+| languages | object[] | उपलब्ध भाषाएँ | |
+| languages[].id | string | भाषा ID | |
+| languages[].currency | string | मुद्रा | |
+| languages[].title | string | इंटरफ़ेस में भाषा का नाम (ऊपरी दायाँ कोना) | |
+| urlForCss | string | स्टाइल ओवरराइड करने के लिए CSS फ़ाइल का पथ। आप अपनी विज़ुअल थीम बना सकते हैं। उदाहरण: [demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT लॉग फ़ाइल का पथ | `"./log.txt"` |
+| prefixForTask | string | टास्क लिंक का उपसर्ग | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request लिंक का उपसर्ग | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | औसत मासिक वेतन USD में | 3000 |
+| workDays | boolean[] | किन दिनों को "कार्य दिवस" माना जाए, जहाँ 0 सोमवार है और 6 रविवार | `[true, true, true, true, true, false, false]` |
+| currency | string | वर्तमान मुद्रा | `"RUB"` |
+| exchangeRate | object<string, number> | विनिमय दर "कुंजी: मान" प्रारूप में, USD के सापेक्ष। उदाहरण: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | उपलब्ध अनुमतियों की सरणी | | []
+| disabledPermissions | string[] | अनुपलब्ध अनुमतियों की सरणी | | []
+| plugins | string[] | सक्षम प्लगइनों की सरणी | | []
+| disabledPlugins | string[] | अक्षम प्लगइनों की सरणी | | []
 
 #### URL पैरामीटर
 

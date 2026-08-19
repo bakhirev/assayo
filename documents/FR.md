@@ -239,27 +239,27 @@ L'application peut être personnalisée via un fichier de configuration. Vous po
 
 #### Paramètres
 
-| Code | Type | Valeur par défaut | Description |
+| Code | Type | Description | Valeur par défaut |
 |-|-|-|-|
-| title | string | | Nom de l'onglet du navigateur (`document.title`) |
-| logo | string | `"./assets/logo.svg"` | chemin vers le logo |
-| language | string | | langue de l'interface |
-| languages | object[] | | langues disponibles |
-| languages[].id | string | | ID de la langue |
-| languages[].currency | string | | devise |
-| languages[].title | string | | nom de la langue dans l'interface (coin supérieur droit) |
-| urlForCss | string | | chemin vers le fichier CSS pour redéfinir les styles. Vous pouvez créer votre propre thème visuel. Exemple: [démo](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | chemin vers le fichier de logs GIT |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | préfixe pour les liens vers les tâches |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | préfixe pour les liens vers les Pull Request |
-| middleSalaryInMonth | number | 3000 | salaire mensuel moyen en USD |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | quels jours considérer comme « ouvrés », où 0 est lundi et 6 est dimanche |
-| currency | string | `"RUB"` | devise actuelle |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | taux de change au format « clé: valeur », par rapport à l'USD. Exemple: `{example}` |
-| permissions | string[] | [] | tableau des autorisations disponibles |
-| disabledPermissions | string[] | [] | tableau des autorisations indisponibles |
-| plugins | string[] | [] | tableau des plugins activés |
-| disabledPlugins | string[] | [] | tableau des plugins désactivés |
+| title | string | Nom de l'onglet du navigateur (`document.title`) | |
+| logo | string | chemin vers le logo | `"./assets/logo.svg"` |
+| language | string | langue de l'interface | |
+| languages | object[] | langues disponibles | |
+| languages[].id | string | ID de la langue | |
+| languages[].currency | string | devise | |
+| languages[].title | string | nom de la langue dans l'interface (coin supérieur droit) | |
+| urlForCss | string | chemin vers le fichier CSS pour redéfinir les styles. Vous pouvez créer votre propre thème visuel. Exemple: [démo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | chemin vers le fichier de logs GIT | `"./log.txt"` |
+| prefixForTask | string | préfixe pour les liens vers les tâches | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | préfixe pour les liens vers les Pull Request | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | salaire mensuel moyen en USD | 3000 |
+| workDays | boolean[] | quels jours considérer comme « ouvrés », où 0 est lundi et 6 est dimanche | `[true, true, true, true, true, false, false]` |
+| currency | string | devise actuelle | `"RUB"` |
+| exchangeRate | object<string, number> | taux de change au format « clé: valeur », par rapport à l'USD. Exemple: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | tableau des autorisations disponibles | | []
+| disabledPermissions | string[] | tableau des autorisations indisponibles | | []
+| plugins | string[] | tableau des plugins activés | | []
+| disabledPlugins | string[] | tableau des plugins désactivés | | []
 
 #### Paramètres d'URL
 

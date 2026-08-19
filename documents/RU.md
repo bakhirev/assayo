@@ -239,27 +239,27 @@ fi
 
 #### Параметры
 
-| Код | Тип | Значение по умолчанию | Описание |
+| Код | Тип | Описание | Значение по умолчанию |
 |-|-|-|-|
-| title | string | | Название вкладки браузера (`document.title`) |
-| logo | string | `"./assets/logo.svg"` | путь к логотипу |
-| language | string | | язык интерфейса |
-| languages | object[] | | доступные языки |
-| languages[].id | string | | ID языка |
-| languages[].currency | string | | валюта |
-| languages[].title | string | | название языка в интерфейсе (левый правый угол) |
-| urlForCss | string | | путь к CSS файлу для переопределения стилей. Вы можете создать свою визуальную тему. Например: [демо](https://bakhirev.github.io/demo/themes/) |
-| urlForGitLog | string | `"./log.txt"` | путь к файлу с логами GIT |
-| prefixForTask | string | `"https://jira.com/secure/RapidBoard.jspa?task="` | префикс для ссылок на задачи |
-| prefixForPR | string | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` | префикс для ссылок на Pull Request |
-| middleSalaryInMonth | number | 3000 | средняя зарплата в месяц в у.е. |
-| workDays | boolean[] | `[true, true, true, true, true, false, false]` | какие дни считать "рабочими", где 0 - понедельник, а 6 - воскресенье |
-| currency | string | `"RUB"` | текущая валюта |
-| exchangeRate | object<string, number> | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` | курс валют в формате "ключ: значение", к у.е. Например: `{example}` |
-| permissions | string[] | [] | массив доступных разрешений |
-| disabledPermissions | string[] | [] | массив недоступных разрешений |
-| plugins | string[] | [] | массив включенных плагинов |
-| disabledPlugins | string[] | [] | массив выключенных плагинов |
+| title | string | Название вкладки браузера (`document.title`) | |
+| logo | string | путь к логотипу | `"./assets/logo.svg"` |
+| language | string | язык интерфейса | |
+| languages | object[] | доступные языки | |
+| languages[].id | string | ID языка | |
+| languages[].currency | string | валюта | |
+| languages[].title | string | название языка в интерфейсе (левый правый угол) | |
+| urlForCss | string | путь к CSS файлу для переопределения стилей. Вы можете создать свою визуальную тему. Например: [демо](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | путь к файлу с логами GIT | `"./log.txt"` |
+| prefixForTask | string | префикс для ссылок на задачи | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | префикс для ссылок на Pull Request | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | средняя зарплата в месяц в у.е. | 3000 |
+| workDays | boolean[] | какие дни считать "рабочими", где 0 - понедельник, а 6 - воскресенье | `[true, true, true, true, true, false, false]` |
+| currency | string | текущая валюта | `"RUB"` |
+| exchangeRate | object<string, number> | курс валют в формате "ключ: значение", к у.е. Например: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | массив доступных разрешений | | []
+| disabledPermissions | string[] | массив недоступных разрешений | | []
+| plugins | string[] | массив включенных плагинов | | []
+| disabledPlugins | string[] | массив выключенных плагинов | | []
 
 #### URL-параметры
 
