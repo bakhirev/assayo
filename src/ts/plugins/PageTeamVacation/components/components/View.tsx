@@ -7,6 +7,7 @@ import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';
 import { getMaxValues } from 'ts/helpers/charts';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 
 export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   if (!response) return null;
@@ -33,7 +34,7 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         title="plugin.team_vacation.details.type"
         formatter={(row: any) => {
           return row.duration > 40
-            ? 'plugin.team_vacation.details.transfer'
+            ? { title: 'plugin.team_vacation.details.transfer', mode: UiKitTagMode.ERROR }
             : 'plugin.team_vacation.details.vacation';
         }}
         template={ColumnTypes.TAGS}

@@ -1,78 +1,64 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { IPagination } from 'ts/interfaces/Pagination';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
-
 import { DataLoader } from 'ts/components/DataLoader';
 import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';
-import TempoChart from 'ts/components/Tempo';
-import { Title, NothingFound, Section, SectionWithBg } from 'ts/components/Layout';
+import type Filter from 'ts/components/Layout/Search/interfaces/Filter';
+import { Title, NothingFound, SectionWithBg, Search as LayoutSearch, If } from 'ts/components/Layout';
+import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 
-import TempoFilters from './Filters';
+import View from './components/View';
+import Filters from './components/Filters';
+import ChangeView from './components/ChangeView';
+import ShortInformation from './components/ShortInformation';
+import { getDefaultFilters, getOnFilter } from './helpers';
 
-interface ITempoViewProps {
-  order: string[];
-  user?: string;
-  response?: IPagination<any>;
-}
-
-function TempoView({
-  response,
-  order,
-  user,
-}: ITempoViewProps) {
-  if (!response) return null;
-  return (
-    <TempoChart
-      days={response.content as any[]}
-      author={user}
-      order={order}
-    />
-  );
-}
-
-TempoView.defaultProps = {
-  response: undefined,
-};
-
-function getPartOfData(filters: any, rows: any[]) {
-  return rows.filter((row: any) => (row.week === filters.week)).slice(0, 7);
-}
-
-const Tempo = observer((): React.ReactElement => {
+const Tempo = observer(({ user, mode }: PageOptions): React.ReactElement => {
+  console.log(user);
   const rows = statisticStore.statisticsByCommits.timestamp.totalInfo.allCommitsByTimestamp || [];
-  const users = statisticStore.statisticsByCommits.author.list || [];
-  const firstIndex = rows.length - 1;
-  const firstPoint = rows[firstIndex];
-
-  const [filters, setFilters] = useState<any>({ user: 0, week: firstPoint.week });
-  const user = filters.user
-    ? users[filters.user - 1]
-    : '';
+  const defaultFilters = useMemo(() => getDefaultFilters(rows, user?.author), []);
+  const [selectedFilters, setSelectedFilters] = useState<Filter>(defaultFilters);
+  const [content, setContent] = useState<any>(rows.slice(rows?.length - 6, rows.length));
+  const [view, setView] = useState<string>('list');
 
   if (!rows?.length) return (<NothingFound />);
-
-  const partOfData = getPartOfData({ week: filters.week, user }, rows);
-  if (!partOfData?.length) return (<NothingFound />);
 
   return (
     <>
       <Title title="common.filters" />
-      <Section>
-        <TempoFilters
-          filters={filters}
-          onChange={setFilters}
+      <LayoutSearch
+        elements={user?.author ? [] : ['author']}
+        content={rows}
+        defaultFilters={defaultFilters}
+        onChange={(newResults: any[], hash: string, filters: Filter) => {
+          setContent(newResults);
+          setSelectedFilters(filters);
+        }}
+        onFilter={getOnFilter}
+      >
+        <Filters />
+      </LayoutSearch>
+
+      <Title title="plugin.team_day.tempo.title" />
+      <ShortInformation days={content} />
+      <If value={mode !== 'print'}>
+        <ChangeView
+          content={content}
+          filters={selectedFilters}
+          value={view}
+          onChange={setView}
         />
-      </Section>
+      </If>
+
       <SectionWithBg>
         <DataLoader
-          loader={() => sendFakeRequest({ content: partOfData })}
-          watch={JSON.stringify(filters)}
+          loader={() => sendFakeRequest({ content })}
+          watch={JSON.stringify(selectedFilters)}
         >
-          <TempoView
-            order={users}
-            user={user}
+          <View
+            view={view}
+            filters={selectedFilters}
           />
         </DataLoader>
       </SectionWithBg>

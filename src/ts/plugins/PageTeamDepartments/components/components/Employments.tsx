@@ -7,6 +7,7 @@ import { getMaxValues } from 'ts/helpers/charts';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { DataView } from 'ts/components/Layout';
 import { LineChart } from 'ts/components/Charts';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 interface EmploymentsProps {
@@ -64,9 +65,9 @@ const Employments = observer(({
         width={140}
         formatter={(name: string) => {
           const author = totalInfoByName.get(name);
-          if (author.isStaff) return staff;
-          if (author.isDismissed) return dismissed;
-          return works;
+          if (author?.isStaff) return { title: staff, mode: UiKitTagMode.WARNING };
+          if (author?.isDismissed) return { title: dismissed, mode: UiKitTagMode.ERROR };
+          return { title: works, mode: UiKitTagMode.SUCCESS };
         }}
       />
       <Column

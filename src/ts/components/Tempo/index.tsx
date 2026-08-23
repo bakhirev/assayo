@@ -14,7 +14,7 @@ function Tempo({
   author,
   order,
 }: ITempoProps) {
-  const columns = days.map((dayInfo: any) => (
+  const columns = days.slice(0, 7).map((dayInfo: any) => (
     <Column
       key={dayInfo?.timestamp}
       dayInfo={dayInfo}

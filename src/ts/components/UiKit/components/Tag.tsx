@@ -10,6 +10,19 @@ interface IUiKitTagProps extends IUiKitWrapperProps {
   mode?: string;
 }
 
+export const UiKitTagMode = {
+  ERROR: 'error',
+  WARNING: 'warning',
+  SUCCESS: 'success',
+};
+
+const REF_MODE_CLASS_NAME = {
+  [UiKitTagMode.ERROR]: style.ui_kit_tags_item_error,
+  [UiKitTagMode.WARNING]: style.ui_kit_tags_item_warning,
+  [UiKitTagMode.SUCCESS]: style.ui_kit_tags_item_success,
+  empty: style.ui_kit_tags_item_empty,
+};
+
 function UiKitTag({
   value,
   title,
@@ -17,7 +30,7 @@ function UiKitTag({
 }: IUiKitTagProps) {
   const { t } = useTranslation();
   const className = mode
-    ? `${style.ui_kit_tags_item} ${style.ui_kit_tags_item_empty}`
+    ? `${style.ui_kit_tags_item} ${REF_MODE_CLASS_NAME[mode] || ''}`
     : style.ui_kit_tags_item;
 
   return (

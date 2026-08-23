@@ -6,6 +6,7 @@ import { getMaxValues } from 'ts/helpers/charts';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { DataView } from 'ts/components/Layout';
 import { LineChart } from 'ts/components/Charts';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 
 interface EmploymentsProps {
   response?: IPagination<any>;
@@ -48,7 +49,7 @@ function TaskCodes({
         formatter={(value: boolean) => (
           value
             ? 'plugin.team_companies.taskCodes.active.yes'
-            : 'plugin.team_companies.taskCodes.active.no'
+            : { title: 'plugin.team_companies.taskCodes.active.no', mode: UiKitTagMode.ERROR }
         )}
         template={ColumnTypes.TAGS}
       />

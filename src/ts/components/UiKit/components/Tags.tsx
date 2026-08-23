@@ -18,9 +18,19 @@ function UiKitTags({
   const firstItem = formattedValues[0];
   const moreItems = formattedValues.slice(1);
 
+  let text = firstItem;
+  let mode = '';
+  if (firstItem && typeof firstItem === 'object') {
+    text = firstItem?.title;
+    mode = firstItem?.mode;
+  }
+
   return (
     <div className={style.ui_kit_tags}>
-      <UiKitTag value={firstItem} />
+      <UiKitTag
+        value={text}
+        mode={mode}
+      />
       {moreItems.length > 0 ? (
         <UiKitTag
           title={moreItems.join(', ')}

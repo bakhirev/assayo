@@ -27,7 +27,7 @@ export function getDayName(index:number, weekday: 'long' | 'short') { // @ts-ign
   return dayName;
 }
 
-export function getDateByTimestamp(timestamp: string) {
+export function getDateByTimestamp(timestamp: string | number) {
   const date = new Date(timestamp);
   const day = date.getDay() - 1;
   return [

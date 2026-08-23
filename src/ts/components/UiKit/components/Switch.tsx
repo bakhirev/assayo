@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useTranslation } from 'ts/components/Translation';
 import Wrapper, { IUiKitWrapperProps } from './Wrapper';
 import style from '../styles/switch.module.scss';
 
@@ -23,6 +24,7 @@ function UiKitSwitch({
   options,
   onChange,
 }: IUiKitSwitchProps) {
+  const { t } = useTranslation();
   const hasValue = value || value === 0 || value === false;
   let selectedIds = value;
   if (hasValue && !Array.isArray(value)) {
@@ -57,7 +59,7 @@ function UiKitSwitch({
             onChange(newSelected);
           }}
         >
-          {formattedOption?.title ?? formattedOption?.id ?? ''}
+          {t(formattedOption?.title ?? formattedOption?.id ?? '')}
         </button>
       );
     });

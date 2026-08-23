@@ -5,6 +5,7 @@ import { getDate } from 'ts/helpers/formatter';
 
 import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 
 import Details from './Details';
 
@@ -46,7 +47,7 @@ function Companies({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       <Column
         title="plugin.team_companies.companies.status"
         formatter={(row: any) => {
-          if (row.isActive) return works;
+          if (row.isActive) return { title: works, mode: UiKitTagMode.SUCCESS };
           if (row?.taskCodes?.[0]?.totalDays > 30) return dismissed;
           return none;
         }}

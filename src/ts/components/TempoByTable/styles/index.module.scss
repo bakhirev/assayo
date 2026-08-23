@@ -1,0 +1,128 @@
+.tempo_by_table {
+  --temp-cell: 40px;
+  --temp-sidebar: 150px;
+  --temp-header: 100px;
+
+  position: relative;
+  display: block;
+  max-height: 90vh;
+  max-width: 80vw;
+  white-space: nowrap;
+  margin-top: var(--space-xxl);
+
+  border-bottom: none;
+  border-right: none;
+
+  &_header,
+  &_first_column {
+    position: sticky;
+    z-index: 1;
+    background-color: var(--color-white);
+  }
+
+  &_header {
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &_first_column {
+    top: var(--temp-header);
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
+
+    & > div:hover {
+      background-color: transparent;
+    }
+  }
+
+  &_body {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &_row {
+    display: block;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+
+    &:hover {
+      background-color: #F7F7F7;
+    }
+  }
+
+  &_header_empty,
+  &_task,
+  &_cell {
+    font-size: var(--font-s);
+
+    display: inline-block;
+    height: var(--temp-cell);
+    width: var(--temp-cell);
+    line-height: var(--temp-cell);
+
+    text-align: center;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border-right: 1px solid var(--color-border);
+
+    &_weekend {
+      background-color: #FAF4F3;
+    }
+  }
+
+  &_task {
+    width: var(--temp-sidebar);
+    padding-left: var(--space-xs);
+    text-align: left;
+  }
+
+  &_header {
+    &_empty {
+      width: var(--temp-sidebar);
+      height: var(--temp-header);
+      margin-right: var(--temp-cell);
+      vertical-align: bottom;
+    }
+
+    &_cell {
+      display: inline-block;
+      height: var(--temp-cell);
+      width: var(--temp-cell);
+
+      overflow: initial;
+      transform: rotate(-45deg);
+      transform-origin: bottom left;
+      vertical-align: bottom;
+
+      &_value {
+        font-size: var(--font-s);
+
+        height: var(--temp-cell);
+        width: calc(var(--temp-header) * 1.4);
+        padding-top: 12px;
+        line-height: 1;
+
+        text-align: left;
+        vertical-align: top;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      &_description {
+        font-size: var(--font-s);
+        display: block;
+        padding-left: var(--space-m);
+        line-height: 1;
+        color: var(--color-42);
+      }
+    }
+  }
+}

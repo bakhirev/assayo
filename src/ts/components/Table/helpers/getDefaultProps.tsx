@@ -20,7 +20,6 @@ export default function getDefaultProps(children: React.ReactNode) {
       [ColumnTypes.SHORT_NUMBER]: 70,
       [ColumnTypes.PULL_REQUESTS]: 80,
       [ColumnTypes.TASK]: 120,
-      [ColumnTypes.TAGS]: 100,
     }[template || ''] || 0;
 
     // @ts-ignore
@@ -34,6 +33,7 @@ export default function getDefaultProps(children: React.ReactNode) {
     const minWidth = child?.props?.minWidth || {
       [ColumnTypes.STRING]: 200,
       [ColumnTypes.NUMBER]: 110,
+      [ColumnTypes.TAGS]: 100,
     }[template || ''] || 40;
 
     if (template === ColumnTypes.PULL_REQUESTS) {

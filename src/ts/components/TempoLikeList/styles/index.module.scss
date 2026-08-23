@@ -1,0 +1,62 @@
+.tempo_like_list {
+  &_day,
+  &_author,
+  &_task {
+    font-size: var(--font-s);
+    display: block;
+    padding: var(--space-m) 0 0;
+
+    line-height: 1.3;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  &_day {
+    font-weight: bold;
+    padding: 32px 0 0;
+
+    &_description {
+      font-weight: 100;
+      display: block;
+      vertical-align: top;
+      color: var(--color-42);
+    }
+  }
+
+  &_author {
+    padding-left: var(--space-l);
+  }
+
+  &_task {
+    display: grid;
+    grid-template-columns: auto auto auto auto 1fr;
+    gap: var(--space-s);
+
+    padding: var(--space-s) calc(var(--space-l) * 2) 0;
+
+    &_number {
+      display: inline;
+      white-space: nowrap;
+      hyphens: none;
+    }
+
+    &_hours {
+      color: var(--color-42);
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .tempo_like_list_task {
+    display: block;
+    &_spit {
+      display: inline-block;
+      margin: 0 var(--space-xs);
+    }
+    &_description {
+      display: inline;
+      line-height: 1.5;
+    }
+  }
+}
+

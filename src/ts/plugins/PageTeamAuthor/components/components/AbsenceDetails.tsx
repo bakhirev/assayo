@@ -5,6 +5,7 @@ import IHashMap from 'ts/interfaces/HashMap';
 import { getDate } from 'ts/helpers/formatter';
 
 import { Table, Column, ColumnTypes } from 'ts/components/Table';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 import { LineChart } from 'ts/components/Charts';
 
 import { getMaxValues } from 'ts/helpers/charts';
@@ -27,15 +28,10 @@ export function View({ rows, max, year }: ViewProps) {
         title={year}
         formatter={(row: any) => {
           return row.duration > 40
-            ? 'plugin.team_author.absence.transfer'
+            ? { title: 'plugin.team_author.absence.transfer', mode: UiKitTagMode.ERROR }
             : 'plugin.team_author.absence.vacation';
         }}
         template={ColumnTypes.TAGS}
-        minWidth={300}
-      />
-      <Column
-        properties="empty2"
-        template={ColumnTypes.STRING}
       />
       <Column
         template={ColumnTypes.STRING}

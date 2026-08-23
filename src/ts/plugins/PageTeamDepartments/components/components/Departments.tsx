@@ -8,6 +8,7 @@ import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import Employments from './Employments';
@@ -73,7 +74,10 @@ function Departments({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       />
       <Column
         title="plugin.team_departments.status"
-        formatter={(row: any) => (row.isActive ? active : notActive)}
+        formatter={(row: any) => (
+          row.isActive
+            ? { title: active, mode: UiKitTagMode.SUCCESS }
+            : { title: notActive, mode: UiKitTagMode.ERROR })}
         template={ColumnTypes.TAGS}
         width={140}
       />

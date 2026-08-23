@@ -9,6 +9,13 @@ interface IUiKitSelectProps extends IUiKitWrapperProps {
   onChange: Function;
 }
 
+function getFormattedDate(value: any) {
+  const type = typeof value;
+  if (type === 'string') return value.substring(0, 10);
+  if (type === 'number') return (new Date(value)).toISOString().substring(0, 10);
+  return undefined;
+}
+
 function UiKitDate({
   title,
   description,
@@ -20,10 +27,6 @@ function UiKitDate({
   placeholder,
   onChange,
 }: IUiKitSelectProps) {
-  const formattedValue = value?.length > 10
-    ? value.substring(0, 10)
-    : value;
-
   return (
     <Wrapper
       title={title}
@@ -34,7 +37,7 @@ function UiKitDate({
     >
       <input
         type="date"
-        value={formattedValue}
+        value={getFormattedDate(value)}
         placeholder={placeholder}
         className={style.ui_kit_common}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {

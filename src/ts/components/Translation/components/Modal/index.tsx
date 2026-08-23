@@ -56,7 +56,7 @@ const TranslationList = observer((): React.ReactElement | null  => {
             const translations = translationStore.export();
             const type = 'text/plain;charset=windows-utf-8;';
             const file = new Blob([translations], { type });
-            downloadFile(file, `translations.${localization.language}.txt`);
+            downloadFile(file, `Assayo_Translations.${localization.language}.txt`);
             notificationsStore.show({
               title: 'Режим переводчика',
               description: 'Вы можете посмотреть актуальный список переводов или экспортировать его',

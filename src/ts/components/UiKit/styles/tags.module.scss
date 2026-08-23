@@ -25,6 +25,21 @@
     &_empty {
       background-color: transparent;
     }
+
+    &_error {
+      border-color: #FCDBD9;
+      background-color: #FCDBD9;
+    }
+
+    &_warning {
+      border-color: #FAFFD3;
+      background-color: #FAFFD3;
+    }
+
+    &_success {
+      border-color: #DAFAD9;
+      background-color: #DAFAD9;
+    }
   }
 }
 

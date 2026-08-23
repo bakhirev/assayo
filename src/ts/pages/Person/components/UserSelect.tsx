@@ -1,30 +1,18 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import SelectWithButtons from 'ts/components/UiKit/components/SelectWithButtons';
 import style from 'ts/pages/Team/styles/filters.module.scss';
-import { getFormattedWeeks } from 'ts/plugins/PageTeamDay/components/Filters';
 
-interface IUserSelectProps {
-  filters: any,
-  onChange: Function,
-}
-
-const UserSelect = observer(({
-  filters,
-  onChange,
-}: IUserSelectProps): React.ReactElement => {
+const UserSelect = observer((): React.ReactElement => {
   const { type, page, userId } = useParams<any>();
   const navigate = useNavigate();
 
   const formattedUserId = parseInt(userId || '0', 10) || 0;
   const authors = statisticStore.statisticsByCommits.author.list;
   const options = authors.map((title: string, id: number) => ({ id, title }));
-
-  const rows = statisticStore.statisticsByCommits.timestamp.totalInfo.allCommitsByTimestamp || [];
-  const weeks = useMemo(() => getFormattedWeeks(rows), [rows]);
 
   return (
     <div className={style.table_filters}>
@@ -37,18 +25,6 @@ const UserSelect = observer(({
           navigate(`/${type}/${page}/${newUserId}`);
         }}
       />
-      {page === 'day' ? (
-        <SelectWithButtons
-          reverse
-          title="page.team.tree.filters.author"
-          value={filters?.week || rows[rows.length - 1].week}
-          className={style.table_filters_item}
-          options={weeks.reverse()}
-          onChange={(week: number) => {
-            onChange({ ...filters, week });
-          }}
-        />
-      ) : null}
     </div>
   );
 });

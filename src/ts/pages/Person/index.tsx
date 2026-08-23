@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
 
@@ -34,11 +34,7 @@ const Person = observer(({
 }: IPersonProps) => {
   const { type, page, userId: userIdFromUrl } = useParams<any>();
 
-  const rows = statisticStore.statisticsByCommits.timestamp.totalInfo.allCommitsByTimestamp || [];
-  const defaultWeek = rows.length
-    ? rows[rows.length - 1].week
-    : 0;
-  const [filters, setFilters] = useState<any>({ week: defaultWeek });
+  const filters = {};
 
   const userIdFromUrlNumber = parseInt(userIdFromUrl || '0', 10) || 0;
   const totalInfo = statisticStore.statisticsByCommits.author.totalInfo;
@@ -52,10 +48,7 @@ const Person = observer(({
       {page !== 'print' && (
         <>
           <Title title="common.filters" />
-          <UserSelect
-            filters={filters}
-            onChange={setFilters}
-          />
+          <UserSelect />
         </>
       )}
       <SectionSlider getViewById={getViewById} />

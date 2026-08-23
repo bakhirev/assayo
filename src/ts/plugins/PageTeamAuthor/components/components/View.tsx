@@ -6,6 +6,7 @@ import { getDate, getMoney, getShortNumber } from 'ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
+import { UiKitTagMode } from 'ts/components/UiKit/components/Tag';
 import { LineChart } from 'ts/components/Charts';
 import { getMaxValues } from 'ts/helpers/charts';
 
@@ -67,9 +68,9 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       <Column
         title="plugin.team_author.status"
         formatter={(row: any) => {
-          if (row.isStaff) return staff;
-          if (row.isDismissed) return dismissed;
-          return works;
+          if (row.isStaff) return { title: staff, mode: UiKitTagMode.WARNING };
+          if (row.isDismissed) return { title: dismissed, mode: UiKitTagMode.ERROR };
+          return { title: works, mode: UiKitTagMode.SUCCESS };
         }}
         template={ColumnTypes.TAGS}
         width={100}

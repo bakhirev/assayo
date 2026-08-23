@@ -244,7 +244,10 @@ You can add a new translation or correct an existing one in the `ts/translations
 3. [Log visualization UI](https://github.com/bakhirev/assayo) **(you here)** displays report. Needs a log file for work.
 
 <a name="link-30"></a>
-### 📧 Feedback, comments
+### 📧 Feedback, comments, roadmap
+
+Roadmap and plans: [TODO.md](https://github.com/bakhirev/assayo/blob/main/TODO.md)
+
 - 📱 [https://t.me/bakhirev](https://t.me/bakhirev) (priority method of communication)
 - 📧 [alexey-bakhirev@yandex.ru](mailto:alexey-bakhirev@yandex.ru)
 - 🌐 [https://bakhirev.github.io/](https://bakhirev.github.io/?ref=github&lang=en)

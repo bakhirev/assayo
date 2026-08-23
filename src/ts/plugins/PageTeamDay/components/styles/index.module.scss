@@ -1,0 +1,37 @@
+.team_team_day {
+  &_filters {
+    &_prev,
+    &_next {
+      width: calc(100% - 50px);
+      display: inline-block;
+    }
+    &_prev {
+      margin-left: 8px;
+    }
+    &_next {
+      margin-right: 8px;
+    }
+  }
+
+  &_toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: var(--space-xxl);
+
+    &_change_view {
+      display: inline-block;
+      width: calc(33% - 20px);
+      min-width: 290px;
+    }
+
+    &_download {
+      display: inline-block;
+      width: var(--space-xxl);
+      height: var(--space-xxl);
+      padding: 0;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
