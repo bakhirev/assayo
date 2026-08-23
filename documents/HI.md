@@ -50,6 +50,7 @@
   - [इंटरफेस को ब्रांड कैसे करें?](#link-24)
   - [HTML रिपोर्ट को स्रोत कोड से कैसे रिबिल्ड करें?](#link-25)
   - [अनुवाद कैसे जोड़ें या संपादित करें?](#link-26)
+  - [कॉन्फ़िगरेशन](#link-31)
   - [आर्किटेक्चर](#link-27)
     - [माइक्रोसर्विस का सामान्य आर्किटेक्चर](#link-29)
   - [फीडबैक, टिप्पणियां](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  अपने एप के बारे में
 
-<a name="link-24"></a>
-### 🎨 इंटरफेस को ब्रांड कैसे करें?
-आप अपनी ओखला इंटरफेस थीम बना सकते हैं। विकल्प:
-- **टाइटल**. आप URL पैरामीटर `title` में डिफॉल्ट डॉक्यूमेंट टाइटल सेट कर सकते हैं। उदाहरण: `?title=You Company`
-- **विजुअल थीम**. इसके लिए आपको नए स्टाइल्स के साथ एक CSS फाइल तैयार करनी होगी और इसका URL `theme` पैरामीटर में सेट करना होगा। उदाहरण: `?theme=//company.com/some.css`. आप सेलेक्टर के तौर पर क्लास नाम उपयोग कर सकते हैं। उनमें से बहुत से नये संस्करणों में बदलाव नहीं होते हैं।
-- **भाषा**. आप URL पैरामीटर `lang` में भाषा सेट कर सकते हैं। उदाहरण: `?lang=es`
-
-**उदाहरण**: [demo](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ HTML रिपोर्ट को स्रोत कोड से कैसे रिबिल्ड करें?
 - इस रिपोजिटोरी को डाउनलोड करें `git clone https://github.com/bakhirev/assayo.git`
@@ -227,10 +219,79 @@ fi
 - `npm run build:local` चालू करें
 - नया HTML बिल्ड `/build` फोल्डर में होगा
 
+<a name="link-24"></a>
+### 🎨 इंटरफेस को ब्रांड कैसे करें?
+आप रिपोर्ट के लिए अपनी थीम लिख सकते हैं। **उदाहरण:** [demo](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 अनुवाद कैसे जोड़ें या संपादित करें?
-आप `ts/translations/` फोल्डर में नया अनुवाद या मौजूद अनुवाद को सही कर सकते हैं।
+आप `**/translations/**` फोल्डर में नया अनुवाद या मौजूद अनुवाद को सही कर सकते हैं।
 [संदेश](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ कॉन्फ़िगरेशन
+
+एप्लिकेशन को कॉन्फ़िगरेशन फ़ाइल के ज़रिए कस्टमाइज़ किया जा सकता है। वास्तविक कॉन्फ़िगरेशन फ़ाइल आप पेज के URL में बता सकते हैं। उदाहरण:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### पैरामीटर
+
+| कोड | प्रकार | विवरण | डिफ़ॉल्ट मान |
+|-|-|-|-|
+| title | string | ब्राउज़र टैब का नाम (`document.title`) | |
+| logo | string | लोगो का पथ | `"./assets/logo.svg"` |
+| language | string | इंटरफ़ेस भाषा | |
+| languages | object[] | उपलब्ध भाषाएँ | |
+| languages[].id | string | भाषा ID | |
+| languages[].currency | string | मुद्रा | |
+| languages[].title | string | इंटरफ़ेस में भाषा का नाम (ऊपरी दायाँ कोना) | |
+| urlForCss | string | स्टाइल ओवरराइड करने के लिए CSS फ़ाइल का पथ। आप अपनी विज़ुअल थीम बना सकते हैं। उदाहरण: [demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT लॉग फ़ाइल का पथ | `"./log.txt"` |
+| prefixForTask | string | टास्क लिंक का उपसर्ग | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request लिंक का उपसर्ग | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | औसत मासिक वेतन USD में | 3000 |
+| workDays | boolean[] | किन दिनों को "कार्य दिवस" माना जाए, जहाँ 0 सोमवार है और 6 रविवार | `[true, true, true, true, true, false, false]` |
+| currency | string | वर्तमान मुद्रा | `"RUB"` |
+| exchangeRate | object<string, number> | विनिमय दर "कुंजी: मान" प्रारूप में, USD के सापेक्ष। उदाहरण: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | उपलब्ध अनुमतियों की सरणी | | []
+| disabledPermissions | string[] | अनुपलब्ध अनुमतियों की सरणी | | []
+| plugins | string[] | सक्षम प्लगइनों की सरणी | | []
+| disabledPlugins | string[] | अक्षम प्लगइनों की सरणी | | []
+
+#### URL पैरामीटर
+
+कुछ पैरामीटर दूसरों की तुलना में अधिक उपयोग होते हैं। इसलिए उन्हें कॉन्फ़िगरेशन फ़ाइल के बिना URL में सेट किया जा सकता है।
+
+| कोड | विवरण | उदाहरण |
+|-|-|-|
+| title | ब्राउज़र टैब का नाम (`document.title`) | `?title=Company_Name` |
+| lang | इंटरफ़ेस भाषा | `?lang=es` |
+| theme | स्टाइल ओवरराइड करने के लिए CSS फ़ाइल का पथ। आप अपनी विज़ुअल थीम बना सकते हैं। उदाहरण: [demo](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### डिफ़ॉल्ट कॉन्फ़िगरेशन फ़ाइल
+
+देखें `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### कॉन्फ़िगरेशन फ़ाइल का उदाहरण
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 आर्किटेक्चर

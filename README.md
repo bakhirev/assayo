@@ -21,38 +21,39 @@ Creates an HTML-report with analysis of commit statistics:
 <a name="link-0"></a>
 ### Table of contents
 - [COMMIT STATISTICS REPORT](#link-1)
-    - [How to create and view the report?](#link-2)
-        - [Using public server](#link-3)
-        - [Use the library NodeJS](#link-4)
-        - [Use the library PHP](#link-5)
-        - [Use the library Python](#link-6)
-        - [Use the library Ruby](#link-7)
-        - [Use the library Go](#link-8)
-        - [Use source code](#link-9)
-        - [Use github actions](#link-10)
-        - [Use private server](#link-11)
-    - [How to concat authors?](#link-12)
-    - [How to export data from git to txt file?](#link-13)
-        - [For online viewing](#link-14)
-        - [For offline viewing](#link-15)
-        - [If you use PowerShell in Windows](#link-16)
-    - [How to view a report on a group of microservices?](#link-17)
+  - [How to create and view the report?](#link-2)
+    - [Using public server](#link-3)
+    - [Use the library NodeJS](#link-4)
+    - [Use the library PHP](#link-5)
+    - [Use the library Python](#link-6)
+    - [Use the library Ruby](#link-7)
+    - [Use the library Go](#link-8)
+    - [Use source code](#link-9)
+    - [Use github actions](#link-10)
+    - [Use private server](#link-11)
+  - [How to concat authors?](#link-12)
+  - [How to export data from git to txt file?](#link-13)
+    - [For online viewing](#link-14)
+    - [For offline viewing](#link-15)
+    - [If you use PowerShell in Windows](#link-16)
+  - [How to view a report on a group of microservices?](#link-17)
 
 
 - [THE BEST PRACTICES IN THE PROJECT](#link-18)
-    - [How to sign commits?](#link-19)
-    - [How to add checking for commit message?](#link-20)
-        - [Use file commit-msg](#link-21)
-        - [Use package pre-commit](#link-22)
+  - [How to sign commits?](#link-19)
+  - [How to add checking for commit message?](#link-20)
+    - [Use file commit-msg](#link-21)
+    - [Use package pre-commit](#link-22)
 
 
 - [ABOUT THIS APP](#link-23)
-    - [How to brand the interface?](#link-24)
-    - [How to rebuild the HTML report from source code?](#link-25)
-    - [How to add or edit a translation?](#link-26)
-    - [️Architecture](#link-27)
-        - [General architecture of microservices](#link-29)
-    - [Feedback, comments](#link-30)
+  - [How to brand the interface?](#link-24)
+  - [How to rebuild the report file from source code?](#link-25)
+  - [How to add or edit a translation?](#link-26)
+  - [Configuration](#link-31)
+  - [️Architecture](#link-27)
+    - [General architecture of microservices](#link-29)
+  - [Feedback, comments](#link-30)
 
 <a name="link-1"></a>
 ##  COMMIT STATISTICS REPORT
@@ -162,9 +163,9 @@ Or open a saved file and manually change the encoding to UTF-8.
 
 <a name="link-17"></a>
 ### 🗃️ How to view a report on a group of microservices?
-- Generate for each microservice file `log.txt` (`log-1.txt`, `log-2.txt`, `log-3.txt`, etc.) You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection;
-- See “How to view an online report?”. At the last step, drag all the files at once into the browser window.
-- See “How to see a report offline?”. At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt`, etc.) to the report folder (`/build`).
+- Generate for each microservice a `log.txt` file (`log-1.txt`, `log-2.txt`, `log-3.txt`, etc.). You can do this manually, or use the [Assayo Crawler](https://github.com/bakhirev/assayo-crawler) module for automatic log collection;
+- See "How to view an online report?". At the last step, drag all files at once into the browser window.
+- See "How to see a report offline?". At the second step, drag all microservice files (`log-1.txt`, `log-2.txt`, `log-3.txt`, etc.) to the report folder (`/build`).
 
 <a name="link-18"></a>
 ## THE BEST PRACTICES IN THE PROJECT
@@ -211,26 +212,86 @@ fi
 <a name="link-23"></a>
 ##  ABOUT THIS APP
 
-<a name="link-24"></a>
-### 🎨 How to brand the interface?
-You can create your own interface theme. Options:
-- **Title**. You can set default document title in the URL parameter `title`. Example: `?title=You Company`
-- **Visual theme**. To do this, you need to prepare a CSS file with new styles and specify its URL in the `theme` parameter. Example: `?theme=//company.com/some.css`. You can use class names as selectors. Most of them do not change in new versions.
-- **Language**. You can set language in the URL parameter `lang`. Example: `?lang=es`
-
-**Example:** [demo](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
-### 🛠️ How to rebuild the HTML report from source code?
+### 🛠️ How to rebuild the report file from source code?
 - download this repository `git clone https://github.com/bakhirev/assayo.git`
 - run `npm install`
 - run `npm run build:local`
 - the new HTML build will be in the `/build` folder
 
+<a name="link-24"></a>
+### 🎨 How to brand the interface?
+You can write your own theme for the report. **Example:** [demo](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 How to add or edit a translation?
-You can add a new translation or correct an existing one in the `ts/translations/` folder.
+You can add a new translation or correct an existing one in the `**/translations/**` folder.
 [Instruction](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ Configuration
+
+The application can be customized via a configuration file. You can specify the actual configuration file in the page URL address. For example:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### Parameters
+
+| Code | Type | Description | Default value |
+|-|-|-|-|
+| title | string | Browser tab name (`document.title`) | |
+| logo | string | path to the logo | `"./assets/logo.svg"` |
+| language | string | interface language | |
+| languages | object[] | available languages | |
+| languages[].id | string | language ID | |
+| languages[].currency | string | currency | |
+| languages[].title | string | language name in the interface (top right corner) | |
+| urlForCss | string | path to the CSS file for overriding styles. You can create your own visual theme. Example: [demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | path to the GIT logs file | `"./log.txt"` |
+| prefixForTask | string | prefix for task links | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | prefix for Pull Request links | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | average salary per month in USD | 3000 |
+| workDays | boolean[] | which days to consider "working", where 0 is Monday and 6 is Sunday | `[true, true, true, true, true, false, false]` |
+| currency | string | current currency | `"RUB"` |
+| exchangeRate | object<string, number> | exchange rate in the format "key: value", to USD. Example: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | array of available permissions | | []
+| disabledPermissions | string[] | array of unavailable permissions | | []
+| plugins | string[] | array of enabled plugins | | []
+| disabledPlugins | string[] | array of disabled plugins | | []
+
+#### URL parameters
+
+Some parameters are used more often than others. Therefore, they can be set in the URL, without a configuration file.
+
+| Code | Description | Example |
+|-|-|-|
+| title | Browser tab name (`document.title`) | `?title=Company_Name` |
+| lang | interface language | `?lang=es` |
+| theme | path to the CSS file for overriding styles. You can create your own visual theme. Example: [demo](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### Default configuration file
+
+See `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### Example configuration file
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 ️Architecture

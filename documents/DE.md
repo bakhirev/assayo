@@ -50,6 +50,7 @@ Erstellt einen HTML-Bericht mit Analyse der Commit-Statistiken:
   - [Wie brandet man die Benutzeroberfläche?](#link-24)
   - [Wie baut man den HTML-Bericht aus dem Quellcode neu?](#link-25)
   - [Wie fügt man eine Übersetzung hinzu oder bearbeitet sie?](#link-26)
+  - [Konfiguration](#link-31)
   - [Architektur](#link-27)
     - [Allgemeine Architektur von Microservices](#link-29)
   - [Feedback, Kommentare](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  ÜBER DIESE APP
 
-<a name="link-24"></a>
-### 🎨 Wie brandet man die Benutzeroberfläche?
-Sie können Ihr eigenes Interface-Theme erstellen. Optionen:
-- **Titel**. Sie können den Standard-Dokumenttitel im URL-Parameter `title` festlegen. Beispiel: `?title=You Company`
-- **Visuelles Theme**. Dazu müssen Sie eine CSS-Datei mit neuen Styles vorbereiten und deren URL im Parameter `theme` angeben. Beispiel: `?theme=//company.com/some.css`. Die meisten Klassennamen ändern sich in neuen Versionen nicht.
-- **Sprache**. Sie können die Sprache im URL-Parameter `lang` festlegen. Beispiel: `?lang=es`
-
-**Beispiel:** [Demo](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ Wie baut man den HTML-Bericht aus dem Quellcode neu?
 - Dieses Repository `git clone https://github.com/bakhirev/assayo.git` herunterladen
@@ -227,10 +219,79 @@ Sie können Ihr eigenes Interface-Theme erstellen. Optionen:
 - Führen Sie `npm run build:local` aus
 - Der neue HTML-Build befindet sich im Ordner `/build`
 
+<a name="link-24"></a>
+### 🎨 Wie brandet man die Benutzeroberfläche?
+Sie können ein eigenes Theme für den Bericht schreiben. **Beispiel:** [Demo](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 Wie fügt man eine Übersetzung hinzu oder bearbeitet sie?
-Sie können im Ordner `ts/translations/` eine neue Übersetzung hinzufügen oder eine bestehende korrigieren.
+Sie können im Ordner `**/translations/**` eine neue Übersetzung hinzufügen oder eine bestehende korrigieren.
 [Anleitung](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ Konfiguration
+
+Die Anwendung kann über eine Konfigurationsdatei angepasst werden. Die aktuelle Konfigurationsdatei können Sie in der URL der Seite angeben. Zum Beispiel:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### Parameter
+
+| Code | Typ | Beschreibung | Standardwert |
+|-|-|-|-|
+| title | string | Name des Browser-Tabs (`document.title`) | |
+| logo | string | Pfad zum Logo | `"./assets/logo.svg"` |
+| language | string | Sprache der Benutzeroberfläche | |
+| languages | object[] | verfügbare Sprachen | |
+| languages[].id | string | Sprach-ID | |
+| languages[].currency | string | Währung | |
+| languages[].title | string | Sprachname in der Benutzeroberfläche (oben rechts) | |
+| urlForCss | string | Pfad zur CSS-Datei zum Überschreiben der Styles. Sie können ein eigenes visuelles Theme erstellen. Beispiel: [Demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | Pfad zur GIT-Log-Datei | `"./log.txt"` |
+| prefixForTask | string | Präfix für Task-Links | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Präfix für Pull-Request-Links | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | durchschnittliches Monatsgehalt in USD | 3000 |
+| workDays | boolean[] | welche Tage als „Arbeitstage“ gelten, wobei 0 Montag und 6 Sonntag ist | `[true, true, true, true, true, false, false]` |
+| currency | string | aktuelle Währung | `"RUB"` |
+| exchangeRate | object<string, number> | Wechselkurs im Format „Schlüssel: Wert“, zu USD. Beispiel: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | Array der verfügbaren Berechtigungen | | []
+| disabledPermissions | string[] | Array der nicht verfügbaren Berechtigungen | | []
+| plugins | string[] | Array der aktivierten Plugins | | []
+| disabledPlugins | string[] | Array der deaktivierten Plugins | | []
+
+#### URL-Parameter
+
+Einige Parameter werden häufiger verwendet als andere. Daher können sie in der URL gesetzt werden, ohne Konfigurationsdatei.
+
+| Code | Beschreibung | Beispiel |
+|-|-|-|
+| title | Name des Browser-Tabs (`document.title`) | `?title=Company_Name` |
+| lang | Sprache der Benutzeroberfläche | `?lang=es` |
+| theme | Pfad zur CSS-Datei zum Überschreiben der Styles. Sie können ein eigenes visuelles Theme erstellen. Beispiel: [Demo](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### Standard-Konfigurationsdatei
+
+Siehe `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### Beispiel einer Konfigurationsdatei
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 Architektur

@@ -50,6 +50,7 @@
   - [인터페이스 브랜딩 방법은?](#link-24)
   - [소스 코드에서 HTML 보고서를 다시 빌드하는 방법은?](#link-25)
   - [번역을 추가하거나 편집하는 방법은?](#link-26)
+  - [구성](#link-31)
   - [아키텍처](#link-27)
     - [마이크로서비스의 일반 아키텍처](#link-29)
   - [피드백, 의견](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  이 앱에 대하여
 
-<a name="link-24"></a>
-### 🎨 인터페이스 브랜딩 방법은?
-자신만의 인터페이스 테마를 만들 수 있습니다. 옵션:
-- **제목**. URL 매개변수 `title`에서 기본 문서 제목을 설정할 수 있습니다. 예: `?title=You Company`
-- **시각적 테마**. 새 스타일이 있는 CSS 파일을 준비하고 `theme` 매개변수에 URL을 지정해야 합니다. 예: `?theme=//company.com/some.css`. 대부분의 클래스 이름은 새 버전에서도 변경되지 않습니다.
-- **언어**. URL 매개변수 `lang`에서 언어를 설정할 수 있습니다. 예: `?lang=es`
-
-**예:** [데모](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ 소스 코드에서 HTML 보고서를 다시 빌드하는 방법은?
 - 이 저장소 `git clone https://github.com/bakhirev/assayo.git` 다운로드
@@ -227,10 +219,79 @@ fi
 - `npm run build:local` 실행
 - 새 HTML 빌드는 `/build` 폴더에 생성됩니다.
 
+<a name="link-24"></a>
+### 🎨 인터페이스 브랜딩 방법은?
+보고서용 테마를 직접 작성할 수 있습니다. **예:** [데모](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 번역을 추가하거나 편집하는 방법은?
-`ts/translations/` 폴더에서 새 번역을 추가하거나 기존 번역을 수정할 수 있습니다.
+`**/translations/**` 폴더에서 새 번역을 추가하거나 기존 번역을 수정할 수 있습니다.
 [안내](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ 구성
+
+구성 파일로 애플리케이션을 사용자 지정할 수 있습니다. 실제 구성 파일은 페이지 URL에 지정할 수 있습니다. 예:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### 매개변수
+
+| 코드 | 유형 | 설명 | 기본값 |
+|-|-|-|-|
+| title | string | 브라우저 탭 이름 (`document.title`) | |
+| logo | string | 로고 경로 | `"./assets/logo.svg"` |
+| language | string | 인터페이스 언어 | |
+| languages | object[] | 사용 가능한 언어 | |
+| languages[].id | string | 언어 ID | |
+| languages[].currency | string | 통화 | |
+| languages[].title | string | 인터페이스의 언어 이름(오른쪽 상단) | |
+| urlForCss | string | 스타일을 재정의할 CSS 파일 경로. 자체 시각 테마를 만들 수 있습니다. 예: [데모](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | GIT 로그 파일 경로 | `"./log.txt"` |
+| prefixForTask | string | 작업 링크 접두사 | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | Pull Request 링크 접두사 | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | 월 평균 급여(USD) | 3000 |
+| workDays | boolean[] | "근무일"로 간주할 요일. 0은 월요일, 6은 일요일 | `[true, true, true, true, true, false, false]` |
+| currency | string | 현재 통화 | `"RUB"` |
+| exchangeRate | object<string, number> | USD 대비 환율. 형식은 "키: 값". 예: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | 사용 가능한 권한 배열 | | []
+| disabledPermissions | string[] | 사용할 수 없는 권한 배열 | | []
+| plugins | string[] | 활성화된 플러그인 배열 | | []
+| disabledPlugins | string[] | 비활성화된 플러그인 배열 | | []
+
+#### URL 매개변수
+
+일부 매개변수는 다른 것보다 더 자주 사용됩니다. 따라서 구성 파일 없이 URL에서 설정할 수 있습니다.
+
+| 코드 | 설명 | 예 |
+|-|-|-|
+| title | 브라우저 탭 이름 (`document.title`) | `?title=Company_Name` |
+| lang | 인터페이스 언어 | `?lang=es` |
+| theme | 스타일을 재정의할 CSS 파일 경로. 자체 시각 테마를 만들 수 있습니다. 예: [데모](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### 기본 구성 파일
+
+`src\ts\helpers\ApplicationConfig\getDefaultConfig.ts` 참조
+
+#### 구성 파일 예
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 아키텍처

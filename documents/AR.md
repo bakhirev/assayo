@@ -47,9 +47,10 @@
 
 
 - [عن هذا التطبيق](#link-23)
-  - [كيفية تسجيل العلامة التجارية للوجهة الوسيطة؟](#link-24)
+  - [كيف تخصص واجهة التطبيق؟](#link-24)
   - [كيفية إعادة بناء تقرير HTML من الكود المصدر؟](#link-25)
   - [كيفية إضافة أو تعديل ترجمة؟](#link-26)
+  - [الإعدادات](#link-31)
   - [الهيكل](#link-27)
     - [الهيكل العام للميكروخدمات](#link-29)
   - [التعليق](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  عن هذا التطبيق
 
-<a name="link-24"></a>
-### 🎨 كيفية تسجيل العلامة التجارية للوجهة الوسيطة؟
-يمكنك إنشاء موجة وجهة وسيطة خاصة بك. الخيارات:
-- **العنوان**. يمكنك تعيين عنوان الوثيقة الافتراضي في معلم URL `title`. مثال: `?title=You Company`
-- **الوجهة الوسيطة البصرية**. لفعل ذلك، يجب عليك إعداد ملف CSS بأساليب جديدة وتوصيل عنوان URL الخاص به في المعلم `theme`. مثال: `?theme=//company.com/some.css`. يمكنك استخدام أسماء الصفات كمحددات. أكثرها لا تتغير في الإصدارات الجديدة.
-- **اللغة**. يمكنك تعيين اللغة في معلم URL `lang`. مثال: `?lang=es`
-
-**مثال:** [تجربة](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ كيفية إعادة بناء تقرير HTML من الكود المصدر؟
 - تحميل هذا المستودع `git clone https://github.com/bakhirev/assayo.git`
@@ -227,10 +219,79 @@ fi
 - أدري `npm run build:local`
 - بناء HTML الجديد سيكون في مجلد `/build`
 
+<a name="link-24"></a>
+### 🎨 كيف تخصص واجهة التطبيق؟
+يمكنك كتابة سمة خاصة بك للتقرير. **مثال:** [تجربة](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 كيفية إضافة أو تعديل ترجمة؟
-يمكنك إضافة ترجمة جديدة أو تصحيح ترجمة موجودة في مجلد `ts/translations/`.
+يمكنك إضافة ترجمة جديدة أو تصحيح ترجمة موجودة في مجلد `**/translations/**`.
 [الإرشادات](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ الإعدادات
+
+يمكن تخصيص التطبيق عبر ملف إعدادات. يمكنك تحديد ملف الإعدادات الفعلي في عنوان URL للصفحة. على سبيل المثال:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### المعاملات
+
+| الرمز | النوع | الوصف | القيمة الافتراضية |
+|-|-|-|-|
+| title | string | اسم تبويب المتصفح (`document.title`) | |
+| logo | string | مسار الشعار | `"./assets/logo.svg"` |
+| language | string | لغة الواجهة | |
+| languages | object[] | اللغات المتاحة | |
+| languages[].id | string | معرّف اللغة | |
+| languages[].currency | string | العملة | |
+| languages[].title | string | اسم اللغة في الواجهة (الزاوية العلوية اليمنى) | |
+| urlForCss | string | مسار ملف CSS لتجاوز الأنماط. يمكنك إنشاء سمة بصرية خاصة بك. مثال: [تجربة](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | مسار ملف سجلات GIT | `"./log.txt"` |
+| prefixForTask | string | بادئة روابط المهام | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | بادئة روابط Pull Request | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | متوسط الراتب الشهري بالدولار الأمريكي | 3000 |
+| workDays | boolean[] | الأيام التي تُعد «عملًا»، حيث 0 هو الاثنين و6 هو الأحد | `[true, true, true, true, true, false, false]` |
+| currency | string | العملة الحالية | `"RUB"` |
+| exchangeRate | object<string, number> | سعر الصرف بتنسيق «مفتاح: قيمة»، بالنسبة للدولار الأمريكي. مثال: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | مصفوفة الصلاحيات المتاحة | | []
+| disabledPermissions | string[] | مصفوفة الصلاحيات غير المتاحة | | []
+| plugins | string[] | مصفوفة الإضافات المفعّلة | | []
+| disabledPlugins | string[] | مصفوفة الإضافات المعطّلة | | []
+
+#### معاملات URL
+
+بعض المعاملات تُستخدم أكثر من غيرها. لذلك يمكن تعيينها في عنوان URL دون ملف إعدادات.
+
+| الرمز | الوصف | مثال |
+|-|-|-|
+| title | اسم تبويب المتصفح (`document.title`) | `?title=Company_Name` |
+| lang | لغة الواجهة | `?lang=es` |
+| theme | مسار ملف CSS لتجاوز الأنماط. يمكنك إنشاء سمة بصرية خاصة بك. مثال: [تجربة](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### ملف الإعدادات الافتراضي
+
+انظر `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### مثال لملف الإعدادات
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 الهيكل

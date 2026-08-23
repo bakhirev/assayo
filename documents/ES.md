@@ -50,6 +50,7 @@ Crea un informe HTML con un análisis de la estadística de commit:
   - [¿Cómo personalizar la interfaz?](#link-24)
   - [¿Cómo reconstruir el informe HTML desde el código fuente?](#link-25)
   - [¿Cómo agregar o editar una traducción?](#link-26)
+  - [Configuración](#link-31)
   - [Arquitectura](#link-27)
     - [Arquitectura general de microservicios](#link-29)
   - [Retroalimentación, comentarios](#link-30)
@@ -211,15 +212,6 @@ fi
 <a name="link-23"></a>
 ##  SOBRE ESTA APLICACIÓN
 
-<a name="link-24"></a>
-### 🎨 ¿Cómo personalizar la interfaz?
-Puede crear su propia temática de interfaz. Opciones:
-- **Título**. Puede establecer el título de documento predeterminado en el parámetro de URL `title`. Ejemplo: `?title=You Company`
-- **Tema visual**. Para ello, necesita preparar un archivo CSS con nuevos estilos y especificar su URL en el parámetro `theme`. Ejemplo: `?theme=//company.com/some.css`. Puede usar nombres de clase como selectores. La mayoría de ellos no cambian en nuevas versiones.
-- **Idioma**. Puede establecer el idioma en el parámetro de URL `lang`. Ejemplo: `?lang=es`
-
-**Ejemplo:** [demo](https://bakhirev.github.io/demo/themes/)
-
 <a name="link-25"></a>
 ### 🛠️ ¿Cómo reconstruir el informe HTML desde el código fuente?
 - descargar este repositorio `git clone https://github.com/bakhirev/assayo.git`
@@ -227,10 +219,79 @@ Puede crear su propia temática de interfaz. Opciones:
 - ejecute `npm run build:local`
 - la nueva construcción HTML estará en la carpeta `/build`
 
+<a name="link-24"></a>
+### 🎨 ¿Cómo personalizar la interfaz?
+Puede escribir su propio tema para el informe. **Ejemplo:** [demo](https://bakhirev.github.io/demo/themes/)
+
 <a name="link-26"></a>
 ### 🈯 ¿Cómo agregar o editar una traducción?
-Puede agregar una nueva traducción o corregir una existente en la carpeta `ts/translations/`.
+Puede agregar una nueva traducción o corregir una existente en la carpeta `**/translations/**`.
 [Instrucción](https://github.com/firstcontributions/first-contributions)
+
+<a name="link-31"></a>
+### ⚙️ Configuración
+
+La aplicación se puede personalizar mediante un archivo de configuración. Puede indicar el archivo de configuración actual en la URL de la página. Por ejemplo:
+
+```
+./assayo/index.html?config=you_custom_config.json
+```
+
+#### Parámetros
+
+| Código | Tipo | Descripción | Valor predeterminado |
+|-|-|-|-|
+| title | string | Nombre de la pestaña del navegador (`document.title`) | |
+| logo | string | ruta al logotipo | `"./assets/logo.svg"` |
+| language | string | idioma de la interfaz | |
+| languages | object[] | idiomas disponibles | |
+| languages[].id | string | ID del idioma | |
+| languages[].currency | string | moneda | |
+| languages[].title | string | nombre del idioma en la interfaz (esquina superior derecha) | |
+| urlForCss | string | ruta al archivo CSS para anular estilos. Puede crear su propio tema visual. Ejemplo: [demo](https://bakhirev.github.io/demo/themes/) | |
+| urlForGitLog | string | ruta al archivo de logs de GIT | `"./log.txt"` |
+| prefixForTask | string | prefijo para enlaces a tareas | `"https://jira.com/secure/RapidBoard.jspa?task="` |
+| prefixForPR | string | prefijo para enlaces a Pull Request | `"https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/"` |
+| middleSalaryInMonth | number | salario medio mensual en USD | 3000 |
+| workDays | boolean[] | qué días considerar «laborables», donde 0 es lunes y 6 es domingo | `[true, true, true, true, true, false, false]` |
+| currency | string | moneda actual | `"RUB"` |
+| exchangeRate | object<string, number> | tipo de cambio en el formato «clave: valor», respecto al USD. Ejemplo: `{ USD: 1 }` | `{ USD: 1, EUR: 0.9, RUB: 82, CNY: 7, JPY: 160, KRW: 1500, CAD: 1.4, INR: 92, ILS: 3.1, AED: 3.6}` |
+| permissions | string[] | array de permisos disponibles | | []
+| disabledPermissions | string[] | array de permisos no disponibles | | []
+| plugins | string[] | array de plugins habilitados | | []
+| disabledPlugins | string[] | array de plugins deshabilitados | | []
+
+#### Parámetros de URL
+
+Algunos parámetros se usan más que otros. Por eso se pueden definir en la URL, sin archivo de configuración.
+
+| Código | Descripción | Ejemplo |
+|-|-|-|
+| title | Nombre de la pestaña del navegador (`document.title`) | `?title=Company_Name` |
+| lang | idioma de la interfaz | `?lang=es` |
+| theme | ruta al archivo CSS para anular estilos. Puede crear su propio tema visual. Ejemplo: [demo](https://bakhirev.github.io/demo/themes/) | `?theme=//company.com/some.css` |
+
+#### Archivo de configuración predeterminado
+
+Véase `src\ts\helpers\ApplicationConfig\getDefaultConfig.ts`
+
+#### Ejemplo de archivo de configuración
+```
+{
+  title: '',
+  logo: 'https://yousite.com/yousite.svg',
+  urlForCss: 'https://yousite.com/themes/white.css',
+  urlForGitLog: 'https://yousite.com/logs/team.txt',
+  prefixForTask: 'https://yousite.com/?task=',
+  prefixForPR: 'https://yousite.com/?pullRequests=',
+  middleSalaryInMonth: 4000,
+  currency: 'RUB',
+  exchangeRate: {
+    RUB: 90,
+  },
+  disabledPlugins: ['print'],
+}
+```
 
 <a name="link-27"></a>
 ### 📐 Arquitectura
