@@ -1,5 +1,6 @@
+import sourceData from 'ts/store/SourceData';
 import notificationsStore from 'ts/components/Notifications/store';
-// import { getStringsForParser } from 'ts/components/DropZone/helpers';
+import getCleanStringFromFuncWrapper from 'ts/helpers/getDataFromFiles/getCleanStringFromFuncWrapper';
 
 function loadGitLogFromFile(url: string, callback: Function) {
   const script = document.createElement('script');
@@ -15,8 +16,9 @@ function loadGitLogFromFile(url: string, callback: Function) {
 function loadGitLogFromUrl(url: string, callback: Function) {
   fetch(url)
     .then((response) => response.text())
-    .then(() => {
-      // getStringsForParser(text || '');
+    .then((dirtyText) => {
+      const gitLog = getCleanStringFromFuncWrapper(dirtyText);
+      sourceData.add('gitLog', gitLog.split('\n'));
       callback();
     });
 }
