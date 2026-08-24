@@ -31,6 +31,9 @@ import pluginsList from 'ts/plugins';
 import './styles/index.scss';
 import { updateExchangeRate } from './ts/helpers/formatter';
 
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import sourceData from 'ts/store/SourceData';
+
 // eslint-disable-next-line
 // @ts-ignore
 if (module.hot) {
@@ -60,6 +63,19 @@ if (Math.random() > 2) {
   });
 }
 
+function globalReportObserver() {
+  // @ts-ignore
+  const globalData = window.report || [];
+  if (!globalData?.length) return;
+
+  const gitLog = sourceData.get('gitLog');
+  if (gitLog?.length === globalData?.length) return;
+
+  const clone = [...globalData];
+  sourceData.add('gitLog', clone);
+  statisticStore.asyncSetCommits(clone);
+}
+
 function renderReactApplication() {
   window.onafterprint = () => {
     printStore.endPrint();
@@ -67,6 +83,9 @@ function renderReactApplication() {
 
   const container = document.getElementById('root');
   if (!container) return;
+
+  console.log('renderReactApplication');
+  setInterval(globalReportObserver, 1000);
 
   createRoot(container).render(
     <React.StrictMode>

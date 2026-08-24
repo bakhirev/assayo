@@ -16,7 +16,7 @@
   &_toolbar {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     margin-bottom: var(--space-xxl);
 
     &_change_view {

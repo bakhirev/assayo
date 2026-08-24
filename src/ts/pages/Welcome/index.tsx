@@ -28,10 +28,14 @@ function Welcome() {
   const command = 'git --no-pager log --raw --numstat --oneline --all --reverse --date=iso-strict --pretty=format:"%ad>%aN>%aE>%s" > log.txt\n';
   // @ts-ignore
   const hasYandexMetrika = window.ym;
+  const className = hasYandexMetrika
+    ? `${style.welcome} ${style.welcome_has_banner}`
+    : style.welcome;
+
   return (
     <>
       {hasYandexMetrika && (<WarningInfo/>)}
-      <section className={style.welcome}>
+      <section className={className}>
         <div className={style.welcome_row}>
           <h2 className={style.welcome_first_title}>
             {t('page.welcome.step1')}

@@ -32,11 +32,12 @@ function loadJsonFromUrl(url: string, callback: Function) {
 }
 
 export function loadGitLog(url: string, callback: Function) {
-  if (url?.[0] === '.') {
-    loadGitLogFromFile(url, callback);
-  } else {
-    loadGitLogFromUrl(url, callback);
-  }
+  loadGitLogFromUrl(url, callback);
+  // if (url?.[0] === '.') {
+  //   loadGitLogFromFile(url, callback);
+  // } else {
+  //   loadGitLogFromUrl(url, callback);
+  // }
 }
 
 export function loadJson(url: string, callback: Function) {

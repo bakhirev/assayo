@@ -102,10 +102,6 @@ const Main = observer(() => {
     }
   }, []);
 
-  useEffect(() => { // @ts-ignore
-    sourceData.add('gitLog', window.report); // @ts-ignore
-  }, [window.report]);
-
   useEffect(() => {
     if (view !== ViewNameEnum.INFO || window.location.hash) return;
     window.location.hash = '#/team/total';

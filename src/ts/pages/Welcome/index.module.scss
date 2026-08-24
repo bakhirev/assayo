@@ -5,12 +5,16 @@
   justify-content: center;
 
   width: calc(100vw - 20px);
-  height: calc(100vh - 60px);
+  height: 100vh;
   padding: 0;
   margin: 0;
 
   box-sizing: border-box;
   text-align: center;
+
+  &_has_banner {
+    height: calc(100vh - 60px);
+  }
 
   &_console {
     max-width: 730px;
