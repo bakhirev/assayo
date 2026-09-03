@@ -13,7 +13,6 @@ class SplashScreenStore {
       isOpen: observable,
       delay: observable,
       show: action,
-      hide: action,
       setDelay: action,
     });
   }
@@ -21,11 +20,6 @@ class SplashScreenStore {
   show() {
     this.isOpen = true;
     globalScroll.off(this.delay);
-  }
-
-  hide() {
-    return false;
-    this.isOpen = false;
   }
 
   setDelay(logSize: number) {

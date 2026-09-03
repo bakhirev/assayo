@@ -1,13 +1,12 @@
 export default `
-§ plugin.team_weeks.sidebar: By weeks
-§ plugin.team_weeks.title: Weekly statistics
-§ plugin.team_weeks.numberTasks: Number of tasks
-§ plugin.team_weeks.people: Number of people
-§ plugin.team_weeks.line: Line changes
-§ plugin.team_weeks.lossesDetails: Who did not commit
-§ plugin.team_weeks.add: added
-§ plugin.team_weeks.change: changed
-§ plugin.team_weeks.remove: removed
-§ plugin.team_weeks.hasCommits: had commits
-§ plugin.team_weeks.hasNotCommits: had no commits
+§ plugin.print.sidebar: הדפסה
+§ plugin.print.modal.title: מה להדפיס?
+§ plugin.print.modal.page: העמוד הנוכחי
+§ plugin.print.modal.type: הסעיף הנוכחי
+§ plugin.print.modal.all: כל הסטטיסטיקות
+§ plugin.print.modal.cancel: ביטול
+§ plugin.print.tableOfContents: תוכן עניינים
+§ plugin.print.title: דוח מאגר Git
+§ plugin.print.sub_title: «$1»
+§ plugin.print.description: נתוני הדוח התקבלו מהיסטוריית ה-commits.
 `;

@@ -1,17 +1,17 @@
 export default `
-§ plugin.person_speed.sidebar: Speed
-§ plugin.person_speed.task: One task on average is
-§ plugin.person_speed.max: Maximum speed per day
-§ plugin.person_speed.days.title: days
-§ plugin.person_speed.days.description: The number of tasks found is divided by the number of days when there were commits.
+§ plugin.person_speed.sidebar: מהירות
+§ plugin.person_speed.task: משימה אחת בממוצע היא
+§ plugin.person_speed.max: המהירות המרבית ליום
+§ plugin.person_speed.days.title: ימים
+§ plugin.person_speed.days.description: מספר המשימות שנמצאו מחולק במספר הימים שבהם היו commits.
 § plugin.person_speed.commits.title: commits
-§ plugin.person_speed.commits.description: Weighted average trimmed by 10% of the rarest and largest values.
-§ plugin.person_speed.line.title: lines of code
-§ plugin.person_speed.line.description: The system does not recognize changes to the same lines in different commits within a single task. They are summed up.
-§ plugin.person_speed.files.title: files
-§ plugin.person_speed.files.description: Weighted average trimmed by 10% of the rarest and largest values.
-§ plugin.person_speed.tasks.title: tasks
-§ plugin.person_speed.tasks.description: A task may be unfinished. Only the fact of working on it within a specific day is recorded.
+§ plugin.person_speed.commits.description: ממוצע משוקלל עם חיתוך 10% מהערכים הנדירים ביותר והגדולים ביותר.
+§ plugin.person_speed.line.title: שורות קוד
+§ plugin.person_speed.line.description: המערכת אינה מזהה שינויים באותן שורות ב-commits שונים במסגרת משימה אחת. הם מסוכמים.
+§ plugin.person_speed.files.title: קבצים
+§ plugin.person_speed.files.description: ממוצע משוקלל עם חיתוך 10% מהערכים הנדירים ביותר והגדולים ביותר.
+§ plugin.person_speed.tasks.title: משימות
+§ plugin.person_speed.tasks.description: משימה עשויה להיות לא גמורה. נרשמת עצם העבודה עליה במסגרת יום מסוים.
 § plugin.person_speed.maxCommits.title: commits
-§ plugin.person_speed.maxCommits.description: Total number of commits made during one specific day. They can be made within one task or while working on different tasks.
+§ plugin.person_speed.maxCommits.description: סך ה-commits שבוצעו במהלך יום מסוים. הם יכולים להיות במסגרת משימה אחת או תוך עבודה על משימות שונות.
 `;

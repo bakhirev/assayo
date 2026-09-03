@@ -1,15 +1,15 @@
 export default `
 § plugin.team_emails.sidebar: E-Mail-Adressen
-§ plugin.team_emails.title: Serveradressen in Protokollen
+§ plugin.team_emails.title: Serveradressen in den Logs
 § plugin.team_emails.domain: Domain
 § plugin.team_emails.from: von
-§ plugin.team_emails.to: an
+§ plugin.team_emails.to: bis
 § plugin.team_emails.protocol: Protokoll
 § plugin.team_emails.port: Port
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: Code-Hosting-Tool
 § plugin.team_emails.type.title: Dienst
-§ plugin.team_emails.type.description: $1 oder ähnliches
+§ plugin.team_emails.type.description: $1 oder etwas Ähnliches
 § plugin.team_emails.email.title: Liste der E-Mail-Adressen
 § plugin.team_emails.email.typeChart.title: Adresstypen
 § plugin.team_emails.email.typeChart.suffix: E-Mail-Adressen

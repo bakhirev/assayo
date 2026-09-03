@@ -1,29 +1,29 @@
 export default `
-§ plugin.person_total.sidebar: Common info
-§ plugin.person_total.title: Main characteristics
-§ plugin.person_total.small.status.title: estimated status
-§ plugin.person_total.small.status.work: works
-§ plugin.person_total.small.status.dismissed: left
-§ plugin.person_total.small.status.staff: staff
-§ plugin.person_total.small.totalDays: contract duration
-§ plugin.person_total.small.country: latest location
-§ plugin.person_total.small.email: latest email
-§ plugin.person_total.small.firstDay: first working day
-§ plugin.person_total.small.lastDay: last working day
-§ plugin.person_total.small.middleMessageLength: average commit message length
-§ plugin.person_total.daysWorked.title: days worked
-§ plugin.person_total.daysWorked.description: Only days when commits were made are counted
-§ plugin.person_total.daysLosses.title: days without commits
-§ plugin.person_total.daysLosses.description: All days minus: holidays, weekends, vacation, days with commits
+§ plugin.person_total.sidebar: Allgemeine Informationen
+§ plugin.person_total.title: Haupteigenschaften
+§ plugin.person_total.small.status.title: geschätzter Status
+§ plugin.person_total.small.status.work: arbeitet
+§ plugin.person_total.small.status.dismissed: ausgeschieden
+§ plugin.person_total.small.status.staff: Helfer
+§ plugin.person_total.small.totalDays: Vertragsdauer
+§ plugin.person_total.small.country: letzter Standort
+§ plugin.person_total.small.email: letzte E-Mail
+§ plugin.person_total.small.firstDay: erster Arbeitstag
+§ plugin.person_total.small.lastDay: letzter Arbeitstag
+§ plugin.person_total.small.middleMessageLength: durchschnittliche Länge der commit message
+§ plugin.person_total.daysWorked.title: Arbeitstage
+§ plugin.person_total.daysWorked.description: Es werden nur Tage gezählt, an denen commits gemacht wurden
+§ plugin.person_total.daysLosses.title: Tage ohne commits
+§ plugin.person_total.daysLosses.description: Alle Tage minus: Feiertage, Wochenenden, Urlaub, Tage mit commits
 § plugin.person_total.commits.title: commits
-§ plugin.person_total.commits.description: Deleted branches are not counted
-§ plugin.person_total.tasks.title: tasks
-§ plugin.person_total.tasks.description: If commits have correct commit messages
-§ plugin.person_total.email.title: List of the staff member email addresses
-§ plugin.person_total.email.type: Type
-§ plugin.person_total.email.company: Company
-§ plugin.person_total.email.email: Email
-§ plugin.person_total.company.title: List of companies on whose behalf the staff member made commits
-§ plugin.person_total.from: from 
-§ plugin.person_total.to: to
+§ plugin.person_total.commits.description: Gelöschte branches werden nicht gezählt
+§ plugin.person_total.tasks.title: Aufgaben
+§ plugin.person_total.tasks.description: Wenn commits eine korrekte commit message haben
+§ plugin.person_total.email.title: Liste der E-Mail-Adressen des Mitarbeiters
+§ plugin.person_total.email.type: Typ
+§ plugin.person_total.email.company: Unternehmen
+§ plugin.person_total.email.email: E-Mail
+§ plugin.person_total.company.title: Liste der Unternehmen, in deren Namen der Mitarbeiter commits gemacht hat
+§ plugin.person_total.from: von 
+§ plugin.person_total.to: bis
 `;

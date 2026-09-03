@@ -1,16 +1,16 @@
 export default `
-§ plugin.team_file_analytics.sidebar: File types
-§ plugin.team_file_analytics.createChart.title: For existing files
-§ plugin.team_file_analytics.createChart.suffix: files
-§ plugin.team_file_analytics.removeChart.title: For deleted files
-§ plugin.team_file_analytics.extension.title: File extensions
-§ plugin.team_file_analytics.extension.view: Extension list
-§ plugin.team_file_analytics.type.title: File subtype
-§ plugin.team_file_analytics.type.view: File subtype list
-§ plugin.team_file_analytics.task: Task
-§ plugin.team_file_analytics.name: Type
-§ plugin.team_file_analytics.path: Path
-§ plugin.team_file_analytics.current.count: Number
-§ plugin.team_file_analytics.removed.count: Number of deleted
-§ plugin.team_file_analytics.files: files
+§ plugin.team_file_analytics.sidebar: סוגי קבצים
+§ plugin.team_file_analytics.createChart.title: עבור קבצים קיימים
+§ plugin.team_file_analytics.createChart.suffix: קבצים
+§ plugin.team_file_analytics.removeChart.title: עבור קבצים שנמחקו
+§ plugin.team_file_analytics.extension.title: סיומות קבצים
+§ plugin.team_file_analytics.extension.view: רשימת סיומות
+§ plugin.team_file_analytics.type.title: תת-סוג קובץ
+§ plugin.team_file_analytics.type.view: רשימת תת-סוגי קבצים
+§ plugin.team_file_analytics.task: משימה
+§ plugin.team_file_analytics.name: סוג
+§ plugin.team_file_analytics.path: נתיב
+§ plugin.team_file_analytics.current.count: מספר
+§ plugin.team_file_analytics.removed.count: מספר שנמחקו
+§ plugin.team_file_analytics.files: קבצים
 `;

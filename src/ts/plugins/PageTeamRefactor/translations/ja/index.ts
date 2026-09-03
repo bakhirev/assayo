@@ -1,6 +1,6 @@
 export default `
 § plugin.team_refactor.sidebar: リファクタリング
-§ plugin.team_refactor.title: リファクタリングが必要な可能性があるファイルのリスト
+§ plugin.team_refactor.title: リファクタリングが必要である可能性があるファイルの一覧
 § plugin.team_refactor.view.path: パス
 § plugin.team_refactor.view.lines: ファイルの行数
 § plugin.team_refactor.view.totalDays: 開発日数

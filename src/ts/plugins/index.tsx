@@ -6,7 +6,6 @@ import Settings from './Settings';
 
 import PageTeamAuthor from './PageTeamAuthor';
 import PageTeamBuilding from './PageTeamBuilding';
-import PageTeamChanges from './PageTeamChanges';
 import PageTeamCommits from './PageTeamCommits';
 import PageTeamCompanies from './PageTeamCompanies';
 import PageTeamCountry from './PageTeamCountry';
@@ -60,7 +59,6 @@ export default [
   PageTeamTasks,
   PageTeamPullRequests,
   PageTeamCommits,
-  PageTeamChanges,
   PageTeamRecommendations,
   PageTeamBuilding,
   PageTeamLicenses,

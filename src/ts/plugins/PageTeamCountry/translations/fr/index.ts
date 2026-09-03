@@ -1,19 +1,21 @@
 export default `
-§ plugin.team_country.sidebar: Locations
-§ plugin.team_country.byTimezone: By the time of the last commit
-§ plugin.team_country.filters.active: Works
-§ plugin.team_country.filters.dismissed: Dismissed
-§ plugin.team_country.filters.staff: Staff
-§ plugin.team_country.pieByDomain.title: By email, timezone and language
-§ plugin.team_country.pieByTimezone.title: By timezone
-§ plugin.team_country.chart.item: employments
-§ plugin.team_country.table.title: List of employees
-§ plugin.team_country.table.country: Country
-§ plugin.team_country.table.employments: Employments
-§ plugin.team_country.travel.title: Trips (or VPN, or rebase)
-§ plugin.team_country.travel.author: Employee
-§ plugin.team_country.travel.fly: Number of flights
-§ plugin.team_country.travel.path: Locations list
-§ plugin.team_country.travel.date: Arrival date
-§ plugin.team_country.travel.country: Location
+§ plugin.team_country.sidebar: Localisation
+§ plugin.team_country.title: Détails
+§ plugin.team_country.byTimezone: Localisation possible des collaborateurs
+§ plugin.team_country.filters.active: Travaille
+§ plugin.team_country.filters.dismissed: Parti
+§ plugin.team_country.filters.staff: Personnel
+§ plugin.team_country.pieByDomain.title: Répartition par localisation
+§ plugin.team_country.pieByTimezone.title: Répartition par fuseau horaire
+§ plugin.team_country.chart.item: collaborateurs
+§ plugin.team_country.table.title: Liste des collaborateurs
+§ plugin.team_country.table.country: Localisation
+§ plugin.team_country.table.employments: Collaborateurs
+§ plugin.team_country.employments.author: Collaborateur
+§ plugin.team_country.travel.title: Déplacements (ou VPN, ou rebase)
+§ plugin.team_country.travel.author: Collaborateur
+§ plugin.team_country.travel.fly: Nombre de vols
+§ plugin.team_country.travel.path: Liste des localisations
+§ plugin.team_country.travel.date: Date du vol
+§ plugin.team_country.travel.country: Localisation
 `;

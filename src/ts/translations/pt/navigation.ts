@@ -36,7 +36,7 @@ export default `
 § sidebar.team.country: Locations
 § sidebar.team.settings: Sintonização
 § sidebar.team.recommendations: Recommendations
-§ sidebar.team.building: Games
+§ sidebar.team.building: Jogos
 § sidebar.person.total: Informação geral
 § sidebar.person.money: Custo do trabalho
 § sidebar.person.speed: Velocidade
@@ -45,7 +45,7 @@ export default `
 § sidebar.person.month: Por mês
 § sidebar.person.tasks: Tasks
 § sidebar.person.hours: Horário
-§ sidebar.person.commits: All commits
+§ sidebar.person.commits: Todos os commits
 § sidebar.person.changes: Todas as alterações
 § sidebar.person.words: Palavras populares
 § sidebar.person.settings: Sintonização

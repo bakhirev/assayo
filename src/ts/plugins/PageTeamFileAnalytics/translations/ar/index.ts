@@ -1,16 +1,16 @@
 export default `
-§ plugin.team_file_analytics.sidebar: File types
-§ plugin.team_file_analytics.createChart.title: For existing files
-§ plugin.team_file_analytics.createChart.suffix: files
-§ plugin.team_file_analytics.removeChart.title: For deleted files
-§ plugin.team_file_analytics.extension.title: File extensions
-§ plugin.team_file_analytics.extension.view: Extension list
-§ plugin.team_file_analytics.type.title: File subtype
-§ plugin.team_file_analytics.type.view: File subtype list
-§ plugin.team_file_analytics.task: Task
-§ plugin.team_file_analytics.name: Type
-§ plugin.team_file_analytics.path: Path
-§ plugin.team_file_analytics.current.count: Number
-§ plugin.team_file_analytics.removed.count: Number of deleted
-§ plugin.team_file_analytics.files: files
+§ plugin.team_file_analytics.sidebar: أنواع الملفات
+§ plugin.team_file_analytics.createChart.title: للملفات الموجودة
+§ plugin.team_file_analytics.createChart.suffix: ملفات
+§ plugin.team_file_analytics.removeChart.title: للملفات المحذوفة
+§ plugin.team_file_analytics.extension.title: امتدادات الملفات
+§ plugin.team_file_analytics.extension.view: قائمة الامتدادات
+§ plugin.team_file_analytics.type.title: النوع الفرعي للملف
+§ plugin.team_file_analytics.type.view: قائمة الأنواع الفرعية للملفات
+§ plugin.team_file_analytics.task: المهمة
+§ plugin.team_file_analytics.name: النوع
+§ plugin.team_file_analytics.path: المسار
+§ plugin.team_file_analytics.current.count: العدد
+§ plugin.team_file_analytics.removed.count: عدد المحذوف
+§ plugin.team_file_analytics.files: ملفات
 `;

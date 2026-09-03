@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
+§ plugin.person_vacation.sidebar: Calendrier des congés
+§ plugin.person_vacation.grant.title: Répartition par année
+§ plugin.person_vacation.charts.title: Analyse des congés sur toute la période
+§ plugin.person_vacation.charts.total.title: jours de congé
+§ plugin.person_vacation.charts.total.description: Les mutations vers un autre département ne sont pas prises en compte.
+§ plugin.person_vacation.charts.money.title: indemnité de congés
+§ plugin.person_vacation.charts.money.description: Total sur toute la période. Le salaire journalier moyen est multiplié par le nombre de jours de congé.
+§ plugin.person_vacation.charts.years: Répartition des congés par année
+§ plugin.person_vacation.details.title: Périodes avec une longue absence de commits
 § plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.details.transfer: Mutation vers un autre département
+§ plugin.person_vacation.details.vacation: Congé
+§ plugin.person_vacation.details.author: Collaborateur
+§ plugin.person_vacation.details.from: de
+§ plugin.person_vacation.details.to: à
+§ plugin.person_vacation.details.duration: Durée
 `;

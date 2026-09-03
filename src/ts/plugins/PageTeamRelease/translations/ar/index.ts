@@ -9,7 +9,7 @@ export default `
 § plugin.team_release.view.delay: أيام المراجعة
 § plugin.team_release.view.waiting: الأيام حتى الإصدار التالي
 § plugin.team_release.pr.task: المهمة
-§ plugin.team_release.pr.daysWorkOnTask: الأيام التي تم العمل فيها
+§ plugin.team_release.pr.daysWorkOnTask: أيام العمل
 § plugin.team_release.pr.daysInReview: أيام المراجعة
 § plugin.team_release.pr.daysAwaitRelease: الأيام حتى نهاية الإصدار
 § plugin.team_release.pr.mergeDate: تاريخ الدمج

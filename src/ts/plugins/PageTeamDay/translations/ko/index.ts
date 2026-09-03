@@ -1,11 +1,12 @@
 export default `
-§ plugin.team_day.view.cards: Cards
-§ plugin.team_day.view.table: Table
-§ plugin.team_day.view.list: List
-§ plugin.team_day.shortInfo.days.title: days with commits
-§ plugin.team_day.shortInfo.tasks.title: tasks
-§ plugin.team_day.shortInfo.authors.title: employees
-§ plugin.team_day.shortInfo.hours.title: списано часов
-§ plugin.team_day.download: Detailing days
-§ plugin.team_day.tempo.title: Detailing the work and spent hours 
+§ plugin.team_day.sidebar: 일별
+§ plugin.team_day.view.cards: 카드
+§ plugin.team_day.view.table: 표
+§ plugin.team_day.view.list: 목록
+§ plugin.team_day.shortInfo.days.title: commits가 있는 날
+§ plugin.team_day.shortInfo.tasks.title: 작업
+§ plugin.team_day.shortInfo.authors.title: 직원
+§ plugin.team_day.shortInfo.hours.title: 기록된 시간
+§ plugin.team_day.download: 일별 상세
+§ plugin.team_day.tempo.title: 작업 및 소요 시간 상세
 `;

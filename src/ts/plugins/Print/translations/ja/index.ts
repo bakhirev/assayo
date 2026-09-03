@@ -1,13 +1,12 @@
 export default `
-§ plugin.team_weeks.sidebar: By weeks
-§ plugin.team_weeks.title: Weekly statistics
-§ plugin.team_weeks.numberTasks: Number of tasks
-§ plugin.team_weeks.people: Number of people
-§ plugin.team_weeks.line: Line changes
-§ plugin.team_weeks.lossesDetails: Who did not commit
-§ plugin.team_weeks.add: added
-§ plugin.team_weeks.change: changed
-§ plugin.team_weeks.remove: removed
-§ plugin.team_weeks.hasCommits: had commits
-§ plugin.team_weeks.hasNotCommits: had no commits
+§ plugin.print.sidebar: 印刷
+§ plugin.print.modal.title: 何を印刷しますか？
+§ plugin.print.modal.page: 現在のページ
+§ plugin.print.modal.type: 現在のセクション
+§ plugin.print.modal.all: すべての統計
+§ plugin.print.modal.cancel: キャンセル
+§ plugin.print.tableOfContents: 目次
+§ plugin.print.title: Git リポジトリレポート
+§ plugin.print.sub_title: «$1»
+§ plugin.print.description: レポートのデータは commit の履歴から取得されました。
 `;

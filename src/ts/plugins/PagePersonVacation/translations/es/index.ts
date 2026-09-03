@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
-§ plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.sidebar: Calendario de vacaciones
+§ plugin.person_vacation.grant.title: Desglose por años
+§ plugin.person_vacation.charts.title: Análisis de vacaciones a lo largo del tiempo
+§ plugin.person_vacation.charts.total.title: días de vacaciones
+§ plugin.person_vacation.charts.total.description: Los traslados a otro departamento no se tienen en cuenta.
+§ plugin.person_vacation.charts.money.title: paga de vacaciones
+§ plugin.person_vacation.charts.money.description: Total acumulado. El salario diario medio se multiplica por el número de días de vacaciones.
+§ plugin.person_vacation.charts.years: Distribución de vacaciones por año
+§ plugin.person_vacation.details.title: Periodos con una larga ausencia de commits
+§ plugin.person_vacation.details.type: Tipo
+§ plugin.person_vacation.details.transfer: Traslado a otro departamento
+§ plugin.person_vacation.details.vacation: Vacaciones
+§ plugin.person_vacation.details.author: Empleado
+§ plugin.person_vacation.details.from: desde
+§ plugin.person_vacation.details.to: hasta
+§ plugin.person_vacation.details.duration: Duración
 `;

@@ -10,6 +10,7 @@ import { getGithubPrInfo, getGitlabPrInfo } from './getMergeInfo';
 import getEmailAuthor from './getEmailAuthor';
 
 const MASTER_BRANCH = {
+  main: true,
   master: true,
   dev: true,
   develop: true,
@@ -128,7 +129,7 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
     } else if (isGitlabPR) {
       commitType = COMMIT_TYPE.PR_GITLAB;
       [branch, toBranch, server] = getGitlabPrInfo(message);
-      const branchToParse = toBranch && MASTER_BRANCH[toBranch]
+      const branchToParse = MASTER_BRANCH[toBranch || '']
         ? (branch || toBranch)
         : (toBranch || branch);
 

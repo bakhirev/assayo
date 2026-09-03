@@ -1,33 +1,33 @@
 export default `
-§ plugin.team_building.sidebar: Games
-§ plugin.team_building.races.title: The speed of closing tasks
-§ plugin.team_building.races.go: Let's go!
-§ plugin.team_building.swimmingPool.title: Maximum commit message length
-§ plugin.team_building.quiz.start: Start a quiz
-§ plugin.team_building.quiz.next: Next question
-§ plugin.team_building.quiz.replay: Re-play?
-§ plugin.team_building.quiz.question01: Who made the first commit?
-§ plugin.team_building.quiz.question02: Who closed more tasks?
-§ plugin.team_building.quiz.question03: Who is the fastest at completing tasks?
-§ plugin.team_building.quiz.question04: Who has been working on the project the longest?
-§ plugin.team_building.quiz.question05: Who worked the least on the project?
-§ plugin.team_building.quiz.question08: Who has the longest commit signatures?
-§ plugin.team_building.quiz.question09: Who has the shortest commit signatures?
-§ plugin.team_building.quiz.question11: How many people have quit?
-§ plugin.team_building.quiz.question12: How many people helped the project?
-§ plugin.team_building.quiz.question13: How many maximum tasks did $1 per day?
-§ plugin.team_building.quiz.question14: What type of tasks have been added more?
-§ plugin.team_building.quiz.question15: How many days do they work on the project on average?
-§ plugin.team_building.quiz.question16: Who created the most directories?
-§ plugin.team_building.quiz.question17: Who was the first to create the file with the deepest path?
-§ plugin.team_building.quiz.question18: Who clicks the "Merge" button for PR more often than others?
-§ plugin.team_building.quiz.question19: Who had the longest commit signature of all time?
-§ plugin.team_building.quiz.question20: Who created the PR that hung on the review for more than a month?
-§ plugin.team_building.quiz.begin: How well do you know the team?
-§ plugin.team_building.quiz.result1.title: Not enough
-§ plugin.team_building.quiz.result1.description: The correct answers are less than 40%. Check out the information about your team in the adjacent sections and try again!
-§ plugin.team_building.quiz.result2.title: Well
-§ plugin.team_building.quiz.result2.description: The correct answers range from 40% to 70%. You have a good idea of your team, but you can get to know it better. Check out the data in the adjacent sections and try again!
-§ plugin.team_building.quiz.result3.title: Great
-§ plugin.team_building.quiz.result3.description: There are more than 70% correct answers. You know the statistics on your team perfectly well!
+§ plugin.team_building.sidebar: 小游戏
+§ plugin.team_building.races.title: 关闭任务的速度
+§ plugin.team_building.races.go: 出发！
+§ plugin.team_building.swimmingPool.title: commit message 的最大长度
+§ plugin.team_building.quiz.start: 开始测验
+§ plugin.team_building.quiz.next: 下一题
+§ plugin.team_building.quiz.replay: 再来一次？
+§ plugin.team_building.quiz.question01: 谁做了第一个 commit？
+§ plugin.team_building.quiz.question02: 谁关闭了更多任务？
+§ plugin.team_building.quiz.question03: 谁完成任务最快？
+§ plugin.team_building.quiz.question04: 谁在项目中工作时间最长？
+§ plugin.team_building.quiz.question05: 谁在项目中工作最少？
+§ plugin.team_building.quiz.question08: 谁的 commit 签名最长？
+§ plugin.team_building.quiz.question09: 谁的 commit 签名最短？
+§ plugin.team_building.quiz.question11: 有多少人离职？
+§ plugin.team_building.quiz.question12: 有多少人帮助过项目？
+§ plugin.team_building.quiz.question13: $1 一天最多完成了多少任务？
+§ plugin.team_building.quiz.question14: 哪类任务被加入得更多？
+§ plugin.team_building.quiz.question15: 平均在项目上工作多少天？
+§ plugin.team_building.quiz.question16: 谁创建的目录最多？
+§ plugin.team_building.quiz.question17: 谁最先创建了路径最深的文件？
+§ plugin.team_building.quiz.question18: 谁比其他人更常点击 PR 的 «Merge» 按钮？
+§ plugin.team_building.quiz.question19: 谁有过全时段最长的 commit 签名？
+§ plugin.team_building.quiz.question20: 谁创建了在评审中挂了一个多月的 PR？
+§ plugin.team_building.quiz.begin: 你有多了解团队？
+§ plugin.team_building.quiz.result1.title: 不够
+§ plugin.team_building.quiz.result1.description: 正确答案少于 40%。请查看相邻栏目中关于团队的信息后再试一次！
+§ plugin.team_building.quiz.result2.title: 不错
+§ plugin.team_building.quiz.result2.description: 正确答案在 40% 到 70% 之间。你对团队有不错的了解，还可以更好。请查看相邻栏目中的数据后再试一次！
+§ plugin.team_building.quiz.result3.title: 出色
+§ plugin.team_building.quiz.result3.description: 正确答案超过 70%。你非常了解团队的统计数据！
 `;

@@ -35,16 +35,16 @@ export default `
 § sidebar.team.country: Locations
 § sidebar.team.settings: Réglages
 § sidebar.team.recommendations: Recommendations
-§ sidebar.team.building: Games
+§ sidebar.team.building: Jeux
 § sidebar.person.total: Informations générales
 § sidebar.person.money: Coût des travaux
 § sidebar.person.speed: Vitesse
 § sidebar.person.day: Au jour le jour
-§ sidebar.person.week: Une semaine
+§ sidebar.person.week: Par semaine
 § sidebar.person.month: Par mois
 § sidebar.person.tasks: Tasks
 § sidebar.person.hours: Horaire
-§ sidebar.person.commits: all commits
+§ sidebar.person.commits: Tous les commits
 § sidebar.person.changes: Tous les changements
 § sidebar.person.words: Mots populaires
 § sidebar.person.settings: Réglages

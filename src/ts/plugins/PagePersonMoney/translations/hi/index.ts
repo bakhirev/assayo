@@ -10,7 +10,7 @@ export default `
 § plugin.person_money.moneyLosses.description: जिन दिनों में commits नहीं हुए, उन्हें एक कार्यदिवस की लागत से गुणा किया जाता है।
 § plugin.person_money.weekendPayment.title: सप्ताहांत पर काम
 § plugin.person_money.weekendPayment.description: सप्ताहांत के काम के लिए कुल अधिक भुगतान
-§ plugin.person_money.tasks.title: task
+§ plugin.person_money.tasks.title: कार्य
 § plugin.person_money.tasks.description: जिन tasks पर स्टाफ सदस्य ने काम किया, उनकी संख्या को कार्य लागत (commits वाले दिनों को एक कार्यदिवस की लागत से गुणा करके) से विभाजित किया जाता है।
 § plugin.person_money.commits.title: commit
 § plugin.person_money.commits.description: समय के साथ commits की कुल संख्या को कार्य लागत (commits वाले दिनों को एक कार्यदिवस की लागत से गुणा करके) से विभाजित किया जाता है।

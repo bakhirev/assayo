@@ -1,33 +1,33 @@
 export default `
 § plugin.team_pull_requests.sidebar: מיזוג קוד
-§ plugin.team_pull_requests.total.title: סטטיסטיקות כלליות על פני כל ה-PRs
+§ plugin.team_pull_requests.total.title: סטטיסטיקה כללית על כל ה-PRs
 § plugin.team_pull_requests.total.daysWorkOnTask: זמן עבודה ממוצע לפני יצירת PR
-§ plugin.team_pull_requests.total.daysInReview: זמן סקירת PR ממוצע
-§ plugin.team_pull_requests.total.description1: *זמן עבודה* הוא הזמן בין ה- commit הראשון ל- commit האחרון של המשימה. אם למשימה יש מספר PRs, אז *זמן העבודה* הבא יחושב ממועד המיזוג של ה-PR הקודם.
-§ plugin.team_pull_requests.total.description11: לדוגמה: אם אתה עובד על משימה במשך שבוע ובסוף כל יום אתה יוצר וממזג PR, אז זמן העבודה של כל אחד מה-PRs הללו יהיה יום אחד. אך "הזמן הכולל שהושקע בעבודה על המשימה" (ניתן לראות בחלק "רשימת משימות") יהיה שבוע.
-§ plugin.team_pull_requests.total.description2: *זמן סקירה* הוא הזמן בין ה- commit האחרון למיזוג הקוד. הוא מראה את הזמן האמיתי של השהות בזמן המתנה.
-§ plugin.team_pull_requests.author.title: סטטיסטיקות לפי עובדים
+§ plugin.team_pull_requests.total.daysInReview: זמן review ממוצע של PR
+§ plugin.team_pull_requests.total.description1: *זמן עבודה* הוא הזמן בין ה-commit הראשון ל-commit האחרון של משימה. אם למשימה יש מספר PRs, *זמן העבודה* של הבא מחושב מתאריך המיזוג של ה-PR הקודם.
+§ plugin.team_pull_requests.total.description11: לדוגמה: אם עובדים על משימה במשך שבוע ובסוף כל יום יוצרים וממזגים PR, זמן העבודה של כל אחד מה-PRs האלה יהיה יום אחד. אך «זמן העבודה הכולל על המשימה» (ראו בסעיף «רשימת משימות») יהיה שבוע.
+§ plugin.team_pull_requests.total.description2: *זמן review* הוא הזמן בין ה-commit האחרון למיזוג הקוד. הוא מציג את זמן ההשבתה בפועל בזמן המתנה.
+§ plugin.team_pull_requests.author.title: סטטיסטיקה לפי עובדים
 § plugin.team_pull_requests.author.author: עובד
 § plugin.team_pull_requests.author.daysWorkOnTask: זמן עבודה ממוצע לפני PR
-§ plugin.team_pull_requests.author.daysInReview: זמן סקירת PR ממוצע
-§ plugin.team_pull_requests.author.middleTimeRelease: זמן פיתוח לעומת זמן סקירה
-§ plugin.team_pull_requests.author.work: עבודה
-§ plugin.team_pull_requests.author.review: סקירה
+§ plugin.team_pull_requests.author.daysInReview: זמן review ממוצע של PR
+§ plugin.team_pull_requests.author.middleTimeRelease: זמן פיתוח מול זמן review
+§ plugin.team_pull_requests.author.work: פיתוח
+§ plugin.team_pull_requests.author.review: review
 § plugin.team_pull_requests.yearChart.title: פירוט לפי שנים
 § plugin.team_pull_requests.authorChart.title: פירוט לפי עובדים
-§ plugin.team_pull_requests.chart.suffix: בקשות משיכה
-§ plugin.team_pull_requests.all.title: PRs מקושרות למשימות
+§ plugin.team_pull_requests.chart.suffix: pull requests
+§ plugin.team_pull_requests.all.title: PRs המקושרים למשימות
 § plugin.team_pull_requests.all.task: משימה
 § plugin.team_pull_requests.all.pr: PR
-§ plugin.team_pull_requests.all.message: הודעת Commit או ענף
+§ plugin.team_pull_requests.all.message: commit message או branch
 § plugin.team_pull_requests.all.dateCreate: נוצר
-§ plugin.team_pull_requests.all.dateMerge: ממוזג
+§ plugin.team_pull_requests.all.dateMerge: מוזג
 § plugin.team_pull_requests.all.daysWorkOnTask: ימים בפיתוח
-§ plugin.team_pull_requests.all.daysInReview: ימים בסקירה
+§ plugin.team_pull_requests.all.daysInReview: ימים ב-review
 § plugin.team_pull_requests.anonymous.title: PRs ללא מזהי משימות
 § plugin.team_pull_requests.anonymous.date: תאריך מיזוג
-§ plugin.team_pull_requests.anonymous.author: ממוזג על ידי
-§ plugin.team_pull_requests.anonymous.message: הודעת Commit או ענף
+§ plugin.team_pull_requests.anonymous.author: מוזג על ידי
+§ plugin.team_pull_requests.anonymous.message: commit message או branch
 § plugin.team_pull_requests.chart.1day: יום
 § plugin.team_pull_requests.chart.3day: שלושה ימים
 § plugin.team_pull_requests.chart.7day: שבוע

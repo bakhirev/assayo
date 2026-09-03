@@ -7,11 +7,11 @@ export default `
 § plugin.team_release.view.to: 完成日期
 § plugin.team_release.view.pr: 任务
 § plugin.team_release.view.delay: 评审天数
-§ plugin.team_release.view.waiting: 距离下次发布天数
+§ plugin.team_release.view.waiting: 距下次发布的天数
 § plugin.team_release.pr.task: 任务
 § plugin.team_release.pr.daysWorkOnTask: 工作天数
 § plugin.team_release.pr.daysInReview: 评审天数
-§ plugin.team_release.pr.daysAwaitRelease: 距离发布结束天数
-§ plugin.team_release.pr.mergeDate: 合并日期
-§ plugin.team_release.pr.mergeAuthor: 合并人
+§ plugin.team_release.pr.daysAwaitRelease: 距发布结束的天数
+§ plugin.team_release.pr.mergeDate: 合入日期
+§ plugin.team_release.pr.mergeAuthor: 合入者
 `;

@@ -328,14 +328,14 @@ export default `
 § page.person.business.time.dismissed: (被解雇)
 § page.person.business.time.staff: (不在团队中)
 § page.person.business.achievements: 进展情况
-§ page.person.changes.title: 进展情况
+§ page.person.changes.title: 变更
 § page.person.changes.description: 
 使用某些类型的格式，git将字符串标记为"已删除"和"已添加",
 虽然事实上他们已经被"改变"。 因此，如果你已经做了很多重构,
 git可以显示统计信息的少量变化，以及实际结果
 将在"已删除"和"已添加"行中标记为跳转.
-§ page.person.changes.description: 名单 Commits 以及那一天他们的变化数量:
-§ page.person.commits.title: 名单 Commits:
+§ page.person.changes.description: 当天的 commits 列表及其中的变更数量:
+§ page.person.commits.title: commits 列表:
 § page.person.money.title.total: 一直如此
 § page.person.money.title.middle: 平均成本
 § page.person.money.moneyAll.title: 收到
@@ -363,7 +363,7 @@ git可以显示统计信息的少量变化，以及实际结果
 § page.person.hours.title: 分布情况 Commits 在一周的每一天
 § page.person.week.date: 日期
 § page.person.week.tasks: 任务数量
-§ page.person.week.workDays: 日起 Commits
+§ page.person.week.workDays: 有 commits 的天数
 § page.person.week.taskInDay: 每天的任务
 § page.person.week.days: 天数
 § page.person.week.workDay: 平日

@@ -36,7 +36,7 @@ export default `
 § sidebar.team.country: Locations
 § sidebar.team.settings: 設定
 § sidebar.team.recommendations: Recommendations
-§ sidebar.team.building: Games
+§ sidebar.team.building: ゲーム
 § sidebar.person.total: 一般的な情報
 § sidebar.person.money: 仕事のコスト
 § sidebar.person.speed: スピード
@@ -45,7 +45,7 @@ export default `
 § sidebar.person.month: 月別
 § sidebar.person.tasks: Tasks
 § sidebar.person.hours: スケジュール
-§ sidebar.person.commits: All commits
+§ sidebar.person.commits: すべての commits
 § sidebar.person.changes: すべての変更
 § sidebar.person.words: 人気のある言葉
 § sidebar.person.settings: 設定

@@ -1,33 +1,33 @@
 export default `
-§ plugin.team_building.sidebar: Games
-§ plugin.team_building.races.title: The speed of closing tasks
-§ plugin.team_building.races.go: Let's go!
-§ plugin.team_building.swimmingPool.title: Maximum commit message length
-§ plugin.team_building.quiz.start: Start a quiz
-§ plugin.team_building.quiz.next: Next question
-§ plugin.team_building.quiz.replay: Re-play?
-§ plugin.team_building.quiz.question01: Who made the first commit?
-§ plugin.team_building.quiz.question02: Who closed more tasks?
-§ plugin.team_building.quiz.question03: Who is the fastest at completing tasks?
-§ plugin.team_building.quiz.question04: Who has been working on the project the longest?
-§ plugin.team_building.quiz.question05: Who worked the least on the project?
-§ plugin.team_building.quiz.question08: Who has the longest commit signatures?
-§ plugin.team_building.quiz.question09: Who has the shortest commit signatures?
-§ plugin.team_building.quiz.question11: How many people have quit?
-§ plugin.team_building.quiz.question12: How many people helped the project?
-§ plugin.team_building.quiz.question13: How many maximum tasks did $1 per day?
-§ plugin.team_building.quiz.question14: What type of tasks have been added more?
-§ plugin.team_building.quiz.question15: How many days do they work on the project on average?
-§ plugin.team_building.quiz.question16: Who created the most directories?
-§ plugin.team_building.quiz.question17: Who was the first to create the file with the deepest path?
-§ plugin.team_building.quiz.question18: Who clicks the "Merge" button for PR more often than others?
-§ plugin.team_building.quiz.question19: Who had the longest commit signature of all time?
-§ plugin.team_building.quiz.question20: Who created the PR that hung on the review for more than a month?
-§ plugin.team_building.quiz.begin: How well do you know the team?
-§ plugin.team_building.quiz.result1.title: Not enough
-§ plugin.team_building.quiz.result1.description: The correct answers are less than 40%. Check out the information about your team in the adjacent sections and try again!
-§ plugin.team_building.quiz.result2.title: Well
-§ plugin.team_building.quiz.result2.description: The correct answers range from 40% to 70%. You have a good idea of your team, but you can get to know it better. Check out the data in the adjacent sections and try again!
-§ plugin.team_building.quiz.result3.title: Great
-§ plugin.team_building.quiz.result3.description: There are more than 70% correct answers. You know the statistics on your team perfectly well!
+§ plugin.team_building.sidebar: ゲーム
+§ plugin.team_building.races.title: タスク完了の速度
+§ plugin.team_building.races.go: スタート！
+§ plugin.team_building.swimmingPool.title: commit message の最大長
+§ plugin.team_building.quiz.start: クイズを始める
+§ plugin.team_building.quiz.next: 次の質問
+§ plugin.team_building.quiz.replay: もう一度？
+§ plugin.team_building.quiz.question01: 最初の commit をしたのは誰？
+§ plugin.team_building.quiz.question02: より多くのタスクを閉じたのは誰？
+§ plugin.team_building.quiz.question03: タスクを最も速く完了するのは誰？
+§ plugin.team_building.quiz.question04: プロジェクトに最も長く関わっているのは誰？
+§ plugin.team_building.quiz.question05: プロジェクトでの作業が最も少ないのは誰？
+§ plugin.team_building.quiz.question08: commit の署名が最も長いのは誰？
+§ plugin.team_building.quiz.question09: commit の署名が最も短いのは誰？
+§ plugin.team_building.quiz.question11: 何人が退職しましたか？
+§ plugin.team_building.quiz.question12: 何人がプロジェクトを手伝いましたか？
+§ plugin.team_building.quiz.question13: $1 が 1 日にこなしたタスクの最大数は？
+§ plugin.team_building.quiz.question14: どの種類のタスクがより多く追加されましたか？
+§ plugin.team_building.quiz.question15: 平均して何日プロジェクトで働きますか？
+§ plugin.team_building.quiz.question16: 最も多くのディレクトリを作成したのは誰？
+§ plugin.team_building.quiz.question17: 最も深いパスのファイルを最初に作成したのは誰？
+§ plugin.team_building.quiz.question18: PR の「Merge」ボタンを他の人より多く押すのは誰？
+§ plugin.team_building.quiz.question19: 全期間で最も長い commit の署名を持っていたのは誰？
+§ plugin.team_building.quiz.question20: レビューに 1 か月以上かかった PR を作成したのは誰？
+§ plugin.team_building.quiz.begin: チームをどのくらいよく知っていますか？
+§ plugin.team_building.quiz.result1.title: 不十分
+§ plugin.team_building.quiz.result1.description: 正答率が 40% 未満です。隣接セクションでチームの情報を確認して、もう一度試してください。
+§ plugin.team_building.quiz.result2.title: 良い
+§ plugin.team_building.quiz.result2.description: 正答率は 40% から 70% です。チームのイメージはありますが、さらに知ることができます。隣接セクションのデータを見て、もう一度試してください。
+§ plugin.team_building.quiz.result3.title: 素晴らしい
+§ plugin.team_building.quiz.result3.description: 正答率は 70% 超です。チームの統計をよく把握しています。
 `;

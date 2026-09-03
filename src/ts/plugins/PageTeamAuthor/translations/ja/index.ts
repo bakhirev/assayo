@@ -1,50 +1,38 @@
 export default `
 § plugin.team_author.sidebar: スタッフ
 § plugin.team_author.statusChart.title: 現在のステータス
-§ plugin.team_author.daysChart.title: 勤務日数
+§ plugin.team_author.daysChart.title: 勤務時間
 § plugin.team_author.daysChart.item: 日
-§ plugin.team_author.days.half: 半年間
-§ plugin.team_author.days.one: 1年間
-§ plugin.team_author.days.15: 1年半
-§ plugin.team_author.days.two: 2年間
-§ plugin.team_author.days.more: 2年以上
-§ plugin.team_author.title: 詳細情報
-§ plugin.team_author.description1: 「アシスタント」タイプの従業員の統計情報（作業速度、コストなど）は、プロジェクト内での一時的な役割であるため、カウントされません。 彼らはプロジェクトに影響を与えず、その編集は全体的な作業量の文脈で無視できるものとされています。
-§ plugin.team_author.description2: *デフォルトの並べ替え*は、タスク数およびグループ（現在、解雇、支援従業員）によるものです。
+§ plugin.team_author.days.half: 半年
+§ plugin.team_author.days.one: 1 年
+§ plugin.team_author.days.15: 1 年半
+§ plugin.team_author.days.two: 2 年
+§ plugin.team_author.days.more: 2 年以上
+§ plugin.team_author.title: 詳細
+§ plugin.team_author.description1: *統計の一部*（作業速度、コストなど）*はタイプ「アシスタント」の従業員では集計されません*。プロジェクトにおける一時的な役割だからです。プロジェクトへの影響はなく、全体の作業量の中では変更を無視できると見なします。
+§ plugin.team_author.author: スタッフ
 § plugin.team_author.status: ステータス
 § plugin.team_author.company: 会社
-§ plugin.team_author.firstCommit: 最初のコミット
+§ plugin.team_author.firstCommit: 最初の commit
 § plugin.team_author.lastCommit: 最後
 § plugin.team_author.daysAll: 合計日数
-§ plugin.team_author.types: 作業タイプ
-§ plugin.team_author.commits: コミット
-§ plugin.team_author.commitsSmall: コミット
+§ plugin.team_author.types: 種別
+§ plugin.team_author.commits: Commits
+§ plugin.team_author.commitsSmall: commits
 § plugin.team_author.tasks: タスク
-§ plugin.team_author.tasksSmall: タスク
-§ plugin.team_author.workedLosses: コミットのある日とない日
+§ plugin.team_author.workedLosses: commits のある日とない日
 § plugin.team_author.worked: 勤務
-§ plugin.team_author.losses: コミットのない日
-§ plugin.team_author.days: 日
-§ plugin.team_author.daysForTask: タスク1件あたりの日数
+§ plugin.team_author.losses: commits のない日
+§ plugin.team_author.daysForTask: タスクあたりの日数
 § plugin.team_author.scopes: 機能
 § plugin.team_author.moneyAll: 受領
 § plugin.team_author.moneyWorked: 勤務
-§ plugin.team_author.moneyLosses: 誤支払い
+§ plugin.team_author.moneyLosses: 過払い
 § plugin.team_author.type.work: 在籍中
-§ plugin.team_author.type.dismissed: 解雇済み
-§ plugin.team_author.type.staff: スタッフ
+§ plugin.team_author.type.dismissed: 退職済み
+§ plugin.team_author.type.staff: アシスタント
 § plugin.team_author.absence.title: 休暇スケジュール
 § plugin.team_author.absence.vacation: 休暇
-§ plugin.team_author.absence.transfer: 異動
-§ plugin.team_author.absence.from: から
-§ plugin.team_author.absence.to: まで
-§ plugin.team_author.absence.duration: 日間
-§ plugin.team_author.employments.less1: 1名
-§ plugin.team_author.employments.less2: 2名
-§ plugin.team_author.employments.less3: 3名
-§ plugin.team_author.employments.less6: 6名まで
-§ plugin.team_author.employments.less9: 9名まで
-§ plugin.team_author.employments.less12: 12名まで
-§ plugin.team_author.employments.less15: 15名まで
-§ plugin.team_author.employments.more: 15名以上
+§ plugin.team_author.absence.transfer: 他部門への異動
+§ plugin.team_author.absence.duration: 期間
 `;

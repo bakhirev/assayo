@@ -10,8 +10,8 @@ export default `
 § plugin.team_release.view.waiting: Dias até o próximo lançamento
 § plugin.team_release.pr.task: Tarefa
 § plugin.team_release.pr.daysWorkOnTask: Dias trabalhados
-§ plugin.team_release.pr.daysInReview: Dias em revisão
+§ plugin.team_release.pr.daysInReview: Dias de revisão
 § plugin.team_release.pr.daysAwaitRelease: Dias até o fim do lançamento
-§ plugin.team_release.pr.mergeDate: Data de mesclagem
+§ plugin.team_release.pr.mergeDate: Data do merge
 § plugin.team_release.pr.mergeAuthor: Mesclado por
 `;

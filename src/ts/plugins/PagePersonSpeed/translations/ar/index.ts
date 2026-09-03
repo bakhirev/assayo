@@ -1,17 +1,17 @@
 export default `
-§ plugin.person_speed.sidebar: Speed
-§ plugin.person_speed.task: One task on average is
-§ plugin.person_speed.max: Maximum speed per day
-§ plugin.person_speed.days.title: days
-§ plugin.person_speed.days.description: The number of tasks found is divided by the number of days when there were commits.
+§ plugin.person_speed.sidebar: السرعة
+§ plugin.person_speed.task: المهمة الواحدة في المتوسط هي
+§ plugin.person_speed.max: السرعة القصوى في اليوم
+§ plugin.person_speed.days.title: أيام
+§ plugin.person_speed.days.description: يُقسم عدد المهام التي تم العثور عليها على عدد الأيام التي وُجدت فيها commits.
 § plugin.person_speed.commits.title: commits
-§ plugin.person_speed.commits.description: Weighted average trimmed by 10% of the rarest and largest values.
-§ plugin.person_speed.line.title: lines of code
-§ plugin.person_speed.line.description: The system does not recognize changes to the same lines in different commits within a single task. They are summed up.
-§ plugin.person_speed.files.title: files
-§ plugin.person_speed.files.description: Weighted average trimmed by 10% of the rarest and largest values.
-§ plugin.person_speed.tasks.title: tasks
-§ plugin.person_speed.tasks.description: A task may be unfinished. Only the fact of working on it within a specific day is recorded.
+§ plugin.person_speed.commits.description: متوسط مرجح مع اقتطاع 10% من القيم الأكثر ندرة والأكبر.
+§ plugin.person_speed.line.title: أسطر الشيفرة
+§ plugin.person_speed.line.description: لا يميز النظام تغيير الأسطر نفسها في commits مختلفة ضمن مهمة واحدة. يتم جمعها.
+§ plugin.person_speed.files.title: ملفات
+§ plugin.person_speed.files.description: متوسط مرجح مع اقتطاع 10% من القيم الأكثر ندرة والأكبر.
+§ plugin.person_speed.tasks.title: مهام
+§ plugin.person_speed.tasks.description: قد تكون المهمة غير مكتملة. يُسجل فقط وقوع العمل عليها في يوم محدد.
 § plugin.person_speed.maxCommits.title: commits
-§ plugin.person_speed.maxCommits.description: Total number of commits made during one specific day. They can be made within one task or while working on different tasks.
+§ plugin.person_speed.maxCommits.description: إجمالي عدد commits التي أُنشئت خلال يوم محدد. يمكن أن تكون ضمن مهمة واحدة أو أثناء العمل على مهام مختلفة.
 `;

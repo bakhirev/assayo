@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
-§ plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.sidebar: جدول الإجازات
+§ plugin.person_vacation.grant.title: التفصيل حسب السنة
+§ plugin.person_vacation.charts.title: تحليل الإجازات على مدار الفترة
+§ plugin.person_vacation.charts.total.title: أيام الإجازة
+§ plugin.person_vacation.charts.total.description: لا تُحتسب النقلات إلى قسم آخر.
+§ plugin.person_vacation.charts.money.title: بدل الإجازة
+§ plugin.person_vacation.charts.money.description: الإجمالي على مدار الفترة. يُضرب متوسط الدخل اليومي في عدد أيام الإجازة.
+§ plugin.person_vacation.charts.years: توزيع الإجازات حسب السنة
+§ plugin.person_vacation.details.title: فترات مع غياب طويل عن commits
+§ plugin.person_vacation.details.type: النوع
+§ plugin.person_vacation.details.transfer: النقل إلى قسم آخر
+§ plugin.person_vacation.details.vacation: إجازة
+§ plugin.person_vacation.details.author: الموظف
+§ plugin.person_vacation.details.from: من
+§ plugin.person_vacation.details.to: إلى
+§ plugin.person_vacation.details.duration: المدة
 `;

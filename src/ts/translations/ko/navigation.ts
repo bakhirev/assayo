@@ -35,7 +35,7 @@ export default `
 § sidebar.team.country: 위치
 § sidebar.team.settings: 설정
 § sidebar.team.recommendations: 권장 사항 및 사실
-§ sidebar.team.building: Games
+§ sidebar.team.building: 게임
 § sidebar.person.total: 일반 정보
 § sidebar.person.money: 작업 비용
 § sidebar.person.speed: 속도
@@ -44,7 +44,7 @@ export default `
 § sidebar.person.month: 월별
 § sidebar.person.tasks: 작업 목록
 § sidebar.person.hours: 일정
-§ sidebar.person.commits: 모든 커밋
+§ sidebar.person.commits: 모든 commits
 § sidebar.person.changes: 모든 변경 사항
 § sidebar.person.words: 인기있는 단어
 § sidebar.person.settings: 설정

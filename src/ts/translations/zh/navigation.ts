@@ -36,8 +36,8 @@ export default `
 § sidebar.team.country: Locations
 § sidebar.team.settings: 设置
 § sidebar.team.recommendations: Recommendations
-§ sidebar.team.building: Games
-§ sidebar.person.total: 般资料
+§ sidebar.team.building: 小游戏
+§ sidebar.person.total: 通用信息
 § sidebar.person.money: 工作的成本
 § sidebar.person.speed: 速度
 § sidebar.person.day: 白天
@@ -45,7 +45,7 @@ export default `
 § sidebar.person.month: 按月计算
 § sidebar.person.tasks: Tasks
 § sidebar.person.hours: 时间表
-§ sidebar.person.commits: All commits
+§ sidebar.person.commits: 全部 commits
 § sidebar.person.changes: 所有更改
 § sidebar.person.words: 流行语
 § sidebar.person.settings: 设置

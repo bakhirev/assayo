@@ -333,14 +333,14 @@ export default `
 § page.person.business.time.dismissed: (dismissed)
 § page.person.business.time.staff: (not in the team)
 § page.person.business.achievements: Achievements
-§ page.person.changes.title: Achievements
+§ page.person.changes.title: 変更
 § page.person.changes.description: 
-With some types of formatting, git marks lines as "deleted" and "added",
-although in reality, they were "changed". Therefore, if you conducted a major refactoring,
-git might show a small number of changes in the statistics, but the actual result
-will be marked as a jump in "deleted" and "added" lines.
-§ page.person.changes.description: List of commits and the number of changes in them for that day:
-§ page.person.commits.title: List of commits:
+一部の書式では、git は行を「削除」と「追加」としてマークします。
+実際には「変更」された場合でも同様です。大規模なリファクタリングでは
+統計上の変更数が少なく見えても、実際の結果は
+「削除」と「追加」の行の急増として現れます。
+§ page.person.changes.description: その日の commits の一覧と、各 commit の変更数:
+§ page.person.commits.title: commits の一覧:
 § page.person.money.title.total: Total over time
 § page.person.money.title.middle: Average cost
 § page.person.money.moneyAll.title: received
@@ -366,13 +366,13 @@ will be marked as a jump in "deleted" and "added" lines.
 § page.person.speed.maxCommits.title: commits
 § page.person.speed.maxCommits.description: A task may not be completed, but work should be done on it
 § page.person.hours.title: Distribution of commits during each day of the week
-§ page.person.week.date: Date
-§ page.person.week.tasks: Number of tasks
-§ page.person.week.workDays: Days with commits
-§ page.person.week.taskInDay: Tasks per day
-§ page.person.week.days: days
-§ page.person.week.workDay: weekdays
-§ page.person.week.weekends: weekends
+§ page.person.week.date: 日付
+§ page.person.week.tasks: タスク数
+§ page.person.week.workDays: commits のある日
+§ page.person.week.taskInDay: 1 日あたりのタスク
+§ page.person.week.days: 日
+§ page.person.week.workDay: 平日
+§ page.person.week.weekends: 週末
 § page.sponsor.title: Please, support this project
 § page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/852782/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or [video|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
 § page.sponsor.share.button: Copy the link

@@ -7,7 +7,7 @@ export default `
 § plugin.team_refactor.view.totalTasks: Tarefas
 § plugin.team_refactor.tasks.task: Tarefa
 § plugin.team_refactor.tasks.description: Descrição
-§ plugin.team_refactor.charts.title: Análise de arquivos
+§ plugin.team_refactor.charts.title: Analítica de arquivos
 § plugin.team_refactor.charts.yearChart.title: Quando esses arquivos foram criados
 § plugin.team_refactor.charts.authorChart.title: Quem trabalha com eles
 `;

@@ -1,19 +1,21 @@
 export default `
-§ plugin.team_country.sidebar: Locations
-§ plugin.team_country.byTimezone: By the time of the last commit
-§ plugin.team_country.filters.active: Works
-§ plugin.team_country.filters.dismissed: Dismissed
-§ plugin.team_country.filters.staff: Staff
-§ plugin.team_country.pieByDomain.title: By email, timezone and language
-§ plugin.team_country.pieByTimezone.title: By timezone
-§ plugin.team_country.chart.item: employments
-§ plugin.team_country.table.title: List of employees
-§ plugin.team_country.table.country: Country
-§ plugin.team_country.table.employments: Employments
-§ plugin.team_country.travel.title: Trips (or VPN, or rebase)
-§ plugin.team_country.travel.author: Employee
-§ plugin.team_country.travel.fly: Number of flights
-§ plugin.team_country.travel.path: Locations list
-§ plugin.team_country.travel.date: Arrival date
-§ plugin.team_country.travel.country: Location
+§ plugin.team_country.sidebar: 所在地
+§ plugin.team_country.title: 详细信息
+§ plugin.team_country.byTimezone: 员工的可能所在地
+§ plugin.team_country.filters.active: 在职
+§ plugin.team_country.filters.dismissed: 已离职
+§ plugin.team_country.filters.staff: 员工
+§ plugin.team_country.pieByDomain.title: 按所在地细分
+§ plugin.team_country.pieByTimezone.title: 按时区细分
+§ plugin.team_country.chart.item: 员工
+§ plugin.team_country.table.title: 员工列表
+§ plugin.team_country.table.country: 所在地
+§ plugin.team_country.table.employments: 员工
+§ plugin.team_country.employments.author: 员工
+§ plugin.team_country.travel.title: 出差（或 VPN，或 rebase）
+§ plugin.team_country.travel.author: 员工
+§ plugin.team_country.travel.fly: 航班次数
+§ plugin.team_country.travel.path: 所在地列表
+§ plugin.team_country.travel.date: 航班日期
+§ plugin.team_country.travel.country: 所在地
 `;

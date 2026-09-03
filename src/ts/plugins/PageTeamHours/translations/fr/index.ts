@@ -1,4 +1,4 @@
 export default `
-§ plugin.team_hours.sidebar: By hours
-§ plugin.team_hours.title: Distribution of commits throughout each day of the week
+§ plugin.team_hours.sidebar: Par heures
+§ plugin.team_hours.title: Répartition des commits tout au long de chaque jour de la semaine
 `;

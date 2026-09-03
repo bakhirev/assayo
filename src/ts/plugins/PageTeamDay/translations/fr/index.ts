@@ -1,11 +1,12 @@
 export default `
-§ plugin.team_day.view.cards: Cards
-§ plugin.team_day.view.table: Table
-§ plugin.team_day.view.list: List
-§ plugin.team_day.shortInfo.days.title: days with commits
-§ plugin.team_day.shortInfo.tasks.title: tasks
-§ plugin.team_day.shortInfo.authors.title: employees
-§ plugin.team_day.shortInfo.hours.title: списано часов
-§ plugin.team_day.download: Detailing days
-§ plugin.team_day.tempo.title: Detailing the work and spent hours 
+§ plugin.team_day.sidebar: Par jours
+§ plugin.team_day.view.cards: Cartes
+§ plugin.team_day.view.table: Tableau
+§ plugin.team_day.view.list: Liste
+§ plugin.team_day.shortInfo.days.title: jours avec commits
+§ plugin.team_day.shortInfo.tasks.title: tâches
+§ plugin.team_day.shortInfo.authors.title: collaborateurs
+§ plugin.team_day.shortInfo.hours.title: heures saisies
+§ plugin.team_day.download: Détail des jours
+§ plugin.team_day.tempo.title: Détail du travail et des heures consacrées
 `;

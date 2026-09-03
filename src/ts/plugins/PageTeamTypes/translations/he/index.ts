@@ -1,14 +1,14 @@
 export default `
-§ plugin.team_types.sidebar: Task types
-§ plugin.team_types.title: Task type statistics
-§ plugin.team_types.description: *Personal contribution* is counted by the number of commits, not the volume of changed lines or files. Therefore, the "File Analysis" section should also be consulted to assess the scale of changes.
-§ plugin.team_types.type: Type of work
-§ plugin.team_types.unknown: unknown
-§ plugin.team_types.tasks: Tasks
-§ plugin.team_types.tasksSmall: tasks
-§ plugin.team_types.days: Days
-§ plugin.team_types.daysSmall: days
-§ plugin.team_types.authorsDays: Person-days
+§ plugin.team_types.sidebar: סוגי משימות
+§ plugin.team_types.title: סטטיסטיקה לפי סוגי משימות
+§ plugin.team_types.description: *התרומה האישית* נספרת לפי מספר ה-commits, ולא לפי היקף השורות או הקבצים ששונו. לכן יש לעיין גם בסעיף «ניתוח קבצים» כדי להעריך את היקף השינויים.
+§ plugin.team_types.type: סוג עבודה
+§ plugin.team_types.unknown: לא ידוע
+§ plugin.team_types.tasks: משימות
+§ plugin.team_types.tasksSmall: משימות
+§ plugin.team_types.days: ימים
+§ plugin.team_types.daysSmall: ימים
+§ plugin.team_types.authorsDays: ימי-אדם
 § plugin.team_types.commits: Commits
-§ plugin.team_types.authors: Personal contribution
+§ plugin.team_types.authors: תרומה אישית
 `;

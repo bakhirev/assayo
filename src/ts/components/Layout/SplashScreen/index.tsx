@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { Logo } from 'ts/components/Layout';
@@ -8,13 +8,6 @@ import style from './index.module.scss';
 import progress from './progress.module.scss';
 
 const SplashScreen = observer((): React.ReactElement | null  => {
-  useEffect(() => {
-    if (!splashScreenStore.isOpen) return;
-    setTimeout(() => {
-      splashScreenStore.hide();
-    }, splashScreenStore.delay);
-  }, [splashScreenStore.isOpen]);
-
   if (!splashScreenStore.isOpen) return null;
 
   return (

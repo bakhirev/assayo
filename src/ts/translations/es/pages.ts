@@ -333,11 +333,11 @@ export default `
 § page.person.business.time.dismissed: (Progreso)
 § page.person.business.time.staff: (Not in the team)
 § page.person.business.achievements: Progreso
-§ page.person.changes.title: Progreso
+§ page.person.changes.title: Cambios
 § page.person.changes.description: 
 En algunos tipos de formato, git marca las líneas como "eliminadas" y "agregadas", cuando en realidad se han "modificado". Entonces, si has hecho mucha refactorización,
 git puede Mostrar una pequeña cantidad de cambios en las estadísticas, y el resultado real se marcará como un salto en las líneas "eliminado" y "agregado"
-§ page.person.changes.description: The list of commits and the number of changes to them for that day:
+§ page.person.changes.description: Lista de commits y el número de cambios en ellos ese día:
 § page.person.commits.title: Lista de commits:
 § page.person.money.title.total: Durante todo este tiempo 👌️
 § page.person.money.title.middle: Average cost
@@ -364,13 +364,13 @@ git puede Mostrar una pequeña cantidad de cambios en las estadísticas, y el re
 § page.person.speed.maxCommits.title: commits
 § page.person.speed.maxCommits.description: The task may not be completed, but the work on it should be
 § page.person.hours.title: Distribution of commits during each day of the week
-§ page.person.week.date: Date
-§ page.person.week.tasks: Number of tasks
-§ page.person.week.workDays: Days with commits
-§ page.person.week.taskInDay: Tasks per day
-§ page.person.week.days: days
-§ page.person.week.workDay: entresemana
-§ page.person.week.weekends: día de descanso
+§ page.person.week.date: Fecha
+§ page.person.week.tasks: Número de tareas
+§ page.person.week.workDays: Días con commits
+§ page.person.week.taskInDay: Tareas por día
+§ page.person.week.days: días
+§ page.person.week.workDay: días laborables
+§ page.person.week.weekends: fines de semana
 § page.sponsor.title: Please, support this project
 § page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/852782/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or [video|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
 § page.sponsor.share.button: Copy the link

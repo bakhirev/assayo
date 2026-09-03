@@ -1,20 +1,19 @@
 export default `
-§ plugin.team_files.sidebar: Análise de arquivos
-§ plugin.team_files.title: Project tree considering selected filters
-§ plugin.team_files.filters.author: Employee
-§ plugin.team_files.filters.commits: Number of commits
-§ plugin.team_files.filters.help: The minimum number of commits an employee has made in a file
-§ plugin.team_files.filters.all: All employees
-§ plugin.team_files.totalLines: Lines
-§ plugin.team_files.totalTasks: Tasks
-§ plugin.team_files.totalDays: Days
-§ plugin.team_files.tasks: tasks
-§ plugin.team_files.days: days
-§ plugin.team_files.add: Who added
-§ plugin.team_files.change: Who changed
-§ plugin.team_files.remove: Who removed
-§ plugin.team_files.line: lines
-§ plugin.team_files.linesAdded: added
-§ plugin.team_files.linesChanged: changed
-§ plugin.team_files.linesRemoved: removed
+§ plugin.team_files.sidebar.files: Arquivos
+§ plugin.team_files.sidebar.removedFiles: Arquivos excluídos
+§ plugin.team_files.title: Árvore do projeto considerando os filtros selecionados
+§ plugin.team_files.filters.commits: Número de commits
+§ plugin.team_files.filters.help: O número mínimo de commits que um colaborador fez em um arquivo
+§ plugin.team_files.table.lines: Linhas
+§ plugin.team_files.table.tasks: Tarefas
+§ plugin.team_files.table.days: Dias
+§ plugin.team_files.table.workedDays: Dias-pessoa
+§ plugin.team_files.table.money: Custo
+§ plugin.team_files.table.add: Quem adicionou
+§ plugin.team_files.table.change: Quem alterou
+§ plugin.team_files.table.remove: Quem excluiu
+§ plugin.team_files.table.chart.line: linhas
+§ plugin.team_files.table.chart.linesAdded: adicionadas
+§ plugin.team_files.table.chart.linesChanged: alteradas
+§ plugin.team_files.table.chart.linesRemoved: excluídas
 `;

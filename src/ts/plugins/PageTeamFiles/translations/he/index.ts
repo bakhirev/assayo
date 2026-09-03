@@ -1,19 +1,19 @@
 export default `
-§ plugin.team_files.sidebar.files: Files
-§ plugin.team_files.sidebar.removedFiles: Deleted files
-§ plugin.team_files.title: Project tree considering selected filters
-§ plugin.team_files.filters.commits: Number of commits
-§ plugin.team_files.filters.help: The minimum number of commits an employee has made in a file
-§ plugin.team_files.table.lines: Lines
-§ plugin.team_files.table.tasks: Tasks
-§ plugin.team_files.table.days: Days
-§ plugin.team_files.table.workedDays: Person days
-§ plugin.team_files.table.money: Cost
-§ plugin.team_files.table.add: Who added
-§ plugin.team_files.table.change: Who changed
-§ plugin.team_files.table.remove: Who deleted
-§ plugin.team_files.table.chart.line: lines
-§ plugin.team_files.table.chart.linesAdded: added
-§ plugin.team_files.table.chart.linesChanged: changed
-§ plugin.team_files.table.chart.linesRemoved: deleted
+§ plugin.team_files.sidebar.files: קבצים
+§ plugin.team_files.sidebar.removedFiles: קבצים שנמחקו
+§ plugin.team_files.title: עץ הפרויקט בהתחשב במסננים שנבחרו
+§ plugin.team_files.filters.commits: מספר commits
+§ plugin.team_files.filters.help: מספר ה-commits המינימלי שעובד ביצע בקובץ
+§ plugin.team_files.table.lines: שורות
+§ plugin.team_files.table.tasks: משימות
+§ plugin.team_files.table.days: ימים
+§ plugin.team_files.table.workedDays: ימי אדם
+§ plugin.team_files.table.money: עלות
+§ plugin.team_files.table.add: מי הוסיף
+§ plugin.team_files.table.change: מי שינה
+§ plugin.team_files.table.remove: מי מחק
+§ plugin.team_files.table.chart.line: שורות
+§ plugin.team_files.table.chart.linesAdded: נוספו
+§ plugin.team_files.table.chart.linesChanged: שונו
+§ plugin.team_files.table.chart.linesRemoved: נמחקו
 `;

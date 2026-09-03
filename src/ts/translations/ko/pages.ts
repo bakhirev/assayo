@@ -321,14 +321,14 @@ export default `
 § page.person.business.time.dismissed: (해고)
 § page.person.business.time.staff: (조수)
 § page.person.business.achievements: 업적
-§ page.person.changes.title: 진행
+§ page.person.changes.title: 변경
 § page.person.changes.description:
 일부 유형의 서식을 사용하면 문자열을"삭제됨"및"추가됨"으로 표시합니다.,
 사실 그들은"변경"되었습니다. 따라서 리팩토링을 많이 한 경우,
 힘내는 통계의 변화의 작은 숫자,실제 결과를 표시 할 수 있습니다
 "삭제됨"및"추가됨"행의 점프로 표시됩니다.
-§ page.person.changes.description: 그 날의 커밋 목록과 변경 횟수:
-§ page.person.commits.title: 커밋 목록:
+§ page.person.changes.description: 그날의 commits 목록과 그중 변경 수:
+§ page.person.commits.title: commits 목록:
 § page.person.money.title.total: 모든 시간 동안
 § page.person.money.title.middle: 평균 비용
 § page.person.money.moneyAll.title: 수신
@@ -356,7 +356,7 @@ export default `
 § page.person.hours.title: 각 요일 동안의 커밋 배포
 § page.person.week.date: 날짜
 § page.person.week.tasks: 작업 수
-§ page.person.week.workDays: 커밋이 있는 일
+§ page.person.week.workDays: commits가 있는 날
 § page.person.week.taskInDay: 일일 작업
 § page.person.week.days: 일
 § page.person.week.workDay: 평일

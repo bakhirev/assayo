@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
-§ plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.sidebar: 休暇スケジュール
+§ plugin.person_vacation.grant.title: 年別の内訳
+§ plugin.person_vacation.charts.title: 全期間の休暇分析
+§ plugin.person_vacation.charts.total.title: 休暇日数
+§ plugin.person_vacation.charts.total.description: 他部門への異動は考慮されません。
+§ plugin.person_vacation.charts.money.title: 休暇手当
+§ plugin.person_vacation.charts.money.description: 全期間の合計。平均日収に休暇日数を掛けます。
+§ plugin.person_vacation.charts.years: 年別の休暇分布
+§ plugin.person_vacation.details.title: commits が長期間ない期間
+§ plugin.person_vacation.details.type: 種別
+§ plugin.person_vacation.details.transfer: 他部門への異動
+§ plugin.person_vacation.details.vacation: 休暇
+§ plugin.person_vacation.details.author: スタッフ
+§ plugin.person_vacation.details.from: から
+§ plugin.person_vacation.details.to: まで
+§ plugin.person_vacation.details.duration: 期間
 `;

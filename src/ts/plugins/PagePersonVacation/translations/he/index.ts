@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
-§ plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.sidebar: לוח חופשות
+§ plugin.person_vacation.grant.title: פירוט לפי שנים
+§ plugin.person_vacation.charts.title: ניתוח חופשות לאורך כל התקופה
+§ plugin.person_vacation.charts.total.title: ימי חופשה
+§ plugin.person_vacation.charts.total.description: העברות למחלקה אחרת אינן נספרות.
+§ plugin.person_vacation.charts.money.title: דמי חופשה
+§ plugin.person_vacation.charts.money.description: סך הכול לאורך כל התקופה. השכר היומי הממוצע מוכפל במספר ימי החופשה.
+§ plugin.person_vacation.charts.years: התפלגות חופשות לפי שנה
+§ plugin.person_vacation.details.title: תקופות עם היעדרות ממושכת של commits
+§ plugin.person_vacation.details.type: סוג
+§ plugin.person_vacation.details.transfer: העברה למחלקה אחרת
+§ plugin.person_vacation.details.vacation: חופשה
+§ plugin.person_vacation.details.author: עובד
+§ plugin.person_vacation.details.from: מ-
+§ plugin.person_vacation.details.to: עד
+§ plugin.person_vacation.details.duration: משך
 `;

@@ -52,10 +52,7 @@ class StatisticsByCommitsStore {
     statisticsByFiles.clear();
 
     const commits = getCommitObjectsFromText(dump || []);
-    if (!commits.length) {
-      splashScreenStore.hide();
-      return;
-    }
+    if (!commits.length) return;
 
     setTimeout(() => this.processingCommitGrouping(commits), PROCESSING_DELAY);
   }

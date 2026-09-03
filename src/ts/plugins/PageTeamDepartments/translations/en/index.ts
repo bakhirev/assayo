@@ -32,6 +32,7 @@ export default `
 § plugin.team_departments.employments.losses: days without commits
 § plugin.team_departments.employments.totalDays: Days in department
 § plugin.team_departments.employments.totalTasks: Tasks completed
+§ plugin.team_departments.banner.title: detailed department information
 § plugin.team_departments.details.title: Actual department data
 § plugin.team_departments.details.totalDays: work duration
 § plugin.team_departments.details.moneyInMonth: development cost per month

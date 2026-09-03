@@ -1,13 +1,12 @@
 export default `
-§ plugin.team_weeks.sidebar: By weeks
-§ plugin.team_weeks.title: Weekly statistics
-§ plugin.team_weeks.numberTasks: Number of tasks
-§ plugin.team_weeks.people: Number of people
-§ plugin.team_weeks.line: Line changes
-§ plugin.team_weeks.lossesDetails: Who did not commit
-§ plugin.team_weeks.add: added
-§ plugin.team_weeks.change: changed
-§ plugin.team_weeks.remove: removed
-§ plugin.team_weeks.hasCommits: had commits
-§ plugin.team_weeks.hasNotCommits: had no commits
+§ plugin.print.sidebar: Imprimir
+§ plugin.print.modal.title: ¿Qué debemos imprimir?
+§ plugin.print.modal.page: Página actual
+§ plugin.print.modal.type: Sección actual
+§ plugin.print.modal.all: Todas las estadísticas
+§ plugin.print.modal.cancel: Cancelar
+§ plugin.print.tableOfContents: Índice
+§ plugin.print.title: Informe del repositorio Git
+§ plugin.print.sub_title: «$1»
+§ plugin.print.description: Los datos del informe se obtuvieron del historial de commits.
 `;

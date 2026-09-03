@@ -1,6 +1,6 @@
 export default `
-§ plugin.team_release.sidebar: リリースリスト
-§ plugin.team_release.title: リリースリスト
+§ plugin.team_release.sidebar: リリース一覧
+§ plugin.team_release.title: リリース一覧
 § plugin.team_release.download: CHANGELOG.md
 § plugin.team_release.view.title: リリース
 § plugin.team_release.view.from: 作成日
@@ -13,5 +13,5 @@ export default `
 § plugin.team_release.pr.daysInReview: レビュー日数
 § plugin.team_release.pr.daysAwaitRelease: リリース終了までの日数
 § plugin.team_release.pr.mergeDate: マージ日
-§ plugin.team_release.pr.mergeAuthor: マージ担当者
+§ plugin.team_release.pr.mergeAuthor: マージした人
 `;

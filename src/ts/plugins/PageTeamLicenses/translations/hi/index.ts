@@ -1,13 +1,13 @@
 export default `
-§ plugin.team_weeks.sidebar: By weeks
-§ plugin.team_weeks.title: Weekly statistics
-§ plugin.team_weeks.numberTasks: Number of tasks
-§ plugin.team_weeks.people: Number of people
-§ plugin.team_weeks.line: Line changes
-§ plugin.team_weeks.lossesDetails: Who did not commit
-§ plugin.team_weeks.add: added
-§ plugin.team_weeks.change: changed
-§ plugin.team_weeks.remove: removed
-§ plugin.team_weeks.hasCommits: had commits
-§ plugin.team_weeks.hasNotCommits: had no commits
+§ plugin.team_weeks.sidebar: सप्ताहों के अनुसार
+§ plugin.team_weeks.title: साप्ताहिक सांख्यिकी
+§ plugin.team_weeks.numberTasks: कार्यों की संख्या
+§ plugin.team_weeks.people: लोगों की संख्या
+§ plugin.team_weeks.line: पंक्ति परिवर्तन
+§ plugin.team_weeks.lossesDetails: किसने commit नहीं किया
+§ plugin.team_weeks.add: जोड़ा गया
+§ plugin.team_weeks.change: बदला गया
+§ plugin.team_weeks.remove: हटाया गया
+§ plugin.team_weeks.hasCommits: commits थे
+§ plugin.team_weeks.hasNotCommits: commits नहीं थे
 `;

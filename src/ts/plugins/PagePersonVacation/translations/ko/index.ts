@@ -1,18 +1,18 @@
 export default `
-§ plugin.person_vacation.sidebar: Vacation schedule
-§ plugin.person_vacation.grant.title: Breakdown by year
-§ plugin.person_vacation.charts.title: Vacation analysis over time
-§ plugin.person_vacation.charts.total.title: vacation days
-§ plugin.person_vacation.charts.total.description: Transfers to another department are not taken into account.
-§ plugin.person_vacation.charts.money.title: vacation pay
-§ plugin.person_vacation.charts.money.description: Total over time. Average daily earnings are multiplied by the number of vacation days.
-§ plugin.person_vacation.charts.years: Vacation distribution by year
-§ plugin.person_vacation.details.title: Periods with a long absence of commits
-§ plugin.person_vacation.details.type: Type
-§ plugin.person_vacation.details.transfer: Transfer to another department
-§ plugin.person_vacation.details.vacation: Vacation
-§ plugin.person_vacation.details.author: Staff member
-§ plugin.person_vacation.details.from: from
-§ plugin.person_vacation.details.to: to
-§ plugin.person_vacation.details.duration: Duration
+§ plugin.person_vacation.sidebar: 휴가 일정
+§ plugin.person_vacation.grant.title: 연도별 내역
+§ plugin.person_vacation.charts.title: 전체 기간 휴가 분석
+§ plugin.person_vacation.charts.total.title: 휴가 일수
+§ plugin.person_vacation.charts.total.description: 다른 부서로의 전배는 반영되지 않습니다.
+§ plugin.person_vacation.charts.money.title: 휴가비
+§ plugin.person_vacation.charts.money.description: 전체 기간 합계. 평균 일급에 휴가 일수를 곱합니다.
+§ plugin.person_vacation.charts.years: 연도별 휴가 분포
+§ plugin.person_vacation.details.title: commits가 오래 없었던 기간
+§ plugin.person_vacation.details.type: 유형
+§ plugin.person_vacation.details.transfer: 다른 부서로의 전배
+§ plugin.person_vacation.details.vacation: 휴가
+§ plugin.person_vacation.details.author: 직원
+§ plugin.person_vacation.details.from: 시작
+§ plugin.person_vacation.details.to: 종료
+§ plugin.person_vacation.details.duration: 기간
 `;

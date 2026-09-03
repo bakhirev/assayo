@@ -333,10 +333,10 @@ export default `
 § page.person.business.time.dismissed: (licencié)
 § page.person.business.time.staff: (pas dans l'équipe)
 § page.person.business.achievements: Les progrès
-§ page.person.changes.title: Les progrès
+§ page.person.changes.title: Modifications
 § page.person.changes.description: 
  Avec certaines formes de formatage, git marque les lignes comme “supprimées” et “ajoutées”, bien qu’en réalité, elles aient été “modifiées”. Par conséquent, si vous effectuez un grand refactoring, git peut montrer une petite quantité de modifications dans les statistiques, et le résultat réel sera marqué comme un bond dans les lignes “supprimées” et “ajoutées”.
-§ page.person.changes.description: La liste des commits et le nombre de modifications qu'ils ont apportées au cours de cette journée:
+§ page.person.changes.description: Liste des commits et le nombre de modifications qu’ils contiennent pour ce jour :
 § page.person.commits.title: Liste des commits:
 § page.person.money.title.total: Pour tous les temps
 § page.person.money.title.middle: Valeur moyenne
@@ -368,8 +368,8 @@ export default `
 § page.person.week.workDays: Jours avec commits
 § page.person.week.taskInDay: Tâches par jour
 § page.person.week.days: jours
-§ page.person.week.workDay: jours de semaine
-§ page.person.week.weekends: congés
+§ page.person.week.workDay: jours ouvrés
+§ page.person.week.weekends: week-ends
 § page.sponsor.title: Please, support this project
 § page.sponsor.share.description: Tell about our [project|https://github.com/bakhirev/assayo] on social networks! You can share [article|https://habr.com/ru/articles/852782/], [post|https://www.reddit.com/r/ITManagers/comments/1e5k291/the_visualization_and_analysis_of_git_commit/] or [video|https://www.youtube.com/watch?v=jwCp_-bhrCQ].
 § page.sponsor.share.button: Copy the link
