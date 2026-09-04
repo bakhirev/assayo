@@ -5,7 +5,7 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { DataLoader } from 'ts/components/DataLoader';
 import sendFakeRequest from 'ts/components/DataLoader/helpers/formatter';
 import type Filter from 'ts/components/Layout/Search/interfaces/Filter';
-import { Title, NothingFound, SectionWithBg, Search as LayoutSearch, If } from 'ts/components/Layout';
+import { BannerWithInfo, Title, NothingFound, SectionWithBg, Search as LayoutSearch, If } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 
 import View from './components/View';
@@ -26,6 +26,11 @@ const Tempo = observer(({ user, mode }: PageOptions): React.ReactElement => {
 
   return (
     <>
+      <BannerWithInfo
+        mode="warning"
+        title="Экспериментальный плагин"
+        description="Этот раздел не входит в стандартную поставку Assayo. Данные для него формируются отдельным скриптом вне логов системы контроля версий. По всем вопросам связанным с приобретением лицензии и внедрением Assayo в вашей организации обращайтесь к региональному дистрибьютеру (см. контакты)."
+      />
       <Title title="common.filters" />
       <LayoutSearch
         elements={user?.author ? [] : ['author']}

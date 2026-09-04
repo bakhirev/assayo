@@ -14,7 +14,7 @@ import statisticsByPackageJson from 'ts/helpers/StatisticsByPackageJson';
 const Page = observer(({
   mode,
 }: PageOptions): React.ReactElement | null => {
-  const rows = statisticsByPackageJson.packages.totalInfo;
+  const rows = statisticsByPackageJson?.packages?.totalInfo || [];
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
 
   return (

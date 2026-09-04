@@ -1,4 +1,5 @@
 export { default as Banner } from './Banner';
+export { default as BannerWithInfo } from './BannerWithInfo';
 export { default as CardWithIcon } from './CardWithIcon';
 export { default as SmallCardWithIcon } from './SmallCardWithIcon';
 export { default as CardWithBanner } from './CardWithIcon/components/Banner';
