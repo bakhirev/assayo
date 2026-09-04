@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         group: 10,
         order: 50,
         link: '/team/company',
-        title: 'sidebar.team.company',
+        title: 'plugin.team_companies.sidebar',
         icon: './assets/menu/company.svg',
       },
     ];

@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         group: 10,
         order: 20,
         link: '/person/money/',
-        title: 'sidebar.person.money',
+        title: 'plugin.person_money.sidebar',
         icon: './assets/menu/per_money.svg',
       },
     ];

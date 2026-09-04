@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         group: 10,
         order: 70,
         link: '/team/country',
-        title: 'sidebar.team.country',
+        title: 'plugin.team_country.sidebar',
         icon: './assets/menu/country.svg',
       },
     ];

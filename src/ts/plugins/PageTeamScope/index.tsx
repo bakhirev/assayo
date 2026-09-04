@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         group: 10,
         order: 20,
         link: '/team/scope',
-        title: 'sidebar.team.scope',
+        title: 'plugin.team_scope.sidebar',
         icon: './assets/menu/feat.svg',
       },
     ];

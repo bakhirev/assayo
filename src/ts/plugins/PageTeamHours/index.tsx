@@ -18,7 +18,7 @@ export default class Plugin implements IPlugin {
         group: 20,
         order: 120,
         link: '/team/hours',
-        title: 'sidebar.team.hours',
+        title: 'plugin.team_hours.sidebar',
         icon: './assets/menu/hours.svg',
       },
       {
@@ -26,7 +26,7 @@ export default class Plugin implements IPlugin {
         group: 20,
         order: 70,
         link: '/person/hours/',
-        title: 'sidebar.person.hours',
+        title: 'plugin.team_hours.sidebar',
         icon: './assets/menu/hours.svg',
       },
     ];
