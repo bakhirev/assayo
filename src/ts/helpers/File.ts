@@ -1,9 +1,9 @@
 import React from 'react';
-import { utils, writeFile } from 'xlsx';
 
 import { t } from 'ts/helpers/Localization';
 import { ColumnTypes, IColumn } from '../components/Table/interfaces/Column';
 import { getDate, getDateForExcel } from './formatter';
+import { getXMLForExcel } from './exportToExcel';
 
 export function downloadFile(file: Blob, fileName: string) {
   const link = document.createElement('a');
@@ -101,10 +101,9 @@ export function downloadExcel(
     ...list.map(formatter),
   ];
 
-  const ws = utils.aoa_to_sheet(table);
-  ws['!cols'] = columns.map(() => ({ width: 20 }));
-
-  const wb = utils.book_new();
-  utils.book_append_sheet(wb, ws, 'Sheet1');
-  writeFile(wb, `${name}.xlsx`);
+  const type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  const xlsxFile = getXMLForExcel(table);
+  if (!xlsxFile) return;
+  const blob = new Blob([xlsxFile], { type });
+  return downloadFile(blob, `${name}.xlsx`);
 }
