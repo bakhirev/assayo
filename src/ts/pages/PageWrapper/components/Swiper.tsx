@@ -106,7 +106,7 @@ interface IPageSwiperProps {
 export default function PageSwiper({ children }: IPageSwiperProps) {
   const { type, page, userId } = useParams<any>();
   const navigate = useNavigate();
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const ref = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
   const [moveEvent, setMoveEvent] = useState<any>(null);
   const left = getLeftWithLimits(moveEvent);
 

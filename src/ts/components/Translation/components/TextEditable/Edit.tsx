@@ -10,7 +10,7 @@ interface EditProps {
 }
 
 function Edit({ defaultValue, autoClose, height, onChange }: EditProps) {
-  const ref = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
+  const ref = useRef<HTMLTextAreaElement>(null) as React.MutableRefObject<HTMLTextAreaElement>;
   const [value, setValue] = useState<string>(defaultValue);
 
   useEffect(() => {
@@ -35,9 +35,5 @@ function Edit({ defaultValue, autoClose, height, onChange }: EditProps) {
     />
   );
 }
-
-Edit.defaultProps = {
-  autoClosing: true,
-};
 
 export default Edit;

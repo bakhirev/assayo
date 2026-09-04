@@ -15,7 +15,7 @@ import { useWindowResize } from 'ts/helpers/DOMEvents';
 import style from './styles/index.module.scss';
 
 interface ITableProps {
-  rows: any[];
+  rows?: any[];
   sort?: ISort[];
   headless?: boolean;
   disabledRow?: (row: any) => boolean;
@@ -28,7 +28,7 @@ function Table({
   sort = [],
   headless,
   disabledRow,
-  updateSort,
+  updateSort = () => {},
   children,
 }: ITableProps): React.ReactElement | null {
   const [offsetWidth, setOffsetWidth] = useState<number>(0);
@@ -36,7 +36,7 @@ function Table({
 
   if (!rows || !rows.length) return null;
 
-  const refTable = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+  const refTable = React.useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
   const currentWidth = refTable?.current?.offsetWidth;
 
   useEffect(() => {
@@ -88,12 +88,5 @@ function Table({
     </div>
   );
 }
-
-Table.defaultProps = {
-  rows: [],
-  sort: [],
-  updateSort: () => {
-  },
-};
 
 export default Table;

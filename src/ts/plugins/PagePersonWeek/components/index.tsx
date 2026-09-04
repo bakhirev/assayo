@@ -107,10 +107,6 @@ function WeekView({ response, updateSort, name, mode }: IWeekViewProps) {
   );
 }
 
-WeekView.defaultProps = {
-  response: undefined,
-};
-
 const Week = observer(({
   user,
   mode,

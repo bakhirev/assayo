@@ -84,7 +84,7 @@ interface IDescriptionProps {
 }
 
 function Description({
-  text,
+  text = '',
   style,
   className,
   translationId,
@@ -136,9 +136,5 @@ function Description({
     ? wrapper(translationId, items) as ReactElement
     : (<>{items}</>);
 }
-
-Description.defaultProps = {
-  text: '',
-};
 
 export default Description;

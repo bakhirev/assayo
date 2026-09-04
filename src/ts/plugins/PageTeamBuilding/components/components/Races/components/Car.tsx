@@ -23,8 +23,8 @@ interface ICarProps {
 function Car({
   title,
   duration,
-  type,
-  canStart,
+  type = '',
+  canStart = false,
 }: ICarProps): React.ReactElement | null {
   const modeIndex = getRandom(animations.length - 1);
   const [mode] = useState<string>(animations[modeIndex]);
@@ -54,10 +54,5 @@ function Car({
     </div>
   );
 }
-
-Car.defaultProps = {
-  type: '',
-  canStart: false,
-};
 
 export default Car;

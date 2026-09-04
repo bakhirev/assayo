@@ -17,7 +17,7 @@ function Line({
   item,
   value,
   className,
-}: ILineProps): JSX.Element | null {
+}: ILineProps): React.JSX.Element | null {
   const { t } = useTranslation();
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', item)

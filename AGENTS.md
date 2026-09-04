@@ -4,11 +4,11 @@ Assayo is a client-side React app that turns a Git log dump into an HTML report.
 
 ## Stack
 
-- React 18 + TypeScript, Create React App with `react-app-rewired`
+- React 19 + TypeScript, Vite
 - HashRouter (`react-router-dom` v6)
 - MobX (`mobx-react-lite` observers)
 - i18next plus a custom `§ key: value` translation format
-- SCSS modules (webpack `localIdentName` is `[local]`, so class names stay as written)
+- SCSS modules (`generateScopedName` is `[local]`, so class names stay as written)
 - Path alias: `baseUrl` is `src`, so import from `ts/...` (e.g. `ts/store/StatisticsByCommitsStore`)
 
 ## Commands
@@ -26,7 +26,7 @@ npm run css:check        # stylelint
 npm run css:fix
 ```
 
-Windows: `dev` uses `set PORT=3006 && ...`. ESLint enforces Unix line endings (`linebreak-style: unix`). JSX: one prop per line, callbacks last (`react/jsx-sort-props`). Style: Airbnb TypeScript + React.
+Windows: `dev` uses Vite on port 3006. ESLint enforces Unix line endings (`linebreak-style: unix`). JSX: one prop per line, callbacks last (`react/jsx-sort-props`). Style: Airbnb TypeScript + React.
 
 Do not commit generated files under `/build` unless the user asks.
 
@@ -75,7 +75,7 @@ Locales: `ar`, `de`, `en`, `es`, `fr`, `he`, `hi`, `ja`, `ko`, `pt`, `ru`, `zh`.
 - Prefer existing layout/table/chart components over new one-off UI.
 - CSS: colocated `*.module.scss`. Keep class names stable (they are not hashed).
 - Types under `src/ts/interfaces/`. Avoid `any` except where the codebase already does (stats objects).
-- Tests are sparse (`react-app-rewired test`). Add a test only when it protects non-obvious logic.
+- Tests are sparse (`npm test` / Vitest). Add a test only when it protects non-obvious logic.
 - Do not reformat unrelated files. Do not expand README unless asked.
 
 ## Local report

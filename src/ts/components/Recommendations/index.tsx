@@ -73,8 +73,4 @@ function Recommendations({
   );
 }
 
-Recommendations.defaultProps = {
-  mode: undefined,
-};
-
 export default Recommendations;

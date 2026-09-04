@@ -13,8 +13,8 @@ interface ITitleProps {
 function Title({
   id,
   title,
-  addPadding,
-  className,
+  addPadding = false,
+  className = '',
 }: ITitleProps) {
   const { t } = useTranslation();
   return (
@@ -30,10 +30,5 @@ function Title({
     </>
   );
 }
-
-Title.defaultProps = {
-  addPadding: false,
-  className: '',
-};
 
 export default Title;

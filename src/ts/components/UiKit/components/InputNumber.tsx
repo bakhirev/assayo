@@ -21,7 +21,7 @@ function UiKitInputNumber({
 
   disabled,
   value,
-  placeholder,
+  placeholder = 'Введите значение',
   debounceDelay,
   onChange,
   onChangeDebounce,
@@ -60,9 +60,5 @@ function UiKitInputNumber({
     </Wrapper>
   );
 }
-
-UiKitInputNumber.defaultProps = {
-  placeholder: 'Введите значение',
-};
 
 export default UiKitInputNumber;

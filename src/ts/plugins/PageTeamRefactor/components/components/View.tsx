@@ -107,9 +107,5 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-View.defaultProps = {
-  response: undefined,
-};
-
 export default View;
 

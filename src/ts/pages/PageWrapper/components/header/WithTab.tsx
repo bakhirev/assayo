@@ -7,7 +7,7 @@ import plugins from 'ts/helpers/Plugins';
 import style from './index.module.scss';
 
 function TabHeader() {
-  const tabs = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const tabs = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
   const navigate = useNavigate();
   const { type, page, userId } = useParams<any>();
   const options = type === 'team'

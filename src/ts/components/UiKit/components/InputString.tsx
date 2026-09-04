@@ -21,7 +21,7 @@ function UiKitInputString({
   className,
 
   value,
-  placeholder,
+  placeholder = 'Введите значение',
   debounceDelay,
   onChange,
   onChangeDebounce,
@@ -60,9 +60,5 @@ function UiKitInputString({
     </Wrapper>
   );
 }
-
-UiKitInputString.defaultProps = {
-  placeholder: 'Введите значение',
-};
 
 export default UiKitInputString;

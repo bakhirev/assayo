@@ -47,8 +47,4 @@ function TempoView({
   );
 }
 
-TempoView.defaultProps = {
-  response: undefined,
-};
-
 export default TempoView;

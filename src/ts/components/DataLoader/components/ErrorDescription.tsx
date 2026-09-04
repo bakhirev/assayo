@@ -4,7 +4,7 @@ interface IErrorDescriptionProps {
   response?: any | null | undefined;
 }
 
-function ErrorDescription({ response }: IErrorDescriptionProps) {
+function ErrorDescription({ response = null }: IErrorDescriptionProps) {
   return (
     <div className="data-loader-error">
       <div title="Запрос не может быть выполнен">
@@ -15,9 +15,5 @@ function ErrorDescription({ response }: IErrorDescriptionProps) {
     </div>
   );
 }
-
-ErrorDescription.defaultProps = {
-  response: null,
-};
 
 export default ErrorDescription;

@@ -53,8 +53,4 @@ function Details({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Details.defaultProps = {
-  response: undefined,
-};
-
 export default Details;

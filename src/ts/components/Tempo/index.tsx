@@ -36,9 +36,4 @@ function Tempo({
   );
 }
 
-Column.defaultProps = {
-  order: [],
-  author: '',
-};
-
 export default Tempo;

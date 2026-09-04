@@ -13,14 +13,14 @@ interface ILineProps {
 }
 
 function Line({
-  value,
-  width,
-  title,
-  description,
-  suffix,
-  color,
-  className,
-  formatter,
+  value = 0,
+  width = 0,
+  title = '',
+  description = '',
+  suffix = '',
+  color = null,
+  className = '',
+  formatter = (v: any) => v,
 }: ILineProps): React.ReactElement | null {
   const { text } = useTranslation();
   if (!width || width <= 0) return null;
@@ -50,16 +50,5 @@ function Line({
     </div>
   );
 }
-
-Line.defaultProps = {
-  value: 0,
-  width: 0,
-  title: '',
-  description: '',
-  suffix: '',
-  color: null,
-  className: '',
-  formatter: (v: any) => v,
-};
 
 export default Line;

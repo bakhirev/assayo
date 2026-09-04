@@ -24,11 +24,11 @@ function LineChart({
   value,
   details,
   max,
-  suffix,
+  suffix = 'commits',
   order,
   limit,
   formatter,
-  className,
+  className = '',
 }: LineChartProps): React.ReactElement | null {
   if (value === 0 || (!value && !details)) return null;
 
@@ -80,14 +80,5 @@ function LineChart({
     </div>
   );
 }
-
-LineChart.defaultProps = {
-  max: undefined,
-  suffix: 'commits',
-  value: undefined,
-  formatter: undefined,
-  details: undefined,
-  className: '',
-};
 
 export default LineChart;

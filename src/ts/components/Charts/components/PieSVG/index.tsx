@@ -64,8 +64,4 @@ function PieSVG({
   );
 }
 
-PieSVG.defaultProps = {
-  className: '',
-};
-
 export default PieSVG;

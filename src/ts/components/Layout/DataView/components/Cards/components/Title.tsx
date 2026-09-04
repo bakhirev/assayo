@@ -16,7 +16,7 @@ function LineTitle({
   item,
   className,
   value,
-}: ILineProps): JSX.Element {
+}: ILineProps): React.JSX.Element {
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', item)
     : column.className;

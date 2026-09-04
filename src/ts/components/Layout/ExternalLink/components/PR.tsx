@@ -9,7 +9,7 @@ interface PRLinkProps {
   className?: string,
 }
 
-function PRLink({ prId, text, className }: PRLinkProps) {
+function PRLink({ prId = '', text = '', className = '' }: PRLinkProps) {
   if (!prId) return null;
 
   const prefix = applicationConfig?.config?.prefixForPR || '/';
@@ -25,11 +25,5 @@ function PRLink({ prId, text, className }: PRLinkProps) {
     />
   );
 }
-
-PRLink.defaultProps = {
-  prId: '',
-  text: '',
-  className: '',
-};
 
 export default PRLink;

@@ -8,7 +8,7 @@ interface ISideBarMenuGapProps {
 }
 
 function SideBarMenuGap({
-  title,
+  title = '',
 }: ISideBarMenuGapProps) {
   const { t } = useTranslation();
   return (
@@ -17,9 +17,5 @@ function SideBarMenuGap({
     </div>
   );
 }
-
-SideBarMenuGap.defaultProps = {
-  title: '',
-};
 
 export default SideBarMenuGap;

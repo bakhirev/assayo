@@ -108,8 +108,4 @@ function PageWrapper({ children }: IPageWrapper) {
     : (<DesktopView>{children}</DesktopView>);
 }
 
-PageWrapper.defaultProps = {
-  selectedMenuItem: '',
-};
-
 export default PageWrapper;

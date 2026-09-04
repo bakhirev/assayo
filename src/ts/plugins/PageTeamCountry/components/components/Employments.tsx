@@ -65,8 +65,4 @@ export function Employments({ response, updateSort, rowsForExcel, mode }: ViewPr
   );
 }
 
-Employments.defaultProps = {
-  response: undefined,
-};
-
 export default Employments;

@@ -11,8 +11,8 @@ import style from './index.module.scss';
 interface IInfiniteScrollProps {
   response?: IPagination<any> | null | undefined;
   children?: ReactNode;
-  to?: string;
-  from?: string;
+  to?: string | null;
+  from?: string | null;
   state?: string;
   store?: IDataLoaderStore | null;
 }
@@ -36,13 +36,13 @@ function getScrollEventTarget(element: any, offsetTop: number = 0) {
 }
 
 function InfiniteScroll({
-  response,
-  children,
-  to,
-  from,
-  state,
-  store,
-}: IInfiniteScrollProps): JSX.Element | null {
+  response = null,
+  children = null,
+  to = null,
+  from = null,
+  state = DataLoaderState.INIT,
+  store = null,
+}: IInfiniteScrollProps): React.JSX.Element | null {
   if (!response) return null;
   const ref = useRef(null);
   const {
@@ -104,14 +104,5 @@ function InfiniteScroll({
     </>
   );
 }
-
-InfiniteScroll.defaultProps = {
-  response: null,
-  children: null,
-  state: DataLoaderState.INIT,
-  to: null,
-  from: null,
-  store: null,
-};
 
 export default InfiniteScroll;

@@ -24,7 +24,7 @@ function Body({
   disabledRow,
   columns,
   tableWidth,
-  className,
+  className = '',
   rowsConfig,
   updateRowsConfig,
 }: IBodyProps) {
@@ -103,9 +103,5 @@ function Body({
     </>
   );
 }
-
-Body.defaultProps = {
-  className: '',
-};
 
 export default Body;

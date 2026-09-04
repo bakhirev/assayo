@@ -21,7 +21,7 @@ function GanttChart({
   markersText,
   markersLine,
   formatter,
-  className,
+  className = '',
   mode,
 }: GanttChartProps): React.ReactElement | null {
   const getPosition = formatter || defaultFormatter;
@@ -72,9 +72,5 @@ function GanttChart({
     </div>
   );
 }
-
-GanttChart.defaultProps = {
-  className: '',
-};
 
 export default GanttChart;

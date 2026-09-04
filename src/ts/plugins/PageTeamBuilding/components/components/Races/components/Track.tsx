@@ -24,8 +24,8 @@ function Track({
   position,
   speed,
   taskInDay,
-  type,
-  canStart,
+  type = '',
+  canStart = false,
 }: ITrackProps): React.ReactElement | null {
   if (!title) return null;
   const duration = DURATION.MIN + (DURATION.BASE * (1 - speed)) * 3;
@@ -53,10 +53,5 @@ function Track({
     </div>
   );
 }
-
-Track.defaultProps = {
-  type: '',
-  canStart: false,
-};
 
 export default Track;

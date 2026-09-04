@@ -83,8 +83,4 @@ export function DependenciesChart({ packages }: DependenciesChartProps) {
   );
 }
 
-DependenciesChart.defaultProps = {
-  response: undefined,
-};
-
 export default DependenciesChart;

@@ -25,7 +25,7 @@ function Legend({
   color,
 }: ILegendProps): React.ReactElement | null {
   const { t } = useTranslation();
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const ref = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
   const [columnCount, setColumnCount] = useState<number>(1);
 
   useLayoutEffect(() => {

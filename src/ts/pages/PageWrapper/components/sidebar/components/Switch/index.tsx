@@ -10,7 +10,7 @@ interface ISwitchProps {
 }
 
 function Switch({
-  value,
+  value = '',
   options,
   onChange,
 }: ISwitchProps) {
@@ -44,10 +44,5 @@ function Switch({
     </div>
   );
 }
-
-Switch.defaultProps = {
-  value: '',
-  onChange: undefined,
-};
 
 export default Switch;

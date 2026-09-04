@@ -17,8 +17,8 @@ export function downloadFile(file: Blob, fileName: string) {
 
 function getColumnsFromChildren(children: React.ReactNode) {
   const columns = React.Children.map(children, (child: React.ReactNode) => {
-    if (!React.isValidElement(child)) return null;
-    const template = child?.props?.template || ColumnTypes.STRING;
+    if (!React.isValidElement<IColumn>(child)) return null;
+    const template = child.props.template || ColumnTypes.STRING;
     return {
       ...child.props as object,
       template,

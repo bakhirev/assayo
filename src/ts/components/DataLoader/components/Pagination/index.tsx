@@ -19,10 +19,10 @@ interface ISimplePaginationProps {
 }
 
 function SimplePagination({
-  response,
-  state,
-  pagination,
-  store,
+  response = null,
+  state = DataLoaderState.INIT,
+  pagination = {},
+  store = null,
 }: ISimplePaginationProps) {
   const { t } = useTranslation();
   if (!response) return null;
@@ -40,7 +40,6 @@ function SimplePagination({
     || pageNumber > totalPages
     || totalPages === 1
     || !totalElements) return null;
-
 
   const canShowMore = !(state === DataLoaderState.INIT || pageNumber >= (totalPages - 1));
 
@@ -140,12 +139,5 @@ function SimplePagination({
     </nav>
   );
 }
-
-SimplePagination.defaultProps = {
-  response: null,
-  state: DataLoaderState.INIT,
-  store: null,
-  pagination: {},
-};
 
 export default SimplePagination;

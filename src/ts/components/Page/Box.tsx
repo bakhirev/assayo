@@ -34,8 +34,4 @@ function PageBox({
   );
 }
 
-PageBox.defaultProps = {
-  className: undefined,
-};
-
 export default PageBox;

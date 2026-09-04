@@ -49,9 +49,5 @@ function Tasks({ response, updateSort, rowsForExcel }: TasksProps) {
   );
 }
 
-Tasks.defaultProps = {
-  response: undefined,
-};
-
 export default Tasks;
 

@@ -19,11 +19,11 @@ interface ICardWithIconProps {
 
 function CardWithIcon({
   title,
-  description,
+  description = '',
   value,
-  suffix,
+  suffix = '',
   icon,
-  size,
+  size = 'm',
   scoring,
 }: ICardWithIconProps): React.ReactElement | null {
   const { t, text } = useTranslation();
@@ -68,13 +68,5 @@ function CardWithIcon({
     </figure>
   );
 }
-
-CardWithIcon.defaultProps = {
-  description: '',
-  suffix: '',
-  icon: undefined,
-  size: 'm',
-  scoring: undefined,
-};
 
 export default CardWithIcon;

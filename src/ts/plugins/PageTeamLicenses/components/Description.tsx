@@ -26,8 +26,4 @@ export function Description({ response, updateSort, rowsForExcel, mode }: ViewPr
   );
 }
 
-Description.defaultProps = {
-  response: undefined,
-};
-
 export default Description;

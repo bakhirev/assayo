@@ -18,10 +18,10 @@ interface IUiKitSelectWithButtonsProps extends IUiKitWrapperProps {
 }
 
 function UiKitSelectWithButtons({
-  className,
+  className = '',
   value,
   options,
-  reverse,
+  reverse = false,
   onChange,
 }: IUiKitSelectWithButtonsProps) {
   let index = options.map((item: any) => item.id).indexOf(value);
@@ -70,10 +70,5 @@ function UiKitSelectWithButtons({
     </div>
   );
 }
-
-UiKitSelectWithButtons.defaultProps = {
-  reverse: false,
-  className: '',
-};
 
 export default UiKitSelectWithButtons;

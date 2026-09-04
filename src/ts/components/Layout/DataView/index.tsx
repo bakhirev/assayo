@@ -38,7 +38,7 @@ function DataView({
   className,
   fullScreenMode = '',
   disabledRow,
-  updateSort,
+  updateSort = () => {},
   children,
 }: IDataViewProps): React.ReactElement | null {
   const { text } = useTranslation();
@@ -141,14 +141,5 @@ function DataView({
     </>
   );
 }
-
-DataView.defaultProps = {
-  rows: [],
-  sort: [],
-  type: undefined,
-  columnCount: undefined,
-  updateSort: () => {
-  },
-};
 
 export default DataView;

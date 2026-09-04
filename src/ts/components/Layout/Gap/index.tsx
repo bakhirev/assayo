@@ -22,8 +22,8 @@ function getSize(key?: string | number) {
 }
 
 function Gap({
-  width,
-  height,
+  width = '',
+  height = '',
 }: GapProps) {
   const style = {} as any;
   if (width) style.width = getSize(width);
@@ -32,10 +32,5 @@ function Gap({
     <div  style={style}/>
   );
 }
-
-Gap.defaultProps = {
-  width: '',
-  height: '',
-};
 
 export default Gap;

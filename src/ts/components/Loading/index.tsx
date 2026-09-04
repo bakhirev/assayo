@@ -6,7 +6,7 @@ interface ILoadingProps {
   height?: number;
 }
 
-function Loading({ height }: ILoadingProps) {
+function Loading({ height = 0 }: ILoadingProps) {
   return (
     <div
       className={style.loading}
@@ -18,9 +18,5 @@ function Loading({ height }: ILoadingProps) {
     </div>
   );
 }
-
-Loading.defaultProps = {
-  height: 0,
-};
 
 export default Loading;

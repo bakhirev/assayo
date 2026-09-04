@@ -4,22 +4,22 @@ import { IColumn } from '../interfaces/Column';
 
 function Column({
   template,
-  title,
+  title = '',
   properties,
-  prefixes,
-  suffixes,
+  prefixes = '',
+  suffixes = '',
   formatter,
-  className,
+  className = '',
   style,
-  isFixed,
-  isSortable,
-  isResizable,
-  isDraggable,
-  isShow,
+  isFixed = false,
+  isSortable = false,
+  isResizable = false,
+  isDraggable = false,
+  isShow = true,
   minWidth,
   width,
   onClick,
-}: IColumn): JSX.Element {
+}: IColumn): React.JSX.Element {
   return (
     <>
       {{
@@ -43,22 +43,5 @@ function Column({
     </>
   );
 }
-
-Column.defaultProps = {
-  title: '',
-  prefixes: [''],
-  suffixes: [''],
-  formatter: undefined,
-  className: '',
-  isDisabled: false,
-  isFixed: false,
-  isSortable: false,
-  isResizable: false,
-  isDraggable: false,
-  isShow: true,
-  minWidth: undefined,
-  width: undefined,
-  onClick: undefined,
-};
 
 export default Column;

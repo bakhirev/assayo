@@ -34,14 +34,6 @@ import { updateExchangeRate } from './ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import sourceData from 'ts/store/SourceData';
 
-// eslint-disable-next-line
-// @ts-ignore
-if (module.hot) {
-  // eslint-disable-next-line
-  // @ts-ignore
-  module.hot.accept();
-}
-
 localization.addTranslationsForLanguage('de', de);
 localization.addTranslationsForLanguage('en', en);
 localization.addTranslationsForLanguage('es', es);

@@ -78,8 +78,4 @@ function Types({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Types.defaultProps = {
-  response: undefined,
-};
-
 export default Types;

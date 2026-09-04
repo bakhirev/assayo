@@ -11,11 +11,11 @@ interface ILockerProps {
 }
 
 function Locker({
-  delay,
+  delay = 60,
   callback,
-  className,
-  sectorClassName,
-  borderClassName,
+  className = '',
+  sectorClassName = '',
+  borderClassName = '',
 }: ILockerProps): React.ReactElement | null {
   const [dash, setDash] = useState<string>('');
   const [value, setValue] = useState<number>(delay);
@@ -72,13 +72,5 @@ function Locker({
     </div>
   );
 }
-
-Locker.defaultProps = {
-  delay: 60,
-  callback: undefined,
-  className: '',
-  sectorClassName: '',
-  borderClassName: '',
-};
 
 export default Locker;

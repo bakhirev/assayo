@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const path = require('node:path');
 
 const YandexMetrika = `
 <script type="text/javascript" >
@@ -29,7 +30,8 @@ const GoogleAnalytics = `
 </script>
 `;
 
-const html = fs.readFileSync('../build/index.html', 'utf8');
+const htmlPath = path.join(__dirname, '..', 'build', 'index.html');
+const html = fs.readFileSync(htmlPath, 'utf8');
 const text = html
   .replace(/<\/body>/gim, `\n${YandexMetrika}\n${GoogleAnalytics}\n</body>`);
-fs.writeFileSync('../build/index.html', text);
+fs.writeFileSync(htmlPath, text);

@@ -21,7 +21,7 @@ function Cards({
   children,
 }: ICardsProps): React.ReactElement | null {
   const [cardNumber, setCardNumber] = useState<number>(columnCount || 4);
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const ref = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
 
   if (!items || !items.length) return null;
 
@@ -61,11 +61,5 @@ function Cards({
     </div>
   );
 }
-
-Cards.defaultProps = {
-  items: [],
-  className: undefined,
-  columnCount: undefined,
-};
 
 export default Cards;

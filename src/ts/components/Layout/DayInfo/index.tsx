@@ -67,8 +67,4 @@ function DayInfo({ timestamp, events, author }: DayInfoProps): React.ReactElemen
   );
 }
 
-DayInfo.defaultProps = {
-  events: undefined,
-};
-
 export default DayInfo;

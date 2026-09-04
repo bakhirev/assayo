@@ -17,11 +17,11 @@ interface ILoadMoreProps {
 }
 
 function LoadMore({
-  response,
-  state,
-  store,
-  className,
-  title,
+  response = null,
+  state = DataLoaderState.INIT,
+  store = null,
+  className = '',
+  title = '',
 }: ILoadMoreProps) {
   if (!response) return null;
   const {
@@ -54,13 +54,5 @@ function LoadMore({
     </div>
   );
 }
-
-LoadMore.defaultProps = {
-  response: null,
-  className: '',
-  title: '',
-  state: DataLoaderState.INIT,
-  store: null,
-};
 
 export default LoadMore;

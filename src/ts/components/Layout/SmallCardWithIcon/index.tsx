@@ -16,7 +16,7 @@ interface SmallCardWithIconProps {
 
 function SmallCardWithIcon({
   title,
-  description,
+  description = '',
   value,
   icon,
   scoring,
@@ -29,7 +29,6 @@ function SmallCardWithIcon({
   const className = style.card_with_icon_small_value;
   let help = text(description);
   if (icon) help = '';
-
 
   const isStringArray = Array.isArray(value) && typeof value?.[0] === 'string';
   const values = isStringArray
@@ -74,10 +73,5 @@ function SmallCardWithIcon({
     </figure>
   );
 }
-
-SmallCardWithIcon.defaultProps = {
-  description: '',
-  icon: undefined,
-};
 
 export default SmallCardWithIcon;

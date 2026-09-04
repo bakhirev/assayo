@@ -45,8 +45,4 @@ function Fly({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Fly.defaultProps = {
-  response: undefined,
-};
-
 export default Fly;

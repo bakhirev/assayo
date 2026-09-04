@@ -63,9 +63,4 @@ function Anonymous({
   );
 }
 
-Anonymous.defaultProps = {
-  mode: undefined,
-  response: undefined,
-};
-
 export default Anonymous;

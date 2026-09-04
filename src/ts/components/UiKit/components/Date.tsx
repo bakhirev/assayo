@@ -24,7 +24,7 @@ function UiKitDate({
   className,
 
   value,
-  placeholder,
+  placeholder = 'Введите значение',
   onChange,
 }: IUiKitSelectProps) {
   return (
@@ -47,9 +47,5 @@ function UiKitDate({
     </Wrapper>
   );
 }
-
-UiKitDate.defaultProps = {
-  placeholder: 'Введите значение',
-};
 
 export default UiKitDate;

@@ -8,7 +8,7 @@ interface TaskLinkProps {
   className?: string,
 }
 
-function TaskLink({ task, className }: TaskLinkProps) {
+function TaskLink({ task = '', className = '' }: TaskLinkProps) {
   if (!task) return null;
 
   const prefix = applicationConfig?.config?.prefixForTask || '/';
@@ -24,10 +24,5 @@ function TaskLink({ task, className }: TaskLinkProps) {
     />
   );
 }
-
-TaskLink.defaultProps = {
-  task: '',
-  className: '',
-};
 
 export default TaskLink;

@@ -154,8 +154,4 @@ function Departments({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Departments.defaultProps = {
-  response: undefined,
-};
-
 export default Departments;

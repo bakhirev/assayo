@@ -19,9 +19,9 @@ function UiKitInputRange({
   className,
 
   value,
-  min,
-  max,
-  placeholder,
+  min = 0,
+  max = 100,
+  placeholder = 'Введите значение',
   onChange,
 }: IUiKitInputRangeProps) {
   return (
@@ -46,11 +46,5 @@ function UiKitInputRange({
     </Wrapper>
   );
 }
-
-UiKitInputRange.defaultProps = {
-  placeholder: 'Введите значение',
-  min: 0,
-  max: 100,
-};
 
 export default UiKitInputRange;

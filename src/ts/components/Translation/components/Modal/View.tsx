@@ -32,8 +32,4 @@ export function View({ response }: ViewProps) {
   );
 }
 
-View.defaultProps = {
-  response: undefined,
-};
-
 export default View;

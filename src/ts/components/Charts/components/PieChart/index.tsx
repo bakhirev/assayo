@@ -16,7 +16,7 @@ interface IPieChartProps {
   description?: string;
   options?: IOptions;
   value?: number;
-  details: IHashMap<number>;
+  details?: IHashMap<number>;
   max?: number;
   order?: string[];
   limit?: number;
@@ -27,7 +27,7 @@ interface IPieChartProps {
 }
 
 function PieChart({
-  title,
+  title = '',
   description,
   value,
   details,
@@ -37,7 +37,7 @@ function PieChart({
   order,
   limit,
   center,
-  className,
+  className = '',
 }: IPieChartProps): React.ReactElement | null {
   if (!details) return null;
 
@@ -89,12 +89,5 @@ function PieChart({
     </div>
   );
 }
-
-PieChart.defaultProps = {
-  value: undefined,
-  details: undefined,
-  className: '',
-  title: '',
-};
 
 export default PieChart;

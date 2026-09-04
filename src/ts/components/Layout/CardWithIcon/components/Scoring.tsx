@@ -33,11 +33,4 @@ function Scoring({
   );
 }
 
-Scoring.defaultProps = {
-  id: undefined,
-  title: undefined,
-  value: undefined,
-  total: undefined,
-};
-
 export default Scoring;

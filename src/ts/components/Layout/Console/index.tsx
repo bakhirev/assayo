@@ -13,7 +13,7 @@ interface IConsoleProps {
   children?: ReactNode | string | number | null;
 }
 
-function Console({ className, textForCopy, children }: IConsoleProps) {
+function Console({ className = '', textForCopy, children }: IConsoleProps) {
   return (
     <div className={`${style.console} ${className || ''}`}>
       <div className={style.console_header}>
@@ -39,11 +39,5 @@ function Console({ className, textForCopy, children }: IConsoleProps) {
     </div>
   );
 }
-
-Console.defaultProps = {
-  textForCopy: undefined,
-  children: undefined,
-  className: '',
-};
 
 export default Console;

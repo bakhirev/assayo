@@ -19,10 +19,10 @@ interface IModalProps {
 }
 
 function Modal({
-  id,
+  id = 'modal-window',
   mode,
   delay,
-  className,
+  className = '',
   onClose,
   children,
 }: IModalProps) {
@@ -65,14 +65,6 @@ function Modal({
 }
 
 Modal.displayName = 'Modal';
-
-Modal.defaultProps = {
-  id: 'modal-window',
-  delay: undefined,
-  className: '',
-  onClose: undefined,
-  children: undefined,
-};
 
 export {
   Modal,

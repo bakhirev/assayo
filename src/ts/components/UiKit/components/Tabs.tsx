@@ -15,7 +15,7 @@ const UiKitTabs = React.forwardRef(({
   value,
   options,
   onChange,
-}: IUiKitTabsProps, ref: any): JSX.Element => {
+}: IUiKitTabsProps, ref: any): React.JSX.Element => {
   const { t } = useTranslation();
   const hasValue = value || value === 0 || value === false;
 

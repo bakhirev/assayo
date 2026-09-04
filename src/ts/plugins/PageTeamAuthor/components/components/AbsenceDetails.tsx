@@ -113,8 +113,4 @@ export function AbsenceDetails({ rows }: AbsenceDetailsProps) {
   );
 }
 
-AbsenceDetails.defaultProps = {
-  response: undefined,
-};
-
 export default AbsenceDetails;

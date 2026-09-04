@@ -19,7 +19,7 @@ function DefaultCell({
   rowIndex,
   marginLeft,
   className,
-}: IDefaultCellProps): JSX.Element {
+}: IDefaultCellProps): React.JSX.Element {
   const localClassName = getClassName(style.table_cell, column, ['body', row], className);
 
   const left = column.isFixed ? marginLeft : 0;

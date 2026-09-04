@@ -17,10 +17,10 @@ interface IShowAllProps {
 }
 
 function ShowAll({
-  response,
-  state,
-  store,
-  className,
+  response = null,
+  state = DataLoaderState.INIT,
+  store = null,
+  className = '',
 }: IShowAllProps) {
   const { t } = useTranslation();
   if (!response) return null;
@@ -54,12 +54,5 @@ function ShowAll({
       </div>
   );
 }
-
-ShowAll.defaultProps = {
-  response: null,
-  className: '',
-  state: DataLoaderState.INIT,
-  store: null,
-};
 
 export default ShowAll;

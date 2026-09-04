@@ -70,8 +70,4 @@ function Emails({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Emails.defaultProps = {
-  response: undefined,
-};
-
 export default Emails;

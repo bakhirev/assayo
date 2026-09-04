@@ -5,15 +5,15 @@ import { PRLink, TaskLink } from 'ts/components/Layout';
 import UiKitTags from 'ts/components/UiKit/components/Tags';
 import UiKitTag from 'ts/components/UiKit/components/Tag';
 
-import { ColumnTypes } from '../interfaces/Column';
+import { ColumnTypes, IColumn } from '../interfaces/Column';
 import style from '../styles/index.module.scss';
 
 export default function getDefaultProps(children: React.ReactNode) {
   return React.Children.map(children, (child: React.ReactNode) => {
-    if (!React.isValidElement(child)) return null;
+    if (!React.isValidElement<IColumn>(child)) return null;
 
-    let properties = child?.props?.properties; // @ts-ignore
-    let template = child?.props?.template || ColumnTypes.STRING;
+    let properties = child.props.properties;
+    let template: any = child.props.template || ColumnTypes.STRING;
 
     // @ts-ignore
     const defaultWidth = child?.props?.width || {

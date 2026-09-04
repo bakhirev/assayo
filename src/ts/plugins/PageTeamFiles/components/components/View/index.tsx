@@ -182,8 +182,4 @@ function View({ response, filters, setPath }: IViewProps) {
   );
 }
 
-View.defaultProps = {
-  response: undefined,
-};
-
 export default View;

@@ -8,7 +8,7 @@ interface ICardWithBannerProps {
   size?: 's' | 'm' | 'l';
 }
 
-function CardWithBanner({ size }: ICardWithBannerProps): React.ReactElement | null {
+function CardWithBanner({ size = 'm' }: ICardWithBannerProps): React.ReactElement | null {
   const className = [
     style.card_with_icon,
     style.card_with_icon_banner,
@@ -20,9 +20,5 @@ function CardWithBanner({ size }: ICardWithBannerProps): React.ReactElement | nu
     <Banner className={className.join(' ')} />
   );
 }
-
-CardWithBanner.defaultProps = {
-  size: 'm',
-};
 
 export default CardWithBanner;

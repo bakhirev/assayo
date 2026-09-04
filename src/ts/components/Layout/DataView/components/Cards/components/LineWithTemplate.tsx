@@ -17,7 +17,7 @@ function LineWithTemplate({
   item,
   className,
   value,
-}: LineWithTemplateProps): JSX.Element | null {
+}: LineWithTemplateProps): React.JSX.Element | null {
   const { t } = useTranslation();
   const columnClassName = typeof column.className === 'function'
     ? column.className('body', item)

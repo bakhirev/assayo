@@ -43,8 +43,4 @@ function Companies({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Companies.defaultProps = {
-  response: undefined,
-};
-
 export default Companies;

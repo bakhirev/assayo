@@ -20,7 +20,7 @@ function DetailsCell({
   rowConfig,
   marginLeft,
   updateRowsConfig,
-}: IDefaultCellProps): JSX.Element {
+}: IDefaultCellProps): React.JSX.Element {
   const config = rowConfig || { id: 1 };
 
   const left = column?.isFixed ? marginLeft : 0;

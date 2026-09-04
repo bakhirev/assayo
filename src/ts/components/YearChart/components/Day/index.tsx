@@ -55,8 +55,4 @@ function Day({
   );
 }
 
-Day.defaultProps = {
-  rows: [],
-};
-
 export default Day;

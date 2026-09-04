@@ -75,8 +75,4 @@ function Body({
   );
 }
 
-Body.defaultProps = {
-  rows: [],
-};
-
 export default Body;

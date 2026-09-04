@@ -37,8 +37,4 @@ function Extension({
   );
 }
 
-Extension.defaultProps = {
-  rows: [],
-};
-
 export default Extension;

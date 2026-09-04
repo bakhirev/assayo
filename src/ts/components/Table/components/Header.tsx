@@ -15,8 +15,8 @@ interface ITitleProps {
 
 function Header({
   columns,
-  className,
-  updateSort,
+  className = '',
+  updateSort = () => {},
 }: ITitleProps) {
   const { t } = useTranslation();
 
@@ -71,10 +71,5 @@ function Header({
     </div>
   );
 }
-
-Header.defaultProps = {
-  className: '',
-  updateSort: () => {},
-};
 
 export default Header;

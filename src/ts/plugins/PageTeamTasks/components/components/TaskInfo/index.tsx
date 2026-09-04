@@ -45,8 +45,4 @@ function TaskInfo({ task }: TaskInfoProps) {
   );
 }
 
-TaskInfo.defaultProps = {
-  response: undefined,
-};
-
 export default TaskInfo;

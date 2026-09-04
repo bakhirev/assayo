@@ -93,8 +93,4 @@ function Files({ response, updateSort, rowsForExcel, mode }: FilesProps) {
   );
 }
 
-Files.defaultProps = {
-  response: undefined,
-};
-
 export default Files;

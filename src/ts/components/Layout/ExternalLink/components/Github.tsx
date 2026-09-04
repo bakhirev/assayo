@@ -7,7 +7,7 @@ interface GithubLinkProps {
   className?: string,
 }
 
-function GithubLink({ email, className }: GithubLinkProps) {
+function GithubLink({ email = '', className = '' }: GithubLinkProps) {
   if (!email) return null;
 
   const login = (email.split('+').pop() || '').split('@').shift();
@@ -21,10 +21,5 @@ function GithubLink({ email, className }: GithubLinkProps) {
     />
   );
 }
-
-GithubLink.defaultProps = {
-  email: '',
-  className: '',
-};
 
 export default GithubLink;

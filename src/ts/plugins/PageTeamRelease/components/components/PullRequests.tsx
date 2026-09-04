@@ -123,9 +123,4 @@ function PullRequests({
   );
 }
 
-PullRequests.defaultProps = {
-  mode: undefined,
-  response: undefined,
-};
-
 export default PullRequests;

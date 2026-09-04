@@ -15,7 +15,7 @@ interface IColumnProps {
   author?: string;
 }
 
-function Column({ dayInfo, order, author }: IColumnProps) {
+function Column({ dayInfo, order = [], author = '' }: IColumnProps) {
   const authors = Object.entries(dayInfo?.tasksByAuthor || {})
     .sort((a: any, b: any) => (order.indexOf(a[0]) - order.indexOf(b[0])) )
     .filter(([name]) => author ? name === author : true)
@@ -46,10 +46,5 @@ function Column({ dayInfo, order, author }: IColumnProps) {
     </div>
   );
 }
-
-Column.defaultProps = {
-  order: [],
-  author: '',
-};
 
 export default Column;

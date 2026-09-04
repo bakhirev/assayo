@@ -42,8 +42,4 @@ export function Commits({ response, updateSort, rowsForExcel, mode }: ViewProps<
   );
 }
 
-Commits.defaultProps = {
-  response: undefined,
-};
-
 export default Commits;

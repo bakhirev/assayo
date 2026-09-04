@@ -25,8 +25,4 @@ function PageColumn({
   );
 }
 
-PageColumn.defaultProps = {
-  template: undefined,
-};
-
 export default PageColumn;

@@ -86,8 +86,4 @@ export function Months({ response, updateSort, rowsForExcel, mode }: ViewProps) 
   );
 }
 
-Months.defaultProps = {
-  response: undefined,
-};
-
 export default Months;

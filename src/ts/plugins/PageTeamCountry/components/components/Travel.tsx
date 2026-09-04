@@ -70,8 +70,4 @@ function Travel({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Travel.defaultProps = {
-  response: undefined,
-};
-
 export default Travel;

@@ -50,8 +50,4 @@ function Release({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Release.defaultProps = {
-  response: undefined,
-};
-
 export default Release;

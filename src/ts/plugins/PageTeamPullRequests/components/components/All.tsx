@@ -110,9 +110,4 @@ function AllPR({
   );
 }
 
-AllPR.defaultProps = {
-  mode: undefined,
-  response: undefined,
-};
-
 export default AllPR;

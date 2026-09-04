@@ -15,9 +15,9 @@ interface ISideBarMenuItemProps {
 function SideBarMenuItem({
   id,
   link,
-  title,
-  icon,
-  isSelected,
+  title = '',
+  icon = '',
+  isSelected = false,
 }: ISideBarMenuItemProps) {
   const { t } = useTranslation();
   return (
@@ -38,11 +38,5 @@ function SideBarMenuItem({
     </Link>
   );
 }
-
-SideBarMenuItem.defaultProps = {
-  title: '',
-  icon: '',
-  isSelected: false,
-};
 
 export default SideBarMenuItem;

@@ -38,5 +38,7 @@
     "**/dist/*",
     "src/**/*.cjs",
     "src/setupProxy.js",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ]
 }

@@ -15,8 +15,8 @@ interface PointProps {
 }
 
 function Point({
-  timezone,
-  authors,
+  timezone = '',
+  authors = [],
   maxValue,
 }: PointProps): React.ReactElement | null {
   const position = getPositionForTimeZone(timezone);
@@ -31,10 +31,5 @@ function Point({
     </div>
   );
 }
-
-Point.defaultProps = {
-  timezone: '',
-  authors: [],
-};
 
 export default Point;

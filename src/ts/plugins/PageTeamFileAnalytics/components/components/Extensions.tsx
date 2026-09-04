@@ -78,8 +78,4 @@ function Extensions({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Extensions.defaultProps = {
-  response: undefined,
-};
-
 export default Extensions;

@@ -6,7 +6,7 @@ interface ViewProps {
 }
 
 function View({ children, onClick }: ViewProps) {
-  const ref = useRef() as React.MutableRefObject<HTMLSpanElement>;
+  const ref = useRef<HTMLSpanElement>(null) as React.MutableRefObject<HTMLSpanElement>;
   return (
     <span
       ref={ref}

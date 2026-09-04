@@ -17,7 +17,7 @@ interface ICardProps {
 function Card({
   item,
   lines,
-  className,
+  className = '',
   customStyle,
 }: ICardProps) {
   let alreadySetHeader = false;
@@ -77,9 +77,5 @@ function Card({
     </div>
   );
 }
-
-Card.defaultProps = {
-  className: '',
-};
 
 export default Card;

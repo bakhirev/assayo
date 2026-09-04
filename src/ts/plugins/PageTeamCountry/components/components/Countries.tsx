@@ -76,8 +76,4 @@ function Countries({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   );
 }
 
-Countries.defaultProps = {
-  response: undefined,
-};
-
 export default Countries;
