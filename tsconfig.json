@@ -21,7 +21,6 @@
     "experimentalDecorators": true,
     "jsx": "react-jsx",
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
     "alwaysStrict": true,
     "baseUrl": "src"
   },

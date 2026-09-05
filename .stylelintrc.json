@@ -1,10 +1,39 @@
 {
+  "extends": [
+    "stylelint-config-standard"
+  ],
   "plugins": [
     "stylelint-order",
-    "stylelint-group-selectors",
-    "stylelint-force-selector-name-prefix"
+    "@stylistic/stylelint-plugin"
   ],
+  "customSyntax": "postcss-scss",
   "rules": {
+    "alpha-value-notation": null,
+    "block-no-empty": null,
+    "color-function-notation": null,
+    "custom-property-empty-line-before": null,
+    "custom-property-pattern": null,
+    "declaration-block-no-duplicate-properties": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "declaration-block-single-line-max-declarations": null,
+    "declaration-empty-line-before": null,
+    "font-family-name-quotes": null,
+    "import-notation": null,
+    "keyframe-selector-notation": null,
+    "keyframes-name-pattern": null,
+    "media-feature-range-notation": null,
+    "no-duplicate-selectors": null,
+    "property-no-vendor-prefix": null,
+    "rule-empty-line-before": null,
+    "selector-max-class": null,
+    "selector-max-compound-selectors": null,
+    "selector-no-qualifying-type": null,
+    "selector-pseudo-element-colon-notation": null,
+    "shorthand-property-no-redundant-values": null,
+    "value-no-vendor-prefix": null,
+    "@stylistic/block-opening-brace-space-before": null,
+    "@stylistic/declaration-block-semicolon-newline-after": null,
+    "@stylistic/string-quotes": null,
     "selector-id-pattern": [
       "^[a-z0-9-]+$",
       {
@@ -18,35 +47,18 @@
       }
     ],
     "value-keyword-case": "lower",
-    "string-quotes": "single",
-    "selector-max-compound-selectors": 1,
     "selector-max-attribute": 1,
-    "selector-max-class": 2,
     "comment-no-empty": true,
-    "block-no-empty": true,
-    "no-empty-first-line": true,
+    "@stylistic/no-empty-first-line": true,
     "selector-attribute-quotes": "always",
-    "block-opening-brace-space-before": "always",
-    "declaration-block-semicolon-newline-after": "always",
-    "selector-no-qualifying-type": true,
     "selector-no-vendor-prefix": true,
-    "declaration-block-single-line-max-declarations": 1,
-    "declaration-block-no-duplicate-properties": true,
-    "shorthand-property-no-redundant-values": true,
     "color-no-invalid-hex": true,
     "unit-no-unknown": true,
     "length-zero-no-unit": true,
-    "value-no-vendor-prefix": true,
     "number-max-precision": 2,
     "function-name-case": "lower",
-    "color-hex-case": "upper",
+    "@stylistic/color-hex-case": "upper",
     "color-hex-length": "long",
-    "font-family-name-quotes": "always-unless-keyword",
-    "plugin/stylelint-group-selectors": true,
-    "plugin/stylelint-force-selector-name-prefix": {
-      "afterPath": "pages",
-      "separator": "kebab-case"
-    },
     "order/order": [
       [
         "custom-properties",
