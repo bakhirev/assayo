@@ -7,6 +7,7 @@ import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import { If, Title } from 'ts/components/Layout';
 import Recommendations from 'ts/components/Recommendations';
 
+import getRecommendations from './helpers/recommendations';
 import View from './components/View';
 import Calculator from './components/Calculator';
 
@@ -14,7 +15,7 @@ const Scope = observer(({ mode }: PageOptions): React.ReactElement | null => {
   const rows = statisticStore.statisticsByCommits.scope.totalInfo;
   if (rows?.length < 2 && mode === 'print') return null;
 
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byScope;
+  const recommendations = getRecommendations();
 
   return (
     <>

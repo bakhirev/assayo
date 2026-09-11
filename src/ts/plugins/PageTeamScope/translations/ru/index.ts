@@ -1,3 +1,5 @@
+import recommendations from './recommendations';
+
 export default `
 § plugin.team_scope.sidebar: Фичи
 § plugin.team_scope.title: Статистика по фичам
@@ -39,4 +41,5 @@ export default `
 § plugin.team_scope.tasks.description: Описание
 § plugin.team_scope.commits.author: Сотрудник
 § plugin.team_scope.commits.message: Подпись
+${recommendations}
 `;

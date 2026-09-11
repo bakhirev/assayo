@@ -1,8 +1,10 @@
-import { RECOMMENDATIONS_BY_VIEW } from './contstants';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
+import IHashMap from 'ts/interfaces/HashMap';
+
+export { RECOMMENDATION_TYPES } from './contstants';
 
 export function getWrapperWithCache(callback: Function) {
-  let hash = undefined;
+  let hash = 0;
   let cache: any = [];
   return () => {
     if (hash === statisticStore.hash) return cache;
@@ -12,9 +14,9 @@ export function getWrapperWithCache(callback: Function) {
   }
 }
 
-export function getBuilder(type: string) {
+export function getBuilder(RECOMMENDATIONS: IHashMap<any>) {
   function getItem(id: string) {
-    return RECOMMENDATIONS_BY_VIEW[type][id];
+    return RECOMMENDATIONS[id];
   }
 
   function getTitle(id: string, title: any) {

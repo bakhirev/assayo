@@ -11,7 +11,7 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_scope';
 
-  dependencies = ['scope', 'recommendations', 'author', 'type', 'company', 'tasks'];
+  dependencies = ['author', 'team', 'type', 'scope', 'recommendations', 'company', 'tasks'];
 
   getMenuItems() {
     return [
