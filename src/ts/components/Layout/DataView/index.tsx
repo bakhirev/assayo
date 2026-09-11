@@ -72,7 +72,7 @@ function DataView({
                   const prefix = document.title;
                   const suffix = text(`plugin.${urlParams.type}_${urlParams.page}.sidebar`);
                   const fileName = `${prefix} - ${suffix}`;
-                  downloadExcel(rowsForExcel || rows, children, fileName);
+                  downloadExcel(rowsForExcel?.length ? rowsForExcel : rows, children, fileName);
                 }}
               />
             )}

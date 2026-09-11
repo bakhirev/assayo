@@ -41,7 +41,10 @@ const Department = observer(({
         content={content}
         mode={mode}
       >
-        <Departments mode={mode} />
+        <Departments
+          mode={mode}
+          rowsForExcel={content}
+        />
         <Pagination />
       </FakeDataLoader>
 
@@ -70,7 +73,10 @@ const Department = observer(({
         mode={mode}
         watch={taskCode}
       >
-        <Months mode={mode} />
+        <Months
+          mode={mode}
+          rowsForExcel={months}
+        />
         <Pagination />
       </FakeDataLoader>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ViewProps from 'ts/interfaces/ViewProps';
-import { getCustomDate } from 'ts/helpers/formatter';
+import { getCustomDate, getDateForExcel } from 'ts/helpers/formatter';
 
 import { DataView } from 'ts/components/Layout';
 import { Column, ColumnTypes } from 'ts/components/Table';
@@ -26,7 +26,11 @@ export function Months({ response, updateSort, rowsForExcel, mode }: ViewProps) 
         isFixed
         title="common.statistic.Date"
         width={150}
-        template={(row: any, b: any, index: number) => {
+        formatter={(row: any) => {
+          const month = String(row.month + 1).padStart(2, '0');
+          return getDateForExcel(`${row.year}-${month}-01`);
+        }}
+        template={(_formatted: any, row: any, index: number) => {
           const next = response.content[index + 1];
           const value = getCustomDate(`${row.year}-${row.month + 1}-01`, {  month: 'long', year: 'numeric' });
           return next?.year !== row.year
