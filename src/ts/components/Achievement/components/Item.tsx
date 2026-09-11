@@ -33,10 +33,10 @@ function Achievement({ code }: IAchievementProps) {
         </div>
       </div>
       <div className={style.achievement_title}>
-        {t(`achievements.${code}.title`)}
+        {t(`plugin.person_achievements.${code}.title`)}
       </div>
       <div className={style.achievement_description}>
-        {t(`achievements.${code}.description`)}
+        {t(`plugin.person_achievements.${code}.description`)}
       </div>
     </div>
   );

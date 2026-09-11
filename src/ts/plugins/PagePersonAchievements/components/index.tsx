@@ -28,28 +28,28 @@ const Page = observer(({ user }: PageOptions): React.ReactElement => {
   return (
     <>
       <If value={positive}>
-        <Title title="page.person.achievement.positive"/>
+        <Title title="plugin.person_achievements.page.positive"/>
         <Achievements list={positive} />
       </If>
       <If value={normal}>
-        <Title title="page.person.achievement.normal"/>
+        <Title title="plugin.person_achievements.page.normal"/>
         <Achievements list={normal} />
       </If>
       <If value={negative}>
-        <Title title="page.person.achievement.negative"/>
+        <Title title="plugin.person_achievements.page.negative"/>
         <Achievements list={negative} />
-        <Description translationId="page.person.achievement.description" />
+        <Description translationId="plugin.person_achievements.page.description" />
         <Gap height="xl" />
       </If>
       <If value={publicity}>
-        <Title title="page.person.achievement.publicity"/>
+        <Title title="plugin.person_achievements.page.publicity"/>
         <Achievements list={publicity} />
       </If>
 
       <If value={commitsWithBeautifulTaskNumbers}>
-        <Title title="page.person.gets.title"/>
+        <Title title="plugin.person_achievements.gets.title"/>
         <BeautifulTaskNumbers list={commitsWithBeautifulTaskNumbers} />
-        <Description translationId="page.person.gets.description" />
+        <Description translationId="plugin.person_achievements.gets.description" />
       </If>
     </>
   );
