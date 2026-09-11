@@ -1,3 +1,5 @@
+import recommendations from './recommendations';
+
 export default `
 § plugin.team_types.sidebar: Типы задач
 § plugin.team_types.title: Статистика по типам задач
@@ -11,4 +13,5 @@ export default `
 § plugin.team_types.authorsDays: Человеко-дней
 § plugin.team_types.commits: Коммитов
 § plugin.team_types.authors: Персональный вклад
+${recommendations}
 `;

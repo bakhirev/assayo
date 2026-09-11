@@ -1,8 +1,11 @@
 import { HashMap } from 'ts/interfaces/HashMap';
 import sourceData from 'ts/store/SourceData';
-import statisticsByCommitsStore from 'ts/store/StatisticsByCommitsStore';
 
 import { IPlugin, MenuItem } from './interfaces/Plugin';
+
+function normalizePath(path?: string) {
+  return (path || '').replace(/\/+$/, '');
+}
 
 export { default as getEnabledPlugins } from './helpers/getEnabledPlugins';
 
@@ -51,15 +54,15 @@ class Plugins {
   }
 
   getPage(path?: string, props?: Record<string, any>) {
+    const normalizedPath = normalizePath(path);
     for (let i = 0; i < this.plugins.length; i++) {
       const plugin = this.plugins[i];
       const menuItems = plugin?.getMenuItems?.() || [];
-      const hasPage = menuItems?.some((item) => item?.link === path);
+      const hasPage = menuItems?.some((item) => (
+        normalizePath(item?.link) === normalizedPath
+      ));
       if (!hasPage) continue;
-	  
-      const dependencies = plugin?.dependencies || [];
-      console.log(dependencies);
-      //statisticsByCommitsStore.processingPreloadData(dependencies);
+
       const page = plugin?.getPage?.(path || '', props || {});
       if (page) return page;
     }

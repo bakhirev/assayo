@@ -8,6 +8,7 @@ import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import Recommendations from 'ts/components/Recommendations';
 import { Title, Description, NothingFound, Gap } from 'ts/components/Layout';
 
+import getRecommendations from './helpers/recommendations';
 import PieCharts from './components/PieCharts';
 import View from './components/View';
 
@@ -19,7 +20,7 @@ const Author = observer(({
   if (!rows?.length) {
     return mode !== 'print' ? (<NothingFound />) : null;
   }
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byAuthor;
+  const recommendations = getRecommendations();
 
   return (
     <>

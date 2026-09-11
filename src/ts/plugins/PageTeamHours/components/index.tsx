@@ -8,6 +8,8 @@ import { HoursChart } from 'ts/components/Charts';
 import { If, Title, SectionWithBg } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 
+import getRecommendations from './helpers/recommendations';
+
 const Hours = observer(({ mode, user }: PageOptions): React.ReactElement => {
   const statistic = user
     ? statisticStore.statisticsByCommits.author.totalInfoByName.get(user.author)
@@ -18,7 +20,7 @@ const Hours = observer(({ mode, user }: PageOptions): React.ReactElement => {
     max = Math.max(...day, max);
   });
 
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byHour;
+  const recommendations = getRecommendations();
 
   return (
     <>

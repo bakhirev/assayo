@@ -1,4 +1,4 @@
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recom';
 
 export const RECOMMENDATIONS = {
   money: {

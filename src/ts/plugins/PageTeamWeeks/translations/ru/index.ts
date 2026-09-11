@@ -1,3 +1,5 @@
+import recommendations from './recommendations';
+
 export default `
 § plugin.team_weeks.sidebar: По неделям
 § plugin.team_weeks.title: Статистика по неделям
@@ -10,4 +12,5 @@ export default `
 § plugin.team_weeks.remove: удалили
 § plugin.team_weeks.hasCommits: были коммиты
 § plugin.team_weeks.hasNotCommits: небыло коммитов
+${recommendations}
 `;

@@ -8,6 +8,7 @@ import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import { Title, NothingFound, Gap } from 'ts/components/Layout';
 import Recommendations from 'ts/components/Recommendations';
 
+import getRecommendations from './helpers/recommendations';
 import View from './View';
 
 const Week = observer(({
@@ -15,7 +16,7 @@ const Week = observer(({
 }: PageOptions): React.ReactElement | null => {
   const rows = statisticStore.statisticsByCommits.week.totalInfo;
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byWeek;
+  const recommendations = getRecommendations();
 
   return (
     <>

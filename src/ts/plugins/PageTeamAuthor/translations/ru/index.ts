@@ -1,3 +1,5 @@
+import recommendations from './recommendations';
+
 export default `
 § plugin.team_author.sidebar: Сотрудники
 § plugin.team_author.statusChart.title: Текущий статус
@@ -35,4 +37,5 @@ export default `
 § plugin.team_author.absence.vacation: Отпуск
 § plugin.team_author.absence.transfer: Перевод в другой отдел
 § plugin.team_author.absence.duration: Продолжительность
+${recommendations}
 `;

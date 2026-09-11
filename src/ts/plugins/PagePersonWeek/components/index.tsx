@@ -15,6 +15,8 @@ import Recommendations from 'ts/components/Recommendations';
 
 import { getMaxSubValues } from 'ts/helpers/charts';
 
+import getRecommendations from './helpers/recommendations';
+
 interface IWeekViewProps {
   name: string;
   response?: IPagination<any>;
@@ -115,7 +117,7 @@ const Week = observer(({
   const rows = statisticStore.statisticsByCommits.week.totalInfo.filter((item: any) => item.authors[statistic.author]);
   if (!rows?.length) return (<NothingFound />);
 
-  const recommendations = statisticStore.statisticsByCommits.recommendations.person?.byWeek[statistic.author];
+  const recommendations = getRecommendations()[statistic.author];
 
   return (
     <>

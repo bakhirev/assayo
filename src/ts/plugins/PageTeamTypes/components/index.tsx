@@ -8,6 +8,7 @@ import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
 import Recommendations from 'ts/components/Recommendations';
 import { If, Title, Description, NothingFound, Section } from 'ts/components/Layout';
 
+import getRecommendations from './helpers/recommendations';
 import View from './View';
 
 const Type = observer(({
@@ -16,7 +17,7 @@ const Type = observer(({
   const rows = statisticStore.statisticsByCommits.type.totalInfo;
   if (!rows?.length) return mode !== 'print' ? (<NothingFound />) : null;
 
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byType;
+  const recommendations = getRecommendations();
 
   return (
     <>

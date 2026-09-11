@@ -5,6 +5,7 @@ import {
   PageOptions,
 } from 'ts/helpers/Plugins/interfaces/Plugin';
 
+import translations from './translations';
 import Page from './components';
 
 export default class Plugin implements IPlugin {
@@ -32,5 +33,9 @@ export default class Plugin implements IPlugin {
         user={props?.user}
       />
     ) : undefined;
+  }
+
+  getTranslations() {
+    return translations;
   }
 }
