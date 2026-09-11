@@ -3,7 +3,6 @@ import { action, makeObservable, observable } from 'mobx';
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
 import sourceData from 'ts/store/SourceData';
-import achievements from 'ts/helpers/achievement/byCompetition';
 import statisticsByCommits from 'ts/helpers/StatisticsByCommits';
 import statisticsByFiles from 'ts/helpers/StatisticsByFiles';
 import getCommitObjectsFromText from 'ts/helpers/getCommitObjectsFromText';
@@ -16,8 +15,6 @@ import filtersInHeaderStore from './FiltersInHeader';
 import viewNameStore, { ViewNameEnum } from './ViewName';
 
 const PROCESSING_DELAY = 300;
-
-console.log(achievements);
 
 class StatisticsByCommitsStore {
   statisticsByCommits: any = null;
@@ -91,7 +88,6 @@ class StatisticsByCommitsStore {
     );
 
     statisticsByCommits.updateTotalInfo();
-    achievements.updateByGrip(statisticsByCommits, statisticsByFiles);
 
     viewNameStore.toggle(ViewNameEnum.INFO);
     this.#updateRender();
@@ -129,7 +125,6 @@ class StatisticsByCommitsStore {
 
     statisticsByFiles.updateTotalInfo();
     statisticsByCommits.updateTotalInfo();
-    achievements.updateByGrip(statisticsByCommits, statisticsByFiles);
     this.#updateRender();
   }
 

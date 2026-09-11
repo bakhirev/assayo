@@ -143,6 +143,4 @@ class AchievementsByCompetition {
   }
 }
 
-const achievements = new AchievementsByCompetition();
-
-export default achievements;
+export default AchievementsByCompetition;

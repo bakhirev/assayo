@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'ts/components/Translation';
 
-import ALL_ACHIEVEMENTS from 'ts/helpers/achievement/constants/list';
+import ALL_ACHIEVEMENTS from 'ts/plugins/PagePersonAchievements/components/helpers/constants/list';
 
 import style from '../styles/index.module.scss';
 

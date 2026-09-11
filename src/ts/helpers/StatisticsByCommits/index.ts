@@ -143,7 +143,9 @@ class StatisticsByCommits {
       return;
     }
     if (commit.author === 'GitHub') return;
+    // @ts-ignore
     if (commit.commitType) return;
+    // @ts-ignore
     this?.[method]?.addCommit?.(commit, totalCommits);
   }
 
@@ -155,6 +157,7 @@ class StatisticsByCommits {
     } else if (method === 'taskCodes') {
       this.taskCodes.updateTotalInfo(this.author, this.firstLastCommit.maxData);
     } else {
+      // @ts-ignore
       this?.[method]?.updateTotalInfo?.(this.author);
     }
   }

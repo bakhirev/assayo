@@ -1,7 +1,7 @@
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { shuffle } from 'ts/helpers/random';
 import localization from 'ts/helpers/Localization';
-import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
+import getAchievements from 'ts/plugins/PagePersonAchievements/components/helpers';
 
 import IQuiz from '../interfaces/Quiz';
 import getQuestion from './getQuestion';
@@ -78,7 +78,7 @@ function getHowDaysInProject(authors: any) {
 function getQuestionByAchievement(
   authors: any[],
   question: string,
-  achievements: Function,
+  achievements: any,
   achievement: string,
 ) {
   const rightAnswer = authors.find((author) => achievements?.[author]?.[achievement]);
@@ -98,9 +98,10 @@ export default function getQuizQuestions(): IQuiz {
   const staff = statisticStore.statisticsByCommits.author.employment.staff.length;
   const randomUsers = shuffle([...authors]).slice(0, 3);
 
+  const achievementsByAuthor = getAchievements();
   const achievements = authors.reduce((byAuthor, author) => {
-    const list = achievementByAuthor.authors[author.author].flat(1);
-    const entries = list.map((key) => [key, true]);
+    const list = achievementsByAuthor[author.author].flat(1);
+    const entries = list.map((key: string) => [key, true]);
     byAuthor[author.author] = Object.fromEntries(entries);
     return byAuthor;
   }, {});

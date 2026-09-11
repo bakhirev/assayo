@@ -2,7 +2,7 @@ import React from 'react';
 
 import localization from 'ts/helpers/Localization';
 import CardForPrint from 'ts/components/Recommendations/components/CardForPrint';
-import ACHIEVEMENT_LIST from 'ts/helpers/achievement/constants/list';
+import ACHIEVEMENT_LIST from 'ts/plugins/PagePersonAchievements/components/helpers/constants/list';
 
 import Achievement from 'ts/components/Achievement/components/Item';
 import { Title } from 'ts/components/Layout';

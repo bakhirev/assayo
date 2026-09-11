@@ -1,20 +1,18 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import achievementByAuthor from 'ts/helpers/achievement/byCompetition';
-import ACHIEVEMENT_TYPE from 'ts/helpers/achievement/constants/type';
-
 import { Description, Gap, If, Title } from 'ts/components/Layout';
 import BeautifulTaskNumbers from 'ts/components/BeautifulTaskNumbers';
-
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import Achievements from 'ts/components/Achievement';
 
+import ACHIEVEMENT_TYPE from './helpers/constants/type';
+import getAchievements from "./helpers";
+
 const Page = observer(({ user }: PageOptions): React.ReactElement => {
-  const statistic = user;
   const commitsWithBeautifulTaskNumbers = statisticStore.statisticsByCommits.beautifulTaskNumbers.totalInfoByName.get(user.author);
-  const achievements = achievementByAuthor.authors[statistic.author];
+  const achievements = getAchievements()[user.author];
   const [
     positive,
     normal,
