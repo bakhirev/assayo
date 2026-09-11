@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ExternalLink from './ExternalLink';
-import applicationConfig from 'ts/store/ApplicationConfig';
+import { getTaskHref } from '../helpers';
 
 interface TaskLinkProps {
   task?: string,
@@ -9,17 +9,13 @@ interface TaskLinkProps {
 }
 
 function TaskLink({ task = '', className = '' }: TaskLinkProps) {
-  if (!task) return null;
-
-  const prefix = applicationConfig?.config?.prefixForTask || '/';
-  const formattedTask = task?.[0] === '#'
-    ? task.replace('#', '')
-    : task;
+  const link = getTaskHref(task);
+  if (!link) return null;
 
   return (
     <ExternalLink
       text={task}
-      link={`${prefix}${formattedTask}`}
+      link={link}
       className={className}
     />
   );

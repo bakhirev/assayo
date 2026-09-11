@@ -119,7 +119,8 @@ function escapeXml(value: string) {
     .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 function getColumnLetter(index: number) {
@@ -133,7 +134,7 @@ function getColumnLetter(index: number) {
   return letter;
 }
 
-function getCellXml(value: any, ref: string) {
+function getCellXml(value: any, ref: string, hyperlinks: { ref: string; href: string }[]) {
   if (value === null || value === undefined || value === '') {
     return '';
   }
@@ -142,16 +143,30 @@ function getCellXml(value: any, ref: string) {
     return `<c r="${ref}"><v>${value}</v></c>`;
   }
 
+  const dateParts = typeof value === 'string' ? /^(\d{2})\.(\d{2})\.(\d{4})$/.exec(value) : null;
+  if (dateParts) {
+    const serial = Math.round(Date.UTC(+dateParts[3], +dateParts[2] - 1, +dateParts[1]) / 86400000) + 25569;
+    return `<c r="${ref}" s="2"><v>${serial}</v></c>`;
+  }
+
+  if (typeof value === 'object' && value.href) {
+    hyperlinks.push({ ref, href: String(value.href) });
+    const raw = String(value.text || value.href);
+    const space = raw !== raw.trim() ? ' xml:space="preserve"' : '';
+    return `<c r="${ref}" t="inlineStr" s="1"><is><t${space}>${escapeXml(raw)}</t></is></c>`;
+  }
+
   const raw = String(value);
   const space = raw !== raw.trim() ? ' xml:space="preserve"' : '';
   return `<c r="${ref}" t="inlineStr"><is><t${space}>${escapeXml(raw)}</t></is></c>`;
 }
 
-function getSheetXml(data: any[][]) {
+function getSheetParts(data: any[][]) {
+  const hyperlinks: { ref: string; href: string }[] = [];
   const rows = data.map((row: any[], rowIndex: number) => {
     const rowNumber = rowIndex + 1;
     const cells = (row || []).map((cell: any, cellIndex: number) => (
-      getCellXml(cell, `${getColumnLetter(cellIndex)}${rowNumber}`)
+      getCellXml(cell, `${getColumnLetter(cellIndex)}${rowNumber}`, hyperlinks)
     )).join('');
     return `<row r="${rowNumber}">${cells}</row>`;
   }).join('');
@@ -159,12 +174,30 @@ function getSheetXml(data: any[][]) {
   const lastRow = data.length;
   const lastCol = Math.max(...data.map((row: any[]) => (row ? row.length : 0)), 1);
   const dimension = `A1:${getColumnLetter(lastCol - 1)}${lastRow}`;
+  const hyperlinksXml = hyperlinks.length
+    ? `<hyperlinks>${hyperlinks.map((link, index) => (
+      `<hyperlink ref="${link.ref}" r:id="rId${index + 1}"/>`
+    )).join('')}</hyperlinks>`
+    : '';
 
-  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+  const sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
 <dimension ref="${dimension}"/>
+<cols><col min="1" max="${lastCol}" width="20.0" customWidth="1"/></cols>
 <sheetData>${rows}</sheetData>
+${hyperlinksXml}
 </worksheet>`;
+
+  const relsXml = hyperlinks.length
+    ? `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+${hyperlinks.map((link, index) => (
+    `<Relationship Id="rId${index + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${escapeXml(link.href)}" TargetMode="External"/>`
+  )).join('')}
+</Relationships>`
+    : '';
+
+  return { sheetXml, relsXml };
 }
 
 export function getXMLForExcel(data: any) {
@@ -199,19 +232,33 @@ export function getXMLForExcel(data: any) {
 
   const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
-<fonts count="1"><font><sz val="11"/><color theme="1"/><name val="Calibri"/><family val="2"/></font></fonts>
+<fonts count="2">
+<font><sz val="11"/><color theme="1"/><name val="Calibri"/><family val="2"/></font>
+<font><sz val="11"/><color theme="10"/><name val="Calibri"/><family val="2"/><u/></font>
+</fonts>
 <fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills>
 <borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders>
 <cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
-<cellXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/></cellXfs>
+<cellXfs count="3">
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/>
+<xf numFmtId="14" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/>
+</cellXfs>
 </styleSheet>`;
 
-  return createZip([
+  const { sheetXml, relsXml } = getSheetParts(data);
+  const files = [
     { name: '[Content_Types].xml', content: contentTypes },
     { name: '_rels/.rels', content: rootRels },
     { name: 'xl/workbook.xml', content: workbook },
     { name: 'xl/_rels/workbook.xml.rels', content: workbookRels },
     { name: 'xl/styles.xml', content: styles },
-    { name: 'xl/worksheets/sheet1.xml', content: getSheetXml(data) },
-  ]);
+    { name: 'xl/worksheets/sheet1.xml', content: sheetXml },
+  ];
+
+  if (relsXml) {
+    files.push({ name: 'xl/worksheets/_rels/sheet1.xml.rels', content: relsXml });
+  }
+
+  return createZip(files);
 }

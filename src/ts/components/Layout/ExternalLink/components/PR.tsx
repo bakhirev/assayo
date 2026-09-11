@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ExternalLink from './ExternalLink';
-import applicationConfig from 'ts/store/ApplicationConfig';
+import { getPRHref } from '../helpers';
 
 interface PRLinkProps {
   prId?: string,
@@ -10,17 +10,13 @@ interface PRLinkProps {
 }
 
 function PRLink({ prId = '', text = '', className = '' }: PRLinkProps) {
-  if (!prId) return null;
-
-  const prefix = applicationConfig?.config?.prefixForPR || '/';
-  const formattedTask = prId?.[0] === '#'
-    ? prId.replace('#', '')
-    : prId;
+  const link = getPRHref(prId);
+  if (!link) return null;
 
   return (
     <ExternalLink
       text={text || 'PR'}
-      link={`${prefix}${formattedTask}`}
+      link={link}
       className={className}
     />
   );

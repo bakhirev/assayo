@@ -1,6 +1,8 @@
 import React from 'react';
 
+import { getPRHref, getTaskHref } from 'ts/components/Layout/ExternalLink/helpers';
 import { t } from 'ts/helpers/Localization';
+import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { ColumnTypes, IColumn } from '../components/Table/interfaces/Column';
 import { getDate, getDateForExcel } from './formatter';
 import { getXMLForExcel } from './exportToExcel';
@@ -25,9 +27,16 @@ function getColumnsFromChildren(children: React.ReactNode) {
     };
   });
 
+  const exportableWithoutTitle = [
+    ColumnTypes.PULL_REQUESTS,
+    ColumnTypes.TASK,
+    ColumnTypes.TAGS,
+  ];
+
   // @ts-ignore
   const correctColumns = Array.from(columns)
-    .filter((column: IColumn) => column?.title);
+    .filter((column: IColumn) => column?.title
+      || exportableWithoutTitle.includes(column?.template as ColumnTypes));
 
   return correctColumns;
 }
@@ -53,8 +62,30 @@ function getFormatter(columns: IColumn[]) {
         value = column.formatter(value);
       }
 
+      if (column.template === ColumnTypes.TASK) {
+        const task = typeof value === 'string' ? value : '';
+        const href = getTaskHref(task);
+        return href ? { href, text: task } : '';
+      }
+
+      if (column.template === ColumnTypes.PULL_REQUESTS) {
+        const prIds = Array.isArray(value) ? value : [];
+        if (!prIds.length) return '';
+        const prByName = statisticStore.statisticsByCommits.pr.totalInfoByName;
+        const prExternalId = prByName.get(prIds[0])?.prExternalId;
+        const href = getPRHref(prExternalId);
+        if (!href) return '';
+        const extra = prIds.length > 1 ? ` +${prIds.length - 1}` : '';
+        return { href, text: `PR${extra}` }; // TODO: вот тут все ссылки должны быть, а не первая
+      }
+
       if (Array.isArray(value)) {
-        return value.length;
+        return value.join(', ');
+      }
+
+      if (column.template === ColumnTypes.TAGS) {
+        const key = value && typeof value === 'object' ? value.title : value;
+        return t(key || '');
       }
 
       const type = typeof value;
@@ -80,7 +111,9 @@ export function downloadCsv(
   const formatter = getFormatter(columns);
   const csvFile = [
     getTitles(columns).join(';'),
-    ...list.map((item: any) => formatter(item).join(';')),
+    ...list.map((item: any) => formatter(item).map((cell: any) => (
+      cell?.href || cell
+    )).join(';')),
   ].join('\n');
 
   const type = 'text/csv;charset=windows-1251;'; // utf-8;';

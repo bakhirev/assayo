@@ -7,7 +7,7 @@ export default function getAdaptiveColumnWidth(
   if (!offsetWidth) return 150;
 
   // количество колонок и фиксированная ширина
-  const visibleColumns = columns.filter(({ isShow }: IColumn) => isShow);
+  const visibleColumns = columns.filter(({ isShow }: IColumn) => isShow !== false);
   const columnsWidth = visibleColumns.map((column: IColumn) => (
     column.userWidth || column.defaultWidth || 0
   ));

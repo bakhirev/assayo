@@ -51,6 +51,7 @@ function Table({
   useWindowResize(() => {
     setOffsetWidth(refTable?.current?.offsetWidth);
   }, [refTable?.current]);
+  console.log(offsetWidth);
 
   const defaultColumns = getDefaultProps(children) as IColumn[];
   const adaptiveWidth = getAdaptiveColumnWidth(defaultColumns, offsetWidth);
