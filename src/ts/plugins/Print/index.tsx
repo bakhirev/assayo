@@ -12,6 +12,8 @@ import translations from './translations';
 export default class Plugin implements IPlugin {
   static id = 'print';
 
+  dependencies = ['author'];
+
   getHeaderItems() {
     return  [
       {

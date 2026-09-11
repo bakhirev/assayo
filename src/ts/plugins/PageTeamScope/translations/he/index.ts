@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: יחידת זמן עבודה השווה ליום עבודה אחד של עובד אחד.
 § plugin.team_scope.cards.cost.title: עלות משוערת
 § plugin.team_scope.cards.cost.description: ימי-אדם שהושקעו מוכפלים בשכר הממוצע.
-§ plugin.team_commits.chart.commits.title: מי יצר commits
-§ plugin.team_commits.chart.tasks.title: מי ביצע משימות
-§ plugin.team_commits.chart.types.title: סוגי commit
-§ plugin.team_commits.chart.companies.title: חברות שבשמן נוצרו commits
+§ plugin.team_scope.chart.commits.title: מי יצר commits
+§ plugin.team_scope.chart.tasks.title: מי ביצע משימות
+§ plugin.team_scope.chart.types.title: סוגי commit
+§ plugin.team_scope.chart.companies.title: חברות שבשמן נוצרו commits
 § plugin.team_scope.calculator.title: מחשבון הערכת תכונה
 § plugin.team_scope.calculator.description: סננו את ה-commits הנדרשים באמצעות החיפוש. מודול הסטטיסטיקה יקבץ אותם לתכונה ויציג את הנתונים שלה.
 § plugin.team_scope.tasks.task: משימה

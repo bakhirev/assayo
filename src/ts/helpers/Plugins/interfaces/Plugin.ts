@@ -20,6 +20,8 @@ export interface MenuItem {
 
 export interface IPlugin {
   id?: string;
+  dependencies?: string[];
+  getMenuItems?: (sourceData?: ISourceData) => MenuItem[];
   getHeaderItems?: (sourceData?: ISourceData) => MenuItem[];
   getMenuItems?: (sourceData?: ISourceData) => MenuItem[];
   getTranslations?: () => IHashMap<string>;

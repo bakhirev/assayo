@@ -11,6 +11,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_tasks';
 
+  dependencies = ['tasks', 'author', 'release', 'pr'];
+
   getMenuItems() {
     return [
       {

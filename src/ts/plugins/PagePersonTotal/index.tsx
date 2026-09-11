@@ -11,6 +11,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'person_total';
 
+  dependencies = ['email', 'scoring'];
+
   getMenuItems() {
     return  [
       {

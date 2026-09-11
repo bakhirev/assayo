@@ -10,6 +10,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'person_changes';
 
+  dependencies = ['timestamp'];
+
   getMenuItems() {
     return  [
       {

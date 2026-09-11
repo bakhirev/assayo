@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: Единица измерения рабочего времени, равная одному дню труда одного сотрудника.
 § plugin.team_scope.cards.cost.title: возможная стоимость
 § plugin.team_scope.cards.cost.description: Затраченные человеко-дни умножаются на среднюю заработную плату.
-§ plugin.team_commits.chart.commits.title: Кто делал коммиты
-§ plugin.team_commits.chart.tasks.title: Кто делал задачи
-§ plugin.team_commits.chart.types.title: Типы коммитов
-§ plugin.team_commits.chart.companies.title: От лица каких компаний были коммиты
+§ plugin.team_scope.chart.commits.title: Кто делал коммиты
+§ plugin.team_scope.chart.tasks.title: Кто делал задачи
+§ plugin.team_scope.chart.types.title: Типы коммитов
+§ plugin.team_scope.chart.companies.title: От лица каких компаний были коммиты
 § plugin.team_scope.calculator.title: Калькулятор для оценки фичи
 § plugin.team_scope.calculator.description: Отфильтруй нужные коммиты с помощью поиска. Модуль статистики сгруппирует их в фичу и покажет данные по ней.
 § plugin.team_scope.tasks.task: Задача

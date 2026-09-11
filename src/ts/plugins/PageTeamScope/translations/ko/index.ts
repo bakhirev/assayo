@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: 직원 한 명이 하루 동안 일한 시간에 해당하는 근무 시간 단위입니다.
 § plugin.team_scope.cards.cost.title: 추정 비용
 § plugin.team_scope.cards.cost.description: 투입된 인일에 평균 급여를 곱합니다.
-§ plugin.team_commits.chart.commits.title: 누가 commits를 만들었는지
-§ plugin.team_commits.chart.tasks.title: 누가 작업을 수행했는지
-§ plugin.team_commits.chart.types.title: Commit 유형
-§ plugin.team_commits.chart.companies.title: 누구의 명의로 commits가 작성되었는지
+§ plugin.team_scope.chart.commits.title: 누가 commits를 만들었는지
+§ plugin.team_scope.chart.tasks.title: 누가 작업을 수행했는지
+§ plugin.team_scope.chart.types.title: Commit 유형
+§ plugin.team_scope.chart.companies.title: 누구의 명의로 commits가 작성되었는지
 § plugin.team_scope.calculator.title: 기능 추정 계산기
 § plugin.team_scope.calculator.description: 검색으로 필요한 commits를 필터링하십시오. 통계 모듈이 이를 기능으로 묶어 데이터를 표시합니다.
 § plugin.team_scope.tasks.task: 작업

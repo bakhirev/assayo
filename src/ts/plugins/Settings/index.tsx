@@ -8,6 +8,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'settings';
 
+  dependencies = ['author'];
+
   getHeaderItems() {
     return  [
       {

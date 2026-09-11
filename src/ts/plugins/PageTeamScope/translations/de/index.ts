@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: Eine Einheit der Arbeitszeit, die einem Arbeitstag eines Mitarbeiters entspricht.
 § plugin.team_scope.cards.cost.title: geschätzte Kosten
 § plugin.team_scope.cards.cost.description: Aufgewendete Personentage werden mit dem Durchschnittsgehalt multipliziert.
-§ plugin.team_commits.chart.commits.title: Wer hat commits erstellt
-§ plugin.team_commits.chart.tasks.title: Wer hat Aufgaben erledigt
-§ plugin.team_commits.chart.types.title: Commit-Typen
-§ plugin.team_commits.chart.companies.title: Unternehmen, in deren Namen commits erstellt wurden
+§ plugin.team_scope.chart.commits.title: Wer hat commits erstellt
+§ plugin.team_scope.chart.tasks.title: Wer hat Aufgaben erledigt
+§ plugin.team_scope.chart.types.title: Commit-Typen
+§ plugin.team_scope.chart.companies.title: Unternehmen, in deren Namen commits erstellt wurden
 § plugin.team_scope.calculator.title: Kalkulator zur Funktionsschätzung
 § plugin.team_scope.calculator.description: Filtern Sie die benötigten commits über die Suche. Das Statistikmodul gruppiert sie zu einer Funktion und zeigt deren Daten.
 § plugin.team_scope.tasks.task: Aufgabe

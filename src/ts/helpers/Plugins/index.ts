@@ -1,5 +1,6 @@
 import { HashMap } from 'ts/interfaces/HashMap';
 import sourceData from 'ts/store/SourceData';
+import statisticsByCommitsStore from 'ts/store/StatisticsByCommitsStore';
 
 import { IPlugin, MenuItem } from './interfaces/Plugin';
 
@@ -52,6 +53,13 @@ class Plugins {
   getPage(path?: string, props?: Record<string, any>) {
     for (let i = 0; i < this.plugins.length; i++) {
       const plugin = this.plugins[i];
+      const menuItems = plugin?.getMenuItems?.() || [];
+      const hasPage = menuItems?.some((item) => item?.link === path);
+      if (!hasPage) continue;
+	  
+      const dependencies = plugin?.dependencies || [];
+      console.log(dependencies);
+      //statisticsByCommitsStore.processingPreloadData(dependencies);
       const page = plugin?.getPage?.(path || '', props || {});
       if (page) return page;
     }

@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: スタッフ 1 名が 1 日作業した時間に相当する作業時間の単位。
 § plugin.team_scope.cards.cost.title: 推定コスト
 § plugin.team_scope.cards.cost.description: 投入した人日に平均給与を乗じます。
-§ plugin.team_commits.chart.commits.title: 誰が commits を作成したか
-§ plugin.team_commits.chart.tasks.title: 誰がタスクを行ったか
-§ plugin.team_commits.chart.types.title: Commit の種類
-§ plugin.team_commits.chart.companies.title: どの企業の名義で commits が作成されたか
+§ plugin.team_scope.chart.commits.title: 誰が commits を作成したか
+§ plugin.team_scope.chart.tasks.title: 誰がタスクを行ったか
+§ plugin.team_scope.chart.types.title: Commit の種類
+§ plugin.team_scope.chart.companies.title: どの企業の名義で commits が作成されたか
 § plugin.team_scope.calculator.title: 機能見積もり計算機
 § plugin.team_scope.calculator.description: 検索で必要な commits を絞り込んでください。統計モジュールがそれらを機能にまとめ、そのデータを表示します。
 § plugin.team_scope.tasks.task: タスク

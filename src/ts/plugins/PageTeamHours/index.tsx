@@ -11,6 +11,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_hours';
 
+  dependencies = ['author', 'team', 'recommendations'];
+
   getMenuItems() {
     return [
       {

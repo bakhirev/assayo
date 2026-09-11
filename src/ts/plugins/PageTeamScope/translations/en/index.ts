@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: A unit of working time equal to one day of work by one staff member.
 § plugin.team_scope.cards.cost.title: estimated cost
 § plugin.team_scope.cards.cost.description: Person days spent are multiplied by the average salary.
-§ plugin.team_commits.chart.commits.title: Who made commits
-§ plugin.team_commits.chart.tasks.title: Who did tasks
-§ plugin.team_commits.chart.types.title: Commit types
-§ plugin.team_commits.chart.companies.title: Companies on whose behalf commits were made
+§ plugin.team_scope.chart.commits.title: Who made commits
+§ plugin.team_scope.chart.tasks.title: Who did tasks
+§ plugin.team_scope.chart.types.title: Commit types
+§ plugin.team_scope.chart.companies.title: Companies on whose behalf commits were made
 § plugin.team_scope.calculator.title: Feature estimation calculator
 § plugin.team_scope.calculator.description: Filter the required commits using search. The statistics module will group them into a feature and show its data.
 § plugin.team_scope.tasks.task: Task

@@ -7,8 +7,11 @@ import {
 
 import translations from './translations';
 import Page from './components';
+
 export default class Plugin implements IPlugin {
   static id = 'team_author';
+
+  dependencies = ['author', 'recommendations', 'absence', 'type'];
 
   getMenuItems() {
     return [

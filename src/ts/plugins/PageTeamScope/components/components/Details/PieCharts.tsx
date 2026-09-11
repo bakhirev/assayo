@@ -19,14 +19,14 @@ const PieCharts = observer(({ scope }: PieChartsProps): React.ReactElement | nul
     <Section>
       <SectionColumn>
         <PieChart
-          title="plugin.team_commits.chart.commits.title"
+          title="plugin.team_scope.chart.commits.title"
           suffix="common.statistic.commits"
           order={authors}
           limit={2}
           details={scope.commitsByAuthor}
         />
         <PieChart
-          title="plugin.team_commits.chart.companies.title"
+          title="plugin.team_scope.chart.companies.title"
           suffix="common.statistic.commits"
           limit={1}
           order={companies}
@@ -35,14 +35,14 @@ const PieCharts = observer(({ scope }: PieChartsProps): React.ReactElement | nul
       </SectionColumn>
       <SectionColumn>
         <PieChart
-          title="plugin.team_commits.chart.tasks.title"
+          title="plugin.team_scope.chart.tasks.title"
           suffix="common.statistic.tasks"
           order={authors}
           limit={2}
           details={scope.tasksByAuthor}
         />
         <PieChart
-          title="plugin.team_commits.chart.types.title"
+          title="plugin.team_scope.chart.types.title"
           suffix="common.statistic.commits"
           order={types}
           limit={3}

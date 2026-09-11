@@ -11,6 +11,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_pull_requests';
 
+  dependencies = ['pr', 'author'];
+
   getMenuItems() {
     return [
       {

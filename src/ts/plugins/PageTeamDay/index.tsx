@@ -8,6 +8,8 @@ import translations from './translations';
 export default class Plugin implements IPlugin {
   static id = 'team_day';
 
+  dependencies = ['timestamp', 'author', 'tasks'];
+
   getMenuItems() {
     return  [
       {

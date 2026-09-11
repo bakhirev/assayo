@@ -12,6 +12,8 @@ import PersonPage from './components/Person';
 export default class Plugin implements IPlugin {
   static id = 'team_month';
 
+  dependencies = ['month', 'author', 'recommendations', 'type', 'release', 'absence'];
+
   getMenuItems() {
     return [
       {

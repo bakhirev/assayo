@@ -8,6 +8,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_total';
 
+  dependencies = ['taskCodes', 'author', 'team', 'firstLastCommit', 'release', 'pr', 'tasks'];
+
   getMenuItems() {
     return [
       {

@@ -17,10 +17,14 @@ import viewNameStore, { ViewNameEnum } from './ViewName';
 
 const PROCESSING_DELAY = 300;
 
+console.log(achievements);
+
 class StatisticsByCommitsStore {
   statisticsByCommits: any = null;
 
   statisticsByFiles: any = null;
+
+  alreadyProcessed: Set<string> = new Set();
 
   hash: number = 0;
 
@@ -48,6 +52,7 @@ class StatisticsByCommitsStore {
   }
 
   processingStringToCommit(dump?: string[]) {
+    this.alreadyProcessed.clear();
     statisticsByCommits.clear();
     statisticsByFiles.clear();
 
@@ -105,6 +110,7 @@ class StatisticsByCommitsStore {
   }
 
   updateStatistic() {
+    this.alreadyProcessed.clear();
     statisticsByCommits.clear();
     statisticsByFiles.clear();
 
@@ -127,6 +133,20 @@ class StatisticsByCommitsStore {
     this.#updateRender();
   }
 
+  processingPreloadData(dependencies: string[]) {
+    const allCommits = sourceData.get('commits');
+    const totalCommits = allCommits.length;
+    dependencies
+      .filter((method: string) => !this.alreadyProcessed.has(method))
+      .forEach((method: string) => {
+        this.alreadyProcessed.add(method);
+        allCommits.forEach((commit: ICommit | ISystemCommit) => {
+          statisticsByCommits.preloadCommit(method, commit, totalCommits);
+        });
+        statisticsByCommits.preloadTotalInfo(method);
+      });
+  }
+
   #updateRender() {
     this.statisticsByCommits = null;
     this.statisticsByCommits = statisticsByCommits;
@@ -136,6 +156,7 @@ class StatisticsByCommitsStore {
   }
 
   exit() {
+    this.alreadyProcessed.clear();
     statisticsByCommits.clear();
     statisticsByFiles.clear();
     sourceData.add('commits', []);

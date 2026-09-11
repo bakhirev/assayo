@@ -142,6 +142,28 @@ class StatisticsByCommits {
     this.service.updateTotalInfo();
     this.email.updateTotalInfo(this.author);
   }
+
+  preloadCommit(method: string, commit: ICommit | ISystemCommit, totalCommits: number) {
+    if (method === 'server') {
+      this.server.addCommit(commit);
+      return;
+    }
+    if (commit.author === 'GitHub') return;
+    if (commit.commitType) return;
+    this?.[method]?.addCommit?.(commit, totalCommits);
+  }
+
+  preloadTotalInfo(method: string) {
+    if (method === 'author') {
+      this.author.updateTotalInfo(this.firstLastCommit.maxData);
+    } else if (method === 'taskNumbersDate' || method === 'pr') {
+      this?.[method]?.updateTotalInfo?.(this.tasks);
+    } else if (method === 'taskCodes') {
+      this.taskCodes.updateTotalInfo(this.author, this.firstLastCommit.maxData);
+    } else {
+      this?.[method]?.updateTotalInfo?.(this.author);
+    }
+  }
 }
 
 const statisticsByCommits = new StatisticsByCommits();

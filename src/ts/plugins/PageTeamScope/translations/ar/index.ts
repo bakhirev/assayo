@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: وحدة زمن عمل تعادل يوم عمل واحد لموظف واحد.
 § plugin.team_scope.cards.cost.title: التكلفة التقديرية
 § plugin.team_scope.cards.cost.description: تُضرب أيام-شخص المستغرقة في متوسط الراتب.
-§ plugin.team_commits.chart.commits.title: من أنشأ commits
-§ plugin.team_commits.chart.tasks.title: من أنجز المهام
-§ plugin.team_commits.chart.types.title: أنواع commit
-§ plugin.team_commits.chart.companies.title: الشركات التي أُنشئت commits نيابة عنها
+§ plugin.team_scope.chart.commits.title: من أنشأ commits
+§ plugin.team_scope.chart.tasks.title: من أنجز المهام
+§ plugin.team_scope.chart.types.title: أنواع commit
+§ plugin.team_scope.chart.companies.title: الشركات التي أُنشئت commits نيابة عنها
 § plugin.team_scope.calculator.title: حاسبة تقدير الميزة
 § plugin.team_scope.calculator.description: صفِّ الـ commits المطلوبة باستخدام البحث. ستجمعها وحدة الإحصائيات في ميزة وتعرض بياناتها.
 § plugin.team_scope.tasks.task: مهمة

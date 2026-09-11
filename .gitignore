@@ -5,6 +5,8 @@
 /.idea
 /src/ts/translations/src/transactions
 
+NUL
+NUL.map
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

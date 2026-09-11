@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: Unidade de tempo de trabalho equivalente a um dia de trabalho de um funcionário.
 § plugin.team_scope.cards.cost.title: custo estimado
 § plugin.team_scope.cards.cost.description: Os dias-pessoa gastos são multiplicados pelo salário médio.
-§ plugin.team_commits.chart.commits.title: Quem fez commits
-§ plugin.team_commits.chart.tasks.title: Quem realizou as tarefas
-§ plugin.team_commits.chart.types.title: Tipos de commit
-§ plugin.team_commits.chart.companies.title: Empresas em cujo nome os commits foram feitos
+§ plugin.team_scope.chart.commits.title: Quem fez commits
+§ plugin.team_scope.chart.tasks.title: Quem realizou as tarefas
+§ plugin.team_scope.chart.types.title: Tipos de commit
+§ plugin.team_scope.chart.companies.title: Empresas em cujo nome os commits foram feitos
 § plugin.team_scope.calculator.title: Calculadora de estimativa de funcionalidade
 § plugin.team_scope.calculator.description: Filtre os commits necessários com a pesquisa. O módulo de estatísticas os agrupará em uma funcionalidade e mostrará os respectivos dados.
 § plugin.team_scope.tasks.task: Tarefa

@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: कार्य समय की इकाई, जो एक कर्मचारी के एक दिन के कार्य के बराबर होती है।
 § plugin.team_scope.cards.cost.title: अनुमानित लागत
 § plugin.team_scope.cards.cost.description: खर्च किए गए मानव-दिवस को औसत वेतन से गुणा किया जाता है।
-§ plugin.team_commits.chart.commits.title: किसने commits बनाए
-§ plugin.team_commits.chart.tasks.title: किसने कार्य किए
-§ plugin.team_commits.chart.types.title: Commit प्रकार
-§ plugin.team_commits.chart.companies.title: कंपनियाँ जिनकी ओर से commits बनाए गए
+§ plugin.team_scope.chart.commits.title: किसने commits बनाए
+§ plugin.team_scope.chart.tasks.title: किसने कार्य किए
+§ plugin.team_scope.chart.types.title: Commit प्रकार
+§ plugin.team_scope.chart.companies.title: कंपनियाँ जिनकी ओर से commits बनाए गए
 § plugin.team_scope.calculator.title: फीचर अनुमान कैलकुलेटर
 § plugin.team_scope.calculator.description: खोज का उपयोग करके आवश्यक commits को फ़िल्टर करें। सांख्यिकी मॉड्यूल उन्हें एक फीचर में समूहित करेगा और उसका डेटा दिखाएगा।
 § plugin.team_scope.tasks.task: कार्य

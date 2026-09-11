@@ -7,6 +7,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_recommendations';
 
+  dependencies = ['recommendations'];
+
   getMenuItems() {
     return  [
       {

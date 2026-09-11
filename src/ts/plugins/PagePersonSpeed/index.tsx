@@ -11,6 +11,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'person_speed';
 
+  dependencies = ['timestamp', 'scoring'];
+
   getMenuItems() {
     return  [
       {

@@ -28,10 +28,10 @@ export default `
 § plugin.team_scope.cards.authorsDays.description: 相当于一名员工工作一天的工时单位。
 § plugin.team_scope.cards.cost.title: 估计成本
 § plugin.team_scope.cards.cost.description: 所投入的人日乘以平均工资。
-§ plugin.team_commits.chart.commits.title: 谁创建了 commits
-§ plugin.team_commits.chart.tasks.title: 谁完成了任务
-§ plugin.team_commits.chart.types.title: Commit 类型
-§ plugin.team_commits.chart.companies.title: 以哪些公司名义创建了 commits
+§ plugin.team_scope.chart.commits.title: 谁创建了 commits
+§ plugin.team_scope.chart.tasks.title: 谁完成了任务
+§ plugin.team_scope.chart.types.title: Commit 类型
+§ plugin.team_scope.chart.companies.title: 以哪些公司名义创建了 commits
 § plugin.team_scope.calculator.title: 功能估算计算器
 § plugin.team_scope.calculator.description: 使用搜索筛选所需的 commits。统计模块会将它们归为一个功能并显示其数据。
 § plugin.team_scope.tasks.task: 任务

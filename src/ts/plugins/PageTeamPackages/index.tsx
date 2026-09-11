@@ -14,6 +14,8 @@ import Page from './components';
 export default class Plugin implements IPlugin {
   static id = 'team_dependencies';
 
+  dependencies = [];
+
   getMenuItems(data?: ISourceData) {
     if (!data?.packages) return [];
 
