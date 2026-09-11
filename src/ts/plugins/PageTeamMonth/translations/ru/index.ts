@@ -1,3 +1,5 @@
+import recommendations from './recommendations';
+
 export default `
 § plugin.team_month.sidebar: По месяцам
 § plugin.team_month.title: Календарь работы по проекту
@@ -12,4 +14,5 @@ export default `
 § plugin.team_month.vacation.last: (вернулся из отпуска)
 § plugin.team_month.work.first: (первый рабочий день)
 § plugin.team_month.work.last: (последний рабочий день)
+${recommendations}
 `;

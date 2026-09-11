@@ -4,7 +4,7 @@ import Recommendations from 'ts/components/Recommendations';
 import { Title, NothingFound } from 'ts/components/Layout';
 import PageWrapper from 'ts/components/Page/wrapper';
 import { CandyChart } from 'ts/components/Charts';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 
 interface IPopularWordsProps {
   statistic: any[];

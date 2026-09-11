@@ -1,4 +1,4 @@
-import { getBuilder, getWrapperWithCache } from 'ts/helpers/recom';
+import { getBuilder, getWrapperWithCache } from 'ts/helpers/recommendations';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { RECOMMENDATIONS } from './contstants';

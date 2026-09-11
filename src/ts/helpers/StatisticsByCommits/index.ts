@@ -1,7 +1,5 @@
 import ICommit, { ISystemCommit } from 'ts/interfaces/Commit';
 
-import Recommendations from 'ts/helpers/Recommendations';
-
 import StatisticsByAuthor from './components/author';
 import StatisticsByTeam from './components/team';
 import StatisticsByScope from './components/scope/index';
@@ -45,8 +43,6 @@ class StatisticsByCommits {
 
   week: any = new StatisticsByWeek();
 
-  recommendations: any = new Recommendations();
-
   beautifulTaskNumbers: any = new StatisticsByBeautifulTaskNumbers();
 
   pr: any = new StatisticsByPR();
@@ -80,7 +76,6 @@ class StatisticsByCommits {
     this.timestamp.clear();
     this.month.clear();
     this.week.clear();
-    this.recommendations.clear();
     this.beautifulTaskNumbers.clear();
     this.pr.clear();
     this.tasks.clear();
@@ -127,7 +122,6 @@ class StatisticsByCommits {
     this.timestamp.updateTotalInfo(this.author);
     this.month.updateTotalInfo(this.author);
     this.week.updateTotalInfo(this.author);
-    this.recommendations.updateTotalInfo(this);
     this.tasks.updateTotalInfo();
     this.taskNumbersDate.updateTotalInfo(this.tasks);
     this.pr.updateTotalInfo(this.tasks);

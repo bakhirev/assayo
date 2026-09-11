@@ -11,6 +11,7 @@ import { Filters } from 'ts/components/YearChart/interfaces/Filters';
 import Section from 'ts/components/Page/wrapper';
 import { If, Title } from 'ts/components/Layout';
 
+import getRecommendations from './helpers/recommendationsForTeam';
 import MonthFilters from './components';
 
 const MonthTeam = observer(({
@@ -18,7 +19,7 @@ const MonthTeam = observer(({
 }: PageOptions): React.ReactElement => {
   const statistic = statisticStore.statisticsByCommits.month;
   const statisticByAuthor = statisticStore.statisticsByCommits.author.totalInfo;
-  const recommendations = statisticStore.statisticsByCommits.recommendations.team?.byTimestamp;
+  const recommendations = getRecommendations();
   const events = getEvents(statisticByAuthor, statisticStore.statisticsByCommits);
   const defaultFilters = { release: false, firstLastDays: true };
   const [filters, setFilters] = useState<Filters>(defaultFilters);

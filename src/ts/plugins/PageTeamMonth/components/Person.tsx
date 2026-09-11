@@ -9,18 +9,27 @@ import { getEvents } from 'ts/components/YearChart/helpers/events';
 import Section from 'ts/components/Page/wrapper';
 import { Title } from 'ts/components/Layout';
 
+import getRecommendations from './helpers/recommendationsForPerson';
+import Recommendations from 'ts/components/Recommendations';
+
 const MonthPerson = observer(({
+  mode,
   user,
 }: PageOptions): React.ReactElement => {
   const statistic = statisticStore.statisticsByCommits.month;
+  const recommendations = getRecommendations()[user.author];
   const statisticByAuthor = statisticStore.statisticsByCommits.author.totalInfo;
   const events = getEvents(statisticByAuthor, statisticStore.statisticsByCommits);
   const defaultFilters = { release: false, firstLastDays: true, absence: true };
 
   return (
     <>
-      <Title title="plugin.team_month.title"/>
+      <Recommendations
+        mode={mode}
+        recommendations={recommendations}
+      />
 
+      <Title title="plugin.team_month.title"/>
       <Section template="table">
         <YearChart
           max={statistic.maxCommitsInDay}

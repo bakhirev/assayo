@@ -3,7 +3,7 @@ import { useTranslation } from 'ts/components/Translation';
 
 import { Description } from 'ts/components/Layout';
 import UiKitButton from 'ts/components/UiKit/components/Button';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 import isMobile from 'ts/helpers/isMobile';
 import { MARKER } from 'ts/helpers/copyPasteFormatter';
 

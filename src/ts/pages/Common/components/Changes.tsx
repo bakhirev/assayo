@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { getDate, getDateByTimestamp } from 'ts/helpers/formatter';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 
 import Recommendations from 'ts/components/Recommendations';
 import PageWrapper from 'ts/components/Page/wrapper';

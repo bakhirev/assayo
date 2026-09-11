@@ -1,4 +1,4 @@
-import { RECOMMENDATION_TYPES } from 'ts/helpers/recom';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 
 export const RECOMMENDATIONS = {
   lazyDaysDown: {

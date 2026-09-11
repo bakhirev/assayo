@@ -6,7 +6,7 @@ import { Title, NothingFound } from 'ts/components/Layout';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 import style from './index.module.scss';
 
 function getAll(recommendations: IHashMap<any>) {

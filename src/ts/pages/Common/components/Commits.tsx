@@ -6,7 +6,7 @@ import Recommendations from 'ts/components/Recommendations';
 import PageWrapper from 'ts/components/Page/wrapper';
 import { BarChart, BarChartWithFewValues } from 'ts/components/Charts';
 import { Title, NothingFound, DayInfo } from 'ts/components/Layout';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 import localization from 'ts/helpers/Localization';
 import { Distribution } from 'ts/helpers/Math';
 

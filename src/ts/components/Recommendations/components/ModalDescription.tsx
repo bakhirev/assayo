@@ -5,7 +5,7 @@ import { useTranslation } from 'ts/components/Translation';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
 import { Description } from 'ts/components/Layout';
-import { RECOMMENDATION_TYPES } from 'ts/helpers/Recommendations/helpers/contstants';
+import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 import localization from 'ts/helpers/Localization';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
