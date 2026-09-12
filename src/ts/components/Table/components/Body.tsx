@@ -80,7 +80,7 @@ function Body({
     formattedRows.push(
       <div
         key={rowIndex}
-        className={rowClassName.join('')}
+        className={rowClassName.join(' ')}
       >
         {cells}
       </div>);

@@ -51,7 +51,6 @@ function Table({
   useWindowResize(() => {
     setOffsetWidth(refTable?.current?.offsetWidth);
   }, [refTable?.current]);
-  console.log(offsetWidth);
 
   const defaultColumns = getDefaultProps(children) as IColumn[];
   const adaptiveWidth = getAdaptiveColumnWidth(defaultColumns, offsetWidth);
@@ -80,7 +79,7 @@ function Table({
         <Body
           rows={rows}
           columns={columns}
-          tableWidth={offsetWidth}
+          tableWidth={offsetWidth - 18}
           disabledRow={disabledRow}
           rowsConfig={rowsConfig}
           updateRowsConfig={updateRowsConfig}

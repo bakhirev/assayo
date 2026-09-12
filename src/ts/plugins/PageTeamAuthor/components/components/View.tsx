@@ -45,6 +45,7 @@ export function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         isFixed
         template={ColumnTypes.DETAILS}
         width={40}
+        properties="absence"
         formatter={(row: any) => {
           const content = getAbsenceByName.get(row.author) || [];
           return (

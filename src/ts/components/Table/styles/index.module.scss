@@ -31,6 +31,9 @@
     }
 
     &_selected {
+      overflow: hidden;
+      border-bottom: none;
+      border-radius: var(--border-radius-m);
       background-color: #FFFAF0;
     }
   }
@@ -39,13 +42,15 @@
     position: relative;
     font-weight: 100;
     display: block;
-    padding: 0 var(--space-m) var(--space-xxl) 42px;
+    padding: 0 var(--space-m) var(--space-xxl) 18px;
+    margin-left: 18px;
 
     white-space: nowrap;
     break-inside: auto;
 
-    border-bottom: 1px solid #EEEEEE;
-    border-radius: var(--border-radius-m);
+    border-left: 5px solid var(--color-first);
+    border-radius: 0;
+    background-color: #F6F8FD;
   }
 
   &_cell,
@@ -62,8 +67,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: top;
-
-    background-color: var(--color-white);
   }
 
   &_fixed {
@@ -71,7 +74,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
   }
 
   &_cell {
@@ -83,7 +86,6 @@
     height: var(--table-cell-height);
     padding: 0 4px;
     line-height: var(--table-cell-height);
-    background-color: var(--color-white);
   }
 
   &_cell_number {
