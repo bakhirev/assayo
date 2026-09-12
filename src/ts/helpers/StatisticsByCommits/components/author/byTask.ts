@@ -4,8 +4,23 @@ import { getRemoveExtremeValuesFunc, WeightedAverage } from 'ts/helpers/Math';
 
 import { createUniqValues, incrementUniqValues } from '../../helpers';
 
+export interface AuthorTask {
+  commits: number;
+  days: Set<string | number>;
+  changes: number;
+  files: Set<string>;
+}
+
+export interface AuthorTasksTotal {
+  totalTasks: number;
+  totalTaskInDay: number;
+  totalTaskInChanges: number;
+  totalTaskInCommits: number;
+  totalTaskInFiles: number;
+}
+
 export default class StatisticsByTasks {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<AuthorTask> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -21,7 +36,7 @@ export default class StatisticsByTasks {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: AuthorTask, commit: ICommit) {
     statistic.commits += 1;
     incrementUniqValues(statistic.days, commit.timestamp);
     statistic.changes += commit.added + commit.changes - commit.removed;
@@ -40,14 +55,14 @@ export default class StatisticsByTasks {
     });
   }
 
-  getTotalInfo(totalDaysWithCommits: number) {
+  getTotalInfo(totalDaysWithCommits: number): AuthorTasksTotal {
     const list = Array.from(this.commits.values());
     const totalTasks = list.length;
     const totalTaskInChanges = new WeightedAverage();
     const totalTaskInCommits = new WeightedAverage();
     const totalTaskInFiles = new WeightedAverage();
 
-    list.forEach((item: any) => {
+    list.forEach((item: AuthorTask) => {
       totalTaskInChanges.update(item.changes);
       totalTaskInCommits.update(item.commits);
       totalTaskInFiles.update(item.files.size);

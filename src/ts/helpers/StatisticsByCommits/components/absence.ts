@@ -10,6 +10,11 @@ export interface StatisticsAbsenceTime {
   timestamp: string;
 }
 
+export interface StatisticsAbsenceLastCommit {
+  milliseconds: number;
+  timestamp: string;
+}
+
 export interface StatisticsAbsence {
   author: string;
   duration: number;
@@ -18,7 +23,7 @@ export interface StatisticsAbsence {
 }
 
 export default class StatisticsByAbsence {
-  lastCommitDate: HashMap<any> = new Map();
+  lastCommitDate: HashMap<StatisticsAbsenceLastCommit> = new Map();
 
   totalInfo: StatisticsAbsence[] = [];
 
@@ -38,7 +43,7 @@ export default class StatisticsByAbsence {
     }
   }
 
-  #update(from: any, commit: ICommit) {
+  #update(from: StatisticsAbsenceLastCommit, commit: ICommit) {
     const to = commit.milliseconds;
     let duration = ((to - from.milliseconds) / ONE_DAY) - 2;
     if (commit.month === 0 && commit.dayInMonth <= 11) duration -= 10;
@@ -56,7 +61,7 @@ export default class StatisticsByAbsence {
     });
   }
 
-  #getTimes(date: any, timestamp: string) {
+  #getTimes(date: Date, timestamp: string): StatisticsAbsenceTime {
     return {
       // для календаря отпусков (фактический)
       milliseconds: date.getTime(),
@@ -75,7 +80,7 @@ export default class StatisticsByAbsence {
     });
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
+  updateTotalInfo(statisticsByAuthor: { totalInfoByName: HashMap<{ isStaff?: boolean }> }) {
     this.totalInfo = this.totalInfo
       .filter((absence: StatisticsAbsence) => !statisticsByAuthor.totalInfoByName.get(absence.author)?.isStaff)
       .sort((a: StatisticsAbsence, b: StatisticsAbsence) => b.to.milliseconds - a.to.milliseconds);

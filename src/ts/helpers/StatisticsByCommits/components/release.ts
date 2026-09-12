@@ -2,15 +2,36 @@ import { COMMIT_TYPE, ISystemCommit } from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 
 import { getDaysFromTo } from 'ts/helpers/Math';
+import StatisticsByTasks from './tasks';
+import StatisticsByPR from './pr';
+
+export interface StatisticsReleaseDate {
+  month: number;
+  dayInMonth: number;
+  year: number;
+  timestamp?: string;
+}
+
+export interface StatisticsRelease {
+  title: string;
+  dateMerge: number;
+  dateCreate: number;
+  from: StatisticsReleaseDate;
+  to: StatisticsReleaseDate;
+  delayInDays: number;
+  daysAwaitNextRelease: number;
+  prIds: number[];
+  totalPR: number;
+}
 
 export default class StatisticsByRelease {
-  release: IHashMap<any> = {};
+  release: IHashMap<StatisticsRelease> = {};
 
-  totalInfo: any[] = [];
+  totalInfo: StatisticsRelease[] = [];
 
-  lastPrList: any[] = [];
+  lastPrList: number[] = [];
 
-  totalInfoByName: IHashMap<any> = [];
+  totalInfoByName: IHashMap<StatisticsRelease> = {};
 
   clear() {
     this.release = {};
@@ -75,12 +96,12 @@ export default class StatisticsByRelease {
       title,
       dateMerge: commit.milliseconds,
       dateCreate: commit.milliseconds,
-      from: { // for gant chart
+      from: {
         month: commit.month,
         dayInMonth: commit.dayInMonth,
         year: commit.year,
       },
-      to: { // for gant chart
+      to: {
         month: commit.month,
         dayInMonth: commit.dayInMonth,
         year: commit.year,
@@ -95,23 +116,21 @@ export default class StatisticsByRelease {
     return true;
   }
 
-  updateTotalInfo(statisticsByTasks: any, statisticsByPR: any) {
-    let prev: any = null;
+  updateTotalInfo(statisticsByTasks: StatisticsByTasks, statisticsByPR: StatisticsByPR) {
+    let prev: StatisticsRelease | null = null;
 
     this.lastPrList = [];
 
     this.totalInfo = Object.entries(this.release)
-      .sort((a: any, b: any) => a[1].dateCreate - b[1].dateCreate)
-      .map((a: any) => {
-        const item = a[1];
-
-        item.prIds.forEach((prId: string) => {
+      .sort((a, b) => a[1].dateCreate - b[1].dateCreate)
+      .map(([branch, item]) => {
+        item.prIds.forEach((prId: number) => {
           const pr = statisticsByPR.totalInfoByName.get(prId);
           if (!pr) return;
           pr.daysAwaitRelease = getDaysFromTo(pr.dateMerge, item.dateMerge);
           const task = statisticsByTasks.totalInfoByName.get(pr.task);
           if (!task) return;
-          task.releaseIds.add(a[0]);
+          (task.releaseIds as Set<string>).add(branch);
         });
         item.totalPR = item.prIds.length;
 

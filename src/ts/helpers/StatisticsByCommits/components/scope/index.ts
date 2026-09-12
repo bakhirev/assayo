@@ -1,5 +1,5 @@
 import ICommit from 'ts/interfaces/Commit';
-import { HashMap } from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import {
   getDaysBetween,
@@ -7,14 +7,46 @@ import {
   incrementMap,
 } from '../../helpers';
 
-import StatisticsByAuthors from './byAuthor';
+import StatisticsByAuthors, { ScopeAuthorsTotal } from './byAuthor';
+
+export type { ScopeAuthorCommit, ScopeAuthorsTotal } from './byAuthor';
+
+export interface StatisticsScopeCommit {
+  scope: string;
+  commits: number;
+  firstCommit: number;
+  lastCommit: number;
+  days: Set<string>;
+  tasks: Set<string>;
+  types: Map<string, number>;
+  companies: Map<string, number>;
+  authors: StatisticsByAuthors;
+}
+
+export interface StatisticsScope {
+  scope: string;
+  commits: number;
+  firstCommit: number;
+  lastCommit: number;
+  totalDaysWorked: number;
+  totalDaysWorkedByAuthor: number;
+  totalDays: number;
+  totalTasks: number;
+  totalAuthors: number;
+  tasks: string[];
+  types: IHashMap<number>;
+  companies: IHashMap<number>;
+  commitsByAuthor: IHashMap<number>;
+  tasksByAuthor: IHashMap<number>;
+  cost: number;
+}
 
 export default class StatisticsByScope {
   list: string[] = [];
 
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsScopeCommit> = new Map();
 
-  totalInfo: any[] = [];
+  totalInfo: StatisticsScope[] = [];
 
   clear() {
     this.list = [];
@@ -31,7 +63,7 @@ export default class StatisticsByScope {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsScopeCommit, commit: ICommit) {
     statistic.commits += 1;
     statistic.lastCommit = commit.milliseconds;
     statistic.days.add(commit.timestamp);
@@ -59,14 +91,14 @@ export default class StatisticsByScope {
     const middleSalaryInDay = applicationConfig.getMiddleSalaryInDay();
 
     this.totalInfo = Array.from(this.commits.values())
-      .filter((dot: any) => dot.commits > 5)
-      .map((item: any) => {
+      .filter((dot: StatisticsScopeCommit) => dot.commits > 5)
+      .map((item: StatisticsScopeCommit) => {
         const {
           totalDays: totalDaysWorkedByAuthor,
           totalAuthors,
           commitsByAuthor,
           tasksByAuthor,
-        } =  item.authors.getTotalInfo();
+        }: ScopeAuthorsTotal = item.authors.getTotalInfo();
 
         return {
           scope: item.scope,
@@ -86,9 +118,9 @@ export default class StatisticsByScope {
           cost: totalDaysWorkedByAuthor * middleSalaryInDay,
         };
       })
-      .sort((dotA: any, dotB: any) => dotB.commits - dotA.commits);
+      .sort((dotA: StatisticsScope, dotB: StatisticsScope) => dotB.commits - dotA.commits);
 
-    this.list = this.totalInfo.map((dot: any) => dot.scope);
+    this.list = this.totalInfo.map((dot: StatisticsScope) => dot.scope);
 
     this.commits.clear();
   }

@@ -11,11 +11,11 @@ export interface Email {
 }
 
 export default class StatisticsByEmail {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<Email> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: Email[] = [];
 
-  totalInfoByName: HashMap<any> = new Map();
+  totalInfoByName: HashMap<Email> = new Map();
 
   constructor() {
     this.clear();
@@ -51,12 +51,12 @@ export default class StatisticsByEmail {
     });
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
+  updateTotalInfo(statisticsByAuthor: { list: string[] }) {
     const indexByAuthor = Object.fromEntries(
       statisticsByAuthor.list.map((name: string, index: number) => ([name, index])),
     );
     this.totalInfo = Array.from(this.commits.values())
-      .sort((a: any, b: any) => {
+      .sort((a: Email, b: Email) => {
         const order = indexByAuthor[a.author] - indexByAuthor[b.author];
         if (order) return order;
         return a.type - b.type;

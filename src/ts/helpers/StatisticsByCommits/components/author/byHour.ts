@@ -16,7 +16,7 @@ export default class StatisticsByHour {
     this.commitsByHour[commit.hours] += 1;
   }
 
-  getTotalInfo() {
+  getTotalInfo(): [number[][], number[]] {
     return [
       this.commitsByDayAndHour,
       this.commitsByHour,

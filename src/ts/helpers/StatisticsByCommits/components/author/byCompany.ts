@@ -1,8 +1,14 @@
 import ICommit from 'ts/interfaces/Commit';
 import { HashMap } from 'ts/interfaces/HashMap';
 
+export interface AuthorCompany {
+  title: string;
+  from: number;
+  to: number;
+}
+
 export default class StatisticsByCompany {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<AuthorCompany> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -18,7 +24,7 @@ export default class StatisticsByCompany {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: AuthorCompany, commit: ICommit) {
     statistic.to = commit.milliseconds;
   }
 

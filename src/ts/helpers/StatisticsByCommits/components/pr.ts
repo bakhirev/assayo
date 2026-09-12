@@ -3,6 +3,7 @@ import { HashMap } from 'ts/interfaces/HashMap';
 import { getDaysFromTo } from 'ts/helpers/Math';
 
 import { getClearTaskMessage } from '../helpers/getClearTaskMessage';
+import StatisticsByTasks from './tasks';
 
 function getIndexAfterMerge(milliseconds: number[], dateMerge: number) {
   return milliseconds.findIndex((millisecond: number) => millisecond > dateMerge);
@@ -18,12 +19,32 @@ function getCommitDateAfterPR(milliseconds: number[], dateMerge: number) {
   return milliseconds[next] || dateMerge;
 }
 
+export interface StatisticsPR {
+  prId: number;
+  prExternalId: string;
+  branch: string;
+  description: string;
+  dateMerge: number;
+  dateMergeFull: string;
+  dateCreate: number;
+  dateMergeYear: number;
+  daysInReview: number;
+  daysWorkOnTask: number;
+  author: string;
+  task: string;
+  taskCode: string;
+  company: string;
+  types: string[];
+  scope: string[];
+  daysAwaitRelease?: number;
+}
+
 export default class StatisticsByPR {
   uniqIndex: number = 1;
 
-  totalInfo: any[] = [];
+  totalInfo: StatisticsPR[] = [];
 
-  totalInfoByName: HashMap<any> = new Map();
+  totalInfoByName: HashMap<StatisticsPR> = new Map();
 
   clear() {
     this.uniqIndex = 1;
@@ -35,7 +56,6 @@ export default class StatisticsByPR {
     if (!commit.prId) return;
     const message = getClearTaskMessage(commit.message, commit.task, [commit.type], [commit.scope]);
     this.totalInfo.push({
-      // уникальный ID
       prId: commit.prId,
       prExternalId : commit.prExternalId,
       branch: commit.branch,
@@ -47,7 +67,6 @@ export default class StatisticsByPR {
       daysInReview: 1,
       daysWorkOnTask: 1,
 
-      // для фильтров поиска
       author: commit.author,
       task: commit.task,
       taskCode: commit.taskCode,
@@ -57,8 +76,8 @@ export default class StatisticsByPR {
     });
   }
 
-  updateTotalInfo(statisticsByTasks: any) {
-    this.totalInfo.forEach((item: any) => {
+  updateTotalInfo(statisticsByTasks: StatisticsByTasks) {
+    this.totalInfo.forEach((item: StatisticsPR) => {
       this.totalInfoByName.set(item.prId, item);
 
       const task = statisticsByTasks.totalInfoByName.get(item.task);
@@ -69,12 +88,12 @@ export default class StatisticsByPR {
         : getCommitDateBeforePR(task.milliseconds, item.dateMerge);
       item.daysInReview = getDaysFromTo(item.dateCreate, item.dateMerge, 1);
       task.prIds.push(item.prId);
-      item.types = task.types; // передача по ссылке, будь осторожен
+      item.types = task.types;
       item.scope = task.scope;
 
       const prevPrId = task.prIds[task.prIds.length - 2];
       if (prevPrId) {
-        const prevPr = this.totalInfoByName.get(prevPrId);
+        const prevPr = this.totalInfoByName.get(prevPrId) as StatisticsPR;
         const firstWorkDay = getCommitDateAfterPR(task.milliseconds, prevPr.dateMerge);
         item.daysWorkOnTask = getDaysFromTo(firstWorkDay, item.dateCreate);
       } else {
@@ -82,6 +101,6 @@ export default class StatisticsByPR {
       }
     });
 
-    this.totalInfo.sort((itemA: any, itemB: any) => itemB.dateMerge - itemA.dateMerge);
+    this.totalInfo.sort((itemA: StatisticsPR, itemB: StatisticsPR) => itemB.dateMerge - itemA.dateMerge);
   }
 }

@@ -1,8 +1,22 @@
 import ICommit from 'ts/interfaces/Commit';
-import { HashMap } from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
+
+export interface ScopeAuthorCommit {
+  author: string;
+  commits: number;
+  days: Set<string>;
+  tasks: Set<string>;
+}
+
+export interface ScopeAuthorsTotal {
+  totalDays: number;
+  totalAuthors: number;
+  commitsByAuthor: IHashMap<number>;
+  tasksByAuthor: IHashMap<number>;
+}
 
 export default class StatisticsByAuthors {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<ScopeAuthorCommit> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -18,7 +32,7 @@ export default class StatisticsByAuthors {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: ScopeAuthorCommit, commit: ICommit) {
     statistic.commits += 1;
     statistic.days.add(commit.timestamp);
     if (commit.task) statistic.tasks.add(commit.task);
@@ -33,17 +47,22 @@ export default class StatisticsByAuthors {
     });
   }
 
-  getTotalInfo() {
+  getTotalInfo(): ScopeAuthorsTotal {
     let totalDays = 0;
     let totalAuthors = 0;
-    const commitsByAuthor = {};
-    const tasksByAuthor = {};
-    Array.from(this.commits.values()).forEach((item: any) => {
+    const refAuthorCommits: IHashMap<number> = {};
+    const refAuthorTasks: IHashMap<number> = {};
+    Array.from(this.commits.values()).forEach((item: ScopeAuthorCommit) => {
       totalDays += item.days.size;
       totalAuthors += 1;
-      commitsByAuthor[item.author] = item.commits;
-      tasksByAuthor[item.author] = item.tasks.size;
+      refAuthorCommits[item.author] = item.commits;
+      refAuthorTasks[item.author] = item.tasks.size;
     });
-    return { totalDays, totalAuthors, commitsByAuthor, tasksByAuthor };
+    return {
+      totalDays,
+      totalAuthors,
+      commitsByAuthor: refAuthorCommits,
+      tasksByAuthor: refAuthorTasks,
+    };
   }
 }

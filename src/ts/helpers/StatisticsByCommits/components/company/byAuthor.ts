@@ -2,8 +2,28 @@ import ICommit from 'ts/interfaces/Commit';
 import { HashMap } from 'ts/interfaces/HashMap';
 
 import { getDaysBetween } from '../../helpers';
+
+export interface CompanyAuthorCommit {
+  author: string;
+  firstCommit: number;
+  lastCommit: number;
+  days: Set<string>;
+  tasks: Set<string>;
+  taskCodes: Set<string>;
+}
+
+export interface CompanyAuthor {
+  author: string;
+  totalDaysWorked: number;
+  totalDaysInProject: number;
+  totalTasks: number;
+  taskCodes: string[];
+  firstCommit: number;
+  lastCommit: number;
+}
+
 export default class StatisticsByAuthors {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<CompanyAuthorCommit> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -19,7 +39,7 @@ export default class StatisticsByAuthors {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: CompanyAuthorCommit, commit: ICommit) {
     statistic.lastCommit = commit.milliseconds;
     statistic.days.add(commit.timestamp);
     if (commit.task) statistic.tasks.add(commit.task);
@@ -39,7 +59,7 @@ export default class StatisticsByAuthors {
 
   getTotalInfo() {
     return Array.from(this.commits.values())
-      .map((item: any) => ({
+      .map((item: CompanyAuthorCommit): CompanyAuthor => ({
         author: item.author,
         totalDaysWorked: item.days.size,
         totalDaysInProject: getDaysBetween(item.firstCommit, item.lastCommit),
@@ -48,6 +68,6 @@ export default class StatisticsByAuthors {
         firstCommit: item.firstCommit,
         lastCommit: item.lastCommit,
       }))
-      .sort((itemA: any, itemB: any) => (itemB.totalTasks - itemA.totalTasks));
+      .sort((itemA: CompanyAuthor, itemB: CompanyAuthor) => (itemB.totalTasks - itemA.totalTasks));
   }
 }

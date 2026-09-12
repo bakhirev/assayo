@@ -9,42 +9,56 @@ const IGNORE_LIST = [
   'tsconfig.json',
 ];
 
-export default class StatisticsByExtension {
-  totalInfo: any = [];
+export interface StatisticsExtensionFiles {
+  files: IHashMap<string>;
+  count: number;
+}
 
-  totalInfoByName: IHashMap<any> = {};
+export interface StatisticsExtension {
+  extension: string;
+  authors: IHashMap<string>;
+  task?: string;
+  path: string | null;
+  current: StatisticsExtensionFiles;
+  removed: StatisticsExtensionFiles;
+}
+
+export default class StatisticsByExtension {
+  totalInfo: StatisticsExtension[] = [];
+
+  totalInfoByName: IHashMap<StatisticsExtension> = {};
 
   clear() {
     this.totalInfo = [];
-    this.totalInfoByName.clear();
+    this.totalInfoByName = {};
   }
 
   updateTotalInfo(fileList: IDirtyFile[], removedFileList: IDirtyFile[]) {
-    const byExtension = {};
+    const refExtensionStatistic: IHashMap<StatisticsExtension> = {};
 
-    fileList.forEach((file: any) => {
-      this.#updateStatistic(file, byExtension, 'current');
+    fileList.forEach((file: IDirtyFile) => {
+      this.#updateStatistic(file, refExtensionStatistic, 'current');
     });
 
-    removedFileList.forEach((file: any) => {
-      this.#updateStatistic(file, byExtension, 'removed');
+    removedFileList.forEach((file: IDirtyFile) => {
+      this.#updateStatistic(file, refExtensionStatistic, 'removed');
     });
 
-    this.totalInfo = Object.entries(byExtension)
-      .sort((a: any, b: any) => b[1].current.count - a[1].current.count)
-      .map((item: any) => {
+    this.totalInfo = Object.entries(refExtensionStatistic)
+      .sort((a, b) => b[1].current.count - a[1].current.count)
+      .map((item) => {
         if (item[1].removed.count !== 1 && item[1].current.count !== 1) {
           item[1].path = null;
         }
         return item[1];
       });
 
-    this.totalInfoByName = byExtension;
+    this.totalInfoByName = refExtensionStatistic;
   }
 
   #updateStatistic(
     file: IDirtyFile,
-    group: Record<string, any>,
+    group: IHashMap<StatisticsExtension>,
     type: 'current' | 'removed',
   ) {
     if (!file.extension
@@ -57,7 +71,7 @@ export default class StatisticsByExtension {
     group[file.extension][type].count += 1;
   }
 
-  #getNewExtension(file: IDirtyFile) {
+  #getNewExtension(file: IDirtyFile): StatisticsExtension {
     return {
       extension: file?.extension,
       authors: {},

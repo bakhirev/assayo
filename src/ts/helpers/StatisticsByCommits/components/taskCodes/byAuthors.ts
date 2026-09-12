@@ -6,9 +6,27 @@ import {
   createUniqValues,
   incrementUniqValues,
 } from '../../helpers';
+import StatisticsByAuthor from '../author';
+
+export interface TaskCodeAuthorCommit {
+  author: string;
+  days: Set<string | number>;
+  tasks: Set<string | number>;
+  firstCommit: number;
+  lastCommit: number;
+}
+
+export interface TaskCodeAuthor {
+  author: string;
+  totalDays: number;
+  totalDaysInProject: number;
+  totalTasks: number;
+  firstCommit: number;
+  lastCommit: number;
+}
 
 export default class StatisticsByAuthors {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<TaskCodeAuthorCommit> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -24,7 +42,7 @@ export default class StatisticsByAuthors {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: TaskCodeAuthorCommit, commit: ICommit) {
     incrementUniqValues(statistic.days, commit.timestamp);
     incrementUniqValues(statistic.tasks, commit.taskNumber);
     statistic.lastCommit = commit.milliseconds;
@@ -40,10 +58,10 @@ export default class StatisticsByAuthors {
     });
   }
 
-  getTotalInfo(statisticsByAuthor: any) {
+  getTotalInfo(statisticsByAuthor: StatisticsByAuthor) {
     const order = statisticsByAuthor.list;
     return Array.from(this.commits.values())
-      .map((item: any) => ({
+      .map((item: TaskCodeAuthorCommit): TaskCodeAuthor => ({
         author: item.author,
         totalDays: item.days.size,
         totalDaysInProject: getDaysBetween(item.firstCommit, item.lastCommit),
@@ -51,7 +69,7 @@ export default class StatisticsByAuthors {
         firstCommit: item.firstCommit,
         lastCommit: item.lastCommit,
       }))
-      .sort((itemA: any, itemB: any) => (
+      .sort((itemA: TaskCodeAuthor, itemB: TaskCodeAuthor) => (
         order.indexOf(itemA.author) - order.indexOf(itemB.author)
       ));
   }

@@ -4,14 +4,55 @@ import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import { getDaysFromTo } from 'ts/helpers/Math';
 import { getClearTaskMessage } from '../helpers/getClearTaskMessage';
 
+export interface StatisticsTaskCommit {
+  task: string;
+  taskCode: string;
+  taskNumber: number;
+  commits: ICommit[];
+  firstAuthor: string;
+  messages: Set<string>;
+  authors: Set<string>;
+  days: Set<string>;
+  scope: Set<string>;
+  types: Set<string>;
+  milliseconds: Set<number>;
+}
+
+export interface StatisticsTaskCommitInfo {
+  milliseconds: number;
+  author: string;
+  description: string;
+}
+
+export interface StatisticsTask {
+  task: string;
+  taskCode: string;
+  taskNumber: number;
+  commits: StatisticsTaskCommitInfo[];
+  description: string;
+  firstAuthor: string;
+  authors: Set<string>;
+  totalAuthors: number;
+  scope: string[];
+  types: string[];
+  firstCommit: number;
+  lastCommit: number;
+  totalDays: number;
+  totalDaysWorked: number;
+  totalDaysInBacklog: number;
+  milliseconds: number[];
+  prIds: number[];
+  releaseIds: Set<string> | string[];
+  createdBefore: number;
+}
+
 export default class StatisticsByTasks {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsTaskCommit> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: StatisticsTask[] = [];
 
-  totalInfoByName: HashMap<any> = new Map();
+  totalInfoByName: HashMap<StatisticsTask> = new Map();
 
-  // achievements
   longTaskByAuthor: IHashMap<number> = {};
 
   clear() {
@@ -31,7 +72,7 @@ export default class StatisticsByTasks {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsTaskCommit, commit: ICommit) {
     statistic.commits.push(commit);
     statistic.messages.add(commit.message);
     statistic.authors.add(commit.author);
@@ -59,7 +100,7 @@ export default class StatisticsByTasks {
 
   updateTotalInfo() {
     this.totalInfo = Array.from(this.commits.values())
-      .map((item: any) => {
+      .map((item: StatisticsTaskCommit) => {
         const milliseconds = Array.from(item.milliseconds);
         const firstCommit = milliseconds[0] as number;
         const lastCommit = milliseconds[milliseconds.length - 1] as number;
@@ -76,7 +117,7 @@ export default class StatisticsByTasks {
           };
         });
 
-        const data = {
+        const data: StatisticsTask = {
           task: item.task,
           taskCode: item.taskCode,
           taskNumber: item.taskNumber,
@@ -92,23 +133,21 @@ export default class StatisticsByTasks {
           totalDays: getDaysFromTo(firstCommit, lastCommit),
           totalDaysWorked: item.days.size,
           totalDaysInBacklog: 1,
-          // служебные поля для PR
           milliseconds,
           prIds: [],
-          // служебные поля
           releaseIds: new Set(),
           createdBefore: firstCommit,
         };
         this.totalInfoByName.set(item.task, data);
         return data;
       })
-      .sort((dotA: any, dotB: any) => dotB.lastCommit - dotA.lastCommit);
+      .sort((dotA: StatisticsTask, dotB: StatisticsTask) => dotB.lastCommit - dotA.lastCommit);
 
     this.commits.clear();
   }
 
   updateTotalInfo2() {
-    this.totalInfo.forEach((task: any) => {
+    this.totalInfo.forEach((task: StatisticsTask) => {
       task.releaseIds = Array.from(task.releaseIds);
     });
   }

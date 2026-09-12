@@ -1,14 +1,32 @@
 import ICommit from 'ts/interfaces/Commit';
 import IHashMap from 'ts/interfaces/HashMap';
 import { createIncrement, increment } from 'ts/helpers/Math';
-// import { POPULAR_TYPES } from 'ts/helpers/getCommitObjectsFromText/getTypeAndScope';
+
+export interface StatisticsTypeCommit {
+  type: string;
+  commits: number;
+  days: Map<string, boolean>;
+  tasks: Map<string, boolean>;
+  commitsByAuthors: IHashMap<number>;
+  daysByAuthors: IHashMap<IHashMap<number>>;
+}
+
+export interface StatisticsType {
+  type: string;
+  commits: number;
+  days: number;
+  tasks: number;
+  commitsByAuthors: IHashMap<number>;
+  daysByAuthors: IHashMap<IHashMap<number>>;
+  daysByAuthorsTotal: number;
+}
 
 export default class StatisticsByType {
   list: string[] = [];
 
-  commits: IHashMap<any> = {};
+  commits: IHashMap<StatisticsTypeCommit> = {};
 
-  totalInfo: any = [];
+  totalInfo: StatisticsType[] = [];
 
   clear() {
     this.list = [];
@@ -49,21 +67,17 @@ export default class StatisticsByType {
   }
 
   updateTotalInfo() {
-    // const types = [...POPULAR_TYPES, 'ci'];
-    // const isCorrectType = Object.fromEntries(types.map(type => [type, true]));
-
     this.totalInfo = Object.values(this.commits)
-      .filter((dot: any) => dot?.type)
-      // .filter((dot: any) => dot.commits > 5 || isCorrectType[dot?.type || ''])
-      .map((dot: any) => ({
+      .filter((dot: StatisticsTypeCommit) => dot?.type)
+      .map((dot: StatisticsTypeCommit): StatisticsType => ({
         ...dot,
         tasks: dot.tasks.size,
         days: dot.days.size,
         daysByAuthorsTotal: Object.values(dot.daysByAuthors)
-          .reduce((t: number, v: any) => (t + Object.keys(v).length), 0),
+          .reduce((t: number, v: IHashMap<number>) => (t + Object.keys(v).length), 0),
       }))
-      .sort((dotA, dotB) => dotB.days - dotA.days);
+      .sort((dotA: StatisticsType, dotB: StatisticsType) => dotB.days - dotA.days);
 
-    this.list = this.totalInfo.map((dot: any) => dot.type);
+    this.list = this.totalInfo.map((dot: StatisticsType) => dot.type);
   }
 }

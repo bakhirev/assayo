@@ -3,16 +3,45 @@ import { HashMap } from 'ts/interfaces/HashMap';
 import { ONE_DAY } from 'ts/helpers/formatter';
 import { WeightedAverage } from 'ts/helpers/Math';
 
-import StatisticsByAuthors from './byAuthor';
-import StatisticsByTaskCode from './byTaskCode';
+import StatisticsByAuthors, { CompanyAuthor } from './byAuthor';
+import StatisticsByTaskCode, { CompanyTaskCode } from './byTaskCode';
 import { getDaysBetween } from '../../helpers';
 
+export type { CompanyAuthor } from './byAuthor';
+export type { CompanyTaskCode } from './byTaskCode';
+
+export interface StatisticsCompanyCommit {
+  company: string;
+  firstCommit: number;
+  lastCommit: number;
+  days: Set<string>;
+  tasks: Set<string>;
+  authors: StatisticsByAuthors;
+  taskCodes: StatisticsByTaskCode;
+  linesInTask: WeightedAverage;
+}
+
+export interface StatisticsCompany {
+  company: string;
+  from: number;
+  to: number;
+  authors: CompanyAuthor[];
+  taskCodes: CompanyTaskCode[];
+  totalTasks: number;
+  totalTaskCodes: number;
+  totalDays: number;
+  totalDaysWorked: number;
+  totalAuthors: number;
+  isActive: boolean;
+  linesInTask: number;
+}
+
 export default class StatisticsByCompany {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsCompanyCommit> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: StatisticsCompany[] = [];
 
-  totalInfoByName: HashMap<any> = new Map();
+  totalInfoByName: HashMap<StatisticsCompany> = new Map();
 
   clear() {
     this.commits.clear();
@@ -30,7 +59,7 @@ export default class StatisticsByCompany {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsCompanyCommit, commit: ICommit) {
     statistic.lastCommit = commit.milliseconds;
     statistic.days.add(commit.timestamp);
     if (commit.task) statistic.tasks.add(commit.task);
@@ -57,10 +86,10 @@ export default class StatisticsByCompany {
   updateTotalInfo(lastCommit: ICommit) {
     const dismissedLimit = lastCommit?.milliseconds - 60 * ONE_DAY;
     this.totalInfo = Array.from(this.commits.values())
-      .map((item: any) => {
+      .map((item: StatisticsCompanyCommit) => {
         const authors = item.authors.getTotalInfo();
         const taskCodes = item.taskCodes.getTotalInfo();
-        const data = {
+        const data: StatisticsCompany = {
           company: item.company,
           from: item.firstCommit,
           to: item.lastCommit,
@@ -77,7 +106,7 @@ export default class StatisticsByCompany {
         this.totalInfoByName.set(item.company, data);
         return data;
       })
-      .sort((dotA: any, dotB: any) => dotB.totalTasks - dotA.totalTasks);
+      .sort((dotA: StatisticsCompany, dotB: StatisticsCompany) => dotB.totalTasks - dotA.totalTasks);
 
     this.commits.clear();
   }

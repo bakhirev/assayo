@@ -1,18 +1,55 @@
 import ICommit from 'ts/interfaces/Commit';
-import { HashMap } from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import { increment } from 'ts/helpers/Math';
 
 import MinMaxCounter from '../helpers/MinMaxCounter';
+import StatisticsByAuthor, { StatisticsAuthor } from './author';
+
+export interface StatisticsTimestamp {
+  commits: number;
+  day: number;
+  dayInMonth: number;
+  month: number;
+  year: number;
+  week: number;
+  timestamp: string;
+  milliseconds: number;
+  tasks: IHashMap<number>;
+  tasksByAuthor: IHashMap<IHashMap<ICommit[]>>;
+  addedAndChanges: number;
+  messages: string[];
+  tasksInDay?: number;
+}
+
+export interface StatisticsTimestampTotal {
+  allCommitsByTimestamp: StatisticsTimestamp[];
+  commitsByTimestampCounter: MinMaxCounter;
+  changesByTimestampCounter: MinMaxCounter;
+  tasksByTimestampCounter: MinMaxCounter;
+  workByDay: number[];
+  weekendPayment: number;
+}
+
+function getEmptyTotalInfo(): StatisticsTimestampTotal {
+  return {
+    allCommitsByTimestamp: [],
+    commitsByTimestampCounter: new MinMaxCounter(),
+    changesByTimestampCounter: new MinMaxCounter(),
+    tasksByTimestampCounter: new MinMaxCounter(),
+    workByDay: [],
+    weekendPayment: 0,
+  };
+}
 
 export default class StatisticsByTimestamp {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsTimestamp> = new Map();
 
-  commitsByAuthor: HashMap<any> = new Map();
+  commitsByAuthor: HashMap<HashMap<StatisticsTimestamp>> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: StatisticsTimestampTotal = getEmptyTotalInfo();
 
-  totalInfoByName: any = {};
+  totalInfoByName: IHashMap<StatisticsTimestampTotal> = {};
 
   constructor() {
     this.clear();
@@ -21,7 +58,7 @@ export default class StatisticsByTimestamp {
   clear() {
     this.commits.clear();
     this.commitsByAuthor.clear();
-    this.totalInfo = [];
+    this.totalInfo = getEmptyTotalInfo();
     this.totalInfoByName = {};
   }
 
@@ -47,7 +84,7 @@ export default class StatisticsByTimestamp {
     }
   }
 
-  #updateCommitByTimestamp(statistic: any, commit: ICommit) {
+  #updateCommitByTimestamp(statistic: StatisticsTimestamp, commit: ICommit) {
     statistic.commits += 1;
     statistic.addedAndChanges += commit.added + commit.changes;
     increment(statistic.tasks, commit.task);
@@ -62,7 +99,7 @@ export default class StatisticsByTimestamp {
     statistic.messages.push(commit.message);
   }
 
-  #getDefaultCommitByTimestamp(commit: ICommit) {
+  #getDefaultCommitByTimestamp(commit: ICommit): StatisticsTimestamp {
     return {
       commits: 1,
       day: commit.day,
@@ -79,18 +116,21 @@ export default class StatisticsByTimestamp {
     };
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
+  updateTotalInfo(statisticsByAuthor: StatisticsByAuthor) {
     this.totalInfo = this.#getTotalInfo(this.commits);
-    this.totalInfo.weekendPayment  = 0;
+    this.totalInfo.weekendPayment = 0;
     for (let author of this.commitsByAuthor.keys()) {
-      const statistic = this.#getTotalInfo(this.commitsByAuthor.get(author));
-      statistic.weekendPayment = this.#getWeekendPaymentByAuthor(statistic, statisticsByAuthor.totalInfoByName.get(author));
-      this.totalInfoByName[author || ''] = statistic; // TODO: странный результат, неверный расчёт?
+      const statistic = this.#getTotalInfo(this.commitsByAuthor.get(author) as HashMap<StatisticsTimestamp>);
+      statistic.weekendPayment = this.#getWeekendPaymentByAuthor(
+        statistic,
+        statisticsByAuthor.totalInfoByName.get(author),
+      );
+      this.totalInfoByName[author || ''] = statistic;
       this.totalInfo.weekendPayment += statistic.weekendPayment;
     }
   }
 
-  #getTotalInfo(uniqCommitsByTimestamp: HashMap<any>) {
+  #getTotalInfo(uniqCommitsByTimestamp: HashMap<StatisticsTimestamp>): StatisticsTimestampTotal {
     const allCommitsByTimestamp = Array.from(uniqCommitsByTimestamp.values());
 
     const commitsCounter = new MinMaxCounter();
@@ -98,8 +138,7 @@ export default class StatisticsByTimestamp {
     const tasksCounter = new MinMaxCounter();
     const workByDay = (new Array(7)).fill(0);
 
-
-    allCommitsByTimestamp.forEach((current: any) => {
+    allCommitsByTimestamp.forEach((current: StatisticsTimestamp) => {
       current.tasksInDay = Object.keys(current.tasks).length;
       workByDay[current.day] += 1;
       commitsCounter.update(current.commits, current);
@@ -117,10 +156,10 @@ export default class StatisticsByTimestamp {
     };
   }
 
-  #getWeekendPaymentByAuthor(statistic: any, statisticsByAuthor: any) {
-    if (statisticsByAuthor.isStaff) return 0;
+  #getWeekendPaymentByAuthor(statistic: StatisticsTimestampTotal, statisticsByAuthor?: StatisticsAuthor) {
+    if (!statisticsByAuthor || statisticsByAuthor.isStaff) return 0;
     const salaryInMonth = applicationConfig.getMiddleSalaryInMonth();
-    const salaryInDay = (salaryInMonth / 22) * 2; // TODO: только по ТК РФ
+    const salaryInDay = (salaryInMonth / 22) * 2;
     const saturday = statistic.workByDay[5] * salaryInDay;
     const sunday = statistic.workByDay[6] * salaryInDay;
     return saturday + sunday;

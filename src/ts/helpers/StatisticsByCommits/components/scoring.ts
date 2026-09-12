@@ -1,6 +1,17 @@
 import IHashMap from 'ts/interfaces/HashMap';
 
-const PROPERTIES = [
+import StatisticsByAuthor, { StatisticsAuthor } from './author';
+import StatisticsByTimestamp, { StatisticsTimestampTotal } from './timestamp';
+
+export interface ScoringProperty {
+  property: string;
+  sort: number;
+  isNotStaff?: boolean;
+  isNeedTasks?: boolean;
+  formatter?: (user: StatisticsAuthor, timestamp: StatisticsTimestampTotal) => number;
+}
+
+const PROPERTIES: ScoringProperty[] = [
   { property: 'totalDays', sort: 1 },
   { property: 'totalDaysWithCommits', sort: 1 },
   { property: 'totalDaysWithoutCommits', sort: -1 },
@@ -23,31 +34,31 @@ const PROPERTIES = [
     sort: 1,
     isNotStaff: true,
     isNeedTasks: true,
-    formatter: (user: any, timestamp: any) => timestamp.tasksByTimestampCounter.max,
+    formatter: (user: StatisticsAuthor, timestamp: StatisticsTimestampTotal) => timestamp.tasksByTimestampCounter.max,
   },
   {
     property: 'speedMaxCommits',
     sort: 1,
     isNotStaff: true,
-    formatter: (user: any, timestamp: any) => timestamp.commitsByTimestampCounter.max,
+    formatter: (user: StatisticsAuthor, timestamp: StatisticsTimestampTotal) => timestamp.commitsByTimestampCounter.max,
   },
   {
     property: 'moneyForTask',
     sort: -1,
     isNotStaff: true,
     isNeedTasks: true,
-    formatter: (user: any) => user.totalMoney / user.totalTasks,
+    formatter: (user: StatisticsAuthor) => user.totalMoney / user.totalTasks,
   },
   {
     property: 'moneyForCommit',
     sort: -1,
     isNotStaff: true,
-    formatter: (user: any) => user.totalMoney / user.commits,
+    formatter: (user: StatisticsAuthor) => user.totalMoney / user.commits,
   },
 ];
 
-function getValues(config: any, statisticsByTimestamp: any) {
-  return (user: any) => {
+function getValues(config: ScoringProperty, statisticsByTimestamp: StatisticsByTimestamp) {
+  return (user: StatisticsAuthor) => {
     const timestamp = statisticsByTimestamp.totalInfoByName[user.author];
     if ((config.isNeedTasks && !user.totalTasks)
       || (config.isNotStaff && user.isStaff)) return NaN;
@@ -56,20 +67,19 @@ function getValues(config: any, statisticsByTimestamp: any) {
       return config.formatter(user, timestamp);
     }
 
-    const value = user[config.property]
-      || timestamp[config.property]
+    const value = user[config.property as keyof StatisticsAuthor]
+      || timestamp?.[config.property as keyof StatisticsTimestampTotal]
       || 0;
 
-    return Array.isArray(value)
-      ? value?.length
-      : value;
+    if (Array.isArray(value)) return value.length;
+    return typeof value === 'number' ? value : 0;
   };
 }
 
 export default class StatisticsByScoring {
   total: IHashMap<number> = {};
 
-  totalInfoByName: IHashMap<any> = {};
+  totalInfoByName: IHashMap<IHashMap<number>> = {};
 
   constructor() {
     this.clear();
@@ -80,14 +90,14 @@ export default class StatisticsByScoring {
     this.totalInfoByName = {};
   }
 
-  updateTotalInfo(statisticsByAuthor: any, statisticsByTimestamp: any) {
+  updateTotalInfo(statisticsByAuthor: StatisticsByAuthor, statisticsByTimestamp: StatisticsByTimestamp) {
     const list = [...statisticsByAuthor.totalInfo];
 
-    list.forEach((user: any) => {
+    list.forEach((user: StatisticsAuthor) => {
       this.totalInfoByName[user.author] = {};
     });
 
-    PROPERTIES.forEach((config: any) => {
+    PROPERTIES.forEach((config: ScoringProperty) => {
       const getValue = getValues(config, statisticsByTimestamp);
       const values = list
         .map(getValue)
@@ -95,11 +105,11 @@ export default class StatisticsByScoring {
 
       const uniqValues = Array.from(new Set(values));
       const places = uniqValues
-        .sort((a:number, b:number) => (b - a) * config.sort)
+        .sort((a: number, b: number) => (b - a) * config.sort)
         .map((v, i) => [v, i + 1]);
       const refValuePlace = Object.fromEntries(places);
 
-      list.forEach((user: any, index: number) => {
+      list.forEach((user: StatisticsAuthor, index: number) => {
         const userValue = values[index];
         this.totalInfoByName[user.author][config.property] = refValuePlace[userValue];
       });

@@ -1,8 +1,20 @@
 import { HashMap } from 'ts/interfaces/HashMap';
 import ICommit from 'ts/interfaces/Commit';
 
+import StatisticsByAuthor from '../author';
 import StatisticsByDay, { StatisticsDay } from './day';
 import { createUniqValues, incrementUniqValues } from '../../helpers';
+
+export interface StatisticsMonthCommit {
+  id: string;
+  month: number;
+  year: number;
+  milliseconds: number;
+  date: Date;
+  days: StatisticsByDay;
+  tasksNumber: Set<string | number>;
+  usersNumber: Set<string | number>;
+}
 
 export interface StatisticsMonth {
   id: string;
@@ -12,13 +24,13 @@ export interface StatisticsMonth {
   milliseconds: number;
 
   days: StatisticsDay[];
-  authors: Set<string>;
+  authors: Set<string | number>;
   totalTasksNumber: number;
   totalUsersNumber: number;
 }
 
 export default class StatisticsByMonth {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsMonthCommit> = new Map();
 
   totalInfo: StatisticsMonth[] = [];
 
@@ -44,7 +56,7 @@ export default class StatisticsByMonth {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsMonthCommit, commit: ICommit) {
     incrementUniqValues(statistic.usersNumber, commit.author);
     incrementUniqValues(statistic.tasksNumber, commit.task);
     statistic.days.addCommit(commit);
@@ -66,14 +78,14 @@ export default class StatisticsByMonth {
     });
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
+  updateTotalInfo(statisticsByAuthor: StatisticsByAuthor) {
     this.totalInfo = Array.from(this.commits.values())
-      .map((item: any) => {
+      .map((item: StatisticsMonthCommit) => {
         const days = item.days.getTotalInfo();
         const totalTasksNumber = item.tasksNumber.size;
         const totalUsersNumber = Array
-          .from(item.usersNumber) // @ts-ignore
-          .filter((name) => !statisticsByAuthor.totalInfoByName[name]?.isStaff)
+          .from(item.usersNumber)
+          .filter((name) => !statisticsByAuthor.totalInfoByName.get(name)?.isStaff)
           .length;
 
         return {

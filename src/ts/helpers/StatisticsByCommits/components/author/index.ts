@@ -23,17 +23,45 @@ import {
 import StatisticsByHour from './byHour';
 import StatisticsByTasks from './byTask';
 import StatisticsByCompany from './byCompany';
+import { AuthorCountry, StatisticsAuthor } from './types';
+
+export type { AuthorCountry, StatisticsAuthor } from './types';
+export type { AuthorCompany } from './byCompany';
+export type { AuthorTask, AuthorTasksTotal } from './byTask';
+
+export interface StatisticsAuthorCommit {
+  author: string;
+  commits: number;
+  firstCommit: number;
+  lastCommit: number;
+  firstCommitTimestamp: string;
+  lastCommitTimestamp: string;
+  lastCommitTimezone: string;
+  days: Set<string | number>;
+  weekends: Set<string | number>;
+  tasks: StatisticsByTasks;
+  types: Map<string, number>;
+  hour: StatisticsByHour;
+  scopes: Set<string | number>;
+  emails: Set<string | number>;
+  device: string;
+  company: StatisticsByCompany;
+  country: AuthorCountry[];
+  lastCountry: string;
+  maxMessageLength: MinMaxCounter;
+  middleMessageLength: WeightedAverage;
+}
 
 export default class StatisticsByAuthor {
   list: string[] = [];
 
   employment: IHashMap<string[]> = {};
 
-  commits: HashMap<any> = new Map();
+  commits: HashMap<StatisticsAuthorCommit> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: StatisticsAuthor[] = [];
 
-  totalInfoByName: HashMap<any> = new Map();
+  totalInfoByName: HashMap<StatisticsAuthor> = new Map();
 
   clear() {
     this.list = [];
@@ -84,7 +112,7 @@ export default class StatisticsByAuthor {
     });
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsAuthorCommit, commit: ICommit) {
     statistic.commits += 1;
     statistic.lastCommit = commit.milliseconds;
     statistic.lastCommitTimestamp = commit.timestamp;
@@ -121,7 +149,7 @@ export default class StatisticsByAuthor {
     const middleSalaryInDay = applicationConfig.getMiddleSalaryInDay();
 
     this.totalInfo = Array.from(this.commits.values())
-      .map((item: any) => {
+      .map((item: StatisticsAuthorCommit) => {
         const totalWeekendsDaysWithCommits = item.weekends.size;
         const totalDaysWithCommits = item.days.size + totalWeekendsDaysWithCommits;
         const totalDays = getDaysBetween(item.firstCommit, item.lastCommit);
@@ -157,7 +185,7 @@ export default class StatisticsByAuthor {
           totalTaskInFiles,
         } = item.tasks.getTotalInfo(totalDaysWithCommits);
 
-        const data = {
+        const data: StatisticsAuthor = {
           author: item.author,
 
           commits: item.commits,
@@ -177,7 +205,7 @@ export default class StatisticsByAuthor {
           totalWeekendsDaysWithCommits: item.weekends.size,
           totalDaysWithoutCommits,
 
-          emails: Array.from(item.emails),
+          emails: Array.from(item.emails) as string[],
           device: item.device,
           countries: item.country,
           companies,

@@ -2,14 +2,21 @@ import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import { increment } from 'ts/helpers/Math';
 import { getVpnList, getTravels } from 'ts/helpers/getCommitObjectsFromText/getCountryDistance';
 
+import StatisticsByAuthor, { StatisticsAuthor } from './author';
+
+export interface StatisticsCountry {
+  country: string;
+  employments: string[];
+}
+
 export default class StatisticsByCountry {
-  countries: HashMap<any> = new Map();
+  countries: HashMap<StatisticsCountry> = new Map();
 
-  vpn: IHashMap<any> = {};
+  vpn: IHashMap<number> = {};
 
-  devices: IHashMap<any> = {};
+  devices: IHashMap<number> = {};
 
-  totalInfo: any = [];
+  totalInfo: StatisticsCountry[] = [];
 
   clear() {
     this.countries.clear();
@@ -30,10 +37,10 @@ export default class StatisticsByCountry {
     }
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
-    statisticsByAuthor.totalInfo.forEach((author: any) => {
-      const vpnList = getVpnList(author.countries);
-      author.countries = getTravels(author.countries, vpnList);
+  updateTotalInfo(statisticsByAuthor: StatisticsByAuthor) {
+    statisticsByAuthor.totalInfo.forEach((author: StatisticsAuthor) => {
+      const vpnList = getVpnList(author.countries || []);
+      author.countries = getTravels(author.countries || [], vpnList);
       this.#addAuthor(author.lastCountry || 'unknown', author.author);
       increment(this.devices, author.device || 'unknown');
 
@@ -43,7 +50,7 @@ export default class StatisticsByCountry {
     });
 
     this.totalInfo = Array.from(this.countries.values())
-      .sort((a: any, b: any) => b?.employments?.length - a?.employments?.length);
+      .sort((a: StatisticsCountry, b: StatisticsCountry) => b.employments.length - a.employments.length);
     this.countries.clear();
   }
 }

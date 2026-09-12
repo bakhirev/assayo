@@ -7,8 +7,8 @@ export interface StatisticsDay {
   timestamp: string;
   dayInMonth: number;
   commitsNumber: number;
-  commitsNumberByType: HashMap<number>;
-  commitsNumberByAuthor: HashMap<number>;
+  commitsNumberByType: Map<string, number>;
+  commitsNumberByAuthor: Map<string, number>;
 }
 
 export default class StatisticsByDay {
@@ -29,7 +29,7 @@ export default class StatisticsByDay {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: StatisticsDay, commit: ICommit) {
     statistic.commitsNumber += 1;
     incrementMap(statistic.commitsNumberByType, commit.type);
     incrementMap(statistic.commitsNumberByAuthor, commit.author);

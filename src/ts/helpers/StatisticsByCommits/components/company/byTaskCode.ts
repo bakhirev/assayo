@@ -1,8 +1,27 @@
 import ICommit from 'ts/interfaces/Commit';
 import { HashMap } from 'ts/interfaces/HashMap';
 
+export interface CompanyTaskCodeCommit {
+  taskCode: string;
+  firstCommit: number;
+  lastCommit: number;
+  days: Set<string>;
+  tasks: Set<number>;
+  authors: Set<string>;
+}
+
+export interface CompanyTaskCode {
+  taskCode: string;
+  totalDaysWorked: number;
+  totalTasks: number;
+  totalAuthors: number;
+  authors: string[];
+  firstCommit: number;
+  lastCommit: number;
+}
+
 export default class StatisticsByTaskCode {
-  commits: HashMap<any> = new Map();
+  commits: HashMap<CompanyTaskCodeCommit> = new Map();
 
   constructor(commit: ICommit) {
     this.addCommit(commit);
@@ -18,7 +37,7 @@ export default class StatisticsByTaskCode {
     }
   }
 
-  #updateCommit(statistic: any, commit: ICommit) {
+  #updateCommit(statistic: CompanyTaskCodeCommit, commit: ICommit) {
     statistic.lastCommit = commit.milliseconds;
     statistic.days.add(commit.timestamp);
     if (commit.taskNumber) statistic.tasks.add(commit.taskNumber);
@@ -38,7 +57,7 @@ export default class StatisticsByTaskCode {
 
   getTotalInfo() {
     return Array.from(this.commits.values())
-      .map((item: any) => ({
+      .map((item: CompanyTaskCodeCommit): CompanyTaskCode => ({
         taskCode: item.taskCode,
         totalDaysWorked: item.days.size,
         totalTasks: item.tasks.size,
@@ -47,7 +66,7 @@ export default class StatisticsByTaskCode {
         firstCommit: item.firstCommit,
         lastCommit: item.lastCommit,
       }))
-      .filter((item: any) => item.totalDaysWorked > 1)
-      .sort((itemA: any, itemB: any) => (itemB.totalDaysWorked - itemA.totalDaysWorked));
+      .filter((item: CompanyTaskCode) => item.totalDaysWorked > 1)
+      .sort((itemA: CompanyTaskCode, itemB: CompanyTaskCode) => (itemB.totalDaysWorked - itemA.totalDaysWorked));
   }
 }

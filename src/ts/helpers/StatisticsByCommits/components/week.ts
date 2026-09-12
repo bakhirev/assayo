@@ -1,11 +1,53 @@
 import ICommit from 'ts/interfaces/Commit';
-import HashMap from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 import { increment } from 'ts/helpers/Math';
 
-export default class StatisticsByWeek {
-  commits: HashMap<any> = new Map();
+import StatisticsByAuthor from './author';
 
-  totalInfo: any = [];
+export interface StatisticsWeekChanges {
+  added: number;
+  changes: number;
+  removed: number;
+}
+
+export interface StatisticsWeekCommit {
+  commits: number;
+  timestamp: { from: string; to?: string };
+  tasks: Set<string>;
+  types: IHashMap<number>;
+  changes: StatisticsWeekChanges;
+  authors: IHashMap<IHashMap<boolean>>;
+  workDays: IHashMap<IHashMap<boolean>>;
+  typeByAuthor: IHashMap<IHashMap<number>>;
+}
+
+export interface StatisticsWeek {
+  commits: number;
+  timestamp: { from: string; to?: string };
+  tasks: number;
+  types: IHashMap<number>;
+  changes: StatisticsWeekChanges;
+  authors: IHashMap<number>;
+  workDays: IHashMap<number>;
+  lazyDays: IHashMap<number>;
+  weekDays: IHashMap<number>;
+  typeByAuthor: IHashMap<IHashMap<number>>;
+  workDaysTotal: number;
+  lazyDaysTotal: number;
+  taskInDay: IHashMap<number>;
+  authorsLength: number;
+  changesLength: number;
+}
+
+function addFlag(refKeyFlags: IHashMap<IHashMap<boolean>>, key: string, flag: string) {
+  if (!refKeyFlags[key]) refKeyFlags[key] = {};
+  refKeyFlags[key][flag] = true;
+}
+
+export default class StatisticsByWeek {
+  commits: HashMap<StatisticsWeekCommit> = new Map();
+
+  totalInfo: StatisticsWeek[] = [];
 
   constructor() {
     this.clear();
@@ -25,20 +67,17 @@ export default class StatisticsByWeek {
     }
   }
 
-  #updateCommitByWeek(statistic: any, commit: ICommit) {
+  #updateCommitByWeek(statistic: StatisticsWeekCommit, commit: ICommit) {
     statistic.commits += 1;
     statistic.timestamp.to = commit.timestamp;
     if (commit.task) statistic.tasks.add(commit.task);
 
-    const setDefault = (s: any, v: string) => {
-      if (!s[v]) s[v] = {};
-      return s[v];
-    };
+    statistic.changes.added += commit.added;
+    statistic.changes.changes += commit.changes;
+    statistic.changes.removed += commit.removed;
 
-    for (let type in statistic.changes) statistic.changes[type] += (commit[type] || 0);
-
-    setDefault(statistic.authors, commit.author)[commit.task] = true;
-    setDefault(statistic.workDays, commit.author)[commit.day] = true;
+    addFlag(statistic.authors, commit.author, commit.task);
+    addFlag(statistic.workDays, commit.author, String(commit.day));
 
     if (!statistic.typeByAuthor[commit.author]) statistic.typeByAuthor[commit.author] = {};
     increment(statistic.typeByAuthor[commit.author], commit.type);
@@ -59,26 +98,25 @@ export default class StatisticsByWeek {
     });
   }
 
-  updateTotalInfo(statisticsByAuthor: any) {
+  updateTotalInfo(statisticsByAuthor: StatisticsByAuthor) {
     this.totalInfo = Array.from(this.commits.values())
-      .map((dot: any) => {
-        const authors = {};
-        for (let name in dot.authors) authors[name] = Object.keys(dot.authors[name]).filter(v => v).length;
+      .map((dot: StatisticsWeekCommit) => {
+        const authors: IHashMap<number> = {};
+        for (let name in dot.authors) authors[name] = Object.keys(dot.authors[name]).filter((v) => v).length;
 
-        const workDays = {};
-        const lazyDays = {};
-        const weekDays = {};
+        const workDays: IHashMap<number> = {};
+        const lazyDays: IHashMap<number> = {};
+        const weekDays: IHashMap<number> = {};
 
         let workDaysTotal = 0;
         let lazyDaysTotal = 0;
         let authorsLength = 0;
 
         for (let name in dot.workDays) {
-          if (statisticsByAuthor.totalInfoByName.get(name).isStaff) continue;
+          if (statisticsByAuthor.totalInfoByName.get(name)?.isStaff) continue;
           authorsLength += 1;
           workDays[name] = Object.keys(dot.workDays[name]).length;
           workDaysTotal += workDays[name];
-          // userSettings.getCurrentWorkDaysInWeek(name); TODO: need middle salary in month
           const limit = 5;
           const lazyDaysValue = limit - workDays[name];
           const weekDaysValue = workDays[name] - limit;
@@ -88,7 +126,7 @@ export default class StatisticsByWeek {
           lazyDaysTotal += lazyDays[name];
         }
 
-        const taskInDay = {};
+        const taskInDay: IHashMap<number> = {};
         for (let name in dot.workDays) taskInDay[name] = (authors[name] && workDays[name])
           ? (authors[name] / workDays[name])
           : 0;

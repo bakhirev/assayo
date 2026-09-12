@@ -1,7 +1,7 @@
 import ICommit from 'ts/interfaces/Commit';
 import { HashMap } from 'ts/interfaces/HashMap';
 
-interface Server {
+export interface Server {
   url: string;
   commits: number;
   port: string;
@@ -9,7 +9,14 @@ interface Server {
   protocol: string;
   hostname: string;
   from: number;
-  to: number;
+  to: number | string;
+}
+
+export interface ServerGroup {
+  domain: string;
+  from: number;
+  to: number | string;
+  children: Server[];
 }
 
 // ssh://github.com:team/simple
@@ -35,7 +42,7 @@ function getHostnamePortLoginPass(text: string): string[] {
 export default class StatisticsByServer {
   commits: HashMap<Server> = new Map();
 
-  totalInfo: any = [];
+  totalInfo: ServerGroup[] = [];
 
   clear() {
     this.commits.clear();
@@ -52,7 +59,7 @@ export default class StatisticsByServer {
     }
   }
 
-  #updateCommitByServer(statistic: any, commit: ICommit) {
+  #updateCommitByServer(statistic: Server, commit: ICommit) {
     statistic.commits += 1;
     statistic.to = commit.timestamp;
   }
@@ -81,7 +88,7 @@ export default class StatisticsByServer {
 
   updateTotalInfo() {
     const list = Array.from(this.commits.values());
-    const groups = new Map();
+    const groups: HashMap<ServerGroup> = new Map();
     list.forEach((item) => {
       const group = groups.get(item.domain);
       if (group) {
@@ -94,13 +101,13 @@ export default class StatisticsByServer {
     this.commits.clear();
   }
 
-  #updateServerGroup(group: any, item: Server) {
+  #updateServerGroup(group: ServerGroup, item: Server) {
     group.from = item.from < group.from ? item.from : group.from;
     group.to = item.to > group.to ? item.to : group.to;
     group.children.push(item);
   }
 
-  #getServerGroup(item: Server) {
+  #getServerGroup(item: Server): ServerGroup {
     return {
       domain: item.domain,
       from: item.from,

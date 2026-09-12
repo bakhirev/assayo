@@ -1,3 +1,5 @@
+import { StatisticsAuthor } from './types';
+
 const WORK_DAYS_IN_YEAR = 247; // рабочии дни
 const HOLIDAYS = 365 - WORK_DAYS_IN_YEAR; // праздники + выходные + отпуск
 const WORKED_BY_DAYS = HOLIDAYS / WORK_DAYS_IN_YEAR;
@@ -18,8 +20,8 @@ export function getIsStaff(
   return totalDays < 20 || percentWork < 15 || totalDaysWithCommits < 10 || isBot;
 }
 
-export function getListByType(list: any[]) {
-  const types: any = [[], [], []];
+export function getListByType(list: StatisticsAuthor[]) {
+  const types: [string[], string[], string[]] = [[], [], []];
   list.forEach((item) => {
     if (item.isStaff) types[2].push(item.author);
     else if (item.isDismissed) types[1].push(item.author);
@@ -28,7 +30,7 @@ export function getListByType(list: any[]) {
   return types;
 }
 
-export function sortFunc(dotA: any, dotB: any) {
+export function sortFunc(dotA: StatisticsAuthor, dotB: StatisticsAuthor) {
   const typeA = (dotA.isStaff ? 10 : 0) + (dotA.isDismissed ? 5 : 0);
   const typeB = (dotB.isStaff ? 10 : 0) + (dotB.isDismissed ? 5 : 0);
   const type = typeA - typeB;

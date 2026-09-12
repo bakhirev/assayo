@@ -1,7 +1,7 @@
 import ICommit, { COMMIT_TYPE } from 'ts/interfaces/Commit';
 import { HashMap } from 'ts/interfaces/HashMap';
 
-interface Service {
+export interface Service {
   commits: number;
   type: string;
   from: string;
@@ -19,13 +19,13 @@ const IGNORE_TYPE = new Set([
 export default class StatisticsByService {
   commits: HashMap<Service> = new Map();
 
-  lastService: any = {};
+  lastService?: Service;
 
-  totalInfo: any = [];
+  totalInfo: Service[] = [];
 
   clear() {
     this.commits.clear();
-    this.lastService = {};
+    this.lastService = undefined;
     this.totalInfo = [];
   }
 
@@ -40,6 +40,7 @@ export default class StatisticsByService {
   }
 
   #updateCommitByService(commit: ICommit) {
+    if (!this.lastService) return;
     this.lastService.commits += 1;
     this.lastService.to = commit.timestamp;
   }
