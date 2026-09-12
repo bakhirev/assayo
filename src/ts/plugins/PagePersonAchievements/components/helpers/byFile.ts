@@ -10,87 +10,101 @@ import {
   IS_TEST,
 } from './constants/is';
 
-function getAddedChangedLines(file: IDirtyFile) {
-  return [
-    Object.entries(file?.addedLinesByAuthor || {}),
-    Object.entries(file?.changedLinesByAuthor || {}),
-  ];
+type Ranking = [string, number][];
+
+function addLineCounts(target: Map<string, number>, byAuthor?: IHashMap<number>) {
+  Object.entries(byAuthor || {}).forEach(([author, lines]) => {
+    target.set(author, (target.get(author) || 0) + Number(lines || 0));
+  });
 }
 
-function getTopUser(listOfChanges: any) {
-  const total = listOfChanges.reduce((acc: any, item: any) => {
-    acc[item[0]] = acc[item[0]] ? (acc[item[0]] + item[1]) : item[1];
+function rankingFromMap(map: Map<string, number>): Ranking {
+  return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+}
+
+function addAward(result: IHashMap<string[]>, author?: string, code?: string) {
+  if (!author || !code) return;
+  result[author] = result[author] || [];
+  result[author].push(code);
+}
+
+function addAwardForTop(result: IHashMap<string[]>, ranking: Ranking, code: string) {
+  addAward(result, ranking[0]?.[0], code);
+}
+
+function getFileBucket(file: IDirtyFile) {
+  if (IS_LINT_HINT.has(file.name)) return 'moreLintHint';
+  if (IS_DOC.has(file.extension)) return 'moreReadMe';
+  if (IS_CSS.has(file.extension) || IS_CSS_NAME.has(file.name)) return 'moreStyle';
+  if (IS_TEST.has(file.extension) || IS_TEST.has(file.type)) return 'moreTests';
+  if (IS_CI_CD.has(file.name)) return 'moreDevOps';
+  return '';
+}
+
+export default function getAchievementByFile(statisticsByFiles: any): IHashMap<string[]> {
+  const files = statisticsByFiles?.files?.list || [];
+  const result: IHashMap<string[]> = {};
+  if (!files.length) return result;
+
+  const buckets: IHashMap<Map<string, number>> = {
+    moreLintHint: new Map(),
+    moreReadMe: new Map(),
+    moreStyle: new Map(),
+    moreTests: new Map(),
+    moreDevOps: new Map(),
+    fileRush: new Map(),
+  };
+
+  const longest = files.reduce((acc: any, file: IDirtyFile) => {
+    const creator = file.createAuthor || '';
+    const bucket = getFileBucket(file);
+    if (bucket) {
+      addLineCounts(buckets[bucket], file.addedLinesByAuthor);
+      addLineCounts(buckets[bucket], file.changedLinesByAuthor);
+    } else if (
+      IS_ACHIEVEMENT_SITNIK.has(file.name)
+      && file.firstCommit
+      && file.firstCommit < acc.sitnik.milliseconds
+    ) {
+      acc.sitnik = { author: creator, milliseconds: file.firstCommit };
+    }
+
+    if (creator) {
+      buckets.fileRush.set(creator, (buckets.fileRush.get(creator) || 0) + 1);
+    }
+
+    const nameLength = file.name?.length || 0;
+    if (creator && nameLength > acc.fileName.length) {
+      acc.fileName = { author: creator, length: nameLength };
+    }
+
+    const pathLength = file.path?.length || 0;
+    if (creator && pathLength > acc.filePath.length) {
+      acc.filePath = { author: creator, length: pathLength };
+    }
+
     return acc;
-  }, {});
-
-  return Object.entries(total).sort((a: any, b: any) => b[1] - a[1]);
-}
-
-export default function getAchievementByFile(statisticsByFiles: any, byAuthor: any) {
-  if (!statisticsByFiles.files.list.length) return;
-
-  const moreLintHint: any = [];
-  const moreReadMe: any = [];
-  const moreStyle: any = [];
-  const moreTests: any = [];
-  const moreDevOps: any = [];
-  const longFilePath: any = { author: '', length: 0 };
-  const longFileName: any = { author: '', length: 0 };
-  const firstFileNameStyle: any = { author: '', milliseconds: Infinity };
-  const fileRush: IHashMap<number> = {};
-
-  statisticsByFiles.files.list.forEach((file: IDirtyFile) => {
-    if (IS_LINT_HINT.has(file.name)) {
-      moreLintHint.push(getAddedChangedLines(file));
-    } else if (IS_DOC.has(file.extension)) {
-      moreReadMe.push(getAddedChangedLines(file));
-    } else if (IS_CSS.has(file.extension) || IS_CSS_NAME.has(file.name)) {
-      moreStyle.push(getAddedChangedLines(file));
-    } else if (IS_ACHIEVEMENT_SITNIK.has(file.name)) {
-      if (file?.firstCommit && file?.firstCommit < firstFileNameStyle.milliseconds) {
-        firstFileNameStyle.author = file.createAuthor;
-        firstFileNameStyle.milliseconds = file.firstCommit;
-      }
-    } else if (IS_TEST.has(file.extension) || IS_TEST.has(file.type)) {
-      moreTests.push(getAddedChangedLines(file));
-    } else if (IS_CI_CD.has(file.name)) {
-      moreDevOps.push(getAddedChangedLines(file));
-    }
-
-    fileRush[file.createAuthor || ''] = fileRush[file.createAuthor || '']
-      ? (fileRush[file.createAuthor || ''] + 1)
-      : 1;
-
-    if (file.name.length > longFileName.length) {
-      longFileName.author = file.createAuthor;
-      longFileName.length = file.name.length;
-    }
-    if (file.path.length > longFilePath.length) {
-      longFilePath.author = file.createAuthor;
-      longFilePath.length = file.name.length;
-    }
+  }, {
+    filePath: { author: '', length: 0 },
+    fileName: { author: '', length: 0 },
+    sitnik: { author: '', milliseconds: Infinity },
   });
 
-  const userFileRush = Object.entries(fileRush).sort((a: any, b: any) => b[1] - a[1]);
+  const addedFolders: Ranking = Object
+    .entries(statisticsByFiles.tree?.addedFoldersByAuthor || {})
+    .map(([author, folders]: [string, string[]]) => [author, folders?.length || 0])
+    .sort((a, b) => b[1] - a[1]);
 
-  const addedFoldersByAuthor = Object
-    .entries(statisticsByFiles.tree.addedFoldersByAuthor)
-    .map((item: any) => [item[0], item[1].length]);
+  addAwardForTop(result, rankingFromMap(buckets.fileRush), 'fileRush');
+  addAwardForTop(result, addedFolders, 'moreAddedFolders');
+  addAwardForTop(result, rankingFromMap(buckets.moreLintHint), 'moreLintHint');
+  addAwardForTop(result, rankingFromMap(buckets.moreReadMe), 'moreReadMe');
+  addAwardForTop(result, rankingFromMap(buckets.moreStyle), 'moreStyle');
+  addAwardForTop(result, rankingFromMap(buckets.moreTests), 'moreTests');
+  addAwardForTop(result, rankingFromMap(buckets.moreDevOps), 'moreDevOps');
+  addAward(result, longest.filePath.author, 'longFilePath');
+  addAward(result, longest.fileName.author, 'longFileName');
+  addAward(result, longest.sitnik.author, 'publicitySitnik');
 
-  byAuthor.add(getTopUser(userFileRush), 'fileRush');
-  byAuthor.add(getTopUser(addedFoldersByAuthor), 'moreAddedFolders');
-  byAuthor.add(getTopUser(moreLintHint.flat(2)), 'moreLintHint');
-  byAuthor.add(getTopUser(moreReadMe.flat(2)), 'moreReadMe');
-  byAuthor.add(getTopUser(moreStyle.flat(2)), 'moreStyle');
-  byAuthor.add(getTopUser(moreTests.flat(2)), 'moreTests');
-  byAuthor.add(getTopUser(moreDevOps.flat(2)), 'moreDevOps');
-  if (byAuthor.authors[longFilePath.author]) {
-    byAuthor.authors[longFilePath.author].push('longFilePath');
-  }
-  if (byAuthor.authors[longFileName.author]) {
-    byAuthor.authors[longFileName.author].push('longFileName');
-  }
-  if (firstFileNameStyle.author) {
-    byAuthor.authors[firstFileNameStyle.author].push('publicitySitnik');
-  }
+  return result;
 }

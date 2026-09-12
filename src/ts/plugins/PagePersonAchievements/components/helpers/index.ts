@@ -1,16 +1,12 @@
 import { getWrapperWithCache } from 'ts/helpers/recommendations';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
-import AchievementsByCompetition from './byCompetition';
+import getAchievementsByCompetition from './byCompetition';
 
 function getTotalInfo() {
-  const achievements = new AchievementsByCompetition();
-  achievements.updateByGrip(
+  return getAchievementsByCompetition(
     statisticStore.statisticsByCommits,
-    statisticStore.statisticsByFiles
+    statisticStore.statisticsByFiles,
   );
-  return achievements.authors;
 }
 
-const getAchievements = getWrapperWithCache(getTotalInfo);
-
-export default getAchievements;
+export default getWrapperWithCache(getTotalInfo);

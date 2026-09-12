@@ -3,144 +3,168 @@ import IHashMap from 'ts/interfaces/HashMap';
 import getAchievementByAuthor from './byAuthor';
 import getAchievementByFile from './byFile';
 
-class AchievementsByAuthor {
-  authors: IHashMap<string[]> = {};
+type Ranking = [string, number][];
+type PrStats = {
+  numberMergedPr: number;
+  maxDelayDays: number;
+};
 
-  addAuthor(name: string) {
-    this.authors[name] = [];
-  }
+const REF_PROPERTY_ACHIVMENT: Array<[string, string?, string?]> = [
+  ['nameLength', 'longestName', 'shortestName'],
+  ['messageLength', 'longestMessage'],
+  ['midMessageLength', 'everyMessageLong', 'everyMessageShort'],
+  ['tasks', 'moreTasks', 'lessTasks'],
+  ['days', 'moreWorkDays', 'lessWorkDays'],
+  ['lazyDays', 'moreLazyDays', 'lessLazyDays'],
+  ['allDaysInProject', 'moreDaysInProject', 'lessDaysInProject'],
+  ['firstCommit', undefined, 'adam'],
+  ['moreRefactoring', 'moreRefactoring'],
+  ['tasksInDay', 'moreTasksInDay'],
+  ['commitsInDay', 'moreCommits'],
+  ['morePRMerge', 'morePRMerge'],
+  ['moreLongWaitPR', 'moreLongWaitPR'],
+  ['manyTimeZone', 'moreChangeTimeZone'],
+];
 
-  add(
-    authors: Array<[string, number]>,
-    maxAchievementCode?: string,
-    minAchievementCode?: string,
-  ) {
-    const first = authors?.[0]?.[0];
-    if (!first) return;
-    if (maxAchievementCode) {
-      this.authors?.[first]?.push(maxAchievementCode);
-    }
-    if (minAchievementCode) {
-      const last = authors?.[authors.length - 1]?.[0];
-      this.authors?.[last]?.push(minAchievementCode);
-    }
+function getPrStatsByAuthor(prList: any[] = []) {
+  return prList.reduce((map, pr) => {
+    if (!pr?.author) return map;
+    const prev = map.get(pr.author) || { numberMergedPr: 0, maxDelayDays: 0 };
+    prev.numberMergedPr += 1;
+    prev.maxDelayDays = Math.max(prev.maxDelayDays, pr.daysInReview || 0);
+    map.set(pr.author, prev);
+    return map;
+  }, new Map<string, PrStats>());
+}
+
+function getLongestTaskByAuthor(tasks: any[] = []) {
+  return tasks.reduce((map, task) => {
+    const days = task.totalDays || 0;
+    if (!task.authors || !days) return map;
+    task.authors.forEach((author: string) => {
+      map.set(author, Math.max(map.get(author) || 0, days));
+    });
+    return map;
+  }, new Map<string, number>());
+}
+
+function getAuthorMetrics(statistic: any, statisticsByCommits: any, prByAuthor: Map<string, PrStats>) {
+  const byTimestamp = statisticsByCommits.timestamp?.totalInfoByName?.[statistic.author];
+  const byPr = prByAuthor.get(statistic.author);
+  const timezones = (statistic.countries || [])
+    .filter((country: any) => country.fromTimezone && country.fromTimezone !== '+00:00')
+    .length;
+
+  const metrics: IHashMap<number> = {
+    nameLength: statistic.author?.length || 0,
+    messageLength: statistic.maxMessageLength || 0,
+    midMessageLength: statistic.middleMessageLength || 0,
+    tasks: statistic.totalTasks || 0,
+    days: statistic.totalDaysWithCommits || 0,
+    moreRefactoring: statistic.types?.refactor || 0,
+    manyTimeZone: timezones,
+    tasksInDay: byTimestamp?.tasksByTimestampCounter?.max || 0,
+    commitsInDay: byTimestamp?.commitsByTimestampCounter?.max || 0,
+    moreLongWaitPR: byPr?.maxDelayDays || 0,
+    morePRMerge: byPr?.numberMergedPr || 0,
+  };
+
+  if (statistic.isStaff) return metrics;
+
+  metrics.allDaysInProject = statistic.totalDays || 0;
+  metrics.lazyDays = statistic.totalDaysWithoutCommits || 0;
+  metrics.firstCommit = statistic.firstCommit || 0;
+  return metrics;
+}
+
+function getRankings(
+  statisticByAuthor: any[],
+  statisticsByCommits: any,
+  prByAuthor: Map<string, PrStats>,
+) {
+  const total: IHashMap<Ranking> = {};
+  statisticByAuthor.forEach((statistic) => {
+    Object
+      .entries(getAuthorMetrics(statistic, statisticsByCommits, prByAuthor))
+      .forEach(([key, value]) => {
+        (total[key] ||= []).push([statistic.author, value]);
+      });
+  });
+  Object.values(total).forEach((list) => list.sort((a, b) => b[1] - a[1]));
+  return total;
+}
+
+function award(
+  refAuthorAchievements: IHashMap<string[]>,
+  ranking: Ranking = [],
+  maxCode?: string,
+  minCode?: string,
+) {
+  const first = ranking[0]?.[0];
+  if (!first || !refAuthorAchievements[first]) return;
+  if (maxCode) refAuthorAchievements[first].push(maxCode);
+  if (!minCode) return;
+  const last = ranking[ranking.length - 1]?.[0];
+  if (last && refAuthorAchievements[last]) {
+    refAuthorAchievements[last].push(minCode);
   }
 }
 
-class AchievementsByCompetition {
-  authors: IHashMap<Array<string[]>> = {};
-
-  updateByGrip(statisticsByCommits: any, statisticsByFiles: any) {
-    const statisticByAuthor = statisticsByCommits.author.totalInfo;
-    const byAuthor: any = new AchievementsByAuthor();
-    const total  = this.#getMinMaxValue(statisticByAuthor, statisticsByCommits, (statistic: any) => {
-      byAuthor.addAuthor(statistic.author);
-    });
-
-    // Длина имени
-    byAuthor.add(total.nameLength, 'longestName', 'shortestName');
-
-    // Длина сообщения
-    byAuthor.add(total.messageLength, 'longestMessage');
-
-    // Средняя длина сообщения
-    byAuthor.add(total.midMessageLength, 'everyMessageLong', 'everyMessageShort');
-
-    // Количество закрытых задач
-    byAuthor.add(total.tasks, 'moreTasks', 'lessTasks');
-
-    // Количество дней с коммитами
-    byAuthor.add(total.days, 'moreWorkDays', 'lessWorkDays');
-
-    // Количество дней без коммитов
-    byAuthor.add(total.lazyDays, 'moreLazyDays', 'lessLazyDays');
-
-    // Количество дней на проекте
-    byAuthor.add(total.allDaysInProject, 'moreDaysInProject', 'lessDaysInProject');
-
-    // Дата первого коммита
-    byAuthor.add(total.firstCommit, null, 'adam');
-
-    // Количество метки «рефакторинг»
-    byAuthor.add(total.moreRefactoring, 'moreRefactoring');
-
-    // Количество закрытых задач в день
-    byAuthor.add(total.tasksInDay, 'moreTasksInDay');
-
-    // Количество коммитов в день
-    byAuthor.add(total.commitsInDay, 'moreCommits');
-
-    // Таможня даёт добро
-    byAuthor.add(total.morePRMerge, 'morePRMerge');
-
-    // Давным давно, в далёкой галактике
-    byAuthor.add(total.moreLongWaitPR, 'moreLongWaitPR');
-
-    // Авиасейлс
-    byAuthor.add(total.manyTimeZone, 'moreChangeTimeZone');
-
-    // Первый и последний коммит
-    const lastAuthor = statisticsByCommits.firstLastCommit.maxData.author;
-    const firstAuthor = statisticsByCommits.firstLastCommit.minData.author;
-    if (firstAuthor === lastAuthor) {
-      byAuthor.authors[firstAuthor].push('firstLastCommit');
-    } else {
-      byAuthor.authors[firstAuthor].push('firstCommit');
-      byAuthor.authors[lastAuthor].push('lastCommit');
-    }
-
-    getAchievementByFile(statisticsByFiles, byAuthor);
-
-    statisticByAuthor.forEach((statistic: any) => {
-      const achievements = byAuthor.authors[statistic.author];
-      this.authors[statistic.author] = getAchievementByAuthor(achievements, statisticsByCommits, statistic.author);
-    });
-  }
-
-  #getMinMaxValue(statisticByAuthor: any, statisticsByCommits: any, callback: Function) {
-    const total: IHashMap<any> = {};
-
-    statisticByAuthor.forEach((statistic: any) => {
-      callback(statistic);
-
-      const addData = (property: string, count?: number) => {
-        if (!total[property]) total[property] = [];
-        total[property].push([statistic.author, count || 0]);
-      };
-
-      addData('nameLength', statistic.author.length);
-      addData('messageLength', statistic.maxMessageLength);
-      addData('midMessageLength', statistic.middleMessageLength);
-      addData('tasks', statistic.totalTasks);
-      addData('days', statistic.totalDaysWithCommits);
-      addData('moreRefactoring', statistic.types.refactor);
-
-      if (statistic.countries) {
-        const notBritish = statistic.countries
-          .filter((country: any) => country.timezone !== '+00:00');
-        addData('manyTimeZone', notBritish.length);
-      }
-
-      const byTimestamp = statisticsByCommits.timestamp.totalInfoByName[statistic.author];
-      addData('tasksInDay', byTimestamp.tasksByTimestampCounter.max);
-      addData('commitsInDay', byTimestamp.commitsByTimestampCounter.max);
-
-      const byPr = statisticsByCommits.pr.totalInfoByName[statistic.author] || {};
-      addData('moreLongWaitPR', byPr?.maxDelayDays);
-      addData('morePRMerge', byPr?.numberMergedPr);
-
-      if (statistic.isStaff) return;
-      addData('allDaysInProject', statistic.totalDays);
-      addData('lazyDays', statistic.totalDaysWithoutCommits);
-      addData('firstCommit', statistic.firstCommit);
-    });
-
-    Object.keys(total).forEach(achievement => {
-      total[achievement].sort((a: any, b: any) => b[1] - a[1]);
-    });
-
-    return total;
+function addAchievement(refAuthorAchievements: IHashMap<string[]>, author: string | undefined, code: string) {
+  if (author && refAuthorAchievements[author]) {
+    refAuthorAchievements[author].push(code);
   }
 }
 
-export default AchievementsByCompetition;
+function awardFirstLastCommit(refAuthorAchievements: IHashMap<string[]>, firstLastCommit: any) {
+  const firstAuthor = firstLastCommit?.minData?.author;
+  const lastAuthor = firstLastCommit?.maxData?.author;
+  if (!firstAuthor || !lastAuthor) return;
+  if (firstAuthor === lastAuthor) {
+    addAchievement(refAuthorAchievements, firstAuthor, 'firstLastCommit');
+    return;
+  }
+  addAchievement(refAuthorAchievements, firstAuthor, 'firstCommit');
+  addAchievement(refAuthorAchievements, lastAuthor, 'lastCommit');
+}
+
+function mergeAwards(target: IHashMap<string[]>, extra: IHashMap<string[]>) {
+  Object.entries(extra).forEach(([author, codes]) => {
+    if (target[author]) target[author].push(...codes);
+  });
+}
+
+export default function getAchievementsByCompetition(
+  statisticsByCommits: any,
+  statisticsByFiles: any,
+): IHashMap<string[][]> {
+  const statisticByAuthor = statisticsByCommits?.author?.totalInfo || [];
+  const refAuthorAchievements: IHashMap<string[]> = Object.fromEntries(
+    statisticByAuthor.map((statistic: any) => [statistic.author, []]),
+  );
+
+  const prByAuthor = getPrStatsByAuthor(statisticsByCommits?.pr?.totalInfo);
+  const longestTaskByAuthor = getLongestTaskByAuthor(statisticsByCommits?.tasks?.totalInfo);
+  const rankings = getRankings(statisticByAuthor, statisticsByCommits, prByAuthor);
+
+  REF_PROPERTY_ACHIVMENT.forEach(([metric, maxCode, minCode]) => {
+    award(refAuthorAchievements, rankings[metric], maxCode, minCode);
+  });
+
+  awardFirstLastCommit(refAuthorAchievements, statisticsByCommits?.firstLastCommit);
+
+  mergeAwards(refAuthorAchievements, getAchievementByFile(statisticsByFiles));
+
+  return Object.fromEntries(
+    statisticByAuthor.map((statistic: any) => [
+      statistic.author,
+      getAchievementByAuthor(
+        refAuthorAchievements[statistic.author],
+        statistic,
+        statisticsByCommits,
+        prByAuthor.get(statistic.author),
+        longestTaskByAuthor.get(statistic.author) || 0,
+      ),
+    ]),
+  );
+}
