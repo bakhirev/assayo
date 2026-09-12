@@ -75,7 +75,14 @@ const Employments = observer(({
         isSortable
         template={ColumnTypes.STRING}
         properties="lastCommit"
+        width={130}
         formatter={getDate}
+      />
+      <Column
+        isSortable
+        template={ColumnTypes.SHORT_NUMBER}
+        properties="fakeProperty"
+        width={120}
       />
       <Column
         isSortable
