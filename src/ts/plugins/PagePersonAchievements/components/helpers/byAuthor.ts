@@ -43,15 +43,32 @@ function getOwlAndLark(hours: number[], commits: number) {
   ];
 }
 
-function getScheduleAchievements(hours: number[], byDayAndHour: number[][] = []) {
-  if (hours.length < 24) return [];
+function getEmployeeAchievements(statistic: any, hours: number[], longestTaskDays: number) {
+  const daysPerTask = statistic.totalTasks > 0
+    ? 1 / statistic.totalTaskInDay
+    : Infinity;
+  const totalDays = statistic.totalDays || 0;
+  
   return [
     hours.slice(0, 7).every(Boolean) ? 'hasCommitFrom0to7' : '',
     hours.slice(10, 18).some((count) => !count) ? 'noCommitOnDay' : '',
-    hours.slice(0, 5).every((count) => !count)
-      && hours.slice(18, 24).every((count) => !count) ? 'commitsAfter1800' : '',
+    hours.slice(0, 5).every((count) => !count) && hours.slice(18, 24).every((count) => !count) ? 'commitsAfter1800' : '',
     hours.every(Boolean) ? 'workEveryTime' : '',
-    byDayAndHour.every((day) => day.every(Boolean)) ? 'hasCommitEveryTime' : '',
+
+    statistic.commitsByDayAndHour.every((day) => day.every(Boolean)) ? 'hasCommitEveryTime' : '',
+    statistic.isDismissed ? 'userIsDied' : '',
+
+    daysPerTask < 1 ? 'lessDaysForTask' : '',
+    daysPerTask > 2 ? 'more2DaysForTask' : '',
+
+    totalDays > 90 ? 'more90DaysInProject' : '',
+    totalDays >= 365 ? 'more365DaysInProject' : '',
+    totalDays >= 666 ? 'more666DaysInProject' : '',
+    totalDays >= 777 ? 'more777DaysInProject' : '',
+    totalDays >= 3 * 365 ? 'more3YearsInProject' : '',
+
+    statistic.totalWeekendsDaysWithCommits ? 'workOnWeekends' : '',
+    longestTaskDays > 92 ? 'longTask' : '',
   ];
 }
 
@@ -63,30 +80,6 @@ function getEmailAchievements(emails: string[] = [], emailStats?: Map<string, an
     if (type === EmailType.NETWORK) return 'ipInEmail';
     return '';
   });
-}
-
-function getEmployeeAchievements(statistic: any, hours: number[], longestTaskDays: number) {
-  const daysPerTask = statistic.totalTasks > 0
-    ? 1 / statistic.totalTaskInDay
-    : Infinity;
-  const totalDays = statistic.totalDays || 0;
-  
-  return [
-    ...getScheduleAchievements(hours, statistic.commitsByDayAndHour),
-    statistic.isDismissed ? 'userIsDied' : '',
-    
-    daysPerTask < 1 ? 'lessDaysForTask' : '',
-    daysPerTask > 2 ? 'more2DaysForTask' : '',
-    
-    totalDays > 90 ? 'more90DaysInProject' : '',
-    totalDays >= 365 ? 'more365DaysInProject' : '',
-    totalDays >= 666 ? 'more666DaysInProject' : '',
-    totalDays >= 777 ? 'more777DaysInProject' : '',
-    totalDays >= 3 * 365 ? 'more3YearsInProject' : '',
-    
-    statistic.totalWeekendsDaysWithCommits ? 'workOnWeekends' : '',
-    longestTaskDays > 92 ? 'longTask' : '',
-  ];
 }
 
 function getCommonAchievements(
@@ -114,6 +107,7 @@ export default function getAchievementByAuthor(
 ) {
   if (!statistic) return EMPTY_GROUPS.map((group) => [...group]);
   const hours = statistic.commitsByHour || [];
+
   return groupByType([
     ...codes,
     ...getOwlAndLark(hours, statistic.commits || 0),
