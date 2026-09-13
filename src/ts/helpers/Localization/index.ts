@@ -23,13 +23,11 @@ class Localization {
 
   #updateTranslationByText(translations: any, text: string) {
     text.split('§ ').slice(1).forEach((part: string) => {
-      let index = part.indexOf('\n');
-      if (index === (part.length - 1)) {
-        index = part.indexOf(':');
-      }
-      const key = part.slice(0, index);
-      const value = part.slice(index + 1).trim();
-      translations.set(key, value);
+      const body = part.trimEnd();
+      let index = body.indexOf('\n');
+      if (index === -1) index = body.indexOf(':');
+      if (index === -1) return;
+      translations.set(body.slice(0, index), body.slice(index + 1).trim());
     });
   }
 
