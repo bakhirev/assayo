@@ -1,4 +1,5 @@
 import { getLangPrefix } from './languages';
+import { get2Number } from './number';
 
 export const ONE_DAY = 24 * 60 * 60 * 1000;
 
@@ -58,10 +59,11 @@ export function getFullTime(timestamp: string | number) {
   return getCustomDate(timestamp, { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' });
 }
 
-export function getDateForExcel(timestamp: string) {
-  if (!timestamp) return '';
+export function getDateForExcel(timestamp: string | number) {
+  if (!timestamp && timestamp !== 0) return '';
   const date = new Date(timestamp);
-  return date.toISOString().substring(0, 10).split('-').reverse().join('.');
+  if (Number.isNaN(date.getTime())) return '';
+  return `${get2Number(date.getDate())}.${get2Number(date.getMonth() + 1)}.${date.getFullYear()}`;
 }
 
 export function getShortDateRange({ from, to }: any) {

@@ -20,7 +20,7 @@ export function getDetailsByYears(
     const value = row[property];
     weightedAverage.update(value);
     if (value <= 1) increment(acc, GROUPS_BY_YEARS.DAY);
-    else if (value <= 2) increment(acc, GROUPS_BY_YEARS.THREE_DAY);
+    else if (value <= 3) increment(acc, GROUPS_BY_YEARS.THREE_DAY);
     else if (value <= 7) increment(acc, GROUPS_BY_YEARS.WEEK);
     else if (value <= 14) increment(acc, GROUPS_BY_YEARS.TWO_WEEK);
     else if (value <= 30) increment(acc, GROUPS_BY_YEARS.MONTH);

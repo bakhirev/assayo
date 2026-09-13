@@ -116,8 +116,8 @@ export function downloadCsv(
     )).join(';')),
   ].join('\n');
 
-  const type = 'text/csv;charset=windows-1251;'; // utf-8;';
-  const file = new Blob([csvFile], { type });
+  const type = 'text/csv;charset=utf-8;';
+  const file = new Blob([`\uFEFF${csvFile}`], { type });
   const fileName = `${document.title} - ${name || ''}.csv`;
   return downloadFile(file, fileName);
 }

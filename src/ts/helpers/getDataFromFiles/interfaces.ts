@@ -2,5 +2,5 @@ import { SourceDataGitLog, SourceDataDependencies, SourceDataPackage } from 'ts/
 
 export default interface FileWithData {
   name: string;
-  content: SourceDataDependencies | SourceDataGitLog | SourceDataPackage[] | string;
+  content: SourceDataDependencies | SourceDataGitLog | SourceDataPackage | SourceDataPackage[] | string;
 }

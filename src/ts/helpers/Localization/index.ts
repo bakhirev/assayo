@@ -16,7 +16,7 @@ class Localization {
   insertArguments(message: string, args?: IHashMap<any>) {
     if (!args) return message;
     Object.entries(args).forEach(([name, value]: [string, any]) => {
-      message = message.split(`{${name}}`).join(`${value || '_'}`);
+      message = message.split(`{${name}}`).join(`${value ?? '_'}`);
     });
     return message;
   }

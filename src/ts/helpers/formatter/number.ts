@@ -4,7 +4,7 @@ export function get2Number(time: number) {
 
 export function getNumberOfDigits(value: number, numberOfDigits: number) {
   if (!numberOfDigits) return value >> 0;
-  const module = 10 * numberOfDigits;
+  const module = 10 ** numberOfDigits;
   return (value * module >> 0) / module;
 }
 

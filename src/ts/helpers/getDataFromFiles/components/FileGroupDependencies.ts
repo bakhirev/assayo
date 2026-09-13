@@ -2,22 +2,29 @@ import { SourceDataDependency, SourceDataDependencies } from 'ts/interfaces/Sour
 
 import FileWithData from '../interfaces';
 
-export default class FileGroupGitLog {
-  content: SourceDataDependency[] = [];
+function isDependencyRecord(item: any): item is SourceDataDependency {
+  return Boolean(item && typeof item === 'object' && item.package);
+}
+
+export default class FileGroupDependencies {
+  content: SourceDataDependencies = {};
 
   length: number = 0;
 
   clear() {
-    this.content = [];
+    this.content = {};
   }
 
   is(file: FileWithData) {
     if (file.name === 'dependencies.json') return true;
-    if (typeof file.content !== 'object') return false;
-    return Object.entries(file.content as object)[0][1].package;
+    const content = file.content;
+    if (!content || typeof content !== 'object' || Array.isArray(content)) return false;
+    const first = Object.values(content as object)[0];
+    return isDependencyRecord(first);
   }
 
   add(file: any) {
+    if (!file?.content || typeof file.content !== 'object' || Array.isArray(file.content)) return;
     this.content = {
       ...this.content,
       ...file.content as SourceDataDependencies,

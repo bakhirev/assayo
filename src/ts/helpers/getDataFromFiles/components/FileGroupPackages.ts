@@ -2,6 +2,16 @@ import { SourceDataPackage } from 'ts/interfaces/SourceData';
 
 import FileWithData from '../interfaces';
 
+function isPackageFileName(name?: string) {
+  return name === 'packages.json'
+    || name === 'package.json'
+    || Boolean(name?.endsWith('/package.json'));
+}
+
+function isPackageRecord(item: any) {
+  return Boolean(item?.name && item?.version && !item?.lockfileVersion);
+}
+
 export default class FileGroupPackages {
   content: SourceDataPackage[] = [];
 
@@ -12,14 +22,19 @@ export default class FileGroupPackages {
   }
 
   is(file: FileWithData) {
-    if (file.name === 'packages.json') return true;
-    const firstElement = file.content?.[0]; // @ts-ignore
-    return firstElement?.name && firstElement?.version;
+    if (isPackageFileName(file.name)) return true;
+    if (Array.isArray(file.content)) return isPackageRecord(file.content[0]);
+    return isPackageRecord(file.content);
   }
 
   add(file: any) {
     if (Array.isArray(file.content)) {
       this.content = this.content.concat(file.content);
+      this.length += 1;
+      return;
+    }
+    if (isPackageRecord(file.content)) {
+      this.content.push(file.content);
       this.length += 1;
     }
   }

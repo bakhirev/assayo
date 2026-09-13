@@ -16,7 +16,8 @@ export default class FileGroupGitLog {
   }
 
   add(file: FileWithData) {
-    this.content.push(file.content as string);
+    if (typeof file.content !== 'string') return;
+    this.content.push(file.content);
     this.length += 1;
   }
 
