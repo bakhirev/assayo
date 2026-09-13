@@ -1,11 +1,11 @@
-import { HashMap } from 'ts/interfaces/HashMap';
+import IHashMap, { HashMap } from 'ts/interfaces/HashMap';
 
 class Localization {
   language:string = 'ru';
 
   translations: HashMap<HashMap<string>> = new Map();
 
-  get(key: string | undefined = '', ...args: any) {
+  get(key: string | undefined = '', args?: IHashMap<any>) {
     const translations = this.translations.get(this.language);
     const message = translations?.get(key || '');
     return message
@@ -13,11 +13,10 @@ class Localization {
       : key || '';
   }
 
-  insertArguments(message: string, args?: any) {
+  insertArguments(message: string, args?: IHashMap<any>) {
     if (!args) return message;
-    const list = Array.isArray(args) ? args : [args];
-    list.forEach((text: any, index: number) => {
-      message = message.replace(`$${index + 1}`, text || '_');
+    Object.entries(args).forEach(([name, value]: [string, any]) => {
+      message = message.split(`{${name}}`).join(`${value || '_'}`);
     });
     return message;
   }

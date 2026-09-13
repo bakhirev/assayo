@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: キャンセル
 § plugin.print.tableOfContents: 目次
 § plugin.print.title: Git リポジトリレポート
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: レポートのデータは commit の履歴から取得されました。
 `;

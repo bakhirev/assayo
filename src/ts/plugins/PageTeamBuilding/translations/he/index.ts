@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: למי יש את חתימות ה-commit הקצרות ביותר?
 § plugin.team_building.quiz.question11: כמה אנשים עזבו?
 § plugin.team_building.quiz.question12: כמה אנשים עזרו לפרויקט?
-§ plugin.team_building.quiz.question13: כמה משימות מקסימום עשה $1 ביום?
+§ plugin.team_building.quiz.question13: כמה משימות מקסימום עשה {author} ביום?
 § plugin.team_building.quiz.question14: איזה סוג משימות נוסף יותר?
 § plugin.team_building.quiz.question15: כמה ימים עובדים בפרויקט בממוצע?
 § plugin.team_building.quiz.question16: מי יצר הכי הרבה תיקיות?

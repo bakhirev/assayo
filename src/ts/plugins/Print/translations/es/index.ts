@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: Cancelar
 § plugin.print.tableOfContents: Índice
 § plugin.print.title: Informe del repositorio Git
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: Los datos del informe se obtuvieron del historial de commits.
 `;

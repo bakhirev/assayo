@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: 취소
 § plugin.print.tableOfContents: 목차
 § plugin.print.title: Git 저장소 보고서
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: 보고서 데이터는 commit 기록에서 가져왔습니다.
 `;

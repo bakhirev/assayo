@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: כלי אירוח קוד
 § plugin.team_emails.type.title: שירות
-§ plugin.team_emails.type.description: $1 או משהו דומה
+§ plugin.team_emails.type.description: {service} או משהו דומה
 § plugin.team_emails.email.title: רשימת כתובות דוא״ל
 § plugin.team_emails.email.typeChart.title: סוגי כתובות
 § plugin.team_emails.email.typeChart.suffix: כתובות דוא״ל

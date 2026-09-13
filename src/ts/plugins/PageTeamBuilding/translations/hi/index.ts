@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: किसकी commit हस्ताक्षर सबसे छोटी हैं?
 § plugin.team_building.quiz.question11: कितने लोग छोड़ चुके हैं?
 § plugin.team_building.quiz.question12: कितने लोगों ने प्रोजेक्ट की मदद की?
-§ plugin.team_building.quiz.question13: $1 ने एक दिन में अधिकतम कितने कार्य किए?
+§ plugin.team_building.quiz.question13: {author} ने एक दिन में अधिकतम कितने कार्य किए?
 § plugin.team_building.quiz.question14: किस प्रकार के कार्य अधिक जोड़े गए?
 § plugin.team_building.quiz.question15: औसतन प्रोजेक्ट पर कितने दिन काम करते हैं?
 § plugin.team_building.quiz.question16: सबसे अधिक निर्देशिकाएँ किसने बनाईं?

@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: Who has the shortest commit signatures?
 § plugin.team_building.quiz.question11: How many people have quit?
 § plugin.team_building.quiz.question12: How many people helped the project?
-§ plugin.team_building.quiz.question13: How many maximum tasks did $1 per day?
+§ plugin.team_building.quiz.question13: How many maximum tasks did {author} per day?
 § plugin.team_building.quiz.question14: What type of tasks have been added more?
 § plugin.team_building.quiz.question15: How many days do they work on the project on average?
 § plugin.team_building.quiz.question16: Who created the most directories?

@@ -3,7 +3,7 @@ export default `
 § uiKit.console.notification: Текст скопирован
 § uiKit.dataLoader.page: Страница
 § uiKit.dataLoader.size: Отображается по
-§ uiKit.dataLoader.rows: строк (всего $1).
+§ uiKit.dataLoader.rows: строк (всего {count}).
 § uiKit.dataLoader.from: из
 § uiKit.dataLoader.all: Показать все
 § uiKit.hoursChart.work: стандартное рабочее время (будни, с 07:00 до 20:00)
@@ -23,7 +23,7 @@ export default `
 § common.filters: Фильтры
 § common.notifications.save: Изменения сохранены
 § common.notifications.setting: Настройки сохранены
-§ common.fileLoader.notification: Ошибка загрузки файла $1
+§ common.fileLoader.notification: Ошибка загрузки файла {file}
 § common.confirm.title: Вы уверены что хотите удалить?
 § common.confirm.yes: Да, уверен
 § common.confirm.no: Отмена

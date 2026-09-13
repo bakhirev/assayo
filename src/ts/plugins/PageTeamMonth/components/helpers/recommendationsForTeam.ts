@@ -21,13 +21,13 @@ function getWorkOnWeek(allWorkDays: number, workOnWeek: number) {
 function getFirstDay(byTimestamp: any) {
   const commit = byTimestamp.allCommitsByTimestamp[0];
   const [ date, day ] = getDateByTimestamp(commit.timestamp);
-  return getTitleArgDescription('firstCommit', date, [day]);
+  return getTitleArgDescription('firstCommit', date, { day });
 }
 
 function getLastDay(byTimestamp: any) {
   const commit = byTimestamp.allCommitsByTimestamp[(byTimestamp.allCommitsByTimestamp.length - 1)];
   const [ date, day ] = getDateByTimestamp(commit.timestamp);
-  return getTitleArgDescription('lastCommit', date, [day]);
+  return getTitleArgDescription('lastCommit', date, { day });
 }
 
 function getTotalInfo() {
@@ -40,9 +40,9 @@ function getTotalInfo() {
   // TODO: all days не верный, я вывожу рабочие дни, а не выходные.
 
   return [
-    (workInWeek ? getArgTitle('weekendDays', [workInWeek]) : null),
+    (workInWeek ? getArgTitle('weekendDays', { days: workInWeek }) : null),
     getWorkOnWeek(byTimestamp.allCommitsByTimestamp.length, workInWeek),
-    getArgTitle('allDays', [totalDays]),
+    getArgTitle('allDays', { days: totalDays }),
     getFirstDay(byTimestamp),
     getLastDay(byTimestamp),
   ].filter(item => item);

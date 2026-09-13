@@ -12,13 +12,13 @@ const {
 function getFirstDay(byTimestamp: any) {
   const commit = byTimestamp.allCommitsByTimestamp[0];
   const [date, day] = getDateByTimestamp(commit.timestamp);
-  return getTitleArgDescription('firstCommit', date, [day]);
+  return getTitleArgDescription('firstCommit', date, { day });
 }
 
 function getLastDay(byTimestamp: any) {
   const commit = byTimestamp.allCommitsByTimestamp[(byTimestamp.allCommitsByTimestamp.length - 1)];
   const [date, day] = getDateByTimestamp(commit.timestamp);
-  return getTitleArgDescription('lastCommit', date, [day]);
+  return getTitleArgDescription('lastCommit', date, { day });
 }
 
 function getTotalInfo() {

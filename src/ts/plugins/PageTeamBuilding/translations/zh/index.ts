@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: 谁的 commit 签名最短？
 § plugin.team_building.quiz.question11: 有多少人离职？
 § plugin.team_building.quiz.question12: 有多少人帮助过项目？
-§ plugin.team_building.quiz.question13: $1 一天最多完成了多少任务？
+§ plugin.team_building.quiz.question13: {author} 一天最多完成了多少任务？
 § plugin.team_building.quiz.question14: 哪类任务被加入得更多？
 § plugin.team_building.quiz.question15: 平均在项目上工作多少天？
 § plugin.team_building.quiz.question16: 谁创建的目录最多？

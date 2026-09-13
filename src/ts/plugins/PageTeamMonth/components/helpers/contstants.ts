@@ -6,7 +6,7 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_month.recommendations.weekendDays.description',
     type: RECOMMENDATION_TYPES.ALERT,
     arguments: {
-      title: [],
+      title: {},
     },
   },
   lossesDays: {
@@ -14,7 +14,7 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_month.recommendations.lossesDays.description',
     type: RECOMMENDATION_TYPES.WARNING,
     arguments: {
-      title: [],
+      title: {},
     },
   },
   allDays: {
@@ -22,7 +22,7 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_month.recommendations.allDays.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      title: [],
+      title: {},
     },
   },
   firstCommit: {
@@ -30,7 +30,7 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_month.recommendations.firstCommit.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      description: [],
+      description: {},
     },
   },
   lastCommit: {
@@ -38,7 +38,7 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_month.recommendations.lastCommit.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      description: [],
+      description: {},
     },
   },
   regularWeekendWord: {

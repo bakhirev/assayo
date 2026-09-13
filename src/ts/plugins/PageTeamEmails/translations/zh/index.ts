@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: 代码托管工具
 § plugin.team_emails.type.title: 服务
-§ plugin.team_emails.type.description: $1 或类似内容
+§ plugin.team_emails.type.description: {service} 或类似内容
 § plugin.team_emails.email.title: 电子邮箱列表
 § plugin.team_emails.email.typeChart.title: 地址类型
 § plugin.team_emails.email.typeChart.suffix: 电子邮箱

@@ -7,14 +7,14 @@ export default `
 § recommendations.timestamp.firstCommit.description
 сделал первый коммит
 
-День недели: $1
+День недели: {day}
 
 § recommendations.timestamp.lastCommit.description
 сделал последний коммит
 
-День недели: $1
+День недели: {day}
 
-§ recommendations.timestamp.common.title: $1 дней
+§ recommendations.timestamp.common.title: {days} дней
 § recommendations.timestamp.allDays.description: от первого до последнего коммита (включая выходные и праздники).
 § recommendations.timestamp.lossesDays.description: без коммитов, даже с учётом выходных, отпуска и государственных праздников.
 § recommendations.timestamp.weekendDays.description
@@ -193,12 +193,12 @@ Bus factor = 1
 
 Фичи которые дорого стоят в разработке, но приносят мало прибыли, возможно, стоит отложить или вообще отменить. Это сделает проект более коммерчески успешным.
 
-§ recommendations.author.lotOfLazy.title: Слишком мало кода: $1
+§ recommendations.author.lotOfLazy.title: Слишком мало кода: {count}
 § recommendations.author.lotOfLazy.description
 Может уволить?
 
 # Состав: 
-- $1;
+- {list};
 
 # Ответьте себе на вопросы:
 - он тимлид, архитектор, аналитик?
@@ -210,12 +210,12 @@ Bus factor = 1
 Если мы считаем, что объективных помех его работе не было, то человек либо не хочет работать вообще, либо работает на двух проектах одновременно.
 Увольнение и замена новым сотрудником выглядит оправданным с точки зрения общей статистики.
 
-§ recommendations.author.manyLazy.title: Пишут мало кода: $1
+§ recommendations.author.manyLazy.title: Пишут мало кода: {count}
 § recommendations.author.manyLazy.description
 Нужно взять на контроль.
 
 # Состав: 
-- $1;
+- {list};
 
 # Как делается выборка:
 - на тестовых выборках хороший программист пишет код больше 80% времени;
@@ -239,35 +239,35 @@ Bus factor = 1
 - для каждого коммита определятся тип задачи;
 - если больше 70% задач одного типа, значит человек делает одно и тоже;
 
-§ recommendations.author.workToday.title: Работает $1
+§ recommendations.author.workToday.title: Работает {count}
 § recommendations.author.workToday.description
 над проектом в данный момент.
 
 # Состав: 
-- $1;
+- {list};
 
 # Почему именно они:
 - рабочих дней более 50%;
 - работали в течении последних 30 дней;
 
-§ recommendations.author.dismissed.title: Уволилось $1
+§ recommendations.author.dismissed.title: Уволилось {count}
 § recommendations.author.dismissed.description
 или работало короткий промежуток времени.
 
 # Состав:
-- $1;
+- {list};
 
 # Почему именно они:
 - работали в нормальном ритме (видимо, это их основной репозиторий);
 - за последний месяц не было ни одного коммита;
 - отпуск обычно 14 дней (их отсутствие не похоже на отпуск);
 
-§ recommendations.author.staff.title: Помогают $1
+§ recommendations.author.staff.title: Помогают {count}
 § recommendations.author.staff.description
 Люди другой специализации, которые что-либо коммитили.
 
 # Состав: 
-- $1;
+- {list};
 
 # Почему именно они:
 - это не open-source проект;

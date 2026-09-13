@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: ביטול
 § plugin.print.tableOfContents: תוכן עניינים
 § plugin.print.title: דוח מאגר Git
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: נתוני הדוח התקבלו מהיסטוריית ה-commits.
 `;

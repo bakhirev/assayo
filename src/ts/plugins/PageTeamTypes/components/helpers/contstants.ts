@@ -32,7 +32,7 @@ export const RECOMMENDATIONS = {
     ],
     type: RECOMMENDATION_TYPES.ALERT,
     arguments: {
-      description: [],
+      description: {},
     },
   },
 };

@@ -27,7 +27,7 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
         properties="type"
         formatter={(type: string) => {
           const name = type === COMMIT_TYPE.PR_BITBUCKET ? 'Bitbucket' : 'GitHub';
-          return text('plugin.team_emails.type.description', name);
+          return text('plugin.team_emails.type.description', { service: name });
         }}
       />
       <Column

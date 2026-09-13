@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: У кого саммые короткие подписи коммитов?
 § plugin.team_building.quiz.question11: Сколько человек уволилось?
 § plugin.team_building.quiz.question12: Сколько человек помогало проекту?
-§ plugin.team_building.quiz.question13: Сколько максимум задач в день делал $1?
+§ plugin.team_building.quiz.question13: Сколько максимум задач в день делал {author}?
 § plugin.team_building.quiz.question14: Задач какого типа больше влили?
 § plugin.team_building.quiz.question15: Сколько в среднем дней работают на проекте?
 § plugin.team_building.quiz.question16: Кто создал больше всех дирректорий?

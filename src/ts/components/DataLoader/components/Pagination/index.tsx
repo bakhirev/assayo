@@ -124,7 +124,7 @@ function SimplePagination({
         }}
       />
       <p className={style.paginator_text}>
-        {t('uiKit.dataLoader.rows', totalElements)}
+        {t('uiKit.dataLoader.rows', { count: totalElements })}
       </p>
       {canShowMore && (
         <UiKitButton

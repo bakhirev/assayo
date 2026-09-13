@@ -25,7 +25,7 @@ export default `
 § common.filters: 필터
 § common.notifications.save: 변경 사항이 저장됩니다
 § common.notifications.setting: 설정이 저장됩니다
-§ common.fileLoader.notification: 파일 업로드 오류$1
+§ common.fileLoader.notification: 파일 업로드 오류{file}
 § common.confirm.title: Are you sure you want to remove it?
 § common.confirm.yes: Yes, I am sure.
 § common.confirm.no: Cancel

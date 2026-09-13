@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: Herramienta de alojamiento de código
 § plugin.team_emails.type.title: Servicio
-§ plugin.team_emails.type.description: $1 o algo similar
+§ plugin.team_emails.type.description: {service} o algo similar
 § plugin.team_emails.email.title: Lista de direcciones de email
 § plugin.team_emails.email.typeChart.title: Tipos de direcciones
 § plugin.team_emails.email.typeChart.suffix: direcciones de email

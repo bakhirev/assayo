@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: Отмена
 § plugin.print.tableOfContents: Оглавление
 § plugin.print.title: Отчёт по git-репозиторию
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: Данные для отчёта были получены из истории коммитов.
 `;

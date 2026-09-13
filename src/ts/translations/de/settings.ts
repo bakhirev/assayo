@@ -8,7 +8,7 @@ export default `
 § page.settings.links.pr: Für PR
 § page.settings.user.title: Individuelle einstellungen
 § page.settings.user.notFound: Keine individuellen Einstellungen. Daten für alle Mitarbeiter werden anhand allgemeiner Parameter berechnet.
-§ page.settings.user.subTitle: Zusatz zum arbeitsvertrag №. $1
+§ page.settings.user.subTitle: Zusatz zum arbeitsvertrag №. {number}
 § page.settings.user.from: Startdatum
 § page.settings.mailmap: Beispiel .mailmap
 § page.settings.common.title: Allgemeine Gehaltsdaten

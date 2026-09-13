@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: commit 서명이 가장 짧은 사람은 누구인가요?
 § plugin.team_building.quiz.question11: 몇 명이 퇴사했나요?
 § plugin.team_building.quiz.question12: 몇 명이 프로젝트를 도왔나요?
-§ plugin.team_building.quiz.question13: $1가 하루에 처리한 최대 작업 수는?
+§ plugin.team_building.quiz.question13: {author}가 하루에 처리한 최대 작업 수는?
 § plugin.team_building.quiz.question14: 어떤 유형의 작업이 더 많이 추가되었나요?
 § plugin.team_building.quiz.question15: 평균적으로 며칠 동안 프로젝트에서 일하나요?
 § plugin.team_building.quiz.question16: 디렉터리를 가장 많이 만든 사람은 누구인가요?

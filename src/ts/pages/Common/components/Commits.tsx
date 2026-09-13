@@ -80,7 +80,7 @@ function Commits({ statistic, from, to }: ICommitsProps) {
       description: 'page.common.commits.description',
       type: RECOMMENDATION_TYPES.FACT,
       arguments: {
-        description: [shortDay],
+        description: { day: shortDay },
       },
     },
   ];
@@ -132,8 +132,10 @@ function Commits({ statistic, from, to }: ICommitsProps) {
       <br/>
       <Title title={localization.get(
         'page.common.commits.title2',
-        getDate(selected?.timestamp),
-        selected?.commits,
+        {
+          date: getDate(selected?.timestamp),
+          commits: selected?.commits,
+        },
       )} />
       <PageWrapper template="box">
         <DayInfo timestamp={selected?.timestamp} />

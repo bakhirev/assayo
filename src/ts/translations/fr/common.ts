@@ -25,7 +25,7 @@ Si c’est une erreur et que la statistique pour ce collaborateur doit être pri
 § common.filters: Filtres
 § common.notifications.save: Modifications enregistrées
 § common.notifications.setting: Paramètres enregistrés
-§ common.fileLoader.notification: Cant open file $1
+§ common.fileLoader.notification: Cant open file {file}
 § common.confirm.title: Are you sure you want to remove it?
 § common.confirm.yes: Yes, I am sure.
 § common.confirm.no: Cancel

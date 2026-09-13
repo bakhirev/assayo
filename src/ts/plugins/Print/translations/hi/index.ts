@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: रद्द करें
 § plugin.print.tableOfContents: विषय सूची
 § plugin.print.title: Git रिपॉज़िटरी रिपोर्ट
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: रिपोर्ट का डेटा commit इतिहास से प्राप्त किया गया।
 `;

@@ -8,7 +8,7 @@ export default `
 § page.settings.links.pr: Для PR
 § page.settings.user.title: Индивидуальные настройки
 § page.settings.user.notFound: Индивидуальных настроек нет. Данные по всем сотрудникам вычисляются по общим параметрам.
-§ page.settings.user.subTitle: Дополнение к трудовому договору №$1
+§ page.settings.user.subTitle: Дополнение к трудовому договору №{number}
 § page.settings.user.from: Дата начала действия
 § page.settings.mailmap: Настройки .mailmap
 § page.settings.common.title: Общие данные по зарплате

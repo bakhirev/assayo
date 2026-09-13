@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: Le service ne STOCKE ni ne TRANSMET vos données. Tous les calculs sont effectués sur votre ordinateur.
 § page.welcome.warning2: Le service ne COLLECTE pas de STATISTIQUES sur les projets. Vous pouvez regarder [code source|https://github.com/bakhirev/assayo].
 § page.common.words.title: Statistiques par mots
-§ page.common.words.description: le mot le plus populaire. Rencontre $1 fois.
+§ page.common.words.description: le mot le plus populaire. Rencontre {count} fois.
 § page.common.commits.title: Nombre de commits par jour
-§ page.common.commits.description: ($1) le jour le plus productif par le nombre de commits.
-§ page.common.commits.title2: $1 commits faits: $2
+§ page.common.commits.description: ({day}) le jour le plus productif par le nombre de commits.
+§ page.common.commits.title2: {date} commits faits: {commits}
 § page.common.filter.allUsers: Pas d'importance
 § page.print.modal.title: On imprime quoi?
 § page.print.modal.page: Page actuelle
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: Annulation
 § page.print.tableOfContents: Table des matières
 § page.print.title: Rapport sur dépôt git
-§ page.print.sub_title: «$1»
+§ page.print.sub_title: «{title}»
 § page.print.description: Les données du rapport ont été extraites de l'historique des commits.
 § page.team.author.statusChart.title: Status
 § page.team.author.daysChart.title: Days of work
@@ -285,7 +285,7 @@ export default `
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
-§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question13: How many maximum tasks did {author} per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.team.building.quiz.question16: Who created the most directories?

@@ -35,7 +35,7 @@ function Changes({ statistic }: IChangesProps) {
       description: ` (${shortDay}) было влито больше всего изменений.`,
       type: RECOMMENDATION_TYPES.FACT,
       arguments: {
-        description: [shortDay],
+        description: { day: shortDay },
       },
     },
   ];

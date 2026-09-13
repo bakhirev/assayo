@@ -28,7 +28,7 @@ function PopularWords({ statistic, mode }: IPopularWordsProps) {
       description: 'page.common.words.description',
       type: RECOMMENDATION_TYPES.FACT,
       arguments: {
-        description: [dots[0].value],
+        description: { count: dots[0].value },
       },
     },
   ];

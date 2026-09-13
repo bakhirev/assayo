@@ -2,14 +2,14 @@ export default `
 § plugin.team_month.recommendations.firstCommit.description
 сделал первый коммит
 
-День недели: $1
+День недели: {day}
 
 § plugin.team_month.recommendations.lastCommit.description
 сделал последний коммит
 
-День недели: $1
+День недели: {day}
 
-§ plugin.team_month.recommendations.common.title: $1 дней
+§ plugin.team_month.recommendations.common.title: {days} дней
 § plugin.team_month.recommendations.allDays.description: от первого до последнего коммита (включая выходные и праздники).
 § plugin.team_month.recommendations.lossesDays.description: без коммитов, даже с учётом выходных, отпуска и государственных праздников.
 § plugin.team_month.recommendations.weekendDays.description

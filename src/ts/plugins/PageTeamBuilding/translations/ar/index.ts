@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: من لديه أقصر توقيعات commit؟
 § plugin.team_building.quiz.question11: كم شخصًا غادر؟
 § plugin.team_building.quiz.question12: كم شخصًا ساعد المشروع؟
-§ plugin.team_building.quiz.question13: ما أقصى عدد مهام أنجزه $1 في اليوم؟
+§ plugin.team_building.quiz.question13: ما أقصى عدد مهام أنجزه {author} في اليوم؟
 § plugin.team_building.quiz.question14: أي نوع من المهام أُضيف أكثر؟
 § plugin.team_building.quiz.question15: كم يومًا يعملون في المشروع في المتوسط؟
 § plugin.team_building.quiz.question16: من أنشأ أكبر عدد من المجلدات؟

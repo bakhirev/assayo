@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: कोड होस्टिंग उपकरण
 § plugin.team_emails.type.title: सेवा
-§ plugin.team_emails.type.description: $1 या कुछ इसी तरह का
+§ plugin.team_emails.type.description: {service} या कुछ इसी तरह का
 § plugin.team_emails.email.title: ईमेल पतों की सूची
 § plugin.team_emails.email.typeChart.title: पते के प्रकार
 § plugin.team_emails.email.typeChart.suffix: ईमेल पते

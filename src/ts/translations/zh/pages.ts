@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: 该服务不会存储或传输您的数据。 所有计算都在您的计算机上执行.
 § page.welcome.warning2: 该服务不收集项目的统计数据。 你可以看 [源代码|https://github.com/bakhirev/assayo].
 § page.common.words.title: 词汇统计
-§ page.common.words.description: 最流行的词。 发生$1次.
+§ page.common.words.description: 最流行的词。 发生{count}次.
 § page.common.commits.title: Количество Commits по дням
-§ page.common.commits.description: ($1) 拥有最多 Commits 数的工作日.
-§ page.common.commits.title2: $1 完成了 Commits: $2
+§ page.common.commits.description: ({day}) 拥有最多 Commits 数的工作日.
+§ page.common.commits.title2: {date} 完成了 Commits: {commits}
 § page.common.filter.allUsers: 没关系
 § page.print.modal.title: 我们打印出来的是什么?
 § page.print.modal.page: 当前页面
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: 取消
 § page.print.tableOfContents: 目录
 § page.print.title: Git仓库报告
-§ page.print.sub_title: «$1»
+§ page.print.sub_title: «{title}»
 § page.print.description: 报告的数据是从历史记录中获得的 Commits.
 § page.team.author.statusChart.title: Status
 § page.team.author.daysChart.title: Days of work
@@ -280,7 +280,7 @@ export default `
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
-§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question13: How many maximum tasks did {author} per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.team.building.quiz.question16: Who created the most directories?

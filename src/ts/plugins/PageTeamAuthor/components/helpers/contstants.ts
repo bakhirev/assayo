@@ -6,8 +6,8 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_author.recommendations.lotOfLazy.description',
     type: RECOMMENDATION_TYPES.ALERT,
     arguments: {
-      title: '',
-      description: '',
+      title: {},
+      description: {},
     },
   },
   manyLazy: {
@@ -15,8 +15,8 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_author.recommendations.manyLazy.description',
     type: RECOMMENDATION_TYPES.WARNING,
     arguments: {
-      title: '',
-      description: '',
+      title: {},
+      description: {},
     },
   },
   oneTypeMans: {
@@ -28,8 +28,8 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_author.recommendations.workToday.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      title: '',
-      description: '',
+      title: {},
+      description: {},
     },
   },
   dismissed: {
@@ -37,8 +37,8 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_author.recommendations.dismissed.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      title: '',
-      description: '',
+      title: {},
+      description: {},
     },
   },
   staff: {
@@ -46,8 +46,8 @@ export const RECOMMENDATIONS = {
     description: 'plugin.team_author.recommendations.staff.description',
     type: RECOMMENDATION_TYPES.FACT,
     arguments: {
-      title: '',
-      description: '',
+      title: {},
+      description: {},
     },
   },
   manager: {

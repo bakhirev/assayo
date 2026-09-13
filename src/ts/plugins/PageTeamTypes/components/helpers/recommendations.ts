@@ -20,7 +20,7 @@ function getBusFactor(statisticsByCommits: any) {
 
   return everyHasOne
     ? getItem('everyHasOne')
-    : getArgDescription('oneMaintainer', [`- ${oneMaintainer.join(';\n- ')}`]);
+    : getArgDescription('oneMaintainer', { list: `- ${oneMaintainer.join(';\n- ')}` });
 }
 
 function getTotalInfo() {

@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: The service *DOES NOT SAVE* and *DOES NOT TRANSFER* your data. All calculations are performed locally in your browser on your machine.
 § page.welcome.warning2: The service *DOES NOT COLLECT STATISTICS* on projects. You can disconnect the internet, check traffic, and even build a local version from the [source|https://github.com/bakhirev/assayo].
 § page.common.words.title: Word Statistics.
-§ page.common.words.description: the most popular word. Occurs $1 times.
+§ page.common.words.description: the most popular word. Occurs {count} times.
 § page.common.commits.title: Number of commits by days.
-§ page.common.commits.description: ($1) the most productive day in terms of the number of commits.
-§ page.common.commits.title2: $1 commits made: $2
+§ page.common.commits.description: ({day}) the most productive day in terms of the number of commits.
+§ page.common.commits.title2: {date} commits made: {commits}
 § page.common.filter.allUsers: Does not matter
 § page.print.modal.title: What are we printing?
 § page.print.modal.page: Current page
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: Cancel
 § page.print.tableOfContents: Table of contents
 § page.print.title: Git repository report
-§ page.print.sub_title: «$1»
+§ page.print.sub_title: «{title}»
 § page.print.description: The data for the report was obtained from the commit history.
 § page.team.author.statusChart.title: Status
 § page.team.author.daysChart.title: Days of work
@@ -285,7 +285,7 @@ export default `
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
-§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question13: How many maximum tasks did {author} per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.team.building.quiz.question16: Who created the most directories?

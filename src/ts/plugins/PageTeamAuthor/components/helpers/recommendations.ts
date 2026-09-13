@@ -58,12 +58,12 @@ function getTotalInfo() {
   return [
     projectType,
 
-    (lotOfLazy.length ? getArgTitleDescription('lotOfLazy', lotOfLazy.length, lotOfLazy.join(';\n- ')) : null),
-    (manyLazy.length ? getArgTitleDescription('manyLazy', manyLazy.length, manyLazy.join(';\n- ')) : null),
+    (lotOfLazy.length ? getArgTitleDescription('lotOfLazy', { count: lotOfLazy.length }, { list: lotOfLazy.join(';\n- ') }) : null),
+    (manyLazy.length ? getArgTitleDescription('manyLazy', { count: manyLazy.length }, { list: manyLazy.join(';\n- ') }) : null),
     (oneTypeMans.length ? getTitle('oneTypeMans', oneTypeMans) : null),
-    (worker.length ? getArgTitleDescription('workToday', worker.length, worker.join(';\n- ')) : null),
-    (dismissed.length ? getArgTitleDescription('dismissed', dismissed.length, dismissed.join(';\n- ')) : null),
-    (staff.length ? getArgTitleDescription('staff', staff.length, staff.join(';\n- ')) : null),
+    (worker.length ? getArgTitleDescription('workToday', { count: worker.length }, { list: worker.join(';\n- ') }) : null),
+    (dismissed.length ? getArgTitleDescription('dismissed', { count: dismissed.length }, { list: dismissed.join(';\n- ') }) : null),
+    (staff.length ? getArgTitleDescription('staff', { count: staff.length }, { list: staff.join(';\n- ') }) : null),
 
     // ['Планирование', 'Задачи распределены довольно равномерно', 'info'],
     getItem('manager'),

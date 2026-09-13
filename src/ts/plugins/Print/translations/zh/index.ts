@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: 取消
 § plugin.print.tableOfContents: 目录
 § plugin.print.title: Git 仓库报告
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: 报告数据来自 commit 历史记录。
 `;

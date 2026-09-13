@@ -43,7 +43,7 @@ function getQuestionByNumber(question: string, rightAnswer: number) {
 
 function getHowTaskInDay(user: any) {
   if (!user) return null;
-  const question = localization.get('plugin.team_building.quiz.question13', user.author);
+  const question = localization.get('plugin.team_building.quiz.question13', { author: user.author });
   const byTimestamp = statisticStore.statisticsByCommits.timestamp.totalInfoByName[user.author];
   const rightAnswer = byTimestamp.tasksByTimestampCounter.max;
   return getQuestionByNumber(question, rightAnswer);

@@ -27,7 +27,7 @@ El trabajo de los colaboradores con este estatus en este proyecto puede desestim
 § common.filters: Filtros
 § common.notifications.save: Cambios guardados
 § common.notifications.setting: Ajustes guardados
-§ common.fileLoader.notification: Cant open file $1
+§ common.fileLoader.notification: Cant open file {file}
 § common.confirm.title: Are you sure you want to remove it?
 § common.confirm.yes: Yes, I am sure.
 § common.confirm.no: Cancel

@@ -25,7 +25,7 @@ Wenn dies ein Fehler ist und die Statistiken für diesen Mitarbeiter berücksich
 § common.filters: Filter
 § common.notifications.save: Änderungen gespeichert
 § common.notifications.setting: Einstellungen gespeichert
-§ common.fileLoader.notification: Cant open file $1
+§ common.fileLoader.notification: Cant open file {file}
 § common.confirm.title: Are you sure you want to remove it?
 § common.confirm.yes: Yes, I am sure.
 § common.confirm.no: Cancel

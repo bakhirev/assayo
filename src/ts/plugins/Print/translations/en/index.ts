@@ -7,6 +7,6 @@ export default `
 § plugin.print.modal.cancel: Cancel
 § plugin.print.tableOfContents: Table of contents
 § plugin.print.title: Git repository report
-§ plugin.print.sub_title: «$1»
+§ plugin.print.sub_title: «{title}»
 § plugin.print.description: The report data was obtained from the commit history.
 `;

@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: El Servicio no ALMACENA ni TRANSMITE sus datos. Todos los cálculos se realizan en su computadora.
 § page.welcome.warning2: El Servicio no RECOPILA ESTADÍSTICAS sobre proyectos. Puedes ver [código fuente|https://github.com/bakhirev/assayo].
 § page.common.words.title: Estadísticas en palabras
-§ page.common.words.description: la palabra más popular. Se encuentra $1 veces.
+§ page.common.words.description: la palabra más popular. Se encuentra {count} veces.
 § page.common.commits.title: Número de commits por día
-§ page.common.commits.description: ($1) el día más productivo por número de commits.
-§ page.common.commits.title2: $1 commits hechas: $2
+§ page.common.commits.description: ({day}) el día más productivo por número de commits.
+§ page.common.commits.title2: {date} commits hechas: {commits}
 § page.common.filter.allUsers: No tiene importancia
 § page.print.modal.title: Lo que imprimimos?
 § page.print.modal.page: Página actual
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: Cancelación
 § page.print.tableOfContents: Tabla
 § page.print.title: Informe del repositorio git
-§ page.print.sub_title: «$1»
+§ page.print.sub_title: «{title}»
 § page.print.description: Los datos para el informe se obtuvieron del historial de commits.
 § page.team.author.statusChart.title: Status
 § page.team.author.daysChart.title: Days of work
@@ -285,7 +285,7 @@ export default `
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
-§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question13: How many maximum tasks did {author} per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.team.building.quiz.question16: Who created the most directories?

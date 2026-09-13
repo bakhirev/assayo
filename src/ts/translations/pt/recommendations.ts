@@ -7,14 +7,14 @@ Recommendations and facts
 § recommendations.timestamp.firstCommit.description
 made the first commit
 
-Day of the Week: $1
+Day of the Week: {day}
 
 § recommendations.timestamp.lastCommit.description
 made the last commit
 
-Day of the Week: $1
+Day of the Week: {day}
 
-§ recommendations.timestamp.common.title: $1 days
+§ recommendations.timestamp.common.title: {days} days
 § recommendations.timestamp.allDays.description: from the first to the last commit (including weekends and holidays).
 § recommendations.timestamp.lossesDays.description: days without commits, even considering weekends, vacation, and public holidays.
 § recommendations.timestamp.weekendDays.description
@@ -191,12 +191,12 @@ in terms of potential profit.
 
 Features that are expensive to develop but bring little profit may need to be postponed or even canceled. This will make the project more commercially successful.
 
-§ recommendations.author.lotOfLazy.title: Too little code: $1
+§ recommendations.author.lotOfLazy.title: Too little code: {count}
 § recommendations.author.lotOfLazy.description
 Should they be fired?
 
 # Composition: 
-- $1;
+- {list};
 
 # Answer the questions:
 - are they a team leader, architect, or analyst?
@@ -208,12 +208,12 @@ The total costs for the developer are already more than the profit from their wo
 If we believe that there were no objective hindrances to their work, then the person either does not want to work at all or is working on two projects simultaneously.
 Firing and replacing them with a new employee seems justified from a statistical point of view.
 
-§ recommendations.author.manyLazy.title: Little code: $1
+§ recommendations.author.manyLazy.title: Little code: {count}
 § recommendations.author.manyLazy.description
 Needs to be monitored.
 
 # Composition: 
-- $1;
+- {list};
 
 # How the sample is chosen:
 - in test samples, a good programmer writes code for more than 80% of the time;
@@ -237,35 +237,35 @@ receives too many monotonous tasks of the same type. Risk of burnout.
 - the type of task is determined for each commit;
 - if more than 70% of tasks are of the same type, it means the person is doing the same thing repeatedly;
 
-§ recommendations.author.workToday.title: Working $1
+§ recommendations.author.workToday.title: Working {count}
 § recommendations.author.workToday.description
 on the project at this moment.
 
 # Composition: 
-- $1;
+- {list};
 
 # Why specifically them:
 - more than 50% of workdays;
 - have worked during the last 30 days;
 
-§ recommendations.author.dismissed.title: Dismissed $1
+§ recommendations.author.dismissed.title: Dismissed {count}
 § recommendations.author.dismissed.description
 or worked for a short period.
 
 # Composition:
-- $1;
+- {list};
 
 # Why specifically them:
 - worked at a normal pace (apparently, this is their main repository);
 - no commits in the last month;
 - vacation usually lasts 14 days (their absence does not resemble a vacation);
 
-§ recommendations.author.staff.title: Assisting $1
+§ recommendations.author.staff.title: Assisting {count}
 § recommendations.author.staff.description
 People of other specializations who have committed something.
 
 # Composition: 
-- $1;
+- {list};
 
 # Why specifically them:
 - this is not an open-source project;

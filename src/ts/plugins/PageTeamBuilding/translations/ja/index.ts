@@ -15,7 +15,7 @@ export default `
 § plugin.team_building.quiz.question09: commit の署名が最も短いのは誰？
 § plugin.team_building.quiz.question11: 何人が退職しましたか？
 § plugin.team_building.quiz.question12: 何人がプロジェクトを手伝いましたか？
-§ plugin.team_building.quiz.question13: $1 が 1 日にこなしたタスクの最大数は？
+§ plugin.team_building.quiz.question13: {author} が 1 日にこなしたタスクの最大数は？
 § plugin.team_building.quiz.question14: どの種類のタスクがより多く追加されましたか？
 § plugin.team_building.quiz.question15: 平均して何日プロジェクトで働きますか？
 § plugin.team_building.quiz.question16: 最も多くのディレクトリを作成したのは誰？

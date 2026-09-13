@@ -7,14 +7,14 @@ export default `
 § recommendations.timestamp.firstCommit.description
 첫 번째 커밋을 만들었습니다.
 
-요일:$1
+요일:{day}
 
 § recommendations.timestamp.lastCommit.description
 마지막 커밋
 
-요일:$1
+요일:{day}
 
-§ recommendations.title$1 일
+§ recommendations.title{days} 일
 § recommendations.timestamp.firstCommit.description첫 번째 커밋부터 마지막 커밋까지(주말 및 공휴일 포함).
 § recommendations.timestamp.lastCommit.description주말,휴가 및 공휴일을 고려해도 커밋이 없습니다.
 § recommendations.timestamp.weekendDays.description
@@ -193,12 +193,12 @@ export default `
 
 개발 비용이 많이 들지만 수익을 거의 가져 오지 않는 기능은 연기하거나 모두 취소 할 가치가있을 수 있습니다. 이것은 프로젝트를 상업적으로 더 성공적으로 만들 것입니다.
 
-§ recommendations.timestamp.weekendDays.description너무 작은 코드:$1
+§ recommendations.timestamp.weekendDays.description너무 작은 코드:{count}
 § recommendations.author.lotOfLazy.description
 내가 당신을 해고해야합니까?
 
 #구성:
--  $1;
+-  {list};
 
 #자신의 질문에 대답:
 - 그는 팀 리더,건축가,분석가입니까?
@@ -210,12 +210,12 @@ export default `
 우리가 그의 일에 객관적인 장애물이 없다고 생각한다면,그 사람은 전혀 일하기를 원하지 않거나 동시에 두 개의 프로젝트를 수행합니다.
 새로운 직원에 의한 해고 및 교체는 일반적인 통계의 관점에서 정당화 된 것처럼 보입니다.
 
-§ recommendations.timestamp.regularWeekendWord.title: 작은 코드 작성:$1
+§ recommendations.timestamp.regularWeekendWord.title: 작은 코드 작성:{count}
 § recommendations.author.manyLazy.description
 우리는 통제해야 합니다.
 
 #구성:
--  $1;
+-  {list};
 
 #선택은 어떻게 이루어 집니까:
 - 테스트 샘플에서 좋은 프로그래머는 80%이상의 시간을 코드를 작성합니다;
@@ -239,35 +239,35 @@ export default `
 - 각 커밋에 대해 작업 유형이 결정됩니다;
 - 작업의 70%이상이 같은 유형의 경우,그 사람은 같은 일을하고있다;
 
-§ recommendations.timestamp.sometimeWeekendWord.title: $1 작동
+§ recommendations.timestamp.sometimeWeekendWord.title: {count} 작동
 § recommendations.author.workToday.description
 현재 프로젝트를 진행하고 있습니다.
 
 #구성:
--  $1;
+-  {list};
 
 #왜 그들이 그들인가:
 - 50 작업 일 이상%;
 - 지난 30 일 동안 일하고 있습니다.;
 
-§ recommendations.timestamp.weekendWord.description$1 종료
+§ recommendations.timestamp.weekendWord.description{count} 종료
 § recommendations.author.dismissed.description
 또는 그것은 짧은 시간 동안 일했다.
 
 #구성:
--  $1;
+-  {list};
 
 #왜 그들이 그들인가:
 - 그들은 정상적인 리듬으로 일했습니다(분명히 이것은 주요 저장소입니다);
 - 지난 달에 커밋이 하나도 없었습니다.;
 - 휴가는 일반적으로 14 일(그들의 부재는 휴가처럼 보이지 않는다);
 
-§ recommendations.timestamp.neverWeekendWord.title: $1 도움
+§ recommendations.timestamp.neverWeekendWord.title: {count} 도움
 § recommendations.author.staff.description
 무언가를 저지른 다른 전문 분야의 사람들.
 
 #구성:
--  $1;
+-  {list};
 
 #왜 그들이 그들인가:
 - 이 오픈 소스 프로젝트가 아닙니다;

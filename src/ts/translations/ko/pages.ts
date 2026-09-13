@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: 서비스*저장하지 않습니다*및*전송하지 않습니다*귀하의 데이터. 모든 계산은 컴퓨터에 바로 브라우저에서 로컬로 수행됩니다.
 § page.welcome.warning2: 서비스*는 프로젝트에 대한 통계*를 수집하지 않습니다. 인터넷을 끄고 트래픽을 확인하고 로컬 빌드를 구축 할 수도 있습니다.
 § page.common.words.title: 단어에 대한 통계
-§ page.common.words.description: 가장 인기있는 단어입니다. 그것은 발생$1 시대.
+§ page.common.words.description: 가장 인기있는 단어입니다. 그것은 발생{count} 시대.
 § page.common.commits.title: 일별 커밋 수
-§ page.common.commits.description: ($1)커밋 수에 따라 가장 생산적인 날.
-§ page.common.commits.title2: $1 커밋:$2
+§ page.common.commits.description: ({day})커밋 수에 따라 가장 생산적인 날.
+§ page.common.commits.title2: {date} 커밋:{commits}
 § page.common.filter.allUsers: 그것은 중요하지 않습니다
 § page.print.modal.title: 우리는 무엇을 인쇄하고 있습니까?
 § page.print.modal.page: 현재 페이지
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: 취소
 § page.print.tableOfContents: 내용 표
 § page.print.title: 자식 저장소에 대한 보고서
-§ page.print.sub_title: "$1"
+§ page.print.sub_title: "{title}"
 § page.print.description: 보고서의 데이터는 커밋 기록에서 얻었습니다.
 § page.team.author.statusChart.title: 현재 상태
 § page.team.author.daysChart.title: 근무 시간
@@ -273,7 +273,7 @@ export default `
 § page.team.building.quiz.question09: Who has the shortest commit signatures?
 § page.team.building.quiz.question11: How many people have quit?
 § page.team.building.quiz.question12: How many people helped the project?
-§ page.team.building.quiz.question13: How many maximum tasks did $1 per day?
+§ page.team.building.quiz.question13: How many maximum tasks did {author} per day?
 § page.team.building.quiz.question14: What type of tasks have been added more?
 § page.team.building.quiz.question15: How many days do they work on the project on average?
 § page.team.building.quiz.question16: Who created the most directories?

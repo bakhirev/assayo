@@ -61,7 +61,7 @@ Commit message format is Conventional Commits plus tracker id (see root README).
 
 `Plugins/` — host: `setPlugins`, `getMenuItems` / `getHeaderItems`, `getPage`, `getTranslations`. See root `AGENTS.md` and `plugins/index.tsx`. `IPlugin` is `helpers/Plugins/interfaces/Plugin.ts`.
 
-`Localization` — `§ key: value` maps; `t(key)` / `localization.get(key, …)` with `$1` placeholders. `i18n.ts` sets language (URL, localStorage, browser). `initializationI18n` does not load plugin strings; boot in `src/index.tsx` does. Default language on the Localization class is `ru` until init runs.
+`Localization` — `§ key: value` maps; `t(key)` / `localization.get(key, args)` with named `{key}` placeholders filled from an args object (a key may occur multiple times). `i18n.ts` sets language (URL, localStorage, browser). `initializationI18n` does not load plugin strings; boot in `src/index.tsx` does. Default language on the Localization class is `ru` until init runs.
 
 ## Small utilities
 

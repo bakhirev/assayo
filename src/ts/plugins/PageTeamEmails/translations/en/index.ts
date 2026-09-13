@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: Code hosting tool
 § plugin.team_emails.type.title: Service
-§ plugin.team_emails.type.description: $1 or something similar
+§ plugin.team_emails.type.description: {service} or something similar
 § plugin.team_emails.email.title: Email address list
 § plugin.team_emails.email.typeChart.title: Address types
 § plugin.team_emails.email.typeChart.suffix: email addresses

@@ -6,10 +6,10 @@ export default `
 § page.welcome.warning1: Сервис *НЕ ХРАНИТ* и *НЕ ПЕРЕДАЁТ* ваши данные. Все расчёты выполняются локально в вашем браузере прямо на вашей машине.
 § page.welcome.warning2: Сервис *НЕ СОБИРАЕТ СТАТИСТИКУ* по проектам. Вы можете отключить интернет, проверить трафик и даже собрать локальный билд из [исходников|https://github.com/bakhirev/assayo].
 § page.common.words.title: Статистика по словам
-§ page.common.words.description: самое популярное слово. Встречается $1 раза.
+§ page.common.words.description: самое популярное слово. Встречается {count} раза.
 § page.common.commits.title: Количество коммитов по дням
-§ page.common.commits.description: ($1) самый продуктивный день по числу коммитов.
-§ page.common.commits.title2: $1 сделано коммитов: $2
+§ page.common.commits.description: ({day}) самый продуктивный день по числу коммитов.
+§ page.common.commits.title2: {date} сделано коммитов: {commits}
 § page.common.filter.allUsers: Не имеет значения
 § page.print.modal.title: Что распечатываем?
 § page.print.modal.page: Текущую страницу
@@ -18,7 +18,7 @@ export default `
 § page.print.modal.cancel: Отмена
 § page.print.tableOfContents: Оглавление
 § page.print.title: Отчёт по git-репозиторию
-§ page.print.sub_title: «$1»
+§ page.print.sub_title: «{title}»
 § page.print.description: Данные для отчёта были получены из истории коммитов.
 § page.team.author.statusChart.title: Текущий статус
 § page.team.author.daysChart.title: Время работы
@@ -286,7 +286,7 @@ export default `
 § page.team.building.quiz.question09: У кого саммые короткие подписи коммитов?
 § page.team.building.quiz.question11: Сколько человек уволилось?
 § page.team.building.quiz.question12: Сколько человек помогало проекту?
-§ page.team.building.quiz.question13: Сколько максимум задач в день делал $1?
+§ page.team.building.quiz.question13: Сколько максимум задач в день делал {author}?
 § page.team.building.quiz.question14: Задач какого типа больше влили?
 § page.team.building.quiz.question15: Сколько в среднем дней работают на проекте?
 § page.team.building.quiz.question16: Кто создал больше всех дирректорий?
@@ -314,7 +314,7 @@ export default `
 § page.team.server.url: URL
 § page.team.server.service: Инструмент для хостинга кода
 § page.team.server.type.title: Сервис
-§ page.team.server.type.description: $1 или что-то похожее
+§ page.team.server.type.description: {service} или что-то похожее
 § page.person.print.photo.title: Фотография
 § page.person.print.photo.description: место для фотографии
 § page.person.total.title: Основные характеристики

@@ -9,7 +9,7 @@ export default `
 § plugin.team_emails.url: URL
 § plugin.team_emails.service: コードホスティングツール
 § plugin.team_emails.type.title: サービス
-§ plugin.team_emails.type.description: $1 または類似のもの
+§ plugin.team_emails.type.description: {service} または類似のもの
 § plugin.team_emails.email.title: メールアドレス一覧
 § plugin.team_emails.email.typeChart.title: アドレスの種類
 § plugin.team_emails.email.typeChart.suffix: メールアドレス

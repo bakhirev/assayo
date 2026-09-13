@@ -1,10 +1,10 @@
 export default `
-§ plugin.team_author.recommendations.lotOfLazy.title: Слишком мало кода: $1
+§ plugin.team_author.recommendations.lotOfLazy.title: Слишком мало кода: {count}
 § plugin.team_author.recommendations.lotOfLazy.description
 Может уволить?
 
 # Состав: 
-- $1;
+- {list};
 
 # Ответьте себе на вопросы:
 - он тимлид, архитектор, аналитик?
@@ -16,12 +16,12 @@ export default `
 Если мы считаем, что объективных помех его работе не было, то человек либо не хочет работать вообще, либо работает на двух проектах одновременно.
 Увольнение и замена новым сотрудником выглядит оправданным с точки зрения общей статистики.
 
-§ plugin.team_author.recommendations.manyLazy.title: Пишут мало кода: $1
+§ plugin.team_author.recommendations.manyLazy.title: Пишут мало кода: {count}
 § plugin.team_author.recommendations.manyLazy.description
 Нужно взять на контроль.
 
 # Состав: 
-- $1;
+- {list};
 
 # Как делается выборка:
 - на тестовых выборках хороший программист пишет код больше 80% времени;
@@ -45,35 +45,35 @@ export default `
 - для каждого коммита определятся тип задачи;
 - если больше 70% задач одного типа, значит человек делает одно и тоже;
 
-§ plugin.team_author.recommendations.workToday.title: Работает $1
+§ plugin.team_author.recommendations.workToday.title: Работает {count}
 § plugin.team_author.recommendations.workToday.description
 над проектом в данный момент.
 
 # Состав: 
-- $1;
+- {list};
 
 # Почему именно они:
 - рабочих дней более 50%;
 - работали в течении последних 30 дней;
 
-§ plugin.team_author.recommendations.dismissed.title: Уволилось $1
+§ plugin.team_author.recommendations.dismissed.title: Уволилось {count}
 § plugin.team_author.recommendations.dismissed.description
 или работало короткий промежуток времени.
 
 # Состав:
-- $1;
+- {list};
 
 # Почему именно они:
 - работали в нормальном ритме (видимо, это их основной репозиторий);
 - за последний месяц не было ни одного коммита;
 - отпуск обычно 14 дней (их отсутствие не похоже на отпуск);
 
-§ plugin.team_author.recommendations.staff.title: Помогают $1
+§ plugin.team_author.recommendations.staff.title: Помогают {count}
 § plugin.team_author.recommendations.staff.description
 Люди другой специализации, которые что-либо коммитили.
 
 # Состав: 
-- $1;
+- {list};
 
 # Почему именно они:
 - это не open-source проект;
