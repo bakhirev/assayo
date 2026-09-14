@@ -1,0 +1,64 @@
+.progress_line {
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  margin-top: 10px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  background-color: var(--color-border);
+  border-radius: var(--border-radius-m);
+
+  &_container {
+    position: relative;
+    height: 40px;
+    padding: 0 0 0 50px;
+    margin: 0 auto var(--space-m) auto;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_value {
+    display: block;
+    height: 4px;
+
+    background-color: var(--color-button-2);
+    border-radius: var(--border-radius-m);
+  }
+
+  &_title {
+    font-size: var(--font-s);
+    display: block;
+    margin: var(--space-xxs) 0 0 0;
+    text-align: left;
+    color: var(--color-black);
+  }
+
+  &_icon {
+    --temp-size: 40px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+    width: var(--temp-size);
+    height: var(--temp-size);
+    border-radius: var(--temp-size);
+
+    flex: 0 0 auto;
+    vertical-align: middle;
+
+    background-color: var(--color-border);
+
+    &_svg {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin: 8px auto;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.progress_card {
+  display: inline-block;
+  width: 100%;
+  min-height: 270px;
+  margin: 0 auto var(--space-xxl);
+  padding: 10px var(--space-xxl);
+
+  vertical-align: top;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+
+  border-radius: var(--border-radius-m);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+}

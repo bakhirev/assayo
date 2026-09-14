@@ -7,6 +7,7 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import Achievements from 'ts/components/Achievement';
 
+import SmallCards from './components/SmallCards';
 import ACHIEVEMENT_TYPE from './helpers/constants/type';
 import getAchievements from "./helpers";
 
@@ -27,6 +28,15 @@ const Page = observer(({ user }: PageOptions): React.ReactElement => {
 
   return (
     <>
+      <If value={false}>
+        <SmallCards
+          user={user}
+          positive={positive}
+          normal={normal}
+          negative={negative}
+          publicity={publicity}
+        />
+      </If>
       <If value={positive}>
         <Title title="plugin.person_achievements.page.positive"/>
         <Achievements list={positive} />
@@ -37,19 +47,18 @@ const Page = observer(({ user }: PageOptions): React.ReactElement => {
       </If>
       <If value={negative}>
         <Title title="plugin.person_achievements.page.negative"/>
-        <Achievements list={negative} />
         <Description translationId="plugin.person_achievements.page.description" />
+        <Achievements list={negative} />
         <Gap height="xl" />
       </If>
       <If value={publicity}>
         <Title title="plugin.person_achievements.page.publicity"/>
         <Achievements list={publicity} />
       </If>
-
       <If value={commitsWithBeautifulTaskNumbers}>
         <Title title="plugin.person_achievements.gets.title"/>
-        <BeautifulTaskNumbers list={commitsWithBeautifulTaskNumbers} />
         <Description translationId="plugin.person_achievements.gets.description" />
+        <BeautifulTaskNumbers list={commitsWithBeautifulTaskNumbers} />
       </If>
     </>
   );

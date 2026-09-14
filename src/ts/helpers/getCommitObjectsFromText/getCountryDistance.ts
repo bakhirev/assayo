@@ -1,7 +1,7 @@
 import { HashMap } from 'ts/interfaces/HashMap';
 import { ONE_DAY } from 'ts/helpers/formatter';
 
-const BY_X = {
+const BY_X: Record<string, number> = {
   '-12:00': 1,
   '-11:00': 2,
   '-10:00': 3,
@@ -38,6 +38,7 @@ const BY_X = {
 };
 
 function getDistance(timezoneA: string, timezoneB: string) {
+  if (!BY_X[timezoneA] || !BY_X[timezoneB]) return 0;
   return Math.abs(BY_X[timezoneA] - BY_X[timezoneB]);
 }
 
@@ -63,9 +64,9 @@ export function getVpnList(countries: any[]) {
 }
 
 export function getTravels(countries: any[], vpnList: HashMap<string>) {
-  if (countries.length === 1) return null;
+  if (countries.length <= 1) return null;
 
-  let from = countries[0].fromTimezone;
+  let from = countries[0]?.fromTimezone || '';
   const path = [countries[0]];
 
   const formattedCountries = countries.length > 3
@@ -74,7 +75,7 @@ export function getTravels(countries: any[], vpnList: HashMap<string>) {
 
   for (let i = 1, l = formattedCountries.length; i < l; i++) {
     const country = formattedCountries[i];
-    const to = country.fromTimezone;
+    const to = country?.fromTimezone || '';
     if (from === to) continue;
     if (getDistance(from, to) > 1) {
       from = to;
@@ -82,6 +83,6 @@ export function getTravels(countries: any[], vpnList: HashMap<string>) {
     }
   }
 
-  return (path.length === 1) ? null : path;
+  return (path.length <= 1) ? null : path;
 }
 

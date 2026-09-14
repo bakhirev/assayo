@@ -1,14 +1,9 @@
-.achievement_container {
-  column-count: 3;
-  margin: 12px 0 24px 0;
-}
-
 .achievement {
   position: relative;
   width: 100%;
   min-height: 80px;
-  padding: 23px 0 0 90px;
-  margin: 0 0 10px 0;
+  padding: var(--space-xxl) 0;
+  margin: 0 0 var(--space-xl) 0;
   box-sizing: border-box;
   vertical-align: top;
   break-inside: avoid;
@@ -16,50 +11,66 @@
   border: 1px solid var(--color-border);
   border-radius: 6px;
   background-color: var(--color-white);
-}
 
-.achievement:last-child {
-  margin: 0 10px 0 0;
-}
+  &:last-child {
+    margin: 0 10px 0 0;
+  }
 
-.achievement_icon_container {
-  position: absolute;
-  top: 8px;
-  left: 8px;
+  &_container {
+    column-count: 3;
+    margin: 12px 0 24px 0;
+  }
 
-  display: block;
-  margin: 0 auto 16px auto;
+  &_icon {
+    font-size: var(--font-xs);
+    font-weight: 100;
 
-  overflow: hidden;
-  vertical-align: top;
-}
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
 
-.achievement_icon {
-  font-size: var(--font-xs);
-  font-weight: 100;
+    line-height: 64px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 40px;
+    letter-spacing: 2px;
 
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto;
+    color: var(--color-white);
+    background-color: var(--color-border);
+    border-color: var(--color-border);
 
-  line-height: 64px;
-  text-align: center;
-  white-space: nowrap;
-  border-radius: 40px;
-  letter-spacing: 2px;
+    &_container {
+      display: block;
+      margin: 0 auto 16px auto;
 
-  color: var(--color-white);
-  background-color: var(--color-border);
-  border-color: var(--color-border);
-}
+      overflow: hidden;
+      vertical-align: top;
+    }
 
-.achievement_icon_svg {
-  display: inline-block;
-  width: 56px;
-  height: 56px;
-  margin: 4px auto;
-  fill: var(--color-white);
+    &_svg {
+      display: inline-block;
+      width: 56px;
+      height: 56px;
+      margin: 4px auto;
+      fill: var(--color-white);
+    }
+  }
+
+  &_good {
+    background-color: var(--color-13);
+    border-color: var(--color-13);
+  }
+
+  &_bad {
+    background-color: #FEC4C4;
+    border-color: #FEC4C4;
+  }
+
+  &_publicity {
+    background-color: var(--color-21);
+    border-color: var(--color-21);
+  }
 }
 
 .achievement_title,
@@ -68,7 +79,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .achievement_title {
@@ -80,21 +91,6 @@
   display: block;
   padding: 4px 0 0 0;
   color: var(--color-black);
-}
-
-.achievement_good {
-  background-color: var(--color-13);
-  border-color: var(--color-13);
-}
-
-.achievement_bad {
-  background-color: #FEC4C4;
-  border-color: #FEC4C4;
-}
-
-.achievement_publicity {
-  background-color: var(--color-21);
-  border-color: var(--color-21);
 }
 
 @media (max-width: 1100px) {
