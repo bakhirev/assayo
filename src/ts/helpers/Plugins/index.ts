@@ -3,10 +3,6 @@ import sourceData from 'ts/store/SourceData';
 
 import { IPlugin, MenuItem } from './interfaces/Plugin';
 
-function normalizePath(path?: string) {
-  return (path || '').replace(/\/+$/, '');
-}
-
 export { default as getEnabledPlugins } from './helpers/getEnabledPlugins';
 
 class Plugins {
@@ -54,16 +50,8 @@ class Plugins {
   }
 
   getPage(path?: string, props?: Record<string, any>) {
-    const normalizedPath = normalizePath(path);
     for (let i = 0; i < this.plugins.length; i++) {
-      const plugin = this.plugins[i];
-      const menuItems = plugin?.getMenuItems?.() || [];
-      const hasPage = menuItems?.some((item) => (
-        normalizePath(item?.link) === normalizedPath
-      ));
-      if (!hasPage) continue;
-
-      const page = plugin?.getPage?.(path || '', props || {});
+      const page = this.plugins[i]?.getPage?.(path || '', props || {});
       if (page) return page;
     }
     return null;
