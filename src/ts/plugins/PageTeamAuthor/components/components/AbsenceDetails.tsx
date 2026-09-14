@@ -95,15 +95,17 @@ export function AbsenceDetails({ rows }: AbsenceDetailsProps) {
         .sort((a: any, b: any) => b.from.milliseconds - a.from.milliseconds)
       : items;
 
-    return (
-      <View
-        key={year}
-        max={max}
-        rows={formattedItems}
-        year={year}
-      />
-    );
+    return { year, formattedItems };
   });
+
+  const elements = sections.map((item) => (
+    <View
+      key={item.year}
+      max={max}
+      rows={item.formattedItems}
+      year={item.year}
+    />
+  ));
 
   // TODO: выравнять по колонкам родителя
   return (

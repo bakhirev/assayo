@@ -27,18 +27,18 @@
     }
 
     &_error {
-      border-color: #FCDBD9;
-      background-color: #FCDBD9;
+      border-color:  var(--color-alert-bg);
+      background-color:  var(--color-alert-bg);
     }
 
     &_warning {
-      border-color: #FAFFD3;
-      background-color: #FAFFD3;
+      border-color: var(--color-warning-bg);
+      background-color: var(--color-warning-bg);
     }
 
     &_success {
-      border-color: #DAFAD9;
-      background-color: #DAFAD9;
+      border-color: var(--color-success-bg);
+      background-color: var(--color-success-bg);
     }
   }
 }
