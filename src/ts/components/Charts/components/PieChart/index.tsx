@@ -49,7 +49,6 @@ function PieChart({
     : 1;
   const formattedLimit = limit || defaultLimit;
   const parts = getSubLines(details, formattedOrder, formattedLimit, other);
-  const alignItems = parts.length > 6 ? 'flex-start' : 'center';
   const color = new ColorGenerator(formattedOrder);
 
   if (!parts.length) return null;
@@ -57,10 +56,7 @@ function PieChart({
   return (
     <div className={`${style.pie_chart} ${className || ''}`}>
       <Title title={title || ''} />
-      <div
-        className={style.pie_chart_data}
-        style={{ alignItems }}
-      >
+      <div className={style.pie_chart_data}>
         <div className={style.pie_chart_icon}>
           <PieSVG
             parts={parts}
