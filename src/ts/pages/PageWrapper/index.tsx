@@ -30,21 +30,18 @@ function MobileView({
     : {};
 
   return (
-    <>
-      <div className={style.page_wrapper}>
-        <div
-          className={style.page_wrapper_main_mobile}
-          style={padding}
-        >
-          {children}
-        </div>
-        <HeaderWithTab/>
-        {commonItems}
-        <Recommendations/>
-        <Footer/>
+    <div className={style.page_wrapper_mobile}>
+      <HeaderWithTab/>
+      <div
+        className={style.page_wrapper_main_mobile}
+        style={padding}
+      >
+        {children}
       </div>
-      <div className={style.page_wrapper_header}/>
-    </>
+      {commonItems}
+      <Recommendations/>
+      <Footer/>
+    </div>
   );
 }
 

@@ -56,10 +56,16 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
 
     padding: 0;
     background-color: var(--color-white);
   }
+}
+
+.light_header_gap {
+  display: block;
+  height: 72px;
 }
 
 @media (max-width: 700px) {

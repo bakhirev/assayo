@@ -21,12 +21,35 @@
     background-color: var(--color-white);
   }
 
-  &_main {
-    grid-area: main;
+  &_main,
+  &_main_mobile,
+  &_main_fullscreen {
     display: block;
     min-height: calc(100vh - 72px);
     padding: 24px;
     box-sizing: border-box;
     break-inside: auto;
+  }
+
+  &_main {
+    grid-area: main;
+  }
+
+  &_mobile {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #F5F7F9;
+  }
+
+  &_main_mobile,
+  &_main_fullscreen {
+    width: 100%;
+  }
+
+  &_main_fullscreen {
+    min-height: 100vh;
+    background-color: #F5F7F9;
   }
 }
