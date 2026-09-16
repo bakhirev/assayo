@@ -1,8 +1,9 @@
 .card_with_icon_small {
   position: relative;
 
-  display: inline-block;
-  height: 123px;
+  display: inline-flex;
+  flex-direction: column;
+  min-height: 123px;
 
   &2 {
     display: flex;
@@ -76,6 +77,6 @@
 
 @media (min-width: 900px) and (max-width: 1400px) {
   .card_with_icon_small {
-    height: 133px;
+    min-height: 133px;
   }
 }

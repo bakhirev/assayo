@@ -1,7 +1,10 @@
 .pie_chart {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 0 auto var(--space-xxl);
   padding: var(--space-xxl);
+  box-sizing: border-box;
 
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-m);
@@ -9,6 +12,7 @@
 
   &_data {
     display: flex;
+    flex: 1 1 auto;
     justify-content: flex-start;
     align-items: center;
   }
@@ -16,19 +20,18 @@
   &_icon,
   &_legend {
     display: inline-block;
-    height: 100%;
   }
 
   &_icon {
     position: relative;
     width: 176px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   &_legend {
     width: fit-content;
     padding-left: var(--space-xxl);
-    vertical-align: middle;
+    align-self: center;
   }
 
   &_value {

@@ -1,5 +1,7 @@
 .components_section {
-  display: block;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
   width: 100%;
   text-align: left;
   box-sizing: border-box;
@@ -8,7 +10,8 @@
 
   &_white {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     padding: 24px;
     margin-bottom: 24px;
     width: 100%;
@@ -31,13 +34,18 @@
 
   &_column {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
     width: calc(50% - 12px);
     padding: 0;
     margin: 0;
     white-space: normal;
     vertical-align: top;
     break-inside: auto;
+    box-sizing: border-box;
+    min-width: 0;
     border: 1px solid transparent;
     background-color: transparent;
   }
@@ -47,20 +55,100 @@
   margin-left: 24px;
 }
 
+.components_section_column > a {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.components_section_column > *:not(a) {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.components_section_column > .card_with_icon:not(.card_with_icon_long),
+.components_section_column > .card_with_icon_small {
+  flex: 1 0 calc(50% - 12px);
+  max-width: calc(50% - 12px);
+  min-width: 0;
+}
+
+.components_section_column > .card_with_icon_long {
+  flex: 1 0 100%;
+  max-width: 100%;
+}
+
+.components_section_column:has(> .card_with_icon),
+.components_section_column:has(> .card_with_icon_small) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  column-gap: 24px;
+  align-items: stretch;
+}
+
+.components_section_column:has(> .title) {
+  grid-template-rows: auto;
+}
+
+.components_section_column:has(> .card_with_icon) > *:not(a),
+.components_section_column:has(> .card_with_icon_small) > *:not(a) {
+  grid-column: 1 / -1;
+  max-width: none;
+}
+
+.components_section_column:has(> .card_with_icon) > .card_with_icon:not(.card_with_icon_long),
+.components_section_column:has(> .card_with_icon_small) > .card_with_icon_small {
+  grid-column: auto;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin-right: 0;
+}
+
+.components_section_column:has(> .card_with_icon) > .card_with_icon_long {
+  grid-column: 1 / -1;
+}
+
+.components_section_column > .pie_chart {
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-height: 0;
+}
+
+.components_section_column:has(> .pie_chart) {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.components_section_column:has(> .pie_chart) > *:not(a) {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.components_section_column:has(> .pie_chart) > .pie_chart {
+  flex: 1 1 auto;
+}
+
 @media screen and (max-width: 950px) {
   .components_section {
+    flex-wrap: wrap;
+
     &_column {
-      display: block;
       width: 100%;
       margin: 0;
     }
+
     &_white {
-      display: block;
+      display: flex;
     }
   }
+
   .components_section_column + .components_section_column {
-    display: block;
-    margin: 0;
+    margin-left: 0;
   }
 }
 
