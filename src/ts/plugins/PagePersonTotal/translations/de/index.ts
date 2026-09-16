@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: Allgemeine Informationen
 § plugin.person_total.title: Haupteigenschaften
+§ plugin.person_total.progress.dayWorks: Vertragsdauer
+§ plugin.person_total.progress.tasks: erledigte Aufgaben
+§ plugin.person_total.progress.taskInDay: Arbeitsgeschwindigkeit
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: durchschnittliche Länge der commit message
 § plugin.person_total.small.status.title: geschätzter Status
 § plugin.person_total.small.status.work: arbeitet
 § plugin.person_total.small.status.dismissed: ausgeschieden

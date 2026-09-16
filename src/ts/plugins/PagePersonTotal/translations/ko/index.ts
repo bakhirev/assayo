@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: 일반 정보
 § plugin.person_total.title: 주요 특성
+§ plugin.person_total.progress.dayWorks: 계약 기간
+§ plugin.person_total.progress.tasks: 완료한 작업
+§ plugin.person_total.progress.taskInDay: 작업 속도
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: 평균 commit message 길이
 § plugin.person_total.small.status.title: 추정 상태
 § plugin.person_total.small.status.work: 재직 중
 § plugin.person_total.small.status.dismissed: 퇴사

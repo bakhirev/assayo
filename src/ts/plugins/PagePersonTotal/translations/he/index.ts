@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: מידע כללי
 § plugin.person_total.title: מאפיינים עיקריים
+§ plugin.person_total.progress.dayWorks: משך החוזה
+§ plugin.person_total.progress.tasks: משימות שהושלמו
+§ plugin.person_total.progress.taskInDay: מהירות עבודה
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: אורך ממוצע של commit message
 § plugin.person_total.small.status.title: סטטוס משוער
 § plugin.person_total.small.status.work: עובד
 § plugin.person_total.small.status.dismissed: עזב

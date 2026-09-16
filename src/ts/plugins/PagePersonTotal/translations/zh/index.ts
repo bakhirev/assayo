@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: 通用信息
 § plugin.person_total.title: 主要特征
+§ plugin.person_total.progress.dayWorks: 合同期限
+§ plugin.person_total.progress.tasks: 已完成任务
+§ plugin.person_total.progress.taskInDay: 工作速度
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: 平均 commit message 长度
 § plugin.person_total.small.status.title: 预估状态
 § plugin.person_total.small.status.work: 在职
 § plugin.person_total.small.status.dismissed: 已离职

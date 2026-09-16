@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: 一般情報
 § plugin.person_total.title: 主な特性
+§ plugin.person_total.progress.dayWorks: 契約期間
+§ plugin.person_total.progress.tasks: 完了したタスク
+§ plugin.person_total.progress.taskInDay: 作業速度
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: commit message の平均長
 § plugin.person_total.small.status.title: 推定ステータス
 § plugin.person_total.small.status.work: 在籍中
 § plugin.person_total.small.status.dismissed: 退職済み

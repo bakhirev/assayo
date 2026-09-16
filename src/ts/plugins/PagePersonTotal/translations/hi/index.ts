@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: सामान्य जानकारी
 § plugin.person_total.title: मुख्य विशेषताएँ
+§ plugin.person_total.progress.dayWorks: अनुबंध अवधि
+§ plugin.person_total.progress.tasks: पूर्ण किए गए कार्य
+§ plugin.person_total.progress.taskInDay: कार्य गति
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: औसत commit message लंबाई
 § plugin.person_total.small.status.title: अनुमानित स्थिति
 § plugin.person_total.small.status.work: कार्यरत
 § plugin.person_total.small.status.dismissed: छोड़ चुका है

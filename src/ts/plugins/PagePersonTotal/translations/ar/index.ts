@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: معلومات عامة
 § plugin.person_total.title: الخصائص الرئيسية
+§ plugin.person_total.progress.dayWorks: مدة العقد
+§ plugin.person_total.progress.tasks: المهام المنجزة
+§ plugin.person_total.progress.taskInDay: سرعة العمل
+§ plugin.person_total.progress.commits: commits
+§ plugin.person_total.progress.middleMessageLength: متوسط طول commit message
 § plugin.person_total.small.status.title: الحالة المقدرة
 § plugin.person_total.small.status.work: يعمل
 § plugin.person_total.small.status.dismissed: غادر
