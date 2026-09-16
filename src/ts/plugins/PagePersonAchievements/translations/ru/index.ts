@@ -5,11 +5,6 @@ export default `
 § plugin.person_achievements.page.negative: Негативные
 § plugin.person_achievements.page.publicity: Специальные
 § plugin.person_achievements.page.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
-§ plugin.person_achievements.page.progress.dayWorks: продолжительность контракта
-§ plugin.person_achievements.page.progress.tasks: выполнено задач
-§ plugin.person_achievements.page.progress.taskInDay: скорость работы
-§ plugin.person_achievements.page.progress.commits: коммитов
-§ plugin.person_achievements.page.progress.middleMessageLength: сердняя длина подписи коммита
 § plugin.person_achievements.gets.title: Медали за номера задач:
 § plugin.person_achievements.gets.description: Медаль выдается, если пользователь первым оставляет коммит к задаче с  «красивым» номером.
 § plugin.person_achievements.commitsAfter1500.title: Сова

@@ -27,6 +27,14 @@
 
     background-color: var(--color-button-2);
     border-radius: var(--border-radius-m);
+
+    &_min {
+      background-color:  var(--color-alert-main);
+    }
+
+    &_max {
+      background-color: var(--color-success-main);
+    }
   }
 
   &_title {

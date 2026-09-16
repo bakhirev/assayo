@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
+import { IPagination } from "ts/interfaces/Pagination";
 import { useTranslation } from 'ts/components/Translation';
 import { SmallCardWithIcon, Section, SectionColumn } from 'ts/components/Layout';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { getDuration } from 'ts/helpers/formatter';
+import { getMaxValues } from "ts/helpers/charts";
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
+
+import ProgressCard from './ProgressCard';
+import ProgressLine from './ProgressLine';
 
 function SmallCards({ user }: PageOptions): React.ReactElement {
   const { t } = useTranslation();
@@ -19,6 +24,23 @@ function SmallCards({ user }: PageOptions): React.ReactElement {
   let status = works;
   if (user.isStaff) status = staff;
   if (user.isDismissed) status = dismissed;
+
+  const content = statisticStore.statisticsByCommits.author.totalInfo;
+  const [
+    maxTotalDays,
+    maxTotalTasks,
+    maxTotalTaskInDay,
+    maxCommits,
+    maxMiddleMessageLength,
+  ] = useMemo(() => {
+    return getMaxValues({ content } as IPagination<any>, [
+      'totalDays',
+      'totalTasks',
+      'totalTaskInDay',
+      'commits',
+      'middleMessageLength',
+    ]);
+  }, [statisticStore.hash]);
   // вклад в фичи
   // вклад в релизы
   // задачи
@@ -30,6 +52,40 @@ function SmallCards({ user }: PageOptions): React.ReactElement {
   // когда и в каких компаниях работал
   return (
     <Section>
+      <SectionColumn>
+        <ProgressCard>
+          <ProgressLine
+            value={user.totalDays}
+            max={maxTotalDays}
+            title="plugin.person_total.progress.dayWorks"
+            icon="./assets/rating/days.svg"
+          />
+          <ProgressLine
+            value={user.totalTasks}
+            max={maxTotalTasks}
+            title="plugin.person_total.progress.tasks"
+            icon="./assets/rating/tasks.svg"
+          />
+          <ProgressLine
+            value={user.totalTaskInDay}
+            max={maxTotalTaskInDay}
+            title="plugin.person_total.progress.taskInDay"
+            icon="./assets/rating/speed.svg"
+          />
+          <ProgressLine
+            value={user.commits}
+            max={maxCommits}
+            title="plugin.person_total.progress.commits"
+            icon="./assets/rating/commit.svg"
+          />
+          <ProgressLine
+            value={user.middleMessageLength}
+            max={maxMiddleMessageLength}
+            title="plugin.person_total.progress.middleMessageLength"
+            icon="./assets/rating/text.svg"
+          />
+        </ProgressCard>
+      </SectionColumn>
       <SectionColumn>
         <SmallCardWithIcon
           value={t(status)}
@@ -45,8 +101,6 @@ function SmallCards({ user }: PageOptions): React.ReactElement {
             total: scoringTotal.totalDays,
           }}
         />
-      </SectionColumn>
-      <SectionColumn>
         <SmallCardWithIcon
           value={user.lastCountry}
           icon="./assets/cards/location.svg"

@@ -1,6 +1,11 @@
 export default `
 § plugin.person_total.sidebar: Общая информация
 § plugin.person_total.title: Основные характеристики
+§ plugin.person_total.progress.dayWorks: продолжительность контракта
+§ plugin.person_total.progress.tasks: выполнено задач
+§ plugin.person_total.progress.taskInDay: скорость работы
+§ plugin.person_total.progress.commits: коммитов
+§ plugin.person_total.progress.middleMessageLength: сердняя длина подписи коммита
 § plugin.person_total.small.status.title: предполагаемый статус
 § plugin.person_total.small.status.work: работает
 § plugin.person_total.small.status.dismissed: уволен

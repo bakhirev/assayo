@@ -14,6 +14,10 @@ function ProgressLine({ value, max, title, icon }: ProgressLineProps): React.Rea
   const { t } = useTranslation();
   const width = Math.min(Math.round((value * 100) / max), 100);
 
+  let className = [style.progress_line_value];
+  if (width <= 25) className.push(style.progress_line_value_min);
+  if (width >= 75) className.push(style.progress_line_value_max);
+
   return (
     <div className={style.progress_line_container}>
       <div className={style.progress_line_icon}>
@@ -25,7 +29,7 @@ function ProgressLine({ value, max, title, icon }: ProgressLineProps): React.Rea
       </div>
       <div className={style.progress_line}>
         <div
-          className={style.progress_line_value}
+          className={className.join(' ')}
           style={{ width: `${width}%` }}
         />
       </div>
