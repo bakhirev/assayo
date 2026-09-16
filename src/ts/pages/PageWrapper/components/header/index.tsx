@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'ts/components/Translation';
 import translationStore from 'ts/components/Translation/store';
@@ -24,10 +24,17 @@ const Header = observer(({
   const { text } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const { type, page } = useParams<any>();
   const options = applicationConfig.config.languages;
 
-  const selectedPage = plugins.getMenuItems()
-    .find((button) => button?.link === location?.pathname) || {};
+  const currentId = page
+    || location.pathname.split('/').filter(Boolean).pop()
+    || location.hash.split('/').filter(Boolean).pop();
+  const selectedPage = plugins.getMenuItems(type?.[0])
+    .find((button) => button?.id === currentId)
+    || plugins.getHeaderItems()
+      .find((button) => button?.id === currentId)
+    || {};
 
   const buttons = plugins.getHeaderItems()
     .filter((button) => button.title);
