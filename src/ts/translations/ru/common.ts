@@ -11,32 +11,26 @@ export default `
 § uiKit.hoursChart.days: суммарное количество коммитов за все время в конкретный день и час
 § uiKit.page.remove: Удалить
 § uiKit.nothingFound.common.title: Нет или недостаточно данных для отображения
-§ uiKit.nothingFound.common.description: Система обработает больше данных, если коммиты будут подписаны в формате [Git commit message convention|https://www.conventionalcommits.org/en/v1.0.0/]. Шаблон:
 § uiKit.nothingFound.common.console: Номер_задачи тип(фича): пояснение
 § uiKit.nothingFound.common.example: Например:
 § uiKit.nothingFound.staff.title: Нет данных для этого сотрудника
-§ uiKit.nothingFound.staff.description:
+§ uiKit.nothingFound.staff.description
 Он вносил правки не каждый рабочий день и получил статус  «Помошник».
 Работой сотрудников с таким статусом по данному проекту можно пренебречь, т.к. его влад на общем фоне незначителен.
 Поэтому система не рассчитывает для него ряд показателей.
 § common.title: Git статистика
 § common.filters: Фильтры
 § common.notifications.save: Изменения сохранены
-§ common.notifications.setting: Настройки сохранены
 § common.fileLoader.notification: Ошибка загрузки файла {file}
 § common.confirm.title: Вы уверены что хотите удалить?
 § common.confirm.yes: Да, уверен
 § common.confirm.no: Отмена
 § common.statistic.days: дней
-§ common.statistic.Days: Дней
 § common.statistic.tasks: задач
 § common.statistic.Tasks: Задач
 § common.statistic.commits: коммитов
 § common.statistic.employees: сотрудников
-§ common.statistic.date: дата
 § common.statistic.Date: Дата
-§ common.statistic.firstCommit: Первый коммит
-§ common.statistic.lastCommit: Последний
 § common.statistic.work: работает
 § common.statistic.dismissed: уволен
 § common.statistic.staff: помощник
