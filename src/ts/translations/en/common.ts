@@ -10,27 +10,15 @@ export default `
 § uiKit.hoursChart.weekend: weekend days or time before/after working hours
 § uiKit.hoursChart.days: total number of commits in all time on a specific day and hour
 § uiKit.page.remove: Remove
-§ uiKit.races.go: Let's go
 § uiKit.nothingFound.common.title: No or insufficient data to display
-§ uiKit.nothingFound.common.description: The system will process more data if commits are signed in the format [Git commit message convention|https://www.conventionalcommits.org/en/v1.0.0/]. Template:
 § uiKit.nothingFound.common.console: Task_number type(feature): description
 § uiKit.nothingFound.common.example: For example:
 § uiKit.nothingFound.staff.title: No data for this employee
-§ uiKit.nothingFound.staff.description1
-They made edits not every working day and received the "Assistant" status.
-The work of employees with such status on this project can be neglected as their contribution is insignificant in the general context.
-
-§ uiKit.nothingFound.staff.description2
-Therefore, the system does not calculate a number of indicators for him.
-If this is an error and this employee needs to be calculated as usual, go to the “Settings” section and change his type.
-
 § common.title: Git statistics
 § common.filters: Filters
 § common.notifications.save: The changes have been saved
-§ common.notifications.setting: The settings have been saved
 § common.fileLoader.notification: Cant open file {file}
 § common.confirm.title: Are you sure you want to remove it?
 § common.confirm.yes: Yes, I am sure.
 § common.confirm.no: Cancel
-§ common.confirm.abc: abc
 `;
