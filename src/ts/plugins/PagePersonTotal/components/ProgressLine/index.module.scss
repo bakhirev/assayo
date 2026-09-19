@@ -28,8 +28,18 @@
     background-color: var(--color-button-2);
     border-radius: var(--border-radius-m);
 
+    transition: width 0.5s, background-color 0.5s;
+
     &_min {
       background-color:  var(--color-alert-main);
+    }
+
+    &_less {
+      background-color:  var(--color-warning-main);
+    }
+
+    &_more {
+      background-color:  var(--color-15);
     }
 
     &_max {

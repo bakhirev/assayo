@@ -20,11 +20,17 @@ function Achievement({ code }: IAchievementProps) {
     style.achievement_bad,
     style.achievement_publicity,
   ][statusIndex - 1];
+  const xpText = [
+    '+125 XP',
+    '+65 XP',
+    '- 45 XP',
+    '+235 XP',
+  ][statusIndex - 1] || '';
 
   return (
-    <div className={style.achievement}>
+    <div className={`${style.achievement} ${className || ''}`}>
       <div className={style.achievement_icon_container}>
-        <div className={`${style.achievement_icon} ${className || ''}`}>
+        <div className={style.achievement_icon}>
           <img
             alt=""
             className={style.achievement_icon_svg}
@@ -37,6 +43,9 @@ function Achievement({ code }: IAchievementProps) {
       </div>
       <div className={style.achievement_description}>
         {t(`plugin.person_achievements.${code}.description`)}
+      </div>
+      <div className={style.achievement_exp}>
+        {xpText}
       </div>
     </div>
   );

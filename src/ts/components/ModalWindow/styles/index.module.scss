@@ -25,6 +25,7 @@
   max-height: 70vh;
   width: 100vw;
   max-width: 100vw;
+  border: none;
   border-radius: var(--border-radius-l) var(--border-radius-l) 0 0;
   animation: modal_window_fullscreen 0.2s ease-out forwards;
 }
@@ -105,8 +106,4 @@
       transform: rotate(180deg);
     }
   }
-}
-
-.modal_window_fullscreen .modal_window_close {
-  display: none;
 }

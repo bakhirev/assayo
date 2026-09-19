@@ -1,0 +1,107 @@
+.person_achievements_header {
+  position: relative;
+
+  display: flex;
+  height: 160px;
+  margin: 24px auto;
+  padding: var(--space-m);
+
+  text-align: center;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-m);
+  background: linear-gradient(45deg, rgb(64, 117, 252), rgb(224, 200, 252));
+
+  &_center {
+    flex: 1 0 0;
+    padding: 0 var(--space-xxl);
+    vertical-align: top;
+  }
+
+  &_left,
+  &_right {
+    display: inline-block;
+    width: 120px;
+    height: 100%;
+
+    flex: 0 0 130px;
+    vertical-align: top;
+    box-sizing: border-box;
+
+    border-radius: var(--border-radius-m);
+  }
+
+  &_left {
+    border-radius: 120px;
+    background-color: var(--color-14);
+    &_svg {
+      display: inline-block;
+      width: 90%;
+      height: auto;
+      margin: 8px auto;
+    }
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &_progress {
+    display: block;
+    width: 80%;
+    height: var(--space-l);
+    margin: 0 0 var(--space-xxs);
+
+    text-align: left;
+    vertical-align: middle;
+
+    background-color: var(--color-border);
+    border-radius: var(--border-radius-s);
+
+    &_value {
+      display: block;
+      height: var(--space-l);
+
+      border-radius: var(--border-radius-s);
+      background-color: green;
+      background-size: 23px 22px;
+
+      background-image: -webkit-repeating-linear-gradient(135deg, rgba(255, 255, 255, .35), rgba(255, 255, 255, .35) 8px, rgba(255, 255, 255, 0) 9px, rgba(255, 255, 255, 0) 16px);
+      background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, .35), rgba(255, 255, 255, .35) 8px, rgba(255, 255, 255, 0) 9px, rgba(255, 255, 255, 0) 16px);
+
+      transition: width 0.5s;
+    }
+  }
+
+  &_title,
+  &_experience,
+  &_level,
+  &_level_description {
+    font-size: var(--font-s);
+    display: block;
+    margin: 0 0 var(--space-xxs);
+    text-align: left;
+    color: var(--color-white);
+  }
+
+  &_title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0 0 var(--space-xxl);
+  }
+
+  &_level {
+    font-size: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  &_level_description {
+    font-size: 24px;
+    text-align: center;
+  }
+}

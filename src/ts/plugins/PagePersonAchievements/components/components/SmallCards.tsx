@@ -6,35 +6,35 @@ interface SmallCardsProps {
   user?: any;
   positive: string[];
   normal: string[];
-  negative: string[];
   publicity: string[];
+  commitsWithBeautifulTaskNumbers: number;
 }
 
-function SmallCards({ positive, normal, negative, publicity }: SmallCardsProps): React.ReactElement {
+function SmallCards({ positive, normal, publicity, commitsWithBeautifulTaskNumbers }: SmallCardsProps): React.ReactElement {
   return (
     <Section>
       <SectionColumn>
         <SmallCardWithIcon
           value={String(positive.length)}
-          icon="./assets/cards/commits.svg"
+          icon="./assets/cards/device.svg"
           title="plugin.person_achievements.page.positive"
         />
         <SmallCardWithIcon
           value={String(normal.length)}
-          icon="./assets/cards/work_days2.svg"
+          icon="./assets/cards/device.svg"
           title="plugin.person_achievements.page.normal"
         />
       </SectionColumn>
       <SectionColumn>
         <SmallCardWithIcon
-          value={String(negative.length)}
-          icon="./assets/cards/location.svg"
-          title="plugin.person_achievements.page.negative"
+          value={String(publicity.length)}
+          icon="./assets/cards/device.svg"
+          title="plugin.person_achievements.page.publicity"
         />
         <SmallCardWithIcon
-          value={String(publicity.length)}
-          icon="./assets/cards/mail.svg"
-          title="plugin.person_achievements.page.publicity"
+          value={String(commitsWithBeautifulTaskNumbers)}
+          icon="./assets/cards/tasks.svg"
+          title="plugin.person_achievements.page.commitsWithBeautifulTaskNumbers"
         />
       </SectionColumn>
     </Section>

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'ts/components/Translation';
 import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
-import { Description } from 'ts/components/Layout';
+import { Description, If } from 'ts/components/Layout';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
 import localization from 'ts/helpers/Localization';
 
@@ -12,6 +12,7 @@ import { getFormattedTitle, getDescriptionText } from '../helpers';
 import recommendationStore from '../store/index';
 
 import style from '../styles/modal.module.scss';
+import isMobile from "../../../helpers/isMobile";
 
 function getClassName(recommendation?: any) {
   const type = recommendation?.type;
@@ -36,7 +37,7 @@ const RecommendationDescription = observer(() => {
 
   return (
     <Modal
-      className={`${className} ${style.recommendations_modal}`}
+      className={`${className} ${isMobile ? '' : style.recommendations_modal}`}
       onClose={() => {
         recommendationStore.close();
       }}
@@ -56,17 +57,19 @@ const RecommendationDescription = observer(() => {
           translationId={recommendation.description}
         />
       </Body>
-      <Footer className={style.recommendations_modal_footer}>
-        <UiKitButton
-          mode={[ 'border', 'full_size']}
-          className={style.recommendations_modal_button}
-          onClick={() => {
-            recommendationStore.close();
-          }}
-        >
-          {localization.get('recommendations.modal.cancel')}
-        </UiKitButton>
-      </Footer>
+      <If value={!isMobile}>
+        <Footer className={style.recommendations_modal_footer}>
+          <UiKitButton
+            mode={[ 'border', 'full_size']}
+            className={style.recommendations_modal_button}
+            onClick={() => {
+              recommendationStore.close();
+            }}
+          >
+            {localization.get('recommendations.modal.cancel')}
+          </UiKitButton>
+        </Footer>
+      </If>
     </Modal>
   );
 });

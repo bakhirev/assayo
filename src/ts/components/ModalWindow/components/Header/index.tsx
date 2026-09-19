@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 
+import If from 'ts/components/Layout/If';
 import Locker from './componentns/Locker';
 
 import style from '../../styles/index.module.scss';
@@ -19,23 +20,26 @@ const Header = observer(({
   children,
   onClose,
   setCanClose,
-}: IHeaderProps) => (
+}: IHeaderProps) => {
+  const onClick = useCallback((event: any) => {
+    event.stopPropagation();
+    if (onClose) onClose();
+  }, [onClose]);
+
+  return (
     <div className={`${style.modal_window_title} ${className || ''}`}>
       {children}
 
-      {onClose ? (
+      <If value={onClose}>
         <img
           alt=""
           src="./assets/close.svg"
           className={style.modal_window_close}
-          onClick={(event: any) => {
-            event.stopPropagation();
-            onClose();
-          }}
+          onClick={onClick}
         />
-      ) : null}
+      </If>
 
-      {delay ? (
+      <If value={delay}>
         <Locker
           delay={delay}
           className={style.modal_window_locker}
@@ -43,8 +47,9 @@ const Header = observer(({
             if (setCanClose) setCanClose(true);
           }}
         />
-      ) : null}
+      </If>
     </div>
-));
+  );
+});
 
 export default Header;

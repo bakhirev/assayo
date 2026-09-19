@@ -7,6 +7,7 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import Achievements from 'ts/components/Achievement';
 
+import Header from './components/Header';
 import SmallCards from './components/SmallCards';
 import ACHIEVEMENT_TYPE from './helpers/constants/type';
 import getAchievements from "./helpers";
@@ -25,18 +26,27 @@ const Page = observer(({ user }: PageOptions): React.ReactElement => {
     achievements[ACHIEVEMENT_TYPE.BAD - 1],
     achievements[ACHIEVEMENT_TYPE.PUBLICITY - 1],
   ];
+  const experience = 1
+    + user.totalTasks * 20
+    + user.totalDays * 2
+    + (positive?.length || 0) * 125
+    + (normal?.length || 0) * 65
+    - (negative?.length || 0) * 45
+    + (publicity?.length || 0) * 235;
 
   return (
     <>
-      <If value={false}>
-        <SmallCards
-          user={user}
-          positive={positive}
-          normal={normal}
-          negative={negative}
-          publicity={publicity}
-        />
-      </If>
+      <Header
+        user={user}
+        experience={experience}
+      />
+      <SmallCards
+        user={user}
+        positive={positive}
+        normal={normal}
+        publicity={publicity}
+        commitsWithBeautifulTaskNumbers={commitsWithBeautifulTaskNumbers?.length || 0}
+      />
       <If value={positive}>
         <Title title="plugin.person_achievements.page.positive"/>
         <Achievements list={positive} />

@@ -103,6 +103,7 @@
   }
 
   &_text {
+    min-width: 100px;
     max-width: calc(100% - 40px);
     margin-left: var(--space-xs);
     text-overflow: ellipsis;
