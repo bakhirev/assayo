@@ -7,16 +7,19 @@ interface HeaderProps {
   experience: number;
 }
 
+function getIconByLevel(level: number) {
+  let index = (level / 10) >> 0;
+  if (index > 5) index = 5;
+  return `./assets/level/${index + 1}.png`;
+}
+
+
 function Header({ user, experience }: HeaderProps): React.ReactElement {
   const level = (experience / 400) >> 0;
   const exp = experience - level * 400;
   const formattedExp = exp > 0 ? `XP +${exp}` : `XP - ${exp}`;
   const width = Math.min(Math.round((exp * 100) / 400), 100);
-
-  let icon = './assets/achievements/moreLongWaitPR.svg';
-  if (level < 10) icon = './assets/achievements/longWaitPR.svg';
-  else if (level < 30) icon = './assets/achievements/adam.svg';
-  else if (level < 60) icon = './assets/achievements/moreDaysInProject.svg';
+  const icon = getIconByLevel(level);
 
   return (
     <div className={style.person_achievements_header}>
