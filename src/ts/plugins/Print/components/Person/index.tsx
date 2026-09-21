@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'ts/components/Translation';
 
 import { Description, Title } from 'ts/components/Layout';
-import TableOfContents from 'ts/pages/Common/components/TableOfContents';
 
+import TableOfContents from '../TableOfContents';
 import style from '../Team/index.module.scss';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';

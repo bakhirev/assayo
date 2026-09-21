@@ -24,7 +24,6 @@ export interface StatisticsTeam {
   totalMoneyInWeekend: number;
   commitsByDayAndHour: number[][];
   commitsByDay: number[];
-  wordStatistics: [string, number][];
 }
 
 export default class StatisticsByTeam {
@@ -39,7 +38,6 @@ export default class StatisticsByTeam {
     totalMoneyInWeekend: 0,
     commitsByDayAndHour: [],
     commitsByDay: [],
-    wordStatistics: [],
   };
 
   clear() {
@@ -54,7 +52,6 @@ export default class StatisticsByTeam {
       totalMoneyInWeekend: 0,
       commitsByDayAndHour: [],
       commitsByDay: [],
-      wordStatistics: [],
     };
   }
 
@@ -64,7 +61,6 @@ export default class StatisticsByTeam {
     );
     const commitsByDayAndHour = (new Array(7)).fill(1).map(() => (new Array(24)).fill(0));
     const commitsByDay = (new Array(7)).fill(0);
-    const refWordCount: IHashMap<number> = {};
 
     statisticsByAuthor.totalInfo.forEach((author: StatisticsAuthor) => {
       PROPERTIES_FOR_SUMMATION.forEach((property) => {
@@ -80,12 +76,6 @@ export default class StatisticsByTeam {
           commitsByDay[day] += commitsByHour;
         });
       });
-
-      author.wordStatistics.slice(0, 45).forEach(([key, value]: [string, number]) => {
-        refWordCount[key] = refWordCount[key]
-          ? (refWordCount[key] + value)
-          : value;
-      });
     });
 
     this.totalInfo = {
@@ -99,8 +89,6 @@ export default class StatisticsByTeam {
       totalMoneyInWeekend: refPropertySum.totalMoneyInWeekend,
       commitsByDayAndHour,
       commitsByDay,
-      wordStatistics: Object.entries(refWordCount)
-        .sort((dotA, dotB) => dotB[1] - dotA[1]),
     };
   }
 }

@@ -44,5 +44,4 @@ export interface StatisticsAuthor {
   totalMoneyInWeekend: number;
   middleMessageLength: number;
   maxMessageLength: number;
-  wordStatistics: [string, number][];
 }

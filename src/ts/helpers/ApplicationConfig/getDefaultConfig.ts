@@ -30,6 +30,8 @@ export default function getDefaultConfig(): ApplicationConfig {
     prefixForPR: 'https://bitbucket.com/projects/assayo/repos/frontend/pull-requests/',
 
     middleSalaryInMonth: 3000,
+    averageNewWorkplaceCosts: 2500,
+    averageMonthlyLicenseCosts: 30,
     workDays: [true, true, true, true, true, false, false],
     currency: 'RUB',
     exchangeRate: {
@@ -49,9 +51,7 @@ export default function getDefaultConfig(): ApplicationConfig {
     disabledPermissions: [],
 
     plugins: [
-      // 'person_changes',
       'person_achievements',
-      // 'person_commits',
       'person_money',
       'person_vacation',
       'person_speed',
@@ -60,7 +60,6 @@ export default function getDefaultConfig(): ApplicationConfig {
 
       'team_author',
       'team_building',
-      // 'team_changes',
       'team_commits',
       'team_companies',
       'team_country',

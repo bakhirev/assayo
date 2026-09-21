@@ -228,7 +228,6 @@ export default class StatisticsByAuthor {
 
           middleMessageLength: item.middleMessageLength.get(),
           maxMessageLength: item.maxMessageLength.max,
-          wordStatistics: [],
         };
         this.totalInfoByName.set(item.author, data);
         return data;

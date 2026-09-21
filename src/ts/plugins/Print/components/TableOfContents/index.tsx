@@ -1,9 +1,9 @@
 import React from 'react';
-import { useTranslation } from 'ts/components/Translation';
 
+import { useTranslation } from 'ts/components/Translation';
 import { Title } from 'ts/components/Layout';
 
-import style from '../styles/table-of-contents.module.scss';
+import style from './index.module.scss';
 
 interface ITableOfContents {
   titles?: string[];
@@ -15,7 +15,7 @@ function TableOfContents({ titles }: ITableOfContents) {
   const items = (titles || []).map((title) => (
     <a
       key={title}
-      className={style.table_of_contents_item}
+      className={style.plugin_print_table_of_contents_item}
       href={`#${title}`}
     >
       {t(title || '')}
@@ -25,10 +25,10 @@ function TableOfContents({ titles }: ITableOfContents) {
   return (
     <>
       <Title
-        className={style.table_of_contents_title}
-        title="page.print.tableOfContents"
+        className={style.plugin_print_table_of_contents_title}
+        title="plugin.print.tableOfContents"
       />
-      <nav className={style.table_of_contents}>
+      <nav className={style.plugin_print_table_of_contents}>
         {items}
       </nav>
     </>

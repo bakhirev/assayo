@@ -6,7 +6,6 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { Pagination, FakeDataLoader } from 'ts/components/DataLoader';
 import { Title, NothingFound, If, Search as LayoutSearch } from 'ts/components/Layout';
-import PageBreak from 'ts/pages/Common/components/PageBreak';
 
 import Total from './components/Total';
 import Authors from './components/Authors';
@@ -48,8 +47,6 @@ const PullRequests = observer(({
         />
       </If>
 
-      <PageBreak/>
-
       <If value={mode !== 'print'}>
         <Title title="common.filters"/>
         <LayoutSearch
@@ -90,8 +87,6 @@ const PullRequests = observer(({
           <Pagination/>
         </FakeDataLoader>
       </If>
-
-      <PageBreak/>
 
       <If value={withoutTask}>
         <Title title="plugin.team_pull_requests.anonymous.title"/>

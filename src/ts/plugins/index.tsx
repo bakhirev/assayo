@@ -30,8 +30,6 @@ import PageTeamLicenses from './PageTeamLicenses';
 import PageTeamDependencies from './PageTeamPackages';
 
 import PagePersonAchievements from './PagePersonAchievements';
-import PagePersonChanges from './PagePersonChanges';
-import PagePersonCommits from './PagePersonCommits';
 import PagePersonMoney from './PagePersonMoney';
 import PagePersonSpeed from './PagePersonSpeed';
 import PagePersonTotal from './PagePersonTotal';
@@ -70,8 +68,6 @@ export default [
   PagePersonSpeed,
   PagePersonWeek,
   PagePersonVacation,
-  PagePersonCommits,
-  PagePersonChanges,
 
   Print,
   Sponsor,

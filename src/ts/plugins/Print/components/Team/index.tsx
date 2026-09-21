@@ -1,11 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useTranslation } from 'ts/components/Translation';
 
+import { useTranslation } from 'ts/components/Translation';
 import { Description, Title } from 'ts/components/Layout';
-import TableOfContents from 'ts/pages/Common/components/TableOfContents';
 import plugins from 'ts/helpers/Plugins';
 
+import TableOfContents from '../TableOfContents';
 import style from './index.module.scss';
 
 const IGNORE_PAGE = [

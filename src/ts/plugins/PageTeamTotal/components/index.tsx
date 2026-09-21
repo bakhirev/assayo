@@ -7,6 +7,7 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import CommonInfo from './components/CommonInfo';
 import Release from './components/Release';
 import Money from './components/Money';
+import AdditionalMoney from "./components/AdditionalMoney";
 
 const Total = observer((): React.ReactElement => {
   const taskCodes = statisticStore.statisticsByCommits.taskCodes;
@@ -23,6 +24,8 @@ const Total = observer((): React.ReactElement => {
       <Release />
       <Title title="plugin.team_total.money.title"/>
       <Money />
+      <Title title="plugin.team_total.additionalMoney.title"/>
+      <AdditionalMoney />
     </>
   );
 });

@@ -18,6 +18,8 @@ export default interface ApplicationConfig {
   prefixForPR: string;
 
   middleSalaryInMonth: number;
+  averageNewWorkplaceCosts: number,
+  averageMonthlyLicenseCosts: number,
   workDays: boolean[];
   currency: string;
   exchangeRate: Record<string, number>;

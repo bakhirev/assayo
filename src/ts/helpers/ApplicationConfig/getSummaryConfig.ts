@@ -47,6 +47,13 @@ export default function getSummaryConfig(
     middleSalaryInMonth: configFromBackend?.middleSalaryInMonth
       || defaultConfig?.middleSalaryInMonth
       || 0,
+    averageNewWorkplaceCosts: configFromBackend?.averageNewWorkplaceCosts
+      || defaultConfig?.averageNewWorkplaceCosts
+      || 0,
+    averageMonthlyLicenseCosts: configFromBackend?.averageMonthlyLicenseCosts
+      || defaultConfig?.averageMonthlyLicenseCosts
+      || 0,
+
     workDays: configFromBackend?.workDays
       || defaultConfig?.workDays,
     currency: configFromBackend?.currency
