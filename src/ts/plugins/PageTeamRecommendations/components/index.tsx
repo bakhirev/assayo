@@ -5,14 +5,24 @@ import CardForPrint from 'ts/components/Recommendations/components/CardForPrint'
 import { Title, NothingFound } from 'ts/components/Layout';
 
 import IHashMap from 'ts/interfaces/HashMap';
-import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
-import style from './index.module.scss';
 
-function getAll(recommendations: IHashMap<any>) {
-  return Object.values(recommendations)
-    .flat(1)
-    .filter((item: any) => item);
+import getRecommendationsByAuthor from '../../PageTeamAuthor/components/helpers/recommendations';
+import getRecommendationsByScope from '../../PageTeamScope/components/helpers/recommendations';
+import getRecommendationsByTypes from '../../PageTeamTypes/components/helpers/recommendations';
+import getRecommendationsByMonth from '../../PageTeamMonth/components/helpers/recommendationsForTeam';
+import getRecommendationsByHours from '../../PageTeamHours/components/helpers/recommendations';
+
+import Block from './Block';
+
+function getAllRecommendations() {
+  return [
+    ...getRecommendationsByAuthor(),
+    ...getRecommendationsByScope(),
+    ...getRecommendationsByTypes(),
+    ...getRecommendationsByMonth(),
+    ...getRecommendationsByHours(),
+  ].filter((item: any) => item);
 }
 
 function getGroups(recommendations: any[]) {
@@ -25,60 +35,32 @@ function getGroups(recommendations: any[]) {
   }, {});
 }
 
-interface BlockProps {
-  title: string;
-  recommendations: any[];
-}
+const Page = observer((): React.ReactElement => {
+  const recommendations = getAllRecommendations();
+  if (!recommendations?.length) return (<NothingFound/>);
 
-function Block({
-  title,
-  recommendations,
-}: BlockProps): React.ReactElement | null {
-  const cards = recommendations?.map((recommendation: any) => (
-    <CardForPrint
-      key={recommendation.description}
-      recommendation={recommendation}
-    />
-  ));
-
-  if (!cards?.length) return null;
-
-  return (
-    <>
-      <Title title={title}/>
-      <div className={style.recommendations_page}>
-        {cards}
-      </div>
-    </>
-  );
-}
-
-const RecommendationsPage = observer((): React.ReactElement => {
-  const all = getAll(statisticStore.statisticsByCommits.recommendations.team);
-  if (!all?.length) return (<NothingFound/>);
-
-  const groups = getGroups(all);
+  const groups = getGroups(recommendations);
 
   return (
     <>
       <Block
-        title="page.team.recommendations.alert"
+        title="plugin.team_recommendations.alert"
         recommendations={groups[RECOMMENDATION_TYPES.ALERT]}
       />
       <Block
-        title="page.team.recommendations.warning"
+        title="plugin.team_recommendations.warning"
         recommendations={groups[RECOMMENDATION_TYPES.WARNING]}
       />
       <Block
-        title="page.team.recommendations.fact"
+        title="plugin.team_recommendations.fact"
         recommendations={groups[RECOMMENDATION_TYPES.FACT]}
       />
       <Block
-        title="page.team.recommendations.info"
+        title="plugin.team_recommendations.info"
         recommendations={groups[RECOMMENDATION_TYPES.INFO]}
       />
     </>
   );
 });
 
-export default RecommendationsPage;
+export default Page;

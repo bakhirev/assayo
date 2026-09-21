@@ -95,7 +95,7 @@ getApplicationConfig((config: ApplicationConfig) => {
 
   updateExchangeRate(config.exchangeRate);
   if (config.urlForCss) loadCssFile(config.urlForCss);
-  if (config.title) document.title = 'localhost' || config.title;
+  if (config.title) document.title = config.title;
   initializationI18n(config.language);
   plugins.getTranslations().forEach((translation) => {
     Object.entries(translation as any).forEach(([langId, text]) => {

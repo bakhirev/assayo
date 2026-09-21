@@ -3,6 +3,7 @@ import React from 'react';
 import { IPlugin } from 'ts/helpers/Plugins/interfaces/Plugin';
 
 import Page from './components';
+import translations from './translations';
 
 export default class Plugin implements IPlugin {
   static id = 'team_recommendations';
@@ -16,7 +17,7 @@ export default class Plugin implements IPlugin {
         group: 50,
         order: 220,
         link: '/team/recommendations',
-        title: 'sidebar.team.recommendations',
+        title: 'plugin.team_recommendations.sidebar',
         icon: './assets/menu/recommendations.svg',
       },
     ];
@@ -24,5 +25,9 @@ export default class Plugin implements IPlugin {
 
   getPage(path: string) {
     return path === '/team/recommendations' ? <Page/> : undefined;
+  }
+
+  getTranslations() {
+    return translations;
   }
 }

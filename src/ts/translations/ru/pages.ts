@@ -31,10 +31,6 @@ export default `
 § page.team.tree.filters.author: Сотрудник
 § page.team.day.commits: Коммиты
 § page.team.day.activity: Активность
-§ page.team.recommendations.alert: Проблемы
-§ page.team.recommendations.warning: Обратить внимание
-§ page.team.recommendations.fact: Факты о проекте
-§ page.team.recommendations.info: Общие советы
 § page.person.total.daysWorked.title: дней работы
 § page.person.total.daysWorked.description: Учтены только дни, в которые делались коммиты
 § page.person.total.tasks.title: задач

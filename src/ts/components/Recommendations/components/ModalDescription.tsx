@@ -6,13 +6,12 @@ import UiKitButton from 'ts/components/UiKit/components/Button';
 import { Modal, Header, Body, Footer } from 'ts/components/ModalWindow';
 import { Description, If } from 'ts/components/Layout';
 import { RECOMMENDATION_TYPES } from 'ts/helpers/recommendations';
-import localization from 'ts/helpers/Localization';
+import isMobile from 'ts/helpers/isMobile';
 
 import { getFormattedTitle, getDescriptionText } from '../helpers';
 import recommendationStore from '../store/index';
 
 import style from '../styles/modal.module.scss';
-import isMobile from "../../../helpers/isMobile";
 
 function getClassName(recommendation?: any) {
   const type = recommendation?.type;
@@ -66,7 +65,7 @@ const RecommendationDescription = observer(() => {
               recommendationStore.close();
             }}
           >
-            {localization.get('recommendations.modal.cancel')}
+            {t('common.recommendations.cancel')}
           </UiKitButton>
         </Footer>
       </If>

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { t } from 'ts/helpers/Localization';
 import { Banner, Title } from 'ts/components/Layout';
 
 import Card from './components/Card';
@@ -54,14 +53,13 @@ function Recommendations({
     cards = addBannerInRandomIndex(cards);
   }
 
-  const title = t('recommendations.title');
   const className = mode === 'print'
     ? `${style.recommendations_container} scroll_x ${style.recommendations_container_for_print}`
     : `${style.recommendations_container} scroll_x`;
 
   return (
     <>
-      <Title title={title}/>
+      <Title title="common.recommendations.title"/>
       <div
         className={className}
         onTouchStart={(event) => event.stopPropagation()}

@@ -41,6 +41,9 @@ export default `
 § common.search.select.type: Тип не имеет значения
 § common.search.select.scope: Фича не имеет значения
 § common.search.example: Например:
+§ common.recommendations.title: Рекомендации и факты
+§ common.recommendations.cancel: Закрыть
+§ common.recommendations.open: Подробнее
 § uiKit.translation.tooltip.list: Переводы
 § uiKit.translation.modal.title: Таблица изменений в переводе
 § uiKit.translation.modal.key: ID

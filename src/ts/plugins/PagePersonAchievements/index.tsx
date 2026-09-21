@@ -21,7 +21,7 @@ export default class Plugin implements IPlugin {
         order: 15,
         link: '/person/achievements/',
         title: 'plugin.person_achievements.sidebar',
-        icon: './assets/menu/common.svg',
+        icon: './assets/menu/achievement.svg',
       },
     ];
   }

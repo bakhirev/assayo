@@ -2,6 +2,7 @@ export default `
 § plugin.person_achievements.sidebar: Достижения
 § plugin.person_achievements.page.positive: Позитивные
 § plugin.person_achievements.page.normal: Нейтральные
+§ plugin.person_achievements.page.negative: Негативные
 § plugin.person_achievements.page.publicity: Специальные
 § plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: Красивые номера задач
 § plugin.person_achievements.page.description: Чем больше сотрудник набрал отрицательных достижений, тем больше вероятность, что ситуация нестандартная. Возможно, стоит изменить режим его работы, задачи или отчётность. Следует поговорить с ним и узнать, какие проблемы мешают его работе.
