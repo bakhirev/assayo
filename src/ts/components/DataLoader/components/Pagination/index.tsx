@@ -61,7 +61,7 @@ function SimplePagination({
   return (
     <nav className={style.paginator}>
       <p className={style.paginator_text}>
-        {t('uiKit.dataLoader.page')}
+        {t('components.dataLoader.page')}
       </p>
       <UiKitButton
         mode="second"
@@ -96,7 +96,7 @@ function SimplePagination({
         »
       </UiKitButton>
       <p className={style.paginator_text}>
-        {t('uiKit.dataLoader.from')}
+        {t('components.dataLoader.from')}
       </p>
       <UiKitButton
         mode="second"
@@ -107,7 +107,7 @@ function SimplePagination({
         {totalPages}
       </UiKitButton>
       <p className={style.paginator_text}>
-        {t('uiKit.dataLoader.size')}
+        {t('components.dataLoader.size')}
       </p>
       <UiKitInputString
         value={pageSize}
@@ -124,7 +124,7 @@ function SimplePagination({
         }}
       />
       <p className={style.paginator_text}>
-        {t('uiKit.dataLoader.rows', { count: totalElements })}
+        {t('components.dataLoader.rows', { count: totalElements })}
       </p>
       {canShowMore && (
         <UiKitButton
@@ -133,7 +133,7 @@ function SimplePagination({
             if (store) store.showAll();
           }}
         >
-          {t('uiKit.dataLoader.all')}
+          {t('components.dataLoader.all')}
         </UiKitButton>
       )}
     </nav>

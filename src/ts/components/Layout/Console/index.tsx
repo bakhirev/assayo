@@ -30,10 +30,10 @@ function Console({ className = '', textForCopy, children }: IConsoleProps) {
           className={style.console_copy}
           onClick={() => {
             copyInBuffer(textForCopy);
-            notificationsStore.show(t('uiKit.console.notification'));
+            notificationsStore.show(t('components.console.notification'));
           }}
         >
-          {t('uiKit.console.button')}
+          {t('components.console.button')}
         </Button>
       ) : null}
     </div>

@@ -31,5 +31,4 @@ function PageWrapper({
   );
 }
 
-
 export default PageWrapper;

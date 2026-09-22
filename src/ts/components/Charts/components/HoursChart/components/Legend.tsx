@@ -10,13 +10,13 @@ function Legend(): React.ReactElement | null {
       <div className={style.hours_chart_legend_item}>
         <div className={style.hours_chart_legend_work}></div>
         <div className={style.hours_chart_legend_title}>
-          {t('uiKit.hoursChart.work')}
+          {t('components.hoursChart.work')}
         </div>
       </div>
       <div className={style.hours_chart_legend_item}>
         <div className={style.hours_chart_legend_weekend}></div>
         <div className={style.hours_chart_legend_title}>
-          {t('uiKit.hoursChart.weekend')}
+          {t('components.hoursChart.weekend')}
         </div>
       </div>
       <div className={style.hours_chart_legend_item}>
@@ -24,7 +24,7 @@ function Legend(): React.ReactElement | null {
           42
         </div>
         <div className={style.hours_chart_legend_title}>
-          {t('uiKit.hoursChart.days')}
+          {t('components.hoursChart.days')}
         </div>
       </div>
     </div>

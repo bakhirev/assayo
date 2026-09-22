@@ -38,9 +38,9 @@ class ConfirmStore implements IConfirmStore {
   }
 
   open(options?: any) {
-    this.title = options?.title || options || t('common.confirm.title');
-    this.yes = options?.yes || t('common.confirm.yes');
-    this.no = options?.no || t('common.confirm.no');
+    this.title = options?.title || options || t('components.confirm.title');
+    this.yes = options?.yes || t('components.confirm.yes');
+    this.no = options?.no || t('components.confirm.no');
     this.isOpen = true;
     return new Promise((response: any, reject: any) => {
       this.successCallback = response;

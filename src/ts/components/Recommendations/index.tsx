@@ -59,7 +59,7 @@ function Recommendations({
 
   return (
     <>
-      <Title title="common.recommendations.title"/>
+      <Title title="components.recommendations.title"/>
       <div
         className={className}
         onTouchStart={(event) => event.stopPropagation()}

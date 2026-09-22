@@ -10,8 +10,7 @@
 
   &_white {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     padding: 24px;
     margin-bottom: 24px;
     width: 100%;
@@ -140,10 +139,6 @@
     &_column {
       width: 100%;
       margin: 0;
-    }
-
-    &_white {
-      display: flex;
     }
   }
 

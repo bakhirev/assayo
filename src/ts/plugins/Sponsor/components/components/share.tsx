@@ -39,7 +39,7 @@ const Share = observer((): React.ReactElement | null  => {
           mode={['primary', 'full_size']}
           onClick={() => {
             copyInBuffer('https://github.com/bakhirev/assayo');
-            notificationsStore.show(localization.get('uiKit.console.notification'));
+            notificationsStore.show(localization.get('components.console.notification'));
           }}
         >
           {t('page.sponsor.share.button')}

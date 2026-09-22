@@ -5,10 +5,11 @@ import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { PageOptions } from 'ts/helpers/Plugins/interfaces/Plugin';
 import { FakeDataLoader, Pagination } from 'ts/components/DataLoader';
-import { Title, NothingFound, Gap } from 'ts/components/Layout';
+import { Title, NothingFound } from 'ts/components/Layout';
 import Recommendations from 'ts/components/Recommendations';
 
 import getRecommendations from './helpers/recommendations';
+import LastWeek from './LastWeek';
 import View from './View';
 
 const Week = observer(({
@@ -26,11 +27,8 @@ const Week = observer(({
           recommendations={recommendations}
         />
       )}
-      {mode === 'print' ? (
-        <Title title="plugin.team_weeks.title"/>
-      ) : (
-        <Gap height={48}/>
-      )}
+      <LastWeek weeks={rows} />
+      <Title title="plugin.team_weeks.title"/>
       <FakeDataLoader
         content={rows}
         mode={mode}

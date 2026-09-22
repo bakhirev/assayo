@@ -3,17 +3,18 @@ import { observer } from 'mobx-react-lite';
 
 import InputString from 'ts/components/UiKit/components/InputString';
 import UiKitCheckbox from 'ts/components/UiKit/components/Checkbox';
-import PageBox from 'ts/components/Page/Box';
 import { Gap } from 'ts/components/Layout';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import translationStore from 'ts/components/Translation/store';
 import applicationConfig from 'ts/store/ApplicationConfig';
 
+import Box from '../Box';
+
 const Common = observer((): React.ReactElement | null => {
   const [title, setTitle] = useState<string>(document.title);
 
   return (
-    <PageBox>
+    <Box>
       <InputString
         title="plugin.settings.document.name"
         value={title}
@@ -44,7 +45,7 @@ const Common = observer((): React.ReactElement | null => {
         }}
       />
       <Gap height="xl"/>
-    </PageBox>
+    </Box>
   );
 });
 

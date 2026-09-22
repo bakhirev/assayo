@@ -2,17 +2,18 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import UiKitSwitch from 'ts/components/UiKit/components/Switch';
-import PageBox from 'ts/components/Page/Box';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import { getDayName } from 'ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
+
+import Box from '../Box';
 
 const Days = observer((): React.ReactElement | null => {
   const value = applicationConfig.config?.workDays
     .map((v: boolean, i: number) => v ? (i + 1) : null);
 
   return (
-    <PageBox>
+    <Box>
        <UiKitSwitch
          multiple
          title="plugin.settings.days.works"
@@ -33,7 +34,7 @@ const Days = observer((): React.ReactElement | null => {
            statisticStore.updateStatistic();
          }}
        />
-    </PageBox>
+    </Box>
   );
 });
 

@@ -9,10 +9,10 @@ interface CustomMapProps {
 
 function CustomMap({ authors }: CustomMapProps) {
   return (
-    <Section>
+    <>
       <Title title="plugin.team_country.byTimezone"/>
       <TimeZoneMap authors={authors}/>
-    </Section>
+    </>
   );
 }
 

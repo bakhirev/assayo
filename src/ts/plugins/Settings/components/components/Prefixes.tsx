@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import InputString from 'ts/components/UiKit/components/InputString';
-import PageBox from 'ts/components/Page/Box';
 import applicationConfig from 'ts/store/ApplicationConfig';
 import getDefaultConfig from 'ts/helpers/ApplicationConfig/getDefaultConfig';
+
+import Box from '../Box';
 
 const DEFAULT_CONFIG = getDefaultConfig();
 
@@ -13,7 +14,7 @@ const Prefixes = observer((): React.ReactElement | null => {
   const [pr, setPr] = useState<string>('');
 
   return (
-    <PageBox>
+    <Box>
       <InputString
         title="plugin.settings.links.task"
         value={task}
@@ -36,7 +37,7 @@ const Prefixes = observer((): React.ReactElement | null => {
           applicationConfig.updateConfigProperty('prefixForPR', value || DEFAULT_CONFIG.prefixForPR);
         }}
       />
-    </PageBox>
+    </Box>
   );
 });
 

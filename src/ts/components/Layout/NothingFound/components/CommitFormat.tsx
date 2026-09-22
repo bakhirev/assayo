@@ -8,7 +8,7 @@ function CommitFormat() {
   return (
     <>
       <p className={style.nothing_found_title}>
-        {t('uiKit.nothingFound.common.title')}
+        {t('components.nothingFound.common.title')}
       </p>
       <p className={style.nothing_found_text}>
         Система обработает больше данных, если коммиты будут подписаны в формате &quot;
@@ -23,10 +23,10 @@ function CommitFormat() {
         &quot;. Шаблон:
       </p>
       <p className={style.nothing_found_console}>
-        {t('uiKit.nothingFound.common.console')}
+        {t('components.nothingFound.common.console')}
       </p>
       <p className={style.nothing_found_text}>
-        {t('uiKit.nothingFound.common.example')}
+        {t('components.nothingFound.common.example')}
       </p>
       <p className={style.nothing_found_console}>
         JIRA-0001 feat(profile): add user avatar<br/>

@@ -8,10 +8,10 @@ function IsStaff() {
   return (
     <>
       <p className={style.nothing_found_title}>
-        {t('uiKit.nothingFound.staff.title')}
+        {t('components.nothingFound.staff.title')}
       </p>
       <p className={style.nothing_found_text}>
-        {t('uiKit.nothingFound.staff.description')}
+        {t('components.nothingFound.staff.description')}
       </p>
     </>
   );

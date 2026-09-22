@@ -21,7 +21,7 @@ const Tooltip = observer((): React.ReactElement | null => {
           translationStore.show();
         }}
       >
-        {text('uiKit.translation.tooltip.list')}
+        {text('components.translation.tooltip.list')}
       </UiKitButton>
     </div>
   ), document.body);

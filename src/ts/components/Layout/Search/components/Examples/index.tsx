@@ -26,7 +26,7 @@ function Examples({ examples, onClick }: ExamplesProps) {
   return (
     <div className={style.layout_search_example_item}>
       <span className={style.layout_search_example_item_title}>
-        {t('common.search.example')}
+        {t('components.search.example')}
       </span>
       {links}
     </div>

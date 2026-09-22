@@ -14,13 +14,13 @@ export function View({ response }: ViewProps) {
     <Table rows={response?.content || []}>
       <Column
         template={ColumnTypes.STRING}
-        title="uiKit.translation.modal.key"
+        title="components.translation.modal.key"
         properties="key"
         width={270}
       />
       <Column
         template={ColumnTypes.STRING}
-        title="uiKit.translation.modal.value"
+        title="components.translation.modal.value"
         properties="value"
       />
       <Column

@@ -28,7 +28,7 @@ const TranslationList = observer((): React.ReactElement | null  => {
       }}
     >
       <Header>
-        {t('uiKit.translation.modal.title')}
+        {t('components.translation.modal.title')}
       </Header>
       <Body>
         <DataLoader
@@ -48,7 +48,7 @@ const TranslationList = observer((): React.ReactElement | null  => {
             translationStore.hide();
           }}
         >
-          {t('uiKit.translation.modal.cancel')}
+          {t('components.translation.modal.cancel')}
         </UiKitButton>
         <UiKitButton
           mode="primary"
@@ -64,7 +64,7 @@ const TranslationList = observer((): React.ReactElement | null  => {
             });
           }}
         >
-          {t('uiKit.translation.modal.export')}
+          {t('components.translation.modal.export')}
         </UiKitButton>
       </Footer>
     </Modal>

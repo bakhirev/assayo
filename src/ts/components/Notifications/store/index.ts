@@ -32,7 +32,7 @@ class NotificationsStore implements INotificationsStore {
   show(message?: any) {
     this.messages.push({
       id: NotificationsStore.getTime(),
-      title: localization.get(message?.title || message || 'common.notifications.save'),
+      title: localization.get(message?.title || message || 'components.notifications.save'),
       description: message?.description || '',
       type: message?.type || 'success',
     });

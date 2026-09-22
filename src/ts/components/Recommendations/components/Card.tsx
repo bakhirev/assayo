@@ -72,7 +72,7 @@ function Card({
           className={style.recommendations_card_button}
           onClick={onClick}
         >
-          {t('common.recommendations.open')}
+          {t('components.recommendations.open')}
         </UiKitButton>
       )}
     </div>

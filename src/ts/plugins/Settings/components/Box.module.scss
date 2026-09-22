@@ -1,0 +1,28 @@
+.settings_box {
+  position: relative;
+  display: inline-block;
+  padding: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  white-space: normal;
+  box-sizing: border-box;
+  vertical-align: top;
+  break-inside: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+}
+
+@media screen and (max-width: 1200px) {
+  .settings_box {
+    display: block;
+  }
+}
+
+@media print {
+  .settings_box {
+    padding: 0;
+    border-radius: 0;
+    border: none;
+  }
+}

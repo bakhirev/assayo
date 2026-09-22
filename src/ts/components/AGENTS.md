@@ -27,12 +27,12 @@ Nested notes (read those when editing that package):
 | `ModalWindow` | Portaled dialog (`Modal` + `Header` / `Body` / `Footer`); `Confirm` is global |
 | `Notifications` | Toast portal; `notificationsStore.show(i18nKey)` |
 | `DropZone` | Body-level file drop (welcome / load dump) |
-| `Page` | White content frame (`wrapper` `template="table"\|"box"`, `Box` with remove) |
+| `Page` | White content frame (`wrapper` `template="table"`) |
 | `Loading` | `...` placeholder inside DataLoader |
 | `CustomSelect` | Searchable dropdown; used by UiKit `SelectWithButtons` on desktop, not a public form API |
 | `Extension` | File-type sidebar; currently short-circuits to `null` |
 
-`ts/pages/PageWrapper` is the app layout. `ts/components/Page/wrapper` is only a padded white box (DataView tables use it).
+`ts/pages/PageWrapper` is the app layout. `ts/components/Page/wrapper` is a padded white box (DataView tables use it).
 
 ## Typical plugin page
 

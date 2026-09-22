@@ -28,22 +28,22 @@ const Filters = observer(({
   const hash = statisticStore.hash;
   const statistics = statisticStore.statisticsByCommits;
   const users = useMemo(() => (
-    getOptions('common.search.select.author', statistics.author.list)
+    getOptions('components.search.select.author', statistics.author.list)
   ), [hash]);
   const companies = useMemo(() => (
-    getOptions('common.search.select.company', statistics.company.totalInfo, 'company')
+    getOptions('components.search.select.company', statistics.company.totalInfo, 'company')
   ), [hash]);
   const taskCodes = useMemo(() => (
-    getOptions('common.search.select.taskCode', statistics.taskCodes.totalInfo, 'taskCode')
+    getOptions('components.search.select.taskCode', statistics.taskCodes.totalInfo, 'taskCode')
   ), [hash]);
   const types = useMemo(() => (
-    getOptions('common.search.select.type', statistics.type.totalInfo, 'type')
+    getOptions('components.search.select.type', statistics.type.totalInfo, 'type')
   ), [hash]);
   const scopes = useMemo(() => (
-    getOptions('common.search.select.scope', statistics.scope.totalInfo, 'scope')
+    getOptions('components.search.select.scope', statistics.scope.totalInfo, 'scope')
   ), [hash]);
 
-  // plac="common.search.placeholder"
+  // plac="components.search.placeholder"
 
   const update = (property: string, value: any) => {
     onChange({

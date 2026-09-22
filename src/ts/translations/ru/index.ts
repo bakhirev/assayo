@@ -1,11 +1,11 @@
 import common from './common';
+import components from './components';
 import navigation from './navigation';
-import recommendations from './recommendations';
 import pages from './pages';
 
 export default [
   common,
+  components,
   navigation,
-  recommendations,
   pages,
 ].join('');

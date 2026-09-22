@@ -65,7 +65,7 @@ const RecommendationDescription = observer(() => {
               recommendationStore.close();
             }}
           >
-            {t('common.recommendations.cancel')}
+            {t('components.recommendations.cancel')}
           </UiKitButton>
         </Footer>
       </If>

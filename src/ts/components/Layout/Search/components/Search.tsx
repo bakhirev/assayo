@@ -35,7 +35,7 @@ function SearchInput({
       <UiKitInputString
         value={query}
         className={className || ''}
-        placeholder={placeholder || 'common.search.placeholder'}
+        placeholder={placeholder || 'components.search.placeholder'}
         onChange={setQuery}
         onChangeDebounce={(lastQuery: string) => {
           update('query', lastQuery);

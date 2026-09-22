@@ -50,7 +50,7 @@ function ShowAll({
         className={`${style.show_all} ${className || ''}`}
         onClick={() => { if (store) store.showAll(); }}
       >
-        {t('uiKit.dataLoader.all')}
+        {t('components.dataLoader.all')}
       </div>
   );
 }

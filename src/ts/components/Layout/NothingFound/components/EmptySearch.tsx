@@ -7,7 +7,7 @@ import style from '../index.module.scss';
 function EmptySearch() {
   return (
     <p className={style.nothing_found_title}>
-      {t('uiKit.nothingFound.common.title')}
+      {t('components.nothingFound.common.title')}
     </p>
   );
 }

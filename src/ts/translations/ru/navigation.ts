@@ -9,8 +9,5 @@ export default `
 § sidebar.filters.halfYear: пол года
 § sidebar.filters.month: месяц
 § sidebar.filters.week: неделя
-§ sidebar.team.recommendations: Рекомендации и факты
 § sidebar.person.week: По неделям
-§ sidebar.person.commits: Все коммиты
-§ sidebar.person.changes: Все изменения
 `;
