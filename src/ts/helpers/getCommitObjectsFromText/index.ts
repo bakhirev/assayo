@@ -34,7 +34,7 @@ export default function getCommitObjectsFromText(report: string[]) {
   let fileNumIndex = 0;
   let fileChanges: IFileChange | null = null;
 
-  let firstMonday = 0;
+  // let firstMonday = 0;
 
   for (let i = 0; i < report.length; i += 1) {
     const message = report[i];
@@ -72,12 +72,12 @@ export default function getCommitObjectsFromText(report: string[]) {
       fileNumIndex = 0;
       commit = getCommitInfo(message);
 
-      const monday = commit.milliseconds - commit.day * ONE_DAY;
-      if (firstMonday) {
-        commit.week = Math.floor((firstMonday - monday) / ONE_WEEK);
-      } else {
-        firstMonday = monday;
-      }
+      // const monday = commit.milliseconds - commit.day * ONE_DAY;
+      // if (firstMonday) {
+      //   commit.week = Math.floor((firstMonday - monday) / ONE_WEEK);
+      // } else {
+      //   firstMonday = monday;
+      // }
 
       commits.push(commit);
     }

@@ -21,10 +21,10 @@ const ChangeView = observer(({
   onChange,
 }: ChangeViewProps) => {
   return (
-    <div className={style.team_team_day_toolbar}>
+    <div className={style.team_day_toolbar}>
       <UiKitSwitch
         value={value || 'custom'}
-        className={style.team_team_day_toolbar_change_view}
+        className={style.team_day_toolbar_change_view}
         options={[
           { id: 'list', title: 'plugin.team_day.view.list' },
           { id: 'table', title: 'plugin.team_day.view.table' },
@@ -35,7 +35,7 @@ const ChangeView = observer(({
       <img
         alt=""
         src="./assets/icons/Download.svg"
-        className={style.team_team_day_toolbar_download}
+        className={style.team_day_toolbar_download}
         onClick={() => {
           saveWorkLog(content || [], filters);
         }}

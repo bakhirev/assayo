@@ -34,7 +34,7 @@ export interface ILog {
   timezone: string; //  "+03:00",
   timestamp: string; //  "2021-02-09",
   milliseconds: number; // 1612828800000,
-  week: number; //  42,
+  week: string; //  "2021-W6",
 
   // user
   author: string; // "Dart Vader",

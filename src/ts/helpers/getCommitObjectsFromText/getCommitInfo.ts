@@ -8,6 +8,7 @@ import {
 } from './getTypeAndScope';
 import { getGithubPrInfo, getGitlabPrInfo } from './getMergeInfo';
 import getEmailAuthor from './getEmailAuthor';
+import getWeek from './getWeek';
 
 const MASTER_BRANCH = {
   main: true,
@@ -55,15 +56,19 @@ export default function getCommitInfo(logString: string): ICommit | ISystemCommi
   // performance
   const message = logString.substring(parts[0]?.length + parts[1]?.length + parts[2]?.length + 3);
 
+  const formattedDay = day < 0 ? 6 : day;
+  const month = date.getMonth();
+  const year = date.getUTCFullYear()
+  const dayInMonth = date.getDate()
   const commonInfo: any = {
     date: sourceDate,
-    day: day < 0 ? 6 : day,
-    dayInMonth: date.getDate(),
+    day: formattedDay,
+    dayInMonth,
     hours: date.getHours(),
     minutes: date.getMinutes(),
-    month: date.getMonth(),
-    year: date.getUTCFullYear(),
-    week: 0,
+    month,
+    year,
+    week: getWeek(year, month, dayInMonth, formattedDay),
     timezone,
     timestamp,
     milliseconds: date.getTime(),

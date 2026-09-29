@@ -1,5 +1,6 @@
 export { default as UiKitWrapper } from './components/Wrapper';
 export { default as UiKitDate } from './components/Date';
+export { default as UiKitDateWeek } from './components/DateWeek';
 export { default as UiKitButton } from './components/Button';
 export { default as UiKitSwitch } from './components/Switch';
 export { default as UiKitTag, UiKitTagMode } from './components/Tag';

@@ -11,8 +11,10 @@ export interface StatisticsWeekChanges {
 }
 
 export interface StatisticsWeekCommit {
+  week: string;
   commits: number;
-  timestamp: { from: string; to?: string };
+  from: { timestamp: string; milliseconds: number };
+  to: { timestamp: string; milliseconds: number };
   tasks: Set<string>;
   types: IHashMap<number>;
   changes: StatisticsWeekChanges;
@@ -22,8 +24,10 @@ export interface StatisticsWeekCommit {
 }
 
 export interface StatisticsWeek {
+  week: string;
   commits: number;
-  timestamp: { from: string; to?: string };
+  from: { timestamp: string; milliseconds: number };
+  to: { timestamp: string; milliseconds: number };
   tasks: number;
   types: IHashMap<number>;
   changes: StatisticsWeekChanges;
@@ -69,7 +73,8 @@ export default class StatisticsByWeek {
 
   #updateCommitByWeek(statistic: StatisticsWeekCommit, commit: ICommit) {
     statistic.commits += 1;
-    statistic.timestamp.to = commit.timestamp;
+    statistic.to.timestamp = commit.timestamp;
+    statistic.to.milliseconds = commit.milliseconds;
     if (commit.task) statistic.tasks.add(commit.task);
 
     statistic.changes.added += commit.added;
@@ -86,8 +91,16 @@ export default class StatisticsByWeek {
 
   #addCommitByWeek(commit: ICommit) {
     this.commits.set(commit.week, {
+      week: commit.week,
       commits: 1,
-      timestamp: { from: commit.timestamp },
+      from: {
+        timestamp: commit.timestamp,
+        milliseconds: commit.milliseconds,
+      },
+      to: {
+        timestamp: commit.timestamp,
+        milliseconds: commit.milliseconds,
+      },
       tasks: commit.task ? new Set([commit.task]) : new Set(),
 
       types: { [commit.type]: 1 },

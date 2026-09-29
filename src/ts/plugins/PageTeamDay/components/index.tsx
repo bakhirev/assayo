@@ -15,7 +15,6 @@ import ShortInformation from './components/ShortInformation';
 import { getDefaultFilters, getOnFilter } from './helpers';
 
 const Tempo = observer(({ user, mode }: PageOptions): React.ReactElement => {
-  console.log(user);
   const rows = statisticStore.statisticsByCommits.timestamp.totalInfo.allCommitsByTimestamp || [];
   const defaultFilters = useMemo(() => getDefaultFilters(rows, user?.author), []);
   const [selectedFilters, setSelectedFilters] = useState<Filter>(defaultFilters);

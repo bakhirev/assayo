@@ -6,7 +6,7 @@ import StatisticsByScope from './components/scope/index';
 import StatisticsByType from './components/type';
 import StatisticsByTimestamp from './components/timestamp';
 import StatisticsByMonth from './components/month/index';
-import StatisticsByWeek from './components/week';
+import StatisticsByWeek from './components/weeks';
 import MinMaxCounter from './helpers/MinMaxCounter';
 import StatisticsByBeautifulTaskNumbers from './components/beautifulTaskNumbers';
 import StatisticsByPR from './components/pr';

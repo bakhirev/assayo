@@ -45,46 +45,48 @@ const Icons = observer(({ task }: IconsProps): React.ReactElement | null => {
   ];
 
   return (
-    <Section>
-      <SectionColumn>
-        <PieChart
-          title="plugin.team_tasks.charts.timeToMarket.title"
-          description="common.statistic.days"
-          value={timeToMarket?.total}
-          details={timeToMarket?.details ? {
-            [backlog]: timeToMarket?.details?.backlog,
-            [worked]: timeToMarket?.details?.worked,
-            [review]: timeToMarket?.details?.review,
-            [release]: timeToMarket?.details?.release,
-            [improvements]: timeToMarket?.details?.improvements,
-          } : undefined}
-          limit={1}
-          order={[backlog, worked, review, release, improvements]}
-          suffix="common.statistic.days"
-        />
-      </SectionColumn>
-      <SectionColumn>
-        <SmallCardWithIcon
-          value={getDate(task?.createdBefore)}
-          icon="./assets/cards/day.svg"
-          title="plugin.team_tasks.info.createdBefore"
-        />
-        <SmallCardWithIcon
-          value={task?.totalAuthors}
-          icon="./assets/cards/employees.svg"
-          title="plugin.team_tasks.info.totalAuthors"
-        />
-        <SmallCardWithIcon
-          value={task?.totalDaysInBacklog}
-          icon="./assets/cards/month.svg"
-          title="plugin.team_tasks.info.totalDaysInBacklog"
-        />
-        <SmallCardWithIcon
-          value={task?.totalDaysWorked}
-          icon="./assets/cards/work_days2.svg"
-          title="plugin.team_tasks.info.totalDaysWorked"
-        />
-      </SectionColumn>
+    <>
+      <Section>
+        <SectionColumn>
+          <PieChart
+            title="plugin.team_tasks.charts.timeToMarket.title"
+            description="common.statistic.days"
+            value={timeToMarket?.total}
+            details={timeToMarket?.details ? {
+              [backlog]: timeToMarket?.details?.backlog,
+              [worked]: timeToMarket?.details?.worked,
+              [review]: timeToMarket?.details?.review,
+              [release]: timeToMarket?.details?.release,
+              [improvements]: timeToMarket?.details?.improvements,
+            } : undefined}
+            limit={1}
+            order={[backlog, worked, review, release, improvements]}
+            suffix="common.statistic.days"
+          />
+        </SectionColumn>
+        <SectionColumn>
+          <SmallCardWithIcon
+            value={getDate(task?.createdBefore)}
+            icon="./assets/cards/day.svg"
+            title="plugin.team_tasks.info.createdBefore"
+          />
+          <SmallCardWithIcon
+            value={task?.totalAuthors}
+            icon="./assets/cards/employees.svg"
+            title="plugin.team_tasks.info.totalAuthors"
+          />
+          <SmallCardWithIcon
+            value={task?.totalDaysInBacklog}
+            icon="./assets/cards/month.svg"
+            title="plugin.team_tasks.info.totalDaysInBacklog"
+          />
+          <SmallCardWithIcon
+            value={task?.totalDaysWorked}
+            icon="./assets/cards/work_days2.svg"
+            title="plugin.team_tasks.info.totalDaysWorked"
+          />
+        </SectionColumn>
+      </Section>
 
       <Table
         headless
@@ -93,14 +95,14 @@ const Icons = observer(({ task }: IconsProps): React.ReactElement | null => {
         <Column
           properties="title"
           width={170}
-          template={(v: string) => (<b style={{ fontWeight: 'bold' }}>{v}</b>)}
+          template={(v: string) => (<b style={{fontWeight: 'bold'}}>{v}</b>)}
         />
         <Column
           template={ColumnTypes.NUMBER}
           properties="value"
         />
       </Table>
-    </Section>
+    </>
   );
 });
 

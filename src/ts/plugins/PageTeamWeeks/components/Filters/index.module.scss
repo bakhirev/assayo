@@ -1,0 +1,20 @@
+.team_weeks {
+  &_filters {
+    &_prev,
+    &_next {
+      width: calc(100% - 50px);
+      display: inline-block;
+    }
+    &_prev {
+      margin-left: 8px;
+    }
+    &_next {
+      margin-right: 8px;
+    }
+    &_middle {
+      display: inline-block;
+      width: calc(100% - 100px);
+      margin: 0 8px;
+    }
+  }
+}

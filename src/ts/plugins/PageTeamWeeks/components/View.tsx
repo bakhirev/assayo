@@ -2,7 +2,7 @@ import React from 'react';
 
 import IHashMap from 'ts/interfaces/HashMap';
 import ViewProps from 'ts/interfaces/ViewProps';
-import { getShortDateRange } from 'ts/helpers/formatter';
+import { getHumanReadableWeek, getShortDateRange } from 'ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { DataView } from 'ts/components/Layout';
@@ -10,12 +10,13 @@ import { Column, ColumnTypes } from 'ts/components/Table';
 import { LineChart } from 'ts/components/Charts';
 
 import { getMaxValues } from 'ts/helpers/charts';
+import { StatisticsWeek } from "../../../helpers/StatisticsByCommits/components/week";
 
 function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
   if (!response) return null;
 
   const [tasksMax, authorsMax, changesMax] = getMaxValues(response, [
-    'tasks', 'authorsLength', 'changesLength',
+    'totalTasks', 'totalAuthors', 'totalChanges',
   ]);
 
   return (
@@ -29,23 +30,24 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
     >
       <Column
         isFixed
+        isSortable="weekIndex"
         template={ColumnTypes.STRING}
         title="common.statistic.Date"
-        properties="timestamp"
-        formatter={getShortDateRange}
+        properties="week"
+        formatter={getHumanReadableWeek}
         width={260}
       />
       <Column
         template={ColumnTypes.SHORT_NUMBER}
-        properties="tasks"
+        properties="totalTasks"
       />
       <Column
-        isSortable="tasks"
+        isSortable="totalTasks"
         title="plugin.team_weeks.numberTasks"
         template={(row: any) => (
           <LineChart
             options={tasksMax}
-            value={row.tasks}
+            value={row.totalTasks}
             details={row.types}
             order={statisticStore.statisticsByCommits.type.list}
             suffix="common.statistic.tasks"
@@ -55,15 +57,15 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       />
       <Column
         template={ColumnTypes.SHORT_NUMBER}
-        properties="authorsLength"
+        properties="totalAuthors"
       />
       <Column
-        isSortable="authorsLength"
+        isSortable="totalAuthors"
         title="plugin.team_weeks.people"
         template={(row: any) => (
           <LineChart
-            value={row.authorsLength}
-            details={row.authors}
+            value={row.totalAuthors}
+            details={row.tasksByAuthor}
             order={statisticStore.statisticsByCommits.author.list}
             max={authorsMax}
             suffix="common.statistic.tasks"
@@ -73,18 +75,18 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       />
       <Column
         template={ColumnTypes.SHORT_NUMBER}
-        properties="changesLength"
+        properties="totalChanges"
       />
       <Column
-        isSortable="changesLength"
+        isSortable="totalChanges"
         title="plugin.team_weeks.line"
         template={(row: any) => (
           <LineChart
-            value={row.changesLength}
+            value={row.totalChanges}
             details={{
-              'plugin.team_weeks.add': row?.changes?.added,
-              'plugin.team_weeks.change': row?.changes?.changes,
-              'plugin.team_weeks.remove': row?.changes?.removed,
+              'plugin.team_weeks.add': row?.added,
+              'plugin.team_weeks.change': row?.changes,
+              'plugin.team_weeks.remove': row?.removed,
             }}
             order={[
               'plugin.team_weeks.add',
@@ -99,16 +101,17 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
       />
       <Column
         template={ColumnTypes.SHORT_NUMBER}
-        properties="workDaysTotal"
+        properties="totalDays"
       />
       <Column
-        isSortable="workDaysTotal"
+        isSortable="totalDays"
         title="common.statistic.days"
         template={(row: any) => (
           <LineChart
-            details={{ // TODO: ошибка суммы, т.к. 5 дневка не у всех. Нужно по автору перебирать.
-              'plugin.team_weeks.hasCommits': row?.workDaysTotal,
-              'plugin.team_weeks.hasNotCommits': row?.authorsLength * 5 - row?.workDaysTotal,
+            value={row.totalDays}
+            details={{
+              'plugin.team_weeks.hasCommits': row?.totalDays,
+              'plugin.team_weeks.hasNotCommits': row?.totalDaysWithoutCommits,
             }}
             order={[
               'plugin.team_weeks.hasCommits',
@@ -129,8 +132,10 @@ function View({ response, updateSort, rowsForExcel, mode }: ViewProps) {
           />
         )}
         formatter={(row: any) => {
-          const detailsLikeArray = Object.entries(row?.workDays).map(([name, days]: any) => [name, 5 - days]);
-          return Object.fromEntries(detailsLikeArray.filter((nameDays: any) => nameDays[1] > 0));
+          const detailsLikeArray = Object.entries(row?.authors)
+            .map(([name, info]: any) => [name, info?.totalDaysWithoutCommits])
+            .filter(([name, info]: any) => info);
+          return Object.fromEntries(detailsLikeArray);
         }}
         minWidth={200}
       />

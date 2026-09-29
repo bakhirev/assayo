@@ -12,21 +12,20 @@ export default `
 § plugin.team_weeks.remove: удалили
 § plugin.team_weeks.hasCommits: были коммиты
 § plugin.team_weeks.hasNotCommits: небыло коммитов
-§ plugin.team_weeks.last.title: Последняя неделя
-§ plugin.team_weeks.last.tasks.title: Задачи за неделю
-§ plugin.team_weeks.last.tasks.description: Закрытые задачи в сравнении с прошлой неделей
-§ plugin.team_weeks.last.line.title: Изменение строк
-§ plugin.team_weeks.last.line.description: Добавленные, изменённые и удалённые строки
-§ plugin.team_weeks.last.types.title: Типы commit
-§ plugin.team_weeks.last.days.title: Рабочие дни
+§ plugin.team_weeks.last.title: Статистика по выбранной неделе
+§ plugin.team_weeks.last.titleDefault: Последняя неделя
+§ plugin.team_weeks.last.tasks.title: Задач за неделю
+§ plugin.team_weeks.last.tasks.description: Уникальные номера задач обнаруженные в данном диапазоне времени
+§ plugin.team_weeks.last.tasks.scoring: Значение за прошлую неделю / Среднее значение за прошлый месяц
+§ plugin.team_weeks.last.changes.title: Изменение строк
+§ plugin.team_weeks.last.changes.description: Добавленные, изменённые и удалённые строки
+§ plugin.team_weeks.last.changes.scoring: Значение за прошлую неделю / Среднее значение за прошлый месяц
+§ plugin.team_weeks.last.types.title: Типы коммитов
+§ plugin.team_weeks.last.days.title: Фактические человеко-дни
 § plugin.team_weeks.last.best.title: Самый активный
 § plugin.team_weeks.last.best.description: Больше всего задач за неделю
 § plugin.team_weeks.last.quiet.title: Тихая неделя
-§ plugin.team_weeks.last.quiet.description: Больше всего дней без commit
-§ plugin.team_weeks.last.sprint.title: Выше среднего
-§ plugin.team_weeks.last.sprint.description: Больше задач, чем за последние недели
-§ plugin.team_weeks.last.overwork.title: Переработка
-§ plugin.team_weeks.last.overwork.description: commits больше чем в пять дней
+§ plugin.team_weeks.last.quiet.description: Меньше всего задач за неделю
 § plugin.team_weeks.last.vsPrev: к предыдущей неделе
 ${recommendations}
 `;

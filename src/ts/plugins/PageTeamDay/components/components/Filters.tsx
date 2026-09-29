@@ -68,7 +68,7 @@ const Filters = observer(({
           «
         </UiKitButton>
         <UiKitDate
-          className={style.team_team_day_filters_prev}
+          className={style.team_day_filters_prev}
           value={filters?.from || undefined}
           onChange={(value: string) => update('from', (new Date(value)).getTime())}
         />
@@ -76,7 +76,7 @@ const Filters = observer(({
 
       <div className={styleSearch.layout_search_select}>
         <UiKitDate
-          className={style.team_team_day_filters_next}
+          className={style.team_day_filters_next}
           value={filters?.to || undefined}
           onChange={(value: string) => update('to', (new Date(value)).getTime())}
         />

@@ -103,3 +103,21 @@ export function getDuration(days: number) {
 
   return durations.join(' ');
 }
+
+// "2022-W21" -> ""
+export function getHumanReadableWeek(isoWeekString: string) { // @ts-ignore
+  const match = isoWeekString.match(/^(\d{4})-W(\d{2})$/);
+  if (!match) return isoWeekString;
+
+  const year = parseInt(match[1], 10);
+  const week = parseInt(match[2], 10);
+
+  const fourthOfJan = new Date(Date.UTC(year, 0, 4));
+  const dayOfWeek = fourthOfJan.getUTCDay() || 7;
+  const firstThursdayOffset = 4 - dayOfWeek;
+  const firstMondayTime = fourthOfJan.getTime() + (firstThursdayOffset - 3) * 86400000;
+  const from = firstMondayTime + (week - 1) * 7 * 86400000;
+  const to = from + 6 * 86400000 + 86399;
+
+  return getShortDateRange({ from, to });
+}

@@ -38,3 +38,19 @@
   background-color: var(--color-white);
   box-shadow: 0 0 5px #C0C0C0;
 }
+
+.ui_kit_date_week {
+  position: relative;
+
+  &_value {
+    font-size: var(--font-s);
+
+    position: absolute;
+    top: 11px;
+    left: 14px;
+    right: 50px;
+
+    padding: var(--space-xxs) 0;
+    background: var(--color-white);
+  }
+}
