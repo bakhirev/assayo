@@ -70,13 +70,11 @@
     flex: 0 0 auto;
     vertical-align: middle;
 
-    background-color: var(--color-border);
-
     &_svg {
       display: inline-block;
-      width: 24px;
-      height: 24px;
-      margin: 8px auto;
+      width: 36px;
+      height: 36px;
+      margin: 2px auto;
     }
   }
 }

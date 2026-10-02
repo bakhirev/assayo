@@ -10,7 +10,7 @@ interface HeaderProps {
 function getIconByLevel(level: number) {
   let index = (level / 10) >> 0;
   if (index > 5) index = 5;
-  return `./assets/level/${index + 1}.png`;
+  return `./assets/level/${index + 1}.svg`;
 }
 
 

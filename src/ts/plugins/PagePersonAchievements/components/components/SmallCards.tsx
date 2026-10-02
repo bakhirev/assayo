@@ -16,19 +16,19 @@ function SmallCards({ positive, normal, publicity, commitsWithBeautifulTaskNumbe
       <SectionColumn>
         <SmallCardWithIcon
           value={String(positive.length)}
-          icon="./assets/cards/device.svg"
+          icon="./assets/cards/positive.svg"
           title="plugin.person_achievements.page.positive"
         />
         <SmallCardWithIcon
           value={String(normal.length)}
-          icon="./assets/cards/device.svg"
+          icon="./assets/cards/middle.svg"
           title="plugin.person_achievements.page.normal"
         />
       </SectionColumn>
       <SectionColumn>
         <SmallCardWithIcon
           value={String(publicity.length)}
-          icon="./assets/cards/device.svg"
+          icon="./assets/cards/publicity.svg"
           title="plugin.person_achievements.page.publicity"
         />
         <SmallCardWithIcon
