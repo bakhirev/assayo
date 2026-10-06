@@ -2,9 +2,8 @@
   position: relative;
 
   display: flex;
-  height: 160px;
   margin: 24px auto;
-  padding: var(--space-m);
+  padding: var(--space-xxl);
 
   text-align: center;
 
@@ -21,7 +20,7 @@
   &_left,
   &_right {
     display: inline-block;
-    width: 120px;
+    width: 130px;
     height: 100%;
 
     flex: 0 0 130px;
@@ -33,7 +32,7 @@
 
   &_left {
     overflow: hidden;
-    border-radius: 120px;
+    border-radius: 130px;
     background-color: var(--color-14);
     &_svg {
       display: inline-block;
@@ -48,6 +47,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    height: 130px;
   }
 
   &_progress {
@@ -90,7 +90,7 @@
   &_title {
     font-size: 40px;
     letter-spacing: 1px;
-    margin: 0 0 var(--space-xxl);
+    margin: 20px 0 var(--space-xxl);
   }
 
   &_level {
