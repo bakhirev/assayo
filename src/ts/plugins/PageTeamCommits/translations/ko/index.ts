@@ -1,5 +1,6 @@
 export default `
 § plugin.team_commits.sidebar: 모든 commits
+§ plugin.team_commits.example.title: 예를 들어:
 § plugin.team_commits.chart.title: 검색 결과 분석
 § plugin.team_commits.yearChart.title: 연도별 분석
 § plugin.team_commits.authorChart.title: 직원별 분석

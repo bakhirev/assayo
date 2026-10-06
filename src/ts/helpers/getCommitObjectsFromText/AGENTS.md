@@ -20,7 +20,7 @@ Walk `string[]` in order. Skip empty lines. First character decides the kind of 
 
 `week` is **not** ISO week. It is relative to the **first header in this dump**: that commit’s Monday is week `0`. Later headers get `floor((firstMonday - monday) / ONE_WEEK)`. The store sorts by `milliseconds` after parse; week numbers stay as computed.
 
-`fileChanges` attach when the **next** header is seen. After the last header, remaining `--raw` / `--numstat` lines are not flushed onto that commit unless you add an end-of-loop assign. If you change the loop, keep that flush explicit.
+`fileChanges` attach when the **next** header is seen, and again after the loop so the last commit keeps its files. If you change the loop, keep that flush explicit.
 
 At the end always `clearRenameCache()` and `clearCache()` (module-level Maps / PR id counter). A second parse without clear mixes authors and `prId`.
 

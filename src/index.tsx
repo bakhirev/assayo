@@ -3,10 +3,13 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
+import ar from 'ts/translations/ar';
 import de from 'ts/translations/de';
 import en from 'ts/translations/en';
 import es from 'ts/translations/es';
 import fr from 'ts/translations/fr';
+import he from 'ts/translations/he';
+import hi from 'ts/translations/hi';
 import ja from 'ts/translations/ja';
 import pt from 'ts/translations/pt';
 import ru from 'ts/translations/ru';
@@ -34,10 +37,13 @@ import { updateExchangeRate } from './ts/helpers/formatter';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 import sourceData from 'ts/store/SourceData';
 
+localization.addTranslationsForLanguage('ar', ar);
 localization.addTranslationsForLanguage('de', de);
 localization.addTranslationsForLanguage('en', en);
 localization.addTranslationsForLanguage('es', es);
 localization.addTranslationsForLanguage('fr', fr);
+localization.addTranslationsForLanguage('he', he);
+localization.addTranslationsForLanguage('hi', hi);
 localization.addTranslationsForLanguage('ja', ja);
 localization.addTranslationsForLanguage('pt', pt);
 localization.addTranslationsForLanguage('ru', ru);

@@ -83,6 +83,8 @@ export default function getCommitObjectsFromText(report: string[]) {
     }
   }
 
+  if (commit) commit.fileChanges = files;
+
   clearRenameCache();
   clearCache();
 

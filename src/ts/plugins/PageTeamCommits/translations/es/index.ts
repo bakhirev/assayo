@@ -1,5 +1,6 @@
 export default `
 § plugin.team_commits.sidebar: Todos los commits
+§ plugin.team_commits.example.title: Por ejemplo:
 § plugin.team_commits.chart.title: Análisis de resultados de búsqueda
 § plugin.team_commits.yearChart.title: Desglose por años
 § plugin.team_commits.authorChart.title: Desglose por empleados

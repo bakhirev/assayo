@@ -32,8 +32,11 @@ export default function getSubLines(
 ): ISubLine[] {
   const list = Object.entries(details);
   if (order?.length) {
-    // TODO: тот, кого нет в order, вываливается в начало, а должен в конец
-    list.sort((dotA, dotB) => order.indexOf(dotA[0]) - order.indexOf(dotB[0]));
+    const orderIndex = (key: string) => {
+      const index = order.indexOf(key);
+      return index === -1 ? order.length : index;
+    };
+    list.sort((dotA, dotB) => orderIndex(dotA[0]) - orderIndex(dotB[0]));
   }
 
   const currentMax = list.reduce((a, c) => a + c[1], 0);

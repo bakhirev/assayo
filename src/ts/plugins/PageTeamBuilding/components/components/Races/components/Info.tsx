@@ -22,7 +22,7 @@ function Info({
       style={{
         animationDelay: `${duration + 1}s`,
       }}
-      title={`${getShortNumber(taskInDay)} ${t('plugin.team_building.total.workSpeed.title')}`}
+      title={`${getShortNumber(taskInDay)} ${t('plugin.team_total.workSpeed.title')}`}
     >
       {title}
     </div>

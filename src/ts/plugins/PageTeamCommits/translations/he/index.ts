@@ -1,5 +1,6 @@
 export default `
 § plugin.team_commits.sidebar: כל ה-commits
+§ plugin.team_commits.example.title: לדוגמה:
 § plugin.team_commits.chart.title: ניתוח תוצאות החיפוש
 § plugin.team_commits.yearChart.title: פירוט לפי שנים
 § plugin.team_commits.authorChart.title: פירוט לפי עובדים

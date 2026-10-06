@@ -1,5 +1,6 @@
 export default `
 § plugin.team_commits.sidebar: 所有 commits
+§ plugin.team_commits.example.title: 例如:
 § plugin.team_commits.chart.title: 搜索结果分析
 § plugin.team_commits.yearChart.title: 按年份细分
 § plugin.team_commits.authorChart.title: 按员工细分
