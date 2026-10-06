@@ -24,7 +24,7 @@ export default class FileGroupGitLog {
   get() {
     if (this.content.length === 0) return [];
     return this.content
-      .map((item: string) => ({ key: item.substring(13, 32), text: item }))
+      .map((item: string) => ({ key: item.substring(0, 25), text: item }))
       .sort((a: any, b: any) => (a.key || '').localeCompare(b.key || ''))
       .map(item => item.text)
       .join('\n')
