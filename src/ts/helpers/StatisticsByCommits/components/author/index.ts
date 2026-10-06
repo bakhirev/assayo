@@ -80,7 +80,7 @@ export default class StatisticsByAuthor {
   }
 
   #addNewCommit(commit: ICommit) {
-    const isWeekend = !applicationConfig.config?.workDays?.[commit.day - 1];
+    const isWeekend = !applicationConfig.config?.workDays?.[commit.day];
     const messageLength = commit.text.length || 0;
 
     this.commits.set(commit.author, {
@@ -119,7 +119,7 @@ export default class StatisticsByAuthor {
     statistic.lastCommitTimezone = commit.timezone;
 
 
-    const isWeekend = !applicationConfig.config?.workDays?.[commit.day - 1];
+    const isWeekend = !applicationConfig.config?.workDays?.[commit.day];
     if (isWeekend) {
       incrementUniqValues(statistic.weekends, commit.timestamp);
     } else {
