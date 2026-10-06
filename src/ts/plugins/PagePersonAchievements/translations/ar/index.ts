@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: محايدة
 § plugin.person_achievements.page.negative: سلبية
 § plugin.person_achievements.page.publicity: خاصة
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: أرقام المهام الجميلة
 § plugin.person_achievements.page.description: كلما زاد عدد الإنجازات السلبية لدى الموظف، زادت احتمالية أن يكون الوضع غير معتاد. قد يكون من المناسب تغيير نظام عمله أو مهامه أو تقاريره. ينبغي التحدث معه ومعرفة المشكلات التي تعيق عمله.
 § plugin.person_achievements.gets.title: ميداليات لأرقام المهام:
 § plugin.person_achievements.gets.description: تُمنح الميدالية إذا كان المستخدم أول من يترك commit لمهمة ذات رقم «جميل».

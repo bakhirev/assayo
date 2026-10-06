@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: Neutrales
 § plugin.person_achievements.page.negative: Negativos
 § plugin.person_achievements.page.publicity: Especiales
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: Números de tarea bonitos
 § plugin.person_achievements.page.description: Cuantos más logros negativos tenga un empleado, mayor es la probabilidad de que la situación sea inusual. Puede convenir cambiar su régimen de trabajo, las tareas o la rendición de cuentas. Conviene hablar con él y averiguar qué problemas dificultan su trabajo.
 § plugin.person_achievements.gets.title: Medallas por números de tarea:
 § plugin.person_achievements.gets.description: La medalla se otorga si el usuario es el primero en dejar un commit en una tarea con un número «bonito».

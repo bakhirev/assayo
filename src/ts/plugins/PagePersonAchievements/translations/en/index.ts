@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: Neutral
 § plugin.person_achievements.page.negative: Negative
 § plugin.person_achievements.page.publicity: Special
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: Beautiful task numbers
 § plugin.person_achievements.page.description: The more negative achievements an employee has, the more likely the situation is unusual. It may be worth changing their work schedule, tasks, or reporting. It is advisable to talk with them and find out which problems hinder their work.
 § plugin.person_achievements.gets.title: Medals for task numbers:
 § plugin.person_achievements.gets.description: A medal is awarded if the user is the first to leave a commit for a task with a “beautiful” number.

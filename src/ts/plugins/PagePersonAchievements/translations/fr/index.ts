@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: Neutres
 § plugin.person_achievements.page.negative: Négatives
 § plugin.person_achievements.page.publicity: Spéciales
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: Beaux numéros de tâches
 § plugin.person_achievements.page.description: Plus un employé accumule de réalisations négatives, plus la situation a des chances d’être atypique. Il peut être opportun de modifier son rythme de travail, ses tâches ou son reporting. Il convient de s’entretenir avec lui et d’identifier les problèmes qui gênent son travail.
 § plugin.person_achievements.gets.title: Médailles pour les numéros de tâches :
 § plugin.person_achievements.gets.description: Une médaille est attribuée si l’utilisateur est le premier à laisser un commit sur une tâche dont le numéro est « beau ».

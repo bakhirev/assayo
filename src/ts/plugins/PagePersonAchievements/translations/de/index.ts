@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: Neutral
 § plugin.person_achievements.page.negative: Negativ
 § plugin.person_achievements.page.publicity: Speziell
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: Schöne Aufgabennummern
 § plugin.person_achievements.page.description: Je mehr negative Errungenschaften ein Mitarbeiter hat, desto wahrscheinlicher ist die Situation ungewöhnlich. Es kann sinnvoll sein, den Arbeitsmodus, die Aufgaben oder die Berichterstattung zu ändern. Es empfiehlt sich, mit ihm zu sprechen und herauszufinden, welche Probleme seine Arbeit behindern.
 § plugin.person_achievements.gets.title: Medaillen für Aufgabennummern:
 § plugin.person_achievements.gets.description: Eine Medaille wird verliehen, wenn der Benutzer als Erster einen commit zu einer Aufgabe mit einer „schönen“ Nummer hinterlässt.

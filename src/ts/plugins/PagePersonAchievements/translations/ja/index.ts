@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: ニュートラル
 § plugin.person_achievements.page.negative: ネガティブ
 § plugin.person_achievements.page.publicity: スペシャル
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: きれいなタスク番号
 § plugin.person_achievements.page.description: 従業員のネガティブな実績が多いほど、状況が非標準である可能性が高まります。勤務形態、タスク、または報告の仕方を変える価値があるかもしれません。本人と話し、業務を妨げている問題を把握すべきです。
 § plugin.person_achievements.gets.title: タスク番号のメダル:
 § plugin.person_achievements.gets.description: 「きれいな」番号のタスクに最初に commit を残したユーザーにメダルが授与されます。

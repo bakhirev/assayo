@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: तटस्थ
 § plugin.person_achievements.page.negative: नकारात्मक
 § plugin.person_achievements.page.publicity: विशेष
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: सुंदर कार्य संख्याएँ
 § plugin.person_achievements.page.description: कर्मचारी के पास जितनी अधिक नकारात्मक उपलब्धियाँ होती हैं, स्थिति के असामान्य होने की संभावना उतनी ही अधिक होती है। संभव है कि कार्य-शैली, कार्यों या रिपोर्टिंग को बदलना उचित हो। उनसे बात करनी चाहिए और पता लगाना चाहिए कि कौन-सी समस्याएँ उनके कार्य में बाधा डालती हैं।
 § plugin.person_achievements.gets.title: कार्य संख्याओं के पदक:
 § plugin.person_achievements.gets.description: पदक तब दिया जाता है जब उपयोगकर्ता «सुंदर» संख्या वाले कार्य पर सबसे पहले commit छोड़ता है।

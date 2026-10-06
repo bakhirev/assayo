@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: 中性
 § plugin.person_achievements.page.negative: 负面
 § plugin.person_achievements.page.publicity: 特殊
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: 漂亮的任务编号
 § plugin.person_achievements.page.description: 员工获得的负面成就越多，情况越可能不寻常。或许应调整其工作节奏、任务或汇报方式。应当与其沟通，了解妨碍其工作的问题。
 § plugin.person_achievements.gets.title: 任务编号奖牌:
 § plugin.person_achievements.gets.description: 若用户最先为带有「漂亮」编号的任务留下 commit，则授予奖牌。

@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: ניטרליים
 § plugin.person_achievements.page.negative: שליליים
 § plugin.person_achievements.page.publicity: מיוחדים
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: מספרי משימות יפים
 § plugin.person_achievements.page.description: ככל שלעובד יש יותר הישגים שליליים, כך גדל הסיכוי שהמצב אינו שגרתי. ייתכן שכדאי לשנות את משטר העבודה, המשימות או הדיווח. יש לדבר איתו ולברר אילו בעיות מפריעות לעבודתו.
 § plugin.person_achievements.gets.title: מדליות על מספרי משימות:
 § plugin.person_achievements.gets.description: המדליה מוענקת אם המשתמש הוא הראשון שמשאיר commit למשימה עם מספר «יפה».

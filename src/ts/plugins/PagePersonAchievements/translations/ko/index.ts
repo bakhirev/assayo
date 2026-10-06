@@ -4,6 +4,7 @@ export default `
 § plugin.person_achievements.page.normal: 중립적
 § plugin.person_achievements.page.negative: 부정적
 § plugin.person_achievements.page.publicity: 특별
+§ plugin.person_achievements.page.commitsWithBeautifulTaskNumbers: 아름다운 작업 번호
 § plugin.person_achievements.page.description: 직원이 부정적인 성과를 많이 받을수록 상황이 비정상일 가능성이 커집니다. 근무 방식, 작업 또는 보고 체계를 바꿀 필요가 있을 수 있습니다. 본인과 대화하여 업무를 방해하는 문제가 무엇인지 파악해야 합니다.
 § plugin.person_achievements.gets.title: 작업 번호 메달:
 § plugin.person_achievements.gets.description: 사용자가 «아름다운» 번호의 작업에 가장 먼저 commit을 남기면 메달이 수여됩니다.
