@@ -33,7 +33,7 @@ import PagePersonAchievements from './PagePersonAchievements';
 import PagePersonMoney from './PagePersonMoney';
 import PagePersonSpeed from './PagePersonSpeed';
 import PagePersonTotal from './PagePersonTotal';
-import PagePersonWeek from './PagePersonWeek';
+// import PagePersonWeek from './PagePersonWeek';
 import PagePersonVacation from './PagePersonVacation';
 
 export default [
@@ -66,7 +66,7 @@ export default [
   PagePersonAchievements,
   PagePersonMoney,
   PagePersonSpeed,
-  PagePersonWeek,
+  // PagePersonWeek,
   PagePersonVacation,
 
   Print,

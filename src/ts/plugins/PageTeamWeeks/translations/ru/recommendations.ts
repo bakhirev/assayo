@@ -12,7 +12,7 @@ export default `
 или задачи стали слишком мелкие.
  
 Нужно проверить. Если гранулярность та же - закрепить результат.
-§ plugin.team_weeks.recommendations.task.lazyMaintainer.description: стабильный лидер по прогулам. Уволить?
+§ plugin.team_weeks.recommendations.task.lazyMaintainer.description: стабильный лидер по отсутствию коммитов.
 § plugin.team_weeks.recommendations.task.down.title: Падает производительность
 § plugin.team_weeks.recommendations.task.down.description
 или задачи хуже разбивают. Нужно проверить. Если гранулярность та же - взять на контроль.

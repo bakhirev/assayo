@@ -6,7 +6,15 @@ import { IPaginationRequest } from 'ts/interfaces/Pagination';
 import statisticStore from 'ts/store/StatisticsByCommitsStore';
 
 import { DataLoader, Pagination, sendFakeRequest } from 'ts/components/DataLoader';
-import { If, Title, NothingFound, SectionWithBg, Search as LayoutSearch } from 'ts/components/Layout';
+import {
+  If,
+  Title,
+  NothingFound,
+  SectionWithBg,
+  Search as LayoutSearch,
+  Description,
+  Gap
+} from 'ts/components/Layout';
 import Filter from 'ts/components/Layout/Search/interfaces/Filter';
 
 import Filters from './components/Filters';
@@ -47,6 +55,12 @@ const Tree = observer(({ type, mode }: TreeProps): React.ReactElement => {
           <Filters/>
         </LayoutSearch>
       </If>
+
+      <Description translationId="plugin.team_files.description.features"/>
+      <Description translationId="plugin.team_files.description.cost1"/>
+      <Description translationId="plugin.team_files.description.cost2"/>
+      <Gap height="xl"/>
+
       <FileBreadcrumbs
         path={path}
         setPath={setPath}

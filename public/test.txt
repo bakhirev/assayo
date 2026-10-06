@@ -26670,7 +26670,7 @@ R(f`2021-02-09T16:08:15+03:00>Albert Einstein>instein@emap.de>Initialize project
 2	4	src/ts/pages/TemplateZAI/index.tsx
 2	2	src/ts/pages/TemplateZAI/interfaces/shared.ts
 
-2022-02-01T18:11:28+02:00>Louis de Broglie>broglie@google.fr>buggix/TASK-2211 fix: add switchIsRequired
+2022-02-01T18:11:28+02:00>Louis de Broglie>broglie@google.fr>fix/TASK-2211 fix: add switchIsRequired
 :100644 100644 0ccca45ac d887fb126 M	src/ts/pages/Builder/components/agreement-rules/Form.tsx
 2	0	src/ts/pages/Builder/components/agreement-rules/Form.tsx
 
@@ -26693,7 +26693,7 @@ R(f`2021-02-09T16:08:15+03:00>Albert Einstein>instein@emap.de>Initialize project
 :100644 100644 1774c21ba 78a6154e5 M	src/ts/pages/TemplateZAI/components/DynamicFields.tsx
 0	4	src/ts/pages/TemplateZAI/components/DynamicFields.tsx
 
-2022-02-02T14:56:05+02:00>Louis de Broglie>broglie@google.fr>bugfix/TASK-2211 fix(profile): change switcher config, add isChilderInclude property
+2022-02-02T14:56:05+02:00>Louis de Broglie>broglie@google.fr>fix/TASK-2211 fix(profile): change switcher config, add isChilderInclude property
 :000000 100644 000000000 36cf5b7aa A	src/ts/interfaces/Table.ts
 :100644 100644 d887fb126 8dc30d3c3 M	src/ts/pages/Builder/components/agreement-rules/Form.tsx
 :100644 100644 1194ecb50 9b62c7060 M	src/ts/pages/Builder/components/execution-rules/Form.tsx

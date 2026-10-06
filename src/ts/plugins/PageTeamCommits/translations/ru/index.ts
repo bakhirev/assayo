@@ -27,7 +27,7 @@ export default `
 § plugin.team_commits.info.task: задача
 § plugin.team_commits.info.email: почтовый адрес
 § plugin.team_commits.info.company: компания
-§ plugin.team_commits.info.device: Устройство
+§ plugin.team_commits.info.device: Возомжное устройство
 § plugin.team_commits.info.release: Список релизов, в которые, вероятно, попал этот коммит
 § plugin.team_commits.info.release.title: Релиз
 § plugin.team_commits.info.release.releaseDateMerge: Опубликован

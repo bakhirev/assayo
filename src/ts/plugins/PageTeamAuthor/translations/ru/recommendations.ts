@@ -1,7 +1,7 @@
 export default `
 § plugin.team_author.recommendations.lotOfLazy.title: Слишком мало кода: {count}
 § plugin.team_author.recommendations.lotOfLazy.description
-Может уволить?
+Пересмотреть контракт?
 
 # Состав: 
 - {list};
@@ -14,7 +14,7 @@ export default `
 # Почему нет смысла исправлять
 Суммарные затраты на разработчика уже больше чем прибыль от его работы.
 Если мы считаем, что объективных помех его работе не было, то человек либо не хочет работать вообще, либо работает на двух проектах одновременно.
-Увольнение и замена новым сотрудником выглядит оправданным с точки зрения общей статистики.
+Завершение контракта и замена новым сотрудником выглядит оправданным с точки зрения общей статистики.
 
 § plugin.team_author.recommendations.manyLazy.title: Пишут мало кода: {count}
 § plugin.team_author.recommendations.manyLazy.description
